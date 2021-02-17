@@ -53,6 +53,15 @@
 
 <link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0CMQHQ9L4L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-0CMQHQ9L4L');
+</script>
 
 
 <style type="text/css">
@@ -131,7 +140,7 @@ code span.wa { font-weight: bold; } /* Warning */
       <nav role="navigation">
 
 <ul class="summary">
-<li><strong><a href="www.r-empirische-wissenschaften.de"> R für empirische Wissenschaften</a></strong></li>
+<li><strong><a href="https://www.r-empirische-wissenschaften.de"> R für empirische Wissenschaften</a></strong></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Vorwort</a></li>
@@ -437,7 +446,7 @@ Mit der Zeit werden alle Statistikfunktionen auf das inductive Package umgestell
 <pre class="bordercode"><code>## # A tibble: 1 x 4
 ##   statistic p.value method                             alternative
 ##       &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;                              &lt;chr&gt;      
-## 1      3.77       0 One-sample Kolmogorov-Smirnov test two-sided</code></pre>
+## 1      2.97       0 One-sample Kolmogorov-Smirnov test two-sided</code></pre>
 <p>Der statistische Test kommt auf die gleiche Schlussfolgerung wie der des vorherigen Kapitels. Die beobachteten Extraversionwerte sind nicht normalverteilt. Der Kolmogorov Smirnov Test funktioniert nur gut, wenn es keine doppelten Werte gibt. Dies ist bei intervallskalierten im Regelfall gegeben. Da wir hier lediglich aus ordinalen Daten einen Mittelwert gebildet haben, sind die Extraversionswerte natürlich trotzdem nicht intervallskaliert.</p>
 </div>
 </div>

@@ -1,0 +1,59 @@
+template:
+  params:
+    bootswatch: paper
+
+destination: docs
+
+authors:
+  Jan Philipp Nolte:
+    url: https://github.com/remp
+
+reference:
+  - title: Funktionen
+    contents:
+      - starts_with("desc")
+      - starts_with("data")
+      - starts_with("hands")
+      - starts_with("trans")
+  - title: Datensätze
+    contents:
+      - starts_with("art")
+      - starts_with("big")
+      - starts_with("eye")
+      - starts_with("indo")
+      - starts_with("iq")
+      - starts_with("odds")
+      - starts_with("rep")
+      - starts_with("tipp")
+      - starts_with("tracks")
+      - starts_with("video")
+  - title: Übungen
+
+navbar:
+  structure:
+    left:
+    - home
+    - articles
+    - reference
+    - forum
+    - news
+    right: github
+  components:
+    home:
+      icon: fa-home fa-lg
+      href: index.html
+    reference:
+      text: Dokumentation
+      href: reference/index.html
+    articles:
+      text: Lehrbuch
+      href: buch/index.html
+    news:
+      text: News
+      href: news/index.html
+    forum:
+      text: Forum
+      href: https://remp.forumotion.com/
+    github:
+      icon: fa-github fa-lg
+      href: https://github.com/j3ypi/remp

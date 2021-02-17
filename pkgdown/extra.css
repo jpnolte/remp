@@ -1,0 +1,136 @@
+h1 {
+  font-size: 2.2em;
+}
+
+h2 {
+  font-size: 2em;
+}
+
+h3 {
+  font-size: 1.8em;
+}
+
+p {
+  font-size: 1.2em;
+}
+
+li {
+  font-size: 1.1em;
+}
+
+ul {
+  font-size: 1.1em;
+}
+
+ol {
+  font-size: 1.1em;
+}
+
+a:link {
+  color: #F35D22;
+}
+
+a:visited {
+  color: #F35D22;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #f79d7a;
+  text-decoration: none;
+}
+
+a:active {
+  color: #f79d7a;
+  text-decoration: none;
+}
+
+.navbar-brand {
+  font-size: 1.4em;
+}
+
+.navbar-nav {
+  font-size: 1.2em;
+}
+
+pre {
+  font-size: 1.2em;
+  border-radius: 10px;
+}
+
+p code {
+  border-radius: 20px;
+}
+
+.navbar-default .navbar-nav>li>a:hover {
+  color: #F35D22;
+  background-color: white;
+}
+
+.navbar-default .navbar-nav>li.active > a:hover {
+  color: #F35D22;
+  background-color: white;
+}
+
+.navbar-default .navbar-nav>li.active > a {
+  color: #F35D22;
+  background-color: white;
+}
+.navbar-default .navbar-link:hover {
+  color: #F35D22;
+}
+
+.fa:hover {
+  color: #F35D22;
+  transition: 0.6s;
+}
+
+.fa-copy:hover {
+  color: white;
+  transition: 0.6s;
+}
+
+.btn-primary {
+  color: #F35D22;
+  background-color: white;
+  border: 1px solid #F35D22;
+  padding: 10px 18px;
+  border-radius: 10px;
+}
+
+.btn-primary:hover {
+  color: white;
+  background-color: #F35D22;
+  transition: 0.9s;
+}
+
+.btn-primary:active {
+  background-image: radial-gradient(circle,
+    #F35D22 10%, #f79d7a 11%);
+}
+
+.btn-primary:active:hover, .btn-primary:active:focus {
+  color: white;
+  background-color: #F35D22;
+  transition: 0.6s;
+}
+
+#sidebar h2 {
+  font-size: 1.1em;
+  margin-top: 1em;
+}
+
+#sidebar div {
+  font-size: 0.5em;
+  margin-top: 1em;
+}
+
+footer p {
+  font-size: 1.1em;
+}
+
+*::selection {
+  text-shadow: none !important;
+  color: #fff;
+  background-color: #ee7000 !important;
+}

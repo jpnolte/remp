@@ -1,0 +1,1459 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Kapitel 11 Ergebnisse exportieren | R für empirische Wissenschaften</title>
+  <meta name="description" content="Das ist ein Test" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Kapitel 11 Ergebnisse exportieren | R für empirische Wissenschaften" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="images/logo.png" />
+  <meta property="og:description" content="Das ist ein Test" />
+  <meta name="github-repo" content="j3ypi/rBasics" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Kapitel 11 Ergebnisse exportieren | R für empirische Wissenschaften" />
+  
+  <meta name="twitter:description" content="Das ist ein Test" />
+  <meta name="twitter:image" content="images/logo.png" />
+
+<meta name="author" content="Jan Philipp Nolte" />
+
+
+<meta name="date" content="2021-02-17" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <link rel="apple-touch-icon-precomposed" sizes="120x120" href="images/touch-icon.png" />
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+<link rel="prev" href="latente-variablenmodelle.html"/>
+<link rel="next" href="datatypes.html"/>
+<script src="libs/header-attrs-2.5/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { } /* Alert */
+code span.an { } /* Annotation */
+code span.at { } /* Attribute */
+code span.bu { } /* BuiltIn */
+code span.cf { } /* ControlFlow */
+code span.ch { color: #0e7a0e; } /* Char */
+code span.cn { } /* Constant */
+code span.co { } /* Comment */
+code span.cv { color: #0e7a0e; } /* CommentVar */
+code span.do { } /* Documentation */
+code span.er { font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fu { color: #e65100; } /* Function */
+code span.im { } /* Import */
+code span.in { } /* Information */
+code span.kw { color: #e65100; } /* Keyword */
+code span.op { } /* Operator */
+code span.ot { } /* Other */
+code span.pp { } /* Preprocessor */
+code span.sc { } /* SpecialChar */
+code span.ss { } /* SpecialString */
+code span.st { color: #0e7a0e; } /* String */
+code span.va { } /* Variable */
+code span.vs { color: #0e7a0e; } /* VerbatimString */
+code span.wa { font-weight: bold; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="stylesheet" href="toc.css" type="text/css" />
+<link rel="stylesheet" href="font-awesome.min.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><strong><a href="www.r-empirische-wissenschaften.de"> R für empirische Wissenschaften</a></strong></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Vorwort</a></li>
+<li class="part"><span><b>I Die ersten Schritte</b></span></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Einleitung</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#für-wen-ist-dieses-buch"><i class="fa fa-check"></i><b>1.1</b> Für wen ist dieses Buch?</a></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#aufbau-und-bearbeitungsstrategie"><i class="fa fa-check"></i><b>1.2</b> Aufbau und Bearbeitungsstrategie</a></li>
+<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#boxen-übungen-und-datensätze"><i class="fa fa-check"></i><b>1.3</b> Boxen, Übungen und Datensätze</a></li>
+<li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#books"><i class="fa fa-check"></i><b>1.4</b> Ergänzende Literatur</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="start.html"><a href="start.html"><i class="fa fa-check"></i><b>2</b> Startvoraussetzungen</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="start.html"><a href="start.html#installation-von-r-und-rstudio"><i class="fa fa-check"></i><b>2.1</b> Installation von R und RStudio</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="start.html"><a href="start.html#installr"><i class="fa fa-check"></i><b>2.1.1</b> Programmiersprache R</a></li>
+<li class="chapter" data-level="2.1.2" data-path="start.html"><a href="start.html#rstudio"><i class="fa fa-check"></i><b>2.1.2</b> Programmierumgebung RStudio</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="start.html"><a href="start.html#aufbau"><i class="fa fa-check"></i><b>2.2</b> Aufbau von RStudio</a></li>
+<li class="chapter" data-level="2.3" data-path="start.html"><a href="start.html#anpassung"><i class="fa fa-check"></i><b>2.3</b> RStudio anpassen</a></li>
+<li class="chapter" data-level="2.4" data-path="start.html"><a href="start.html#funktionen-und-ihre-argumente"><i class="fa fa-check"></i><b>2.4</b> Funktionen und ihre Argumente</a></li>
+<li class="chapter" data-level="2.5" data-path="start.html"><a href="start.html#packages"><i class="fa fa-check"></i><b>2.5</b> Packages (Erweiterungen)</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="start.html"><a href="start.html#installieren-und-laden"><i class="fa fa-check"></i><b>2.5.1</b> Installieren und laden</a></li>
+<li class="chapter" data-level="2.5.2" data-path="start.html"><a href="start.html#notwendige-packages"><i class="fa fa-check"></i><b>2.5.2</b> Notwendige Packages</a></li>
+<li class="chapter" data-level="2.5.3" data-path="start.html"><a href="start.html#namespace"><i class="fa fa-check"></i><b>2.5.3</b> Namespace</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="start.html"><a href="start.html#help"><i class="fa fa-check"></i><b>2.6</b> Fehler- und Warnmeldungen</a>
+<ul>
+<li class="chapter" data-level="2.6.1" data-path="start.html"><a href="start.html#der-unterschied"><i class="fa fa-check"></i><b>2.6.1</b> Der Unterschied</a></li>
+<li class="chapter" data-level="2.6.2" data-path="start.html"><a href="start.html#hilfe"><i class="fa fa-check"></i><b>2.6.2</b> Wo bekomme ich Hilfe?</a></li>
+<li class="chapter" data-level="2.6.3" data-path="start.html"><a href="start.html#fehler-beheben"><i class="fa fa-check"></i><b>2.6.3</b> Fehler beheben</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="start.html"><a href="start.html#historische-relikte"><i class="fa fa-check"></i><b>2.7</b> Historische Relikte</a></li>
+</ul></li>
+<li class="part"><span><b>II Vorbereitung</b></span></li>
+<li class="chapter" data-level="3" data-path="project.html"><a href="project.html"><i class="fa fa-check"></i><b>3</b> Projektorientierung</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="project.html"><a href="project.html#das-problem"><i class="fa fa-check"></i><b>3.1</b> Das Problem</a></li>
+<li class="chapter" data-level="3.2" data-path="project.html"><a href="project.html#r-projekte-erstellen"><i class="fa fa-check"></i><b>3.2</b> R Projekte erstellen</a></li>
+<li class="chapter" data-level="3.3" data-path="project.html"><a href="project.html#here"><i class="fa fa-check"></i><b>3.3</b> Das <code>here</code> Package</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="vars.html"><a href="vars.html"><i class="fa fa-check"></i><b>4</b> Variablen</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="vars.html"><a href="vars.html#pfeil"><i class="fa fa-check"></i><b>4.1</b> Variablen speichern und verwenden</a></li>
+<li class="chapter" data-level="4.2" data-path="vars.html"><a href="vars.html#datentypen"><i class="fa fa-check"></i><b>4.2</b> Grundlegende Datentypen</a></li>
+<li class="chapter" data-level="4.3" data-path="vars.html"><a href="vars.html#datentypen-konvertieren"><i class="fa fa-check"></i><b>4.3</b> Datentypen konvertieren</a></li>
+<li class="chapter" data-level="4.4" data-path="vars.html"><a href="vars.html#factor"><i class="fa fa-check"></i><b>4.4</b> Faktoren</a></li>
+<li class="chapter" data-level="4.5" data-path="vars.html"><a href="vars.html#zeitdaten"><i class="fa fa-check"></i><b>4.5</b> Zeitdaten</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="io.html"><a href="io.html"><i class="fa fa-check"></i><b>5</b> Datensätze</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="io.html"><a href="io.html#einlesen-externer-dateien"><i class="fa fa-check"></i><b>5.1</b> Einlesen externer Dateien</a></li>
+<li class="chapter" data-level="5.2" data-path="io.html"><a href="io.html#datensätze-aus-packages-laden"><i class="fa fa-check"></i><b>5.2</b> Datensätze aus Packages laden</a></li>
+<li class="chapter" data-level="5.3" data-path="io.html"><a href="io.html#inR"><i class="fa fa-check"></i><b>5.3</b> Datensätze in R erstellen</a></li>
+<li class="chapter" data-level="5.4" data-path="io.html"><a href="io.html#speichern-und-konvertieren"><i class="fa fa-check"></i><b>5.4</b> Speichern und Konvertieren</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html"><i class="fa fa-check"></i><b>6</b> Datenvorbereitung</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#tidyverse"><i class="fa fa-check"></i><b>6.1</b> Einführung</a></li>
+<li class="chapter" data-level="6.2" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#select"><i class="fa fa-check"></i><b>6.2</b> <code>select()</code>, <code>rename()</code> und <code>relocate()</code></a></li>
+<li class="chapter" data-level="6.3" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#filter"><i class="fa fa-check"></i><b>6.3</b> <code>filter()</code> und <code>arrange()</code></a></li>
+<li class="chapter" data-level="6.4" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#mutate"><i class="fa fa-check"></i><b>6.4</b> <code>mutate()</code> und <code>across()</code></a></li>
+<li class="chapter" data-level="6.5" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#function"><i class="fa fa-check"></i><b>6.5</b> Eigene Funktionen</a></li>
+<li class="chapter" data-level="6.6" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#rowwise-und-c_across"><i class="fa fa-check"></i><b>6.6</b> <code>rowwise()</code> und <code>c_across()</code></a></li>
+<li class="chapter" data-level="6.7" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#tidy"><i class="fa fa-check"></i><b>6.7</b> Breites und langes Datenformat</a></li>
+<li class="chapter" data-level="6.8" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#spalten-trennen"><i class="fa fa-check"></i><b>6.8</b> Spalten trennen</a></li>
+<li class="chapter" data-level="6.9" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#datensätze-zusammenführen"><i class="fa fa-check"></i><b>6.9</b> Datensätze zusammenführen</a></li>
+<li class="chapter" data-level="6.10" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#datastring"><i class="fa fa-check"></i><b>6.10</b> Character Manipulation</a></li>
+<li class="chapter" data-level="6.11" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#datafactor"><i class="fa fa-check"></i><b>6.11</b> Faktoren verändern</a></li>
+<li class="chapter" data-level="6.12" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#datazeit"><i class="fa fa-check"></i><b>6.12</b> Mit Zeitdaten arbeiten</a></li>
+<li class="chapter" data-level="6.13" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#binäre-antwortmatrix-erstellen"><i class="fa fa-check"></i><b>6.13</b> Binäre Antwortmatrix erstellen</a></li>
+</ul></li>
+<li class="part"><span><b>III Auswertung</b></span></li>
+<li class="chapter" data-level="7" data-path="descr.html"><a href="descr.html"><i class="fa fa-check"></i><b>7</b> Deskriptive Statistik</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="descr.html"><a href="descr.html#verschiedene-lagemaße"><i class="fa fa-check"></i><b>7.1</b> Verschiedene Lagemaße</a></li>
+<li class="chapter" data-level="7.2" data-path="descr.html"><a href="descr.html#umgang-mit-fehlenden-werten"><i class="fa fa-check"></i><b>7.2</b> Umgang mit fehlenden Werten</a></li>
+<li class="chapter" data-level="7.3" data-path="descr.html"><a href="descr.html#contigency"><i class="fa fa-check"></i><b>7.3</b> Häufigkeiten und Kontingenztafeln</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="visual.html"><a href="visual.html"><i class="fa fa-check"></i><b>8</b> Visualisierungen</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="visual.html"><a href="visual.html#einführung"><i class="fa fa-check"></i><b>8.1</b> Einführung</a></li>
+<li class="chapter" data-level="8.2" data-path="visual.html"><a href="visual.html#histogram"><i class="fa fa-check"></i><b>8.2</b> Histogramm und Dichte</a></li>
+<li class="chapter" data-level="8.3" data-path="visual.html"><a href="visual.html#streudiagramm"><i class="fa fa-check"></i><b>8.3</b> Streudiagramm</a></li>
+<li class="chapter" data-level="8.4" data-path="visual.html"><a href="visual.html#boxplot"><i class="fa fa-check"></i><b>8.4</b> Boxplot</a></li>
+<li class="chapter" data-level="8.5" data-path="visual.html"><a href="visual.html#violin"><i class="fa fa-check"></i><b>8.5</b> Violin Plot</a></li>
+<li class="chapter" data-level="8.6" data-path="visual.html"><a href="visual.html#barplot"><i class="fa fa-check"></i><b>8.6</b> Balkendiagramm</a></li>
+<li class="chapter" data-level="8.7" data-path="visual.html"><a href="visual.html#anovaplot"><i class="fa fa-check"></i><b>8.7</b> Liniendiagramm</a></li>
+<li class="chapter" data-level="8.8" data-path="visual.html"><a href="visual.html#odds"><i class="fa fa-check"></i><b>8.8</b> Odds Ratios</a></li>
+<li class="chapter" data-level="8.9" data-path="visual.html"><a href="visual.html#q-q-plot"><i class="fa fa-check"></i><b>8.9</b> Q-Q Plot</a></li>
+<li class="chapter" data-level="8.10" data-path="visual.html"><a href="visual.html#ellipsen"><i class="fa fa-check"></i><b>8.10</b> Ellipsen</a></li>
+<li class="chapter" data-level="8.11" data-path="visual.html"><a href="visual.html#morefactors"><i class="fa fa-check"></i><b>8.11</b> Mehrfaktorielle Abbildungen</a>
+<ul>
+<li class="chapter" data-level="8.11.1" data-path="visual.html"><a href="visual.html#groups"><i class="fa fa-check"></i><b>8.11.1</b> Gruppierungsargumente</a></li>
+<li class="chapter" data-level="8.11.2" data-path="visual.html"><a href="visual.html#facets"><i class="fa fa-check"></i><b>8.11.2</b> Facets</a></li>
+</ul></li>
+<li class="chapter" data-level="8.12" data-path="visual.html"><a href="visual.html#patch"><i class="fa fa-check"></i><b>8.12</b> Anordnen mehrerer Graphen</a></li>
+<li class="chapter" data-level="8.13" data-path="visual.html"><a href="visual.html#adapt"><i class="fa fa-check"></i><b>8.13</b> Anpassen des Aussehens</a></li>
+<li class="chapter" data-level="8.14" data-path="visual.html"><a href="visual.html#ggsave"><i class="fa fa-check"></i><b>8.14</b> Speichern von Graphen</a></li>
+<li class="chapter" data-level="8.15" data-path="visual.html"><a href="visual.html#example"><i class="fa fa-check"></i><b>8.15</b> Anwendungsbeispiel</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="inductive.html"><a href="inductive.html"><i class="fa fa-check"></i><b>9</b> Inferenzstatistik</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="inductive.html"><a href="inductive.html#einführung-1"><i class="fa fa-check"></i><b>9.1</b> Einführung</a></li>
+<li class="chapter" data-level="9.2" data-path="inductive.html"><a href="inductive.html#normalverteilung-prüfen"><i class="fa fa-check"></i><b>9.2</b> Normalverteilung prüfen</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="inductive.html"><a href="inductive.html#shapiro-wilk-test"><i class="fa fa-check"></i><b>9.2.1</b> Shapiro-Wilk Test</a></li>
+<li class="chapter" data-level="9.2.2" data-path="inductive.html"><a href="inductive.html#kolmogorov-smirnov-test"><i class="fa fa-check"></i><b>9.2.2</b> Kolmogorov-Smirnov Test</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="inductive.html"><a href="inductive.html#varianzhomogenität"><i class="fa fa-check"></i><b>9.3</b> Varianzhomogenität</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="inductive.html"><a href="inductive.html#f-test"><i class="fa fa-check"></i><b>9.3.1</b> <em>F</em> Test</a></li>
+<li class="chapter" data-level="9.3.2" data-path="inductive.html"><a href="inductive.html#levene-test"><i class="fa fa-check"></i><b>9.3.2</b> Levene Test</a></li>
+<li class="chapter" data-level="9.3.3" data-path="inductive.html"><a href="inductive.html#bartletts-test"><i class="fa fa-check"></i><b>9.3.3</b> Bartletts Test</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="inductive.html"><a href="inductive.html#ein--und-zweistichprobenszenarien"><i class="fa fa-check"></i><b>9.4</b> Ein- und Zweistichprobenszenarien</a>
+<ul>
+<li class="chapter" data-level="9.4.1" data-path="inductive.html"><a href="inductive.html#t-test-und-welch-test"><i class="fa fa-check"></i><b>9.4.1</b> <em>t</em> Test und Welch Test</a></li>
+<li class="chapter" data-level="9.4.2" data-path="inductive.html"><a href="inductive.html#wilcoxon-test"><i class="fa fa-check"></i><b>9.4.2</b> Wilcoxon Test</a></li>
+<li class="chapter" data-level="9.4.3" data-path="inductive.html"><a href="inductive.html#brunner-munzel-test"><i class="fa fa-check"></i><b>9.4.3</b> Brunner Munzel Test</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="inductive.html"><a href="inductive.html#unterschiede-mehrerer-gruppen"><i class="fa fa-check"></i><b>9.5</b> Unterschiede mehrerer Gruppen</a>
+<ul>
+<li class="chapter" data-level="9.5.1" data-path="inductive.html"><a href="inductive.html#aov"><i class="fa fa-check"></i><b>9.5.1</b> Varianzanalyse</a></li>
+<li class="chapter" data-level="9.5.2" data-path="inductive.html"><a href="inductive.html#repeated"><i class="fa fa-check"></i><b>9.5.2</b> Messwiederholung</a></li>
+<li class="chapter" data-level="9.5.3" data-path="inductive.html"><a href="inductive.html#kruskal-wallis-test"><i class="fa fa-check"></i><b>9.5.3</b> Kruskal-Wallis Test</a></li>
+<li class="chapter" data-level="9.5.4" data-path="inductive.html"><a href="inductive.html#friedman-test"><i class="fa fa-check"></i><b>9.5.4</b> Friedman Test</a></li>
+</ul></li>
+<li class="chapter" data-level="9.6" data-path="inductive.html"><a href="inductive.html#regressionsmodelle"><i class="fa fa-check"></i><b>9.6</b> Regressionsmodelle</a>
+<ul>
+<li class="chapter" data-level="9.6.1" data-path="inductive.html"><a href="inductive.html#linregression"><i class="fa fa-check"></i><b>9.6.1</b> Eindimensionale lineare Regression</a></li>
+<li class="chapter" data-level="9.6.2" data-path="inductive.html"><a href="inductive.html#hierarchische-lineare-regression"><i class="fa fa-check"></i><b>9.6.2</b> Hierarchische lineare Regression</a></li>
+<li class="chapter" data-level="9.6.3" data-path="inductive.html"><a href="inductive.html#logistische-regression"><i class="fa fa-check"></i><b>9.6.3</b> Logistische Regression</a></li>
+<li class="chapter" data-level="9.6.4" data-path="inductive.html"><a href="inductive.html#baseline-logit-modell"><i class="fa fa-check"></i><b>9.6.4</b> Baseline Logit Modell</a></li>
+<li class="chapter" data-level="9.6.5" data-path="inductive.html"><a href="inductive.html#kumulative-logit-modelle"><i class="fa fa-check"></i><b>9.6.5</b> Kumulative Logit Modelle</a></li>
+</ul></li>
+<li class="chapter" data-level="9.7" data-path="inductive.html"><a href="inductive.html#korrelationsanalysen"><i class="fa fa-check"></i><b>9.7</b> Korrelationsanalysen</a>
+<ul>
+<li class="chapter" data-level="9.7.1" data-path="inductive.html"><a href="inductive.html#korrelationstests"><i class="fa fa-check"></i><b>9.7.1</b> Korrelationstests</a></li>
+<li class="chapter" data-level="9.7.2" data-path="inductive.html"><a href="inductive.html#polychorische-korrelation"><i class="fa fa-check"></i><b>9.7.2</b> Polychorische Korrelation</a></li>
+<li class="chapter" data-level="9.7.3" data-path="inductive.html"><a href="inductive.html#korrelationstabellen"><i class="fa fa-check"></i><b>9.7.3</b> Korrelationstabellen</a></li>
+</ul></li>
+<li class="chapter" data-level="9.8" data-path="inductive.html"><a href="inductive.html#contingency"><i class="fa fa-check"></i><b>9.8</b> Kontingenztafeln</a>
+<ul>
+<li class="chapter" data-level="9.8.1" data-path="inductive.html"><a href="inductive.html#fisher"><i class="fa fa-check"></i><b>9.8.1</b> Fisher-Exact Test</a></li>
+<li class="chapter" data-level="9.8.2" data-path="inductive.html"><a href="inductive.html#chi-quadrat-tests"><i class="fa fa-check"></i><b>9.8.2</b> Chi Quadrat-Tests</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="latente-variablenmodelle.html"><a href="latente-variablenmodelle.html"><i class="fa fa-check"></i><b>10</b> Latente Variablenmodelle</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="latente-variablenmodelle.html"><a href="latente-variablenmodelle.html#naive-hauptkomponentenanalyse"><i class="fa fa-check"></i><b>10.1</b> Naive Hauptkomponentenanalyse</a></li>
+<li class="chapter" data-level="10.2" data-path="latente-variablenmodelle.html"><a href="latente-variablenmodelle.html#factanal"><i class="fa fa-check"></i><b>10.2</b> Explorative Faktorenanalyse</a></li>
+<li class="chapter" data-level="10.3" data-path="latente-variablenmodelle.html"><a href="latente-variablenmodelle.html#kmeans"><i class="fa fa-check"></i><b>10.3</b> <em>k</em>-Means Clustering</a></li>
+<li class="chapter" data-level="10.4" data-path="latente-variablenmodelle.html"><a href="latente-variablenmodelle.html#strukturgleichungsmodelle"><i class="fa fa-check"></i><b>10.4</b> Strukturgleichungsmodelle</a></li>
+</ul></li>
+<li class="part"><span><b>IV Vertiefung</b></span></li>
+<li class="chapter" data-level="11" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html"><i class="fa fa-check"></i><b>11</b> Ergebnisse exportieren</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#einführung-2"><i class="fa fa-check"></i><b>11.1</b> Einführung</a></li>
+<li class="chapter" data-level="11.2" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#markdown"><i class="fa fa-check"></i><b>11.2</b> Berichte</a></li>
+<li class="chapter" data-level="11.3" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#tabellen"><i class="fa fa-check"></i><b>11.3</b> Tabellen</a>
+<ul>
+<li class="chapter" data-level="11.3.1" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#word-pdf-und-html"><i class="fa fa-check"></i><b>11.3.1</b> Word, PDF und HTML</a></li>
+<li class="chapter" data-level="11.3.2" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#latex"><i class="fa fa-check"></i><b>11.3.2</b> LaTeX</a></li>
+<li class="chapter" data-level="11.3.3" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#komplexe-tabellen"><i class="fa fa-check"></i><b>11.3.3</b> Komplexe Tabellen</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="datatypes.html"><a href="datatypes.html"><i class="fa fa-check"></i><b>12</b> Datenstrukturen</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="datatypes.html"><a href="datatypes.html#vec"><i class="fa fa-check"></i><b>12.1</b> Vektor</a></li>
+<li class="chapter" data-level="12.2" data-path="datatypes.html"><a href="datatypes.html#matrix"><i class="fa fa-check"></i><b>12.2</b> Matrix</a></li>
+<li class="chapter" data-level="12.3" data-path="datatypes.html"><a href="datatypes.html#tibble"><i class="fa fa-check"></i><b>12.3</b> Data.frame und tibble</a></li>
+<li class="chapter" data-level="12.4" data-path="datatypes.html"><a href="datatypes.html#lists"><i class="fa fa-check"></i><b>12.4</b> Liste</a></li>
+<li class="chapter" data-level="12.5" data-path="datatypes.html"><a href="datatypes.html#umwandlung"><i class="fa fa-check"></i><b>12.5</b> Umwandlungen</a></li>
+<li class="chapter" data-level="12.6" data-path="datatypes.html"><a href="datatypes.html#objektorientierung"><i class="fa fa-check"></i><b>12.6</b> Objektorientierung</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="iterationmain.html"><a href="iterationmain.html"><i class="fa fa-check"></i><b>13</b> Iterationen</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="iterationmain.html"><a href="iterationmain.html#iteration"><i class="fa fa-check"></i><b>13.1</b> Was sind iterative Prozesse?</a></li>
+<li class="chapter" data-level="13.2" data-path="iterationmain.html"><a href="iterationmain.html#map"><i class="fa fa-check"></i><b>13.2</b> Listenbasierte Berechnungen</a></li>
+<li class="chapter" data-level="13.3" data-path="iterationmain.html"><a href="iterationmain.html#nest"><i class="fa fa-check"></i><b>13.3</b> Einnisten</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i>Appendix</a>
+<ul>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#datensatzerläuterungen"><i class="fa fa-check"></i>Datensatzerläuterungen</a>
+<ul>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#big-five"><i class="fa fa-check"></i>Big Five</a></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#tipp-wm"><i class="fa fa-check"></i>Tipp WM</a></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#indonesisch"><i class="fa fa-check"></i>Indonesisch</a></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#video"><i class="fa fa-check"></i>Video</a></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#artists"><i class="fa fa-check"></i>Artists</a></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#tracks"><i class="fa fa-check"></i>Tracks</a></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#fitness"><i class="fa fa-check"></i>Fitness</a></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#statistical-literacy"><i class="fa fa-check"></i>Statistical Literacy</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#übungsverzeichnis"><i class="fa fa-check"></i>Übungsverzeichnis</a></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#literaturverzeichnis"><i class="fa fa-check"></i>Literaturverzeichnis</a></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#verwendete-software-versionen"><i class="fa fa-check"></i>Verwendete Software Versionen</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R für empirische Wissenschaften</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="ergebnisse-exportieren" class="section level1" number="11">
+<h1><span class="header-section-number">Kapitel 11</span> Ergebnisse exportieren</h1>
+<div id="einführung-2" class="section level2" number="11.1">
+<h2><span class="header-section-number">11.1</span> Einführung</h2>
+<p>Nachdem die Analysen berechnet sind, möchte man die Ergebnisse davon gerne in das Programm exportieren, in dem die man die eigentliche Arbeit schreibt. Bevor wir uns in den folgenden Kapiteln anschauen, wie das genau funktioniert, müssen wir zuvor ein paar Begrifflichkeiten klären. R besitzt eine nahezu perfekte Möglichkeit die Ergebnisse mithilfe des sogenannten <code>rMarkdown</code>s in verschiedene Formate umzuwandeln. Genauer gesagt kann ein spezielles R Dokument (<code>rMarkdown</code>) direkt in HTML, PDF oder ein Word Dokument umgewandelt werden.</p>
+<p><strong>HTML.</strong> Das sogenannte <strong>H</strong>yper<strong>t</strong>ext <strong>M</strong>arkup <strong>L</strong>anguage (HTML) Format ist das Rückrad des Internets. Es gibt die Form von Internetseiten vor, die von Browsern (z.B. Firefox, Chrome oder Brave) gelesen werden. Dadurch ist es sehr praktisch zum gegenseitigen Teilen von Inhalten, da jeder einen Browser auf dem Computer installiert hat. Man benötigt zum umwandeln von <code>rMarkdown</code> in HTML auch keinerlei zusätzliche Software.</p>
+<p><strong>PDF.</strong> Das PDF Format wird durch LaTeX erstellt. LaTeX ist ein Programm, was in abgeänderter Form bereits seit Ende der 70er Jahre vor allem von Naturwissenschaftlern für die Erstellung wissenschaftlicher Arbeiten verwendet wird. Es ist also notwendig, dieses Programm auf dem Computer installiert zu haben, wenn man seine Analyse in ein PDF umwandeln möchte. Die Installation wird in den Folgekapitel an geeigneter Stelle erläutert.</p>
+<p><strong>Word.</strong> Die Erstellung von Word Dokumenten funktioniert hinter den Kulissen durch Pandoc. Glücklicherweise musst Du Dir um die Installation seit RStudio <code>1.3</code> keine Sorgen mehr machen, da es bereits vorinstalliert ist. Grundsätzlich sind Word Dokumente immer ein kleines Sorgenkind, da es sich hierbei nicht um ein frei zugängliches Format handelt. Deswegen ist es für Package entwickler auch deutlich schwieriger, dafür Erweiterungen zu entwickeln. Komplexe Tabellen sind daher in HTML und PDF deutlich schöner als in Word. Tatsächlich wird dort kein <code>.docx</code> Dokument sondern ein <code>.rtf</code> (<strong>R</strong>ich <strong>T</strong>ext <strong>F</strong>ormat) kreiert. Dies erlaubt den Entwicklern etwas mehr Flexibilität. Eine Möglichkeit für Word Nutzer besteht darin, die Werte mit <code>rMarkdown</code> umzuwandeln und alles weitere, potentiell komplexere dann direkt in Word anzupassen.</p>
+<p><strong>rMarkdown.</strong> Markdown ist an sich eine Möglichkeit einfacher und intuitiver HTML Inhalte zu schreiben. Man kann beispielsweise ohne viel Aufwand Wörter fett oder kursiv schreiben und Abbildungen integrieren. <code>rMarkdown</code> erweitert dies um einige Funktionen und ermöglicht es uns, direkt aus R verschiedene Dokumenttypen zu erstellen. Das <code>rmarkdown</code> Package ist dabei direkt in RStudio integriert. Es handelt sich hierbei nicht um ein R Skript sondern um einen eigenen Dateityp, welcher mit <code>.Rmd</code> und nicht mit <code>.R</code> endet.</p>
+</div>
+<div id="markdown" class="section level2" number="11.2">
+<h2><span class="header-section-number">11.2</span> Berichte</h2>
+<p>Für das Kreieren der Tabellen im Rahmen dieses Kapitel wird das <code>knitr</code> Package benötigt.</p>
+<div class="sourceCode" id="cb357"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb357-1"><a href="ergebnisse-exportieren.html#cb357-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;knitr&quot;</span>)</span></code></pre></div>
+<p>Öffne zum Erstellen von rMarkdown (<code>.Rmd</code>) Dokumenten das Dropdown Menu mit dem Papier und dem grünen Plus Zeichen unter dem Reiter <code>File</code>.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-261"></span>
+<img src="images/new_markdown.jpg" alt="Erster Schritt in der Erstellung eines neuen R Markdown Skripts." width="30%" />
+<p class="caption">
+Abbildung 11.1: Erster Schritt in der Erstellung eines neuen R Markdown Skripts.
+</p>
+</div>
+<p>Wähle dort <code>R Markdown</code> aus. Die Punkte implizieren, dass noch weitere Informationen vor dem Erstellen notwendig sind. Anschließen kann man den gewünschten Ausgabetypen, Titel und Autor festlegen. Beim Klicken auf OK wird eine Vorlage erstellt, die man nach belieben anpassen kann.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-262"></span>
+<img src="images/title_markdown.jpg" alt="Zweiter Schritt zur Erstellung eines neuen R Markdown Skripts." width="70%" />
+<p class="caption">
+Abbildung 11.2: Zweiter Schritt zur Erstellung eines neuen R Markdown Skripts.
+</p>
+</div>
+<p>Die wichtigsten Formatierungsmöglichkeiten in Markdown sehen wie folgt aus:</p>
+<ul>
+<li>Fett gedruckt: **fett** ergibt <strong>fett</strong></li>
+<li>Kursiv: *kursiv* ergibt <em>kursiv</em></li>
+<li>Code Integration im Text: <code>`mean(x)`</code> ergibt <code>mean(x)</code></li>
+<li>Links: <code>[Klicke hier](https://cran.r-project.org/)</code> wird zu: <a href="https://cran.r-project.org/">Klicke hier</a> (im gebundenen Buch sind Links nicht extra farblich hervorgehoben)</li>
+<li>Überschriften können mit einer führenden Raute (# Überschrift 1) erstellt werden. Für Abschnitte innerhalb des Hauptkapitels können beliebig viele Rauten hinzugefügt werden (z.B. ## Unterkapitel 1).</li>
+</ul>
+<p>In der Praxis sähe das wie folgt aus:</p>
+<p><strong>– Beginn der Datei Beispiel.Rmd – </strong></p>
+<div class="sourceCode" id="cb358"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb358-1"><a href="ergebnisse-exportieren.html#cb358-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb358-2"><a href="ergebnisse-exportieren.html#cb358-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;Hausaufgaben&quot;</span></span>
+<span id="cb358-3"><a href="ergebnisse-exportieren.html#cb358-3" aria-hidden="true" tabindex="-1"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;Jan Philipp Nolte&quot;</span></span>
+<span id="cb358-4"><a href="ergebnisse-exportieren.html#cb358-4" aria-hidden="true" tabindex="-1"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;20.11.2020&quot;</span></span>
+<span id="cb358-5"><a href="ergebnisse-exportieren.html#cb358-5" aria-hidden="true" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span><span class="at"> html_document</span></span>
+<span id="cb358-6"><a href="ergebnisse-exportieren.html#cb358-6" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div>
+<pre><code>```{r setup, include = FALSE}
+library(tidyverse)
+library(knitr)
+library(remp)
+
+data(big_five)
+```</code></pre>
+<p>## Aufgabe 1</p>
+<p>Berechne die deskriptiven Statistiken der *numerischen* Variablen Extraversion und Neurotizismus des Datensatzes <code>`big_five`</code>.</p>
+<pre><code>```{r}
+big_five %&gt;% 
+  select(Extraversion, Neurotizismus) %&gt;% 
+  descriptive() %&gt;% 
+  kable()
+```
+</code></pre>
+<p>## Aufgabe 2</p>
+<p>Visualisiere den Zusammenhang zwischen **Extraversion** und **Neurotizismus**.</p>
+<pre><code>```{r, echo = FALSE}
+ggplot(big_five, aes(x = Extraversion, y = Neurotizismus)) + 
+  geom_point(position = &quot;jitter&quot;)
+```</code></pre>
+<p><strong>– Ende der Datei Beispiel.Rmd –</strong></p>
+<p>Die Ausgabe nach Umwandlung in ein HTML Dokument ist in Abbildung <a href="ergebnisse-exportieren.html#fig:html-markdown">11.3</a> zu sehen.</p>
+<div class="figure" style="text-align: center"><span id="fig:html-markdown"></span>
+<img src="images/html_markdown.jpg" alt="Umwandlung von Markdown in HTML." width="98%" />
+<p class="caption">
+Abbildung 11.3: Umwandlung von Markdown in HTML.
+</p>
+</div>
+<p>Jedes <code>rMarkdown</code> Dokument (Endung <code>.Rmd</code>) beginnt mit einem so genannten YAML-Kopf, der durch drei Bindestriche oben und unten vom restlichen Dokument abgegrenzt ist. In diesem Beispiel wird der Titel, Autor, das Datum und Ausgabeformat festgelegt. Für weitere Anpassungsoptionen sei auf das Buch <em>R Markdown - The Definitive Guide</em> von Xie, Allaire und Grolemund verwiesen.</p>
+<p>Als nächstes sehen wir grau hinterlegten Code Abschnitte. Diese werde mithilfe von drei <em>Backticks</em> (```) erstellt und erlauben das Ausführen von R Code. Den <em>Backticks</em> folgen geschweifte Klammern. Die erste Information ist hier die verwendete Programmiersprache. Getrennt mit einem Komma können hier diverse weitere Argumente angegeben werden. Zum Beispiel kann mit <code>echo = FALSE</code> der Code versteckt werden. So könnte man beispielsweise Dokumente erstellen, in denen nur die Ergebnisse in Form von Tabellen und kein R Code enthalten ist.</p>
+<p>Umwandeln können wir das rMarkdown Dokument durch Klicken auf das Wort Knit (engl. für stricken) in der Leiste unter dem Reiter der geöffneten Dateien. Wenn man nur auf das Symbol drückt, wird die Datei in das an erster Stelle im YAML Kopf festgelegten Format umgewandelt. Besser ist es jedoch das Dropdown Menu durch einen Klick auf den Pfeil nach unten zu öffnen und den gewünschten Dateityp auszuwählen.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-263"></span>
+<img src="images/knit_markdown.jpg" alt="Umwandlung des R Markdown Skripts in HTML, PDF oder Word." width="30%" />
+<p class="caption">
+Abbildung 11.4: Umwandlung des R Markdown Skripts in HTML, PDF oder Word.
+</p>
+</div>
+<p>Die eigentliche Umwandlung übernimmt das <code>knitr</code> Package, was im Hintergrund geladen wird. Zur Umwandlung zu HTML muss nichts weiter beachtet werden. Bei der Umwandlung in Word wird das Programm Pandoc (<a href="https://pandoc.org/installing.html">https://pandoc.org/installing.html</a>) benötigt, welches in neueren RStudio Versionen direkt integriert ist. Möchte man in ein PDF umwandeln, muss eine Version von LaTeX auf dem Computer installiert sein. Die einfachste Möglichkeit hierfür ist die Installation des R Packages <code>tinytex</code>.</p>
+<div class="sourceCode" id="cb362"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb362-1"><a href="ergebnisse-exportieren.html#cb362-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;tinytex&quot;</span>)</span></code></pre></div>
+<div class="warning">
+<p>rMarkdown Dokumente können nur umgewandelt werden, wenn alle nötigen Informationen enthalten sind. Es müssen also innerhalb der Datei alle Packages und Datensätze explizit geladen werden. Dies trifft auch zu, obwohl man die Packages oder Datensätze möglicherweise bereits vorher verwendet hat.</p>
+</div>
+</div>
+<div id="tabellen" class="section level2" number="11.3">
+<h2><span class="header-section-number">11.3</span> Tabellen</h2>
+<p>Während es selten ein Problem darstellt, die Ergebnisse einer einfach Regressionsanalyse tabellarisch im Textverarbeitungsprogramm des Vertrauens darzustellen, bereitet es schon deutlich weniger Freude eine große Korrelationsmatrix oder diverse Ladungen im Rahmen einer Faktoranalyse händisch aus R in Word oder LaTeX zu übertragen.</p>
+<div id="word-pdf-und-html" class="section level3" number="11.3.1">
+<h3><span class="header-section-number">11.3.1</span> Word, PDF und HTML</h3>
+<p>Für die Tabellen benötigen wir auch hier das <code>knitr</code> Package, für die Umwandlung der Tabellen direkt als PDF brauchen wir <code>tinytext</code>.</p>
+<div class="sourceCode" id="cb363"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb363-1"><a href="ergebnisse-exportieren.html#cb363-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">&quot;knitr&quot;</span>, <span class="st">&quot;tinytext&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb364"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb364-1"><a href="ergebnisse-exportieren.html#cb364-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb364-2"><a href="ergebnisse-exportieren.html#cb364-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">&#39;Beispiel&#39;</span></span>
+<span id="cb364-3"><a href="ergebnisse-exportieren.html#cb364-3" aria-hidden="true" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span></span>
+<span id="cb364-4"><a href="ergebnisse-exportieren.html#cb364-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">pdf_document</span><span class="kw">:</span><span class="at"> default</span></span>
+<span id="cb364-5"><a href="ergebnisse-exportieren.html#cb364-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html_document</span><span class="kw">:</span><span class="at"> default</span></span>
+<span id="cb364-6"><a href="ergebnisse-exportieren.html#cb364-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">word_document</span><span class="kw">:</span><span class="at"> default</span></span>
+<span id="cb364-7"><a href="ergebnisse-exportieren.html#cb364-7" aria-hidden="true" tabindex="-1"></a><span class="fu">fontsize</span><span class="kw">:</span><span class="at"> 12pt</span></span>
+<span id="cb364-8"><a href="ergebnisse-exportieren.html#cb364-8" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div>
+<pre><code>```{r setup, include = FALSE}
+library(tidyverse)
+library(knitr)
+library(remp)
+
+data(big_five)
+```</code></pre>
+<pre><code>```{r, echo=FALSE}
+big_five %&gt;% 
+  select(Extraversion, Neurotizismus) %&gt;% 
+  descriptive() %&gt;% 
+  kable()
+```</code></pre>
+<p>Es gibt verschiedene Möglichkeiten, Tabellen im Word Format durch R Code zu erstellen. Wir werden uns hier auf das bereits in RStudio integrierte Pandoc und das in Kapitel <a href="ergebnisse-exportieren.html#markdown">11.2</a> kennengelernte <code>rMarkdown</code> verlassen. Denn mit nur einer Funktion aus dem <code>knitr</code> Package, welches diverse Modifikationen für <code>rMarkdown</code> Dokumente bietet, können schöne Tabellen erstellt werden. Der Funktion <code>kable()</code> aus besagtem Package wird lediglich der Datensatz übergeben. Dann muss man nur noch das <code>rMarkdown</code> Dokument mithilfe von Pandoc in ein Word Dokument umwandeln (siehe Kapitel <a href="ergebnisse-exportieren.html#markdown">11.2</a>.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-266"></span>
+<img src="images/word_markdown.jpg" alt="Beispielhafter Output einer Tabelle von R Markdown in Word." width="98%" />
+<p class="caption">
+Abbildung 11.5: Beispielhafter Output einer Tabelle von R Markdown in Word.
+</p>
+</div>
+<p>Das Aussehen kann innerhalb von Word dann entsprechend angepasst werden. Beachte die Breite einer gewöhnlichen Din A4 Seite in Word. Wenn Du eine gigantische Korrelationsmatrix ausgeben möchtest, solltest Du entweder eine Word Vorlage in breitem Format verwenden (die Vorlage muss den gleichen Dateinamen wie das <code>rMarkdown</code> Dokument haben) oder die Tabelle in Teilen ausgeben lassen.</p>
+</div>
+<div id="latex" class="section level3" number="11.3.2">
+<h3><span class="header-section-number">11.3.2</span> LaTeX</h3>
+<p>Für dieses Kapitel wird das <code>xtable</code> Package benötigt.</p>
+<div class="sourceCode" id="cb367"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb367-1"><a href="ergebnisse-exportieren.html#cb367-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;xtable&quot;</span>)</span></code></pre></div>
+<p>Es gibt auch die Möglichkeit, <code>tibbles</code> aus R direkt in LaTeX Code umzuwandeln, um diesen dann in die zugehörige TeX Datei zu kopieren. Zuvor wurde LaTeX nur hinter den Kulissen direkt zum Erstellen von PDFs verwendet. Wenn man die Arbeit direkt in LaTeX schreibt, benötigt man allerdings den tatsächlichen LaTeX Code. Dafür greift man auf die Funktion <code>xtable()</code> aus dem gleichnamigen Package zurück. Das wichtigste Argument der Funktion ist <code>digits</code>, mit dem man pro Spalte die Anzahl der gerundeten Nachkommastellen festlegt. Dabei kann man entweder eine einzelne Zahl eingeben und somit für alle Spalten die gleiche Rundung generieren oder für jede einzeln als Vektor mithilfe von <code>c()</code>. Da in der Funktion auch die Zeilennamen berücksichtigt werden, muss der Vektor immer um eins länger sein als die Anzahl der Spalten des eigentlichen Datensatzes.</p>
+<div class="sourceCode" id="cb368"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb368-1"><a href="ergebnisse-exportieren.html#cb368-1" aria-hidden="true" tabindex="-1"></a>big_five <span class="sc">%&gt;%</span> </span>
+<span id="cb368-2"><a href="ergebnisse-exportieren.html#cb368-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Extraversion, Neurotizismus) <span class="sc">%&gt;%</span> </span>
+<span id="cb368-3"><a href="ergebnisse-exportieren.html#cb368-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">descriptive</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb368-4"><a href="ergebnisse-exportieren.html#cb368-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Variable, Min, Mean, Median, Max, SE) <span class="sc">%&gt;%</span>  </span>
+<span id="cb368-5"><a href="ergebnisse-exportieren.html#cb368-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xtable</span>(<span class="at">digits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">3</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb368-6"><a href="ergebnisse-exportieren.html#cb368-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="at">include.rownames =</span> <span class="cn">FALSE</span>) </span></code></pre></div>
+<pre class="bordercode"><code>## % latex table generated in R 4.0.4 by xtable 1.8-4 package
+## % Wed Feb 17 17:31:40 2021
+## \begin{table}[ht]
+## \centering
+## \begin{tabular}{lrrrrr}
+##   \hline
+## Variable &amp; Min &amp; Mean &amp; Median &amp; Max &amp; SE \\ 
+##   \hline
+## Extraversion &amp; 2.30 &amp; 3.08 &amp; 3.00 &amp; 4.30 &amp; 0.020 \\ 
+##   Neurotizismus &amp; 1.40 &amp; 3.13 &amp; 3.10 &amp; 4.60 &amp; 0.050 \\ 
+##    \hline
+## \end{tabular}
+## \end{table}</code></pre>
+<p>Die Funktion <code>print()</code> mit dem Argument <code>include.rownames</code> verhindert, dass jede Zeile im Datensatz nummeriert ausgegeben wird.</p>
+</div>
+<div id="komplexe-tabellen" class="section level3" number="11.3.3">
+<h3><span class="header-section-number">11.3.3</span> Komplexe Tabellen</h3>
+<p>Für dieses Kapitel muss das <code>gt</code> Package installiert werden. Es handelt sich hierbei noch um ein relativ junges Package, weshalb leichte Änderungen des im Folgenden gezeigten Codes nicht auszuschließen sind.</p>
+<div class="sourceCode" id="cb370"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb370-1"><a href="ergebnisse-exportieren.html#cb370-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;gt&quot;</span>)</span></code></pre></div>
+<p>Das <code>gt</code> Package verfolgt dabei eine ähnliche Philosophie wie <code>ggplot</code> für Abbildungen. Anstelle einer <em>grammar of graphics</em> steht <code>gt</code> allerdings für <strong>g</strong>rammar of <strong>t</strong>ables. Wir haben also auch hier verschiedene Einzelkomponenten, die wir in nahezu beliebiger Reihenfolge je nach Bedarf hinzufügen können. In Abbildung <a href="ergebnisse-exportieren.html#fig:gt">11.6</a> ist der grundsätzliche Aufbau einer derartigen Tabelle gezeigt. Die Begriffe sind an dieser Stelle auf englisch belassen, da die einzelnen Funktionen (wie dort ebenfalls ersichtlich) die Bezeichnungen direkt enthalten.</p>
+<div class="figure" style="text-align: center"><span id="fig:gt"></span>
+<img src="images/table_gt.png" alt="Vereinfachte Darstellung des Aufbaus einer Tabelle." width="90%" />
+<p class="caption">
+Abbildung 11.6: Vereinfachte Darstellung des Aufbaus einer Tabelle.
+</p>
+</div>
+<p>Nun erstellen wir uns zuerst einige deskriptiven Statistiken aus unserem <code>big_five</code> Datensatz.</p>
+<div class="sourceCode" id="cb371"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb371-1"><a href="ergebnisse-exportieren.html#cb371-1" aria-hidden="true" tabindex="-1"></a>descr <span class="ot">&lt;-</span> big_five <span class="sc">%&gt;%</span> </span>
+<span id="cb371-2"><a href="ergebnisse-exportieren.html#cb371-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Geschlecht, Extraversion, Neurotizismus) <span class="sc">%&gt;%</span></span>
+<span id="cb371-3"><a href="ergebnisse-exportieren.html#cb371-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Geschlecht) <span class="sc">%&gt;%</span> </span>
+<span id="cb371-4"><a href="ergebnisse-exportieren.html#cb371-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">descriptive</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb371-5"><a href="ergebnisse-exportieren.html#cb371-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb371-6"><a href="ergebnisse-exportieren.html#cb371-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Variable, Geschlecht, Min, Mean, Median, Max, SE) <span class="sc">%&gt;%</span>  </span>
+<span id="cb371-7"><a href="ergebnisse-exportieren.html#cb371-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Geschlecht =</span> <span class="fu">if_else</span>(</span>
+<span id="cb371-8"><a href="ergebnisse-exportieren.html#cb371-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">condition =</span> Geschlecht <span class="sc">==</span> <span class="st">&quot;f&quot;</span>, </span>
+<span id="cb371-9"><a href="ergebnisse-exportieren.html#cb371-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">true =</span> <span class="st">&quot;Weiblich&quot;</span>, </span>
+<span id="cb371-10"><a href="ergebnisse-exportieren.html#cb371-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">false =</span> <span class="st">&quot;Männlich&quot;</span>)</span>
+<span id="cb371-11"><a href="ergebnisse-exportieren.html#cb371-11" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
+<pre class="bordercode"><code>## # A tibble: 4 x 7
+##   Variable      Geschlecht   Min  Mean Median   Max    SE
+##   &lt;chr&gt;         &lt;chr&gt;      &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1 Extraversion  Weiblich     2.4  3.05    3     4.3  0.03
+## 2 Neurotizismus Weiblich     1.4  3.25    3.3   4.6  0.06
+## 3 Extraversion  Männlich     2.3  3.11    3     4.1  0.04
+## 4 Neurotizismus Männlich     1.6  2.96    2.9   4.6  0.08</code></pre>
+<p>Von hier an sind die Ähnlichkeiten zu <code>ggplot</code> unverkennbar. Zuerst rufen wir die Funktion <code>gt()</code> auf, der wir entweder das Argument <code>rowname_col</code> oder <code>groupname_col()</code> übergeben können – je nachdem wie wir die Werte in der Tabelle gruppiert haben möchten. Ab dem Punkt sind die Funktionen selbsterklärend, wenn man vergleichend Abbildung <a href="ergebnisse-exportieren.html#fig:gt">11.6</a> betrachtet. Wichtig ist an der Stelle nur, dass die ausgewählten Spalten der <code>vars()</code> Funktion übergeben werden müssen.</p>
+<div class="sourceCode" id="cb373"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb373-1"><a href="ergebnisse-exportieren.html#cb373-1" aria-hidden="true" tabindex="-1"></a>descr <span class="sc">%&gt;%</span> </span>
+<span id="cb373-2"><a href="ergebnisse-exportieren.html#cb373-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>(<span class="at">rowname_col =</span> <span class="st">&quot;Geschlecht&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb373-3"><a href="ergebnisse-exportieren.html#cb373-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_spanner</span>(</span>
+<span id="cb373-4"><a href="ergebnisse-exportieren.html#cb373-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">label =</span> <span class="st">&quot;Mittlere Lage&quot;</span>,</span>
+<span id="cb373-5"><a href="ergebnisse-exportieren.html#cb373-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">columns =</span> <span class="fu">vars</span>(Mean, Median)</span>
+<span id="cb373-6"><a href="ergebnisse-exportieren.html#cb373-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
+<span id="cb373-7"><a href="ergebnisse-exportieren.html#cb373-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_stubhead</span>(<span class="at">label =</span> <span class="st">&quot;Geschlecht&quot;</span>)</span></code></pre></div>
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+#gqrjqsjpre .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#gqrjqsjpre .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#gqrjqsjpre .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#gqrjqsjpre .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 4px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#gqrjqsjpre .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#gqrjqsjpre .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#gqrjqsjpre .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#gqrjqsjpre .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#gqrjqsjpre .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#gqrjqsjpre .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#gqrjqsjpre .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#gqrjqsjpre .gt_group_heading {
+  padding: 8px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#gqrjqsjpre .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#gqrjqsjpre .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#gqrjqsjpre .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#gqrjqsjpre .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#gqrjqsjpre .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 12px;
+}
+
+#gqrjqsjpre .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#gqrjqsjpre .gt_first_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+}
+
+#gqrjqsjpre .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#gqrjqsjpre .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#gqrjqsjpre .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#gqrjqsjpre .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#gqrjqsjpre .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#gqrjqsjpre .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding: 4px;
+}
+
+#gqrjqsjpre .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#gqrjqsjpre .gt_sourcenote {
+  font-size: 90%;
+  padding: 4px;
+}
+
+#gqrjqsjpre .gt_left {
+  text-align: left;
+}
+
+#gqrjqsjpre .gt_center {
+  text-align: center;
+}
+
+#gqrjqsjpre .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#gqrjqsjpre .gt_font_normal {
+  font-weight: normal;
+}
+
+#gqrjqsjpre .gt_font_bold {
+  font-weight: bold;
+}
+
+#gqrjqsjpre .gt_font_italic {
+  font-style: italic;
+}
+
+#gqrjqsjpre .gt_super {
+  font-size: 65%;
+}
+
+#gqrjqsjpre .gt_footnote_marks {
+  font-style: italic;
+  font-size: 65%;
+}
+</style>
+<div id="gqrjqsjpre" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;"><table class="gt_table">
+  
+  <thead class="gt_col_headings">
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="2" colspan="1">Geschlecht</th>
+      <th class="gt_col_heading gt_center gt_columns_bottom_border" rowspan="2" colspan="1">Variable</th>
+      <th class="gt_col_heading gt_center gt_columns_bottom_border" rowspan="2" colspan="1">Min</th>
+      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="2">
+        <span class="gt_column_spanner">Mittlere Lage</span>
+      </th>
+      <th class="gt_col_heading gt_center gt_columns_bottom_border" rowspan="2" colspan="1">Max</th>
+      <th class="gt_col_heading gt_center gt_columns_bottom_border" rowspan="2" colspan="1">SE</th>
+    </tr>
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1">Mean</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1">Median</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr>
+      <td class="gt_row gt_left gt_stub">Weiblich</td>
+      <td class="gt_row gt_left">Extraversion</td>
+      <td class="gt_row gt_right">2.4</td>
+      <td class="gt_row gt_right">3.05</td>
+      <td class="gt_row gt_right">3.0</td>
+      <td class="gt_row gt_right">4.3</td>
+      <td class="gt_row gt_right">0.03</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left gt_stub">Weiblich</td>
+      <td class="gt_row gt_left">Neurotizismus</td>
+      <td class="gt_row gt_right">1.4</td>
+      <td class="gt_row gt_right">3.25</td>
+      <td class="gt_row gt_right">3.3</td>
+      <td class="gt_row gt_right">4.6</td>
+      <td class="gt_row gt_right">0.06</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left gt_stub">Männlich</td>
+      <td class="gt_row gt_left">Extraversion</td>
+      <td class="gt_row gt_right">2.3</td>
+      <td class="gt_row gt_right">3.11</td>
+      <td class="gt_row gt_right">3.0</td>
+      <td class="gt_row gt_right">4.1</td>
+      <td class="gt_row gt_right">0.04</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left gt_stub">Männlich</td>
+      <td class="gt_row gt_left">Neurotizismus</td>
+      <td class="gt_row gt_right">1.6</td>
+      <td class="gt_row gt_right">2.96</td>
+      <td class="gt_row gt_right">2.9</td>
+      <td class="gt_row gt_right">4.6</td>
+      <td class="gt_row gt_right">0.08</td>
+    </tr>
+  </tbody>
+  
+  
+</table></div>
+<p>Alternativ wird mit dem <code>groupname_col</code> Argument eine separate Zeile für die Gruppennamen eingefügt.</p>
+<div class="sourceCode" id="cb374"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb374-1"><a href="ergebnisse-exportieren.html#cb374-1" aria-hidden="true" tabindex="-1"></a>table <span class="ot">&lt;-</span> descr <span class="sc">%&gt;%</span> </span>
+<span id="cb374-2"><a href="ergebnisse-exportieren.html#cb374-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>(<span class="at">groupname_col =</span> <span class="st">&quot;Geschlecht&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb374-3"><a href="ergebnisse-exportieren.html#cb374-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_spanner</span>(</span>
+<span id="cb374-4"><a href="ergebnisse-exportieren.html#cb374-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">label =</span> <span class="st">&quot;Mittlere Lage&quot;</span>,</span>
+<span id="cb374-5"><a href="ergebnisse-exportieren.html#cb374-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">columns =</span> <span class="fu">vars</span>(Mean, Median)</span>
+<span id="cb374-6"><a href="ergebnisse-exportieren.html#cb374-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
+<span id="cb374-7"><a href="ergebnisse-exportieren.html#cb374-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_footnote</span>(</span>
+<span id="cb374-8"><a href="ergebnisse-exportieren.html#cb374-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">footnote =</span> <span class="st">&quot;Mittlere Ausprägung von Neurotizismus&quot;</span>,</span>
+<span id="cb374-9"><a href="ergebnisse-exportieren.html#cb374-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">locations =</span> <span class="fu">cells_body</span>(</span>
+<span id="cb374-10"><a href="ergebnisse-exportieren.html#cb374-10" aria-hidden="true" tabindex="-1"></a>      <span class="at">columns =</span> <span class="fu">vars</span>(Variable),</span>
+<span id="cb374-11"><a href="ergebnisse-exportieren.html#cb374-11" aria-hidden="true" tabindex="-1"></a>      <span class="at">rows =</span> <span class="dv">2</span>)</span>
+<span id="cb374-12"><a href="ergebnisse-exportieren.html#cb374-12" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
+<span id="cb374-13"><a href="ergebnisse-exportieren.html#cb374-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_footnote</span>(</span>
+<span id="cb374-14"><a href="ergebnisse-exportieren.html#cb374-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">footnote =</span> <span class="st">&quot;Standardfehler&quot;</span>,</span>
+<span id="cb374-15"><a href="ergebnisse-exportieren.html#cb374-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">locations =</span> <span class="fu">cells_column_labels</span>(</span>
+<span id="cb374-16"><a href="ergebnisse-exportieren.html#cb374-16" aria-hidden="true" tabindex="-1"></a>      <span class="at">columns =</span> <span class="fu">vars</span>(SE))</span>
+<span id="cb374-17"><a href="ergebnisse-exportieren.html#cb374-17" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+#luqikswtyy .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#luqikswtyy .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#luqikswtyy .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#luqikswtyy .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 4px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#luqikswtyy .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#luqikswtyy .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#luqikswtyy .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#luqikswtyy .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#luqikswtyy .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#luqikswtyy .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#luqikswtyy .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#luqikswtyy .gt_group_heading {
+  padding: 8px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#luqikswtyy .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#luqikswtyy .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#luqikswtyy .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#luqikswtyy .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#luqikswtyy .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 12px;
+}
+
+#luqikswtyy .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#luqikswtyy .gt_first_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+}
+
+#luqikswtyy .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#luqikswtyy .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#luqikswtyy .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#luqikswtyy .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#luqikswtyy .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#luqikswtyy .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding: 4px;
+}
+
+#luqikswtyy .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#luqikswtyy .gt_sourcenote {
+  font-size: 90%;
+  padding: 4px;
+}
+
+#luqikswtyy .gt_left {
+  text-align: left;
+}
+
+#luqikswtyy .gt_center {
+  text-align: center;
+}
+
+#luqikswtyy .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#luqikswtyy .gt_font_normal {
+  font-weight: normal;
+}
+
+#luqikswtyy .gt_font_bold {
+  font-weight: bold;
+}
+
+#luqikswtyy .gt_font_italic {
+  font-style: italic;
+}
+
+#luqikswtyy .gt_super {
+  font-size: 65%;
+}
+
+#luqikswtyy .gt_footnote_marks {
+  font-style: italic;
+  font-size: 65%;
+}
+</style>
+<div id="luqikswtyy" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;"><table class="gt_table">
+  
+  <thead class="gt_col_headings">
+    <tr>
+      <th class="gt_col_heading gt_center gt_columns_bottom_border" rowspan="2" colspan="1">Variable</th>
+      <th class="gt_col_heading gt_center gt_columns_bottom_border" rowspan="2" colspan="1">Min</th>
+      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="2">
+        <span class="gt_column_spanner">Mittlere Lage</span>
+      </th>
+      <th class="gt_col_heading gt_center gt_columns_bottom_border" rowspan="2" colspan="1">Max</th>
+      <th class="gt_col_heading gt_center gt_columns_bottom_border" rowspan="2" colspan="1">SE<sup class="gt_footnote_marks">1</sup></th>
+    </tr>
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1">Mean</th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1">Median</th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr class="gt_group_heading_row">
+      <td colspan="6" class="gt_group_heading">Weiblich</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left">Extraversion</td>
+      <td class="gt_row gt_right">2.4</td>
+      <td class="gt_row gt_right">3.05</td>
+      <td class="gt_row gt_right">3.0</td>
+      <td class="gt_row gt_right">4.3</td>
+      <td class="gt_row gt_right">0.03</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left">Neurotizismus<sup class="gt_footnote_marks">2</sup></td>
+      <td class="gt_row gt_right">1.4</td>
+      <td class="gt_row gt_right">3.25</td>
+      <td class="gt_row gt_right">3.3</td>
+      <td class="gt_row gt_right">4.6</td>
+      <td class="gt_row gt_right">0.06</td>
+    </tr>
+    <tr class="gt_group_heading_row">
+      <td colspan="6" class="gt_group_heading">Männlich</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left">Extraversion</td>
+      <td class="gt_row gt_right">2.3</td>
+      <td class="gt_row gt_right">3.11</td>
+      <td class="gt_row gt_right">3.0</td>
+      <td class="gt_row gt_right">4.1</td>
+      <td class="gt_row gt_right">0.04</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_left">Neurotizismus</td>
+      <td class="gt_row gt_right">1.6</td>
+      <td class="gt_row gt_right">2.96</td>
+      <td class="gt_row gt_right">2.9</td>
+      <td class="gt_row gt_right">4.6</td>
+      <td class="gt_row gt_right">0.08</td>
+    </tr>
+  </tbody>
+  
+  <tfoot>
+    <tr class="gt_footnotes">
+      <td colspan="6">
+        <p class="gt_footnote">
+          <sup class="gt_footnote_marks">
+            <em>1</em>
+          </sup>
+           
+          Standardfehler
+          <br />
+        </p>
+        <p class="gt_footnote">
+          <sup class="gt_footnote_marks">
+            <em>2</em>
+          </sup>
+           
+          Mittlere Ausprägung von Neurotizismus
+          <br />
+        </p>
+      </td>
+    </tr>
+  </tfoot>
+</table></div>
+<p>Beim Speichern ändert sich auch nicht wenig im Vergleich zu <code>ggplot</code>. Anstelle von <code>ggsave()</code> verwenden wir <code>gtsave()</code>. Dabei kann man sich entscheiden, ob die Tabelle als LaTeX (<code>.tex</code>), Word (<code>.rtf</code>) oder HTML ausgegeben wird. Beachte an der Stelle, dass die Ausgabe als Word Datei derzeitig noch einige optische Mängel aufweist.</p>
+<div class="sourceCode" id="cb375"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb375-1"><a href="ergebnisse-exportieren.html#cb375-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gtsave</span>(table, <span class="st">&quot;tabelle.tex&quot;</span>)  </span>
+<span id="cb375-2"><a href="ergebnisse-exportieren.html#cb375-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gtsave</span>(table, <span class="st">&quot;tabelle.rtf&quot;</span>) </span>
+<span id="cb375-3"><a href="ergebnisse-exportieren.html#cb375-3" aria-hidden="true" tabindex="-1"></a><span class="fu">gtsave</span>(table, <span class="st">&quot;tabelle.html&quot;</span>)</span></code></pre></div>
+<p>Möchte man die als <code>.tex</code> gespeicherte Tabelle nun in LaTeX einfügen, muss man sich mithilfe von <code>gt_latex_dependencies()</code> über die notwendigen Packages für die Tabelle bewusst werden. Für unser Beispiel würde ein minimales Beispiel wie folgt aussehen.</p>
+<div class="sourceCode" id="cb376"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb376-1"><a href="ergebnisse-exportieren.html#cb376-1" aria-hidden="true" tabindex="-1"></a><span class="bu">\documentclass</span>[a4paper,12pt]{<span class="ex">article</span>}</span>
+<span id="cb376-2"><a href="ergebnisse-exportieren.html#cb376-2" aria-hidden="true" tabindex="-1"></a><span class="bu">\usepackage</span>[utf8]{<span class="ex">inputenc</span>}</span>
+<span id="cb376-3"><a href="ergebnisse-exportieren.html#cb376-3" aria-hidden="true" tabindex="-1"></a><span class="bu">\usepackage</span>[T1]{<span class="ex">fontenc</span>}</span>
+<span id="cb376-4"><a href="ergebnisse-exportieren.html#cb376-4" aria-hidden="true" tabindex="-1"></a><span class="bu">\usepackage</span>{<span class="ex">amsmath</span>}</span>
+<span id="cb376-5"><a href="ergebnisse-exportieren.html#cb376-5" aria-hidden="true" tabindex="-1"></a><span class="bu">\usepackage</span>{<span class="ex">booktabs</span>}</span>
+<span id="cb376-6"><a href="ergebnisse-exportieren.html#cb376-6" aria-hidden="true" tabindex="-1"></a><span class="bu">\usepackage</span>{<span class="ex">caption</span>}</span>
+<span id="cb376-7"><a href="ergebnisse-exportieren.html#cb376-7" aria-hidden="true" tabindex="-1"></a><span class="bu">\usepackage</span>{<span class="ex">longtable</span>}</span>
+<span id="cb376-8"><a href="ergebnisse-exportieren.html#cb376-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb376-9"><a href="ergebnisse-exportieren.html#cb376-9" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">document</span>}</span>
+<span id="cb376-10"><a href="ergebnisse-exportieren.html#cb376-10" aria-hidden="true" tabindex="-1"></a>  <span class="co">% Hier Tabelle einfügen</span></span>
+<span id="cb376-11"><a href="ergebnisse-exportieren.html#cb376-11" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">document</span>}</span></code></pre></div>
+<p>An der Stelle des Prozentzeichens würde man dann die gespeicherte Tabelle einfügen.</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="latente-variablenmodelle.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="datatypes.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": false,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "section"
+},
+"toc_depth": 3,
+"info": false,
+"search": false
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Kapitel 13 Iterationen | R für empirische Wissenschaften</title>
+  <meta name="description" content="Das ist ein Test" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Kapitel 13 Iterationen | R für empirische Wissenschaften" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="images/logo.png" />
+  <meta property="og:description" content="Das ist ein Test" />
+  <meta name="github-repo" content="j3ypi/rBasics" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Kapitel 13 Iterationen | R für empirische Wissenschaften" />
+  
+  <meta name="twitter:description" content="Das ist ein Test" />
+  <meta name="twitter:image" content="images/logo.png" />
+
+<meta name="author" content="Jan Philipp Nolte" />
+
+
+<meta name="date" content="2021-02-12" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <link rel="apple-touch-icon-precomposed" sizes="120x120" href="images/touch-icon.png" />
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+<link rel="prev" href="datatypes.html"/>
+<link rel="next" href="appendix.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { } /* Alert */
+code span.an { } /* Annotation */
+code span.at { } /* Attribute */
+code span.bu { } /* BuiltIn */
+code span.cf { } /* ControlFlow */
+code span.ch { color: #0e7a0e; } /* Char */
+code span.cn { } /* Constant */
+code span.co { } /* Comment */
+code span.cv { color: #0e7a0e; } /* CommentVar */
+code span.do { } /* Documentation */
+code span.er { font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fu { color: #e65100; } /* Function */
+code span.im { } /* Import */
+code span.in { } /* Information */
+code span.kw { color: #e65100; } /* Keyword */
+code span.op { } /* Operator */
+code span.ot { } /* Other */
+code span.pp { } /* Preprocessor */
+code span.sc { } /* SpecialChar */
+code span.ss { } /* SpecialString */
+code span.st { color: #0e7a0e; } /* String */
+code span.va { } /* Variable */
+code span.vs { color: #0e7a0e; } /* VerbatimString */
+code span.wa { font-weight: bold; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="stylesheet" href="toc.css" type="text/css" />
+<link rel="stylesheet" href="font-awesome.min.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><strong><a href="./"> R für empirische Wissenschaften</a></strong></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Vorwort</a></li>
+<li class="part"><span><b>I Die ersten Schritte</b></span></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Einleitung</a><ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#für-wen-ist-dieses-buch"><i class="fa fa-check"></i><b>1.1</b> Für wen ist dieses Buch?</a></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#aufbau-und-bearbeitungsstrategie"><i class="fa fa-check"></i><b>1.2</b> Aufbau und Bearbeitungsstrategie</a></li>
+<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#boxen-übungen-und-datensätze"><i class="fa fa-check"></i><b>1.3</b> Boxen, Übungen und Datensätze</a></li>
+<li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#books"><i class="fa fa-check"></i><b>1.4</b> Ergänzende Literatur</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="start.html"><a href="start.html"><i class="fa fa-check"></i><b>2</b> Startvoraussetzungen</a><ul>
+<li class="chapter" data-level="2.1" data-path="start.html"><a href="start.html#installation-von-r-und-rstudio"><i class="fa fa-check"></i><b>2.1</b> Installation von R und RStudio</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="start.html"><a href="start.html#programmiersprache-r"><i class="fa fa-check"></i><b>2.1.1</b> Programmiersprache R</a></li>
+<li class="chapter" data-level="2.1.2" data-path="start.html"><a href="start.html#rstudio"><i class="fa fa-check"></i><b>2.1.2</b> Programmierumgebung RStudio</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="start.html"><a href="start.html#aufbau"><i class="fa fa-check"></i><b>2.2</b> Aufbau von RStudio</a></li>
+<li class="chapter" data-level="2.3" data-path="start.html"><a href="start.html#anpassung"><i class="fa fa-check"></i><b>2.3</b> RStudio anpassen</a></li>
+<li class="chapter" data-level="2.4" data-path="start.html"><a href="start.html#funktionen-und-ihre-argumente"><i class="fa fa-check"></i><b>2.4</b> Funktionen und ihre Argumente</a></li>
+<li class="chapter" data-level="2.5" data-path="start.html"><a href="start.html#packages"><i class="fa fa-check"></i><b>2.5</b> Packages (Erweiterungen)</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="start.html"><a href="start.html#installieren-und-laden"><i class="fa fa-check"></i><b>2.5.1</b> Installieren und laden</a></li>
+<li class="chapter" data-level="2.5.2" data-path="start.html"><a href="start.html#notwendige-packages"><i class="fa fa-check"></i><b>2.5.2</b> Notwendige Packages</a></li>
+<li class="chapter" data-level="2.5.3" data-path="start.html"><a href="start.html#namespace"><i class="fa fa-check"></i><b>2.5.3</b> Namespace</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="start.html"><a href="start.html#help"><i class="fa fa-check"></i><b>2.6</b> Fehler- und Warnmeldungen</a><ul>
+<li class="chapter" data-level="2.6.1" data-path="start.html"><a href="start.html#der-unterschied"><i class="fa fa-check"></i><b>2.6.1</b> Der Unterschied</a></li>
+<li class="chapter" data-level="2.6.2" data-path="start.html"><a href="start.html#hilfe"><i class="fa fa-check"></i><b>2.6.2</b> Wo bekomme ich Hilfe?</a></li>
+<li class="chapter" data-level="2.6.3" data-path="start.html"><a href="start.html#reproduzierbare-beispiele-erstellen"><i class="fa fa-check"></i><b>2.6.3</b> Reproduzierbare Beispiele erstellen</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="start.html"><a href="start.html#historische-relikte"><i class="fa fa-check"></i><b>2.7</b> Historische Relikte</a></li>
+</ul></li>
+<li class="part"><span><b>II Vorbereitung</b></span></li>
+<li class="chapter" data-level="3" data-path="project.html"><a href="project.html"><i class="fa fa-check"></i><b>3</b> Projektorientierung</a><ul>
+<li class="chapter" data-level="3.1" data-path="project.html"><a href="project.html#das-problem"><i class="fa fa-check"></i><b>3.1</b> Das Problem</a></li>
+<li class="chapter" data-level="3.2" data-path="project.html"><a href="project.html#r-projekte-erstellen"><i class="fa fa-check"></i><b>3.2</b> R Projekte erstellen</a></li>
+<li class="chapter" data-level="3.3" data-path="project.html"><a href="project.html#here"><i class="fa fa-check"></i><b>3.3</b> Das <code>here</code> Package</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="variablen.html"><a href="variablen.html"><i class="fa fa-check"></i><b>4</b> Variablen</a><ul>
+<li class="chapter" data-level="4.1" data-path="variablen.html"><a href="variablen.html#pfeil"><i class="fa fa-check"></i><b>4.1</b> Variablen speichern und verwenden</a></li>
+<li class="chapter" data-level="4.2" data-path="variablen.html"><a href="variablen.html#datentypen"><i class="fa fa-check"></i><b>4.2</b> Grundlegende Datentypen</a></li>
+<li class="chapter" data-level="4.3" data-path="variablen.html"><a href="variablen.html#datentypen-konvertieren"><i class="fa fa-check"></i><b>4.3</b> Datentypen konvertieren</a></li>
+<li class="chapter" data-level="4.4" data-path="variablen.html"><a href="variablen.html#factor"><i class="fa fa-check"></i><b>4.4</b> Faktoren</a></li>
+<li class="chapter" data-level="4.5" data-path="variablen.html"><a href="variablen.html#zeitdaten"><i class="fa fa-check"></i><b>4.5</b> Zeitdaten</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="io.html"><a href="io.html"><i class="fa fa-check"></i><b>5</b> Datensätze</a><ul>
+<li class="chapter" data-level="5.1" data-path="io.html"><a href="io.html#einlesen-externer-dateien"><i class="fa fa-check"></i><b>5.1</b> Einlesen externer Dateien</a></li>
+<li class="chapter" data-level="5.2" data-path="io.html"><a href="io.html#datensätze-aus-packages-laden"><i class="fa fa-check"></i><b>5.2</b> Datensätze aus Packages laden</a></li>
+<li class="chapter" data-level="5.3" data-path="io.html"><a href="io.html#datensätze-in-r-erstellen"><i class="fa fa-check"></i><b>5.3</b> Datensätze in R erstellen</a></li>
+<li class="chapter" data-level="5.4" data-path="io.html"><a href="io.html#speichern-und-konvertieren"><i class="fa fa-check"></i><b>5.4</b> Speichern und Konvertieren</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html"><i class="fa fa-check"></i><b>6</b> Datenvorbereitung</a><ul>
+<li class="chapter" data-level="6.1" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#tidyverse"><i class="fa fa-check"></i><b>6.1</b> Einführung</a></li>
+<li class="chapter" data-level="6.2" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#select-rename-und-relocate"><i class="fa fa-check"></i><b>6.2</b> <code>select()</code>, <code>rename()</code> und <code>relocate()</code></a></li>
+<li class="chapter" data-level="6.3" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#filter-und-arrange"><i class="fa fa-check"></i><b>6.3</b> <code>filter()</code> und <code>arrange()</code></a></li>
+<li class="chapter" data-level="6.4" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#mutate"><i class="fa fa-check"></i><b>6.4</b> <code>mutate()</code> und <code>across()</code></a></li>
+<li class="chapter" data-level="6.5" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#function"><i class="fa fa-check"></i><b>6.5</b> Eigene Funktionen</a></li>
+<li class="chapter" data-level="6.6" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#rowwise-und-c_across"><i class="fa fa-check"></i><b>6.6</b> <code>rowwise()</code> und <code>c_across()</code></a></li>
+<li class="chapter" data-level="6.7" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#tidy"><i class="fa fa-check"></i><b>6.7</b> Breites und langes Datenformat</a></li>
+<li class="chapter" data-level="6.8" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#spalten-trennen"><i class="fa fa-check"></i><b>6.8</b> Spalten trennen</a></li>
+<li class="chapter" data-level="6.9" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#datensätze-zusammenführen"><i class="fa fa-check"></i><b>6.9</b> Datensätze zusammenführen</a></li>
+<li class="chapter" data-level="6.10" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#datastring"><i class="fa fa-check"></i><b>6.10</b> Character Manipulation</a></li>
+<li class="chapter" data-level="6.11" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#datafactor"><i class="fa fa-check"></i><b>6.11</b> Faktoren verändern</a></li>
+<li class="chapter" data-level="6.12" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#datazeit"><i class="fa fa-check"></i><b>6.12</b> Mit Zeitdaten arbeiten</a></li>
+<li class="chapter" data-level="6.13" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#binäre-antwortmatrix-erstellen"><i class="fa fa-check"></i><b>6.13</b> Binäre Antwortmatrix erstellen</a></li>
+</ul></li>
+<li class="part"><span><b>III Auswertung</b></span></li>
+<li class="chapter" data-level="7" data-path="descr.html"><a href="descr.html"><i class="fa fa-check"></i><b>7</b> Deskriptive Statistik</a><ul>
+<li class="chapter" data-level="7.1" data-path="descr.html"><a href="descr.html#verschiedene-lagemaße"><i class="fa fa-check"></i><b>7.1</b> Verschiedene Lagemaße</a></li>
+<li class="chapter" data-level="7.2" data-path="descr.html"><a href="descr.html#umgang-mit-fehlenden-werten"><i class="fa fa-check"></i><b>7.2</b> Umgang mit fehlenden Werten</a></li>
+<li class="chapter" data-level="7.3" data-path="descr.html"><a href="descr.html#häufigkeiten-und-kontingenztafeln"><i class="fa fa-check"></i><b>7.3</b> Häufigkeiten und Kontingenztafeln</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="visual.html"><a href="visual.html"><i class="fa fa-check"></i><b>8</b> Visualisierungen</a><ul>
+<li class="chapter" data-level="8.1" data-path="visual.html"><a href="visual.html#einführung"><i class="fa fa-check"></i><b>8.1</b> Einführung</a></li>
+<li class="chapter" data-level="8.2" data-path="visual.html"><a href="visual.html#histogram"><i class="fa fa-check"></i><b>8.2</b> Histogramm und Dichte</a></li>
+<li class="chapter" data-level="8.3" data-path="visual.html"><a href="visual.html#streudiagramm"><i class="fa fa-check"></i><b>8.3</b> Streudiagramm</a></li>
+<li class="chapter" data-level="8.4" data-path="visual.html"><a href="visual.html#boxplot"><i class="fa fa-check"></i><b>8.4</b> Boxplot</a></li>
+<li class="chapter" data-level="8.5" data-path="visual.html"><a href="visual.html#violin"><i class="fa fa-check"></i><b>8.5</b> Violin Plot</a></li>
+<li class="chapter" data-level="8.6" data-path="visual.html"><a href="visual.html#barplot"><i class="fa fa-check"></i><b>8.6</b> Balkendiagramm</a></li>
+<li class="chapter" data-level="8.7" data-path="visual.html"><a href="visual.html#anovaplot"><i class="fa fa-check"></i><b>8.7</b> Liniendiagramm</a></li>
+<li class="chapter" data-level="8.8" data-path="visual.html"><a href="visual.html#odds"><i class="fa fa-check"></i><b>8.8</b> Odds Ratios</a></li>
+<li class="chapter" data-level="8.9" data-path="visual.html"><a href="visual.html#q-q-plot"><i class="fa fa-check"></i><b>8.9</b> Q-Q Plot</a></li>
+<li class="chapter" data-level="8.10" data-path="visual.html"><a href="visual.html#ellipsen"><i class="fa fa-check"></i><b>8.10</b> Ellipsen</a></li>
+<li class="chapter" data-level="8.11" data-path="visual.html"><a href="visual.html#morefactors"><i class="fa fa-check"></i><b>8.11</b> Mehrfaktorielle Abbildungen</a><ul>
+<li class="chapter" data-level="8.11.1" data-path="visual.html"><a href="visual.html#groups"><i class="fa fa-check"></i><b>8.11.1</b> Gruppierungsargumente</a></li>
+<li class="chapter" data-level="8.11.2" data-path="visual.html"><a href="visual.html#facets"><i class="fa fa-check"></i><b>8.11.2</b> Facets</a></li>
+</ul></li>
+<li class="chapter" data-level="8.12" data-path="visual.html"><a href="visual.html#patch"><i class="fa fa-check"></i><b>8.12</b> Anordnen mehrerer Graphen</a></li>
+<li class="chapter" data-level="8.13" data-path="visual.html"><a href="visual.html#adapt"><i class="fa fa-check"></i><b>8.13</b> Anpassen des Aussehens</a></li>
+<li class="chapter" data-level="8.14" data-path="visual.html"><a href="visual.html#ggsave"><i class="fa fa-check"></i><b>8.14</b> Speichern von Graphen</a></li>
+<li class="chapter" data-level="8.15" data-path="visual.html"><a href="visual.html#example"><i class="fa fa-check"></i><b>8.15</b> Anwendungsbeispiel</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="inductive.html"><a href="inductive.html"><i class="fa fa-check"></i><b>9</b> Inferenzstatistik</a><ul>
+<li class="chapter" data-level="9.1" data-path="inductive.html"><a href="inductive.html#einführung-1"><i class="fa fa-check"></i><b>9.1</b> Einführung</a></li>
+<li class="chapter" data-level="9.2" data-path="inductive.html"><a href="inductive.html#normalverteilung-prüfen"><i class="fa fa-check"></i><b>9.2</b> Normalverteilung prüfen</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="inductive.html"><a href="inductive.html#shapiro-wilk-test"><i class="fa fa-check"></i><b>9.2.1</b> Shapiro-Wilk Test</a></li>
+<li class="chapter" data-level="9.2.2" data-path="inductive.html"><a href="inductive.html#kolmogorov-smirnov-test"><i class="fa fa-check"></i><b>9.2.2</b> Kolmogorov-Smirnov Test</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="inductive.html"><a href="inductive.html#varianzhomogenität-und-spherizität"><i class="fa fa-check"></i><b>9.3</b> Varianzhomogenität und Spherizität</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="inductive.html"><a href="inductive.html#f-test"><i class="fa fa-check"></i><b>9.3.1</b> <em>F</em> Test</a></li>
+<li class="chapter" data-level="9.3.2" data-path="inductive.html"><a href="inductive.html#levene-test"><i class="fa fa-check"></i><b>9.3.2</b> Levene Test</a></li>
+<li class="chapter" data-level="9.3.3" data-path="inductive.html"><a href="inductive.html#bartletts-test"><i class="fa fa-check"></i><b>9.3.3</b> Bartletts Test</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="inductive.html"><a href="inductive.html#unterschied-zwischen-zwei-gruppen"><i class="fa fa-check"></i><b>9.4</b> Unterschied zwischen zwei Gruppen</a><ul>
+<li class="chapter" data-level="9.4.1" data-path="inductive.html"><a href="inductive.html#gauß-test"><i class="fa fa-check"></i><b>9.4.1</b> Gauß Test</a></li>
+<li class="chapter" data-level="9.4.2" data-path="inductive.html"><a href="inductive.html#t-test-und-welch-test"><i class="fa fa-check"></i><b>9.4.2</b> <em>t</em> Test und Welch Test</a></li>
+<li class="chapter" data-level="9.4.3" data-path="inductive.html"><a href="inductive.html#wilcoxon-test"><i class="fa fa-check"></i><b>9.4.3</b> Wilcoxon Test</a></li>
+<li class="chapter" data-level="9.4.4" data-path="inductive.html"><a href="inductive.html#brunner-munzel-test"><i class="fa fa-check"></i><b>9.4.4</b> Brunner Munzel Test</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="inductive.html"><a href="inductive.html#unterschiede-mehrerer-gruppen"><i class="fa fa-check"></i><b>9.5</b> Unterschiede mehrerer Gruppen</a><ul>
+<li class="chapter" data-level="9.5.1" data-path="inductive.html"><a href="inductive.html#varianzanalyse"><i class="fa fa-check"></i><b>9.5.1</b> Varianzanalyse</a></li>
+<li class="chapter" data-level="9.5.2" data-path="inductive.html"><a href="inductive.html#repeated"><i class="fa fa-check"></i><b>9.5.2</b> Messwiederholung</a></li>
+<li class="chapter" data-level="9.5.3" data-path="inductive.html"><a href="inductive.html#kruskal-wallis-test"><i class="fa fa-check"></i><b>9.5.3</b> Kruskal-Wallis Test</a></li>
+<li class="chapter" data-level="9.5.4" data-path="inductive.html"><a href="inductive.html#friedman-test"><i class="fa fa-check"></i><b>9.5.4</b> Friedman Test</a></li>
+</ul></li>
+<li class="chapter" data-level="9.6" data-path="inductive.html"><a href="inductive.html#regressionsmodelle"><i class="fa fa-check"></i><b>9.6</b> Regressionsmodelle</a><ul>
+<li class="chapter" data-level="9.6.1" data-path="inductive.html"><a href="inductive.html#linregression"><i class="fa fa-check"></i><b>9.6.1</b> Eindimensionale lineare Regression</a></li>
+<li class="chapter" data-level="9.6.2" data-path="inductive.html"><a href="inductive.html#hierarchische-lineare-regression"><i class="fa fa-check"></i><b>9.6.2</b> Hierarchische lineare Regression</a></li>
+<li class="chapter" data-level="9.6.3" data-path="inductive.html"><a href="inductive.html#logistische-regression"><i class="fa fa-check"></i><b>9.6.3</b> Logistische Regression</a></li>
+<li class="chapter" data-level="9.6.4" data-path="inductive.html"><a href="inductive.html#baseline-logit-model"><i class="fa fa-check"></i><b>9.6.4</b> Baseline Logit Model</a></li>
+<li class="chapter" data-level="9.6.5" data-path="inductive.html"><a href="inductive.html#cumulative-logit-model"><i class="fa fa-check"></i><b>9.6.5</b> Cumulative Logit Model</a></li>
+</ul></li>
+<li class="chapter" data-level="9.7" data-path="inductive.html"><a href="inductive.html#korrelationsanalysen"><i class="fa fa-check"></i><b>9.7</b> Korrelationsanalysen</a><ul>
+<li class="chapter" data-level="9.7.1" data-path="inductive.html"><a href="inductive.html#produkt-moment-korrelation-nach-pearson"><i class="fa fa-check"></i><b>9.7.1</b> Produkt-Moment Korrelation nach Pearson</a></li>
+<li class="chapter" data-level="9.7.2" data-path="inductive.html"><a href="inductive.html#rangkorrelation-nach-spearman"><i class="fa fa-check"></i><b>9.7.2</b> Rangkorrelation nach Spearman</a></li>
+<li class="chapter" data-level="9.7.3" data-path="inductive.html"><a href="inductive.html#polychorische-korrelation"><i class="fa fa-check"></i><b>9.7.3</b> Polychorische Korrelation</a></li>
+<li class="chapter" data-level="9.7.4" data-path="inductive.html"><a href="inductive.html#korrelationstabellen"><i class="fa fa-check"></i><b>9.7.4</b> Korrelationstabellen</a></li>
+</ul></li>
+<li class="chapter" data-level="9.8" data-path="inductive.html"><a href="inductive.html#contingency"><i class="fa fa-check"></i><b>9.8</b> Kontingenztafeln</a><ul>
+<li class="chapter" data-level="9.8.1" data-path="inductive.html"><a href="inductive.html#fisher"><i class="fa fa-check"></i><b>9.8.1</b> Fisher’s-Exact Test</a></li>
+<li class="chapter" data-level="9.8.2" data-path="inductive.html"><a href="inductive.html#chi-quadrat-tests"><i class="fa fa-check"></i><b>9.8.2</b> Chi Quadrat-Tests</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="latente-variablenmodelle.html"><a href="latente-variablenmodelle.html"><i class="fa fa-check"></i><b>10</b> Latente Variablenmodelle</a><ul>
+<li class="chapter" data-level="10.1" data-path="latente-variablenmodelle.html"><a href="latente-variablenmodelle.html#naive-hauptkomponentenanalyse"><i class="fa fa-check"></i><b>10.1</b> Naive Hauptkomponentenanalyse</a></li>
+<li class="chapter" data-level="10.2" data-path="latente-variablenmodelle.html"><a href="latente-variablenmodelle.html#factanal"><i class="fa fa-check"></i><b>10.2</b> Explorative Faktorenanalyse</a></li>
+<li class="chapter" data-level="10.3" data-path="latente-variablenmodelle.html"><a href="latente-variablenmodelle.html#kmeans"><i class="fa fa-check"></i><b>10.3</b> <em>k</em>-Means Clustering</a></li>
+<li class="chapter" data-level="10.4" data-path="latente-variablenmodelle.html"><a href="latente-variablenmodelle.html#strukturgleichungsmodelle"><i class="fa fa-check"></i><b>10.4</b> Strukturgleichungsmodelle</a></li>
+</ul></li>
+<li class="part"><span><b>IV Vertiefung</b></span></li>
+<li class="chapter" data-level="11" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html"><i class="fa fa-check"></i><b>11</b> Ergebnisse exportieren</a><ul>
+<li class="chapter" data-level="11.1" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#einführung-2"><i class="fa fa-check"></i><b>11.1</b> Einführung</a></li>
+<li class="chapter" data-level="11.2" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#markdown"><i class="fa fa-check"></i><b>11.2</b> Berichte</a></li>
+<li class="chapter" data-level="11.3" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#tabellen"><i class="fa fa-check"></i><b>11.3</b> Tabellen</a><ul>
+<li class="chapter" data-level="11.3.1" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#word-pdf-und-html"><i class="fa fa-check"></i><b>11.3.1</b> Word, PDF und HTML</a></li>
+<li class="chapter" data-level="11.3.2" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#latex"><i class="fa fa-check"></i><b>11.3.2</b> LaTeX</a></li>
+<li class="chapter" data-level="11.3.3" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#komplexe-tabellen"><i class="fa fa-check"></i><b>11.3.3</b> Komplexe Tabellen</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="datatypes.html"><a href="datatypes.html"><i class="fa fa-check"></i><b>12</b> Datenstrukturen</a><ul>
+<li class="chapter" data-level="12.1" data-path="datatypes.html"><a href="datatypes.html#vec"><i class="fa fa-check"></i><b>12.1</b> Vektor</a></li>
+<li class="chapter" data-level="12.2" data-path="datatypes.html"><a href="datatypes.html#matrix"><i class="fa fa-check"></i><b>12.2</b> Matrix</a></li>
+<li class="chapter" data-level="12.3" data-path="datatypes.html"><a href="datatypes.html#tibble"><i class="fa fa-check"></i><b>12.3</b> Data.frame und tibble</a></li>
+<li class="chapter" data-level="12.4" data-path="datatypes.html"><a href="datatypes.html#lists"><i class="fa fa-check"></i><b>12.4</b> Liste</a></li>
+<li class="chapter" data-level="12.5" data-path="datatypes.html"><a href="datatypes.html#umwandlung"><i class="fa fa-check"></i><b>12.5</b> Umwandlungen</a></li>
+<li class="chapter" data-level="12.6" data-path="datatypes.html"><a href="datatypes.html#objektorientierung"><i class="fa fa-check"></i><b>12.6</b> Objektorientierung</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="iterationen.html"><a href="iterationen.html"><i class="fa fa-check"></i><b>13</b> Iterationen</a><ul>
+<li class="chapter" data-level="13.1" data-path="iterationen.html"><a href="iterationen.html#iteration"><i class="fa fa-check"></i><b>13.1</b> Was sind iterative Prozesse?</a></li>
+<li class="chapter" data-level="13.2" data-path="iterationen.html"><a href="iterationen.html#map"><i class="fa fa-check"></i><b>13.2</b> Listenbasierte Berechnungen</a></li>
+<li class="chapter" data-level="13.3" data-path="iterationen.html"><a href="iterationen.html#nest"><i class="fa fa-check"></i><b>13.3</b> Einnisten</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i>Appendix</a><ul>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#datensatzerläuterungen"><i class="fa fa-check"></i>Datensatzerläuterungen</a><ul>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#big-five"><i class="fa fa-check"></i>Big Five</a></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#tipp-wm"><i class="fa fa-check"></i>Tipp WM</a></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#indonesisch"><i class="fa fa-check"></i>Indonesisch</a></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#video"><i class="fa fa-check"></i>Video</a></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#artists"><i class="fa fa-check"></i>Artists</a></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#tracks"><i class="fa fa-check"></i>Tracks</a></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#fitness"><i class="fa fa-check"></i>Fitness</a></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#statistical-literacy"><i class="fa fa-check"></i>Statistical Literacy</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#übungsverzeichnis"><i class="fa fa-check"></i>Übungsverzeichnis</a></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#literaturverzeichnis"><i class="fa fa-check"></i>Literaturverzeichnis</a></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#verwendete-software-versionen"><i class="fa fa-check"></i>Verwendete Software Versionen</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R für empirische Wissenschaften</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="iterationen" class="section level1">
+<h1><span class="header-section-number">Kapitel 13</span> Iterationen</h1>
+<div id="iteration" class="section level2">
+<h2><span class="header-section-number">13.1</span> Was sind iterative Prozesse?</h2>
+<p>Wenn wir wiederholt etwas sehr ähnlich machen möchten, wäre die wohl offensichtlichste Möglichkeit Copy &amp; Paste. Man nimmt also den Code für den einen Anwendungsfall und modifiziert ihn leicht für andere Anwendungsfälle. Das große Problem dabei ist die Fehleranfälligkeit. Eine sehr gute Lösung dafür sind iterativ Prozesse. Solange eine Bedingung zutritt, soll ein bestimmter Befehl ausgeführt werden und dabei Kleinigkeiten der Reihe nach anpassen. Das wäre die Beschreibung eines sehr grundlegenden programmatischen Prinzips, den sogenannten Schleifen (z.B. <code>for-Schleife</code> und <code>while-Schleife</code>). Diese werden wir uns innerhalb der folgenden Kapitel allerdings nicht anschauen. Dies hängt von zwei Tatsachen ab: 1. Das Schreiben von fehlerfreien Schleifen ist bei fortgeschritteneren Fällen schwer und 2. ist es schwer effiziente Schleifen in R zu schreiben, die nicht ewig für ihre Berechnungen brauchen. Im Kontext der Datenanalyse benötigen wir das allerdings auch gar nicht. Für können mit <code>map()</code> über verschiedene Listenelemente die selbe Funktion anwenden (siehe Kapitel <a href="iterationen.html#map">13.2</a>). Mit <code>nest()</code> kann dies auch direkt innerhalb eines <code>tibbles</code> gemacht werden (siehe Kapitel <a href="iterationen.html#nest">13.3</a>).</p>
+<p>Schauen wir uns einmal Schritt für Schritt die Problematik an. Wenn wir drei separate Regressionsmodelle für den Einfluss von Geschlecht auf Extraversion für jede Altersgruppe machen möchten, könnten wir den Code jeweils kopieren. Wir filtern also zuerst unseren Datensatz.</p>
+<div class="sourceCode" id="cb406"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb406-1"><a href="iterationen.html#cb406-1"></a>mod1 &lt;-<span class="st"> </span>big5_mod <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb406-2"><a href="iterationen.html#cb406-2"></a><span class="st">  </span><span class="kw">filter</span>(Gruppe <span class="op">==</span><span class="st"> &quot;Jung&quot;</span>)</span>
+<span id="cb406-3"><a href="iterationen.html#cb406-3"></a></span>
+<span id="cb406-4"><a href="iterationen.html#cb406-4"></a>mod2 &lt;-<span class="st"> </span>big5_mod <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb406-5"><a href="iterationen.html#cb406-5"></a><span class="st">  </span><span class="kw">filter</span>(Gruppe <span class="op">==</span><span class="st"> &quot;Mittel&quot;</span>)</span>
+<span id="cb406-6"><a href="iterationen.html#cb406-6"></a></span>
+<span id="cb406-7"><a href="iterationen.html#cb406-7"></a>mod3 &lt;-<span class="st"> </span>big5_mod <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb406-8"><a href="iterationen.html#cb406-8"></a><span class="st">  </span><span class="kw">filter</span>(Gruppe <span class="op">==</span><span class="st"> &quot;Weise&quot;</span>)</span></code></pre></div>
+<p>Anschließend werden die drei Regressionsmodelle berechnet.</p>
+<div class="sourceCode" id="cb407"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb407-1"><a href="iterationen.html#cb407-1"></a>model1 &lt;-<span class="st"> </span><span class="kw">lm</span>(Extraversion <span class="op">~</span><span class="st"> </span>Geschlecht, <span class="dt">data =</span> mod1)</span>
+<span id="cb407-2"><a href="iterationen.html#cb407-2"></a>model2 &lt;-<span class="st"> </span><span class="kw">lm</span>(Extraversion <span class="op">~</span><span class="st"> </span>Geschlecht, <span class="dt">data =</span> mod2)</span>
+<span id="cb407-3"><a href="iterationen.html#cb407-3"></a>model3 &lt;-<span class="st"> </span><span class="kw">lm</span>(Extraversion <span class="op">~</span><span class="st"> </span>Geschlecht, <span class="dt">data =</span> mod3)</span></code></pre></div>
+<p>Die Berechnung ist falsch, sobald wir eine Zahl in den Variablennamen vergessen entsprechend anzupassen. Würden wir 20 oder 30 verschiedene Modelle auf diese Art und Weise rechnen wollen, können wir uns fast sicher sein, dass sich irgendwo ein Fehler einschleicht.</p>
+</div>
+<div id="map" class="section level2">
+<h2><span class="header-section-number">13.2</span> Listenbasierte Berechnungen</h2>
+<p>Das <code>purrr</code> Package aus dem <code>tidyverse</code> enthält diverse Funktionen für iterative Prozesse. Wir werden uns im folgenden <code>map()</code> und <code>map_df()</code> genauer anschauen. Dafür müssen wir die verschiedenen Datensätze in eine Liste packen. Pro Listenelement ein Datensatz auf den wir unsere Funktion (hier das Regressionsmodell) anwenden wollen.</p>
+<div class="sourceCode" id="cb408"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb408-1"><a href="iterationen.html#cb408-1"></a>mod_ls &lt;-<span class="st"> </span><span class="kw">list</span>(mod1, mod2, mod3)</span></code></pre></div>
+<pre class="bordercode"><code>## [[1]]
+## # A tibble: 147 x 5
+##   Alter Geschlecht Extraversion Neurotizismus Gruppe
+##   &lt;dbl&gt; &lt;chr&gt;             &lt;dbl&gt;         &lt;dbl&gt; &lt;chr&gt; 
+## 1    30 f                   3.1           3.4 Jung  
+## 2    23 m                   3.4           2.4 Jung  
+## 3    24 f                   3             2.8 Jung  
+## 4    14 f                   2.8           3.5 Jung  
+## # … with 143 more rows
+## 
+## [[2]]
+## # A tibble: 39 x 5
+##   Alter Geschlecht Extraversion Neurotizismus Gruppe
+##   &lt;dbl&gt; &lt;chr&gt;             &lt;dbl&gt;         &lt;dbl&gt; &lt;chr&gt; 
+## 1    36 m                   3             1.9 Mittel
+## 2    32 m                   3.5           3.1 Mittel
+## 3    42 m                   2.9           1.7 Mittel
+## 4    34 m                   3.5           2.2 Mittel
+## # … with 35 more rows
+## 
+## [[3]]
+## # A tibble: 14 x 5
+##   Alter Geschlecht Extraversion Neurotizismus Gruppe
+##   &lt;dbl&gt; &lt;chr&gt;             &lt;dbl&gt;         &lt;dbl&gt; &lt;chr&gt; 
+## 1    54 m                   3.3           4.2 Weise 
+## 2    56 f                   3.2           2.3 Weise 
+## 3    59 m                   2.7           2.3 Weise 
+## 4    56 f                   2.7           2.3 Weise 
+## # … with 10 more rows</code></pre>
+<p>Der erste Schritt ist die Berechnung der Regressionsmodelle mit einer Lambda Funktion innerhalb von <code>map()</code>. Als Ergebnis erhalten wir ebenfalls eine Liste mit einem Modell pro Listenelement. Um das ganze entweder angenehmer ausgeben zu lassen, fügen wir als zweiten Schritt noch <code>map_df()</code> (für map <strong>d</strong>ata <strong>f</strong>rame) hinzu. Wie der Name suggeriert, werden (falls durch die Datenstruktur möglich) die Listenelemente als <code>tibble/data.frame</code> ausgegeben. Dies erreichen wir wieder mit der Funktion <code>tidy</code> aus dem <code>broom</code> Package.</p>
+<div class="sourceCode" id="cb410"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb410-1"><a href="iterationen.html#cb410-1"></a>mod_ls <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb410-2"><a href="iterationen.html#cb410-2"></a><span class="st">  </span><span class="kw">map</span>(<span class="op">~</span><span class="st"> </span><span class="kw">lm</span>(Extraversion <span class="op">~</span><span class="st"> </span>Geschlecht, <span class="dt">data =</span> .x)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb410-3"><a href="iterationen.html#cb410-3"></a><span class="st">  </span><span class="kw">map_df</span>(tidy)</span></code></pre></div>
+<pre class="bordercode"><code>## # A tibble: 6 x 5
+##   term        estimate std.error statistic   p.value
+##   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
+## 1 (Intercept)   3.07      0.0376    81.6   4.49e-123
+## 2 Geschlechtm   0.0550    0.0598     0.919 3.60e-  1
+## 3 (Intercept)   3.07      0.0649    47.3   1.08e- 34
+## 4 Geschlechtm   0.0563    0.0930     0.605 5.49e-  1
+## # … with 2 more rows</code></pre>
+<div class="exercise2">
+<p>Das ist ein Platzhalter für eine Übung. Starte die Übung mit <code>hands_on("test")</code>.</p>
+</div>
+</div>
+<div id="nest" class="section level2">
+<h2><span class="header-section-number">13.3</span> Einnisten</h2>
+<p>Durch die Funktion <code>nest()</code> können innerhalb von Zellen eines <code>tibbles</code> Datenstrukturen jeder Art innerhalb eingenistet werden. Dies wurde bereits in Kapitel <a href="datatypes.html#lists">12.4</a> anhand eines einfachen Beispiels eingeführt. Nun wenden wir das ganze auf unseren <code>big5_mod</code> Datensatz an. Dafür gruppieren wir wie gewohnt mithilfe von <code>group_by()</code>. Anschließend muss nur noch die Funktion <code>nest()</code> ohne Argumente ausgeführt werden.</p>
+<div class="sourceCode" id="cb412"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb412-1"><a href="iterationen.html#cb412-1"></a>big5_mod <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb412-2"><a href="iterationen.html#cb412-2"></a><span class="st">  </span><span class="kw">group_by</span>(Gruppe) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb412-3"><a href="iterationen.html#cb412-3"></a><span class="st">  </span><span class="kw">nest</span>()</span></code></pre></div>
+<pre class="bordercode"><code>## # A tibble: 3 x 2
+## # Groups:   Gruppe [3]
+##   Gruppe data              
+##   &lt;chr&gt;  &lt;list&gt;            
+## 1 Mittel &lt;tibble [39 × 4]&gt; 
+## 2 Jung   &lt;tibble [147 × 4]&gt;
+## 3 Weise  &lt;tibble [14 × 4]&gt;</code></pre>
+<p>Als Ergebnis kriegen wir einen <code>tibble</code>, welcher in der ersten Spalte die Altersgruppen abgebildet hat. Daneben gibt es eine neue zweite Spalte namens <code>data</code>, in der wiederum drei <code>tibbles</code> mit den Dimensionen <code>39x4</code>, <code>147x4</code> und <code>14x4</code>. Jetzt können wir ähnlich wie bei den listenbasierten Berechnungen im vorherigen Kapitel mit <code>map()</code> eine Funktion auf jeden dieser eingenisteten Datensätze anwenden. Der Unterschied besteht nun schlichtweg darin, dass wir den Befehl innerhalb von <code>mutate()</code> ausführen müssen. Schließlich haben wir einen <code>tibble</code> vorliegen. Wenn wir dort eine neue Spalte erstellen möchten, benötigen wir dafür <code>mutate()</code>. Im zweiten Schritt nehmen wir die Modelle und geben diese in einem aufgeräumten Format mit <code>tidy()</code> wieder.</p>
+<div class="sourceCode" id="cb414"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb414-1"><a href="iterationen.html#cb414-1"></a>big5_mod <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb414-2"><a href="iterationen.html#cb414-2"></a><span class="st">  </span><span class="kw">group_by</span>(Gruppe) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb414-3"><a href="iterationen.html#cb414-3"></a><span class="st">  </span><span class="kw">nest</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb414-4"><a href="iterationen.html#cb414-4"></a><span class="st">  </span><span class="kw">mutate</span>(</span>
+<span id="cb414-5"><a href="iterationen.html#cb414-5"></a>    <span class="dt">Modelle =</span> <span class="kw">map</span>(data, <span class="op">~</span><span class="st"> </span><span class="kw">lm</span>(Extraversion <span class="op">~</span><span class="st"> </span>Geschlecht, <span class="dt">data =</span> .x)),</span>
+<span id="cb414-6"><a href="iterationen.html#cb414-6"></a>    <span class="dt">Ergebnisse =</span> <span class="kw">map</span>(Modelle, tidy)</span>
+<span id="cb414-7"><a href="iterationen.html#cb414-7"></a>  )</span></code></pre></div>
+<pre class="bordercode"><code>## # A tibble: 3 x 4
+## # Groups:   Gruppe [3]
+##   Gruppe data               Modelle Ergebnisse      
+##   &lt;chr&gt;  &lt;list&gt;             &lt;list&gt;  &lt;list&gt;          
+## 1 Mittel &lt;tibble [39 × 4]&gt;  &lt;lm&gt;    &lt;tibble [2 × 5]&gt;
+## 2 Jung   &lt;tibble [147 × 4]&gt; &lt;lm&gt;    &lt;tibble [2 × 5]&gt;
+## 3 Weise  &lt;tibble [14 × 4]&gt;  &lt;lm&gt;    &lt;tibble [2 × 5]&gt;</code></pre>
+<p>Nun sehen wir eine neue Spalte namens <code>Modelle</code> mit Einträgen des Datentyps <code>&lt;lm&gt;</code> (unsere linearen Modelle). Gleich daneben sind unsere Ergebnisse (<em>p</em>-Werte und Co) wieder als <code>tibble</code> eingenistet. Damit wir nun an diese Ergebnisse herankommen müssen wir nun abschließend lediglich diese mit <code>unnest()</code> aus der eingenisteten Struktur herausholen.</p>
+<div class="sourceCode" id="cb416"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb416-1"><a href="iterationen.html#cb416-1"></a>big5_mod <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb416-2"><a href="iterationen.html#cb416-2"></a><span class="st">  </span><span class="kw">group_by</span>(Gruppe) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb416-3"><a href="iterationen.html#cb416-3"></a><span class="st">  </span><span class="kw">nest</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb416-4"><a href="iterationen.html#cb416-4"></a><span class="st">  </span><span class="kw">mutate</span>(</span>
+<span id="cb416-5"><a href="iterationen.html#cb416-5"></a>    <span class="dt">Modelle =</span> <span class="kw">map</span>(data, <span class="op">~</span><span class="st"> </span><span class="kw">lm</span>(Extraversion <span class="op">~</span><span class="st"> </span>Geschlecht, <span class="dt">data =</span> .x)),</span>
+<span id="cb416-6"><a href="iterationen.html#cb416-6"></a>    <span class="dt">Ergebnisse =</span> <span class="kw">map</span>(Modelle, tidy)</span>
+<span id="cb416-7"><a href="iterationen.html#cb416-7"></a>  ) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb416-8"><a href="iterationen.html#cb416-8"></a><span class="st">  </span><span class="kw">unnest</span>(Ergebnisse) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb416-9"><a href="iterationen.html#cb416-9"></a><span class="st">  </span><span class="kw">select</span>(Gruppe, term, estimate, p.value)</span></code></pre></div>
+<pre class="bordercode"><code>## # A tibble: 6 x 4
+## # Groups:   Gruppe [3]
+##   Gruppe term        estimate   p.value
+##   &lt;chr&gt;  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;
+## 1 Mittel (Intercept)   3.07   1.08e- 34
+## 2 Mittel Geschlechtm   0.0563 5.49e-  1
+## 3 Jung   (Intercept)   3.07   4.49e-123
+## 4 Jung   Geschlechtm   0.0550 3.60e-  1
+## # … with 2 more rows</code></pre>
+<p>Der besseren übersichtshalber haben wir nur die Spalten <code>Gruppe</code>, <code>term</code>, <code>estimate</code> und <code>p.value</code> ausgeben lassen.</p>
+<div class="exercise2">
+<p>Das ist ein Platzhalter für eine Übung. Starte die Übung mit <code>hands_on("test")</code>.</p>
+</div>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="datatypes.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="appendix.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": false,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "section"
+},
+"toc_depth": 3,
+"info": false,
+"search": false
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

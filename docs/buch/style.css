@@ -1,0 +1,384 @@
+p.caption {
+  color: #777;
+  margin-top: 10px;
+}
+
+.book .book-summary ul.summary li a, .book .book-summary ul.summary li span {
+  margin: 5px 5px 5px 5px;
+  display: block;
+  padding: 10px 20px 10px 20px;
+  background: 0 0;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+}
+
+.book .book-summary ul.summary li.active>a {
+  color: #F35D22;
+  padding-left: 9.9px;
+  border-left:4px solid #F35D22;
+  text-decoration: none;
+}
+
+.book .book-summary ul.summary li a:hover {
+  color: #F35D22;
+  padding-left: 9.9px;
+  border-left:4px solid #F35D22;
+  text-decoration: none;
+}
+
+.book .book-summary ul.summary li.divider {
+  background: #ffffff;
+  margin: 0 0;
+}
+
+.book .book-summary ul.summary li a {
+  margin-top: 5px;
+}
+
+.book .book-summary {
+  background: #ffffff;
+  box-shadow: 0.3px 0 8px -1px lightgrey;
+}
+
+.book.color-theme-2 .book-summary {
+  box-shadow: none;
+}
+
+.book.color-theme-2 .book-summary ul.summary li.active > a, .book.color-theme-2 .book-summary ul.summary li a:hover {
+    color: #f4f4f5;
+    background: transparent;
+}
+
+.fa:hover {
+  color: #F35D22;
+  transition: 0.6s;
+}
+
+.fa-copy:hover {
+  color: white;
+  transition: 0.6s;
+}
+
+.book.color-theme-2 .copy-to-clipboard-button {
+    color: #F35D22;
+    background-color: transparent;
+    border: 1.2px solid #F35D22;
+    padding: 12px 15px;
+    border-radius: 10px;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2), 0 1px 2px 0 rgba(0,0,0,0.19);
+}
+
+.copy-to-clipboard-button {
+  color: #F35D22;
+  background-color: white;
+  border: 1.2px solid #F35D22;
+  padding: 12px 15px;
+  border-radius: 10px;
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2), 0 1px 2px 0 rgba(0,0,0,0.19);
+}
+
+.book.color-theme-2 .copy-to-clipboard-button:hover {
+  color: white;
+  background-color: #F35D22;
+  transition: 0.9s;
+}
+
+.copy-to-clipboard-button:hover {
+  color: white;
+  background-color: #F35D22;
+  transition: 0.9s;
+}
+
+.copy-to-clipboard-button:active {
+  background-image: radial-gradient(circle,
+    #F35D22 10%, #f79d7a 11%);
+}
+
+.copy-to-clipboard-button:active:hover, .copy-to-clipboard-button:active:focus {
+  color: white;
+  background-color: #F35D22;
+  transition: 0.6s;
+}
+
+.book .book-body .page-wrapper .page-inner section.normal a {
+  color: #F35D22;
+}
+
+.book .book-body .page-wrapper .page-inner section.normal a:link {
+  color: #F35D22;
+}
+
+.book .book-body .page-wrapper .page-inner section.normal a:visited {
+  color: #F35D22;
+  text-decoration: none;
+}
+
+.book .book-body .page-wrapper .page-inner section.normal a:hover {
+  color: #f79d7a;
+  transition: 0.2s;
+  text-decoration: none;
+}
+
+.book .book-body .page-wrapper .page-inner section.normal a:active {
+  color: #f79d7a;
+  text-decoration: none;
+}
+
+*::selection {
+  text-shadow: none !important;
+  color: #fff;
+  background-color: #ee7000 !important;
+}
+
+p code {
+  white-space: inherit;
+  border-radius: 20px;
+}
+
+li code {
+  white-space: inherit;
+  border-radius: 20px;
+}
+
+pre {
+  word-break: normal;
+  word-wrap: normal;
+}
+
+pre code {
+  white-space: inherit;
+  border-radius: 20px;
+}
+
+.sourceCode pre {
+  margin: 0 !important; /* makes space above and below symmetrical*/
+}
+
+.sourceCode {
+  margin-bottom: 0.85em; /* adds same amount of margin as a <p> would */
+}
+
+h2 code {
+  border-radius: 20px;
+}
+
+.bordercode {
+  border-radius: 10px;
+}
+
+p.flushright {
+  text-align: right;
+}
+
+blockquote > p:last-child {
+  text-align: right;
+}
+
+blockquote > p:first-child {
+  text-align: inherit;
+}
+
+.header-section-number {
+  padding-right: .2em;
+  font-weight: 500;
+}
+
+.level1 .header-section-number {
+  display: inline-block;
+  border-bottom: 3px solid;
+}
+
+.level1 h1{
+  border-bottom: 1px solid;
+}
+
+.level2 h2{
+  border-bottom: 1px solid;
+}
+
+.level3 h3{
+  border-bottom: 1px solid;
+}
+
+.level4 h4{
+  border-bottom: 1px solid;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+}
+
+h1.title {
+  font-weight: 700;
+}
+
+.smallcaps {
+  font-variant: small-caps;
+}
+
+.book .book-body .page-wrapper .page-inner section.normal strong {
+  font-weight: 600;
+}
+
+div {
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+div.idea {
+  padding: 1em 1em 1em 4em;
+  margin-bottom: 10px;
+  background-color: rgb(247, 253, 251);
+  border-color: rgb(101, 223, 190);
+  color: rgb(7, 94, 70);
+  border-top-width: 1px;
+  border-left-width: 4px;
+  border-right-width: 1px;
+  border-bottom-width: 1px;
+  position:relative;
+  border-style: solid;
+  border-radius: 4px;
+}
+
+div.idea:before {
+  content: "\f0eb";
+  font-family: FontAwesome;
+  left:4%;
+  position: absolute;
+  top: 50%;
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  font-size: 40px;
+  color: rgb(12, 168, 127);
+}
+
+.book.color-theme-1 div.idea {
+  background-color: transparent;
+  border-color: rgb(101, 223, 190);
+  color: rgb(7, 94, 70);
+}
+
+.book.color-theme-1 div.idea:before {
+  color: rgb(12, 168, 127);
+}
+
+.book.color-theme-2 div.idea {
+  background-color: transparent;
+  border-color: rgb(40, 129, 107);
+  color: rgb(166, 242, 221);
+}
+
+.book.color-theme-2 div.idea:before {
+  color: rgb(65, 164, 138);
+}
+
+div.warning {
+  padding: 1em 1em 1em 4em;
+  margin-bottom: 10px;
+  background-color: rgb(254, 246, 246);
+  border-color: rgb(241, 125, 124);
+  color: rgb(152, 62, 62);
+  border-top-width: 1px;
+  border-left-width: 4px;
+  border-right-width: 1px;
+  border-bottom-width: 1px;
+  position:relative;
+  border-style: solid;
+  border-radius: 4px;
+}
+
+div.warning:before {
+  content: "\f071";
+  font-family: FontAwesome;
+  left:4%;
+  position: absolute;
+  top: 50%;
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  font-size: 35px;
+  color: rgb(241, 125, 124);
+}
+
+.book.color-theme-1 div.warning {
+  background-color: transparent;
+  border-color: rgb(241, 125, 124);
+  color: rgb(152, 62, 62);
+}
+
+.book.color-theme-1 div.warning:before {
+  color: rgb(241, 125, 124);
+}
+
+.book.color-theme-2 div.warning {
+  background-color: transparent;
+  border-color: rgb(164, 83, 85);
+  color: rgb(244, 154, 154);
+}
+
+.book.color-theme-2 div.warning:before {
+  color: rgb(208, 124, 124);
+}
+
+div.exercise2 {
+  padding: 1em 1em 1em 4em;
+  margin-bottom: 10px;
+  background-color: rgb(248, 250, 252);
+  border-color: rgb(112, 160, 233);
+  color: rgb(31, 106, 221);
+  border-top-width: 1px;
+  border-left-width: 4px;
+  border-right-width: 1px;
+  border-bottom-width: 1px;
+  position:relative;
+  border-style: solid;
+  border-radius: 4px;
+}
+
+div.exercise2:before {
+  content: "\f109";
+  font-family: FontAwesome;
+  left:4%;
+  position: absolute;
+  top: 50%;
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  font-size: 35px;
+  color: rgb(112, 160, 233);
+}
+
+.book.color-theme-1 div.exercise2 {
+  background-color: transparent;
+  border-color: rgb(112, 160, 233);
+  color: rgb(31, 106, 221);
+}
+
+.book.color-theme-1 div.exercise2:before {
+  color: rgb(112, 160, 233);
+}
+
+.book.color-theme-2 div.exercise2 {
+  background-color: transparent;
+  border-color: rgb(110, 149, 207);
+  color: rgb(153, 193, 250);
+}
+
+.book.color-theme-2 div.exercise2:before {
+  color: rgb(153, 193, 250);
+}
+
+.book .book-body .page-wrapper .page-inner section.normal div.exercise code {
+  background-color: inherit;
+}
+
+.book .book-body .page-wrapper .page-inner section.normal div.warning code {
+  background-color: inherit;
+}
+
+.book .book-body .page-wrapper .page-inner section.normal div.idea code {
+  background-color: inherit;
+}

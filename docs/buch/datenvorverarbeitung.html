@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Kapitel 8 Datenvorverarbeitung | R für empirische Wissenschaften</title>
+  <meta name="description" content="Das ist ein Test" />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Kapitel 8 Datenvorverarbeitung | R für empirische Wissenschaften" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Das ist ein Test" />
+  <meta name="github-repo" content="j3ypi/rBasics" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Kapitel 8 Datenvorverarbeitung | R für empirische Wissenschaften" />
+  
+  <meta name="twitter:description" content="Das ist ein Test" />
+  
+
+<meta name="author" content="Jan Philipp Nolte" />
+
+
+<meta name="date" content="2020-04-24" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="fehler-beheben.html"/>
+<link rel="next" href="deskriptive-statistik.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="stylesheet" href="toc.css" type="text/css" />
+<link rel="stylesheet" href="font-awesome.min.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><strong><a href="./"> R für empirische Wissenschaften</a></strong></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Vorwort</a></li>
+<li class="part"><span><b>I Die ersten Schritte</b></span></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Einleitung</a><ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#für-wen-ist-dieses-buch"><i class="fa fa-check"></i><b>1.1</b> Für wen ist dieses Buch?</a></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#aufbau-und-bearbeitungsstrategie"><i class="fa fa-check"></i><b>1.2</b> Aufbau und Bearbeitungsstrategie</a></li>
+<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#merkboxen-übungen-und-datensätze"><i class="fa fa-check"></i><b>1.3</b> Merkboxen, Übungen und Datensätze</a></li>
+<li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#books"><i class="fa fa-check"></i><b>1.4</b> Ergänzende Literatur</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="startvoraussetzungen.html"><a href="startvoraussetzungen.html"><i class="fa fa-check"></i><b>2</b> Startvoraussetzungen</a><ul>
+<li class="chapter" data-level="2.1" data-path="startvoraussetzungen.html"><a href="startvoraussetzungen.html#installation-von-r-und-rstudio"><i class="fa fa-check"></i><b>2.1</b> Installation von R und RStudio</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="startvoraussetzungen.html"><a href="startvoraussetzungen.html#programmiersprache-r"><i class="fa fa-check"></i><b>2.1.1</b> Programmiersprache R</a></li>
+<li class="chapter" data-level="2.1.2" data-path="startvoraussetzungen.html"><a href="startvoraussetzungen.html#rstudio"><i class="fa fa-check"></i><b>2.1.2</b> Programmierumgebung RStudio</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="startvoraussetzungen.html"><a href="startvoraussetzungen.html#aufbau"><i class="fa fa-check"></i><b>2.2</b> Aufbau von RStudio</a></li>
+<li class="chapter" data-level="2.3" data-path="startvoraussetzungen.html"><a href="startvoraussetzungen.html#anpassung"><i class="fa fa-check"></i><b>2.3</b> RStudio anpassen</a></li>
+<li class="chapter" data-level="2.4" data-path="startvoraussetzungen.html"><a href="startvoraussetzungen.html#funktionen-und-ihre-argumente"><i class="fa fa-check"></i><b>2.4</b> Funktionen und ihre Argumente</a></li>
+<li class="chapter" data-level="2.5" data-path="startvoraussetzungen.html"><a href="startvoraussetzungen.html#packages"><i class="fa fa-check"></i><b>2.5</b> Packages (Erweiterungen)</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="startvoraussetzungen.html"><a href="startvoraussetzungen.html#packages-installieren-und-laden"><i class="fa fa-check"></i><b>2.5.1</b> Packages installieren und laden</a></li>
+<li class="chapter" data-level="2.5.2" data-path="startvoraussetzungen.html"><a href="startvoraussetzungen.html#installieren-der-notwendigen-packages"><i class="fa fa-check"></i><b>2.5.2</b> Installieren der notwendigen Packages</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="startvoraussetzungen.html"><a href="startvoraussetzungen.html#help"><i class="fa fa-check"></i><b>2.6</b> Fehler- und Warnmeldungen</a></li>
+<li class="chapter" data-level="2.7" data-path="startvoraussetzungen.html"><a href="startvoraussetzungen.html#wo-bekomme-ich-hilfe"><i class="fa fa-check"></i><b>2.7</b> Wo bekomme ich Hilfe?</a></li>
+<li class="chapter" data-level="2.8" data-path="startvoraussetzungen.html"><a href="startvoraussetzungen.html#tu-das-nie"><i class="fa fa-check"></i><b>2.8</b> Tu das nie!</a></li>
+</ul></li>
+<li class="part"><span><b>II Vorbereitung</b></span></li>
+<li class="chapter" data-level="3" data-path="project.html"><a href="project.html"><i class="fa fa-check"></i><b>3</b> Projektorientierung</a><ul>
+<li class="chapter" data-level="3.1" data-path="project.html"><a href="project.html#wo-liegt-das-problem"><i class="fa fa-check"></i><b>3.1</b> Wo liegt das Problem?</a></li>
+<li class="chapter" data-level="3.2" data-path="project.html"><a href="project.html#r-projekte-erstellen"><i class="fa fa-check"></i><b>3.2</b> R Projekte erstellen</a></li>
+<li class="chapter" data-level="3.3" data-path="project.html"><a href="project.html#here"><i class="fa fa-check"></i><b>3.3</b> Das <code>here</code> Package</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="pfeil.html"><a href="pfeil.html"><i class="fa fa-check"></i><b>4</b> Variablen</a></li>
+<li class="chapter" data-level="5" data-path="io.html"><a href="io.html"><i class="fa fa-check"></i><b>5</b> Datensätze</a><ul>
+<li class="chapter" data-level="5.1" data-path="io.html"><a href="io.html#einlesen-externer-dateien"><i class="fa fa-check"></i><b>5.1</b> Einlesen externer Dateien</a></li>
+<li class="chapter" data-level="5.2" data-path="io.html"><a href="io.html#datensätze-aus-packages-laden"><i class="fa fa-check"></i><b>5.2</b> Datensätze aus Packages laden</a></li>
+<li class="chapter" data-level="5.3" data-path="io.html"><a href="io.html#speichern-und-konvertieren"><i class="fa fa-check"></i><b>5.3</b> Speichern und Konvertieren</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="datentypen.html"><a href="datentypen.html"><i class="fa fa-check"></i><b>6</b> Datentypen</a><ul>
+<li class="chapter" data-level="6.1" data-path="datentypen.html"><a href="datentypen.html#grundtypen"><i class="fa fa-check"></i><b>6.1</b> Grundtypen</a></li>
+<li class="chapter" data-level="6.2" data-path="datentypen.html"><a href="datentypen.html#factor"><i class="fa fa-check"></i><b>6.2</b> Faktoren</a></li>
+<li class="chapter" data-level="6.3" data-path="datentypen.html"><a href="datentypen.html#zeitdaten"><i class="fa fa-check"></i><b>6.3</b> Zeitdaten</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="fehler-beheben.html"><a href="fehler-beheben.html"><i class="fa fa-check"></i><b>7</b> Fehler beheben</a></li>
+<li class="chapter" data-level="8" data-path="datenvorverarbeitung.html"><a href="datenvorverarbeitung.html"><i class="fa fa-check"></i><b>8</b> Datenvorverarbeitung</a><ul>
+<li class="chapter" data-level="8.1" data-path="datenvorverarbeitung.html"><a href="datenvorverarbeitung.html#tidyverse"><i class="fa fa-check"></i><b>8.1</b> Das Tidyverse</a></li>
+<li class="chapter" data-level="8.2" data-path="datenvorverarbeitung.html"><a href="datenvorverarbeitung.html#der-pipe-operator"><i class="fa fa-check"></i><b>8.2</b> Der Pipe Operator</a></li>
+<li class="chapter" data-level="8.3" data-path="datenvorverarbeitung.html"><a href="datenvorverarbeitung.html#select-rename-und-relocate"><i class="fa fa-check"></i><b>8.3</b> select(), rename() und relocate()</a></li>
+<li class="chapter" data-level="8.4" data-path="datenvorverarbeitung.html"><a href="datenvorverarbeitung.html#across"><i class="fa fa-check"></i><b>8.4</b> across()</a></li>
+<li class="chapter" data-level="8.5" data-path="datenvorverarbeitung.html"><a href="datenvorverarbeitung.html#filter-und-arrange"><i class="fa fa-check"></i><b>8.5</b> filter() und arrange()</a></li>
+<li class="chapter" data-level="8.6" data-path="datenvorverarbeitung.html"><a href="datenvorverarbeitung.html#group_by-und-mutate"><i class="fa fa-check"></i><b>8.6</b> group_by() und mutate()</a></li>
+<li class="chapter" data-level="8.7" data-path="datenvorverarbeitung.html"><a href="datenvorverarbeitung.html#rowwise"><i class="fa fa-check"></i><b>8.7</b> rowwise()</a></li>
+<li class="chapter" data-level="8.8" data-path="datenvorverarbeitung.html"><a href="datenvorverarbeitung.html#tidy"><i class="fa fa-check"></i><b>8.8</b> Breites und langes Datenformat</a></li>
+<li class="chapter" data-level="8.9" data-path="datenvorverarbeitung.html"><a href="datenvorverarbeitung.html#datastring"><i class="fa fa-check"></i><b>8.9</b> Character Manipulation</a></li>
+<li class="chapter" data-level="8.10" data-path="datenvorverarbeitung.html"><a href="datenvorverarbeitung.html#datafactor"><i class="fa fa-check"></i><b>8.10</b> Faktoren verändern</a></li>
+<li class="chapter" data-level="8.11" data-path="datenvorverarbeitung.html"><a href="datenvorverarbeitung.html#datazeit"><i class="fa fa-check"></i><b>8.11</b> Mit Zeitdaten arbeiten</a></li>
+<li class="chapter" data-level="8.12" data-path="datenvorverarbeitung.html"><a href="datenvorverarbeitung.html#binäre-antwortmatrix-erstellen"><i class="fa fa-check"></i><b>8.12</b> Binäre Antwortmatrix erstellen</a></li>
+</ul></li>
+<li class="part"><span><b>III Auswertung</b></span></li>
+<li class="chapter" data-level="9" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html"><i class="fa fa-check"></i><b>9</b> Deskriptive Statistik</a><ul>
+<li class="chapter" data-level="9.1" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#summarise-und-descriptive"><i class="fa fa-check"></i><b>9.1</b> summarise() und descriptive()</a></li>
+<li class="chapter" data-level="9.2" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#umgang-mit-fehlenden-werten"><i class="fa fa-check"></i><b>9.2</b> Umgang mit fehlenden Werten</a></li>
+<li class="chapter" data-level="9.3" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#häufigkeiten-und-kontingenztafeln"><i class="fa fa-check"></i><b>9.3</b> Häufigkeiten und Kontingenztafeln</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="visual.html"><a href="visual.html"><i class="fa fa-check"></i><b>10</b> Visualisierungen</a><ul>
+<li class="chapter" data-level="10.1" data-path="visual.html"><a href="visual.html#grammar-of-graphics"><i class="fa fa-check"></i><b>10.1</b> Grammar of Graphics</a></li>
+<li class="chapter" data-level="10.2" data-path="visual.html"><a href="visual.html#histogram"><i class="fa fa-check"></i><b>10.2</b> Histogramm</a></li>
+<li class="chapter" data-level="10.3" data-path="visual.html"><a href="visual.html#streudiagramm"><i class="fa fa-check"></i><b>10.3</b> Streudiagramm</a></li>
+<li class="chapter" data-level="10.4" data-path="visual.html"><a href="visual.html#boxplot"><i class="fa fa-check"></i><b>10.4</b> Boxplot</a></li>
+<li class="chapter" data-level="10.5" data-path="visual.html"><a href="visual.html#violin"><i class="fa fa-check"></i><b>10.5</b> Violin Plot</a></li>
+<li class="chapter" data-level="10.6" data-path="visual.html"><a href="visual.html#barplot"><i class="fa fa-check"></i><b>10.6</b> Balkendiagramm</a></li>
+<li class="chapter" data-level="10.7" data-path="visual.html"><a href="visual.html#anovaplot"><i class="fa fa-check"></i><b>10.7</b> Liniendiagramm</a></li>
+<li class="chapter" data-level="10.8" data-path="visual.html"><a href="visual.html#odds"><i class="fa fa-check"></i><b>10.8</b> Odds Ratios</a></li>
+<li class="chapter" data-level="10.9" data-path="visual.html"><a href="visual.html#ellipsen"><i class="fa fa-check"></i><b>10.9</b> Ellipsen</a></li>
+<li class="chapter" data-level="10.10" data-path="visual.html"><a href="visual.html#anordnen-mehrerer-graphen"><i class="fa fa-check"></i><b>10.10</b> Anordnen mehrerer Graphen</a></li>
+<li class="chapter" data-level="10.11" data-path="visual.html"><a href="visual.html#adapt"><i class="fa fa-check"></i><b>10.11</b> Anpassen des Aussehens</a></li>
+<li class="chapter" data-level="10.12" data-path="visual.html"><a href="visual.html#ggsave"><i class="fa fa-check"></i><b>10.12</b> Speichern von Graphen</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="inductive.html"><a href="inductive.html"><i class="fa fa-check"></i><b>11</b> Inferenzstatistik</a><ul>
+<li class="chapter" data-level="11.1" data-path="inductive.html"><a href="inductive.html#die-formel-syntax"><i class="fa fa-check"></i><b>11.1</b> Die Formel Syntax</a></li>
+<li class="chapter" data-level="11.2" data-path="inductive.html"><a href="inductive.html#normalverteilung-prüfen"><i class="fa fa-check"></i><b>11.2</b> Normalverteilung prüfen</a><ul>
+<li class="chapter" data-level="11.2.1" data-path="inductive.html"><a href="inductive.html#q-q-plot"><i class="fa fa-check"></i><b>11.2.1</b> Q-Q Plot</a></li>
+<li class="chapter" data-level="11.2.2" data-path="inductive.html"><a href="inductive.html#shapiro-wilk-test"><i class="fa fa-check"></i><b>11.2.2</b> Shapiro-Wilk Test</a></li>
+<li class="chapter" data-level="11.2.3" data-path="inductive.html"><a href="inductive.html#kolgomorov-smirnov-test"><i class="fa fa-check"></i><b>11.2.3</b> Kolgomorov-Smirnov Test</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="inductive.html"><a href="inductive.html#varianzhomogenität-und-spherizität"><i class="fa fa-check"></i><b>11.3</b> Varianzhomogenität und Spherizität</a><ul>
+<li class="chapter" data-level="11.3.1" data-path="inductive.html"><a href="inductive.html#f-test"><i class="fa fa-check"></i><b>11.3.1</b> <em>F</em> Test</a></li>
+<li class="chapter" data-level="11.3.2" data-path="inductive.html"><a href="inductive.html#levene-test"><i class="fa fa-check"></i><b>11.3.2</b> Levene Test</a></li>
+<li class="chapter" data-level="11.3.3" data-path="inductive.html"><a href="inductive.html#bartletts-test"><i class="fa fa-check"></i><b>11.3.3</b> Bartletts Test</a></li>
+<li class="chapter" data-level="11.3.4" data-path="inductive.html"><a href="inductive.html#mauchly-test"><i class="fa fa-check"></i><b>11.3.4</b> Mauchly Test</a></li>
+</ul></li>
+<li class="chapter" data-level="11.4" data-path="inductive.html"><a href="inductive.html#mittelwertsvergleiche"><i class="fa fa-check"></i><b>11.4</b> Mittelwertsvergleiche</a><ul>
+<li class="chapter" data-level="11.4.1" data-path="inductive.html"><a href="inductive.html#gauß-test"><i class="fa fa-check"></i><b>11.4.1</b> Gauß Test</a></li>
+<li class="chapter" data-level="11.4.2" data-path="inductive.html"><a href="inductive.html#t-test"><i class="fa fa-check"></i><b>11.4.2</b> <em>t</em> Test</a></li>
+<li class="chapter" data-level="11.4.3" data-path="inductive.html"><a href="inductive.html#welch-test"><i class="fa fa-check"></i><b>11.4.3</b> Welch Test</a></li>
+<li class="chapter" data-level="11.4.4" data-path="inductive.html"><a href="inductive.html#wilcoxon-test"><i class="fa fa-check"></i><b>11.4.4</b> Wilcoxon Test</a></li>
+</ul></li>
+<li class="chapter" data-level="11.5" data-path="inductive.html"><a href="inductive.html#varianzanalysen"><i class="fa fa-check"></i><b>11.5</b> Varianzanalysen</a><ul>
+<li class="chapter" data-level="11.5.1" data-path="inductive.html"><a href="inductive.html#anova"><i class="fa fa-check"></i><b>11.5.1</b> ANOVA</a></li>
+<li class="chapter" data-level="11.5.2" data-path="inductive.html"><a href="inductive.html#repeated"><i class="fa fa-check"></i><b>11.5.2</b> Messwiederholung</a></li>
+<li class="chapter" data-level="11.5.3" data-path="inductive.html"><a href="inductive.html#kruskal-wallis-test"><i class="fa fa-check"></i><b>11.5.3</b> Kruskal-Wallis Test</a></li>
+</ul></li>
+<li class="chapter" data-level="11.6" data-path="inductive.html"><a href="inductive.html#regressionsmodelle"><i class="fa fa-check"></i><b>11.6</b> Regressionsmodelle</a><ul>
+<li class="chapter" data-level="11.6.1" data-path="inductive.html"><a href="inductive.html#linregression"><i class="fa fa-check"></i><b>11.6.1</b> Lineare Regression</a></li>
+<li class="chapter" data-level="11.6.2" data-path="inductive.html"><a href="inductive.html#hierarchische-regression"><i class="fa fa-check"></i><b>11.6.2</b> Hierarchische Regression</a></li>
+<li class="chapter" data-level="11.6.3" data-path="inductive.html"><a href="inductive.html#logit-modelle"><i class="fa fa-check"></i><b>11.6.3</b> Logit Modelle</a></li>
+</ul></li>
+<li class="chapter" data-level="11.7" data-path="inductive.html"><a href="inductive.html#korrelationsanalysen"><i class="fa fa-check"></i><b>11.7</b> Korrelationsanalysen</a><ul>
+<li class="chapter" data-level="11.7.1" data-path="inductive.html"><a href="inductive.html#produkt-moment-korrelation-nach-pearson"><i class="fa fa-check"></i><b>11.7.1</b> Produkt-Moment Korrelation nach Pearson</a></li>
+<li class="chapter" data-level="11.7.2" data-path="inductive.html"><a href="inductive.html#rangkorrelation-nach-spearman"><i class="fa fa-check"></i><b>11.7.2</b> Rangkorrelation nach Spearman</a></li>
+<li class="chapter" data-level="11.7.3" data-path="inductive.html"><a href="inductive.html#polychoric-korrelation"><i class="fa fa-check"></i><b>11.7.3</b> Polychoric Korrelation</a></li>
+<li class="chapter" data-level="11.7.4" data-path="inductive.html"><a href="inductive.html#korrelationstabellen"><i class="fa fa-check"></i><b>11.7.4</b> Korrelationstabellen</a></li>
+</ul></li>
+<li class="chapter" data-level="11.8" data-path="inductive.html"><a href="inductive.html#contingency"><i class="fa fa-check"></i><b>11.8</b> Kontingenztafeln</a><ul>
+<li class="chapter" data-level="11.8.1" data-path="inductive.html"><a href="inductive.html#fishers-exact-test"><i class="fa fa-check"></i><b>11.8.1</b> Fisher’s-Exact Test</a></li>
+<li class="chapter" data-level="11.8.2" data-path="inductive.html"><a href="inductive.html#chi2-tests"><i class="fa fa-check"></i><b>11.8.2</b> <span class="math inline">\(\chi^2\)</span>-Tests</a></li>
+</ul></li>
+<li class="chapter" data-level="11.9" data-path="inductive.html"><a href="inductive.html#post-hoc-tests"><i class="fa fa-check"></i><b>11.9</b> Post-Hoc Tests</a><ul>
+<li class="chapter" data-level="11.9.1" data-path="inductive.html"><a href="inductive.html#tukey-honest-significant-difference"><i class="fa fa-check"></i><b>11.9.1</b> Tukey Honest Significant Difference</a></li>
+<li class="chapter" data-level="11.9.2" data-path="inductive.html"><a href="inductive.html#pairwise-t-test"><i class="fa fa-check"></i><b>11.9.2</b> Pairwise <em>t</em> Test</a></li>
+<li class="chapter" data-level="11.9.3" data-path="inductive.html"><a href="inductive.html#estimated-marginal-means"><i class="fa fa-check"></i><b>11.9.3</b> Estimated Marginal Means</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="latente-variablenmodelle.html"><a href="latente-variablenmodelle.html"><i class="fa fa-check"></i><b>12</b> Latente Variablenmodelle</a><ul>
+<li class="chapter" data-level="12.1" data-path="latente-variablenmodelle.html"><a href="latente-variablenmodelle.html#scree-plot"><i class="fa fa-check"></i><b>12.1</b> Scree Plot</a></li>
+<li class="chapter" data-level="12.2" data-path="latente-variablenmodelle.html"><a href="latente-variablenmodelle.html#naive-hauptkomponentenanalyse"><i class="fa fa-check"></i><b>12.2</b> Naive Hauptkomponentenanalyse</a></li>
+<li class="chapter" data-level="12.3" data-path="latente-variablenmodelle.html"><a href="latente-variablenmodelle.html#maximum-likelihood-faktorenanalyse"><i class="fa fa-check"></i><b>12.3</b> Maximum Likelihood Faktorenanalyse</a></li>
+<li class="chapter" data-level="12.4" data-path="latente-variablenmodelle.html"><a href="latente-variablenmodelle.html#k-means-clustering"><i class="fa fa-check"></i><b>12.4</b> <em>k</em>-Means Clustering</a></li>
+<li class="chapter" data-level="12.5" data-path="latente-variablenmodelle.html"><a href="latente-variablenmodelle.html#strukturgleichungsmodelle"><i class="fa fa-check"></i><b>12.5</b> Strukturgleichungsmodelle</a></li>
+</ul></li>
+<li class="part"><span><b>IV Vertiefung</b></span></li>
+<li class="chapter" data-level="13" data-path="datatypes.html"><a href="datatypes.html"><i class="fa fa-check"></i><b>13</b> Datenstrukturen</a><ul>
+<li class="chapter" data-level="13.1" data-path="datatypes.html"><a href="datatypes.html#vec"><i class="fa fa-check"></i><b>13.1</b> Vektor</a></li>
+<li class="chapter" data-level="13.2" data-path="datatypes.html"><a href="datatypes.html#matrix"><i class="fa fa-check"></i><b>13.2</b> Matrix</a></li>
+<li class="chapter" data-level="13.3" data-path="datatypes.html"><a href="datatypes.html#tibble"><i class="fa fa-check"></i><b>13.3</b> Data.frame und tibble</a></li>
+<li class="chapter" data-level="13.4" data-path="datatypes.html"><a href="datatypes.html#lists"><i class="fa fa-check"></i><b>13.4</b> Liste</a></li>
+<li class="chapter" data-level="13.5" data-path="datatypes.html"><a href="datatypes.html#umwandlung"><i class="fa fa-check"></i><b>13.5</b> Umwandlungen</a></li>
+<li class="chapter" data-level="13.6" data-path="datatypes.html"><a href="datatypes.html#objektorientierung"><i class="fa fa-check"></i><b>13.6</b> Objektorientierung</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="reproduzierbare-berichte.html"><a href="reproduzierbare-berichte.html"><i class="fa fa-check"></i><b>14</b> Reproduzierbare Berichte</a><ul>
+<li class="chapter" data-level="14.1" data-path="reproduzierbare-berichte.html"><a href="reproduzierbare-berichte.html#markdown"><i class="fa fa-check"></i><b>14.1</b> rMarkdown</a></li>
+<li class="chapter" data-level="14.2" data-path="reproduzierbare-berichte.html"><a href="reproduzierbare-berichte.html#tabellen-mit-markdown"><i class="fa fa-check"></i><b>14.2</b> Tabellen mit Markdown</a><ul>
+<li class="chapter" data-level="14.2.1" data-path="reproduzierbare-berichte.html"><a href="reproduzierbare-berichte.html#word"><i class="fa fa-check"></i><b>14.2.1</b> Word</a></li>
+<li class="chapter" data-level="14.2.2" data-path="reproduzierbare-berichte.html"><a href="reproduzierbare-berichte.html#latex"><i class="fa fa-check"></i><b>14.2.2</b> LaTeX</a></li>
+</ul></li>
+<li class="chapter" data-level="14.3" data-path="reproduzierbare-berichte.html"><a href="reproduzierbare-berichte.html#grammar-of-tables"><i class="fa fa-check"></i><b>14.3</b> Grammar of Tables</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="funktionales-programmieren.html"><a href="funktionales-programmieren.html"><i class="fa fa-check"></i><b>15</b> Funktionales Programmieren</a><ul>
+<li class="chapter" data-level="15.1" data-path="funktionales-programmieren.html"><a href="funktionales-programmieren.html#function"><i class="fa fa-check"></i><b>15.1</b> Funktionen und Functionals</a></li>
+<li class="chapter" data-level="15.2" data-path="funktionales-programmieren.html"><a href="funktionales-programmieren.html#lambda"><i class="fa fa-check"></i><b>15.2</b> Anonyme Lambda Funktionen</a></li>
+<li class="chapter" data-level="15.3" data-path="funktionales-programmieren.html"><a href="funktionales-programmieren.html#functional"><i class="fa fa-check"></i><b>15.3</b> Iterationen</a><ul>
+<li class="chapter" data-level="15.3.1" data-path="funktionales-programmieren.html"><a href="funktionales-programmieren.html#for-loops"><i class="fa fa-check"></i><b>15.3.1</b> For-Loops</a></li>
+<li class="chapter" data-level="15.3.2" data-path="funktionales-programmieren.html"><a href="funktionales-programmieren.html#map"><i class="fa fa-check"></i><b>15.3.2</b> Mappen</a></li>
+<li class="chapter" data-level="15.3.3" data-path="funktionales-programmieren.html"><a href="funktionales-programmieren.html#apply"><i class="fa fa-check"></i><b>15.3.3</b> Die Apply-Familie</a></li>
+</ul></li>
+<li class="chapter" data-level="15.4" data-path="funktionales-programmieren.html"><a href="funktionales-programmieren.html#nest"><i class="fa fa-check"></i><b>15.4</b> Nesten</a></li>
+<li class="chapter" data-level="15.5" data-path="funktionales-programmieren.html"><a href="funktionales-programmieren.html#bedingte-anweisungen"><i class="fa fa-check"></i><b>15.5</b> Bedingte Anweisungen</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="namespace.html"><a href="namespace.html"><i class="fa fa-check"></i><b>16</b> Namespace</a></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i>Appendix</a><ul>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#datensatzerläuterungen"><i class="fa fa-check"></i>Datensatzerläuterungen</a><ul>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#big-five"><i class="fa fa-check"></i>Big Five</a></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#tipp-wm"><i class="fa fa-check"></i>Tipp WM</a></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#indonesisch"><i class="fa fa-check"></i>Indonesisch</a></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#video"><i class="fa fa-check"></i>Video</a></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#artists"><i class="fa fa-check"></i>Artists</a></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#tracks"><i class="fa fa-check"></i>Tracks</a></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#fitness"><i class="fa fa-check"></i>Fitness</a></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#statistical-literacy"><i class="fa fa-check"></i>Statistical Literacy</a></li>
+</ul></li>
+<li class="chapter" data-level="16.1" data-path="appendix.html"><a href="appendix.html#übungsverzeichnis"><i class="fa fa-check"></i><b>16.1</b> Übungsverzeichnis</a></li>
+<li class="chapter" data-level="16.2" data-path="appendix.html"><a href="appendix.html#literaturverzeichnis"><i class="fa fa-check"></i><b>16.2</b> Literaturverzeichnis</a></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#verwendete-software-versionen"><i class="fa fa-check"></i>Verwendete Software Versionen</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R für empirische Wissenschaften</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="datenvorverarbeitung" class="section level1">
+<h1><span class="header-section-number">Kapitel 8</span> Datenvorverarbeitung</h1>
+<p>Der aufwändigste Teil jeder Datenanalyse ist die Vorbereitung der Daten, so dass man sie für Visualisierungen oder statistische Auswertungen verwenden kann. Seit der Entwicklung der verschiedenen Packages innerhalb und um das so genannte <code>tidyverse</code> ist das ganze Prozedere nicht nur konsistent sondern auch bedeutend einfacher geworden. Das Kapitel der Datenvorbereitung sollte als ganzes gelesen und verstanden werden. Du wirst stark davon profitieren sämtliche vorgestellten Funktionen zu beherrschen. Beginnen wir nun mit dem wohl aufwändigsten Teil – der Datenvorbereitung. Wer bereits mit Datensätzen gearbeitet hat, wird bestätigen, das die Datenvorbereitung die mit Abstand meiste Zeit in Anspruch nimmt. Die eigentlichen Analysen und Graphiken sind danach schnell mit wenigen Befehlen erstellt. Die Datenvorbereitung ist wohl möglich auch <strong>die </strong>Disziplin, in der R gegenüber Klickprogrammen wie SPSS hervor sticht. Dabei orientiert sich die Syntax stark an der englischen Sprache, sodass die verschiedenen aneinandergereihten Operationen als englischer Satz gelesen werden können. In diesem Kapitel lernst Du das Einlesen von Datensätzen, das Speichern von Variablen, Rs verschiedene Datentypen und diverse Methoden zur Bereinigung und Anpassung von Datensätzen kennen.</p>
+<div id="tidyverse" class="section level2">
+<h2><span class="header-section-number">8.1</span> Das Tidyverse</h2>
+<p>Das <code>tidyverse</code> ist ein Sammelsurium an Packages, die die gleiche Philosophie teilen. Dabei sollten Datensätze <code>tidy</code> also aufgeräumt sein. Das heißt, jeder Spalte enthält eine Variable, jede Zeile eine Beobachtung und jede Zelle einen Wert. Beim Laden werden folgende acht Packages beim Aufruf des <code>tidyverse</code> automatisch geladen. Damit spart man sich im Prinzip nur das einzelne Aufrufen der acht Packages.</p>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="datenvorverarbeitung.html#cb55-1"></a><span class="kw">library</span>(tidyverse)</span></code></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="datenvorverarbeitung.html#cb56-1"></a>── Attaching packages ───────────────── </span>
+<span id="cb56-2"><a href="datenvorverarbeitung.html#cb56-2"></a>✔ ggplot2 <span class="dv">3</span>.<span class="fl">2.0</span>           ✔ purrr   <span class="dv">0</span>.<span class="fl">3.2</span>      </span>
+<span id="cb56-3"><a href="datenvorverarbeitung.html#cb56-3"></a>✔ tibble  <span class="dv">2</span>.<span class="fl">1.3</span>           ✔ dplyr   <span class="dv">0</span>.<span class="fl">8.3</span>      </span>
+<span id="cb56-4"><a href="datenvorverarbeitung.html#cb56-4"></a>✔ tidyr   <span class="dv">1</span>.<span class="fl">0.0</span>           ✔ stringr <span class="dv">1</span>.<span class="fl">4.0</span>      </span>
+<span id="cb56-5"><a href="datenvorverarbeitung.html#cb56-5"></a>✔ readr   <span class="dv">1</span>.<span class="fl">3.1</span>           ✔ forcats <span class="dv">0</span>.<span class="fl">4.0</span>    </span>
+<span id="cb56-6"><a href="datenvorverarbeitung.html#cb56-6"></a></span>
+<span id="cb56-7"><a href="datenvorverarbeitung.html#cb56-7"></a>── Conflicts ──────────────────────────</span>
+<span id="cb56-8"><a href="datenvorverarbeitung.html#cb56-8"></a>✖ dplyr<span class="op">::</span><span class="kw">filter</span>() masks stats<span class="op">::</span><span class="kw">filter</span>()</span>
+<span id="cb56-9"><a href="datenvorverarbeitung.html#cb56-9"></a>✖ dplyr<span class="op">::</span><span class="kw">lag</span>()    masks stats<span class="op">::</span><span class="kw">lag</span>()</span></code></pre></div>
+<ul>
+<li><code>ggplot2</code> bietet ein mächtiges Framework zum Erstellen von Visualisierungen (siehe Kapitel <a href="visual.html#visual">10</a>).</li>
+<li><code>tibble</code> führt ein dem <code>data.frame</code> sehr ähnliches Dateiformat mit einigen Verbesserungen ein (siehe Kapitel <a href="datatypes.html#tibble">13.3</a>).</li>
+<li><code>tidyr</code> stellt unter anderem Funktionen zum Wechsel zwischen langem und breiten Dateiformat dar (siehe Kapitel <a href="datenvorverarbeitung.html#tidy">8.8</a>).</li>
+<li><code>readr</code> bietet verschiedene Funktionen zum Einlesen. Das Package <code>rio</code> greift teilweise darauf zurück (siehe Kapitel <a href="io.html#io">5</a>). Nur bietet <code>rio</code> das Einlesen von deutlich mehr Datentypen an.</li>
+<li><code>purrr</code> für verschiedene Funktionen zum funktionalen Programmieren, um zum Beispiel Copy &amp; Paste bei fast identischen Aufgaben zu vermeiden (siehe Kapitel <a href="funktionales-programmieren.html#functional">15.3</a>).</li>
+<li><code>dplyr</code> stellt diverse Funktionen zur Datenvorbereitung vor und stellt den Hauptteil dieses Kapitel dar.</li>
+<li><code>stringr</code> zur Veränderung von Charactern (siehe Kapitel <a href="datenvorverarbeitung.html#datastring">8.9</a>). String ist ein anderes Wort für Characters.</li>
+<li><code>forcats</code> zur Manipulation von Faktoren (siehe Kapitel <a href="datenvorverarbeitung.html#datafactor">8.10</a>). Der Name kommt von <em>for categoricals</em>, bietet also Funktionen für kategorische Variablen.</li>
+</ul>
+<p>Nicht automatisch geladen aber dennoch gut kombinierbar sind</p>
+<ul>
+<li><code>lubridate</code> zur Manipulation von Zeitdaten (siehe Kapitel <a href="datenvorverarbeitung.html#datazeit">8.11</a>)</li>
+<li><code>inductive</code> für die gängigsten inferenzstatistischen Verfahren (siehe Kapitel <a href="inductive.html#inductive">11</a>)</li>
+</ul>
+<p>Unter <em>Conflicts</em> werden Funktionen genannt, die den selben Namen wie <code>base R</code> Funktionen haben und deren Funktion deshalb überschreiben. Da diese jedoch nur selten nützlich sind, können wir diese Meldung getrost ignorieren. Sämtliche Rechnungen, die wir im Folgenden machen werden, kann man ebenfalls mit <code>base R</code> oder beispielsweise <code>data.table</code> machen. Welche Funktionen man letzten Endes für die einzelnen Aufgaben bevorzugt, hängt maßgeblich von persönlicher Präferenz ab. Die Packages des <code>tidyverse</code> sind keinesfalls dafür gedacht, isoliert benutzt zu werden.</p>
+<p>Grundsätzlich sind die Funktionen beinahe schon selbsterklärend. Schauen wir uns mal eine typische Aneinanderreihung von Befehlen an. Wir werden mit dem Verlauf eines Nutzers eines großen Video Streaming Dienstes arbeiten. Dort gibt es die Titel, Staffeln, Episodennamen und das Datum, an dem der Film oder die Serie geguckt wurde. Im Anhang befinden sich detaillierte Beschreibungen der verschiedenen im Buch benutzten Datensätze.</p>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="datenvorverarbeitung.html#cb57-1"></a>video <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb57-2"><a href="datenvorverarbeitung.html#cb57-2"></a><span class="st">  </span><span class="kw">select</span>(Titel, Staffel) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb57-3"><a href="datenvorverarbeitung.html#cb57-3"></a><span class="st">  </span><span class="kw">group_by</span>(Titel) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb57-4"><a href="datenvorverarbeitung.html#cb57-4"></a><span class="st">  </span><span class="kw">count</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb57-5"><a href="datenvorverarbeitung.html#cb57-5"></a><span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(n)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb57-6"><a href="datenvorverarbeitung.html#cb57-6"></a><span class="st">  </span><span class="kw">ungroup</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb57-7"><a href="datenvorverarbeitung.html#cb57-7"></a><span class="st">  </span><span class="kw">filter</span>(n <span class="op">&gt;</span><span class="st"> </span><span class="dv">100</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb57-8"><a href="datenvorverarbeitung.html#cb57-8"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Platz =</span> <span class="kw">c</span>(<span class="st">&quot;Erster&quot;</span>, <span class="st">&quot;Zweiter&quot;</span>, <span class="st">&quot;Dritter&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb57-9"><a href="datenvorverarbeitung.html#cb57-9"></a><span class="st">  </span><span class="kw">rename</span>(<span class="dt">Anzahl =</span> n)</span></code></pre></div>
+<pre><code>## # A tibble: 3 x 3
+##   Titel                 Anzahl Platz  
+##   &lt;chr&gt;                  &lt;int&gt; &lt;chr&gt;  
+## 1 The Big Bang Theory      232 Erster 
+## 2 How I Met Your Mother    208 Zweiter
+## 3 New Girl                 131 Dritter</code></pre>
+<p>Ausgerechnet werden die drei am meisten geschauten Serien mit der Anzahl der geschauten Episoden. Gelesen würde es wie folgt:</p>
+<ul>
+<li>Man nehme den Datensatz <code>video</code> <code>UND DANN</code>
+<ul>
+<li>wähle die Spalten <code>Titel</code>, <code>Staffel</code> <code>UND DANN</code></li>
+<li>Gruppiere nach <code>Titel</code> <code>UND DANN</code></li>
+<li>Zähle die auftreten Werte innerhalb von <code>Titel</code> <code>UND DANN</code></li>
+<li>Sortiere in absteigender Reihenfolge (<code>desc()</code>) nach der Anzahl <code>n</code> <code>UND DANN</code></li>
+<li>Löse die Gruppierung auf <code>UND DANN</code></li>
+<li>Filtere alle Zeilen mit <code>n &gt; 100</code> heraus <code>UND DANN</code></li>
+<li>Füge die Spalte <code>Platz</code> mit den Werten “Erster”, “Zweiter” und “Dritter” hinzu <code>UND DANN</code></li>
+<li>Benenne die Spalte namens <code>n</code> mit dem neuen Namen <code>Anzahl</code></li>
+</ul></li>
+</ul>
+</div>
+<div id="der-pipe-operator" class="section level2">
+<h2><span class="header-section-number">8.2</span> Der Pipe Operator</h2>
+<p>Wie Du siehst, ist es Dir durch die verständliche, schrittweise Berechnung möglich, den Code nachzuvollziehen, obwohl Du noch nie zuvor damit gearbeitet hast. Das zentrale Element zum aneinander Ketten ist dabei die so genannte Pipe (<code>%&gt;%</code>). Gesprochen wird es als UND DANN. Dieser nette Kniff erspart uns das Zwischenspeichern jedes einzelnen Ergebnisses. Innerhalb von RStudio gibt es mit <code>strg + shift + M</code> oder <code>cmd + shift + M</code> auf macOS einen Shortcut für die Pipe. Die einzige Aufgabe dieser Pipe ist das <em>weiterreichen</em> des veränderten Datensatzes zur nächsten Funktion. Im Hintergrund wird als erstes Argument jeder Funktion (z.B. <code>select()</code>) der Datensatz der Funktion übergeben. Schreiben muss man das dadurch nicht extra. Am Anfang schauen wir uns noch eine Alternative Schreibweise an, werden uns aber innerhalb des Buches, sofern möglich, auf Benutzung der Pipe konzentrieren. Schauen wir uns nun nacheinander verschiedene nützliche Funktionen aus <code>dplyr</code> und auch <code>base R</code> an.</p>
+<p>Mit <code>names()</code> erhalten wir die Spaltennamen des Datensatzes <code>video</code>.</p>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="datenvorverarbeitung.html#cb59-1"></a>video <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb59-2"><a href="datenvorverarbeitung.html#cb59-2"></a><span class="st">  </span><span class="kw">names</span>()</span></code></pre></div>
+<pre><code>## [1] &quot;Titel&quot;     &quot;Staffel&quot;   &quot;Folge&quot;     &quot;Watchdate&quot;</code></pre>
+<p>Eine Alternative Schreibweise wäre <code>names(video)</code>. Von Zeilennamen (<code>rownames()</code>) sollte grundsätzlich Abstand genommen werden, wenn man nicht gerade mit Matrizen arbeitet (siehe <a href="datatypes.html#matrix">13.2</a>). Falls der Datensatz Zeilennamen enthält, die tatsächlich von Bedeutung sind, sollte man sie mit <code>rownames_to_column("Spaltenname")</code> aus dem <code>tibble</code> Package in eine eigene Spalte schreiben.</p>
+</div>
+<div id="select-rename-und-relocate" class="section level2">
+<h2><span class="header-section-number">8.3</span> select(), rename() und relocate()</h2>
+<p>Zur Auswahl verschiedener Spalten, verwendet man <code>select()</code>. Möchten wir uns also nur die Spalten Titel und Staffel anschauen, würden wir</p>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="datenvorverarbeitung.html#cb61-1"></a>video <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb61-2"><a href="datenvorverarbeitung.html#cb61-2"></a><span class="st">  </span><span class="kw">select</span>(Titel, Staffel)</span></code></pre></div>
+<pre><code>## # A tibble: 1,493 x 2
+##   Titel           Staffel  
+##   &lt;chr&gt;           &lt;chr&gt;    
+## 1 Suits           Staffel 7
+## 2 Suits           Staffel 1
+## 3 Death Note      Staffel 1
+## 4 Haus des Geldes Teil 3   
+## # ... with 1,489 more rows</code></pre>
+<p>schreiben. Alternativ könnte man auch <code>select(video, Titel, Staffel)</code> verwenden. Das hat zwar den Vorteil bei einem Befehl kürzer zu sein als die Verwendung der Pipe, allerdings ist es somit nicht konsistent zu den restlichen Befehlen und wird daher nicht verwendet. Zur Auswahl der Spalten <strong>von</strong> <code>Titel</code> <strong>bis</strong> <code>Folge</code> verwendet man einen Doppelpunkt.</p>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="datenvorverarbeitung.html#cb63-1"></a>video <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb63-2"><a href="datenvorverarbeitung.html#cb63-2"></a><span class="st">  </span><span class="kw">select</span>(Titel<span class="op">:</span>Folge)   </span></code></pre></div>
+<pre><code>## # A tibble: 1,493 x 3
+##   Titel           Staffel   Folge                             
+##   &lt;chr&gt;           &lt;chr&gt;     &lt;chr&gt;                             
+## 1 Suits           Staffel 7 Neues Spiel                       
+## 2 Suits           Staffel 1 Patente und andere Unwaegbarkeiten
+## 3 Death Note      Staffel 1 Ein Geschaeft                     
+## 4 Haus des Geldes Teil 3    Verloren                          
+## # ... with 1,489 more rows</code></pre>
+<p>Möchte man nur die Spalte <code>Watchdate</code> entfernen und den Rest ausgeben, erreicht man dies mit einem Minus vor dem Spaltennamen.</p>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="datenvorverarbeitung.html#cb65-1"></a>video <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb65-2"><a href="datenvorverarbeitung.html#cb65-2"></a><span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>Watchdate) </span></code></pre></div>
+<pre><code>## # A tibble: 1,493 x 3
+##   Titel           Staffel   Folge                             
+##   &lt;chr&gt;           &lt;chr&gt;     &lt;chr&gt;                             
+## 1 Suits           Staffel 7 Neues Spiel                       
+## 2 Suits           Staffel 1 Patente und andere Unwaegbarkeiten
+## 3 Death Note      Staffel 1 Ein Geschaeft                     
+## 4 Haus des Geldes Teil 3    Verloren                          
+## # ... with 1,489 more rows</code></pre>
+<p>Man kann auch einen Bereich von Spalten aus dem Datensatz herauslöschen. Die Besonderheit hierbei ist die Notwendigkeit, den Wertebereich in extra Klammern zu setzen.</p>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="datenvorverarbeitung.html#cb67-1"></a>video <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb67-2"><a href="datenvorverarbeitung.html#cb67-2"></a><span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>(Titel<span class="op">:</span>Folge))</span></code></pre></div>
+
+<div class="idea">
+Beachte, dass sämtliche Änderungen, die Du am Datensatz vollziehst, erst gespeichert werden, wenn Du sie mit dem Zuweisungspfeil (siehe Kapitel <a href="pfeil.html#pfeil">4</a>) einer Variable zuweist. Wenn dieser Variablenname bereits vergeben ist (z.B. der bisherige Datensatzname) wird dieser <strong>überschrieben</strong>. Um das rückgängig zu machen, muss der Datensatz dann einfach wieder neu eingelesen werden. Es empfiehlt sich bei einschneidenden Änderungen einen neuen Variablennamen zu verwenden.
+</div>
+
+<p>Möchte man der ausgewählten Spalte einen neuen Namen geben, schreibt man den neuen Namen auf die linke Seite der jeweiligen Gleichung.</p>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="datenvorverarbeitung.html#cb68-1"></a>video <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb68-2"><a href="datenvorverarbeitung.html#cb68-2"></a><span class="st">  </span><span class="kw">select</span>(<span class="dt">Datum =</span> Watchdate)</span></code></pre></div>
+<pre><code>## # A tibble: 1,493 x 1
+##   Datum     
+##   &lt;date&gt;    
+## 1 2019-07-22
+## 2 2019-07-22
+## 3 2019-07-21
+## 4 2019-07-21
+## # ... with 1,489 more rows</code></pre>
+<p>Wenn man hingegen sämtliche Spalten behalten möchte und nur eine oder mehrere Spalten umbenennen mag, erreicht man dies auf gleiche Art und Weise mit <code>rename()</code>.</p>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="datenvorverarbeitung.html#cb70-1"></a>video <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb70-2"><a href="datenvorverarbeitung.html#cb70-2"></a><span class="st">  </span><span class="kw">rename</span>(<span class="dt">Datum =</span> Watchdate)</span></code></pre></div>
+<pre><code>## # A tibble: 1,493 x 4
+##   Titel           Staffel   Folge                              Datum     
+##   &lt;chr&gt;           &lt;chr&gt;     &lt;chr&gt;                              &lt;date&gt;    
+## 1 Suits           Staffel 7 Neues Spiel                        2019-07-22
+## 2 Suits           Staffel 1 Patente und andere Unwaegbarkeiten 2019-07-22
+## 3 Death Note      Staffel 1 Ein Geschaeft                      2019-07-21
+## 4 Haus des Geldes Teil 3    Verloren                           2019-07-21
+## # ... with 1,489 more rows</code></pre>
+</div>
+<div id="across" class="section level2">
+<h2><span class="header-section-number">8.4</span> across()</h2>
+</div>
+<div id="filter-und-arrange" class="section level2">
+<h2><span class="header-section-number">8.5</span> filter() und arrange()</h2>
+</div>
+<div id="group_by-und-mutate" class="section level2">
+<h2><span class="header-section-number">8.6</span> group_by() und mutate()</h2>
+</div>
+<div id="rowwise" class="section level2">
+<h2><span class="header-section-number">8.7</span> rowwise()</h2>
+<p>Die Dimensionen – also die Anzahl der Zeilen und Spalten – eines Datensatzes, werden einem direkt über dem Datensatz ausgegeben. In dem Fall hat der Nutzer z.B. 1.493 Serien oder Filme geschaut und wir können Informationen darüber in 4 Spalten sehen. Würden wir jetzt aber zum Beispiel die Häufigkeit eines Titels <strong>pro Gruppe</strong> herausfinden wollen (oder z.B. wie die Geschlechter eines Experiments verteilt sind), erreichen wir dies mit einer Kombination aus <code>group_by()</code> und <code>count()</code>. Ersteres gruppiert den Datensatz und letzteres zählt die einzelnen Gruppen aus.</p>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="datenvorverarbeitung.html#cb72-1"></a>video <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb72-2"><a href="datenvorverarbeitung.html#cb72-2"></a><span class="st">  </span><span class="kw">group_by</span>(Titel) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb72-3"><a href="datenvorverarbeitung.html#cb72-3"></a><span class="st">  </span><span class="kw">count</span>() </span></code></pre></div>
+<pre><code>## # A tibble: 146 x 2
+## # Groups:   Titel [146]
+##   Titel                  n
+##   &lt;chr&gt;              &lt;int&gt;
+## 1 1 Night                1
+## 2 500 Days of Summer     1
+## 3 8 Mile                 1
+## 4 Abgang mit Stil        1
+## # ... with 142 more rows</code></pre>
+<p>Da wir nur die ersten vier der 1.493 Einträge angezeigt bekommen, bringt uns das relativ wenig, um herauszufinden, welche Filme oder Serien am häufigsten geschaut wurden. Mit <code>arrange()</code> und <code>desc()</code> (englisch für descendent), kann man die Reihenfolge umdrehen. Beachte, dass die Reihenfolge auf den gezählten Häufigkeiten beruht, die die <code>count()</code> Funktion <code>n</code> nennt.</p>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="datenvorverarbeitung.html#cb74-1"></a>video <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb74-2"><a href="datenvorverarbeitung.html#cb74-2"></a><span class="st">  </span><span class="kw">group_by</span>(Titel) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb74-3"><a href="datenvorverarbeitung.html#cb74-3"></a><span class="st">  </span><span class="kw">count</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb74-4"><a href="datenvorverarbeitung.html#cb74-4"></a><span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(n)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb74-5"><a href="datenvorverarbeitung.html#cb74-5"></a><span class="st">  </span><span class="kw">ungroup</span>()</span></code></pre></div>
+<pre><code>## # A tibble: 146 x 2
+##   Titel                     n
+##   &lt;chr&gt;                 &lt;int&gt;
+## 1 The Big Bang Theory     232
+## 2 How I Met Your Mother   208
+## 3 New Girl                131
+## 4 Suits                    94
+## # ... with 142 more rows</code></pre>
+<p>wir speichern das ganze für die weitere Analyse mit der Umbenennung von <code>n</code> in <code>Anzahl</code> in der Variable <code>video1</code> ab.</p>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="datenvorverarbeitung.html#cb76-1"></a>video1 &lt;-<span class="st"> </span>video <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb76-2"><a href="datenvorverarbeitung.html#cb76-2"></a><span class="st">  </span><span class="kw">group_by</span>(Titel) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb76-3"><a href="datenvorverarbeitung.html#cb76-3"></a><span class="st">  </span><span class="kw">count</span>() <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb76-4"><a href="datenvorverarbeitung.html#cb76-4"></a><span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(n)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb76-5"><a href="datenvorverarbeitung.html#cb76-5"></a><span class="st">  </span><span class="kw">ungroup</span>()<span class="op">%&gt;%</span></span>
+<span id="cb76-6"><a href="datenvorverarbeitung.html#cb76-6"></a><span class="st">  </span><span class="kw">rename</span>(<span class="dt">Anzahl =</span> n)</span></code></pre></div>
+<p>Möchten wir nur die Serien oder Filme, die häufiger als 50 mal geschaut wurden, erreichen wir dies mit <code>filter()</code>. Dabei können wir der Funktion jede logische Abfrage (siehe Kapitel <a href="datentypen.html#datentypen">6</a>) übergeben. Wir möchten uns gleichzeitig alle acht Spalten ansehen, auf die diese Bedingung (häufiger als 50 mal gesehen) zutrifft. Mit <code>print()</code> kann man die Standardeinstellung der <code>tibble</code> von normaler Weise zehn und in diesem Buch im Sinne der Übersichtlichkeit und des Platzsparens nur vier Einträgen in der Ausgabe beliebig überschreiben. Das Argument <code>n</code> ist dabei unabhängig von dem zuvor verwendeten und steht für die Anzahl ausgegebener Einträge.</p>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="datenvorverarbeitung.html#cb77-1"></a>video1 <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb77-2"><a href="datenvorverarbeitung.html#cb77-2"></a><span class="st">  </span><span class="kw">filter</span>(Anzahl <span class="op">&gt;</span><span class="st"> </span><span class="dv">50</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb77-3"><a href="datenvorverarbeitung.html#cb77-3"></a><span class="st">  </span><span class="kw">print</span>(<span class="dt">n =</span> <span class="dv">8</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 8 x 2
+##   Titel                 Anzahl
+##   &lt;chr&gt;                  &lt;int&gt;
+## 1 The Big Bang Theory      232
+## 2 How I Met Your Mother    208
+## 3 New Girl                 131
+## 4 Suits                     94
+## 5 Californication           83
+## 6 Person of Interest        68
+## 7 Archer                    59
+## 8 Arrested Development      59</code></pre>
+<p>Möchte man sich nur die ersten <span class="math inline">\(x\)</span> Einträgen ansehen, erreicht man dies mit <code>top_n()</code>. Gleichzeitig fügen wir mit der Funktion <code>mutate()</code> eine <strong>neue Spalte</strong> namens <code>Platz</code> hinzu, die den ersten drei ausgewählten Zeilen, die richtige Platzierung zuweist. Beachte, dass die mit <code>mutate()</code> hinzugefügte neue Spalte die gleiche Länge wie der Datensatz haben muss. Hier ist es nur die Länge drei, weil wir zuvor nur die ersten drei Einträge ausgewählt haben. In unserem ursprünglichen Datensatz, müsste die neue Spalte <code>Platz</code> ebenfalls 1.493 Einträge haben.</p>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="datenvorverarbeitung.html#cb79-1"></a>video1 <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb79-2"><a href="datenvorverarbeitung.html#cb79-2"></a><span class="st">  </span><span class="kw">top_n</span>(<span class="dv">3</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb79-3"><a href="datenvorverarbeitung.html#cb79-3"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Platz =</span> <span class="kw">c</span>(<span class="st">&quot;Erster&quot;</span>, <span class="st">&quot;Zweiter&quot;</span>, <span class="st">&quot;Dritter&quot;</span>))</span></code></pre></div>
+<pre><code>## # A tibble: 3 x 3
+##   Titel                 Anzahl Platz  
+##   &lt;chr&gt;                  &lt;int&gt; &lt;chr&gt;  
+## 1 The Big Bang Theory      232 Erster 
+## 2 How I Met Your Mother    208 Zweiter
+## 3 New Girl                 131 Dritter</code></pre>
+<p>Man kann innerhalb eines <code>mutate()</code> Befehls mit Kommata getrennt, beliebig viele neue Spalten hinzufügen. Bei mehreren Eingaben, bietet es sich häufig an, die Befehle etwas ein zu rücken. Das hat aber ausschließlich ästhetische Gründe.</p>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="datenvorverarbeitung.html#cb81-1"></a>video1 <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb81-2"><a href="datenvorverarbeitung.html#cb81-2"></a><span class="st">  </span><span class="kw">top_n</span>(<span class="dv">3</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb81-3"><a href="datenvorverarbeitung.html#cb81-3"></a><span class="st">  </span><span class="kw">mutate</span>(</span>
+<span id="cb81-4"><a href="datenvorverarbeitung.html#cb81-4"></a>      <span class="dt">Platz =</span> <span class="kw">c</span>(<span class="st">&quot;Erster&quot;</span>, <span class="st">&quot;Zweiter&quot;</span>, <span class="st">&quot;Dritter&quot;</span>),</span>
+<span id="cb81-5"><a href="datenvorverarbeitung.html#cb81-5"></a>      <span class="dt">Quatsch =</span> <span class="kw">c</span>(<span class="st">&quot;Das&quot;</span>, <span class="st">&quot;ist&quot;</span>, <span class="st">&quot;R&quot;</span>)</span>
+<span id="cb81-6"><a href="datenvorverarbeitung.html#cb81-6"></a>  )</span></code></pre></div>
+<pre><code>## # A tibble: 3 x 4
+##   Titel                 Anzahl Platz   Quatsch
+##   &lt;chr&gt;                  &lt;int&gt; &lt;chr&gt;   &lt;chr&gt;  
+## 1 The Big Bang Theory      232 Erster  Das    
+## 2 How I Met Your Mother    208 Zweiter ist    
+## 3 New Girl                 131 Dritter R</code></pre>
+<p>Eine mächtige Kombination mit <code>mutate()</code> ist <code>case_when()</code>. Mit dieser Funktion kann man für die Fälle (<code>case</code>) für die die Bedingungen zutrifft (<code>when</code>), einen Wert zuweisen. Wobei Bedingung und Wert von einer <code>~</code> (gesprochen: Tilde) getrennt werden.</p>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="datenvorverarbeitung.html#cb83-1"></a>video1 <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb83-2"><a href="datenvorverarbeitung.html#cb83-2"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Gefallen =</span> <span class="kw">case_when</span>(</span>
+<span id="cb83-3"><a href="datenvorverarbeitung.html#cb83-3"></a>    Anzahl <span class="op">&gt;=</span><span class="st"> </span><span class="dv">80</span> <span class="op">~</span><span class="st"> &quot;Groß&quot;</span>,</span>
+<span id="cb83-4"><a href="datenvorverarbeitung.html#cb83-4"></a>    Anzahl <span class="op">&lt;</span><span class="st"> </span><span class="dv">80</span> <span class="op">&amp;</span><span class="st"> </span>Anzahl <span class="op">&gt;=</span><span class="st"> </span><span class="dv">40</span> <span class="op">~</span><span class="st"> &quot;Mittel&quot;</span>,</span>
+<span id="cb83-5"><a href="datenvorverarbeitung.html#cb83-5"></a>    Anzahl <span class="op">&lt;</span><span class="st"> </span><span class="dv">40</span> <span class="op">~</span><span class="st"> &quot;Gering&quot;</span></span>
+<span id="cb83-6"><a href="datenvorverarbeitung.html#cb83-6"></a>  ))</span></code></pre></div>
+<pre><code>## # A tibble: 146 x 3
+##   Titel                 Anzahl Gefallen
+##   &lt;chr&gt;                  &lt;int&gt; &lt;chr&gt;   
+## 1 The Big Bang Theory      232 Groß    
+## 2 How I Met Your Mother    208 Groß    
+## 3 New Girl                 131 Groß    
+## 4 Suits                     94 Groß    
+## # ... with 142 more rows</code></pre>
+<p>Dabei müssen die Datentypen auf der linken Seite der Tilde (<code>~</code>) immer logisch sein und auf der rechten Seite immer von <strong>dem selben</strong> Datentyp (hier Character). Anstatt wie in diesem Beispiel alle erdenklichen Ausprägungsbereiche abzudecken, könnte man alle restlichen mit <code>TRUE</code> ansprechen. Wäre man z.B. ein Freund von Schwarz-weiß Denken, könnte man mit</p>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="datenvorverarbeitung.html#cb85-1"></a>video1 <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb85-2"><a href="datenvorverarbeitung.html#cb85-2"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Liebe =</span> <span class="kw">case_when</span>(</span>
+<span id="cb85-3"><a href="datenvorverarbeitung.html#cb85-3"></a>    Anzahl <span class="op">&gt;=</span><span class="st"> </span><span class="dv">80</span> <span class="op">~</span><span class="st"> &quot;Groß&quot;</span>,</span>
+<span id="cb85-4"><a href="datenvorverarbeitung.html#cb85-4"></a>    <span class="ot">TRUE</span> <span class="op">~</span><span class="st"> &quot;Klein&quot;</span></span>
+<span id="cb85-5"><a href="datenvorverarbeitung.html#cb85-5"></a>  ))</span></code></pre></div>
+<pre><code>## # A tibble: 146 x 3
+##   Titel                 Anzahl Liebe
+##   &lt;chr&gt;                  &lt;int&gt; &lt;chr&gt;
+## 1 The Big Bang Theory      232 Groß 
+## 2 How I Met Your Mother    208 Groß 
+## 3 New Girl                 131 Groß 
+## 4 Suits                     94 Groß 
+## # ... with 142 more rows</code></pre>
+<p>sämtliche Werte in große und kleine Zuneigung kategorisieren. In dem Fall entspricht <code>TRUE</code> eine kleinere Anzahl als 80.</p>
+<p>Zusätzlich zu den normalen Funktionsaufrufen, bietet <code>dplyr</code> auch noch praktische leicht abgewandelte Funktionen mit Suffix an. Dabei können mehrere Spalten mit <code>*_at</code> (z.B. <code>mutate_at()</code>) ausgewählt werden oder gleich alle mit <code>*_all</code>. Ein weiteres Suffix ist <code>*_if</code>, womit man ähnlich wie bei <code>case_when()</code> die Funktion anwendet, <strong>wenn</strong> (<code>if</code>) die Bedingung zutrifft. Es werden nun und in den folgenden Kapiteln einige praktische Anwendungsfälle dieser Suffix-Funktionen gezeigt. Syntaktisch sind die Funktion mit jeweiligen Suffix identisch. So müssen die ausgewählten Variablen für Funktionen mit dem Suffix <code>*_at</code> innerhalb von <code>vars()</code> stehen.</p>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="datenvorverarbeitung.html#cb87-1"></a>video <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb87-2"><a href="datenvorverarbeitung.html#cb87-2"></a><span class="st">  </span><span class="kw">select_at</span>(<span class="kw">vars</span>(Titel, Folge))</span></code></pre></div>
+<pre><code>## # A tibble: 1,493 x 2
+##   Titel           Folge                             
+##   &lt;chr&gt;           &lt;chr&gt;                             
+## 1 Suits           Neues Spiel                       
+## 2 Suits           Patente und andere Unwaegbarkeiten
+## 3 Death Note      Ein Geschaeft                     
+## 4 Haus des Geldes Verloren                          
+## # ... with 1,489 more rows</code></pre>
+<p>Während diese Schreibweise noch identisch mit</p>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="datenvorverarbeitung.html#cb89-1"></a>video <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb89-2"><a href="datenvorverarbeitung.html#cb89-2"></a><span class="st">  </span><span class="kw">select</span>(Titel, Folge)</span></code></pre></div>
+<p>ist, bietet selbst hier die Suffix-Funktion in manchen Kontexten erhebliche Vorteile. Zum Beispiel kann man innerhalb von <code>vars()</code> nach Spalten suchen, die mit einem bestimmten Buchstaben oder eine Buchstabenkombination anfangen (<code>starts_with()</code>), enden (<code>ends_with()</code>) oder die einen eine Character-Kombination enthalten (<code>contains()</code>). Möchten wir zum Beispiel alle Spalten auswählen, die mit T anfangen, würden wir das so machen:</p>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="datenvorverarbeitung.html#cb90-1"></a>video <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb90-2"><a href="datenvorverarbeitung.html#cb90-2"></a><span class="st">  </span><span class="kw">select_at</span>(<span class="kw">vars</span>(<span class="kw">starts_with</span>(<span class="st">&quot;T&quot;</span>)))</span></code></pre></div>
+<pre><code>## # A tibble: 1,493 x 1
+##   Titel          
+##   &lt;chr&gt;          
+## 1 Suits          
+## 2 Suits          
+## 3 Death Note     
+## 4 Haus des Geldes
+## # ... with 1,489 more rows</code></pre>
+<p>Die anderen beiden Funktionen sind syntaktisch identisch einzusetzen. Innerhalb von <code>vars()</code> gelten die selben Regeln wie bei der Spaltenauswahl im normalen <code>select()</code>. Mit <code>mutate_at()</code> könnte man z.B. den Datentyp einer oder mehrerer Spalten umwandeln. In Kapitel <a href="datatypes.html#umwandlung">13.5</a> werden die verschiedenen Funktionen näher beschrieben. Aber aufgrund der Häufigkeit, dass zum Beispiel eine fälschlicherweise als Character eingelesene (weil es in SPSS oder Excel falsch eingespeichert wurde) Zahlen-Spalten vorkommt, sei es an dieser Stelle exemplarisch gezeigt. Hier wird die Spalte <code>Anzahl</code> (numerisch) als character umgewandelt.</p>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="datenvorverarbeitung.html#cb92-1"></a>video1 <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb92-2"><a href="datenvorverarbeitung.html#cb92-2"></a><span class="st">  </span><span class="kw">mutate_at</span>(<span class="kw">vars</span>(Anzahl), as.character)</span></code></pre></div>
+<pre><code>## # A tibble: 146 x 2
+##   Titel                 Anzahl
+##   &lt;chr&gt;                 &lt;chr&gt; 
+## 1 The Big Bang Theory   232   
+## 2 How I Met Your Mother 208   
+## 3 New Girl              131   
+## 4 Suits                 94    
+## # ... with 142 more rows</code></pre>
+<p>Der <code>*_if</code> Suffix knüpft die ausgeführte Funktion an eine Bedingung. <strong>Wenn</strong> (<code>if</code>) die Bedingung erfüllt ist, werden bei <code>select_if()</code> z.B. Spalten ausgewählt, auf die die Bedingung zutrifft.</p>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="datenvorverarbeitung.html#cb94-1"></a>video1 <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb94-2"><a href="datenvorverarbeitung.html#cb94-2"></a><span class="st">  </span><span class="kw">select_if</span>(is.numeric)</span></code></pre></div>
+<pre><code>## # A tibble: 146 x 1
+##   Anzahl
+##    &lt;int&gt;
+## 1    232
+## 2    208
+## 3    131
+## 4     94
+## # ... with 142 more rows</code></pre>
+<p>Alle numerischen Spalten werden ausgewählt. Bei <code>mutate_if()</code> kann man direkt eine Funktion anwenden, wenn die Bedingung zutrifft. Zum Beispiel könnte man mit</p>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="datenvorverarbeitung.html#cb96-1"></a>video1 <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb96-2"><a href="datenvorverarbeitung.html#cb96-2"></a><span class="st">  </span><span class="kw">mutate_if</span>(is.numeric, as.character)</span></code></pre></div>
+<pre><code>## # A tibble: 146 x 2
+##   Titel                 Anzahl
+##   &lt;chr&gt;                 &lt;chr&gt; 
+## 1 The Big Bang Theory   232   
+## 2 How I Met Your Mother 208   
+## 3 New Girl              131   
+## 4 Suits                 94    
+## # ... with 142 more rows</code></pre>
+<p>alle numerischen Spalten in Character umwandeln (siehe Kapitel <a href="datatypes.html#umwandlung">13.5</a>). Beim <code>*_all*</code> Suffix wird die angegebene Funktion gleich auf alle Spalten angewandt. So könnte man beispielsweise mit <code>rename_all()</code> alle Spalten umbenennen oder mit <code>mutate_all()</code> die Umlaute in allen Spalten mit <em>ae</em>, <em>oe</em> und <em>ue</em> ersetzen (siehe Kapitel <a href="datenvorverarbeitung.html#datastring">8.9</a>).</p>
+<p>Ein weiteres häufig benötigtes Konzept der Datenvorbereitung ist das zeilenweise Anwenden einer Funktion. Zum Beispiel das Berechnen des Mittelwertes verschiedener Spalten <strong>pro Person</strong>. Dafür schauen wir uns einen anderen Datensatz an. Der <code>big_five</code> Datensatz enthält unter anderem die mittleren Ausprägungen von vier der fünf Überkategorien der Persönlichkeitsfaktoren (siehe Anhang). Die Informationen über die fünfte, Offenheit, ist über zehn Spalten (O1 bis O10) verteilt.</p>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="datenvorverarbeitung.html#cb98-1"></a>big_five</span></code></pre></div>
+<pre><code>## # A tibble: 200 x 17
+##   Alter Geschlecht Herkunft Extraversion Neurotizismus Vertraeglichkeit Gewissenhaftigkeit    O1    O2    O3    O4    O5    O6    O7    O8    O9   O10
+##   &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;           &lt;dbl&gt;         &lt;dbl&gt;            &lt;dbl&gt;              &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1    36 m          DE                3             1.9              3.4                3.3     5     1     5     1     4     1     5     5     4     5
+## 2    30 f          US                3.1           3.4              3.1                2.7     5     3     5     3     4     1     3     5     5     4
+## 3    23 m          US                3.4           2.4              3.6                3       3     3     5     3     4     1     4     2     3     4
+## 4    54 m          US                3.3           4.2              3.6                3       2     5     3     4     3     3     1     1     4     3
+## # ... with 196 more rows</code></pre>
+<p>Wählen wir zunächst die zusammen zu fassenden Variablen aus.</p>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="datenvorverarbeitung.html#cb100-1"></a>variablen &lt;-<span class="st"> </span>big_five <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb100-2"><a href="datenvorverarbeitung.html#cb100-2"></a><span class="st">  </span><span class="kw">select</span>(O1<span class="op">:</span>O10)</span></code></pre></div>
+<p>Anschließend können wir wie gewohnt <code>mutate()</code> verwenden. Die Funktion <code>rowMeans()</code> ist dabei so programmiert, dass sie für jede Zeile den Mittelwert berechnet. Um unser Ergebnis besser inspizieren zu können, wählen wir nur die neue Spalte <code>Offenheit</code> aus.</p>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="datenvorverarbeitung.html#cb101-1"></a>big_five <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb101-2"><a href="datenvorverarbeitung.html#cb101-2"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Offenheit =</span> <span class="kw">rowMeans</span>(variablen)) <span class="op">%&gt;%</span></span>
+<span id="cb101-3"><a href="datenvorverarbeitung.html#cb101-3"></a><span class="st">  </span><span class="kw">select</span>(Offenheit)</span></code></pre></div>
+<pre><code>## # A tibble: 200 x 1
+##   Offenheit
+##       &lt;dbl&gt;
+## 1       3.6
+## 2       3.8
+## 3       3.2
+## 4       2.9
+## # ... with 196 more rows</code></pre>
+<p>Alternativ könnte man <code>select()</code> auch direkt innerhalb von <code>rowMeans</code> aufrufen.</p>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="datenvorverarbeitung.html#cb103-1"></a>big_five <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb103-2"><a href="datenvorverarbeitung.html#cb103-2"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Offenheit =</span> <span class="kw">rowMeans</span>(<span class="kw">select</span>(., O1<span class="op">:</span>O10))) </span></code></pre></div>
+<p>Der Punkt ist dabei ein sogenannter Platzhalter für den eigentlichen Datensatz (siehe Kapitel <a href="funktionales-programmieren.html#map">15.3.2</a>). Es gibt neben <code>rowMeans()</code> ebenfalls die Funktion <code>rowSums()</code>. In Kapitel <a href="funktionales-programmieren.html#functional">15.3</a> wird gezeigt, wie man jede Funktion zeilenweise anwenden kann. Bisher haben wir uns nur bestimmte Funktionen angeguckt, die wir mit <code>mutate()</code> kombiniert haben. Dabei sind wir von “gewöhnlichen” Funktionsaufrufen mit Klammern abgewichen. Was es damit auf sich hat und wie man eigene Funktionen schreiben kann, wird unter Kapitel <a href="funktionales-programmieren.html#function">15.1</a> genau erläutert.</p>
+<p>Wir schauen uns in diesem Kapitel an, wie man Spalten logarithmiert und standardisiert (z-Werte). Dafür verwenden wir die bereits gelernte <code>mutate_at()</code> Funktion.</p>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="datenvorverarbeitung.html#cb104-1"></a>video1 <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb104-2"><a href="datenvorverarbeitung.html#cb104-2"></a><span class="st">  </span><span class="kw">mutate_at</span>(<span class="kw">vars</span>(Anzahl), log)</span></code></pre></div>
+<pre><code>## # A tibble: 146 x 2
+##   Titel                 Anzahl
+##   &lt;chr&gt;                  &lt;dbl&gt;
+## 1 The Big Bang Theory     5.45
+## 2 How I Met Your Mother   5.34
+## 3 New Girl                4.88
+## 4 Suits                   4.54
+## # ... with 142 more rows</code></pre>
+<p>Dabei berechnet <code>log()</code> den natürlichen Algorithmus. Möchte man eine anderes Basis haben, muss man beispielsweise <code>log2()</code> oder <code>log10()</code> verwenden. In der Schreibweise oben überschreibt <code>mutate_at()</code> die Spalte <code>n</code>. Sprich, die Werte in der Spalte <code>n</code> werden logarithmiert. Ist dieses Verhalten nicht gewünscht, muss man den neuen Spaltennamen innerhalb von <code>list()</code> spezifizieren.</p>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="datenvorverarbeitung.html#cb106-1"></a>video1 <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb106-2"><a href="datenvorverarbeitung.html#cb106-2"></a><span class="st">  </span><span class="kw">mutate_at</span>(<span class="kw">vars</span>(Anzahl), <span class="kw">list</span>(<span class="dt">lg =</span> log))</span></code></pre></div>
+<pre><code>## # A tibble: 146 x 3
+##   Titel                 Anzahl    lg
+##   &lt;chr&gt;                  &lt;int&gt; &lt;dbl&gt;
+## 1 The Big Bang Theory      232  5.45
+## 2 How I Met Your Mother    208  5.34
+## 3 New Girl                 131  4.88
+## 4 Suits                     94  4.54
+## # ... with 142 more rows</code></pre>
+<p>Mit mehr als einer Spalte, ergibt die selbe Syntax eine wahnsinnig nützliche Funktion, indem jeder Spalte der neue Spaltenname (hier <code>lg</code>) als Suffix angehängt wird. Um das zu illustrieren, erstellen wir zuerst eine neue Spalte namens <code>new</code>, die einfach zu jeder Anzahl gespielter Episoden <code>n</code> eine 1 hinzu addiert.</p>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="datenvorverarbeitung.html#cb108-1"></a>video1 <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb108-2"><a href="datenvorverarbeitung.html#cb108-2"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">new =</span> Anzahl <span class="op">+</span><span class="st"> </span><span class="dv">1</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb108-3"><a href="datenvorverarbeitung.html#cb108-3"></a><span class="st">  </span><span class="kw">mutate_at</span>(<span class="kw">vars</span>(Anzahl, new), <span class="kw">list</span>(<span class="dt">lg =</span> log))</span></code></pre></div>
+<pre><code>## # A tibble: 146 x 5
+##   Titel                 Anzahl   new Anzahl_lg new_lg
+##   &lt;chr&gt;                  &lt;int&gt; &lt;dbl&gt;     &lt;dbl&gt;  &lt;dbl&gt;
+## 1 The Big Bang Theory      232   233      5.45   5.45
+## 2 How I Met Your Mother    208   209      5.34   5.34
+## 3 New Girl                 131   132      4.88   4.88
+## 4 Suits                     94    95      4.54   4.55
+## # ... with 142 more rows</code></pre>
+<p>Suffixe sind praktisch, da wir sie mit einer Kombination aus <code>select_at()</code> und <code>ends_with()</code> auswählen können. Wollen wir beispielsweise nur mit den logarithmierten Spalten weiterrechnen, könnten wir diese einfach auswählen mit</p>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="datenvorverarbeitung.html#cb110-1"></a>video1 <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb110-2"><a href="datenvorverarbeitung.html#cb110-2"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">new =</span> Anzahl <span class="op">+</span><span class="st"> </span><span class="dv">1</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb110-3"><a href="datenvorverarbeitung.html#cb110-3"></a><span class="st">  </span><span class="kw">mutate_at</span>(<span class="kw">vars</span>(Anzahl, new), <span class="kw">list</span>(<span class="dt">lg =</span> log)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb110-4"><a href="datenvorverarbeitung.html#cb110-4"></a><span class="st">  </span><span class="kw">select_at</span>(<span class="kw">vars</span>(<span class="kw">ends_with</span>(<span class="st">&quot;lg&quot;</span>)))</span></code></pre></div>
+<pre><code>## # A tibble: 146 x 2
+##   Anzahl_lg new_lg
+##       &lt;dbl&gt;  &lt;dbl&gt;
+## 1      5.45   5.45
+## 2      5.34   5.34
+## 3      4.88   4.88
+## 4      4.54   4.55
+## # ... with 142 more rows</code></pre>
+<p>Standardisieren kann man genau auf die selbe Art mit <code>scale()</code>. Würde man alle numerischen Spalten standardisieren wollen, könnte man also <code>scale()</code> mit <code>mutate_if()</code> verwenden.</p>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="datenvorverarbeitung.html#cb112-1"></a>video1 <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb112-2"><a href="datenvorverarbeitung.html#cb112-2"></a><span class="st">  </span><span class="kw">mutate_if</span>(is.numeric, scale)</span></code></pre></div>
+<pre><code>## # A tibble: 146 x 2
+##   Titel                 Anzahl[,1]
+##   &lt;chr&gt;                      &lt;dbl&gt;
+## 1 The Big Bang Theory         7.27
+## 2 How I Met Your Mother       6.48
+## 3 New Girl                    3.96
+## 4 Suits                       2.75
+## # ... with 142 more rows</code></pre>
+<p>In diesem Fall könnte man natürlich genauso gut <code>mutate(n = scale(n))</code> schreiben. In den Übungen wird es anhand mehrerer Beispiele noch klarer, wann diese Suffix-Funktionen von großem Vorteil sein können. Es gibt noch diverse weitere Transformationen wie die Box-Cox Transformation, allerdings übersteigt dies den Rahmen des Buches.</p>
+</div>
+<div id="tidy" class="section level2">
+<h2><span class="header-section-number">8.8</span> Breites und langes Datenformat</h2>
+<p>Grundsätzlich kann man ein breites und ein langes Format unterscheiden. Daten in einem breiten Format sind in der Regel so, dass jede Spalte eine Variable, jede Zeile eine Beobachtung und jede Zelle ein Wert ist.</p>
+<pre><code>## # A tibble: 200 x 5
+##   Alter Geschlecht Herkunft Extraversion Neurotizismus
+##   &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;           &lt;dbl&gt;         &lt;dbl&gt;
+## 1    36 m          DE                3             1.9
+## 2    30 f          US                3.1           3.4
+## 3    23 m          US                3.4           2.4
+## 4    54 m          US                3.3           4.2
+## # ... with 196 more rows</code></pre>
+<p>Meistens sind die Daten bereits in diesem Format. Zum Zeichnen von Graphen oder zum Rechnen von Varianzanalysen mit Messwiederholung müssen wir den Datensatz <strong>lang</strong> machen.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-91"></span>
+<img src="images/wide_intro.jpg" alt="Beispiel für einen **breiten** Datensatz mit drei Personen und zwei Variablen." width="40%" />
+<p class="caption">
+Abbildung 8.1: Beispiel für einen <strong>breiten</strong> Datensatz mit drei Personen und zwei Variablen.
+</p>
+</div>
+<p>Das leuchtet ein, wenn wir uns vorstellen, wie wie beispielsweise ein Balkendiagramm aus den Daten machen wollen. Dafür schauen wir uns nur einen kleinen Ausschnitt aus dem <code>big5</code> Datensatz an.</p>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="datenvorverarbeitung.html#cb115-1"></a>big &lt;-<span class="st"> </span>big5 <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb115-2"><a href="datenvorverarbeitung.html#cb115-2"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">VPN =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">200</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb115-3"><a href="datenvorverarbeitung.html#cb115-3"></a><span class="st">  </span><span class="kw">select</span>(VPN, Extraversion, Neurotizismus) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb115-4"><a href="datenvorverarbeitung.html#cb115-4"></a><span class="st">  </span><span class="kw">top_n</span>(<span class="op">-</span><span class="dv">5</span>, VPN)</span></code></pre></div>
+<pre><code>## # A tibble: 5 x 3
+##     VPN Extraversion Neurotizismus
+##   &lt;int&gt;        &lt;dbl&gt;         &lt;dbl&gt;
+## 1     1          3             1.9
+## 2     2          3.1           3.4
+## 3     3          3.4           2.4
+## 4     4          3.3           4.2
+## # ... with 1 more row</code></pre>
+<p>Die Funktion <code>top_n()</code> wählt an dieser Stelle einfach die Zeilen aus, mit den geringsten Versuchspersonennummern (VPN) oder mit anderen Worten, die ersten fünf getesteten Personen. Für ein Balkendiagramm möchten wir die mittlere Ausprägung der Persönlichkeitsfaktoren Extraversion und Neurotizismus miteinander vergleichen.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-94"></span>
+<img src="images/long_intro.jpg" alt="Beispiel für einen **langen** Datensatz mit Persönlichkeitsfaktor als within-subject Faktor." width="50%" />
+<p class="caption">
+Abbildung 8.2: Beispiel für einen <strong>langen</strong> Datensatz mit Persönlichkeitsfaktor als within-subject Faktor.
+</p>
+</div>
+<p>Dabei sollen die Persönlichkeitsfaktoren auf der x-Achse und die mittlere Ausprägung auf der y-Achse sein. Aber mit dem breiten Datenformat können wir das nicht erreichen. Schließlich sind die Persönlichkeitsfaktoren in jeweils einer eigenen Spalte. Die Lösung bietet die <code>pivot_longer()</code> Funktion aus dem <code>tidyr</code> Package (enthalten im <code>tidyverse</code>). Das englische Wort <em>pivot</em> kann dabei als Drehpunkt übersetzt werden. Wir möchten den Datensatz von einem breiten in ein langes Format drehen. Die drei wichtigsten Argumente der Funktion sind <code>cols</code>, <code>names_to</code> und <code>values_to</code>. Wir übergeben <code>cols</code> (kurz für columns, Spalten) die Spalten, die wir lang machen möchten, <code>names_to</code> den Überbegriff der zusammen gewürfelten Variablen (hier die Persönlichkeitsfaktoren oder kurz <code>Faktor</code>) und <code>values_to</code> den Variablennamen für die Ausprägungen pro Person (hier <code>Wert</code>).</p>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="datenvorverarbeitung.html#cb117-1"></a>big_long &lt;-<span class="st"> </span>big <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb117-2"><a href="datenvorverarbeitung.html#cb117-2"></a><span class="st">  </span><span class="kw">pivot_longer</span>(</span>
+<span id="cb117-3"><a href="datenvorverarbeitung.html#cb117-3"></a>    <span class="dt">cols =</span> Extraversion<span class="op">:</span>Neurotizismus,</span>
+<span id="cb117-4"><a href="datenvorverarbeitung.html#cb117-4"></a>    <span class="dt">names_to =</span> <span class="st">&quot;Faktor&quot;</span>,</span>
+<span id="cb117-5"><a href="datenvorverarbeitung.html#cb117-5"></a>    <span class="dt">values_to =</span> <span class="st">&quot;Wert&quot;</span></span>
+<span id="cb117-6"><a href="datenvorverarbeitung.html#cb117-6"></a>  )</span></code></pre></div>
+<pre><code>## # A tibble: 10 x 3
+##     VPN Faktor         Wert
+##   &lt;int&gt; &lt;chr&gt;         &lt;dbl&gt;
+## 1     1 Extraversion    3  
+## 2     1 Neurotizismus   1.9
+## 3     2 Extraversion    3.1
+## 4     2 Neurotizismus   3.4
+## # ... with 6 more rows</code></pre>
+<p>Der Doppelpunkt zwischen Extraversion und Neurotizismus lässt sich lesen als die Spalten von Extraversion <strong>bis</strong> Neurotizismus. Es können darüber hinaus wie bereits kennengelernt auch Helferfunktionen wie <code>starts_with()</code>, <code>ends_with()</code> oder <code>everything()</code> verwendet werden. Letztere Funktion wählt schlichtweg alle Spalten aus. Wenn man alle bis auf eine auswählen möchte, kann man wie bei <code>select()</code> gewohnt, die Variable mit einem Minus kennzeichnen.</p>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="datenvorverarbeitung.html#cb119-1"></a>big <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb119-2"><a href="datenvorverarbeitung.html#cb119-2"></a><span class="st">  </span><span class="kw">pivot_longer</span>(</span>
+<span id="cb119-3"><a href="datenvorverarbeitung.html#cb119-3"></a>    <span class="dt">cols =</span> <span class="op">-</span>VPN,</span>
+<span id="cb119-4"><a href="datenvorverarbeitung.html#cb119-4"></a>    <span class="dt">names_to =</span> <span class="st">&quot;Faktor&quot;</span>,</span>
+<span id="cb119-5"><a href="datenvorverarbeitung.html#cb119-5"></a>    <span class="dt">values_to =</span> <span class="st">&quot;Wert&quot;</span></span>
+<span id="cb119-6"><a href="datenvorverarbeitung.html#cb119-6"></a>  )</span></code></pre></div>
+<p>Seltener kommt es vor, dass man ein langes Datenformat vorliegen hat, was man breit machen möchte. In dem Fall kann man <code>pivot_wider()</code> verwenden. Hier benötigen wir nur die selbsterklärenden Argumente <code>names_from</code> und <code>values_from</code>.</p>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="datenvorverarbeitung.html#cb120-1"></a>big_long <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb120-2"><a href="datenvorverarbeitung.html#cb120-2"></a><span class="st">  </span><span class="kw">pivot_wider</span>(</span>
+<span id="cb120-3"><a href="datenvorverarbeitung.html#cb120-3"></a>    <span class="dt">names_from =</span> Faktor,</span>
+<span id="cb120-4"><a href="datenvorverarbeitung.html#cb120-4"></a>    <span class="dt">values_from =</span> Wert</span>
+<span id="cb120-5"><a href="datenvorverarbeitung.html#cb120-5"></a>  )</span></code></pre></div>
+<pre><code>## # A tibble: 5 x 3
+##     VPN Extraversion Neurotizismus
+##   &lt;int&gt;        &lt;dbl&gt;         &lt;dbl&gt;
+## 1     1          3             1.9
+## 2     2          3.1           3.4
+## 3     3          3.4           2.4
+## 4     4          3.3           4.2
+## # ... with 1 more row</code></pre>
+<p>Die Namen der Variablen müssen an dieser Stelle nicht in Anführungszeichen geschrieben werden, weil die Variablen nicht neu erstellt werden sondern bereits existieren. Auch bei <code>pivot_longer()</code> könnten die Anführungszeichen weggelassen werden, sofern man eine bereits existierende Variable überschreiben möchte, was in dem Anwendungskontext allerdings selten sinnvoll sein dürfte. Weitere Beispiele gibt es im Rahmen der Visualisierungen (siehe Kapitel <a href="visual.html#visual">10</a>) und den Varianzanalysen mit Messwiederholung (siehe Kapitel <a href="inductive.html#repeated">11.5.2</a>).</p>
+</div>
+<div id="datastring" class="section level2">
+<h2><span class="header-section-number">8.9</span> Character Manipulation</h2>
+<p>Oft muss man entweder die Spaltennamen oder die Inhalte verschiedener Spalten, die Characters enthalten in irgendeiner Form anpassen. In diesem Kapitel schauen wir uns an, wie man mit Funktionen aus <code>stringr</code> (enthalten im <code>tidyverse</code>) Character ersetzt (<code>str_replace()</code>), extrahiert (<code>str_extract()</code>) und entdeckt (<code>str_detect()</code>). Das Präfix <code>str</code> steht dabei für String, was in anderen Programmiersprachen wie z.B. Java, C++ oder Perl für Character steht. Außerdem gibt es eine kurze Einführung in Regular Expression (Regex), die es einem ermöglichen, bestimmte Teile des Strings wie zum Beispiel eine Ziffer herauszufiltern. Damit sind allgemeinere Befehle möglich als nur nach bestimmten Zahlen oder Buchstaben (wie <code>“1”</code> oder <code>“B”</code>) zu suchen.</p>
+<p>Ein häufiges Ärgernis mit Strings sind Umlaute, da verschiedene Zeichenkodierungen Umlaute intern verschieden übersetzen, so dass auf anderen Betriebssystemen zu Kauderwelsch kommen kann. Schauen wir uns im Folgenden an, wie man Umlaute ersetzt. Es sei der Satz</p>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="datenvorverarbeitung.html#cb122-1"></a>stri &lt;-<span class="st"> &quot;Hallö, 2 mal Pi beträgt 6.82 und nicht 3.41&quot;</span></span></code></pre></div>
+<p>gegeben. Möchte man nun das <strong>eine</strong> <em>ä</em> mit <em>ae</em> ersetzen, verwendet man <code>str_replace()</code>.</p>
+<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="datenvorverarbeitung.html#cb123-1"></a><span class="kw">str_replace</span>(stri, <span class="st">&quot;ä&quot;</span>, <span class="st">&quot;ae&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;Hallö, 2 mal Pi betraegt 6.82 und nicht 3.41&quot;</code></pre>
+<p>Dabei muss der zu ersetzende Buchstabe immer zuerst eingegeben werden. Nun haben wir aber immer noch ein <em>ö</em> im Satz enthalten. Für mehr als eine Anpassung verwendet man <code>str_replace_all()</code>. Die Syntax ist leider etwas kontra intuitiv, wenn man bereits <code>select()</code> und <code>rename()</code> kennengelernt hat. Hier ist der <strong>alte</strong> Name auf der linken Seite der jeweiligen Gleichung.</p>
+<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="datenvorverarbeitung.html#cb125-1"></a><span class="kw">str_replace_all</span>(stri, <span class="kw">c</span>(<span class="st">&quot;ä&quot;</span> =<span class="st"> &quot;ae&quot;</span>, <span class="st">&quot;ö&quot;</span> =<span class="st"> &quot;oe&quot;</span>))</span></code></pre></div>
+<pre><code>## [1] &quot;Halloe, 2 mal Pi betraegt 6.82 und nicht 3.41&quot;</code></pre>
+<p>Aber wie geht man vor, wenn Spaltennamen Umlaute enthalten? Um dem auf den Grund zu gehen, erstellen wir uns einen neuen tibble (<a href="datatypes.html#tibble">13.3</a>), der die Preise für drei verschiedene Sägen in Österreich enthält.</p>
+<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="datenvorverarbeitung.html#cb127-1"></a>umlaut &lt;-<span class="st"> </span><span class="kw">tibble</span>(</span>
+<span id="cb127-2"><a href="datenvorverarbeitung.html#cb127-2"></a>  Sä<span class="dt">ge =</span> <span class="kw">c</span>(<span class="st">&quot;Häxler&quot;</span>, <span class="st">&quot;Sünde3000&quot;, &quot;</span>Tölf4<span class="st">&quot;),</span></span>
+<span id="cb127-3"><a href="datenvorverarbeitung.html#cb127-3"></a><span class="st">  Österreich = c(10.45, 4.60, 9.70)</span></span>
+<span id="cb127-4"><a href="datenvorverarbeitung.html#cb127-4"></a><span class="st">)</span></span></code></pre></div>
+<pre><code>## # A tibble: 3 x 2
+##   Säge      Österreich
+##   &lt;chr&gt;          &lt;dbl&gt;
+## 1 Häxler          10.4
+## 2 Sünde3000        4.6
+## 3 Tölf4            9.7</code></pre>
+<p>Die Namen enthalten jeweils einen Umlaut. Beachte, dass ein Umlaut groß geschrieben ist und die Funktionen <em>case sensitive</em> sind. Das bedeutet, dass wir mit den Befehlen oben nur kleine Buchstaben ersetzen und nicht ihre großen Äquivalente.</p>
+<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="datenvorverarbeitung.html#cb129-1"></a><span class="kw">names</span>(umlaut)</span></code></pre></div>
+<pre><code>## [1] &quot;Säge&quot;       &quot;Österreich&quot;</code></pre>
+<p>Möchten wir die Namen verändern könnten wir alle möglichen Umlaut mit <code>str_replace_all()</code> ersetzen und diese in <code>names(umlaut)</code> abspeichern.</p>
+<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb131-1"><a href="datenvorverarbeitung.html#cb131-1"></a><span class="kw">names</span>(umlaut) &lt;-<span class="st"> </span><span class="kw">names</span>(umlaut) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb131-2"><a href="datenvorverarbeitung.html#cb131-2"></a><span class="st">  </span><span class="kw">str_replace_all</span>(</span>
+<span id="cb131-3"><a href="datenvorverarbeitung.html#cb131-3"></a>    <span class="kw">c</span>(<span class="st">&quot;ä&quot;</span> =<span class="st"> &quot;ae&quot;</span>, </span>
+<span id="cb131-4"><a href="datenvorverarbeitung.html#cb131-4"></a>      <span class="st">&quot;ö&quot;</span> =<span class="st"> &quot;oe&quot;</span>,</span>
+<span id="cb131-5"><a href="datenvorverarbeitung.html#cb131-5"></a>      <span class="st">&quot;ü&quot;</span> =<span class="st"> &quot;ue&quot;</span>,</span>
+<span id="cb131-6"><a href="datenvorverarbeitung.html#cb131-6"></a>      <span class="st">&quot;Ä&quot;</span> =<span class="st"> &quot;Ae&quot;</span>,</span>
+<span id="cb131-7"><a href="datenvorverarbeitung.html#cb131-7"></a>      <span class="st">&quot;Ö&quot;</span> =<span class="st"> &quot;Oe&quot;</span>,</span>
+<span id="cb131-8"><a href="datenvorverarbeitung.html#cb131-8"></a>      <span class="st">&quot;Ü&quot;</span> =<span class="st"> &quot;Ue&quot;</span>)</span>
+<span id="cb131-9"><a href="datenvorverarbeitung.html#cb131-9"></a>  )</span></code></pre></div>
+<p>Alternativ könnten wir mit <code>rename_all()</code> mit anonymen Lambda Funktionen (siehe Kapitel <a href="funktionales-programmieren.html#functional">15.3</a>) in gewohnter <code>tidyverse</code> Manier die Spaltennamen <em>on the fly</em> verändern. Zum abändern der Werte <strong>innerhalb</strong> der Spalten verwenden wir wie gewohnt eine <code>mutate()</code> Variante. In diesem Fall bietet sich <code>mutate_if()</code> an, um alle Character Spalten zu durchsuchen und bei Bedarf zu ändern.</p>
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="datenvorverarbeitung.html#cb132-1"></a>umlaut <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb132-2"><a href="datenvorverarbeitung.html#cb132-2"></a><span class="st">  </span><span class="kw">mutate_if</span>(is.character, </span>
+<span id="cb132-3"><a href="datenvorverarbeitung.html#cb132-3"></a>            <span class="op">~</span><span class="st"> </span><span class="kw">str_replace_all</span>(.,<span class="kw">c</span>(<span class="st">&quot;ä&quot;</span> =<span class="st"> &quot;ae&quot;</span>, </span>
+<span id="cb132-4"><a href="datenvorverarbeitung.html#cb132-4"></a>                                  <span class="st">&quot;ö&quot;</span> =<span class="st"> &quot;oe&quot;</span>,</span>
+<span id="cb132-5"><a href="datenvorverarbeitung.html#cb132-5"></a>                                  <span class="st">&quot;ü&quot;</span> =<span class="st"> &quot;ue&quot;</span>,</span>
+<span id="cb132-6"><a href="datenvorverarbeitung.html#cb132-6"></a>                                  <span class="st">&quot;Ä&quot;</span> =<span class="st"> &quot;Ae&quot;</span>,</span>
+<span id="cb132-7"><a href="datenvorverarbeitung.html#cb132-7"></a>                                  <span class="st">&quot;Ö&quot;</span> =<span class="st"> &quot;Oe&quot;</span>,</span>
+<span id="cb132-8"><a href="datenvorverarbeitung.html#cb132-8"></a>                                  <span class="st">&quot;Ü&quot;</span> =<span class="st"> &quot;Ue&quot;</span>))</span>
+<span id="cb132-9"><a href="datenvorverarbeitung.html#cb132-9"></a>           )</span></code></pre></div>
+<pre><code>## # A tibble: 3 x 2
+##   Säge       Österreich
+##   &lt;chr&gt;           &lt;dbl&gt;
+## 1 Haexler          10.4
+## 2 Suende3000        4.6
+## 3 Toelf4            9.7</code></pre>
+<p>Regular Expressions oder kurz Regex ermöglichen es Dir aus Strings zum Beispiel nur die Zahl, die am Anfang steht, unabhängig vom Zahlenwert aus dem String herauszufiltern. Wenn wir aus dem zu Beginn verwendeten Satz die erste ganze Zahl herausziehen müssten, könnten wir <code>str_extract()</code> mit dem Regex <code>[0-9]</code> verwenden, welcher alle Ziffern zwischen 0 und 9 findet.</p>
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="datenvorverarbeitung.html#cb134-1"></a><span class="kw">str_extract</span>(stri, <span class="st">&quot;[0-9]&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;2&quot;</code></pre>
+<p>Würden wir mehr als eine einstellige Zahl erwarten, müssten wir <code>[0-9]+</code> verwenden. Eine Alternative Schreibweise für <code>[0-9]</code> wäre <code>\d</code> (d für digit). Zwischen den Programmiersprachen gibt es leichte Abwandlungen, wie genau Regex zu benutzen sind. Eine der mächtigsten Sprachen mit Regex ist Perl. Glücklicherweise kann man in R alle Perl Regex benutzen. Man muss nur – falls der Regex mit einem Backslash <code>\</code> beginnt, diesen einmal mit einem weiteren Backslash <em>escapen</em>, damit R nicht versucht diesen Backslash als anderen Befehl zu interpretieren. Somit würde die Alternative Syntax zum obigen Problem korrekter Weise in R <code>\\d</code> lauten.</p>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="datenvorverarbeitung.html#cb136-1"></a><span class="kw">str_extract</span>(stri, <span class="st">&quot;</span><span class="ch">\\</span><span class="st">d&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;2&quot;</code></pre>
+<p>Für das herausfiltern der Dezimalzahl, könnte man</p>
+<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="datenvorverarbeitung.html#cb138-1"></a><span class="kw">str_extract</span>(stri, <span class="st">&quot;[0-9].[0-9]+&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;6.82&quot;</code></pre>
+<p>schreiben. Beachte den Punkt in der Mitte. Dieser Regex findet Zahlen, die mit einer einstelligen Zahl Anfangen und mit einer zweistelligen Enden, während sie mit einem Punkt getrennt werden. Wie Dir vielleicht aufgefallen ist, wird nur eine der beiden im String enthaltenen Dezimalzahlen heraus gefiltert. Das liegt daran, dass der Regex – wenn nicht anders spezifiziert – nachdem die Bedingung ein einer Stelle zugetroffen hat, nicht mehr weiter sucht. Um die Zahl am Ende des Strings zu finden, verwenden wir <code>$</code>.</p>
+<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="datenvorverarbeitung.html#cb140-1"></a><span class="kw">str_extract</span>(stri, <span class="st">&quot;[0-9].[0-9]+$&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;3.41&quot;</code></pre>
+<p>Äquivalent dazu kann man mit <code>^</code> den Anfang eines Strings durchsuchen. Regex sind ein komplexes Thema, welches ein eigenes Buch zur Erklärung benötigt. Glücklicherweise kann man Regex sehr gut mit Suchmaschinen finden. Möchte man nicht nur eine sondern gleich alle Zahlen herausfinden, auf die diese Bedingung zutritt, kann man in R die Funktion <code>str_extract_all()</code> verwenden.</p>
+<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="datenvorverarbeitung.html#cb142-1"></a><span class="kw">str_extract_all</span>(stri, <span class="st">&quot;[0-9].[0-9]+&quot;</span>)</span></code></pre></div>
+<pre><code>## [[1]]
+## [1] &quot;6.82&quot; &quot;3.41&quot;</code></pre>
+<p>In unserem Video Streaming Datensatz, könnten wir Regex dafür benutzen, um die Staffelnummer aus der Spalte <code>Staffel</code> zu extrahieren.</p>
+<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="datenvorverarbeitung.html#cb144-1"></a>video <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb144-2"><a href="datenvorverarbeitung.html#cb144-2"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Staffel =</span> <span class="kw">str_extract</span>(Staffel, <span class="st">&quot;[0-9]&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb144-3"><a href="datenvorverarbeitung.html#cb144-3"></a><span class="st">  </span><span class="kw">mutate_at</span>(<span class="kw">vars</span>(Staffel), as.numeric)</span></code></pre></div>
+<pre><code>## # A tibble: 1,493 x 4
+##   Titel           Staffel Folge                              Watchdate 
+##   &lt;chr&gt;             &lt;dbl&gt; &lt;chr&gt;                              &lt;date&gt;    
+## 1 Suits                 7 Neues Spiel                        2019-07-22
+## 2 Suits                 1 Patente und andere Unwaegbarkeiten 2019-07-22
+## 3 Death Note            1 Ein Geschaeft                      2019-07-21
+## 4 Haus des Geldes       3 Verloren                           2019-07-21
+## # ... with 1,489 more rows</code></pre>
+<p>Die Funktion <code>str_detect()</code> entdeckt bestimmte Buchstaben, Wörter oder Regex und gibt einen logischen Wert aus (<code>TRUE</code>, <code>FALSE</code>), wenn das Gesuchte gefunden oder nicht gefunden wurde. Das ist daher praktisch, da man diese Funktion für logische Bedingungen wie in <code>case_when()</code> verwenden kann. Würde man z.B. aus irgendeinem Grund eine neue Spalte namens <code>Ts</code> erstellen wollen, in der jeder Title, der mit T anfängt eine 1 und ansonsten eine 0 bekommt, würde man das wie folgt machen:</p>
+<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="datenvorverarbeitung.html#cb146-1"></a>video1 <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb146-2"><a href="datenvorverarbeitung.html#cb146-2"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Ts =</span> <span class="kw">case_when</span>(</span>
+<span id="cb146-3"><a href="datenvorverarbeitung.html#cb146-3"></a>    <span class="kw">str_detect</span>(Titel, <span class="st">&quot;^T&quot;</span>) <span class="op">~</span><span class="st"> </span><span class="dv">1</span>,</span>
+<span id="cb146-4"><a href="datenvorverarbeitung.html#cb146-4"></a>    <span class="ot">TRUE</span> <span class="op">~</span><span class="st"> </span><span class="dv">0</span></span>
+<span id="cb146-5"><a href="datenvorverarbeitung.html#cb146-5"></a>  )) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb146-6"><a href="datenvorverarbeitung.html#cb146-6"></a><span class="st">  </span><span class="kw">group_by</span>(Ts) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb146-7"><a href="datenvorverarbeitung.html#cb146-7"></a><span class="st">  </span><span class="kw">count</span>()</span></code></pre></div>
+<pre><code>## # A tibble: 2 x 2
+## # Groups:   Ts [2]
+##      Ts     n
+##   &lt;dbl&gt; &lt;int&gt;
+## 1     0   124
+## 2     1    22</code></pre>
+<p>Anschließend wurden die Ts noch gruppiert und gezählt.</p>
+</div>
+<div id="datafactor" class="section level2">
+<h2><span class="header-section-number">8.10</span> Faktoren verändern</h2>
+<p>Falls Du nicht mehr genau im Kopf hast, was Faktoren sind, schaue Dir noch einmal Kapitel <a href="datentypen.html#factor">6.2</a> an. Faktoren sind vor allem zur automatischen Erstellung von Dummy Variablen für Regressionsmodelle (siehe Kapitel <a href="inductive.html#linregression">11.6.1</a>), für das richtige Abbilden und das Ändern der Reihenfolge für das erstellen von Visualisierungen (siehe Kapitel <a href="visual.html#barplot">10.6</a>) sowie für andere inferenzstatistische Verfahren nützlich. Im Folgenden schauen wir uns Beispiele an, wie man mit Funktion aus dem <code>forcats</code> Package aus dem <code>tidyverse</code> Faktoren umbenennen (<code>fct_recode()</code>) und deren Reihenfolge ändern (<code>fct_relevel()</code>, <code>fct_reorder()</code>) kann. Dafür erstellen wir uns zuerst eine neue Spalte mit verschiedenen Altersgruppen aus dem <code>big_five</code> Datensatz und wandeln diese in Faktoren um, die die Level <em>Jungspund</em>, <em>Mittel</em>, <em>Erfahren</em> und <em>Weise</em> haben.</p>
+<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="datenvorverarbeitung.html#cb148-1"></a>big5 &lt;-<span class="st"> </span>big_five <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb148-2"><a href="datenvorverarbeitung.html#cb148-2"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Gruppe =</span> <span class="kw">case_when</span>(</span>
+<span id="cb148-3"><a href="datenvorverarbeitung.html#cb148-3"></a>    Alter <span class="op">&lt;=</span><span class="st"> </span><span class="dv">25</span> <span class="op">~</span><span class="st"> &quot;Jungspund&quot;</span>,</span>
+<span id="cb148-4"><a href="datenvorverarbeitung.html#cb148-4"></a>    <span class="kw">between</span>(Alter, <span class="dv">26</span>, <span class="dv">45</span>) <span class="op">~</span><span class="st"> &quot;Mittel&quot;</span>,</span>
+<span id="cb148-5"><a href="datenvorverarbeitung.html#cb148-5"></a>    <span class="kw">between</span>(Alter, <span class="dv">46</span>, <span class="dv">65</span>) <span class="op">~</span><span class="st"> &quot;Erfahren&quot;</span>,</span>
+<span id="cb148-6"><a href="datenvorverarbeitung.html#cb148-6"></a>    Alter <span class="op">&gt;</span><span class="st"> </span><span class="dv">65</span> <span class="op">~</span><span class="st"> &quot;Weise&quot;</span></span>
+<span id="cb148-7"><a href="datenvorverarbeitung.html#cb148-7"></a>  )) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb148-8"><a href="datenvorverarbeitung.html#cb148-8"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Gruppe =</span> <span class="kw">factor</span>(Gruppe, </span>
+<span id="cb148-9"><a href="datenvorverarbeitung.html#cb148-9"></a>                         <span class="dt">levels =</span> <span class="kw">c</span>(<span class="st">&quot;Jungspund&quot;</span>, <span class="st">&quot;Mittel&quot;</span>, </span>
+<span id="cb148-10"><a href="datenvorverarbeitung.html#cb148-10"></a>                                    <span class="st">&quot;Erfahren&quot;</span>, <span class="st">&quot;Weise&quot;</span>)))</span></code></pre></div>
+<p>Dabei ist die <code>dplyr</code> Funktion <code>between(Alter, 26, 45)</code> eine effiziente implementierte und übersichtlichere Version des Ausdrucks <code>Alter &gt;= 26 &amp; Alter &lt;= 45</code> (siehe Kapitel <a href="datentypen.html#datentypen">6</a>). Schauen wir uns die neue Spalte einmal an.</p>
+<pre><code>## # A tibble: 200 x 1
+##    Gruppe   
+##    &lt;fct&gt;    
+##  1 Mittel   
+##  2 Mittel   
+##  3 Jungspund
+##  4 Erfahren 
+##  5 Jungspund
+##  6 Jungspund
+##  7 Mittel   
+##  8 Jungspund
+##  9 Mittel   
+## 10 Jungspund
+## # ... with 190 more rows</code></pre>
+<p>Um besser visualisieren zu können, wie die Levels der Faktoren sich verändern, werden wir mit der Spalte als Vektor arbeiten (siehe Kapitel <a href="datatypes.html#vec">13.1</a>). Um die Syntax brauchst Du Dich erst einmal nicht weiter zu kümmern.</p>
+<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="datenvorverarbeitung.html#cb150-1"></a>gruppen &lt;-<span class="st"> </span>big5[[<span class="st">&quot;Gruppe&quot;</span>]]</span></code></pre></div>
+<p>Zum Anzeigen der Faktorstufen, verwenden wir <code>levels</code></p>
+<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="datenvorverarbeitung.html#cb151-1"></a>gruppen <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb151-2"><a href="datenvorverarbeitung.html#cb151-2"></a><span class="st">  </span><span class="kw">levels</span>()</span></code></pre></div>
+<pre><code>## [1] &quot;Jungspund&quot; &quot;Mittel&quot;    &quot;Erfahren&quot;  &quot;Weise&quot;</code></pre>
+<p>Dass die Reihenfolge schon der Altersreihenfolge entspricht, liegt nur daran, dass wir die Faktorstufen oben genau spezifiziert haben. Ansonsten können durchaus unerwartete Reihenfolgen der Faktorstufen auftreten. Es lohnt sich also in jedem Fall ein Blick in die Faktorstufen, bevor man sie verwendet. Möchte man einzelne Faktoren umbenennen, verwendet man <code>fct_recode()</code>.</p>
+<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="datenvorverarbeitung.html#cb153-1"></a><span class="kw">fct_recode</span>(gruppen, <span class="dt">Jung =</span> <span class="st">&quot;Jungspund&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb153-2"><a href="datenvorverarbeitung.html#cb153-2"></a><span class="st">  </span><span class="kw">levels</span>()</span></code></pre></div>
+<pre><code>## [1] &quot;Jung&quot;     &quot;Mittel&quot;   &quot;Erfahren&quot; &quot;Weise&quot;</code></pre>
+<p>Möchten wir eine bestimmte Faktorstufe an erster Stelle haben, verwenden wir <code>fct_relevel()</code> mit der gewünschten Stufe als Character.</p>
+<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="datenvorverarbeitung.html#cb155-1"></a><span class="kw">fct_relevel</span>(gruppen, <span class="st">&quot;Weise&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb155-2"><a href="datenvorverarbeitung.html#cb155-2"></a><span class="st">  </span><span class="kw">levels</span>()</span></code></pre></div>
+<pre><code>## [1] &quot;Weise&quot;     &quot;Jungspund&quot; &quot;Mittel&quot;    &quot;Erfahren&quot;</code></pre>
+<p>Zum Ändern der gesamten Reihenfolge kann man beliebig viele weitere Faktorstufen der Funktion übergeben.</p>
+<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="datenvorverarbeitung.html#cb157-1"></a><span class="kw">fct_relevel</span>(gruppen, <span class="st">&quot;Weise&quot;</span>, <span class="st">&quot;Erfahren&quot;</span>,</span>
+<span id="cb157-2"><a href="datenvorverarbeitung.html#cb157-2"></a>            <span class="st">&quot;Mittel&quot;</span>, <span class="st">&quot;Jungspund&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb157-3"><a href="datenvorverarbeitung.html#cb157-3"></a><span class="st">  </span><span class="kw">levels</span>()</span></code></pre></div>
+<pre><code>## [1] &quot;Weise&quot;     &quot;Erfahren&quot;  &quot;Mittel&quot;    &quot;Jungspund&quot;</code></pre>
+<p>Wenn die Reihenfolge der Faktoren in absteigender (<code>.desc = TRUE</code>) oder aufsteigender (<code>.desc = FALSE</code>) Reihenfolge z.B. in Abhängigkeit des Mittelwertes einer anderen Spalte (wie dem Ausmaß an Extraversion) sortiert werden soll, verwendet man <code>fct_reorder()</code>.</p>
+<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="datenvorverarbeitung.html#cb159-1"></a><span class="kw">fct_reorder</span>(gruppen, big_five[[<span class="st">&quot;Extraversion&quot;</span>]], </span>
+<span id="cb159-2"><a href="datenvorverarbeitung.html#cb159-2"></a>            <span class="dt">.fun =</span> mean, <span class="dt">.desc =</span> <span class="ot">FALSE</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb159-3"><a href="datenvorverarbeitung.html#cb159-3"></a><span class="st">  </span><span class="kw">levels</span>()</span></code></pre></div>
+<pre><code>## [1] &quot;Weise&quot;     &quot;Erfahren&quot;  &quot;Mittel&quot;    &quot;Jungspund&quot;</code></pre>
+<p>Dabei kann man mit dem Argument <code>.fun</code> die gewünschte Funktion zur Auswertung der zweiten Variable (hier Extraversion) verwenden. In den am Anfang des Kapitels beschriebenen Anwendungsfällen wird es noch klarer werden, weshalb die Notwendigkeit von Faktoren besteht und inwiefern Dir die Funktionen aus dem <code>forcats</code> Package konkret das Leben erleichtern.</p>
+</div>
+<div id="datazeit" class="section level2">
+<h2><span class="header-section-number">8.11</span> Mit Zeitdaten arbeiten</h2>
+<p>In Kapitel <a href="datentypen.html#zeitdaten">6.3</a> wurden zwei verschiedene Zeitdatentypen bereits eingeführt. Wir schauen uns an dieser Stelle noch einige nützliche Funktionen aus dem <code>lubridate</code> Package an. Möchte man ein Datum auseinander nehmen, kann man die Funktionen <code>year()</code>, <code>month()</code> und <code>day()</code> verwenden.</p>
+<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="datenvorverarbeitung.html#cb161-1"></a>video <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb161-2"><a href="datenvorverarbeitung.html#cb161-2"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Jahr =</span> <span class="kw">year</span>(Watchdate),</span>
+<span id="cb161-3"><a href="datenvorverarbeitung.html#cb161-3"></a>         <span class="dt">Monat =</span> <span class="kw">month</span>(Watchdate),</span>
+<span id="cb161-4"><a href="datenvorverarbeitung.html#cb161-4"></a>         <span class="dt">Tag =</span> <span class="kw">day</span>(Watchdate)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb161-5"><a href="datenvorverarbeitung.html#cb161-5"></a><span class="st">  </span><span class="kw">select</span>(Watchdate, Tag, Monat, Jahr)</span></code></pre></div>
+<pre><code>## # A tibble: 1,493 x 4
+##   Watchdate    Tag Monat  Jahr
+##   &lt;date&gt;     &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1 2019-07-22    22     7  2019
+## 2 2019-07-22    22     7  2019
+## 3 2019-07-21    21     7  2019
+## 4 2019-07-21    21     7  2019
+## # ... with 1,489 more rows</code></pre>
+<p>Neben der bereits vorgestellten <code>ymd()</code> Funktion, die aus dem Format Jahr-Monat-Tag einen Eintrag vom Typ <code>Date</code> erstellt</p>
+<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="datenvorverarbeitung.html#cb163-1"></a>date1 &lt;-<span class="st"> &quot;02.08.2019&quot;</span></span>
+<span id="cb163-2"><a href="datenvorverarbeitung.html#cb163-2"></a><span class="kw">dmy</span>(date1)</span></code></pre></div>
+<pre><code>## [1] &quot;2019-08-02&quot;</code></pre>
+<p>gibt es auf selbe Art und Weise die Funktion <code>dmy()</code>, die mit Daten nach dem Format Tag-Monat-Jahr arbeiten kann.</p>
+<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="datenvorverarbeitung.html#cb165-1"></a>date2 &lt;-<span class="st"> &quot;2019-08-02&quot;</span></span>
+<span id="cb165-2"><a href="datenvorverarbeitung.html#cb165-2"></a><span class="kw">ymd</span>(date2) </span></code></pre></div>
+<pre><code>## [1] &quot;2019-08-02&quot;</code></pre>
+</div>
+<div id="binäre-antwortmatrix-erstellen" class="section level2">
+<h2><span class="header-section-number">8.12</span> Binäre Antwortmatrix erstellen</h2>
+<p>Wenn man Daten im Rahmen von Fragebögen erhebt, kriegt man meist nicht zurück, ob ein Item (eine Aufgabe oder Frage) richtig oder falsch beantwortet wurde. Stattdessen werden nur die abgegeben Antworten im Datensatz gespeichert. Mit <code>transform_binary()</code> aus dem <code>rBasics</code> Package kann man den Datensatz in die gewünschte binäre Antwortmatrix umwandeln. Sprich, man erhält die Information für jedes Item pro Person, ob das Item richtig (1) oder falsch (0) beantwortet wurde. Wenn wir einen Beispielsdatensatz mit drei Items und vier Antwortoptionen haben, die vier Personen beantwortet haben,</p>
+<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="datenvorverarbeitung.html#cb167-1"></a>data &lt;-<span class="st"> </span><span class="kw">tibble</span>(</span>
+<span id="cb167-2"><a href="datenvorverarbeitung.html#cb167-2"></a>  <span class="dt">I1 =</span> <span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">1</span>),</span>
+<span id="cb167-3"><a href="datenvorverarbeitung.html#cb167-3"></a>  <span class="dt">I2 =</span> <span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">1</span>),</span>
+<span id="cb167-4"><a href="datenvorverarbeitung.html#cb167-4"></a>  <span class="dt">I3 =</span> <span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">4</span>)</span>
+<span id="cb167-5"><a href="datenvorverarbeitung.html#cb167-5"></a>)</span></code></pre></div>
+<pre><code>## # A tibble: 4 x 3
+##      I1    I2    I3
+##   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1     3     2     4
+## 2     2     2     1
+## 3     3     2     4
+## 4     1     1     4</code></pre>
+<p>bei Item 1 die Antwort 3 richtig ist, bei Item 2 die Antwort 2 und bei Item 3 die Antwort 4, würde man die Antworten in einer Variable speichern.</p>
+<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="datenvorverarbeitung.html#cb169-1"></a>antworten &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">4</span>)</span></code></pre></div>
+<p>Nun benutzen wir die Funktion konsistent zu den bisher gelernten in Kombination mit der Pipe.</p>
+<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="datenvorverarbeitung.html#cb170-1"></a>data <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb170-2"><a href="datenvorverarbeitung.html#cb170-2"></a><span class="st">  </span><span class="kw">transform_binary</span>(antworten)</span></code></pre></div>
+<pre><code>## Warning: `as.tibble()` is deprecated as of tibble 2.0.0.
+## Please use `as_tibble()` instead.
+## The signature and semantics have changed, see `?as_tibble`.
+## This warning is displayed once every 8 hours.
+## Call `lifecycle::last_warnings()` to see where this warning was generated.</code></pre>
+<pre><code>## Warning: The `x` argument of `as_tibble.matrix()` must have column names if `.name_repair` is omitted as of tibble 2.0.0.
+## Using compatibility `.name_repair`.
+## This warning is displayed once every 8 hours.
+## Call `lifecycle::last_warnings()` to see where this warning was generated.</code></pre>
+<pre><code>## # A tibble: 4 x 3
+##      I1    I2    I3
+##   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1     1     1     1
+## 2     0     1     0
+## 3     1     1     1
+## 4     0     0     1</code></pre>
+
+</div>
+</div>
+
+
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="fehler-beheben.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="deskriptive-statistik.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "section"
+},
+"toc_depth": 3,
+"info": false
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

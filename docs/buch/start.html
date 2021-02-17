@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Kapitel 2 Startvoraussetzungen | R für empirische Wissenschaften</title>
+  <meta name="description" content="Das ist ein Test" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Kapitel 2 Startvoraussetzungen | R für empirische Wissenschaften" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="images/logo.png" />
+  <meta property="og:description" content="Das ist ein Test" />
+  <meta name="github-repo" content="j3ypi/rBasics" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Kapitel 2 Startvoraussetzungen | R für empirische Wissenschaften" />
+  
+  <meta name="twitter:description" content="Das ist ein Test" />
+  <meta name="twitter:image" content="images/logo.png" />
+
+<meta name="author" content="Jan Philipp Nolte" />
+
+
+<meta name="date" content="2021-02-17" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <link rel="apple-touch-icon-precomposed" sizes="120x120" href="images/touch-icon.png" />
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+<link rel="prev" href="intro.html"/>
+<link rel="next" href="project.html"/>
+<script src="libs/header-attrs-2.5/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { } /* Alert */
+code span.an { } /* Annotation */
+code span.at { } /* Attribute */
+code span.bu { } /* BuiltIn */
+code span.cf { } /* ControlFlow */
+code span.ch { color: #0e7a0e; } /* Char */
+code span.cn { } /* Constant */
+code span.co { } /* Comment */
+code span.cv { color: #0e7a0e; } /* CommentVar */
+code span.do { } /* Documentation */
+code span.er { font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fu { color: #e65100; } /* Function */
+code span.im { } /* Import */
+code span.in { } /* Information */
+code span.kw { color: #e65100; } /* Keyword */
+code span.op { } /* Operator */
+code span.ot { } /* Other */
+code span.pp { } /* Preprocessor */
+code span.sc { } /* SpecialChar */
+code span.ss { } /* SpecialString */
+code span.st { color: #0e7a0e; } /* String */
+code span.va { } /* Variable */
+code span.vs { color: #0e7a0e; } /* VerbatimString */
+code span.wa { font-weight: bold; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="stylesheet" href="toc.css" type="text/css" />
+<link rel="stylesheet" href="font-awesome.min.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><strong><a href="www.r-empirische-wissenschaften.de"> R für empirische Wissenschaften</a></strong></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Vorwort</a></li>
+<li class="part"><span><b>I Die ersten Schritte</b></span></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Einleitung</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#für-wen-ist-dieses-buch"><i class="fa fa-check"></i><b>1.1</b> Für wen ist dieses Buch?</a></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#aufbau-und-bearbeitungsstrategie"><i class="fa fa-check"></i><b>1.2</b> Aufbau und Bearbeitungsstrategie</a></li>
+<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#boxen-übungen-und-datensätze"><i class="fa fa-check"></i><b>1.3</b> Boxen, Übungen und Datensätze</a></li>
+<li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#books"><i class="fa fa-check"></i><b>1.4</b> Ergänzende Literatur</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="start.html"><a href="start.html"><i class="fa fa-check"></i><b>2</b> Startvoraussetzungen</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="start.html"><a href="start.html#installation-von-r-und-rstudio"><i class="fa fa-check"></i><b>2.1</b> Installation von R und RStudio</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="start.html"><a href="start.html#installr"><i class="fa fa-check"></i><b>2.1.1</b> Programmiersprache R</a></li>
+<li class="chapter" data-level="2.1.2" data-path="start.html"><a href="start.html#rstudio"><i class="fa fa-check"></i><b>2.1.2</b> Programmierumgebung RStudio</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="start.html"><a href="start.html#aufbau"><i class="fa fa-check"></i><b>2.2</b> Aufbau von RStudio</a></li>
+<li class="chapter" data-level="2.3" data-path="start.html"><a href="start.html#anpassung"><i class="fa fa-check"></i><b>2.3</b> RStudio anpassen</a></li>
+<li class="chapter" data-level="2.4" data-path="start.html"><a href="start.html#funktionen-und-ihre-argumente"><i class="fa fa-check"></i><b>2.4</b> Funktionen und ihre Argumente</a></li>
+<li class="chapter" data-level="2.5" data-path="start.html"><a href="start.html#packages"><i class="fa fa-check"></i><b>2.5</b> Packages (Erweiterungen)</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="start.html"><a href="start.html#installieren-und-laden"><i class="fa fa-check"></i><b>2.5.1</b> Installieren und laden</a></li>
+<li class="chapter" data-level="2.5.2" data-path="start.html"><a href="start.html#notwendige-packages"><i class="fa fa-check"></i><b>2.5.2</b> Notwendige Packages</a></li>
+<li class="chapter" data-level="2.5.3" data-path="start.html"><a href="start.html#namespace"><i class="fa fa-check"></i><b>2.5.3</b> Namespace</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="start.html"><a href="start.html#help"><i class="fa fa-check"></i><b>2.6</b> Fehler- und Warnmeldungen</a>
+<ul>
+<li class="chapter" data-level="2.6.1" data-path="start.html"><a href="start.html#der-unterschied"><i class="fa fa-check"></i><b>2.6.1</b> Der Unterschied</a></li>
+<li class="chapter" data-level="2.6.2" data-path="start.html"><a href="start.html#hilfe"><i class="fa fa-check"></i><b>2.6.2</b> Wo bekomme ich Hilfe?</a></li>
+<li class="chapter" data-level="2.6.3" data-path="start.html"><a href="start.html#fehler-beheben"><i class="fa fa-check"></i><b>2.6.3</b> Fehler beheben</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="start.html"><a href="start.html#historische-relikte"><i class="fa fa-check"></i><b>2.7</b> Historische Relikte</a></li>
+</ul></li>
+<li class="part"><span><b>II Vorbereitung</b></span></li>
+<li class="chapter" data-level="3" data-path="project.html"><a href="project.html"><i class="fa fa-check"></i><b>3</b> Projektorientierung</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="project.html"><a href="project.html#das-problem"><i class="fa fa-check"></i><b>3.1</b> Das Problem</a></li>
+<li class="chapter" data-level="3.2" data-path="project.html"><a href="project.html#r-projekte-erstellen"><i class="fa fa-check"></i><b>3.2</b> R Projekte erstellen</a></li>
+<li class="chapter" data-level="3.3" data-path="project.html"><a href="project.html#here"><i class="fa fa-check"></i><b>3.3</b> Das <code>here</code> Package</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="vars.html"><a href="vars.html"><i class="fa fa-check"></i><b>4</b> Variablen</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="vars.html"><a href="vars.html#pfeil"><i class="fa fa-check"></i><b>4.1</b> Variablen speichern und verwenden</a></li>
+<li class="chapter" data-level="4.2" data-path="vars.html"><a href="vars.html#datentypen"><i class="fa fa-check"></i><b>4.2</b> Grundlegende Datentypen</a></li>
+<li class="chapter" data-level="4.3" data-path="vars.html"><a href="vars.html#datentypen-konvertieren"><i class="fa fa-check"></i><b>4.3</b> Datentypen konvertieren</a></li>
+<li class="chapter" data-level="4.4" data-path="vars.html"><a href="vars.html#factor"><i class="fa fa-check"></i><b>4.4</b> Faktoren</a></li>
+<li class="chapter" data-level="4.5" data-path="vars.html"><a href="vars.html#zeitdaten"><i class="fa fa-check"></i><b>4.5</b> Zeitdaten</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="io.html"><a href="io.html"><i class="fa fa-check"></i><b>5</b> Datensätze</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="io.html"><a href="io.html#einlesen-externer-dateien"><i class="fa fa-check"></i><b>5.1</b> Einlesen externer Dateien</a></li>
+<li class="chapter" data-level="5.2" data-path="io.html"><a href="io.html#datensätze-aus-packages-laden"><i class="fa fa-check"></i><b>5.2</b> Datensätze aus Packages laden</a></li>
+<li class="chapter" data-level="5.3" data-path="io.html"><a href="io.html#inR"><i class="fa fa-check"></i><b>5.3</b> Datensätze in R erstellen</a></li>
+<li class="chapter" data-level="5.4" data-path="io.html"><a href="io.html#speichern-und-konvertieren"><i class="fa fa-check"></i><b>5.4</b> Speichern und Konvertieren</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html"><i class="fa fa-check"></i><b>6</b> Datenvorbereitung</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#tidyverse"><i class="fa fa-check"></i><b>6.1</b> Einführung</a></li>
+<li class="chapter" data-level="6.2" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#select"><i class="fa fa-check"></i><b>6.2</b> <code>select()</code>, <code>rename()</code> und <code>relocate()</code></a></li>
+<li class="chapter" data-level="6.3" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#filter"><i class="fa fa-check"></i><b>6.3</b> <code>filter()</code> und <code>arrange()</code></a></li>
+<li class="chapter" data-level="6.4" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#mutate"><i class="fa fa-check"></i><b>6.4</b> <code>mutate()</code> und <code>across()</code></a></li>
+<li class="chapter" data-level="6.5" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#function"><i class="fa fa-check"></i><b>6.5</b> Eigene Funktionen</a></li>
+<li class="chapter" data-level="6.6" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#rowwise-und-c_across"><i class="fa fa-check"></i><b>6.6</b> <code>rowwise()</code> und <code>c_across()</code></a></li>
+<li class="chapter" data-level="6.7" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#tidy"><i class="fa fa-check"></i><b>6.7</b> Breites und langes Datenformat</a></li>
+<li class="chapter" data-level="6.8" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#spalten-trennen"><i class="fa fa-check"></i><b>6.8</b> Spalten trennen</a></li>
+<li class="chapter" data-level="6.9" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#datensätze-zusammenführen"><i class="fa fa-check"></i><b>6.9</b> Datensätze zusammenführen</a></li>
+<li class="chapter" data-level="6.10" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#datastring"><i class="fa fa-check"></i><b>6.10</b> Character Manipulation</a></li>
+<li class="chapter" data-level="6.11" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#datafactor"><i class="fa fa-check"></i><b>6.11</b> Faktoren verändern</a></li>
+<li class="chapter" data-level="6.12" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#datazeit"><i class="fa fa-check"></i><b>6.12</b> Mit Zeitdaten arbeiten</a></li>
+<li class="chapter" data-level="6.13" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#binäre-antwortmatrix-erstellen"><i class="fa fa-check"></i><b>6.13</b> Binäre Antwortmatrix erstellen</a></li>
+</ul></li>
+<li class="part"><span><b>III Auswertung</b></span></li>
+<li class="chapter" data-level="7" data-path="descr.html"><a href="descr.html"><i class="fa fa-check"></i><b>7</b> Deskriptive Statistik</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="descr.html"><a href="descr.html#verschiedene-lagemaße"><i class="fa fa-check"></i><b>7.1</b> Verschiedene Lagemaße</a></li>
+<li class="chapter" data-level="7.2" data-path="descr.html"><a href="descr.html#umgang-mit-fehlenden-werten"><i class="fa fa-check"></i><b>7.2</b> Umgang mit fehlenden Werten</a></li>
+<li class="chapter" data-level="7.3" data-path="descr.html"><a href="descr.html#contigency"><i class="fa fa-check"></i><b>7.3</b> Häufigkeiten und Kontingenztafeln</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="visual.html"><a href="visual.html"><i class="fa fa-check"></i><b>8</b> Visualisierungen</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="visual.html"><a href="visual.html#einführung"><i class="fa fa-check"></i><b>8.1</b> Einführung</a></li>
+<li class="chapter" data-level="8.2" data-path="visual.html"><a href="visual.html#histogram"><i class="fa fa-check"></i><b>8.2</b> Histogramm und Dichte</a></li>
+<li class="chapter" data-level="8.3" data-path="visual.html"><a href="visual.html#streudiagramm"><i class="fa fa-check"></i><b>8.3</b> Streudiagramm</a></li>
+<li class="chapter" data-level="8.4" data-path="visual.html"><a href="visual.html#boxplot"><i class="fa fa-check"></i><b>8.4</b> Boxplot</a></li>
+<li class="chapter" data-level="8.5" data-path="visual.html"><a href="visual.html#violin"><i class="fa fa-check"></i><b>8.5</b> Violin Plot</a></li>
+<li class="chapter" data-level="8.6" data-path="visual.html"><a href="visual.html#barplot"><i class="fa fa-check"></i><b>8.6</b> Balkendiagramm</a></li>
+<li class="chapter" data-level="8.7" data-path="visual.html"><a href="visual.html#anovaplot"><i class="fa fa-check"></i><b>8.7</b> Liniendiagramm</a></li>
+<li class="chapter" data-level="8.8" data-path="visual.html"><a href="visual.html#odds"><i class="fa fa-check"></i><b>8.8</b> Odds Ratios</a></li>
+<li class="chapter" data-level="8.9" data-path="visual.html"><a href="visual.html#q-q-plot"><i class="fa fa-check"></i><b>8.9</b> Q-Q Plot</a></li>
+<li class="chapter" data-level="8.10" data-path="visual.html"><a href="visual.html#ellipsen"><i class="fa fa-check"></i><b>8.10</b> Ellipsen</a></li>
+<li class="chapter" data-level="8.11" data-path="visual.html"><a href="visual.html#morefactors"><i class="fa fa-check"></i><b>8.11</b> Mehrfaktorielle Abbildungen</a>
+<ul>
+<li class="chapter" data-level="8.11.1" data-path="visual.html"><a href="visual.html#groups"><i class="fa fa-check"></i><b>8.11.1</b> Gruppierungsargumente</a></li>
+<li class="chapter" data-level="8.11.2" data-path="visual.html"><a href="visual.html#facets"><i class="fa fa-check"></i><b>8.11.2</b> Facets</a></li>
+</ul></li>
+<li class="chapter" data-level="8.12" data-path="visual.html"><a href="visual.html#patch"><i class="fa fa-check"></i><b>8.12</b> Anordnen mehrerer Graphen</a></li>
+<li class="chapter" data-level="8.13" data-path="visual.html"><a href="visual.html#adapt"><i class="fa fa-check"></i><b>8.13</b> Anpassen des Aussehens</a></li>
+<li class="chapter" data-level="8.14" data-path="visual.html"><a href="visual.html#ggsave"><i class="fa fa-check"></i><b>8.14</b> Speichern von Graphen</a></li>
+<li class="chapter" data-level="8.15" data-path="visual.html"><a href="visual.html#example"><i class="fa fa-check"></i><b>8.15</b> Anwendungsbeispiel</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="inductive.html"><a href="inductive.html"><i class="fa fa-check"></i><b>9</b> Inferenzstatistik</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="inductive.html"><a href="inductive.html#einführung-1"><i class="fa fa-check"></i><b>9.1</b> Einführung</a></li>
+<li class="chapter" data-level="9.2" data-path="inductive.html"><a href="inductive.html#normalverteilung-prüfen"><i class="fa fa-check"></i><b>9.2</b> Normalverteilung prüfen</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="inductive.html"><a href="inductive.html#shapiro-wilk-test"><i class="fa fa-check"></i><b>9.2.1</b> Shapiro-Wilk Test</a></li>
+<li class="chapter" data-level="9.2.2" data-path="inductive.html"><a href="inductive.html#kolmogorov-smirnov-test"><i class="fa fa-check"></i><b>9.2.2</b> Kolmogorov-Smirnov Test</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="inductive.html"><a href="inductive.html#varianzhomogenität"><i class="fa fa-check"></i><b>9.3</b> Varianzhomogenität</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="inductive.html"><a href="inductive.html#f-test"><i class="fa fa-check"></i><b>9.3.1</b> <em>F</em> Test</a></li>
+<li class="chapter" data-level="9.3.2" data-path="inductive.html"><a href="inductive.html#levene-test"><i class="fa fa-check"></i><b>9.3.2</b> Levene Test</a></li>
+<li class="chapter" data-level="9.3.3" data-path="inductive.html"><a href="inductive.html#bartletts-test"><i class="fa fa-check"></i><b>9.3.3</b> Bartletts Test</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="inductive.html"><a href="inductive.html#ein--und-zweistichprobenszenarien"><i class="fa fa-check"></i><b>9.4</b> Ein- und Zweistichprobenszenarien</a>
+<ul>
+<li class="chapter" data-level="9.4.1" data-path="inductive.html"><a href="inductive.html#t-test-und-welch-test"><i class="fa fa-check"></i><b>9.4.1</b> <em>t</em> Test und Welch Test</a></li>
+<li class="chapter" data-level="9.4.2" data-path="inductive.html"><a href="inductive.html#wilcoxon-test"><i class="fa fa-check"></i><b>9.4.2</b> Wilcoxon Test</a></li>
+<li class="chapter" data-level="9.4.3" data-path="inductive.html"><a href="inductive.html#brunner-munzel-test"><i class="fa fa-check"></i><b>9.4.3</b> Brunner Munzel Test</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="inductive.html"><a href="inductive.html#unterschiede-mehrerer-gruppen"><i class="fa fa-check"></i><b>9.5</b> Unterschiede mehrerer Gruppen</a>
+<ul>
+<li class="chapter" data-level="9.5.1" data-path="inductive.html"><a href="inductive.html#aov"><i class="fa fa-check"></i><b>9.5.1</b> Varianzanalyse</a></li>
+<li class="chapter" data-level="9.5.2" data-path="inductive.html"><a href="inductive.html#repeated"><i class="fa fa-check"></i><b>9.5.2</b> Messwiederholung</a></li>
+<li class="chapter" data-level="9.5.3" data-path="inductive.html"><a href="inductive.html#kruskal-wallis-test"><i class="fa fa-check"></i><b>9.5.3</b> Kruskal-Wallis Test</a></li>
+<li class="chapter" data-level="9.5.4" data-path="inductive.html"><a href="inductive.html#friedman-test"><i class="fa fa-check"></i><b>9.5.4</b> Friedman Test</a></li>
+</ul></li>
+<li class="chapter" data-level="9.6" data-path="inductive.html"><a href="inductive.html#regressionsmodelle"><i class="fa fa-check"></i><b>9.6</b> Regressionsmodelle</a>
+<ul>
+<li class="chapter" data-level="9.6.1" data-path="inductive.html"><a href="inductive.html#linregression"><i class="fa fa-check"></i><b>9.6.1</b> Eindimensionale lineare Regression</a></li>
+<li class="chapter" data-level="9.6.2" data-path="inductive.html"><a href="inductive.html#hierarchische-lineare-regression"><i class="fa fa-check"></i><b>9.6.2</b> Hierarchische lineare Regression</a></li>
+<li class="chapter" data-level="9.6.3" data-path="inductive.html"><a href="inductive.html#logistische-regression"><i class="fa fa-check"></i><b>9.6.3</b> Logistische Regression</a></li>
+<li class="chapter" data-level="9.6.4" data-path="inductive.html"><a href="inductive.html#baseline-logit-modell"><i class="fa fa-check"></i><b>9.6.4</b> Baseline Logit Modell</a></li>
+<li class="chapter" data-level="9.6.5" data-path="inductive.html"><a href="inductive.html#kumulative-logit-modelle"><i class="fa fa-check"></i><b>9.6.5</b> Kumulative Logit Modelle</a></li>
+</ul></li>
+<li class="chapter" data-level="9.7" data-path="inductive.html"><a href="inductive.html#korrelationsanalysen"><i class="fa fa-check"></i><b>9.7</b> Korrelationsanalysen</a>
+<ul>
+<li class="chapter" data-level="9.7.1" data-path="inductive.html"><a href="inductive.html#korrelationstests"><i class="fa fa-check"></i><b>9.7.1</b> Korrelationstests</a></li>
+<li class="chapter" data-level="9.7.2" data-path="inductive.html"><a href="inductive.html#polychorische-korrelation"><i class="fa fa-check"></i><b>9.7.2</b> Polychorische Korrelation</a></li>
+<li class="chapter" data-level="9.7.3" data-path="inductive.html"><a href="inductive.html#korrelationstabellen"><i class="fa fa-check"></i><b>9.7.3</b> Korrelationstabellen</a></li>
+</ul></li>
+<li class="chapter" data-level="9.8" data-path="inductive.html"><a href="inductive.html#contingency"><i class="fa fa-check"></i><b>9.8</b> Kontingenztafeln</a>
+<ul>
+<li class="chapter" data-level="9.8.1" data-path="inductive.html"><a href="inductive.html#fisher"><i class="fa fa-check"></i><b>9.8.1</b> Fisher-Exact Test</a></li>
+<li class="chapter" data-level="9.8.2" data-path="inductive.html"><a href="inductive.html#chi-quadrat-tests"><i class="fa fa-check"></i><b>9.8.2</b> Chi Quadrat-Tests</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="latente-variablenmodelle.html"><a href="latente-variablenmodelle.html"><i class="fa fa-check"></i><b>10</b> Latente Variablenmodelle</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="latente-variablenmodelle.html"><a href="latente-variablenmodelle.html#naive-hauptkomponentenanalyse"><i class="fa fa-check"></i><b>10.1</b> Naive Hauptkomponentenanalyse</a></li>
+<li class="chapter" data-level="10.2" data-path="latente-variablenmodelle.html"><a href="latente-variablenmodelle.html#factanal"><i class="fa fa-check"></i><b>10.2</b> Explorative Faktorenanalyse</a></li>
+<li class="chapter" data-level="10.3" data-path="latente-variablenmodelle.html"><a href="latente-variablenmodelle.html#kmeans"><i class="fa fa-check"></i><b>10.3</b> <em>k</em>-Means Clustering</a></li>
+<li class="chapter" data-level="10.4" data-path="latente-variablenmodelle.html"><a href="latente-variablenmodelle.html#strukturgleichungsmodelle"><i class="fa fa-check"></i><b>10.4</b> Strukturgleichungsmodelle</a></li>
+</ul></li>
+<li class="part"><span><b>IV Vertiefung</b></span></li>
+<li class="chapter" data-level="11" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html"><i class="fa fa-check"></i><b>11</b> Ergebnisse exportieren</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#einführung-2"><i class="fa fa-check"></i><b>11.1</b> Einführung</a></li>
+<li class="chapter" data-level="11.2" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#markdown"><i class="fa fa-check"></i><b>11.2</b> Berichte</a></li>
+<li class="chapter" data-level="11.3" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#tabellen"><i class="fa fa-check"></i><b>11.3</b> Tabellen</a>
+<ul>
+<li class="chapter" data-level="11.3.1" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#word-pdf-und-html"><i class="fa fa-check"></i><b>11.3.1</b> Word, PDF und HTML</a></li>
+<li class="chapter" data-level="11.3.2" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#latex"><i class="fa fa-check"></i><b>11.3.2</b> LaTeX</a></li>
+<li class="chapter" data-level="11.3.3" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#komplexe-tabellen"><i class="fa fa-check"></i><b>11.3.3</b> Komplexe Tabellen</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="datatypes.html"><a href="datatypes.html"><i class="fa fa-check"></i><b>12</b> Datenstrukturen</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="datatypes.html"><a href="datatypes.html#vec"><i class="fa fa-check"></i><b>12.1</b> Vektor</a></li>
+<li class="chapter" data-level="12.2" data-path="datatypes.html"><a href="datatypes.html#matrix"><i class="fa fa-check"></i><b>12.2</b> Matrix</a></li>
+<li class="chapter" data-level="12.3" data-path="datatypes.html"><a href="datatypes.html#tibble"><i class="fa fa-check"></i><b>12.3</b> Data.frame und tibble</a></li>
+<li class="chapter" data-level="12.4" data-path="datatypes.html"><a href="datatypes.html#lists"><i class="fa fa-check"></i><b>12.4</b> Liste</a></li>
+<li class="chapter" data-level="12.5" data-path="datatypes.html"><a href="datatypes.html#umwandlung"><i class="fa fa-check"></i><b>12.5</b> Umwandlungen</a></li>
+<li class="chapter" data-level="12.6" data-path="datatypes.html"><a href="datatypes.html#objektorientierung"><i class="fa fa-check"></i><b>12.6</b> Objektorientierung</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="iterationmain.html"><a href="iterationmain.html"><i class="fa fa-check"></i><b>13</b> Iterationen</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="iterationmain.html"><a href="iterationmain.html#iteration"><i class="fa fa-check"></i><b>13.1</b> Was sind iterative Prozesse?</a></li>
+<li class="chapter" data-level="13.2" data-path="iterationmain.html"><a href="iterationmain.html#map"><i class="fa fa-check"></i><b>13.2</b> Listenbasierte Berechnungen</a></li>
+<li class="chapter" data-level="13.3" data-path="iterationmain.html"><a href="iterationmain.html#nest"><i class="fa fa-check"></i><b>13.3</b> Einnisten</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i>Appendix</a>
+<ul>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#datensatzerläuterungen"><i class="fa fa-check"></i>Datensatzerläuterungen</a>
+<ul>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#big-five"><i class="fa fa-check"></i>Big Five</a></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#tipp-wm"><i class="fa fa-check"></i>Tipp WM</a></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#indonesisch"><i class="fa fa-check"></i>Indonesisch</a></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#video"><i class="fa fa-check"></i>Video</a></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#artists"><i class="fa fa-check"></i>Artists</a></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#tracks"><i class="fa fa-check"></i>Tracks</a></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#fitness"><i class="fa fa-check"></i>Fitness</a></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#statistical-literacy"><i class="fa fa-check"></i>Statistical Literacy</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#übungsverzeichnis"><i class="fa fa-check"></i>Übungsverzeichnis</a></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#literaturverzeichnis"><i class="fa fa-check"></i>Literaturverzeichnis</a></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#verwendete-software-versionen"><i class="fa fa-check"></i>Verwendete Software Versionen</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R für empirische Wissenschaften</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="start" class="section level1" number="2">
+<h1><span class="header-section-number">Kapitel 2</span> Startvoraussetzungen</h1>
+<div id="installation-von-r-und-rstudio" class="section level2" number="2.1">
+<h2><span class="header-section-number">2.1</span> Installation von R und RStudio</h2>
+Die Unterscheidung zwischen R und RStudio ist für viele Anfänger verwirrend. Es handelt sich dabei nicht um zwei austauschbaren Alternativen. Stattdessen ist R die Programmier<strong>sprache</strong> und RStudio eine Programmier<strong>umgebung</strong>. Den Unterschied können wir uns an einem Motor mit seiner Karosserie verdeutlichen, der in Abbildung <a href="start.html#fig:r-rstudio">2.1</a> illustriert ist. Man braucht die Programmiersprache R, damit überhaupt etwas voran geht. Grundsätzlich kann man das Auto auch mit einem ganz einem spartanischen Stahlgerüst fahren.
+<div class="figure" style="text-align: center"><span id="fig:r-rstudio"></span>
+<img src="images/r_rstudio.png" alt="Illustration des Unterschieds zwischen R und RStudio." width="60%" />
+<p class="caption">
+Abbildung 2.1: Illustration des Unterschieds zwischen R und RStudio.
+</p>
+</div>
+<p>Die Programmierumgebung RStudio macht aus diesem minimalistischen Stahlgerüst eine komfortable Luxuslimousine mit Navigationssystem und Sitzheizung. Man kann R folglich auch ohne RStudio benutzen aber RStudio nicht ohne R. Sonderlich viel Spaß macht das allerdings nicht. RStudio bietet eine Vielzahl von großartigen und praktischen Features, weswegen wir im Laufe des Buches nur innerhalb von RStudio arbeiten werden. Es wird aber trotzdem häufig von R die Rede sein, da RStudio lediglich die verwendete Programmierumgebung ist. In den folgenden Kapiteln wird Schritt für Schritt erklärt, wie Du R und RStudio auf den gängigsten Betriebssystemen installierst und wichtige Anpassungen innerhalb von RStudio vornimmst. Du solltest Kapitel <a href="start.html#anpassung">2.3</a> unbedingt auch lesen, wenn sich RStudio bereits auf Deinem Computer oder Laptop befindet.</p>
+<div id="installr" class="section level3" number="2.1.1">
+<h3><span class="header-section-number">2.1.1</span> Programmiersprache R</h3>
+<p>Zum Bearbeiten der Übungen aus dem Buch benötigst Du mindestens die R Version <code>3.3.3</code>. Falls beim späteren Installieren der Packages (siehe Kapitel <a href="start.html#packages">2.5</a>) ein Fehler auftritt, liegt das aller Wahrscheinlichkeit an einer zu alten R Version. Am besten installierst Du R wie hier beschrieben neu. Bei der Installation gibt es Unterschiede zwischen den verschiedenen Betriebssystemen Windows, macOS (Apple) und Ubuntu (Linux). In der späteren Benutzung gibt es hingegen keine Unterschiede. Du musst dir also nur den jeweiligen Abschnitt anschauen, der die Installation auf Deinem Betriebssystem beschreibt. Nach der Installation musst Du mit R nichts weiter machen und kannst sofort zur Installation von RStudio hinübergehen.</p>
+<p><strong>Windows</strong>:</p>
+<ol style="list-style-type: decimal">
+<li>Geh auf <a href="https://cloud.r-project.org/">cloud.r-project.org</a> und wähle <code>Download R for Windows</code></li>
+<li>Klicke anschließend auf den Link <code>base</code>.</li>
+<li>Drücke dann auf <code>Download R for Windows</code> und achte darauf, wohin Du die Installationsdatei abspeicherst.</li>
+<li>Führe die Installationsdatei (z.B. R-4.0.4-win.exe) mit einem Doppelklick aus.</li>
+<li>Folge schließlich den Installationsanweisungen. Hierbei ist das Entfernen des Häkchen bei <em>Message translations</em> zwingend erforderlich (siehe Abbildung <a href="start.html#fig:sprache">2.2</a>).</li>
+<li>Nach erfolgreicher Installation kannst Du die heruntergeladene Installationsdatei wieder löschen.</li>
+</ol>
+<div class="figure" style="text-align: center"><span id="fig:sprache"></span>
+<img src="images/sprache.jpg" alt="Richtige Installation von R ohne Sprachsupport" width="70%" />
+<p class="caption">
+Abbildung 2.2: Richtige Installation von R ohne Sprachsupport
+</p>
+</div>
+<p><strong>macOS (Apple)</strong> :</p>
+<ol style="list-style-type: decimal">
+<li>Gehe auf <a href="https://cloud.r-project.org/">cloud.r-project.org</a> und wähle <code>Download R for (Mac) OS X</code>.</li>
+<li>Je nachdem wie alt Dein Mac ist, müssen unterschiedliche Versionen von R heruntergeladen werden. Deine macOS Version darf zur Benutzung der in diesem Buch vorgestellten Methoden nicht älter als 10.9 Mavericks sein.
+<ul>
+<li>macOS 10.13 High Sierra und neuer: R-4.0.4.pkg (bzw. die gerade aktuellste Version)</li>
+<li>macOS 10.11 El Capitan und neuer: R-3.6.3.pkg</li>
+<li>macOS 10.9 Mavericks und neuer: R-3.3.3.pkg</li>
+</ul></li>
+<li>Achte auf den Speicherort der Installationsdatei und führe diese aus. Falls Deine Einstellungen die Installation externer Programme verhindern, musst Du das Installieren von externen Paketen (<code>.pkg</code>) explizit erlauben (siehe unten).</li>
+<li>Beim Folgen der Installationsanweisungen muss auf jeden Fall das Häkchen bei <em>Message translations</em> entfernt werden (siehe Abbildung <a href="start.html#fig:sprache">2.2</a>).</li>
+<li>Nach fertiger Installation kann die Installationsdatei (z.B. <code>R-4.0.4.pkg</code>) gelöscht werden.</li>
+</ol>
+<div class="warning">
+<p>Je nach Einstellungen des Betriebssystems kann die Installation externer Software (nicht von Apple zertifiziert) wie R aus Sicherheitsgründen blockiert werden. Um das zu umgehen, musste Du mit dem Finder (nicht Launchpad) nach der Installationsdatei (z.B. R-4.0.3.pkg) suchen. Halte nun <code>ctrl</code> gedrückt und klicke auf die Datei. Wähle schließlich <em>Öffnen</em> aus dem erscheinenden Kontextmenü aus.</p>
+</div>
+<p><strong>Ubuntu (Linux)</strong>:</p>
+<ol style="list-style-type: decimal">
+<li>Drücke die Tastenkombination <code>strg + alt + t</code>, um den Terminal zu öffnen.</li>
+<li>Öffne die Liste Deiner Repositorien als Administrator (<code>sudo</code>) mit einem Editor Deiner Wahl (z.B. <code>gedit</code>).</li>
+</ol>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash bordercode"><code class="sourceCode bash"><span id="cb2-1"><a href="start.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> gedit /etc/apt/sources.list</span></code></pre></div>
+<ol start="3" style="list-style-type: decimal">
+<li>Kopiere nun das Repository in die soeben geöffnete Datei <code>sources.list</code>. Für Ubuntu 20.04 würden man <code>bionic</code> im Namen verwenden. Für andere Versionen müsste <code>bionic</code> zu beispielsweise <code>focal</code>, <code>xenial</code> oder <code>trusty</code> geändert werden.</li>
+</ol>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash bordercode"><code class="sourceCode bash"><span id="cb3-1"><a href="start.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">deb</span> https://cloud.r-project.org/bin/linux/ubuntu bionic-cran40/</span></code></pre></div>
+<ol start="4" style="list-style-type: decimal">
+<li>Führe anschließend folgende zwei Zeilen hintereinander im Terminal aus.</li>
+</ol>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash bordercode"><code class="sourceCode bash"><span id="cb4-1"><a href="start.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get update</span>
+<span id="cb4-2"><a href="start.html#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get install r-base r-base-dev </span></code></pre></div>
+<ol start="5" style="list-style-type: decimal">
+<li>Falls dies nicht funktionieren sollte, musst Du noch den entsprechenden Public Key hinzufügen. Für den Fall eines neuerdings veränderten Keys, kann unter <a href="https://cloud.r-project.org/">cloud.r-project.org</a> &gt; <code>Download R for Linux</code> &gt; <code>Ubuntu</code> &gt; <code>README</code> der derzeit aktuelle eingesehen werden.</li>
+</ol>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash bordercode"><code class="sourceCode bash"><span id="cb5-1"><a href="start.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-key adv <span class="at">--keyserver</span> keyserver.ubuntu.com <span class="dt">\</span></span>
+<span id="cb5-2"><a href="start.html#cb5-2" aria-hidden="true" tabindex="-1"></a>--recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9</span></code></pre></div>
+<ol start="6" style="list-style-type: decimal">
+<li>Zum Einstellen englischer Fehlermeldungen muss <code>LANGUAGE=en</code> an beliebiger Stelle in <code>Renviron.site</code> kopiert und gespeichert werden. Öffne diese dazu wie zuvor mit einem Editor wie <code>gedit</code>.</li>
+</ol>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash bordercode"><code class="sourceCode bash"><span id="cb6-1"><a href="start.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> gedit /etc/R/Renviron.site</span></code></pre></div>
+</div>
+<div id="rstudio" class="section level3" number="2.1.2">
+<h3><span class="header-section-number">2.1.2</span> Programmierumgebung RStudio</h3>
+<p>Nachdem R installiert ist, kannst Du die Installationsdatei für RStudio unter <a href="https://www.rstudio.com/products/rstudio/download/">rstudio.com/products/rstudio/download/</a> herunterladen. Drücke dazu auf den Download Button für RStudio Desktop (Open Source License) und lade die für Dein Betriebssystem richtige Version herunter. Wie beim Installieren von R musst Du die heruntergeladene Installationsdatei mit der für Dein Betriebssystem richtigen Endung (<code>.exe</code>, <code>.pkg</code>, <code>.deb</code>) ausführen und den anschließend eingeblendeten Anweisungen folge leisten. Wenn das Programm installiert ist, kannst Du diese Installationsdatei wieder löschen. Das eigentliche Programm RStudio findest Du nun auf dem Computer. Zum Beispiel beim Drücken der Windows Taste und Eingabe des Wortes RStudio oder bei macOS über den Finder.</p>
+<div class="idea">
+<p>Von jetzt an solltest Du zum Arbeiten mit R immer <strong>RStudio öffnen</strong> und nicht R. Die extra vorhandene minimalistische Oberfläche von R kannst du getrost ignorieren. Es ist bloß wichtig, es auf dem Computer installiert zu haben.</p>
+</div>
+</div>
+</div>
+<div id="aufbau" class="section level2" number="2.2">
+<h2><span class="header-section-number">2.2</span> Aufbau von RStudio</h2>
+<p>Wir schauen uns nun die einzelnen Komponenten innerhalb von RStudio an. Die Oberfläche von RStudio ist dabei in vier Teile unterteilt. Nach frischer Installation ist die Console links unten, das R Skript als Source links oben, Environment &amp; und History rechts oben und Plots, Hilfe, Packages und mehr unten rechts. Diese Reihenfolge kann beliebig nach eigener Präferenz verändert werden (siehe Kapitel <a href="start.html#anpassung">2.3</a>).</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-8"></span>
+<img src="images/rstudio_frisch.jpg" alt="Aufbau von R Studio mit Skript (oben links), Konsole (unten links), Environment (oben rechts) und u.a. Plots und Help (unten rechts)." width="98%" />
+<p class="caption">
+Abbildung 2.3: Aufbau von R Studio mit Skript (oben links), Konsole (unten links), Environment (oben rechts) und u.a. Plots und Help (unten rechts).
+</p>
+</div>
+<p><strong>Console.</strong> In der Konsole befindet sich im Prinzip die reine Programmiersprache R. Wir können also jegliche Befehle direkt in die Konsole eingeben, auf Enter drücken und das Ergebnis erhalten. Im Anschluss ist der Befehl weg. Mit der oberen und unteren Pfeiltaste kannst Du die in der bisherigen Sitzung bereits ausgeführten Befehle durchgehen. Da das weder sonderlich praktisch noch reproduzierbar ist, sollte man so genannte Skripte verwenden, die in in einer gesonderten Datei (mit der Endung <code>.R</code>) gespeichert werden und nach Öffnen immer wieder ausführbar sind.</p>
+<p><strong>Source.</strong> Beim initialen Starten von R, wird kein Skript angezeigt. Die Konsole nimmt also zuerst die gesamte Linke Seite ein. Zum Erstellen eines R Skriptes kann man entweder die Tastenkombination <code>strg/cmd + Shift + N</code> verwenden oder auf das unterhalb des Reiters <code>File</code> gelegenen Blatt Papier mit dem Plus Zeichen klicken und dort <code>R Script</code> auswählen. Gespeichert wird das R Skript ganz klassisch mit <code>Strg + S</code> (oder über das Menu). Die Endung des Skriptes muss dabei <code>.R</code> sein, da die darin enthaltenen Befehle sonst nicht ausgeführt werden können. Man kann die Befehle innerhalb des Skriptes nun mit <code>strg/cmd + Enter</code> ausführen. Die Ergebnisse werden in der Konsole angezeigt. Falls das gesamte Skript ausgeführt werden soll, drücke zuerst <code>strg/cmd + A</code>, um alles zu markieren und führe es dann mit <code>strg/cmd + Enter</code> aus. Man kann mit der Tastenkombination <code>strg/cmd + 1</code> und <code>strg/cmd + 2</code> mit der Tastatur zwischen Konsole und Skript wechseln.</p>
+<p><strong>Environment &amp; History.</strong> In der Environment werden alle gespeicherten Variablen (siehe Kapitel <a href="vars.html#pfeil">4.1</a>) angezeigt. Man kann dort auch auf die eingelesenen Datensätze klicken und sich diese innerhalb von RStudio in einem eigenen Reiter ansehen. Vorsicht sei hier bei großen Datensätzen geboten, da diese Ansicht relativ rechenintensiv ist und RStudio dadurch abstürzen kann. Es empfiehlt sich daher, große Datensätze in ein anderes Format wie CSV oder Excel umzuwandeln, um dort einen guten Überblick über den Datensatz zu gewinnen (siehe Kapitel <a href="io.html#io">5</a>). Die History zeigt alles an, was in der Konsole innerhalb einer R Sitzung ausgeführt wurde. Wenn Du vollständig mit Skripten arbeitest, kannst Du die History vollständig ignorieren. Tatsächlich solltest Du das automatische Speichern und Laden der History wie in Kapitel <a href="start.html#anpassung">2.3</a> sogar ausschalten.</p>
+<p><strong>Plots, Help &amp; Packages.</strong> Plots zeigt die erstellten Visualisierungen an (siehe Kapitel <a href="visual.html#visual">8</a>). Dabei kann man unter <code>Zoom</code> ein eigenes Fenster mit der Abbildung öffnen. Die Abbildung verändert sich, wenn man die Länge oder Breite des Fensters entsprechend verschiebt. Grundsätzlich kann mit Export die Visualisierung direkt hier gespeichert werden. Darauf sollte allerdings aufgrund der Auflösungsunterschiede verzichtet werden (siehe Kapitel <a href="visual.html#ggsave">8.14</a>). Unter Help wird die Dokumentation der verschiedenen R Funktionen angezeigt (siehe Kapitel <a href="start.html#help">2.6</a>). Packages ist grundsätzlich auch kein Reiter, der Dich interessieren muss. Theoretisch kannst Du hier per Mausklick Packages laden und Installieren. Im Sinne der Reproduzierbarkeit, solltest Du dies jedoch wie in Kapitel <a href="start.html#packages">2.5</a> beschrieben immer mit R Code machen.</p>
+</div>
+<div id="anpassung" class="section level2" number="2.3">
+<h2><span class="header-section-number">2.3</span> RStudio anpassen</h2>
+<p>Die ersten zwei in diesem Kapitel erklärten Anpassungen sind essentielle und unabdingbare Voraussetzungen, um das erfolgreiche Ausführen des Codes auch auf anderen Computern zu gewährleisten. Diese Einstellungen nicht vorgenommen zu haben, ist eine häufige und schwer zu findende Fehlerquelle. Die anderen Anpassungen stellen Empfehlungen dar, die Dir das Programmieren erleichtern sollen.</p>
+<p><strong>Niemals den Workspace und die History speichern.</strong> Um zu gewährleisten, dass Dein Code nicht nur bei Dir funktioniert, ist es dringend notwendig das ständige Speichern und Laden des Workspaces auszustellen. Auch gewährleistest Du dadurch, dass der Code immer funktioniert, wenn Du diesen neu durchlaufen lässt.</p>
+<ol style="list-style-type: decimal">
+<li>Gehe zu: <code>Tools/Global Options.../General</code></li>
+<li>Entferne den Haken bei: <code>Restore .RData into workspace at startup</code></li>
+<li>Ändere <code>Save workspace to .RData on exit</code> zu <code>never</code></li>
+<li>Entferne den Haken bei: <code>Always save history</code></li>
+</ol>
+<p>Keine Sorge, auf das Speichern Deines Codes hat das keine Auswirkung.</p>
+<p><strong>Standard Zeichenencodierung.</strong> Damit man den geschriebenen Code fehlerfrei auf anderen Geräten lesen kann, muss dieselbe Zeichencodierung gewählt werden. Die modernste und am weitesten verbreitetste ist <code>UTF-8</code>.</p>
+<ol style="list-style-type: decimal">
+<li>Gehe zu: <code>Tools/Global Options.../Code/Saving</code></li>
+<li>Ändere: <code>Default text encoding</code> zu <code>UTF-8</code></li>
+</ol>
+<p><strong>Programmierhilfen.</strong> Aller Anfang ist schwer und warum sollte man dann nicht jede zur Verfügung stehenden Hilfen nutzen wollen? Hier wird eingestellt, dass Funktionen vom Rest des Codes farblich hervorgehoben werden. Außerdem wirst Du darauf hingewiesen, wenn Lehrzeichen im Sinne einer guten Lesbarkeit falsch gesetzt sind. Zum Schluss stellen wir die Vorschläge zur Vervollständigung von Code noch auf eine kürze Zeit ein.</p>
+<ol style="list-style-type: decimal">
+<li>Gehe zu: <code>Tools/Global Options.../Code</code></li>
+<li>Wechsel zu <code>Display</code> und mache einen Haken bei <code>Highlight R function calls</code></li>
+<li>Wechsel zu <code>Diagnostics</code> und mache einen Haken bei <code>Provide R style diagnostics</code></li>
+<li>Wechsel zu <code>Completion</code> und ändere im Abschnitt <code>Completion Delay</code> die Zahlen auf 1 (Character) und 0 (ms)</li>
+</ol>
+<p><strong>Schickes Aussehen.</strong> Es hat einen Grund, weshalb heutzutage viele Internetseiten und Smartphone Apps mit einem Dunklen Farbthema angezeigt werden. Das ganze sieht nicht nur besser aus, sondern ist auch deutlich angenehmer für die Augen.</p>
+<ol style="list-style-type: decimal">
+<li>Gehe zu: <code>Tools/Global Options.../Appearance</code></li>
+<li>Nun kannst Du aus verschiedenen Themen wählen und auch die Schriftart- und größe anpassen.</li>
+</ol>
+<p><strong>Anordnung der vier Layer.</strong> Die Anordnung von Konsole, Skript und Co ist Geschmackssache. Sinnvoll ist eine mit dem Skript auf der Linken oberen Seite und der Konsole auf der rechten oberen Seite. Die Fenster unten Links kannst Du dann für immer Minimieren und hast so mehr Platz zum Arbeiten im Skript.</p>
+<ol style="list-style-type: decimal">
+<li>Gehe zu: <code>Tools/Global Options.../Pane Layout</code></li>
+<li>Oben links: Source</li>
+<li>Oben rechts: Console</li>
+<li>Unten links: History, Connections</li>
+<li>Unten rechts: Environment, Files, Plots, Packages, Help, Build, VCS, Viewer</li>
+</ol>
+<p><strong>Komfortables Arbeiten.</strong> Wenig ist nerviger als dauernd die R Datei im Unterordner des Unterordners des Unterordners zu finden, um das Programm zu öffnen. Deshalb kann man einstellen, dass sich immer das zuletzt verwendete R Skript und Projekt öffnet. Über R Projekte erfährt Du in Kapitel <a href="project.html#project">3</a>.</p>
+<ol style="list-style-type: decimal">
+<li>Gehe zu: <code>Tools/Global Options.../General</code></li>
+<li>Mache einen Haken bei <code>Restore most recently openend project at startup</code></li>
+<li>Und bei <code>Restore previously open source documents at startup</code></li>
+</ol>
+</div>
+<div id="funktionen-und-ihre-argumente" class="section level2" number="2.4">
+<h2><span class="header-section-number">2.4</span> Funktionen und ihre Argumente</h2>
+<p>Eine Funktion erkennst Du immer daran, dass sie von zwei runden Klammern gefolgt ist. Wenn Du den Anweisungen in Kapitel <a href="start.html#anpassung">2.3</a> gefolgt bist, wird die Funktion auch extra farblich hervorgehoben. Schauen wir uns exemplarisch die Funktion zur Berechnungen des Mittelwertes an.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb7-1"><a href="start.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">7</span>, <span class="cn">NA</span>, <span class="dv">2</span>), <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre class="bordercode"><code>## [1] 4</code></pre>
+<p>Wir haben hier sogar gleich zwei Funktionen: einmal <code>mean()</code> und einmal <code>c()</code>. Letztere bindet die Werte zusammen. Nun haben wir auch zwei so genannte Argumente: <code>x</code> und <code>na.rm</code>. Dem ersten Argument geben wir die für die Berechnung des Mittelwerts zu verwenden Werte und <code>na.rm = TRUE</code> entfernt potentielle fehlende Werte. Aus diesem Kapitel sollst Du die Bezeichnungen Funktion und Argument mitnehmen. Außerdem ist es wichtig, dass Argumenten Informationen immer mit einem Gleichheitszeichen übergeben werden. Tatsächlich müssten die Namen der Argumente nicht immer ausgeschrieben werden. Wenn die Funktion <code>mean()</code> als erstes Argument die Werte erwartet, könnte man dieses ebenso gut weglassen. Vorausgesetzt man beachtet die entsprechende Reihenfolge der Argumente.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb9-1"><a href="start.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">7</span>, <span class="cn">NA</span>, <span class="dv">2</span>), <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<p>Das wird im Buch auch immer wieder gemacht, weil es übersichtlicher zum Lernen und schneller für Dich später zum Anwenden ist.</p>
+</div>
+<div id="packages" class="section level2" number="2.5">
+<h2><span class="header-section-number">2.5</span> Packages (Erweiterungen)</h2>
+<p>R bietet von Beginn an eine Bandbreite an Funktionen. Über die Jahre haben sich viele fähige Programmierer an die Arbeit gemacht, die Funktionen von <code>base R</code> (dem <em>normalen</em> R) zu erweitern. So genannte Packages sind kostenlose Erweiterungen, die verschiedenste Aufgaben erheblich erleichtern können. Stell Dir vor Du kaufst Dir ein neues Smartphone. Auf dem Smartphone sind von Anfang an verschiedene Apps installiert. Es gibt aber viele Apps von Drittanbietern, die entweder neue Funktionen bieten oder bestehende Aufgaben einfacher oder komfortabler machen. Genauso sind Packages in R zu verstehen. Auch mit den von Anfang an integrierten Funktionen, könnte man die aller meisten Sachen irgendwie hinbekommen. Nur wäre dies mit deutlich mehr Aufwand verbunden als heutzutage notwendig. Deshalb arbeiten wir im Verlaufe des Buches mit einigen Packages.</p>
+<p>Die Packages werden unter anderem auf <a href="https://cran.r-project.org/web/packages/">CRAN</a>, <a href="https://github.com/">Github</a> oder auf <a href="https://www.bioconductor.org/">Bioconductor</a> geteilt, von wo sie heruntergeladen und perfekt integriert werden können. Es gibt beispielsweise mittlerweile über 11 000 Packages alleine auf CRAN. Nun gibt es eine Funktion zum Installieren und eine zum eigentlichen Laden des Packages innerhalb von R. Abbildung <a href="start.html#packages">2.5</a> versucht den Unterschied der beiden Funktionen zu verdeutlichen.</p>
+<div class="figure" style="text-align: center"><span id="fig:packages"></span>
+<img src="images/packages.png" alt="Vergleich vom (a) Installieren und (b) vom Laden von Packages." width="80%" />
+<p class="caption">
+Abbildung 2.4: Vergleich vom (a) Installieren und (b) vom Laden von Packages.
+</p>
+</div>
+<p>Während <code>install.packages()</code> das Package installiert, muss man es mit <code>library()</code> jedes mal beim Starten von R neu laden. Erstere Funktion kannst Du Dir wie das Eindrehen einer Glühbirne vorstellen. Es bleibt dunkel im Zimmer, solange Du den Lichtschalter nicht betätigst. Wenn Du das Zimmer verlässt (R ausschaltest), machst Du das Licht wieder aus. Jedes mal, wenn Du das Zimmer erneut betrittst, muss das Licht erneut eingeschaltet werden. Nun kann noch das Zusatzargument <code>dependencies</code> verwendet werden. Damit werden die Packages installiert von denen unser gewünschtes Packages wiederum abhängen könnte. Wir müssen schließlich auch Strom zur Verfügung stellen und einen Vertrag beim lokalen Stromanbieter abschließen. Ohne Strom (<code>dependencies</code>) wird Dir auch Deine installierte Glühbirne kein Licht schenken. Die meisten Packages sind allerdings auch ohne dieses zusätzliche Argument voll funktionsfähig.</p>
+<div class="idea">
+<p>Beim Starten von R muss jedes mal aufs neue der Befehl <code>library()</code> für <strong>jedes</strong> Package ausgeführt werden, welches Du benutzen möchtest.</p>
+</div>
+<div id="installieren-und-laden" class="section level3" number="2.5.1">
+<h3><span class="header-section-number">2.5.1</span> Installieren und laden</h3>
+<p>Wie bereits erwähnt muss zur Installation <code>install.packages()</code> benutzt werden. Wichtig ist hierbei, dass der Package Name in Anführungszeichen geschrieben ist. Das Argument <code>dependencies = TRUE</code> installiert hierbei zusätzlich alle Packages, auf denen das gewünschte Package basiert. Meistens ist dies allerdings nicht notwendig.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb10-1"><a href="start.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;packageName&quot;</span>, <span class="at">dependencies =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<p>Damit man auf die Funktionen des Packages zugreifen kann, muss das Package <strong>jedes mal</strong> – also nach jedem neuen Öffnen von RStudio – aus der Bibliothek mithilfe von <code>library()</code> erneut geladen werden. Hierbei sind keine Anführungszeichen notwendig.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb11-1"><a href="start.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(packageName)</span></code></pre></div>
+<p>Zur besseren Übersichtlichkeit solltest Du alle <code>library()</code> Befehle am Anfang des jeweiligen R Skriptes untereinander aufrufen. Wir werden im Rahmen dieses Buches vor allem vier Packages verwenden. Am besten schreibst beim Üben also direkt oben</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb12-1"><a href="start.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb12-2"><a href="start.html#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
+<span id="cb12-3"><a href="start.html#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rio)</span>
+<span id="cb12-4"><a href="start.html#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(remp)</span></code></pre></div>
+<p>in Dein R Skript. In diesem Fall ist die Reihenfolge nicht entscheidend. Wenn verschiedene Packages jedoch gleichnamige Funktionen beinhalten, führt dies zu Problemen, auf die in Kapitel <a href="start.html#namespace">2.5.3</a> eingegangen wird.</p>
+</div>
+<div id="notwendige-packages" class="section level3" number="2.5.2">
+<h3><span class="header-section-number">2.5.2</span> Notwendige Packages</h3>
+<p>Diese vier essentiellen Packages werden wir nun zuerst installieren. Das <code>remotes</code> Package verwenden nur einmalig, um <code>remp</code> von Github installieren zu können. Wofür jedes einzelnen Package davon genau zuständig ist, wirst du im Verlaufe des Buches erfahren. Die Installation kann einige Minuten in Anspruch nehmen.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb13-1"><a href="start.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">&quot;tidyverse&quot;</span>, <span class="st">&quot;here&quot;</span>, <span class="st">&quot;rio&quot;</span>, <span class="st">&quot;remotes&quot;</span>))</span></code></pre></div>
+<p>Um auf diverse Übungsdatensätze und interaktive Übungen zugreifen zu können, musst Du das Package <code>remp</code> installieren. Allerdings befindet es sich nicht auf CRAN sondern auf Github, weswegen der Befehl etwas anders lautet. Während der Installation des Packages kann es sein, dass Du gefragt wirst, ob Du bestimmte Packages aktualisieren möchtest. Du solltest dies an der Stelle ohne weiteres zutun mit <code>Enter</code> verneinen.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb14-1"><a href="start.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(remotes)</span>
+<span id="cb14-2"><a href="start.html#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install_github</span>(<span class="st">&quot;j3ypi/remp&quot;</span>)</span></code></pre></div>
+<p>Alle anderen, teilweise speziell auf einen Kontext zugeschnittenen Packages, die im Rahmen des Buches vorgestellt werden, kannst Du bei Bedarf installieren. Am Anfang jedes Kapitels mit einem neuen Package, wird immer extra darauf hingewiesen.</p>
+</div>
+<div id="namespace" class="section level3" number="2.5.3">
+<h3><span class="header-section-number">2.5.3</span> Namespace</h3>
+<p>Beim Laden mehrerer Packages kann es sein, dass diese Funktionen mit dem selben Namen verwenden (siehe Kapitel <a href="datenvorbereitung.html#tidyverse">6.1</a>). Während beim <code>tidyverse</code> lediglich zwei selten verwendete <code>base R</code> Funktionen überschrieben werden, kann es beim Arbeiten mit vielen verschiedenen nicht aufeinander abgestimmten Packages, durchaus häufiger zur Namensgleichheit kommen. Das ist eine schwierig zu identifizierende Fehlerquelle, weil sich die Funktion plötzlich nicht mehr so verhält wie erwartet. Dabei verwendet man automatisch die Funktion, die aus dem Package stammt, welches als letztes geladen wird. Lädt man beispielsweise zuerst das Package <code>tidyverse</code> und anschließend <code>data.table</code>, erhält man folgende Meldung:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb15-1"><a href="start.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb15-2"><a href="start.html#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(data.table)</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb16-1"><a href="start.html#cb16-1" aria-hidden="true" tabindex="-1"></a>Attaching package<span class="sc">:</span> ‘data.table’</span>
+<span id="cb16-2"><a href="start.html#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="start.html#cb16-3" aria-hidden="true" tabindex="-1"></a>The following objects are masked from ‘package<span class="sc">:</span>dplyr’<span class="sc">:</span></span>
+<span id="cb16-4"><a href="start.html#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-5"><a href="start.html#cb16-5" aria-hidden="true" tabindex="-1"></a>    between, first, last</span>
+<span id="cb16-6"><a href="start.html#cb16-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-7"><a href="start.html#cb16-7" aria-hidden="true" tabindex="-1"></a>The following object is masked from ‘package<span class="sc">:</span>purrr’<span class="sc">:</span></span>
+<span id="cb16-8"><a href="start.html#cb16-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-9"><a href="start.html#cb16-9" aria-hidden="true" tabindex="-1"></a>    transpose</span></code></pre></div>
+<p>Drei Funktionen (<code>between()</code>, <code>first()</code>, <code>last()</code>) aus dem Package <code>dplyr</code> und eine Funktionen (<code>transpose()</code>) aus dem Package <code>purrr</code> werden von <code>data.table</code> überschrieben. Es ist also wichtig, diese Meldungen beim Laden eines Packages nicht zu ignorieren. Im Notfall kann dies durch die Verwendung von Doppelpunkten <code>package::funktion()</code> verhindert werden. So teilt man R explizit mit, welche Funktion aus welchem Package man meint. Um trotz des späteren Ladens von <code>data.table</code> auf die <code>between()</code> Funktion von <code>dplyr</code> zuzugreifen, würde man also beim Aufrufen der Funktion folgendes schreiben:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb17-1"><a href="start.html#cb17-1" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">between</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>, <span class="dv">7</span>, <span class="dv">9</span>)</span></code></pre></div>
+<div class="warning">
+<p>Da das <code>tidyverse</code> nur andere Packages lädt kann man nicht <code>tidyverse::funktion()</code> schreiben. Stattdessen muss man das Package aus dem die Funktion stammt (z.B.<code>dplyr</code>) direkt ansprechen.</p>
+</div>
+<p>Für genauere Informationen zum Thema Namespace und die Hintergründe der damit verbundenen Environments sei auf <em>Advanced R</em> von Hadley Wickham verwiesen.</p>
+</div>
+</div>
+<div id="help" class="section level2" number="2.6">
+<h2><span class="header-section-number">2.6</span> Fehler- und Warnmeldungen</h2>
+<div id="der-unterschied" class="section level3" number="2.6.1">
+<h3><span class="header-section-number">2.6.1</span> Der Unterschied</h3>
+<p>Es gibt einen großen Unterschied zwischen Fehler- und Warnmeldungen. Wie der Name bereits suggeriert, stoppen Fehlermeldungen den Code, während Warnmeldungen ein Ergebnis zurückgeben und nur auf mögliche Probleme hinweisen. Es ist also sehr wichtig, die roten Meldungen in der Konsole genau zu lesen, anstatt direkt in Panik zu geraden. Ein Beispiel für eine Fehlermeldung sehen wir, wenn wir die Zahl 1 mit dem Buchstaben <code>c</code> summieren möchten.</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb18-1"><a href="start.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="st">&quot;c&quot;</span></span></code></pre></div>
+<pre class="bordercode"><code>## Error in 1 + &quot;c&quot;: non-numeric argument to binary operator</code></pre>
+<p>Hier ist die Fehlermeldung eindeutig. Wir versuchen einen nicht-numerisches Buchstaben (das <code>c</code>) mit einem numerischen zu addieren. Leider sind Fehlermeldungen in R keineswegs immer so eindeutig zu interpretieren. Nicht selten sind sie kryptisch und gerade am Anfang wird man oft im Internet nach einer Lösung suchen müssen.</p>
+<p>Warnmeldungen haben zwar die selbe erschreckende rote Schrift wie Fehlermeldungen, allerdings starten sie mit <code>Warning Message</code> und stoppen den Code nicht. Warnmeldungen sind für Dich als Benutzer gedacht, um Dich auf mögliche Probleme bei Deiner Eingabe hinzuweisen. Gerade bei der statistischen Auswertungen können Warnungen Dir schonmal häufiger über den Weg laufen und sollten nicht blind ignoriert werden.</p>
+<p>Die Sprache der Fehler- und Warnmeldungen muss dabei Englisch sein, da sonst nicht vernünftig im Internet danach gesucht werden kann. Bitte beachte die dafür notwendigen Anpassungen bei der Installation <a href="start.html#installr">2.1.1</a>.</p>
+</div>
+<div id="hilfe" class="section level3" number="2.6.2">
+<h3><span class="header-section-number">2.6.2</span> Wo bekomme ich Hilfe?</h3>
+<p>Gerade bei den ersten Kontakten mit einer Programmiersprache, dauert das Warmwerden möglicherweise eine gewisse Zeit. Damit man nicht gleich die Motivation verliert und aufgibt, sind die richtigen Quellen für eine schnelle Hilfe essentiell. Glücklicherweise ist dies einer der größten Vorteile von R. Es existieren nicht nur ausführliche Dokumentationen der verschiedenen Funktionen mit Anwendungsbeispielen. Darüber hinaus ist die R Community auch besonders hilfsbereit. Falls Du verzweifelt vor Deinem Computer oder Laptop sitzt und nicht weißt, wieso Dein Code schon wieder nicht funktioniert, solltest Du besonders an fünf Orten nach Antworten suchen.</p>
+<p><strong>Package Dokumentation.</strong> Das naheliegendste ist die Dokumentation der R Funktionen, die auch ohne Internet direkt in R aufgerufen werden können. Dafür kannst Du entweder ein Fragezeichen vor die Funktion schreiben oder nach Anklicken der Funktion F1 auf der Tastatur drücken. Wenn wir zum Beispiel mehr über die Argumente der Funktion <code>install.packages()</code> erhalten möchten, könnten wir dies so erreichen:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb20-1"><a href="start.html#cb20-1" aria-hidden="true" tabindex="-1"></a>?install.packages</span></code></pre></div>
+<p>Die meisten modernen Packages stellen außerdem so genannte Vignetten zur Verfügung, in denen häufige Probleme ausführlich diskutiert und erklärt werden. Diese können mit <code>vignette("nameDerVignette")</code> auch direkt innerhalb von R aufgerufen werden.</p>
+<p><strong>Suchmaschine.</strong> In die Suchmaschine gibst Du einfach <code>r</code> gefolgt von der Fehlermeldung oder dem Problem ein, an dem Du gerade festhängst. Es vergeht kaum eine Fehlermeldung bei der das Programmierforum StackOverflow nicht an erster Stelle angezeigt wird. Denn meistens hat jemand anderes schon einmal genau das selbe Problem gehabt hat.</p>
+<p><strong>Stackoverflow.</strong> Dies ist wohl das mit Abstand größte Forum für Programmierfragen. Allerdings kann es einschüchternd sein, dort als absoluter Anfänger selbst eine Frage zu stellen. Voraussetzung zum Fragestellen ist dort ein kurzes reproduzierbares Beispiel des Fehlers. Du erreichst die Seite unter <a href="https://stackoverflow.com/">https://stackoverflow.com/</a>.</p>
+<p><strong>RStudio Community.</strong> Eine etwas kleiner Alternative zu StackOverflow ist die RStudio Community. Statte ihr bei Zeiten unter <a href="https://community.rstudio.com/">https://community.rstudio.com/</a> mal einen Besuch ab.</p>
+<p><strong>Forum zum Buch.</strong> Extra zum Buch gibt es auch ein eigenes deutschsprachiges Forum. Hier ist wohl der beste Ort, um eigene Fragen zu Fehlermeldungen oder Problemstellungen zu stellen. Du brauchst Dich dazu nicht einmal zwingend anmelden. Du musst nur auf <a href="https://remp.forumotion.com/">https://remp.forumotion.com/</a> gehen und Deine Frage stellen. Habe dabei keine falsche Scheu – jeder war mal Anfänger.</p>
+</div>
+<div id="fehler-beheben" class="section level3" number="2.6.3">
+<h3><span class="header-section-number">2.6.3</span> Fehler beheben</h3>
+<p>Während Deiner ganzen Zeit beim Programmieren wirst Du immer wieder falschen Code schreiben, der unweigerlich zu einem Fehler führt. Ob nun ein Package nicht geladen oder eine Klammer zu wenig vorhanden ist. Irgendetwas läuft häufig schief – so mag es zu Beginne erscheinen. Leider sind die dann ausgegebenen Fehlermeldungen in R nicht immer sonderlich aufschlussreich. In Kapitel <a href="start.html#hilfe">2.6.2</a> wurde bereits beschrieben, wo genau man Hilfe bekommen kann.</p>
+<p>Es ist zum Beispiel wenig informativ, wenn Du jemandem schreibst: “RStudio funktioniert nicht.” Was funktioniert nicht? Wann tritt der Fehler auf? Hat es vorher mal funktioniert? Alle diese Informationen müssen dann erst einmal mühselig erfragt werden. Nun können die bereitzustellenden Informationen grundsätzlich in drei Abschnitte gegliedert werden.</p>
+<ol style="list-style-type: decimal">
+<li>Problembeschreibung</li>
+<li>Stelle ein minimales, reproduzierbares Beispiel bereit<br />
+</li>
+<li>Was wurde bereits probiert?</li>
+</ol>
+<p>Während Punkt 1 und 3 soweit verständlich sind, bedarf es eine Erklärung für reproduzierbare Beispiel. Ein reproduzierbares Beispiel enthält alle Informationen, die jemand anderes zum replizieren des Fehlers benötigt. Es müssen also alle geladenen Packages angegeben werden. Außerdem ist es essentiell, den Datensatz in irgendeiner Form zur Verfügung zu stellen. Dabei ist es optimal eine minimale Version des Problems zu abstrahieren. Angenommen, Du stößt beim Rechnen mit einem eigenen Datensatz auf ein Problem. Niemand anderes im Internet hat diesen Datensatz. Nun kann ein möglichst kleiner Datensatz innerhalb von R erstellen werden, mit dem man auch auf das selbe Problem oder auf den selben Fehler stößt. Da das jedoch gerade am Anfang nicht ganz einfach ist, wird erst in Kapitel <a href="io.html#inR">5.3</a> erläutert, wie man selbst Datensätze erstellen kann. Falls Du die Frage im Forum zum Buch stellen magst, kannst Du selbstverständlich den Fehler einfach an einem im <code>remp</code> enthaltenen Datensatz nachstellen. Eine weitere Möglichkeit ist die Funktion <code>dput()</code>, die einen bestehenden Datensatz in eine für andere durch Copy &amp; Paste einlesbare Struktur bringt.</p>
+<p>Gehen wir das ganze einmal durch. Angenommen, wir haben irgendeine Fehlermeldung bezüglich des <code>big_five</code> Datensatzes. Genauer gesagt möchten wir einfach nur die Spalten Extraversion und Neurotizismus in einem Streudiagramm gemeinsam abbilden. Da immer nur die minimale Struktur zur Verfügung gestellt werden soll (um das Beispiel möglichst einfach und übersichtlich zu halten), wählen wir also nur diese beiden Spalten (<code>select()</code>) der ersten 10 Personen (<code>slice_head(n = 10)</code>) aus. Die Funktion <code>dput()</code> erledigt dann den Rest.</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb21-1"><a href="start.html#cb21-1" aria-hidden="true" tabindex="-1"></a>big_five <span class="sc">%&gt;%</span> </span>
+<span id="cb21-2"><a href="start.html#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Extraversion, Geschlecht) <span class="sc">%&gt;%</span> </span>
+<span id="cb21-3"><a href="start.html#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_head</span>(<span class="at">n =</span> <span class="dv">10</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb21-4"><a href="start.html#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">dput</span>()</span></code></pre></div>
+<pre class="bordercode"><code>## structure(list(Extraversion = c(3, 3.1, 3.4, 3.3, 3, 2.8, 3.5, 
+## 3.5, 3, 3.1), Geschlecht = c(&quot;m&quot;, &quot;f&quot;, &quot;m&quot;, &quot;m&quot;, &quot;f&quot;, &quot;f&quot;, &quot;m&quot;, 
+## &quot;m&quot;, &quot;f&quot;, &quot;m&quot;)), row.names = c(NA, -10L), class = c(&quot;tbl_df&quot;, 
+## &quot;tbl&quot;, &quot;data.frame&quot;))</code></pre>
+<p>Die Ausgabe dieser Funktion musst Du im Detail nicht verstehen. Allerdings kannst Du diese genau so kopieren und in R ausführen. Anschließend ist es jedem möglich, auf die Spalten Extraversion und Neurotizismus der ersten 10 Personen zuzugreifen, ohne den <code>big_five</code> Datensatz geladen zu haben. Nun kannst Du den fehlerhaften Code auf das Datenbeispiel anwenden und beschreiben, was nicht funktioniert hat.</p>
+<div class="idea">
+<p>Häufig kommt man von ganz alleine auf die Lösung, während man Schritt für Schritt die durchgeführten Code Zeilen auseinander nimmt, um das Problem zu replizieren.</p>
+</div>
+<p>Bevor Du allerdings die Frage an jemand anderes richtest, solltest Du diese häufigen Fehlerquellen bereits ausgeschlossen haben:</p>
+<ul>
+<li>Tippfehler</li>
+<li>Package nicht installiert</li>
+<li>Package nicht explizit geladen</li>
+<li>Package ist zu alt</li>
+<li>Klammer zu viel oder zu wenig</li>
+<li>RStudio nicht über das R Projekt sondern über das R Skript geöffnet</li>
+<li>Anführungszeichen vergessen oder an falscher Stelle</li>
+<li>Alte Ergebnisse, die Du nicht mehr auf dem Schirm hast, kommen Dir in die Quere</li>
+<li>Komma statt Punkt bei Dezimalzahlen</li>
+<li>Numerische Spalten im Datensatz wurden als Character eingelesen (häufig bei Excel Dokumenten)</li>
+<li>Character Spalten sind fälschlicher Weise als Faktoren dargestellt</li>
+</ul>
+<p>Das Kapitel soll nicht etwa dazu dienen, Dich vorm Fragenstellen abzuschrecken. Stattdessen soll es dafür sorgen, Dir eine möglichst positive Erfahrung beim Fragenstellen zu gewährleisten. Auch wirst du merken, wie schnell Du lernst, selbst die Probleme zu lösen. Auch wenn es manchmal erst kurz vorm Fragen beim Vorbereiten des reproduzierbaren Beispiels ist. Vor allem das Forum zum Buch steht Dir jederzeit für Fragen zur Verfügung (<a href="https://remp.forumotion.com/">https://remp.forumotion.com/</a>).</p>
+</div>
+</div>
+<div id="historische-relikte" class="section level2" number="2.7">
+<h2><span class="header-section-number">2.7</span> Historische Relikte</h2>
+<p>Dieses Kapitel richtet sich vor allem an diejenigen, die bereits vor diesem Buch Kontakt mit R gehabt haben. Da R seit über 25 Jahren existiert, gibt es dementsprechend auch sehr alte und in die Jahre gekommene Mittel und Wege, die mehr Probleme bereiten, als sie lösen. Keine der hier vorgestellten Funktionen solltest Du jemals benutzen müssen.</p>
+<ul>
+<li><code>attach()</code> und <code>detach()</code> werden benutzt, um einen Datensatz unsichtbar in die Umgebung zu laden. Die in diesem Buch besprochenen Funktionen sind allerdings alle auf die Arbeit direkt am Datensatz ausgelegt.</li>
+<li><code>gc()</code> steht für <strong>G</strong>arbage <strong>C</strong>ollection (engl. für Müllsammlung) und soll Speicherplatz nach vielen Berechnungen wieder freiräumen. Allerdings führt R im Hintergrund automatisch die Funktion aus, weswegen dieser manuelle Funktionsaufruf redundant ist.</li>
+<li><code>rm(list = ls())</code> verspricht eine <em>saubere</em> neue R Session zu kreieren. Daher findet man es häufig zu Beginn von R Skripten. Tatsächlich löscht dieser Befehl nicht alles, was zu schwierig identifizierbaren Fehlern führen kann. Spätestens seit es R Projekte gibt, ist dieser Befehl überflüssig (siehe Kapitel <a href="project.html#project">3</a>).</li>
+<li><code>setwd()</code> ist teilt R mit, wo genau auf dem Computer sich der einzulesende Datensatz befindet. Auch das ist durch R Projekte und das <code>here</code> Package überflüssig geworden (siehe Kapitel <a href="project.html#here">3.3</a>).</li>
+</ul>
+<p>Darüber hinaus solltest Du es auch in Teil I bis III dieses Buches (bis auf wenige Ausnahmen) dringend vermeiden, einzelne Spalten des Datensatzes separat abzuspeichern. Sämtliche vorgestellte Funktionen arbeiten am Besten direkt am Datensatz. Wenn Du irgendwann im Rahmen des vierten Teils dieses Buches ein tieferes Verständnis von R gesammelt hast, kannst Du Dich gerne darin versuchen. Die oben genannten Funktionen solltest Du hingegen auch dann auf keinen Fall verwenden.</p>
+
+</div>
+</div>
+
+
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="intro.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="project.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": false,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "section"
+},
+"toc_depth": 3,
+"info": false,
+"search": false
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

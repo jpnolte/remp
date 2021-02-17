@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Einleitung | R für empirische Wissenschaften</title>
+  <meta name="description" content="Das ist ein Test" />
+  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Einleitung | R für empirische Wissenschaften" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Das ist ein Test" />
+  <meta name="github-repo" content="j3ypi/rBasics" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Einleitung | R für empirische Wissenschaften" />
+  
+  <meta name="twitter:description" content="Das ist ein Test" />
+  
+
+<meta name="author" content="Jan Philipp Nolte" />
+
+
+<meta name="date" content="2019-07-10" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="intro.html">
+<link rel="next" href="projektorientierter-workflow.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><strong><a href="./"> R für empirische Wissenschaften</a></strong></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#warum-r"><i class="fa fa-check"></i>Warum R?</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#warum-noch-ein-buch-uber-r"><i class="fa fa-check"></i>Warum noch ein Buch über R?</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Einleitung</a><ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#aufbau-und-philosophie"><i class="fa fa-check"></i><b>1.1</b> Aufbau und Philosophie</a></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#set-up-your-lab"><i class="fa fa-check"></i><b>1.2</b> Set up your lab</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="intro.html"><a href="intro.html#programmiersprache-r"><i class="fa fa-check"></i><b>1.2.1</b> Programmiersprache R</a></li>
+<li class="chapter" data-level="1.2.2" data-path="intro.html"><a href="intro.html#programmierumgebung-rstudio"><i class="fa fa-check"></i><b>1.2.2</b> Programmierumgebung RStudio</a></li>
+<li class="chapter" data-level="1.2.3" data-path="intro.html"><a href="intro.html#packages-erweiterungen"><i class="fa fa-check"></i><b>1.2.3</b> Packages (Erweiterungen)</a></li>
+<li class="chapter" data-level="1.2.4" data-path="intro.html"><a href="intro.html#datensatze-aus-packages-laden"><i class="fa fa-check"></i><b>1.2.4</b> Datensätze aus Packages laden</a></li>
+<li class="chapter" data-level="1.2.5" data-path="intro.html"><a href="intro.html#r-updaten"><i class="fa fa-check"></i><b>1.2.5</b> R Updaten</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#fehler--und-warnmeldungen"><i class="fa fa-check"></i><b>1.3</b> Fehler- und Warnmeldungen</a></li>
+<li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#wo-bekomme-ich-hilfe"><i class="fa fa-check"></i><b>1.4</b> Wo bekomme ich Hilfe?</a></li>
+</ul></li>
+<li class="part"><span><b>I Vorbereitung</b></span></li>
+<li class="chapter" data-level="" data-path="einleitung.html"><a href="einleitung.html"><i class="fa fa-check"></i>Einleitung</a></li>
+<li class="chapter" data-level="2" data-path="projektorientierter-workflow.html"><a href="projektorientierter-workflow.html"><i class="fa fa-check"></i><b>2</b> Projektorientierter Workflow</a><ul>
+<li class="chapter" data-level="2.1" data-path="projektorientierter-workflow.html"><a href="projektorientierter-workflow.html#was-ist-ein-pfad"><i class="fa fa-check"></i><b>2.1</b> Was ist ein Pfad?</a></li>
+<li class="chapter" data-level="2.2" data-path="projektorientierter-workflow.html"><a href="projektorientierter-workflow.html#r-projekte"><i class="fa fa-check"></i><b>2.2</b> R Projekte</a></li>
+<li class="chapter" data-level="2.3" data-path="projektorientierter-workflow.html"><a href="projektorientierter-workflow.html#das-here-package"><i class="fa fa-check"></i><b>2.3</b> Das <code>here</code> Package</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="io.html"><a href="io.html"><i class="fa fa-check"></i><b>3</b> Datensätze einlesen und speichern</a><ul>
+<li class="chapter" data-level="3.1" data-path="io.html"><a href="io.html#einlesen"><i class="fa fa-check"></i><b>3.1</b> Einlesen</a></li>
+<li class="chapter" data-level="3.2" data-path="io.html"><a href="io.html#speichern"><i class="fa fa-check"></i><b>3.2</b> Speichern</a></li>
+<li class="chapter" data-level="3.3" data-path="io.html"><a href="io.html#umwandeln"><i class="fa fa-check"></i><b>3.3</b> Umwandeln</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="zuweisungspfeil.html"><a href="zuweisungspfeil.html"><i class="fa fa-check"></i><b>4</b> Zuweisungspfeil</a></li>
+<li class="chapter" data-level="5" data-path="datentypen.html"><a href="datentypen.html"><i class="fa fa-check"></i><b>5</b> Datentypen</a><ul>
+<li class="chapter" data-level="5.1" data-path="datentypen.html"><a href="datentypen.html#faktoren"><i class="fa fa-check"></i><b>5.1</b> Faktoren</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html"><i class="fa fa-check"></i><b>6</b> Datenvorbereitung</a><ul>
+<li class="chapter" data-level="6.1" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#umskalieren"><i class="fa fa-check"></i><b>6.1</b> Umskalieren</a></li>
+<li class="chapter" data-level="6.2" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#faktoren-verandern"><i class="fa fa-check"></i><b>6.2</b> Faktoren verändern</a></li>
+<li class="chapter" data-level="6.3" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#stringmanipulation"><i class="fa fa-check"></i><b>6.3</b> Stringmanipulation</a></li>
+<li class="chapter" data-level="6.4" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#breites-vs.langes-datenformat"><i class="fa fa-check"></i><b>6.4</b> Breites vs. langes Datenformat</a></li>
+<li class="chapter" data-level="6.5" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#transformation-einer-ergebnismatrix"><i class="fa fa-check"></i><b>6.5</b> Transformation einer Ergebnismatrix</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html"><i class="fa fa-check"></i><b>7</b> Deskriptive Statistik</a><ul>
+<li class="chapter" data-level="7.1" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#umgang-mit-fehlenden-werten"><i class="fa fa-check"></i><b>7.1</b> Umgang mit fehlenden Werten</a></li>
+<li class="chapter" data-level="7.2" data-path="deskriptive-statistik.html"><a href="deskriptive-statistik.html#weitere-funktionen"><i class="fa fa-check"></i><b>7.2</b> Weitere Funktionen</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="visualisierungen.html"><a href="visualisierungen.html"><i class="fa fa-check"></i><b>8</b> Visualisierungen</a></li>
+<li class="chapter" data-level="9" data-path="inferenzstatistik.html"><a href="inferenzstatistik.html"><i class="fa fa-check"></i><b>9</b> Inferenzstatistik</a></li>
+<li class="chapter" data-level="10" data-path="latente-variablenmodelle.html"><a href="latente-variablenmodelle.html"><i class="fa fa-check"></i><b>10</b> Latente Variablenmodelle</a></li>
+<li class="chapter" data-level="11" data-path="reproduzierbare-berichte.html"><a href="reproduzierbare-berichte.html"><i class="fa fa-check"></i><b>11</b> Reproduzierbare Berichte</a></li>
+<li class="chapter" data-level="12" data-path="funktionales-programmieren.html"><a href="funktionales-programmieren.html"><i class="fa fa-check"></i><b>12</b> Funktionales Programmieren</a></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i>Appendix</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R für empirische Wissenschaften</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="einleitung" class="section level1 unnumbered">
+<h1>Einleitung</h1>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="intro.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="projektorientierter-workflow.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["r-empirische-wissenschaften.pdf", "r-empirische-wissenschaften.epub"],
+"toc": {
+"collapse": "section",
+"download": ["pdf", "epub"]
+}
+});
+});
+</script>
+
+</body>
+
+</html>

@@ -4,7 +4,7 @@
 
 ## R für empirische Wissenschaften <a href='https://j3ypi.github.io/rBasics/index.html'><img src='man/figures/logo.png' align="right" height="148.5"/></a>
 
-Lerne R ohne jegliches Vorwissen. Moderne und konsistente Funktionen machen R endlich zugänglich für jeden und jede. Egal wie computeraffin. Dabei wird ein besondere Fokus auf Herausforderungen in der wissenschaftlichen Datenanalsye gelegt. 
+Lerne R ohne jegliches Vorwissen. Moderne und konsistente Funktionen machen R endlich zugänglich für jeden und jede – egal wie computeraffin. Dabei wird ein besondere Fokus auf Herausforderungen in der wissenschaftlichen Datenanalyse gelegt. 
 
 [Hier geht es zum Buch.](www.r-empirische-wissenschaften.de/buch)
 

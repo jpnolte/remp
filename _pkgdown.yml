@@ -1,6 +1,9 @@
+url: https://github.com/j3ypi/remp
+
 template:
   params:
     bootswatch: paper
+    ganalytics: UA-189972467-1
 
 destination: docs
 

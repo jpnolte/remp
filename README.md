@@ -6,7 +6,7 @@
 
 Lerne R ohne jegliches Vorwissen. Moderne und konsistente Funktionen machen R endlich zugänglich für jeden und jede – egal wie computeraffin. Dabei wird ein besondere Fokus auf Herausforderungen in der wissenschaftlichen Datenanalyse gelegt. 
 
-[Hier geht es zum Buch.](www.r-empirische-wissenschaften.de/buch)
+[Hier geht es zum Buch.](https://r-empirische-wissenschaften.de/buch/index.html)
 
 *Es handelt sich derzeit noch nicht um die finale Version.*
 

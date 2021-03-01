@@ -13,7 +13,7 @@
   
   <meta property="og:image" content="images/logo.png" />
   <meta property="og:description" content="Das ist ein Test" />
-  <meta name="github-repo" content="j3ypi/rBasics" />
+  <meta name="github-repo" content="j3ypi/remp" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Kapitel 13 Iterationen | R für empirische Wissenschaften" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Jan Philipp Nolte" />
 
 
-<meta name="date" content="2021-02-26" />
+<meta name="date" content="2021-03-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -364,116 +364,117 @@ code span.wa { font-weight: bold; } /* Warning */
 <h2><span class="header-section-number">13.1</span> Was sind iterative Prozesse?</h2>
 <p>Wenn wir wiederholt etwas sehr ähnlich machen möchten, wäre die wohl offensichtlichste Möglichkeit Copy &amp; Paste. Man nimmt also den Code für den einen Anwendungsfall und modifiziert ihn leicht für andere Anwendungsfälle. Das große Problem dabei ist die Fehleranfälligkeit. Eine sehr gute Lösung dafür sind iterativ Prozesse. Solange eine Bedingung zutritt, soll ein bestimmter Befehl ausgeführt werden und dabei Kleinigkeiten der Reihe nach anpassen. Das wäre die Beschreibung eines sehr grundlegenden programmatischen Prinzips, den sogenannten Schleifen (z.B. <code>for-Schleife</code> und <code>while-Schleife</code>). Diese werden wir uns innerhalb der folgenden Kapitel allerdings nicht anschauen. Dies hängt von zwei Tatsachen ab: 1. Das Schreiben von fehlerfreien Schleifen ist bei fortgeschritteneren Fällen schwer und 2. ist es schwer effiziente Schleifen in R zu schreiben, die nicht ewig für ihre Berechnungen brauchen. Im Kontext der Datenanalyse benötigen wir das allerdings auch gar nicht. Für können mit <code>map()</code> über verschiedene Listenelemente die selbe Funktion anwenden (siehe Kapitel <a href="iterationmain.html#map">13.2</a>). Mit <code>nest()</code> kann dies auch direkt innerhalb eines <code>tibbles</code> gemacht werden (siehe Kapitel <a href="iterationmain.html#nest">13.3</a>).</p>
 <p>Schauen wir uns einmal Schritt für Schritt die Problematik an. Wenn wir drei separate Regressionsmodelle für den Einfluss von Geschlecht auf Extraversion für jede Altersgruppe machen möchten, könnten wir den Code jeweils kopieren. Wir filtern also zuerst unseren Datensatz.</p>
-<div class="sourceCode" id="cb414"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb414-1"><a href="iterationmain.html#cb414-1" aria-hidden="true" tabindex="-1"></a>mod1 <span class="ot">&lt;-</span> big5_mod <span class="sc">%&gt;%</span> </span>
-<span id="cb414-2"><a href="iterationmain.html#cb414-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Gruppe <span class="sc">==</span> <span class="st">&quot;Jung&quot;</span>)</span>
-<span id="cb414-3"><a href="iterationmain.html#cb414-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb414-4"><a href="iterationmain.html#cb414-4" aria-hidden="true" tabindex="-1"></a>mod2 <span class="ot">&lt;-</span> big5_mod <span class="sc">%&gt;%</span> </span>
-<span id="cb414-5"><a href="iterationmain.html#cb414-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Gruppe <span class="sc">==</span> <span class="st">&quot;Mittel&quot;</span>)</span>
-<span id="cb414-6"><a href="iterationmain.html#cb414-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb414-7"><a href="iterationmain.html#cb414-7" aria-hidden="true" tabindex="-1"></a>mod3 <span class="ot">&lt;-</span> big5_mod <span class="sc">%&gt;%</span> </span>
-<span id="cb414-8"><a href="iterationmain.html#cb414-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Gruppe <span class="sc">==</span> <span class="st">&quot;Weise&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb412"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb412-1"><a href="iterationmain.html#cb412-1" aria-hidden="true" tabindex="-1"></a>mod1 <span class="ot">&lt;-</span> big5_mod <span class="sc">%&gt;%</span> </span>
+<span id="cb412-2"><a href="iterationmain.html#cb412-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Gruppe <span class="sc">==</span> <span class="st">&quot;Jung&quot;</span>)</span>
+<span id="cb412-3"><a href="iterationmain.html#cb412-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb412-4"><a href="iterationmain.html#cb412-4" aria-hidden="true" tabindex="-1"></a>mod2 <span class="ot">&lt;-</span> big5_mod <span class="sc">%&gt;%</span> </span>
+<span id="cb412-5"><a href="iterationmain.html#cb412-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Gruppe <span class="sc">==</span> <span class="st">&quot;Mittel&quot;</span>)</span>
+<span id="cb412-6"><a href="iterationmain.html#cb412-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb412-7"><a href="iterationmain.html#cb412-7" aria-hidden="true" tabindex="-1"></a>mod3 <span class="ot">&lt;-</span> big5_mod <span class="sc">%&gt;%</span> </span>
+<span id="cb412-8"><a href="iterationmain.html#cb412-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Gruppe <span class="sc">==</span> <span class="st">&quot;Weise&quot;</span>)</span></code></pre></div>
 <p>Anschließend werden die drei Regressionsmodelle berechnet.</p>
-<div class="sourceCode" id="cb415"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb415-1"><a href="iterationmain.html#cb415-1" aria-hidden="true" tabindex="-1"></a>model1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Extraversion <span class="sc">~</span> Geschlecht, <span class="at">data =</span> mod1)</span>
-<span id="cb415-2"><a href="iterationmain.html#cb415-2" aria-hidden="true" tabindex="-1"></a>model2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Extraversion <span class="sc">~</span> Geschlecht, <span class="at">data =</span> mod2)</span>
-<span id="cb415-3"><a href="iterationmain.html#cb415-3" aria-hidden="true" tabindex="-1"></a>model3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Extraversion <span class="sc">~</span> Geschlecht, <span class="at">data =</span> mod3)</span></code></pre></div>
+<div class="sourceCode" id="cb413"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb413-1"><a href="iterationmain.html#cb413-1" aria-hidden="true" tabindex="-1"></a>model1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Extraversion <span class="sc">~</span> Geschlecht, <span class="at">data =</span> mod1)</span>
+<span id="cb413-2"><a href="iterationmain.html#cb413-2" aria-hidden="true" tabindex="-1"></a>model2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Extraversion <span class="sc">~</span> Geschlecht, <span class="at">data =</span> mod2)</span>
+<span id="cb413-3"><a href="iterationmain.html#cb413-3" aria-hidden="true" tabindex="-1"></a>model3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Extraversion <span class="sc">~</span> Geschlecht, <span class="at">data =</span> mod3)</span></code></pre></div>
 <p>Die Berechnung ist falsch, sobald wir eine Zahl in den Variablennamen vergessen entsprechend anzupassen. Würden wir 20 oder 30 verschiedene Modelle auf diese Art und Weise rechnen wollen, können wir uns fast sicher sein, dass sich irgendwo ein Fehler einschleicht.</p>
 </div>
 <div id="map" class="section level2" number="13.2">
 <h2><span class="header-section-number">13.2</span> Listenbasierte Berechnungen</h2>
 <p>Das <code>purrr</code> Package aus dem <code>tidyverse</code> enthält diverse Funktionen für iterative Prozesse. Wir werden uns im folgenden <code>map()</code> und <code>map_df()</code> genauer anschauen. Dafür müssen wir die verschiedenen Datensätze in eine Liste packen. Pro Listenelement ein Datensatz auf den wir unsere Funktion (hier das Regressionsmodell) anwenden wollen.</p>
-<div class="sourceCode" id="cb416"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb416-1"><a href="iterationmain.html#cb416-1" aria-hidden="true" tabindex="-1"></a>mod_ls <span class="ot">&lt;-</span> <span class="fu">list</span>(mod1, mod2, mod3)</span></code></pre></div>
-<pre class="bordercode"><code>## [[1]]
-## # A tibble: 147 x 6
-##   Alter Geschlecht Extraversion Neurotizismus Gruppe    ID
-##   &lt;dbl&gt; &lt;chr&gt;             &lt;dbl&gt;         &lt;dbl&gt; &lt;chr&gt;  &lt;int&gt;
-## 1    30 f                   3.1           3.4 Jung       2
-## 2    23 m                   3.4           2.4 Jung       3
-## 3    24 f                   3             2.8 Jung       5
-## 4    14 f                   2.8           3.5 Jung       6
-## # ... with 143 more rows
-## 
-## [[2]]
-## # A tibble: 39 x 6
-##   Alter Geschlecht Extraversion Neurotizismus Gruppe    ID
-##   &lt;dbl&gt; &lt;chr&gt;             &lt;dbl&gt;         &lt;dbl&gt; &lt;chr&gt;  &lt;int&gt;
-## 1    36 m                   3             1.9 Mittel     1
-## 2    32 m                   3.5           3.1 Mittel     7
-## 3    42 m                   2.9           1.7 Mittel    20
-## 4    34 m                   3.5           2.2 Mittel    21
-## # ... with 35 more rows
-## 
-## [[3]]
-## # A tibble: 14 x 6
-##   Alter Geschlecht Extraversion Neurotizismus Gruppe    ID
-##   &lt;dbl&gt; &lt;chr&gt;             &lt;dbl&gt;         &lt;dbl&gt; &lt;chr&gt;  &lt;int&gt;
-## 1    54 m                   3.3           4.2 Weise      4
-## 2    56 f                   3.2           2.3 Weise     17
-## 3    59 m                   2.7           2.3 Weise     29
-## 4    56 f                   2.7           2.3 Weise     55
-## # ... with 10 more rows</code></pre>
+<div class="sourceCode" id="cb414"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb414-1"><a href="iterationmain.html#cb414-1" aria-hidden="true" tabindex="-1"></a>mod_ls <span class="ot">&lt;-</span> <span class="fu">list</span>(mod1, mod2, mod3)</span>
+<span id="cb414-2"><a href="iterationmain.html#cb414-2" aria-hidden="true" tabindex="-1"></a>mod_ls</span></code></pre></div>
+<pre class="bordercode"><code>[[1]]
+# A tibble: 147 x 6
+  Alter Geschlecht Extraversion Neurotizismus Gruppe    ID
+  &lt;dbl&gt; &lt;chr&gt;             &lt;dbl&gt;         &lt;dbl&gt; &lt;chr&gt;  &lt;int&gt;
+1    30 f                   3.1           3.4 Jung       2
+2    23 m                   3.4           2.4 Jung       3
+3    24 f                   3             2.8 Jung       5
+4    14 f                   2.8           3.5 Jung       6
+# ... with 143 more rows
+
+[[2]]
+# A tibble: 39 x 6
+  Alter Geschlecht Extraversion Neurotizismus Gruppe    ID
+  &lt;dbl&gt; &lt;chr&gt;             &lt;dbl&gt;         &lt;dbl&gt; &lt;chr&gt;  &lt;int&gt;
+1    36 m                   3             1.9 Mittel     1
+2    32 m                   3.5           3.1 Mittel     7
+3    42 m                   2.9           1.7 Mittel    20
+4    34 m                   3.5           2.2 Mittel    21
+# ... with 35 more rows
+
+[[3]]
+# A tibble: 14 x 6
+  Alter Geschlecht Extraversion Neurotizismus Gruppe    ID
+  &lt;dbl&gt; &lt;chr&gt;             &lt;dbl&gt;         &lt;dbl&gt; &lt;chr&gt;  &lt;int&gt;
+1    54 m                   3.3           4.2 Weise      4
+2    56 f                   3.2           2.3 Weise     17
+3    59 m                   2.7           2.3 Weise     29
+4    56 f                   2.7           2.3 Weise     55
+# ... with 10 more rows</code></pre>
 <p>Der erste Schritt ist die Berechnung der Regressionsmodelle mit einer Lambda Funktion innerhalb von <code>map()</code>. Als Ergebnis erhalten wir ebenfalls eine Liste mit einem Modell pro Listenelement. Um das ganze entweder angenehmer ausgeben zu lassen, fügen wir als zweiten Schritt noch <code>map_df()</code> (für map <strong>d</strong>ata <strong>f</strong>rame) hinzu. Wie der Name suggeriert, werden (falls durch die Datenstruktur möglich) die Listenelemente als <code>tibble/data.frame</code> ausgegeben. Dies erreichen wir wieder mit der Funktion <code>tidy</code> aus dem <code>broom</code> Package.</p>
-<div class="sourceCode" id="cb418"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb418-1"><a href="iterationmain.html#cb418-1" aria-hidden="true" tabindex="-1"></a>mod_ls <span class="sc">%&gt;%</span> </span>
-<span id="cb418-2"><a href="iterationmain.html#cb418-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">map</span>(<span class="sc">~</span> <span class="fu">lm</span>(Extraversion <span class="sc">~</span> Geschlecht, <span class="at">data =</span> .x)) <span class="sc">%&gt;%</span> </span>
-<span id="cb418-3"><a href="iterationmain.html#cb418-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">map_df</span>(tidy)</span></code></pre></div>
-<pre class="bordercode"><code>## # A tibble: 6 x 5
-##   term        estimate std.error statistic   p.value
-##   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
-## 1 (Intercept)   3.07      0.0376    81.6   4.49e-123
-## 2 Geschlechtm   0.0550    0.0598     0.919 3.60e-  1
-## 3 (Intercept)   3.07      0.0649    47.3   1.08e- 34
-## 4 Geschlechtm   0.0563    0.0930     0.605 5.49e-  1
-## # ... with 2 more rows</code></pre>
+<div class="sourceCode" id="cb416"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb416-1"><a href="iterationmain.html#cb416-1" aria-hidden="true" tabindex="-1"></a>mod_ls <span class="sc">%&gt;%</span> </span>
+<span id="cb416-2"><a href="iterationmain.html#cb416-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">map</span>(<span class="sc">~</span> <span class="fu">lm</span>(Extraversion <span class="sc">~</span> Geschlecht, <span class="at">data =</span> .x)) <span class="sc">%&gt;%</span> </span>
+<span id="cb416-3"><a href="iterationmain.html#cb416-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">map_df</span>(tidy)</span></code></pre></div>
+<pre class="bordercode"><code># A tibble: 6 x 5
+  term        estimate std.error statistic   p.value
+  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
+1 (Intercept)   3.07      0.0376    81.6   4.49e-123
+2 Geschlechtm   0.0550    0.0598     0.919 3.60e-  1
+3 (Intercept)   3.07      0.0649    47.3   1.08e- 34
+4 Geschlechtm   0.0563    0.0930     0.605 5.49e-  1
+# ... with 2 more rows</code></pre>
 <div class="exercise2">
 <p>Das ist ein Platzhalter für eine Übung. Starte die Übung mit <code>hands_on("test")</code>.</p>
 </div>
 </div>
 <div id="nest" class="section level2" number="13.3">
 <h2><span class="header-section-number">13.3</span> Einnisten</h2>
-<p>Durch die Funktion <code>nest()</code> können innerhalb von Zellen eines <code>tibbles</code> Datenstrukturen jeder Art innerhalb eingenistet werden. Dies wurde bereits in Kapitel <a href="datatypes.html#lists">12.4</a> anhand eines einfachen Beispiels eingeführt. Nun wenden wir das ganze auf unseren <code>big5_mod</code> Datensatz an. Dafür gruppieren wir wie gewohnt mithilfe von <code>group_by()</code>. Anschließend muss nur noch die Funktion <code>nest()</code> ohne Argumente ausgeführt werden.</p>
+<p>durch die Funktion <code>nest()</code> können innerhalb von Zellen eines <code>tibbles</code> Datenstrukturen jeder Art innerhalb eingenistet werden. Dies wurde bereits in Kapitel <a href="datatypes.html#lists">12.4</a> anhand eines einfachen Beispiels eingeführt. Nun wenden wir das ganze auf unseren <code>big5_mod</code> Datensatz an. Dafür gruppieren wir wie gewohnt mithilfe von <code>group_by()</code>. Anschließend muss nur noch die Funktion <code>nest()</code> ohne Argumente ausgeführt werden.</p>
+<div class="sourceCode" id="cb418"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb418-1"><a href="iterationmain.html#cb418-1" aria-hidden="true" tabindex="-1"></a>big5_mod <span class="sc">%&gt;%</span> </span>
+<span id="cb418-2"><a href="iterationmain.html#cb418-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Gruppe) <span class="sc">%&gt;%</span> </span>
+<span id="cb418-3"><a href="iterationmain.html#cb418-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">nest</span>()</span></code></pre></div>
+<pre class="bordercode"><code># A tibble: 3 x 2
+# Groups:   Gruppe [3]
+  Gruppe data              
+  &lt;chr&gt;  &lt;list&gt;            
+1 Mittel &lt;tibble [39 x 5]&gt; 
+2 Jung   &lt;tibble [147 x 5]&gt;
+3 Weise  &lt;tibble [14 x 5]&gt; </code></pre>
+<p>Als Ergebnis kriegen wir einen <code>tibble</code>, welcher in der ersten Spalte die Altersgruppen abgebildet hat. Daneben gibt es eine neue zweite Spalte namens <code>data</code>, in der wiederum drei <code>tibbles</code> mit den Dimensionen <code>39x4</code>, <code>147x4</code> und <code>14x4</code>. Jetzt können wir ähnlich wie bei den listenbasierten Berechnungen im vorherigen Kapitel mit <code>map()</code> eine Funktion auf jeden dieser eingenisteten Datensätze anwenden. Der Unterschied besteht nun schlichtweg darin, dass wir den Befehl innerhalb von <code>mutate()</code> ausführen müssen. Schließlich haben wir einen <code>tibble</code> vorliegen. Wenn wir dort eine neue Spalte erstellen möchten, benötigen wir dafür <code>mutate()</code>. Im zweiten Schritt nehmen wir die Modelle und geben diese in einem aufgeräumten Format mit <code>tidy()</code> wieder.</p>
 <div class="sourceCode" id="cb420"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb420-1"><a href="iterationmain.html#cb420-1" aria-hidden="true" tabindex="-1"></a>big5_mod <span class="sc">%&gt;%</span> </span>
 <span id="cb420-2"><a href="iterationmain.html#cb420-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Gruppe) <span class="sc">%&gt;%</span> </span>
-<span id="cb420-3"><a href="iterationmain.html#cb420-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">nest</span>()</span></code></pre></div>
-<pre class="bordercode"><code>## # A tibble: 3 x 2
-## # Groups:   Gruppe [3]
-##   Gruppe data              
-##   &lt;chr&gt;  &lt;list&gt;            
-## 1 Mittel &lt;tibble [39 x 5]&gt; 
-## 2 Jung   &lt;tibble [147 x 5]&gt;
-## 3 Weise  &lt;tibble [14 x 5]&gt;</code></pre>
-<p>Als Ergebnis kriegen wir einen <code>tibble</code>, welcher in der ersten Spalte die Altersgruppen abgebildet hat. Daneben gibt es eine neue zweite Spalte namens <code>data</code>, in der wiederum drei <code>tibbles</code> mit den Dimensionen <code>39x4</code>, <code>147x4</code> und <code>14x4</code>. Jetzt können wir ähnlich wie bei den listenbasierten Berechnungen im vorherigen Kapitel mit <code>map()</code> eine Funktion auf jeden dieser eingenisteten Datensätze anwenden. Der Unterschied besteht nun schlichtweg darin, dass wir den Befehl innerhalb von <code>mutate()</code> ausführen müssen. Schließlich haben wir einen <code>tibble</code> vorliegen. Wenn wir dort eine neue Spalte erstellen möchten, benötigen wir dafür <code>mutate()</code>. Im zweiten Schritt nehmen wir die Modelle und geben diese in einem aufgeräumten Format mit <code>tidy()</code> wieder.</p>
+<span id="cb420-3"><a href="iterationmain.html#cb420-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">nest</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb420-4"><a href="iterationmain.html#cb420-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb420-5"><a href="iterationmain.html#cb420-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">Modelle =</span> <span class="fu">map</span>(data, <span class="sc">~</span> <span class="fu">lm</span>(Extraversion <span class="sc">~</span> Geschlecht, <span class="at">data =</span> .x)),</span>
+<span id="cb420-6"><a href="iterationmain.html#cb420-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">Ergebnisse =</span> <span class="fu">map</span>(Modelle, tidy)</span>
+<span id="cb420-7"><a href="iterationmain.html#cb420-7" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
+<pre class="bordercode"><code># A tibble: 3 x 4
+# Groups:   Gruppe [3]
+  Gruppe data               Modelle Ergebnisse      
+  &lt;chr&gt;  &lt;list&gt;             &lt;list&gt;  &lt;list&gt;          
+1 Mittel &lt;tibble [39 x 5]&gt;  &lt;lm&gt;    &lt;tibble [2 x 5]&gt;
+2 Jung   &lt;tibble [147 x 5]&gt; &lt;lm&gt;    &lt;tibble [2 x 5]&gt;
+3 Weise  &lt;tibble [14 x 5]&gt;  &lt;lm&gt;    &lt;tibble [2 x 5]&gt;</code></pre>
+<p>Nun sehen wir eine neue Spalte namens <code>Modelle</code> mit Einträgen des Datentyps <code>&lt;lm&gt;</code> (unsere linearen Modelle). Gleich daneben sind unsere Ergebnisse (<em>p</em>-Werte und Co) wieder als <code>tibble</code> eingenistet. Damit wir nun an diese Ergebnisse herankommen müssen wir nun abschließend lediglich diese mit <code>unnest()</code> aus der eingenisteten Struktur herausholen.</p>
 <div class="sourceCode" id="cb422"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb422-1"><a href="iterationmain.html#cb422-1" aria-hidden="true" tabindex="-1"></a>big5_mod <span class="sc">%&gt;%</span> </span>
 <span id="cb422-2"><a href="iterationmain.html#cb422-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Gruppe) <span class="sc">%&gt;%</span> </span>
 <span id="cb422-3"><a href="iterationmain.html#cb422-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">nest</span>() <span class="sc">%&gt;%</span> </span>
 <span id="cb422-4"><a href="iterationmain.html#cb422-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
 <span id="cb422-5"><a href="iterationmain.html#cb422-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">Modelle =</span> <span class="fu">map</span>(data, <span class="sc">~</span> <span class="fu">lm</span>(Extraversion <span class="sc">~</span> Geschlecht, <span class="at">data =</span> .x)),</span>
 <span id="cb422-6"><a href="iterationmain.html#cb422-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">Ergebnisse =</span> <span class="fu">map</span>(Modelle, tidy)</span>
-<span id="cb422-7"><a href="iterationmain.html#cb422-7" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
-<pre class="bordercode"><code>## # A tibble: 3 x 4
-## # Groups:   Gruppe [3]
-##   Gruppe data               Modelle Ergebnisse      
-##   &lt;chr&gt;  &lt;list&gt;             &lt;list&gt;  &lt;list&gt;          
-## 1 Mittel &lt;tibble [39 x 5]&gt;  &lt;lm&gt;    &lt;tibble [2 x 5]&gt;
-## 2 Jung   &lt;tibble [147 x 5]&gt; &lt;lm&gt;    &lt;tibble [2 x 5]&gt;
-## 3 Weise  &lt;tibble [14 x 5]&gt;  &lt;lm&gt;    &lt;tibble [2 x 5]&gt;</code></pre>
-<p>Nun sehen wir eine neue Spalte namens <code>Modelle</code> mit Einträgen des Datentyps <code>&lt;lm&gt;</code> (unsere linearen Modelle). Gleich daneben sind unsere Ergebnisse (<em>p</em>-Werte und Co) wieder als <code>tibble</code> eingenistet. Damit wir nun an diese Ergebnisse herankommen müssen wir nun abschließend lediglich diese mit <code>unnest()</code> aus der eingenisteten Struktur herausholen.</p>
-<div class="sourceCode" id="cb424"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb424-1"><a href="iterationmain.html#cb424-1" aria-hidden="true" tabindex="-1"></a>big5_mod <span class="sc">%&gt;%</span> </span>
-<span id="cb424-2"><a href="iterationmain.html#cb424-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Gruppe) <span class="sc">%&gt;%</span> </span>
-<span id="cb424-3"><a href="iterationmain.html#cb424-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">nest</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb424-4"><a href="iterationmain.html#cb424-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb424-5"><a href="iterationmain.html#cb424-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">Modelle =</span> <span class="fu">map</span>(data, <span class="sc">~</span> <span class="fu">lm</span>(Extraversion <span class="sc">~</span> Geschlecht, <span class="at">data =</span> .x)),</span>
-<span id="cb424-6"><a href="iterationmain.html#cb424-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">Ergebnisse =</span> <span class="fu">map</span>(Modelle, tidy)</span>
-<span id="cb424-7"><a href="iterationmain.html#cb424-7" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
-<span id="cb424-8"><a href="iterationmain.html#cb424-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest</span>(Ergebnisse) <span class="sc">%&gt;%</span> </span>
-<span id="cb424-9"><a href="iterationmain.html#cb424-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Gruppe, term, estimate, p.value)</span></code></pre></div>
-<pre class="bordercode"><code>## # A tibble: 6 x 4
-## # Groups:   Gruppe [3]
-##   Gruppe term        estimate   p.value
-##   &lt;chr&gt;  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;
-## 1 Mittel (Intercept)   3.07   1.08e- 34
-## 2 Mittel Geschlechtm   0.0563 5.49e-  1
-## 3 Jung   (Intercept)   3.07   4.49e-123
-## 4 Jung   Geschlechtm   0.0550 3.60e-  1
-## # ... with 2 more rows</code></pre>
+<span id="cb422-7"><a href="iterationmain.html#cb422-7" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
+<span id="cb422-8"><a href="iterationmain.html#cb422-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest</span>(Ergebnisse) <span class="sc">%&gt;%</span> </span>
+<span id="cb422-9"><a href="iterationmain.html#cb422-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Gruppe, term, estimate, p.value)</span></code></pre></div>
+<pre class="bordercode"><code># A tibble: 6 x 4
+# Groups:   Gruppe [3]
+  Gruppe term        estimate   p.value
+  &lt;chr&gt;  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;
+1 Mittel (Intercept)   3.07   1.08e- 34
+2 Mittel Geschlechtm   0.0563 5.49e-  1
+3 Jung   (Intercept)   3.07   4.49e-123
+4 Jung   Geschlechtm   0.0550 3.60e-  1
+# ... with 2 more rows</code></pre>
 <p>Der besseren übersichtshalber haben wir nur die Spalten <code>Gruppe</code>, <code>term</code>, <code>estimate</code> und <code>p.value</code> ausgeben lassen.</p>
 <div class="exercise2">
 <p>Das ist ein Platzhalter für eine Übung. Starte die Übung mit <code>hands_on("test")</code>.</p>

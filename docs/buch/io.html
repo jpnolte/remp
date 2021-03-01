@@ -13,7 +13,7 @@
   
   <meta property="og:image" content="images/logo.png" />
   <meta property="og:description" content="Das ist ein Test" />
-  <meta name="github-repo" content="j3ypi/rBasics" />
+  <meta name="github-repo" content="j3ypi/remp" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Kapitel 5 Datensätze | R für empirische Wissenschaften" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Jan Philipp Nolte" />
 
 
-<meta name="date" content="2021-02-26" />
+<meta name="date" content="2021-03-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -371,7 +371,7 @@ code span.wa { font-weight: bold; } /* Warning */
 <li>Comma separated values (<code>.csv</code>)</li>
 <li>Tabular separated values (<code>.tsv</code>)</li>
 </ul>
-<p>Eingelesen werden können sämtliche Dateitypen mithilfe von einer einzigen Funktion namens <code>import()</code> aus dem <code>rio</code> Package. Dabei erkennt die Funktion die Dateiendung und übernimmt hinter den Kulissen alles Weitere. Damit der Datensatz als tibble (ref Datenstrukturen) eingelesen wird, solltest Du <code>setclass = "tbl"</code> setzen. Für den Moment musst Du Dir beim <code>setclass</code> Argument allerdings noch nichts denken (aber trotzdem verwenden!). Wir laden also zuerst das Package mit</p>
+<p>Eingelesen werden können sämtliche Dateitypen mithilfe von einer einzigen Funktion namens <code>import()</code> aus dem <code>rio</code> Package. Dabei erkennt die Funktion die Dateiendung und übernimmt hinter den Kulissen alles Weitere. Damit der Datensatz als tibble (ref Datenstrukturen) eingelesen wird, solltest du <code>setclass = "tbl"</code> setzen. Für den Moment musst du Dir beim <code>setclass</code> Argument allerdings noch nichts denken (aber trotzdem verwenden!). Wir laden also zuerst das Package mit</p>
 <div class="sourceCode" id="cb54"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb54-1"><a href="io.html#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rio)</span></code></pre></div>
 <p>und lesen anschließend die Datei (hier namens <code>video</code>) mit <code>import()</code> ein. Dabei achten wir natürlich darauf, den Datensatz direkt mit dem Zuweisungspfeil zu speichern (siehe Kapitel <a href="vars.html#pfeil">4.1</a>).</p>
 <div class="sourceCode" id="cb55"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb55-1"><a href="io.html#cb55-1" aria-hidden="true" tabindex="-1"></a>daten <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="st">&quot;video.xlsx&quot;</span>, <span class="at">setclass =</span> <span class="st">&quot;tbl&quot;</span>)</span></code></pre></div>
@@ -394,10 +394,10 @@ Abbildung 5.1: Beispielshafte Ordnerstruktur mit Unterordner für Datensätze, R
 </div>
 <div id="datensätze-aus-packages-laden" class="section level2" number="5.2">
 <h2><span class="header-section-number">5.2</span> Datensätze aus Packages laden</h2>
-<p>Zum Bearbeiten dieses Buches brauchst Du jedoch keine externen Datensätze sondern nur jene, die im <code>remp</code> Package enthalten sind. Nach laden des Packages hast Du grundsätzlich erst Zugriff auf alle enthaltenden Datensätze, wenn Du extra die <code>data()</code> Funktion aufrufst. Zum Einlesen des <code>video</code> Datensatzes, muss demnach</p>
+<p>Zum Bearbeiten dieses Buches brauchst du jedoch keine externen Datensätze sondern nur jene, die im <code>remp</code> Package enthalten sind. Nach laden des Packages hast du grundsätzlich erst Zugriff auf alle enthaltenden Datensätze, wenn du extra die <code>data()</code> Funktion aufrufst. Zum Einlesen des <code>video</code> Datensatzes, muss demnach</p>
 <div class="sourceCode" id="cb58"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb58-1"><a href="io.html#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(remp)</span>
 <span id="cb58-2"><a href="io.html#cb58-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(video)</span></code></pre></div>
-<p>geschrieben werden. So kannst Du das Gelernte sofort in Deiner RStudio Session nachvollziehen und ausprobieren. Sollte das Package vorher nicht geladen sein, kann alternativ auch nur</p>
+<p>geschrieben werden. So kannst du das Gelernte sofort in Deiner RStudio Session nachvollziehen und ausprobieren. Sollte das Package vorher nicht geladen sein, kann alternativ auch nur</p>
 <div class="sourceCode" id="cb59"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb59-1"><a href="io.html#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(video, <span class="at">package =</span> <span class="st">&quot;remp&quot;</span>)</span></code></pre></div>
 <p>verwendet werden. Da die Syntax länger ist und beim Üben das <code>remp</code> Package sowieso geladen werden sollte, ist jedoch der zuvor dargestellte Weg empfohlen.</p>
 </div>
@@ -408,26 +408,27 @@ Abbildung 5.1: Beispielshafte Ordnerstruktur mit Unterordner für Datensätze, R
 <div class="sourceCode" id="cb60"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb60-1"><a href="io.html#cb60-1" aria-hidden="true" tabindex="-1"></a>my_tbl <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
 <span id="cb60-2"><a href="io.html#cb60-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">Extraversion =</span> <span class="fu">c</span>(<span class="fl">1.2</span>, <span class="fl">2.7</span>, <span class="fl">1.5</span>, <span class="fl">4.8</span>),</span>
 <span id="cb60-3"><a href="io.html#cb60-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">Geschlecht =</span> <span class="fu">c</span>(<span class="st">&quot;m&quot;</span>, <span class="st">&quot;f&quot;</span>, <span class="st">&quot;f&quot;</span>, <span class="st">&quot;m&quot;</span>)</span>
-<span id="cb60-4"><a href="io.html#cb60-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
-<pre class="bordercode"><code>## # A tibble: 4 x 2
-##   Extraversion Geschlecht
-##          &lt;dbl&gt; &lt;chr&gt;     
-## 1          1.2 m         
-## 2          2.7 f         
-## 3          1.5 f         
-## 4          4.8 m</code></pre>
+<span id="cb60-4"><a href="io.html#cb60-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb60-5"><a href="io.html#cb60-5" aria-hidden="true" tabindex="-1"></a>my_tbl</span></code></pre></div>
+<pre class="bordercode"><code># A tibble: 4 x 2
+  Extraversion Geschlecht
+         &lt;dbl&gt; &lt;chr&gt;     
+1          1.2 m         
+2          2.7 f         
+3          1.5 f         
+4          4.8 m         </code></pre>
 <p>Wenn wir nun auf eine Spalte zugreifen möchten, geht das beispielsweise nach dem Schema <code>Datensatz$Spalte</code> oder <code>pull()</code>. Der Dollar-Operator bei erster Methode wird an dieser Stelle nur erwähnt, da es noch nicht vollständig möglich ist, auf diese Funktionalität zu verzichten.</p>
 <div class="sourceCode" id="cb62"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb62-1"><a href="io.html#cb62-1" aria-hidden="true" tabindex="-1"></a>my_tbl<span class="sc">$</span>Extraversion</span></code></pre></div>
-<pre class="bordercode"><code>## [1] 1.2 2.7 1.5 4.8</code></pre>
+<pre class="bordercode"><code>[1] 1.2 2.7 1.5 4.8</code></pre>
 <p>Grundsätzlich werden wir im Verlaufe des Buches allerdings der Konsistenz halber sofern möglich die <code>pull()</code> Funktion aus dem <code>tidyverse</code> bevorzugen.</p>
 <div class="sourceCode" id="cb64"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb64-1"><a href="io.html#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pull</span>(my_tbl, Geschlecht)</span></code></pre></div>
-<pre class="bordercode"><code>## [1] &quot;m&quot; &quot;f&quot; &quot;f&quot; &quot;m&quot;</code></pre>
+<pre class="bordercode"><code>[1] &quot;m&quot; &quot;f&quot; &quot;f&quot; &quot;m&quot;</code></pre>
 </div>
 <div id="speichern-und-konvertieren" class="section level2" number="5.4">
 <h2><span class="header-section-number">5.4</span> Speichern und Konvertieren</h2>
 <p>Das Speichern von Datensätzen funktioniert durch das <code>rio</code> Package ähnlich intuitiv wie das Importieren von Dateien. Anstelle von <code>import()</code> benutzen wir dafür stattdessen <code>export()</code>. Das erste Argument der Funktion ist der Datensatzname und das zweite Argument ist der gewünschte Dateiname. Der Dateientyp wird durch die gewählte Endung festgelegt. Möchte man beispielsweise den fertig aufbereiteten Datensatz <code>video_clean</code> als <code>csv</code> Datei abspeichern, würde man</p>
 <div class="sourceCode" id="cb66"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb66-1"><a href="io.html#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">export</span>(video_clean, <span class="st">&quot;video_bereinigt.csv&quot;</span>)</span></code></pre></div>
-<p>schreiben. Manchmal ist es nützlich den Datensatz unabhängig vom Einlesen umzuwandeln. Das kann zum Beispiel der Fall sein, wenn Deine Kollegen Dir eine SPSS Datei schicken (<code>.sav</code>) und selbst kein SPSS hast, aber trotzdem einen Blick in die Daten erhaschen möchtest. Die Entwickler des <code>rio</code> Packages haben auch daran gedacht und die Funktion <code>convert()</code> geschrieben. Als erstes Argument übergibst Du der Funktion den ursprünglichen Dateinamen (mit Endung) und als zweites den selben oder einen anderen Dateinamen mit der Endung des gewünschten Dateientypen. Sinnvoll wäre in diesem Kontext zum Umwandeln in ein Excel Dokument, da dieses mit MS oder Libre Office problemlos inspiziert werden kann.</p>
+<p>schreiben. Manchmal ist es nützlich den Datensatz unabhängig vom Einlesen umzuwandeln. Das kann zum Beispiel der Fall sein, wenn Deine Kollegen Dir eine SPSS Datei schicken (<code>.sav</code>) und selbst kein SPSS hast, aber trotzdem einen Blick in die Daten erhaschen möchtest. Die Entwickler des <code>rio</code> Packages haben auch daran gedacht und die Funktion <code>convert()</code> geschrieben. Als erstes Argument übergibst du der Funktion den ursprünglichen Dateinamen (mit Endung) und als zweites den selben oder einen anderen Dateinamen mit der Endung des gewünschten Dateientypen. Sinnvoll wäre in diesem Kontext zum Umwandeln in ein Excel Dokument, da dieses mit MS oder Libre Office problemlos inspiziert werden kann.</p>
 <div class="sourceCode" id="cb67"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb67-1"><a href="io.html#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="fu">convert</span>(<span class="st">&quot;video.sav&quot;</span>, <span class="st">&quot;video.xlsx&quot;</span>)</span></code></pre></div>
 <p>Die neue Datei wird sowohl bei <code>export()</code> als auch bei <code>convert()</code> in Deinem Projektverzeichnis gespeichert.</p>
 

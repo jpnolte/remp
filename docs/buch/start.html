@@ -24,7 +24,7 @@
 <meta name="author" content="Jan Philipp Nolte" />
 
 
-<meta name="date" content="2021-03-01" />
+<meta name="date" content="2021-03-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -369,10 +369,10 @@ Die Unterscheidung zwischen R und RStudio ist für viele Anfänger verwirrend. E
 Abbildung 2.1: Illustration des Unterschieds zwischen R und RStudio.
 </p>
 </div>
-<p>Die Programmierumgebung RStudio macht aus diesem minimalistischen Stahlgerüst eine komfortable Luxuslimousine mit Navigationssystem und Sitzheizung. Man kann R folglich auch ohne RStudio benutzen aber RStudio nicht ohne R. Sonderlich viel Spaß macht das allerdings nicht. RStudio bietet eine Vielzahl von großartigen und praktischen Features, weswegen wir im Laufe des Buches nur innerhalb von RStudio arbeiten werden. Es wird aber trotzdem häufig von R die Rede sein, da RStudio lediglich die verwendete Programmierumgebung ist. In den folgenden Kapiteln wird Schritt für Schritt erklärt, wie du R und RStudio auf den gängigsten Betriebssystemen installierst und wichtige Anpassungen innerhalb von RStudio vornimmst. du solltest Kapitel <a href="start.html#anpassung">2.3</a> unbedingt auch lesen, wenn sich RStudio bereits auf Deinem Computer oder Laptop befindet.</p>
+<p>Die Programmierumgebung RStudio macht aus diesem minimalistischen Stahlgerüst eine komfortable Luxuslimousine mit Navigationssystem und Sitzheizung. Man kann R folglich auch ohne RStudio benutzen aber RStudio nicht ohne R. Sonderlich viel Spaß macht das allerdings nicht. RStudio bietet eine Vielzahl von großartigen und praktischen Features, weswegen wir im Laufe des Buches nur innerhalb von RStudio arbeiten werden. Es wird aber trotzdem häufig von R die Rede sein, da RStudio lediglich die verwendete Programmierumgebung ist. In den folgenden Kapiteln wird Schritt für Schritt erklärt, wie du R und RStudio auf den gängigsten Betriebssystemen installierst und wichtige Anpassungen innerhalb von RStudio vornimmst. du solltest Kapitel <a href="start.html#anpassung">2.3</a> unbedingt auch lesen, wenn sich RStudio bereits auf deinem Computer oder Laptop befindet.</p>
 <div id="installr" class="section level3" number="2.1.1">
 <h3><span class="header-section-number">2.1.1</span> Programmiersprache R</h3>
-<p>Zum Bearbeiten der Übungen aus dem Buch benötigst du mindestens die R Version <code>3.3.3</code>. Falls beim späteren Installieren der Packages (siehe Kapitel <a href="start.html#packages">2.5</a>) ein Fehler auftritt, liegt das aller Wahrscheinlichkeit an einer zu alten R Version. Am besten installierst du R wie hier beschrieben neu. Bei der Installation gibt es Unterschiede zwischen den verschiedenen Betriebssystemen Windows, macOS (Apple) und Ubuntu (Linux). In der späteren Benutzung gibt es hingegen keine Unterschiede. du musst dir also nur den jeweiligen Abschnitt anschauen, der die Installation auf Deinem Betriebssystem beschreibt. Nach der Installation musst du mit R nichts weiter machen und kannst sofort zur Installation von RStudio hinübergehen.</p>
+<p>Zum Bearbeiten der Übungen aus dem Buch benötigst du mindestens die R Version <code>3.3.3</code>. Falls beim späteren Installieren der Packages (siehe Kapitel <a href="start.html#packages">2.5</a>) ein Fehler auftritt, liegt das aller Wahrscheinlichkeit an einer zu alten R Version. Am besten installierst du R wie hier beschrieben neu. Bei der Installation gibt es Unterschiede zwischen den verschiedenen Betriebssystemen Windows, macOS (Apple) und Ubuntu (Linux). In der späteren Benutzung gibt es hingegen keine Unterschiede. du musst dir also nur den jeweiligen Abschnitt anschauen, der die Installation auf deinem Betriebssystem beschreibt. Nach der Installation musst du mit R nichts weiter machen und kannst sofort zur Installation von RStudio hinübergehen.</p>
 <p><strong>Windows</strong>:</p>
 <ol style="list-style-type: decimal">
 <li>Geh auf <a href="https://cloud.r-project.org/">cloud.r-project.org</a> und wähle <code>Download R for Windows</code></li>
@@ -391,13 +391,13 @@ Abbildung 2.2: Richtige Installation von R ohne Sprachsupport
 <p><strong>macOS (Apple)</strong> :</p>
 <ol style="list-style-type: decimal">
 <li>Gehe auf <a href="https://cloud.r-project.org/">cloud.r-project.org</a> und wähle <code>Download R for (Mac) OS X</code>.</li>
-<li>Je nachdem wie alt Dein Mac ist, müssen unterschiedliche Versionen von R heruntergeladen werden. Deine macOS Version darf zur Benutzung der in diesem Buch vorgestellten Methoden nicht älter als 10.9 Mavericks sein.
+<li>Je nachdem wie alt dein Mac ist, müssen unterschiedliche Versionen von R heruntergeladen werden. deine macOS Version darf zur Benutzung der in diesem Buch vorgestellten Methoden nicht älter als 10.9 Mavericks sein.
 <ul>
 <li>macOS 10.13 High Sierra und neuer: R-4.0.4.pkg (bzw. die gerade aktuellste Version)</li>
 <li>macOS 10.11 El Capitan und neuer: R-3.6.3.pkg</li>
 <li>macOS 10.9 Mavericks und neuer: R-3.3.3.pkg</li>
 </ul></li>
-<li>Achte auf den Speicherort der Installationsdatei und führe diese aus. Falls Deine Einstellungen die Installation externer Programme verhindern, musst du das Installieren von externen Paketen (<code>.pkg</code>) explizit erlauben (siehe unten).</li>
+<li>Achte auf den Speicherort der Installationsdatei und führe diese aus. Falls deine Einstellungen die Installation externer Programme verhindern, musst du das Installieren von externen Paketen (<code>.pkg</code>) explizit erlauben (siehe unten).</li>
 <li>Beim Folgen der Installationsanweisungen muss auf jeden Fall das Häkchen bei <em>Message translations</em> entfernt werden (siehe Abbildung <a href="start.html#fig:sprache">2.2</a>).</li>
 <li>Nach fertiger Installation kann die Installationsdatei (z.B. <code>R-4.0.4.pkg</code>) gelöscht werden.</li>
 </ol>
@@ -407,7 +407,7 @@ Abbildung 2.2: Richtige Installation von R ohne Sprachsupport
 <p><strong>Ubuntu (Linux)</strong>:</p>
 <ol style="list-style-type: decimal">
 <li>Drücke die Tastenkombination <code>strg + alt + t</code>, um den Terminal zu öffnen.</li>
-<li>Öffne die Liste Deiner Repositorien als Administrator (<code>sudo</code>) mit einem Editor Deiner Wahl (z.B. <code>gedit</code>).</li>
+<li>Öffne die Liste deiner Repositorien als Administrator (<code>sudo</code>) mit einem Editor deiner Wahl (z.B. <code>gedit</code>).</li>
 </ol>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash bordercode"><code class="sourceCode bash"><span id="cb2-1"><a href="start.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> gedit /etc/apt/sources.list</span></code></pre></div>
 <ol start="3" style="list-style-type: decimal">
@@ -431,7 +431,7 @@ Abbildung 2.2: Richtige Installation von R ohne Sprachsupport
 </div>
 <div id="rstudio" class="section level3" number="2.1.2">
 <h3><span class="header-section-number">2.1.2</span> Programmierumgebung RStudio</h3>
-<p>Nachdem R installiert ist, kannst du die Installationsdatei für RStudio unter <a href="https://www.rstudio.com/products/rstudio/download/">rstudio.com/products/rstudio/download/</a> herunterladen. Drücke dazu auf den Download Button für RStudio Desktop (Open Source License) und lade die für Dein Betriebssystem richtige Version herunter. Wie beim Installieren von R musst du die heruntergeladene Installationsdatei mit der für Dein Betriebssystem richtigen Endung (<code>.exe</code>, <code>.pkg</code>, <code>.deb</code>) ausführen und den anschließend eingeblendeten Anweisungen folge leisten. Wenn das Programm installiert ist, kannst du diese Installationsdatei wieder löschen. Das eigentliche Programm RStudio findest du nun auf dem Computer. Zum Beispiel beim Drücken der Windows Taste und Eingabe des Wortes RStudio oder bei macOS über den Finder.</p>
+<p>Nachdem R installiert ist, kannst du die Installationsdatei für RStudio unter <a href="https://www.rstudio.com/products/rstudio/download/">rstudio.com/products/rstudio/download/</a> herunterladen. Drücke dazu auf den Download Button für RStudio Desktop (Open Source License) und lade die für dein Betriebssystem richtige Version herunter. Wie beim Installieren von R musst du die heruntergeladene Installationsdatei mit der für dein Betriebssystem richtigen Endung (<code>.exe</code>, <code>.pkg</code>, <code>.deb</code>) ausführen und den anschließend eingeblendeten Anweisungen folge leisten. Wenn das Programm installiert ist, kannst du diese Installationsdatei wieder löschen. Das eigentliche Programm RStudio findest du nun auf dem Computer. Zum Beispiel beim Drücken der Windows Taste und Eingabe des Wortes RStudio oder bei macOS über den Finder.</p>
 <div class="idea">
 <p>Von jetzt an solltest du zum Arbeiten mit R immer <strong>RStudio öffnen</strong> und nicht R. Die extra vorhandene minimalistische Oberfläche von R kannst du getrost ignorieren. Es ist bloß wichtig, es auf dem Computer installiert zu haben.</p>
 </div>
@@ -454,14 +454,14 @@ Abbildung 2.3: Aufbau von R Studio mit Skript (oben links), Konsole (unten links
 <div id="anpassung" class="section level2" number="2.3">
 <h2><span class="header-section-number">2.3</span> RStudio anpassen</h2>
 <p>Die ersten zwei in diesem Kapitel erklärten Anpassungen sind essentielle und unabdingbare Voraussetzungen, um das erfolgreiche Ausführen des Codes auch auf anderen Computern zu gewährleisten. Diese Einstellungen nicht vorgenommen zu haben, ist eine häufige und schwer zu findende Fehlerquelle. Die anderen Anpassungen stellen Empfehlungen dar, die Dir das Programmieren erleichtern sollen.</p>
-<p><strong>Niemals den Workspace und die History speichern.</strong> Um zu gewährleisten, dass Dein Code nicht nur bei Dir funktioniert, ist es dringend notwendig das ständige Speichern und Laden des Workspaces auszustellen. Auch gewährleistest du dadurch, dass der Code immer funktioniert, wenn du diesen neu durchlaufen lässt.</p>
+<p><strong>Niemals den Workspace und die History speichern.</strong> Um zu gewährleisten, dass dein Code nicht nur bei Dir funktioniert, ist es dringend notwendig das ständige Speichern und Laden des Workspaces auszustellen. Auch gewährleistest du dadurch, dass der Code immer funktioniert, wenn du diesen neu durchlaufen lässt.</p>
 <ol style="list-style-type: decimal">
 <li>Gehe zu: <code>Tools/Global Options.../General</code></li>
 <li>Entferne den Haken bei: <code>Restore .RData into workspace at startup</code></li>
 <li>Ändere <code>Save workspace to .RData on exit</code> zu <code>never</code></li>
 <li>Entferne den Haken bei: <code>Always save history</code></li>
 </ol>
-<p>Keine Sorge, auf das Speichern Deines Codes hat das keine Auswirkung.</p>
+<p>Keine Sorge, auf das Speichern deines Codes hat das keine Auswirkung.</p>
 <p><strong>Standard Zeichenencodierung.</strong> Damit man den geschriebenen Code fehlerfrei auf anderen Geräten lesen kann, muss dieselbe Zeichencodierung gewählt werden. Die modernste und am weitesten verbreitetste ist <code>UTF-8</code>.</p>
 <ol style="list-style-type: decimal">
 <li>Gehe zu: <code>Tools/Global Options.../Code/Saving</code></li>
@@ -513,7 +513,7 @@ Abbildung 2.3: Aufbau von R Studio mit Skript (oben links), Konsole (unten links
 Abbildung 2.4: Vergleich vom (a) Installieren und (b) vom Laden von Packages.
 </p>
 </div>
-<p>Während <code>install.packages()</code> das Package installiert, muss man es mit <code>library()</code> jedes mal beim Starten von R neu laden. Erstere Funktion kannst du Dir wie das Eindrehen einer Glühbirne vorstellen. Es bleibt dunkel im Zimmer, solange du den Lichtschalter nicht betätigst. Wenn du das Zimmer verlässt (R ausschaltest), machst du das Licht wieder aus. Jedes mal, wenn du das Zimmer erneut betrittst, muss das Licht erneut eingeschaltet werden. Nun kann noch das Zusatzargument <code>dependencies</code> verwendet werden. Damit werden die Packages installiert von denen unser gewünschtes Packages wiederum abhängen könnte. Wir müssen schließlich auch Strom zur Verfügung stellen und einen Vertrag beim lokalen Stromanbieter abschließen. Ohne Strom (<code>dependencies</code>) wird Dir auch Deine installierte Glühbirne kein Licht schenken. Die meisten Packages sind allerdings auch ohne dieses zusätzliche Argument voll funktionsfähig.</p>
+<p>Während <code>install.packages()</code> das Package installiert, muss man es mit <code>library()</code> jedes mal beim Starten von R neu laden. Erstere Funktion kannst du Dir wie das Eindrehen einer Glühbirne vorstellen. Es bleibt dunkel im Zimmer, solange du den Lichtschalter nicht betätigst. Wenn du das Zimmer verlässt (R ausschaltest), machst du das Licht wieder aus. Jedes mal, wenn du das Zimmer erneut betrittst, muss das Licht erneut eingeschaltet werden. Nun kann noch das Zusatzargument <code>dependencies</code> verwendet werden. Damit werden die Packages installiert von denen unser gewünschtes Packages wiederum abhängen könnte. Wir müssen schließlich auch Strom zur Verfügung stellen und einen Vertrag beim lokalen Stromanbieter abschließen. Ohne Strom (<code>dependencies</code>) wird Dir auch deine installierte Glühbirne kein Licht schenken. Die meisten Packages sind allerdings auch ohne dieses zusätzliche Argument voll funktionsfähig.</p>
 <div class="idea">
 <p>Beim Starten von R muss jedes mal aufs neue der Befehl <code>library()</code> für <strong>jedes</strong> Package ausgeführt werden, welches du benutzen möchtest.</p>
 </div>
@@ -528,7 +528,7 @@ Abbildung 2.4: Vergleich vom (a) Installieren und (b) vom Laden von Packages.
 <span id="cb12-2"><a href="start.html#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
 <span id="cb12-3"><a href="start.html#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rio)</span>
 <span id="cb12-4"><a href="start.html#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(remp)</span></code></pre></div>
-<p>in Dein R Skript. In diesem Fall ist die Reihenfolge nicht entscheidend. Wenn verschiedene Packages jedoch gleichnamige Funktionen beinhalten, führt dies zu Problemen, auf die in Kapitel <a href="start.html#namespace">2.5.3</a> eingegangen wird.</p>
+<p>in dein R Skript. In diesem Fall ist die Reihenfolge nicht entscheidend. Wenn verschiedene Packages jedoch gleichnamige Funktionen beinhalten, führt dies zu Problemen, auf die in Kapitel <a href="start.html#namespace">2.5.3</a> eingegangen wird.</p>
 </div>
 <div id="notwendige-packages" class="section level3" number="2.5.2">
 <h3><span class="header-section-number">2.5.2</span> Notwendige Packages</h3>
@@ -569,23 +569,23 @@ Abbildung 2.4: Vergleich vom (a) Installieren und (b) vom Laden von Packages.
 <div class="sourceCode" id="cb18"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb18-1"><a href="start.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="st">&quot;c&quot;</span></span></code></pre></div>
 <pre class="bordercode"><code>Error in 1 + &quot;c&quot;: non-numeric argument to binary operator</code></pre>
 <p>Hier ist die Fehlermeldung eindeutig. Wir versuchen einen nicht-numerisches Buchstaben (das <code>c</code>) mit einem numerischen zu addieren. Leider sind Fehlermeldungen in R keineswegs immer so eindeutig zu interpretieren. Nicht selten sind sie kryptisch und gerade am Anfang wird man oft im Internet nach einer Lösung suchen müssen.</p>
-<p>Warnmeldungen haben zwar die selbe erschreckende rote Schrift wie Fehlermeldungen, allerdings starten sie mit <code>Warning Message</code> und stoppen den Code nicht. Warnmeldungen sind für dich als Benutzer gedacht, um dich auf mögliche Probleme bei Deiner Eingabe hinzuweisen. Gerade bei der statistischen Auswertungen können Warnungen Dir schonmal häufiger über den Weg laufen und sollten nicht blind ignoriert werden.</p>
+<p>Warnmeldungen haben zwar die selbe erschreckende rote Schrift wie Fehlermeldungen, allerdings starten sie mit <code>Warning Message</code> und stoppen den Code nicht. Warnmeldungen sind für dich als Benutzer gedacht, um dich auf mögliche Probleme bei deiner Eingabe hinzuweisen. Gerade bei der statistischen Auswertungen können Warnungen Dir schonmal häufiger über den Weg laufen und sollten nicht blind ignoriert werden.</p>
 <p>Die Sprache der Fehler- und Warnmeldungen muss dabei Englisch sein, da sonst nicht vernünftig im Internet danach gesucht werden kann. Bitte beachte die dafür notwendigen Anpassungen bei der Installation <a href="start.html#installr">2.1.1</a>.</p>
 </div>
 <div id="hilfe" class="section level3" number="2.6.2">
 <h3><span class="header-section-number">2.6.2</span> Wo bekomme ich Hilfe?</h3>
-<p>Gerade bei den ersten Kontakten mit einer Programmiersprache, dauert das Warmwerden möglicherweise eine gewisse Zeit. Damit man nicht gleich die Motivation verliert und aufgibt, sind die richtigen Quellen für eine schnelle Hilfe essentiell. Glücklicherweise ist dies einer der größten Vorteile von R. Es existieren nicht nur ausführliche Dokumentationen der verschiedenen Funktionen mit Anwendungsbeispielen. Darüber hinaus ist die R Community auch besonders hilfsbereit. Falls du verzweifelt vor Deinem Computer oder Laptop sitzt und nicht weißt, wieso Dein Code schon wieder nicht funktioniert, solltest du besonders an fünf Orten nach Antworten suchen.</p>
+<p>Gerade bei den ersten Kontakten mit einer Programmiersprache, dauert das Warmwerden möglicherweise eine gewisse Zeit. Damit man nicht gleich die Motivation verliert und aufgibt, sind die richtigen Quellen für eine schnelle Hilfe essentiell. Glücklicherweise ist dies einer der größten Vorteile von R. Es existieren nicht nur ausführliche Dokumentationen der verschiedenen Funktionen mit Anwendungsbeispielen. Darüber hinaus ist die R Community auch besonders hilfsbereit. Falls du verzweifelt vor deinem Computer oder Laptop sitzt und nicht weißt, wieso dein Code schon wieder nicht funktioniert, solltest du besonders an fünf Orten nach Antworten suchen.</p>
 <p><strong>Package Dokumentation.</strong> Das naheliegendste ist die Dokumentation der R Funktionen, die auch ohne Internet direkt in R aufgerufen werden können. Dafür kannst du entweder ein Fragezeichen vor die Funktion schreiben oder nach Anklicken der Funktion F1 auf der Tastatur drücken. Wenn wir zum Beispiel mehr über die Argumente der Funktion <code>install.packages()</code> erhalten möchten, könnten wir dies so erreichen:</p>
 <div class="sourceCode" id="cb20"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb20-1"><a href="start.html#cb20-1" aria-hidden="true" tabindex="-1"></a>?install.packages</span></code></pre></div>
 <p>Die meisten modernen Packages stellen außerdem so genannte Vignetten zur Verfügung, in denen häufige Probleme ausführlich diskutiert und erklärt werden. Diese können mit <code>vignette("nameDerVignette")</code> auch direkt innerhalb von R aufgerufen werden.</p>
 <p><strong>Suchmaschine.</strong> In die Suchmaschine gibst du einfach <code>r</code> gefolgt von der Fehlermeldung oder dem Problem ein, an dem du gerade festhängst. Es vergeht kaum eine Fehlermeldung bei der das Programmierforum StackOverflow nicht an erster Stelle angezeigt wird. Denn meistens hat jemand anderes schon einmal genau das selbe Problem gehabt hat.</p>
 <p><strong>Stackoverflow.</strong> Dies ist wohl das mit Abstand größte Forum für Programmierfragen. Allerdings kann es einschüchternd sein, dort als absoluter Anfänger selbst eine Frage zu stellen. Voraussetzung zum Fragestellen ist dort ein kurzes reproduzierbares Beispiel des Fehlers. du erreichst die Seite unter <a href="https://stackoverflow.com/">https://stackoverflow.com/</a>.</p>
 <p><strong>RStudio Community.</strong> Eine etwas kleiner Alternative zu StackOverflow ist die RStudio Community. Statte ihr bei Zeiten unter <a href="https://community.rstudio.com/">https://community.rstudio.com/</a> mal einen Besuch ab.</p>
-<p><strong>Forum zum Buch.</strong> Extra zum Buch gibt es auch ein eigenes deutschsprachiges Forum. Hier ist wohl der beste Ort, um eigene Fragen zu Fehlermeldungen oder Problemstellungen zu stellen. du brauchst dich dazu nicht einmal zwingend anmelden. du musst nur auf <a href="https://remp.forumotion.com/">https://remp.forumotion.com/</a> gehen und Deine Frage stellen. Habe dabei keine falsche Scheu – jeder war mal Anfänger.</p>
+<p><strong>Forum zum Buch.</strong> Extra zum Buch gibt es auch ein eigenes deutschsprachiges Forum. Hier ist wohl der beste Ort, um eigene Fragen zu Fehlermeldungen oder Problemstellungen zu stellen. du brauchst dich dazu nicht einmal zwingend anmelden. du musst nur auf <a href="https://remp.forumotion.com/">https://remp.forumotion.com/</a> gehen und deine Frage stellen. Habe dabei keine falsche Scheu – jeder war mal Anfänger.</p>
 </div>
 <div id="fehler-beheben" class="section level3" number="2.6.3">
 <h3><span class="header-section-number">2.6.3</span> Fehler beheben</h3>
-<p>Während Deiner ganzen Zeit beim Programmieren wirst du immer wieder falschen Code schreiben, der unweigerlich zu einem Fehler führt. Ob nun ein Package nicht geladen oder eine Klammer zu wenig vorhanden ist. Irgendetwas läuft häufig schief – so mag es zu Beginne erscheinen. Leider sind die dann ausgegebenen Fehlermeldungen in R nicht immer sonderlich aufschlussreich. In Kapitel <a href="start.html#hilfe">2.6.2</a> wurde bereits beschrieben, wo genau man Hilfe bekommen kann.</p>
+<p>Während deiner ganzen Zeit beim Programmieren wirst du immer wieder falschen Code schreiben, der unweigerlich zu einem Fehler führt. Ob nun ein Package nicht geladen oder eine Klammer zu wenig vorhanden ist. Irgendetwas läuft häufig schief – so mag es zu Beginne erscheinen. Leider sind die dann ausgegebenen Fehlermeldungen in R nicht immer sonderlich aufschlussreich. In Kapitel <a href="start.html#hilfe">2.6.2</a> wurde bereits beschrieben, wo genau man Hilfe bekommen kann.</p>
 <p>Es ist zum Beispiel wenig informativ, wenn du jemandem schreibst: “RStudio funktioniert nicht.” Was funktioniert nicht? Wann tritt der Fehler auf? Hat es vorher mal funktioniert? Alle diese Informationen müssen dann erst einmal mühselig erfragt werden. Nun können die bereitzustellenden Informationen grundsätzlich in drei Abschnitte gegliedert werden.</p>
 <ol style="list-style-type: decimal">
 <li>Problembeschreibung</li>

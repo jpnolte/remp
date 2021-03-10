@@ -24,7 +24,7 @@
 <meta name="author" content="Jan Philipp Nolte" />
 
 
-<meta name="date" content="2021-03-01" />
+<meta name="date" content="2021-03-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -362,14 +362,14 @@ code span.wa { font-weight: bold; } /* Warning */
 <h1><span class="header-section-number">Kapitel 3</span> Projektorientierung</h1>
 <div id="das-problem" class="section level2" number="3.1">
 <h2><span class="header-section-number">3.1</span> Das Problem</h2>
-<p>Erinnere dich zurück an das letzte mal, als du eine Datei irgendwo hochgeladen hast. Normaler Weise öffnet sich dann ein kleines Dialogfenster, durch das du bis zu Deiner Datei navigieren kannst. Das hat den Hintergrund, dass Dein Betriebssystem den genauen Ort der Datei – den so genannten Pfad – wissen muss, um diese hochzuladen. Das gleiche kannst du beobachten, wenn du gefragt wirst, wo genau auf Deinem Computer du eine heruntergeladene Datei speichern möchtest. In R war das Einlesen von Datensätzen genau deswegen lange ein Problem. Dabei gibt es vor allem vier zentrale Probleme hervorzuheben.</p>
+<p>Erinnere dich zurück an das letzte mal, als du eine Datei irgendwo hochgeladen hast. Normaler Weise öffnet sich dann ein kleines Dialogfenster, durch das du bis zu deiner Datei navigieren kannst. Das hat den Hintergrund, dass dein Betriebssystem den genauen Ort der Datei – den so genannten Pfad – wissen muss, um diese hochzuladen. Das gleiche kannst du beobachten, wenn du gefragt wirst, wo genau auf deinem Computer du eine heruntergeladene Datei speichern möchtest. In R war das Einlesen von Datensätzen genau deswegen lange ein Problem. Dabei gibt es vor allem vier zentrale Probleme hervorzuheben.</p>
 <ol style="list-style-type: decimal">
-<li>Wenn jemand auf einem anderen Computer die Rechnung Deines R Skripts nachvollziehen möchte, ist der Pfad auf dem anderen Computer anders.</li>
+<li>Wenn jemand auf einem anderen Computer die Rechnung deines R Skripts nachvollziehen möchte, ist der Pfad auf dem anderen Computer anders.</li>
 <li>Der Dateipfad ist oft lang, weil die Zieldatei in vielen verschachtelten Unterordnern liegt.</li>
 <li>Häufig verschiebt man den Ordner mit der Zeit.</li>
 <li>Zwischen Betriebssystem ist die Art den Pfad darzustellen unterschiedlich.</li>
 </ol>
-<p>Zum Ersten Punkt kommt hinzu, dass die wenigsten überhaupt wissen, was genau ein Pfad ist und wie man diesen korrekt angeben müsste. Punkt zwei und drei ist vor allem ein Albtraum hinsichtlich Reproduzierbarkeit. du möchtest Deine Analysen an einen Kollegen oder Dozenten schicken? Der Code wird ohne Anpassungen nicht funktionieren. du ordnest Deine Dateien neu und möchtest Monate später Deinen bisher immer funktionierenden Code erneut ausführen? Fehler! Glücklicherweise gibt es mittlerweile R Projekte, so dass du dich niemals mit Pfaden oder fehlender Reproduzierbarkeit auseinander setzten musst. R Projekte sind quasi das Drag and Drop der R Community – nur noch praktischer, da das Finden der Dateien automatisch passiert. So kann die Funktion zum Einlesen des Datensatzes unabhängig vom Ort des Ordners sehen, wo sich die Datei befindet. Die einzigen beiden Voraussetzungen sind, dass auf der einen Seite der Datensatz im selben Ordner oder Unterordner wie die R Projektdatei liegt und dass man das <code>here</code> Package lädt.</p>
+<p>Zum Ersten Punkt kommt hinzu, dass die wenigsten überhaupt wissen, was genau ein Pfad ist und wie man diesen korrekt angeben müsste. Punkt zwei und drei ist vor allem ein Albtraum hinsichtlich Reproduzierbarkeit. du möchtest deine Analysen an einen Kollegen oder Dozenten schicken? Der Code wird ohne Anpassungen nicht funktionieren. du ordnest deine Dateien neu und möchtest Monate später deinen bisher immer funktionierenden Code erneut ausführen? Fehler! Glücklicherweise gibt es mittlerweile R Projekte, so dass du dich niemals mit Pfaden oder fehlender Reproduzierbarkeit auseinander setzten musst. R Projekte sind quasi das Drag and Drop der R Community – nur noch praktischer, da das Finden der Dateien automatisch passiert. So kann die Funktion zum Einlesen des Datensatzes unabhängig vom Ort des Ordners sehen, wo sich die Datei befindet. Die einzigen beiden Voraussetzungen sind, dass auf der einen Seite der Datensatz im selben Ordner oder Unterordner wie die R Projektdatei liegt und dass man das <code>here</code> Package lädt.</p>
 </div>
 <div id="r-projekte-erstellen" class="section level2" number="3.2">
 <h2><span class="header-section-number">3.2</span> R Projekte erstellen</h2>
@@ -409,7 +409,7 @@ Abbildung 3.4: Letzter Schritt zur Erstelllung eines neuen Projektes.
 </div>
 <div id="here" class="section level2" number="3.3">
 <h2><span class="header-section-number">3.3</span> Das <code>here</code> Package</h2>
-<p>Die Magie passiert, wenn du nun das <code>here</code> Package lädst. Das Package findet sofort den relativen Pfad zu Deiner Projektdatei heraus. Was bedeutet das? Während man früher beispielsweise auf Windows mit <code>C:\Users\J-PhN\Desktop\Beispiel</code> den absoluten Pfad zum Ordner eingeben musste, findet das <code>here</code> Package den Ordner <code>Beispiel</code> mit der Projektdatei, unabhängig von der Lage des Ordners. In der Praxis sieht das beim Laden so aus:</p>
+<p>Die Magie passiert, wenn du nun das <code>here</code> Package lädst. Das Package findet sofort den relativen Pfad zu deiner Projektdatei heraus. Was bedeutet das? Während man früher beispielsweise auf Windows mit <code>C:\Users\J-PhN\Desktop\Beispiel</code> den absoluten Pfad zum Ordner eingeben musste, findet das <code>here</code> Package den Ordner <code>Beispiel</code> mit der Projektdatei, unabhängig von der Lage des Ordners. In der Praxis sieht das beim Laden so aus:</p>
 <div class="sourceCode" id="cb23"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb23-1"><a href="project.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">library</span>(here)</span>
 <span id="cb23-2"><a href="project.html#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">here</span>() starts at C<span class="sc">:</span><span class="er">/</span>Users<span class="sc">/</span>J<span class="sc">-</span>PhN<span class="sc">/</span>Desktop<span class="sc">/</span>Beispiel</span></code></pre></div>
 <p>Würden wir den Ordner verschieben, hat das keine Auswirkungen auf unseren Code. Das Package würde wieder zum Projektordner finden. Der erste Schritt ist also immer das Erstellen eines R Projekts und das Laden des <code>here</code> Packages am Anfang jeden neuen Skripts, mit dem man einen Datensatz einlesen möchte.</p>

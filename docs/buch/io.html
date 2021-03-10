@@ -24,7 +24,7 @@
 <meta name="author" content="Jan Philipp Nolte" />
 
 
-<meta name="date" content="2021-03-01" />
+<meta name="date" content="2021-03-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -397,7 +397,7 @@ Abbildung 5.1: Beispielshafte Ordnerstruktur mit Unterordner für Datensätze, R
 <p>Zum Bearbeiten dieses Buches brauchst du jedoch keine externen Datensätze sondern nur jene, die im <code>remp</code> Package enthalten sind. Nach laden des Packages hast du grundsätzlich erst Zugriff auf alle enthaltenden Datensätze, wenn du extra die <code>data()</code> Funktion aufrufst. Zum Einlesen des <code>video</code> Datensatzes, muss demnach</p>
 <div class="sourceCode" id="cb58"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb58-1"><a href="io.html#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(remp)</span>
 <span id="cb58-2"><a href="io.html#cb58-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(video)</span></code></pre></div>
-<p>geschrieben werden. So kannst du das Gelernte sofort in Deiner RStudio Session nachvollziehen und ausprobieren. Sollte das Package vorher nicht geladen sein, kann alternativ auch nur</p>
+<p>geschrieben werden. So kannst du das Gelernte sofort in deiner RStudio Session nachvollziehen und ausprobieren. Sollte das Package vorher nicht geladen sein, kann alternativ auch nur</p>
 <div class="sourceCode" id="cb59"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb59-1"><a href="io.html#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(video, <span class="at">package =</span> <span class="st">&quot;remp&quot;</span>)</span></code></pre></div>
 <p>verwendet werden. Da die Syntax länger ist und beim Üben das <code>remp</code> Package sowieso geladen werden sollte, ist jedoch der zuvor dargestellte Weg empfohlen.</p>
 </div>
@@ -428,9 +428,9 @@ Abbildung 5.1: Beispielshafte Ordnerstruktur mit Unterordner für Datensätze, R
 <h2><span class="header-section-number">5.4</span> Speichern und Konvertieren</h2>
 <p>Das Speichern von Datensätzen funktioniert durch das <code>rio</code> Package ähnlich intuitiv wie das Importieren von Dateien. Anstelle von <code>import()</code> benutzen wir dafür stattdessen <code>export()</code>. Das erste Argument der Funktion ist der Datensatzname und das zweite Argument ist der gewünschte Dateiname. Der Dateientyp wird durch die gewählte Endung festgelegt. Möchte man beispielsweise den fertig aufbereiteten Datensatz <code>video_clean</code> als <code>csv</code> Datei abspeichern, würde man</p>
 <div class="sourceCode" id="cb66"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb66-1"><a href="io.html#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">export</span>(video_clean, <span class="st">&quot;video_bereinigt.csv&quot;</span>)</span></code></pre></div>
-<p>schreiben. Manchmal ist es nützlich den Datensatz unabhängig vom Einlesen umzuwandeln. Das kann zum Beispiel der Fall sein, wenn Deine Kollegen Dir eine SPSS Datei schicken (<code>.sav</code>) und selbst kein SPSS hast, aber trotzdem einen Blick in die Daten erhaschen möchtest. Die Entwickler des <code>rio</code> Packages haben auch daran gedacht und die Funktion <code>convert()</code> geschrieben. Als erstes Argument übergibst du der Funktion den ursprünglichen Dateinamen (mit Endung) und als zweites den selben oder einen anderen Dateinamen mit der Endung des gewünschten Dateientypen. Sinnvoll wäre in diesem Kontext zum Umwandeln in ein Excel Dokument, da dieses mit MS oder Libre Office problemlos inspiziert werden kann.</p>
+<p>schreiben. Manchmal ist es nützlich den Datensatz unabhängig vom Einlesen umzuwandeln. Das kann zum Beispiel der Fall sein, wenn deine Kollegen Dir eine SPSS Datei schicken (<code>.sav</code>) und selbst kein SPSS hast, aber trotzdem einen Blick in die Daten erhaschen möchtest. Die Entwickler des <code>rio</code> Packages haben auch daran gedacht und die Funktion <code>convert()</code> geschrieben. Als erstes Argument übergibst du der Funktion den ursprünglichen Dateinamen (mit Endung) und als zweites den selben oder einen anderen Dateinamen mit der Endung des gewünschten Dateientypen. Sinnvoll wäre in diesem Kontext zum Umwandeln in ein Excel Dokument, da dieses mit MS oder Libre Office problemlos inspiziert werden kann.</p>
 <div class="sourceCode" id="cb67"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb67-1"><a href="io.html#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="fu">convert</span>(<span class="st">&quot;video.sav&quot;</span>, <span class="st">&quot;video.xlsx&quot;</span>)</span></code></pre></div>
-<p>Die neue Datei wird sowohl bei <code>export()</code> als auch bei <code>convert()</code> in Deinem Projektverzeichnis gespeichert.</p>
+<p>Die neue Datei wird sowohl bei <code>export()</code> als auch bei <code>convert()</code> in deinem Projektverzeichnis gespeichert.</p>
 
 </div>
 </div>

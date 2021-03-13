@@ -24,7 +24,7 @@
 <meta name="author" content="Jan Philipp Nolte" />
 
 
-<meta name="date" content="2021-03-10" />
+<meta name="date" content="2021-03-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -371,16 +371,16 @@ code span.wa { font-weight: bold; } /* Warning */
 <div id="markdown" class="section level2" number="11.2">
 <h2><span class="header-section-number">11.2</span> Berichte</h2>
 <p>Für das Kreieren der Tabellen im Rahmen dieses Kapitel wird das <code>knitr</code> Package benötigt.</p>
-<div class="sourceCode" id="cb357"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb357-1"><a href="ergebnisse-exportieren.html#cb357-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;knitr&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb358"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb358-1"><a href="ergebnisse-exportieren.html#cb358-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;knitr&quot;</span>)</span></code></pre></div>
 <p>Öffne zum Erstellen von rMarkdown (<code>.Rmd</code>) Dokumenten das Dropdown Menu mit dem Papier und dem grünen Plus Zeichen unter dem Reiter <code>File</code>.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-249"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-250"></span>
 <img src="images/new_markdown.jpg" alt="Erster Schritt in der Erstellung eines neuen R Markdown Skripts." width="30%" />
 <p class="caption">
 Abbildung 11.1: Erster Schritt in der Erstellung eines neuen R Markdown Skripts.
 </p>
 </div>
 <p>Wähle dort <code>R Markdown</code> aus. Die Punkte implizieren, dass noch weitere Informationen vor dem Erstellen notwendig sind. Anschließen kann man den gewünschten Ausgabetypen, Titel und Autor festlegen. Beim Klicken auf OK wird eine Vorlage erstellt, die man nach belieben anpassen kann.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-250"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-251"></span>
 <img src="images/title_markdown.jpg" alt="Zweiter Schritt zur Erstellung eines neuen R Markdown Skripts." width="70%" />
 <p class="caption">
 Abbildung 11.2: Zweiter Schritt zur Erstellung eines neuen R Markdown Skripts.
@@ -396,12 +396,12 @@ Abbildung 11.2: Zweiter Schritt zur Erstellung eines neuen R Markdown Skripts.
 </ul>
 <p>In der Praxis sähe das wie folgt aus:</p>
 <p><strong>– Beginn der Datei Beispiel.Rmd – </strong></p>
-<div class="sourceCode" id="cb358"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb358-1"><a href="ergebnisse-exportieren.html#cb358-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
-<span id="cb358-2"><a href="ergebnisse-exportieren.html#cb358-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;Hausaufgaben&quot;</span></span>
-<span id="cb358-3"><a href="ergebnisse-exportieren.html#cb358-3" aria-hidden="true" tabindex="-1"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;Jan Philipp Nolte&quot;</span></span>
-<span id="cb358-4"><a href="ergebnisse-exportieren.html#cb358-4" aria-hidden="true" tabindex="-1"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;20.11.2020&quot;</span></span>
-<span id="cb358-5"><a href="ergebnisse-exportieren.html#cb358-5" aria-hidden="true" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span><span class="at"> html_document</span></span>
-<span id="cb358-6"><a href="ergebnisse-exportieren.html#cb358-6" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div>
+<div class="sourceCode" id="cb359"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb359-1"><a href="ergebnisse-exportieren.html#cb359-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb359-2"><a href="ergebnisse-exportieren.html#cb359-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;Hausaufgaben&quot;</span></span>
+<span id="cb359-3"><a href="ergebnisse-exportieren.html#cb359-3" aria-hidden="true" tabindex="-1"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;Jan Philipp Nolte&quot;</span></span>
+<span id="cb359-4"><a href="ergebnisse-exportieren.html#cb359-4" aria-hidden="true" tabindex="-1"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;20.11.2020&quot;</span></span>
+<span id="cb359-5"><a href="ergebnisse-exportieren.html#cb359-5" aria-hidden="true" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span><span class="at"> html_document</span></span>
+<span id="cb359-6"><a href="ergebnisse-exportieren.html#cb359-6" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div>
 <pre><code>```{r setup, include = FALSE}
 library(tidyverse)
 library(knitr)
@@ -435,14 +435,14 @@ Abbildung 11.3: Umwandlung von Markdown in HTML.
 <p>Jedes <code>rMarkdown</code> Dokument (Endung <code>.Rmd</code>) beginnt mit einem so genannten YAML-Kopf, der durch drei Bindestriche oben und unten vom restlichen Dokument abgegrenzt ist. In diesem Beispiel wird der Titel, Autor, das Datum und Ausgabeformat festgelegt. Für weitere Anpassungsoptionen sei auf das Buch <em>R Markdown - The Definitive Guide</em> von Xie, Allaire und Grolemund verwiesen.</p>
 <p>Als nächstes sehen wir grau hinterlegten Code Abschnitte. Diese werde mithilfe von drei <em>Backticks</em> (```) erstellt und erlauben das Ausführen von R Code. Den <em>Backticks</em> folgen geschweifte Klammern. Die erste Information ist hier die verwendete Programmiersprache. Getrennt mit einem Komma können hier diverse weitere Argumente angegeben werden. Zum Beispiel kann mit <code>echo = FALSE</code> der Code versteckt werden. So könnte man beispielsweise Dokumente erstellen, in denen nur die Ergebnisse in Form von Tabellen und kein R Code enthalten ist.</p>
 <p>Umwandeln können wir das rMarkdown Dokument durch Klicken auf das Wort Knit (engl. für stricken) in der Leiste unter dem Reiter der geöffneten Dateien. Wenn man nur auf das Symbol drückt, wird die Datei in das an erster Stelle im YAML Kopf festgelegten Format umgewandelt. Besser ist es jedoch das Dropdown Menu durch einen Klick auf den Pfeil nach unten zu öffnen und den gewünschten Dateityp auszuwählen.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-251"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-252"></span>
 <img src="images/knit_markdown.jpg" alt="Umwandlung des R Markdown Skripts in HTML, PDF oder Word." width="30%" />
 <p class="caption">
 Abbildung 11.4: Umwandlung des R Markdown Skripts in HTML, PDF oder Word.
 </p>
 </div>
 <p>Die eigentliche Umwandlung übernimmt das <code>knitr</code> Package, was im Hintergrund geladen wird. Zur Umwandlung zu HTML muss nichts weiter beachtet werden. Bei der Umwandlung in Word wird das Programm Pandoc (<a href="https://pandoc.org/installing.html">https://pandoc.org/installing.html</a>) benötigt, welches in neueren RStudio Versionen direkt integriert ist. Möchte man in ein PDF umwandeln, muss eine Version von LaTeX auf dem Computer installiert sein. Die einfachste Möglichkeit hierfür ist die Installation des R Packages <code>tinytex</code>.</p>
-<div class="sourceCode" id="cb362"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb362-1"><a href="ergebnisse-exportieren.html#cb362-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;tinytex&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb363"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb363-1"><a href="ergebnisse-exportieren.html#cb363-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;tinytex&quot;</span>)</span></code></pre></div>
 <div class="warning">
 <p>rMarkdown Dokumente können nur umgewandelt werden, wenn alle nötigen Informationen enthalten sind. Es müssen also innerhalb der Datei alle Packages und Datensätze explizit geladen werden. Dies trifft auch zu, obwohl man die Packages oder Datensätze möglicherweise bereits vorher verwendet hat.</p>
 </div>
@@ -453,15 +453,15 @@ Abbildung 11.4: Umwandlung des R Markdown Skripts in HTML, PDF oder Word.
 <div id="word-pdf-und-html" class="section level3" number="11.3.1">
 <h3><span class="header-section-number">11.3.1</span> Word, PDF und HTML</h3>
 <p>Für die Tabellen benötigen wir auch hier das <code>knitr</code> Package, für die Umwandlung der Tabellen direkt als PDF brauchen wir <code>tinytext</code>.</p>
-<div class="sourceCode" id="cb363"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb363-1"><a href="ergebnisse-exportieren.html#cb363-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">&quot;knitr&quot;</span>, <span class="st">&quot;tinytext&quot;</span>))</span></code></pre></div>
-<div class="sourceCode" id="cb364"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb364-1"><a href="ergebnisse-exportieren.html#cb364-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
-<span id="cb364-2"><a href="ergebnisse-exportieren.html#cb364-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">&#39;Beispiel&#39;</span></span>
-<span id="cb364-3"><a href="ergebnisse-exportieren.html#cb364-3" aria-hidden="true" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span></span>
-<span id="cb364-4"><a href="ergebnisse-exportieren.html#cb364-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">pdf_document</span><span class="kw">:</span><span class="at"> default</span></span>
-<span id="cb364-5"><a href="ergebnisse-exportieren.html#cb364-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html_document</span><span class="kw">:</span><span class="at"> default</span></span>
-<span id="cb364-6"><a href="ergebnisse-exportieren.html#cb364-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">word_document</span><span class="kw">:</span><span class="at"> default</span></span>
-<span id="cb364-7"><a href="ergebnisse-exportieren.html#cb364-7" aria-hidden="true" tabindex="-1"></a><span class="fu">fontsize</span><span class="kw">:</span><span class="at"> 12pt</span></span>
-<span id="cb364-8"><a href="ergebnisse-exportieren.html#cb364-8" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div>
+<div class="sourceCode" id="cb364"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb364-1"><a href="ergebnisse-exportieren.html#cb364-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">&quot;knitr&quot;</span>, <span class="st">&quot;tinytext&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb365"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb365-1"><a href="ergebnisse-exportieren.html#cb365-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb365-2"><a href="ergebnisse-exportieren.html#cb365-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">&#39;Beispiel&#39;</span></span>
+<span id="cb365-3"><a href="ergebnisse-exportieren.html#cb365-3" aria-hidden="true" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span></span>
+<span id="cb365-4"><a href="ergebnisse-exportieren.html#cb365-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">pdf_document</span><span class="kw">:</span><span class="at"> default</span></span>
+<span id="cb365-5"><a href="ergebnisse-exportieren.html#cb365-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html_document</span><span class="kw">:</span><span class="at"> default</span></span>
+<span id="cb365-6"><a href="ergebnisse-exportieren.html#cb365-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">word_document</span><span class="kw">:</span><span class="at"> default</span></span>
+<span id="cb365-7"><a href="ergebnisse-exportieren.html#cb365-7" aria-hidden="true" tabindex="-1"></a><span class="fu">fontsize</span><span class="kw">:</span><span class="at"> 12pt</span></span>
+<span id="cb365-8"><a href="ergebnisse-exportieren.html#cb365-8" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div>
 <pre><code>```{r setup, include = FALSE}
 library(tidyverse)
 library(knitr)
@@ -476,7 +476,7 @@ big_five %&gt;%
   kable()
 ```</code></pre>
 <p>Es gibt verschiedene Möglichkeiten, Tabellen im Word Format durch R Code zu erstellen. Wir werden uns hier auf das bereits in RStudio integrierte Pandoc und das in Kapitel <a href="ergebnisse-exportieren.html#markdown">11.2</a> kennengelernte <code>rMarkdown</code> verlassen. Denn mit nur einer Funktion aus dem <code>knitr</code> Package, welches diverse Modifikationen für <code>rMarkdown</code> Dokumente bietet, können schöne Tabellen erstellt werden. Der Funktion <code>kable()</code> aus besagtem Package wird lediglich der Datensatz übergeben. Dann muss man nur noch das <code>rMarkdown</code> Dokument mithilfe von Pandoc in ein Word Dokument umwandeln (siehe Kapitel <a href="ergebnisse-exportieren.html#markdown">11.2</a>.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-254"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-255"></span>
 <img src="images/word_markdown.jpg" alt="Beispielhafter Output einer Tabelle von R Markdown in Word." width="98%" />
 <p class="caption">
 Abbildung 11.5: Beispielhafter Output einer Tabelle von R Markdown in Word.
@@ -487,16 +487,16 @@ Abbildung 11.5: Beispielhafter Output einer Tabelle von R Markdown in Word.
 <div id="latex" class="section level3" number="11.3.2">
 <h3><span class="header-section-number">11.3.2</span> LaTeX</h3>
 <p>Für dieses Kapitel wird das <code>xtable</code> Package benötigt.</p>
-<div class="sourceCode" id="cb367"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb367-1"><a href="ergebnisse-exportieren.html#cb367-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;xtable&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb368"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb368-1"><a href="ergebnisse-exportieren.html#cb368-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;xtable&quot;</span>)</span></code></pre></div>
 <p>Es gibt auch die Möglichkeit, <code>tibbles</code> aus R direkt in LaTeX Code umzuwandeln, um diesen dann in die zugehörige TeX Datei zu kopieren. Zuvor wurde LaTeX nur hinter den Kulissen direkt zum Erstellen von PDFs verwendet. Wenn man die Arbeit direkt in LaTeX schreibt, benötigt man allerdings den tatsächlichen LaTeX Code. Dafür greift man auf die Funktion <code>xtable()</code> aus dem gleichnamigen Package zurück. Das wichtigste Argument der Funktion ist <code>digits</code>, mit dem man pro Spalte die Anzahl der gerundeten Nachkommastellen festlegt. Dabei kann man entweder eine einzelne Zahl eingeben und somit für alle Spalten die gleiche Rundung generieren oder für jede einzeln als Vektor mithilfe von <code>c()</code>. Da in der Funktion auch die Zeilennamen berücksichtigt werden, muss der Vektor immer um eins länger sein als die Anzahl der Spalten des eigentlichen Datensatzes.</p>
-<div class="sourceCode" id="cb368"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb368-1"><a href="ergebnisse-exportieren.html#cb368-1" aria-hidden="true" tabindex="-1"></a>big_five <span class="sc">%&gt;%</span> </span>
-<span id="cb368-2"><a href="ergebnisse-exportieren.html#cb368-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Extraversion, Neurotizismus) <span class="sc">%&gt;%</span> </span>
-<span id="cb368-3"><a href="ergebnisse-exportieren.html#cb368-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">descriptive</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb368-4"><a href="ergebnisse-exportieren.html#cb368-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Variable, Min, Mean, Median, Max, SE) <span class="sc">%&gt;%</span>  </span>
-<span id="cb368-5"><a href="ergebnisse-exportieren.html#cb368-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xtable</span>(<span class="at">digits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">3</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb368-6"><a href="ergebnisse-exportieren.html#cb368-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="at">include.rownames =</span> <span class="cn">FALSE</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb369"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb369-1"><a href="ergebnisse-exportieren.html#cb369-1" aria-hidden="true" tabindex="-1"></a>big_five <span class="sc">%&gt;%</span> </span>
+<span id="cb369-2"><a href="ergebnisse-exportieren.html#cb369-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Extraversion, Neurotizismus) <span class="sc">%&gt;%</span> </span>
+<span id="cb369-3"><a href="ergebnisse-exportieren.html#cb369-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">descriptive</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb369-4"><a href="ergebnisse-exportieren.html#cb369-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Variable, Min, Mean, Median, Max, SE) <span class="sc">%&gt;%</span>  </span>
+<span id="cb369-5"><a href="ergebnisse-exportieren.html#cb369-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xtable</span>(<span class="at">digits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">3</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb369-6"><a href="ergebnisse-exportieren.html#cb369-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="at">include.rownames =</span> <span class="cn">FALSE</span>) </span></code></pre></div>
 <pre class="bordercode"><code>% latex table generated in R 4.0.4 by xtable 1.8-4 package
-% Wed Mar 10 09:21:57 2021
+% Sat Mar 13 07:35:07 2021
 \begin{table}[ht]
 \centering
 \begin{tabular}{lrrrrr}
@@ -513,7 +513,7 @@ Extraversion &amp; 2.30 &amp; 3.08 &amp; 3.00 &amp; 4.30 &amp; 0.020 \\
 <div id="komplexe-tabellen" class="section level3" number="11.3.3">
 <h3><span class="header-section-number">11.3.3</span> Komplexe Tabellen</h3>
 <p>Für dieses Kapitel muss das <code>gt</code> Package installiert werden. Es handelt sich hierbei noch um ein relativ junges Package, weshalb leichte Änderungen des im Folgenden gezeigten Codes nicht auszuschließen sind.</p>
-<div class="sourceCode" id="cb370"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb370-1"><a href="ergebnisse-exportieren.html#cb370-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;gt&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb371"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb371-1"><a href="ergebnisse-exportieren.html#cb371-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;gt&quot;</span>)</span></code></pre></div>
 <p>Das <code>gt</code> Package verfolgt dabei eine ähnliche Philosophie wie <code>ggplot</code> für Abbildungen. Anstelle einer <em>grammar of graphics</em> steht <code>gt</code> allerdings für <strong>g</strong>rammar of <strong>t</strong>ables. Wir haben also auch hier verschiedene Einzelkomponenten, die wir in nahezu beliebiger Reihenfolge je nach Bedarf hinzufügen können. In Abbildung <a href="ergebnisse-exportieren.html#fig:gt">11.6</a> ist der grundsätzliche Aufbau einer derartigen Tabelle gezeigt. Die Begriffe sind an dieser Stelle auf englisch belassen, da die einzelnen Funktionen (wie dort ebenfalls ersichtlich) die Bezeichnungen direkt enthalten.</p>
 <div class="figure" style="text-align: center"><span id="fig:gt"></span>
 <img src="images/table_gt.png" alt="Vereinfachte Darstellung des Aufbaus einer Tabelle." width="90%" />
@@ -522,18 +522,18 @@ Abbildung 11.6: Vereinfachte Darstellung des Aufbaus einer Tabelle.
 </p>
 </div>
 <p>Nun erstellen wir uns zuerst einige deskriptiven Statistiken aus unserem <code>big_five</code> Datensatz.</p>
-<div class="sourceCode" id="cb371"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb371-1"><a href="ergebnisse-exportieren.html#cb371-1" aria-hidden="true" tabindex="-1"></a>descr <span class="ot">&lt;-</span> big_five <span class="sc">%&gt;%</span> </span>
-<span id="cb371-2"><a href="ergebnisse-exportieren.html#cb371-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Geschlecht, Extraversion, Neurotizismus) <span class="sc">%&gt;%</span></span>
-<span id="cb371-3"><a href="ergebnisse-exportieren.html#cb371-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Geschlecht) <span class="sc">%&gt;%</span> </span>
-<span id="cb371-4"><a href="ergebnisse-exportieren.html#cb371-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">descriptive</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb371-5"><a href="ergebnisse-exportieren.html#cb371-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb371-6"><a href="ergebnisse-exportieren.html#cb371-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Variable, Geschlecht, Min, Mean, Median, Max, SE) <span class="sc">%&gt;%</span>  </span>
-<span id="cb371-7"><a href="ergebnisse-exportieren.html#cb371-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Geschlecht =</span> <span class="fu">if_else</span>(</span>
-<span id="cb371-8"><a href="ergebnisse-exportieren.html#cb371-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">condition =</span> Geschlecht <span class="sc">==</span> <span class="st">&quot;f&quot;</span>, </span>
-<span id="cb371-9"><a href="ergebnisse-exportieren.html#cb371-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">true =</span> <span class="st">&quot;Weiblich&quot;</span>, </span>
-<span id="cb371-10"><a href="ergebnisse-exportieren.html#cb371-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">false =</span> <span class="st">&quot;Männlich&quot;</span>)</span>
-<span id="cb371-11"><a href="ergebnisse-exportieren.html#cb371-11" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb371-12"><a href="ergebnisse-exportieren.html#cb371-12" aria-hidden="true" tabindex="-1"></a>descr</span></code></pre></div>
+<div class="sourceCode" id="cb372"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb372-1"><a href="ergebnisse-exportieren.html#cb372-1" aria-hidden="true" tabindex="-1"></a>descr <span class="ot">&lt;-</span> big_five <span class="sc">%&gt;%</span> </span>
+<span id="cb372-2"><a href="ergebnisse-exportieren.html#cb372-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Geschlecht, Extraversion, Neurotizismus) <span class="sc">%&gt;%</span></span>
+<span id="cb372-3"><a href="ergebnisse-exportieren.html#cb372-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Geschlecht) <span class="sc">%&gt;%</span> </span>
+<span id="cb372-4"><a href="ergebnisse-exportieren.html#cb372-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">descriptive</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb372-5"><a href="ergebnisse-exportieren.html#cb372-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb372-6"><a href="ergebnisse-exportieren.html#cb372-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Variable, Geschlecht, Min, Mean, Median, Max, SE) <span class="sc">%&gt;%</span>  </span>
+<span id="cb372-7"><a href="ergebnisse-exportieren.html#cb372-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Geschlecht =</span> <span class="fu">if_else</span>(</span>
+<span id="cb372-8"><a href="ergebnisse-exportieren.html#cb372-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">condition =</span> Geschlecht <span class="sc">==</span> <span class="st">&quot;f&quot;</span>, </span>
+<span id="cb372-9"><a href="ergebnisse-exportieren.html#cb372-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">true =</span> <span class="st">&quot;Weiblich&quot;</span>, </span>
+<span id="cb372-10"><a href="ergebnisse-exportieren.html#cb372-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">false =</span> <span class="st">&quot;Männlich&quot;</span>)</span>
+<span id="cb372-11"><a href="ergebnisse-exportieren.html#cb372-11" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb372-12"><a href="ergebnisse-exportieren.html#cb372-12" aria-hidden="true" tabindex="-1"></a>descr</span></code></pre></div>
 <pre class="bordercode"><code># A tibble: 4 x 7
   Variable      Geschlecht   Min  Mean Median   Max    SE
   &lt;chr&gt;         &lt;chr&gt;      &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
@@ -542,18 +542,18 @@ Abbildung 11.6: Vereinfachte Darstellung des Aufbaus einer Tabelle.
 3 Extraversion  Männlich     2.3  3.11    3     4.1  0.04
 4 Neurotizismus Männlich     1.6  2.96    2.9   4.6  0.08</code></pre>
 <p>Von hier an sind die Ähnlichkeiten zu <code>ggplot</code> unverkennbar. Zuerst rufen wir die Funktion <code>gt()</code> auf, der wir entweder das Argument <code>rowname_col</code> oder <code>groupname_col()</code> übergeben können – je nachdem wie wir die Werte in der Tabelle gruppiert haben möchten. Ab dem Punkt sind die Funktionen selbsterklärend, wenn man vergleichend Abbildung <a href="ergebnisse-exportieren.html#fig:gt">11.6</a> betrachtet. Wichtig ist an der Stelle nur, dass die ausgewählten Spalten der <code>vars()</code> Funktion übergeben werden müssen.</p>
-<div class="sourceCode" id="cb373"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb373-1"><a href="ergebnisse-exportieren.html#cb373-1" aria-hidden="true" tabindex="-1"></a>descr <span class="sc">%&gt;%</span> </span>
-<span id="cb373-2"><a href="ergebnisse-exportieren.html#cb373-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>(<span class="at">rowname_col =</span> <span class="st">&quot;Geschlecht&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb373-3"><a href="ergebnisse-exportieren.html#cb373-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_spanner</span>(</span>
-<span id="cb373-4"><a href="ergebnisse-exportieren.html#cb373-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">label =</span> <span class="st">&quot;Mittlere Lage&quot;</span>,</span>
-<span id="cb373-5"><a href="ergebnisse-exportieren.html#cb373-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">columns =</span> <span class="fu">vars</span>(Mean, Median)</span>
-<span id="cb373-6"><a href="ergebnisse-exportieren.html#cb373-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
-<span id="cb373-7"><a href="ergebnisse-exportieren.html#cb373-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_stubhead</span>(<span class="at">label =</span> <span class="st">&quot;Geschlecht&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb374"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb374-1"><a href="ergebnisse-exportieren.html#cb374-1" aria-hidden="true" tabindex="-1"></a>descr <span class="sc">%&gt;%</span> </span>
+<span id="cb374-2"><a href="ergebnisse-exportieren.html#cb374-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>(<span class="at">rowname_col =</span> <span class="st">&quot;Geschlecht&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb374-3"><a href="ergebnisse-exportieren.html#cb374-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_spanner</span>(</span>
+<span id="cb374-4"><a href="ergebnisse-exportieren.html#cb374-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">label =</span> <span class="st">&quot;Mittlere Lage&quot;</span>,</span>
+<span id="cb374-5"><a href="ergebnisse-exportieren.html#cb374-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">columns =</span> <span class="fu">vars</span>(Mean, Median)</span>
+<span id="cb374-6"><a href="ergebnisse-exportieren.html#cb374-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
+<span id="cb374-7"><a href="ergebnisse-exportieren.html#cb374-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_stubhead</span>(<span class="at">label =</span> <span class="st">&quot;Geschlecht&quot;</span>)</span></code></pre></div>
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#xezurgipip .gt_table {
+#okqampcyme .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -578,7 +578,7 @@ Abbildung 11.6: Vereinfachte Darstellung des Aufbaus einer Tabelle.
   border-left-color: #D3D3D3;
 }
 
-#xezurgipip .gt_heading {
+#okqampcyme .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -590,7 +590,7 @@ Abbildung 11.6: Vereinfachte Darstellung des Aufbaus einer Tabelle.
   border-right-color: #D3D3D3;
 }
 
-#xezurgipip .gt_title {
+#okqampcyme .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -600,7 +600,7 @@ Abbildung 11.6: Vereinfachte Darstellung des Aufbaus einer Tabelle.
   border-bottom-width: 0;
 }
 
-#xezurgipip .gt_subtitle {
+#okqampcyme .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -610,13 +610,13 @@ Abbildung 11.6: Vereinfachte Darstellung des Aufbaus einer Tabelle.
   border-top-width: 0;
 }
 
-#xezurgipip .gt_bottom_border {
+#okqampcyme .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#xezurgipip .gt_col_headings {
+#okqampcyme .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -631,7 +631,7 @@ Abbildung 11.6: Vereinfachte Darstellung des Aufbaus einer Tabelle.
   border-right-color: #D3D3D3;
 }
 
-#xezurgipip .gt_col_heading {
+#okqampcyme .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -651,7 +651,7 @@ Abbildung 11.6: Vereinfachte Darstellung des Aufbaus einer Tabelle.
   overflow-x: hidden;
 }
 
-#xezurgipip .gt_column_spanner_outer {
+#okqampcyme .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -663,15 +663,15 @@ Abbildung 11.6: Vereinfachte Darstellung des Aufbaus einer Tabelle.
   padding-right: 4px;
 }
 
-#xezurgipip .gt_column_spanner_outer:first-child {
+#okqampcyme .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#xezurgipip .gt_column_spanner_outer:last-child {
+#okqampcyme .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#xezurgipip .gt_column_spanner {
+#okqampcyme .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -683,7 +683,7 @@ Abbildung 11.6: Vereinfachte Darstellung des Aufbaus einer Tabelle.
   width: 100%;
 }
 
-#xezurgipip .gt_group_heading {
+#okqampcyme .gt_group_heading {
   padding: 8px;
   color: #333333;
   background-color: #FFFFFF;
@@ -705,7 +705,7 @@ Abbildung 11.6: Vereinfachte Darstellung des Aufbaus einer Tabelle.
   vertical-align: middle;
 }
 
-#xezurgipip .gt_empty_group_heading {
+#okqampcyme .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -720,15 +720,15 @@ Abbildung 11.6: Vereinfachte Darstellung des Aufbaus einer Tabelle.
   vertical-align: middle;
 }
 
-#xezurgipip .gt_from_md > :first-child {
+#okqampcyme .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#xezurgipip .gt_from_md > :last-child {
+#okqampcyme .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#xezurgipip .gt_row {
+#okqampcyme .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -747,7 +747,7 @@ Abbildung 11.6: Vereinfachte Darstellung des Aufbaus einer Tabelle.
   overflow-x: hidden;
 }
 
-#xezurgipip .gt_stub {
+#okqampcyme .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -759,7 +759,7 @@ Abbildung 11.6: Vereinfachte Darstellung des Aufbaus einer Tabelle.
   padding-left: 12px;
 }
 
-#xezurgipip .gt_summary_row {
+#okqampcyme .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -769,7 +769,7 @@ Abbildung 11.6: Vereinfachte Darstellung des Aufbaus einer Tabelle.
   padding-right: 5px;
 }
 
-#xezurgipip .gt_first_summary_row {
+#okqampcyme .gt_first_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -779,7 +779,7 @@ Abbildung 11.6: Vereinfachte Darstellung des Aufbaus einer Tabelle.
   border-top-color: #D3D3D3;
 }
 
-#xezurgipip .gt_grand_summary_row {
+#okqampcyme .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -789,7 +789,7 @@ Abbildung 11.6: Vereinfachte Darstellung des Aufbaus einer Tabelle.
   padding-right: 5px;
 }
 
-#xezurgipip .gt_first_grand_summary_row {
+#okqampcyme .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -799,11 +799,11 @@ Abbildung 11.6: Vereinfachte Darstellung des Aufbaus einer Tabelle.
   border-top-color: #D3D3D3;
 }
 
-#xezurgipip .gt_striped {
+#okqampcyme .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#xezurgipip .gt_table_body {
+#okqampcyme .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -812,7 +812,7 @@ Abbildung 11.6: Vereinfachte Darstellung des Aufbaus einer Tabelle.
   border-bottom-color: #D3D3D3;
 }
 
-#xezurgipip .gt_footnotes {
+#okqampcyme .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -826,13 +826,13 @@ Abbildung 11.6: Vereinfachte Darstellung des Aufbaus einer Tabelle.
   border-right-color: #D3D3D3;
 }
 
-#xezurgipip .gt_footnote {
+#okqampcyme .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding: 4px;
 }
 
-#xezurgipip .gt_sourcenotes {
+#okqampcyme .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -846,46 +846,46 @@ Abbildung 11.6: Vereinfachte Darstellung des Aufbaus einer Tabelle.
   border-right-color: #D3D3D3;
 }
 
-#xezurgipip .gt_sourcenote {
+#okqampcyme .gt_sourcenote {
   font-size: 90%;
   padding: 4px;
 }
 
-#xezurgipip .gt_left {
+#okqampcyme .gt_left {
   text-align: left;
 }
 
-#xezurgipip .gt_center {
+#okqampcyme .gt_center {
   text-align: center;
 }
 
-#xezurgipip .gt_right {
+#okqampcyme .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#xezurgipip .gt_font_normal {
+#okqampcyme .gt_font_normal {
   font-weight: normal;
 }
 
-#xezurgipip .gt_font_bold {
+#okqampcyme .gt_font_bold {
   font-weight: bold;
 }
 
-#xezurgipip .gt_font_italic {
+#okqampcyme .gt_font_italic {
   font-style: italic;
 }
 
-#xezurgipip .gt_super {
+#okqampcyme .gt_super {
   font-size: 65%;
 }
 
-#xezurgipip .gt_footnote_marks {
+#okqampcyme .gt_footnote_marks {
   font-style: italic;
   font-size: 65%;
 }
 </style>
-<div id="xezurgipip" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;"><table class="gt_table">
+<div id="okqampcyme" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;"><table class="gt_table">
   
   <thead class="gt_col_headings">
     <tr>
@@ -945,29 +945,29 @@ Abbildung 11.6: Vereinfachte Darstellung des Aufbaus einer Tabelle.
   
 </table></div>
 <p>Alternativ wird mit dem <code>groupname_col</code> Argument eine separate Zeile für die Gruppennamen eingefügt.</p>
-<div class="sourceCode" id="cb374"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb374-1"><a href="ergebnisse-exportieren.html#cb374-1" aria-hidden="true" tabindex="-1"></a>table <span class="ot">&lt;-</span> descr <span class="sc">%&gt;%</span> </span>
-<span id="cb374-2"><a href="ergebnisse-exportieren.html#cb374-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>(<span class="at">groupname_col =</span> <span class="st">&quot;Geschlecht&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb374-3"><a href="ergebnisse-exportieren.html#cb374-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_spanner</span>(</span>
-<span id="cb374-4"><a href="ergebnisse-exportieren.html#cb374-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">label =</span> <span class="st">&quot;Mittlere Lage&quot;</span>,</span>
-<span id="cb374-5"><a href="ergebnisse-exportieren.html#cb374-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">columns =</span> <span class="fu">vars</span>(Mean, Median)</span>
-<span id="cb374-6"><a href="ergebnisse-exportieren.html#cb374-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
-<span id="cb374-7"><a href="ergebnisse-exportieren.html#cb374-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_footnote</span>(</span>
-<span id="cb374-8"><a href="ergebnisse-exportieren.html#cb374-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">footnote =</span> <span class="st">&quot;Mittlere Ausprägung von Neurotizismus&quot;</span>,</span>
-<span id="cb374-9"><a href="ergebnisse-exportieren.html#cb374-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">locations =</span> <span class="fu">cells_body</span>(</span>
-<span id="cb374-10"><a href="ergebnisse-exportieren.html#cb374-10" aria-hidden="true" tabindex="-1"></a>      <span class="at">columns =</span> <span class="fu">vars</span>(Variable),</span>
-<span id="cb374-11"><a href="ergebnisse-exportieren.html#cb374-11" aria-hidden="true" tabindex="-1"></a>      <span class="at">rows =</span> <span class="dv">2</span>)</span>
-<span id="cb374-12"><a href="ergebnisse-exportieren.html#cb374-12" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
-<span id="cb374-13"><a href="ergebnisse-exportieren.html#cb374-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_footnote</span>(</span>
-<span id="cb374-14"><a href="ergebnisse-exportieren.html#cb374-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">footnote =</span> <span class="st">&quot;Standardfehler&quot;</span>,</span>
-<span id="cb374-15"><a href="ergebnisse-exportieren.html#cb374-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">locations =</span> <span class="fu">cells_column_labels</span>(</span>
-<span id="cb374-16"><a href="ergebnisse-exportieren.html#cb374-16" aria-hidden="true" tabindex="-1"></a>      <span class="at">columns =</span> <span class="fu">vars</span>(SE))</span>
-<span id="cb374-17"><a href="ergebnisse-exportieren.html#cb374-17" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb374-18"><a href="ergebnisse-exportieren.html#cb374-18" aria-hidden="true" tabindex="-1"></a>table</span></code></pre></div>
+<div class="sourceCode" id="cb375"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb375-1"><a href="ergebnisse-exportieren.html#cb375-1" aria-hidden="true" tabindex="-1"></a>table <span class="ot">&lt;-</span> descr <span class="sc">%&gt;%</span> </span>
+<span id="cb375-2"><a href="ergebnisse-exportieren.html#cb375-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>(<span class="at">groupname_col =</span> <span class="st">&quot;Geschlecht&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb375-3"><a href="ergebnisse-exportieren.html#cb375-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_spanner</span>(</span>
+<span id="cb375-4"><a href="ergebnisse-exportieren.html#cb375-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">label =</span> <span class="st">&quot;Mittlere Lage&quot;</span>,</span>
+<span id="cb375-5"><a href="ergebnisse-exportieren.html#cb375-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">columns =</span> <span class="fu">vars</span>(Mean, Median)</span>
+<span id="cb375-6"><a href="ergebnisse-exportieren.html#cb375-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
+<span id="cb375-7"><a href="ergebnisse-exportieren.html#cb375-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_footnote</span>(</span>
+<span id="cb375-8"><a href="ergebnisse-exportieren.html#cb375-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">footnote =</span> <span class="st">&quot;Mittlere Ausprägung von Neurotizismus&quot;</span>,</span>
+<span id="cb375-9"><a href="ergebnisse-exportieren.html#cb375-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">locations =</span> <span class="fu">cells_body</span>(</span>
+<span id="cb375-10"><a href="ergebnisse-exportieren.html#cb375-10" aria-hidden="true" tabindex="-1"></a>      <span class="at">columns =</span> <span class="fu">vars</span>(Variable),</span>
+<span id="cb375-11"><a href="ergebnisse-exportieren.html#cb375-11" aria-hidden="true" tabindex="-1"></a>      <span class="at">rows =</span> <span class="dv">2</span>)</span>
+<span id="cb375-12"><a href="ergebnisse-exportieren.html#cb375-12" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
+<span id="cb375-13"><a href="ergebnisse-exportieren.html#cb375-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_footnote</span>(</span>
+<span id="cb375-14"><a href="ergebnisse-exportieren.html#cb375-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">footnote =</span> <span class="st">&quot;Standardfehler&quot;</span>,</span>
+<span id="cb375-15"><a href="ergebnisse-exportieren.html#cb375-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">locations =</span> <span class="fu">cells_column_labels</span>(</span>
+<span id="cb375-16"><a href="ergebnisse-exportieren.html#cb375-16" aria-hidden="true" tabindex="-1"></a>      <span class="at">columns =</span> <span class="fu">vars</span>(SE))</span>
+<span id="cb375-17"><a href="ergebnisse-exportieren.html#cb375-17" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb375-18"><a href="ergebnisse-exportieren.html#cb375-18" aria-hidden="true" tabindex="-1"></a>table</span></code></pre></div>
 <style>html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#ofmeoqlrvs .gt_table {
+#utmuhfuuqb .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -992,7 +992,7 @@ Abbildung 11.6: Vereinfachte Darstellung des Aufbaus einer Tabelle.
   border-left-color: #D3D3D3;
 }
 
-#ofmeoqlrvs .gt_heading {
+#utmuhfuuqb .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1004,7 +1004,7 @@ Abbildung 11.6: Vereinfachte Darstellung des Aufbaus einer Tabelle.
   border-right-color: #D3D3D3;
 }
 
-#ofmeoqlrvs .gt_title {
+#utmuhfuuqb .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1014,7 +1014,7 @@ Abbildung 11.6: Vereinfachte Darstellung des Aufbaus einer Tabelle.
   border-bottom-width: 0;
 }
 
-#ofmeoqlrvs .gt_subtitle {
+#utmuhfuuqb .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1024,13 +1024,13 @@ Abbildung 11.6: Vereinfachte Darstellung des Aufbaus einer Tabelle.
   border-top-width: 0;
 }
 
-#ofmeoqlrvs .gt_bottom_border {
+#utmuhfuuqb .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#ofmeoqlrvs .gt_col_headings {
+#utmuhfuuqb .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1045,7 +1045,7 @@ Abbildung 11.6: Vereinfachte Darstellung des Aufbaus einer Tabelle.
   border-right-color: #D3D3D3;
 }
 
-#ofmeoqlrvs .gt_col_heading {
+#utmuhfuuqb .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1065,7 +1065,7 @@ Abbildung 11.6: Vereinfachte Darstellung des Aufbaus einer Tabelle.
   overflow-x: hidden;
 }
 
-#ofmeoqlrvs .gt_column_spanner_outer {
+#utmuhfuuqb .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1077,15 +1077,15 @@ Abbildung 11.6: Vereinfachte Darstellung des Aufbaus einer Tabelle.
   padding-right: 4px;
 }
 
-#ofmeoqlrvs .gt_column_spanner_outer:first-child {
+#utmuhfuuqb .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#ofmeoqlrvs .gt_column_spanner_outer:last-child {
+#utmuhfuuqb .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#ofmeoqlrvs .gt_column_spanner {
+#utmuhfuuqb .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1097,7 +1097,7 @@ Abbildung 11.6: Vereinfachte Darstellung des Aufbaus einer Tabelle.
   width: 100%;
 }
 
-#ofmeoqlrvs .gt_group_heading {
+#utmuhfuuqb .gt_group_heading {
   padding: 8px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1119,7 +1119,7 @@ Abbildung 11.6: Vereinfachte Darstellung des Aufbaus einer Tabelle.
   vertical-align: middle;
 }
 
-#ofmeoqlrvs .gt_empty_group_heading {
+#utmuhfuuqb .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1134,15 +1134,15 @@ Abbildung 11.6: Vereinfachte Darstellung des Aufbaus einer Tabelle.
   vertical-align: middle;
 }
 
-#ofmeoqlrvs .gt_from_md > :first-child {
+#utmuhfuuqb .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#ofmeoqlrvs .gt_from_md > :last-child {
+#utmuhfuuqb .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#ofmeoqlrvs .gt_row {
+#utmuhfuuqb .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1161,7 +1161,7 @@ Abbildung 11.6: Vereinfachte Darstellung des Aufbaus einer Tabelle.
   overflow-x: hidden;
 }
 
-#ofmeoqlrvs .gt_stub {
+#utmuhfuuqb .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1173,7 +1173,7 @@ Abbildung 11.6: Vereinfachte Darstellung des Aufbaus einer Tabelle.
   padding-left: 12px;
 }
 
-#ofmeoqlrvs .gt_summary_row {
+#utmuhfuuqb .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1183,7 +1183,7 @@ Abbildung 11.6: Vereinfachte Darstellung des Aufbaus einer Tabelle.
   padding-right: 5px;
 }
 
-#ofmeoqlrvs .gt_first_summary_row {
+#utmuhfuuqb .gt_first_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1193,7 +1193,7 @@ Abbildung 11.6: Vereinfachte Darstellung des Aufbaus einer Tabelle.
   border-top-color: #D3D3D3;
 }
 
-#ofmeoqlrvs .gt_grand_summary_row {
+#utmuhfuuqb .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1203,7 +1203,7 @@ Abbildung 11.6: Vereinfachte Darstellung des Aufbaus einer Tabelle.
   padding-right: 5px;
 }
 
-#ofmeoqlrvs .gt_first_grand_summary_row {
+#utmuhfuuqb .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1213,11 +1213,11 @@ Abbildung 11.6: Vereinfachte Darstellung des Aufbaus einer Tabelle.
   border-top-color: #D3D3D3;
 }
 
-#ofmeoqlrvs .gt_striped {
+#utmuhfuuqb .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#ofmeoqlrvs .gt_table_body {
+#utmuhfuuqb .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1226,7 +1226,7 @@ Abbildung 11.6: Vereinfachte Darstellung des Aufbaus einer Tabelle.
   border-bottom-color: #D3D3D3;
 }
 
-#ofmeoqlrvs .gt_footnotes {
+#utmuhfuuqb .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1240,13 +1240,13 @@ Abbildung 11.6: Vereinfachte Darstellung des Aufbaus einer Tabelle.
   border-right-color: #D3D3D3;
 }
 
-#ofmeoqlrvs .gt_footnote {
+#utmuhfuuqb .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding: 4px;
 }
 
-#ofmeoqlrvs .gt_sourcenotes {
+#utmuhfuuqb .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1260,46 +1260,46 @@ Abbildung 11.6: Vereinfachte Darstellung des Aufbaus einer Tabelle.
   border-right-color: #D3D3D3;
 }
 
-#ofmeoqlrvs .gt_sourcenote {
+#utmuhfuuqb .gt_sourcenote {
   font-size: 90%;
   padding: 4px;
 }
 
-#ofmeoqlrvs .gt_left {
+#utmuhfuuqb .gt_left {
   text-align: left;
 }
 
-#ofmeoqlrvs .gt_center {
+#utmuhfuuqb .gt_center {
   text-align: center;
 }
 
-#ofmeoqlrvs .gt_right {
+#utmuhfuuqb .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#ofmeoqlrvs .gt_font_normal {
+#utmuhfuuqb .gt_font_normal {
   font-weight: normal;
 }
 
-#ofmeoqlrvs .gt_font_bold {
+#utmuhfuuqb .gt_font_bold {
   font-weight: bold;
 }
 
-#ofmeoqlrvs .gt_font_italic {
+#utmuhfuuqb .gt_font_italic {
   font-style: italic;
 }
 
-#ofmeoqlrvs .gt_super {
+#utmuhfuuqb .gt_super {
   font-size: 65%;
 }
 
-#ofmeoqlrvs .gt_footnote_marks {
+#utmuhfuuqb .gt_footnote_marks {
   font-style: italic;
   font-size: 65%;
 }
 </style>
-<div id="ofmeoqlrvs" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;"><table class="gt_table">
+<div id="utmuhfuuqb" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;"><table class="gt_table">
   
   <thead class="gt_col_headings">
     <tr>
@@ -1381,21 +1381,21 @@ Abbildung 11.6: Vereinfachte Darstellung des Aufbaus einer Tabelle.
   </tfoot>
 </table></div>
 <p>Beim Speichern ändert sich auch nicht wenig im Vergleich zu <code>ggplot</code>. Anstelle von <code>ggsave()</code> verwenden wir <code>gtsave()</code>. Dabei kann man sich entscheiden, ob die Tabelle als LaTeX (<code>.tex</code>), Word (<code>.rtf</code>) oder HTML ausgegeben wird. Beachte an der Stelle, dass die Ausgabe als Word Datei derzeitig noch einige optische Mängel aufweist.</p>
-<div class="sourceCode" id="cb375"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb375-1"><a href="ergebnisse-exportieren.html#cb375-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gtsave</span>(table, <span class="st">&quot;tabelle.tex&quot;</span>)  </span>
-<span id="cb375-2"><a href="ergebnisse-exportieren.html#cb375-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gtsave</span>(table, <span class="st">&quot;tabelle.rtf&quot;</span>) </span>
-<span id="cb375-3"><a href="ergebnisse-exportieren.html#cb375-3" aria-hidden="true" tabindex="-1"></a><span class="fu">gtsave</span>(table, <span class="st">&quot;tabelle.html&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb376"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb376-1"><a href="ergebnisse-exportieren.html#cb376-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gtsave</span>(table, <span class="st">&quot;tabelle.tex&quot;</span>)  </span>
+<span id="cb376-2"><a href="ergebnisse-exportieren.html#cb376-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gtsave</span>(table, <span class="st">&quot;tabelle.rtf&quot;</span>) </span>
+<span id="cb376-3"><a href="ergebnisse-exportieren.html#cb376-3" aria-hidden="true" tabindex="-1"></a><span class="fu">gtsave</span>(table, <span class="st">&quot;tabelle.html&quot;</span>)</span></code></pre></div>
 <p>Möchte man die als <code>.tex</code> gespeicherte Tabelle nun in LaTeX einfügen, muss man sich mithilfe von <code>gt_latex_dependencies()</code> über die notwendigen Packages für die Tabelle bewusst werden. Für unser Beispiel würde ein minimales Beispiel wie folgt aussehen.</p>
-<div class="sourceCode" id="cb376"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb376-1"><a href="ergebnisse-exportieren.html#cb376-1" aria-hidden="true" tabindex="-1"></a><span class="bu">\documentclass</span>[a4paper,12pt]{<span class="ex">article</span>}</span>
-<span id="cb376-2"><a href="ergebnisse-exportieren.html#cb376-2" aria-hidden="true" tabindex="-1"></a><span class="bu">\usepackage</span>[utf8]{<span class="ex">inputenc</span>}</span>
-<span id="cb376-3"><a href="ergebnisse-exportieren.html#cb376-3" aria-hidden="true" tabindex="-1"></a><span class="bu">\usepackage</span>[T1]{<span class="ex">fontenc</span>}</span>
-<span id="cb376-4"><a href="ergebnisse-exportieren.html#cb376-4" aria-hidden="true" tabindex="-1"></a><span class="bu">\usepackage</span>{<span class="ex">amsmath</span>}</span>
-<span id="cb376-5"><a href="ergebnisse-exportieren.html#cb376-5" aria-hidden="true" tabindex="-1"></a><span class="bu">\usepackage</span>{<span class="ex">booktabs</span>}</span>
-<span id="cb376-6"><a href="ergebnisse-exportieren.html#cb376-6" aria-hidden="true" tabindex="-1"></a><span class="bu">\usepackage</span>{<span class="ex">caption</span>}</span>
-<span id="cb376-7"><a href="ergebnisse-exportieren.html#cb376-7" aria-hidden="true" tabindex="-1"></a><span class="bu">\usepackage</span>{<span class="ex">longtable</span>}</span>
-<span id="cb376-8"><a href="ergebnisse-exportieren.html#cb376-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb376-9"><a href="ergebnisse-exportieren.html#cb376-9" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">document</span>}</span>
-<span id="cb376-10"><a href="ergebnisse-exportieren.html#cb376-10" aria-hidden="true" tabindex="-1"></a>  <span class="co">% Hier Tabelle einfügen</span></span>
-<span id="cb376-11"><a href="ergebnisse-exportieren.html#cb376-11" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">document</span>}</span></code></pre></div>
+<div class="sourceCode" id="cb377"><pre class="sourceCode latex"><code class="sourceCode latex"><span id="cb377-1"><a href="ergebnisse-exportieren.html#cb377-1" aria-hidden="true" tabindex="-1"></a><span class="bu">\documentclass</span>[a4paper,12pt]{<span class="ex">article</span>}</span>
+<span id="cb377-2"><a href="ergebnisse-exportieren.html#cb377-2" aria-hidden="true" tabindex="-1"></a><span class="bu">\usepackage</span>[utf8]{<span class="ex">inputenc</span>}</span>
+<span id="cb377-3"><a href="ergebnisse-exportieren.html#cb377-3" aria-hidden="true" tabindex="-1"></a><span class="bu">\usepackage</span>[T1]{<span class="ex">fontenc</span>}</span>
+<span id="cb377-4"><a href="ergebnisse-exportieren.html#cb377-4" aria-hidden="true" tabindex="-1"></a><span class="bu">\usepackage</span>{<span class="ex">amsmath</span>}</span>
+<span id="cb377-5"><a href="ergebnisse-exportieren.html#cb377-5" aria-hidden="true" tabindex="-1"></a><span class="bu">\usepackage</span>{<span class="ex">booktabs</span>}</span>
+<span id="cb377-6"><a href="ergebnisse-exportieren.html#cb377-6" aria-hidden="true" tabindex="-1"></a><span class="bu">\usepackage</span>{<span class="ex">caption</span>}</span>
+<span id="cb377-7"><a href="ergebnisse-exportieren.html#cb377-7" aria-hidden="true" tabindex="-1"></a><span class="bu">\usepackage</span>{<span class="ex">longtable</span>}</span>
+<span id="cb377-8"><a href="ergebnisse-exportieren.html#cb377-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb377-9"><a href="ergebnisse-exportieren.html#cb377-9" aria-hidden="true" tabindex="-1"></a><span class="kw">\begin</span>{<span class="ex">document</span>}</span>
+<span id="cb377-10"><a href="ergebnisse-exportieren.html#cb377-10" aria-hidden="true" tabindex="-1"></a>  <span class="co">% Hier Tabelle einfügen</span></span>
+<span id="cb377-11"><a href="ergebnisse-exportieren.html#cb377-11" aria-hidden="true" tabindex="-1"></a><span class="kw">\end</span>{<span class="ex">document</span>}</span></code></pre></div>
 <p>An der Stelle des Prozentzeichens würde man dann die gespeicherte Tabelle einfügen.</p>
 
 </div>

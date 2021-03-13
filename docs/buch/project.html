@@ -24,7 +24,7 @@
 <meta name="author" content="Jan Philipp Nolte" />
 
 
-<meta name="date" content="2021-03-10" />
+<meta name="date" content="2021-03-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -382,21 +382,21 @@ Abbildung 3.1: Beispielhafte Ordnerstruktur mit R Skript, Projektdatei und Daten
 </div>
 <p><code>Auswertung.R</code> ist unser R Skript, <code>Beispiel.Rproj</code> unsere Projektdatei und <code>video.xlsx</code> der Datensatz, den wir zur Auswertung einlesen wollen. Die Projektdatei muss vorher erstellt werden. Dafür benötigt man nur ein paar Klicks.</p>
 <p>Oben rechts befindet sich ein Reiter namens <code>Project: (None)</code>, wenn kein Projekt geöffnet ist und ansonsten der Projektname (zum Beispiel das Projekt <code>Beispiel</code>). Öffne zuerst das Dropdown Menu.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-22"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-23"></span>
 <img src="images/rstudio_project.jpg" alt="Erster Schritt beim Erstellen eines neuen Projektes." width="98%" />
 <p class="caption">
 Abbildung 3.2: Erster Schritt beim Erstellen eines neuen Projektes.
 </p>
 </div>
 <p>Uns interessieren zum einen <code>New Project...</code> und <code>Open Project...</code> und zum anderen stehen weiter unten andere Projekte, die vorher geöffnet wurden (hier <code>07_Buch</code> und <code>08_inductive</code>). Man kann mit einem einfachen Klick zwischen diesen Projekten wechseln. Dieses Feature erleichtert die Arbeit ungemein, da man auf dem Computer nicht mehr irgendwo den Ordner mit den richtigen Dateien suchen muss. Zum Erstellen eines neuen Projekts klicke auf <code>New Project...</code>. Es erscheint ein neues Fenster.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-23"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-24"></span>
 <img src="images/rstudio_project1.jpg" alt="Zweiter Schritt beim Erstellen eines neuen Projektes." width="98%" />
 <p class="caption">
 Abbildung 3.3: Zweiter Schritt beim Erstellen eines neuen Projektes.
 </p>
 </div>
 <p>Wir entscheiden uns exemplarisch für <code>Existing Directory</code>. Das bedeutet, unser Ordner Namens <code>Beispiel</code> existiert bereits auf dem Desktop. Ob dieser leer oder bereits mit Dateien gefüllt ist, ist nicht weiter von Bedeutung.</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-24"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-25"></span>
 <img src="images/rstudio_project2.jpg" alt="Letzter Schritt zur Erstelllung eines neuen Projektes." width="98%" />
 <p class="caption">
 Abbildung 3.4: Letzter Schritt zur Erstelllung eines neuen Projektes.
@@ -410,8 +410,8 @@ Abbildung 3.4: Letzter Schritt zur Erstelllung eines neuen Projektes.
 <div id="here" class="section level2" number="3.3">
 <h2><span class="header-section-number">3.3</span> Das <code>here</code> Package</h2>
 <p>Die Magie passiert, wenn du nun das <code>here</code> Package lädst. Das Package findet sofort den relativen Pfad zu deiner Projektdatei heraus. Was bedeutet das? Während man früher beispielsweise auf Windows mit <code>C:\Users\J-PhN\Desktop\Beispiel</code> den absoluten Pfad zum Ordner eingeben musste, findet das <code>here</code> Package den Ordner <code>Beispiel</code> mit der Projektdatei, unabhängig von der Lage des Ordners. In der Praxis sieht das beim Laden so aus:</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb23-1"><a href="project.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">library</span>(here)</span>
-<span id="cb23-2"><a href="project.html#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">here</span>() starts at C<span class="sc">:</span><span class="er">/</span>Users<span class="sc">/</span>J<span class="sc">-</span>PhN<span class="sc">/</span>Desktop<span class="sc">/</span>Beispiel</span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb24-1"><a href="project.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">library</span>(here)</span>
+<span id="cb24-2"><a href="project.html#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">here</span>() starts at C<span class="sc">:</span><span class="er">/</span>Users<span class="sc">/</span>J<span class="sc">-</span>PhN<span class="sc">/</span>Desktop<span class="sc">/</span>Beispiel</span></code></pre></div>
 <p>Würden wir den Ordner verschieben, hat das keine Auswirkungen auf unseren Code. Das Package würde wieder zum Projektordner finden. Der erste Schritt ist also immer das Erstellen eines R Projekts und das Laden des <code>here</code> Packages am Anfang jeden neuen Skripts, mit dem man einen Datensatz einlesen möchte.</p>
 
 </div>

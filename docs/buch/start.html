@@ -24,7 +24,7 @@
 <meta name="author" content="Jan Philipp Nolte" />
 
 
-<meta name="date" content="2021-03-10" />
+<meta name="date" content="2021-03-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -391,16 +391,18 @@ Abbildung 2.2: Richtige Installation von R ohne Sprachsupport
 <p><strong>macOS (Apple)</strong> :</p>
 <ol style="list-style-type: decimal">
 <li>Gehe auf <a href="https://cloud.r-project.org/">cloud.r-project.org</a> und wähle <code>Download R for (Mac) OS X</code>.</li>
-<li>Je nachdem wie alt dein Mac ist, müssen unterschiedliche Versionen von R heruntergeladen werden. deine macOS Version darf zur Benutzung der in diesem Buch vorgestellten Methoden nicht älter als 10.9 Mavericks sein.
+<li>Je nachdem wie alt dein Mac ist, müssen unterschiedliche Versionen von R heruntergeladen werden. Deine macOS Version darf zur Benutzung der in diesem Buch vorgestellten Methoden nicht älter als 10.9 Mavericks sein.
 <ul>
 <li>macOS 10.13 High Sierra und neuer: R-4.0.4.pkg (bzw. die gerade aktuellste Version)</li>
 <li>macOS 10.11 El Capitan und neuer: R-3.6.3.pkg</li>
 <li>macOS 10.9 Mavericks und neuer: R-3.3.3.pkg</li>
 </ul></li>
 <li>Achte auf den Speicherort der Installationsdatei und führe diese aus. Falls deine Einstellungen die Installation externer Programme verhindern, musst du das Installieren von externen Paketen (<code>.pkg</code>) explizit erlauben (siehe unten).</li>
-<li>Beim Folgen der Installationsanweisungen muss auf jeden Fall das Häkchen bei <em>Message translations</em> entfernt werden (siehe Abbildung <a href="start.html#fig:sprache">2.2</a>).</li>
+<li>Bei der Installation kann, ohne was zu verändern, stehts auf <em>weiter</em> gedrückt werden.</li>
 <li>Nach fertiger Installation kann die Installationsdatei (z.B. <code>R-4.0.4.pkg</code>) gelöscht werden.</li>
+<li>Für englische Fehlermeldungen muss schließlich noch folgender Befehl innerhalb von R ausgeführt werden. Danach muss R geschlossen und erneut geöffnet werden. Alternativ kann man auch zuerst RStudio installieren und den Befehl dort entsprechend eingeben.</li>
 </ol>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb2-1"><a href="start.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">system</span>(<span class="st">&quot;defaults write org.R-project.R force.LANG en_US.UTF-8&quot;</span>)</span></code></pre></div>
 <div class="warning">
 <p>Je nach Einstellungen des Betriebssystems kann die Installation externer Software (nicht von Apple zertifiziert) wie R aus Sicherheitsgründen blockiert werden. Um das zu umgehen, musste du mit dem Finder (nicht Launchpad) nach der Installationsdatei (z.B. R-4.0.3.pkg) suchen. Halte nun <code>ctrl</code> gedrückt und klicke auf die Datei. Wähle schließlich <em>Öffnen</em> aus dem erscheinenden Kontextmenü aus.</p>
 </div>
@@ -409,25 +411,25 @@ Abbildung 2.2: Richtige Installation von R ohne Sprachsupport
 <li>Drücke die Tastenkombination <code>strg + alt + t</code>, um den Terminal zu öffnen.</li>
 <li>Öffne die Liste deiner Repositorien als Administrator (<code>sudo</code>) mit einem Editor deiner Wahl (z.B. <code>gedit</code>).</li>
 </ol>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash bordercode"><code class="sourceCode bash"><span id="cb2-1"><a href="start.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> gedit /etc/apt/sources.list</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash bordercode"><code class="sourceCode bash"><span id="cb3-1"><a href="start.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> gedit /etc/apt/sources.list</span></code></pre></div>
 <ol start="3" style="list-style-type: decimal">
 <li>Kopiere nun das Repository in die soeben geöffnete Datei <code>sources.list</code>. Für Ubuntu 20.04 würden man <code>bionic</code> im Namen verwenden. Für andere Versionen müsste <code>bionic</code> zu beispielsweise <code>focal</code>, <code>xenial</code> oder <code>trusty</code> geändert werden.</li>
 </ol>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash bordercode"><code class="sourceCode bash"><span id="cb3-1"><a href="start.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">deb</span> https://cloud.r-project.org/bin/linux/ubuntu bionic-cran40/</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash bordercode"><code class="sourceCode bash"><span id="cb4-1"><a href="start.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">deb</span> https://cloud.r-project.org/bin/linux/ubuntu bionic-cran40/</span></code></pre></div>
 <ol start="4" style="list-style-type: decimal">
 <li>Führe anschließend folgende zwei Zeilen hintereinander im Terminal aus.</li>
 </ol>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash bordercode"><code class="sourceCode bash"><span id="cb4-1"><a href="start.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get update</span>
-<span id="cb4-2"><a href="start.html#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get install r-base r-base-dev </span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash bordercode"><code class="sourceCode bash"><span id="cb5-1"><a href="start.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get update</span>
+<span id="cb5-2"><a href="start.html#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get install r-base r-base-dev </span></code></pre></div>
 <ol start="5" style="list-style-type: decimal">
 <li>Falls dies nicht funktionieren sollte, musst du noch den entsprechenden Public Key hinzufügen. Für den Fall eines neuerdings veränderten Keys, kann unter <a href="https://cloud.r-project.org/">cloud.r-project.org</a> &gt; <code>Download R for Linux</code> &gt; <code>Ubuntu</code> &gt; <code>README</code> der derzeit aktuelle eingesehen werden.</li>
 </ol>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash bordercode"><code class="sourceCode bash"><span id="cb5-1"><a href="start.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-key adv <span class="at">--keyserver</span> keyserver.ubuntu.com <span class="dt">\</span></span>
-<span id="cb5-2"><a href="start.html#cb5-2" aria-hidden="true" tabindex="-1"></a>--recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash bordercode"><code class="sourceCode bash"><span id="cb6-1"><a href="start.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-key adv <span class="at">--keyserver</span> keyserver.ubuntu.com <span class="dt">\</span></span>
+<span id="cb6-2"><a href="start.html#cb6-2" aria-hidden="true" tabindex="-1"></a>--recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9</span></code></pre></div>
 <ol start="6" style="list-style-type: decimal">
 <li>Zum Einstellen englischer Fehlermeldungen muss <code>LANGUAGE=en</code> an beliebiger Stelle in <code>Renviron.site</code> kopiert und gespeichert werden. Öffne diese dazu wie zuvor mit einem Editor wie <code>gedit</code>.</li>
 </ol>
-<div class="sourceCode" id="cb6"><pre class="sourceCode bash bordercode"><code class="sourceCode bash"><span id="cb6-1"><a href="start.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> gedit /etc/R/Renviron.site</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash bordercode"><code class="sourceCode bash"><span id="cb7-1"><a href="start.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> gedit /etc/R/Renviron.site</span></code></pre></div>
 </div>
 <div id="rstudio" class="section level3" number="2.1.2">
 <h3><span class="header-section-number">2.1.2</span> Programmierumgebung RStudio</h3>
@@ -440,7 +442,7 @@ Abbildung 2.2: Richtige Installation von R ohne Sprachsupport
 <div id="aufbau" class="section level2" number="2.2">
 <h2><span class="header-section-number">2.2</span> Aufbau von RStudio</h2>
 <p>Wir schauen uns nun die einzelnen Komponenten innerhalb von RStudio an. Die Oberfläche von RStudio ist dabei in vier Teile unterteilt. Nach frischer Installation ist die Console links unten, das R Skript als Source links oben, Environment &amp; und History rechts oben und Plots, Hilfe, Packages und mehr unten rechts. Diese Reihenfolge kann beliebig nach eigener Präferenz verändert werden (siehe Kapitel <a href="start.html#anpassung">2.3</a>).</p>
-<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-8"></span>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-9"></span>
 <img src="images/rstudio_frisch.jpg" alt="Aufbau von R Studio mit Skript (oben links), Konsole (unten links), Environment (oben rechts) und u.a. Plots und Help (unten rechts)." width="98%" />
 <p class="caption">
 Abbildung 2.3: Aufbau von R Studio mit Skript (oben links), Konsole (unten links), Environment (oben rechts) und u.a. Plots und Help (unten rechts).
@@ -497,10 +499,10 @@ Abbildung 2.3: Aufbau von R Studio mit Skript (oben links), Konsole (unten links
 <div id="funktionen-und-ihre-argumente" class="section level2" number="2.4">
 <h2><span class="header-section-number">2.4</span> Funktionen und ihre Argumente</h2>
 <p>Eine Funktion erkennst du immer daran, dass sie von zwei runden Klammern gefolgt ist. Wenn du den Anweisungen in Kapitel <a href="start.html#anpassung">2.3</a> gefolgt bist, wird die Funktion auch extra farblich hervorgehoben. Schauen wir uns exemplarisch die Funktion zur Berechnungen des Mittelwertes an.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb7-1"><a href="start.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">7</span>, <span class="cn">NA</span>, <span class="dv">2</span>), <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb8-1"><a href="start.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">7</span>, <span class="cn">NA</span>, <span class="dv">2</span>), <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre class="bordercode"><code>[1] 4</code></pre>
 <p>Wir haben hier sogar gleich zwei Funktionen: einmal <code>mean()</code> und einmal <code>c()</code>. Letztere bindet die Werte zusammen. Nun haben wir auch zwei so genannte Argumente: <code>x</code> und <code>na.rm</code>. Dem ersten Argument geben wir die für die Berechnung des Mittelwerts zu verwenden Werte und <code>na.rm = TRUE</code> entfernt potentielle fehlende Werte. Aus diesem Kapitel sollst du die Bezeichnungen Funktion und Argument mitnehmen. Außerdem ist es wichtig, dass Argumenten Informationen immer mit einem Gleichheitszeichen übergeben werden. Tatsächlich müssten die Namen der Argumente nicht immer ausgeschrieben werden. Wenn die Funktion <code>mean()</code> als erstes Argument die Werte erwartet, könnte man dieses ebenso gut weglassen. Vorausgesetzt man beachtet die entsprechende Reihenfolge der Argumente.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb9-1"><a href="start.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">7</span>, <span class="cn">NA</span>, <span class="dv">2</span>), <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb10-1"><a href="start.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">7</span>, <span class="cn">NA</span>, <span class="dv">2</span>), <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <p>Das wird im Buch auch immer wieder gemacht, weil es übersichtlicher zum Lernen und schneller für dich später zum Anwenden ist.</p>
 </div>
 <div id="packages" class="section level2" number="2.5">
@@ -520,41 +522,41 @@ Abbildung 2.4: Vergleich vom (a) Installieren und (b) vom Laden von Packages.
 <div id="installieren-und-laden" class="section level3" number="2.5.1">
 <h3><span class="header-section-number">2.5.1</span> Installieren und laden</h3>
 <p>Wie bereits erwähnt muss zur Installation <code>install.packages()</code> benutzt werden. Wichtig ist hierbei, dass der Package Name in Anführungszeichen geschrieben ist. Das Argument <code>dependencies = TRUE</code> installiert hierbei zusätzlich alle Packages, auf denen das gewünschte Package basiert. Meistens ist dies allerdings nicht notwendig.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb10-1"><a href="start.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;packageName&quot;</span>, <span class="at">dependencies =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb11-1"><a href="start.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;packageName&quot;</span>, <span class="at">dependencies =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <p>Damit man auf die Funktionen des Packages zugreifen kann, muss das Package <strong>jedes mal</strong> – also nach jedem neuen Öffnen von RStudio – aus der Bibliothek mithilfe von <code>library()</code> erneut geladen werden. Hierbei sind keine Anführungszeichen notwendig.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb11-1"><a href="start.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(packageName)</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb12-1"><a href="start.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(packageName)</span></code></pre></div>
 <p>Zur besseren Übersichtlichkeit solltest du alle <code>library()</code> Befehle am Anfang des jeweiligen R Skriptes untereinander aufrufen. Wir werden im Rahmen dieses Buches vor allem vier Packages verwenden. Am besten schreibst beim Üben also direkt oben</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb12-1"><a href="start.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb12-2"><a href="start.html#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
-<span id="cb12-3"><a href="start.html#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rio)</span>
-<span id="cb12-4"><a href="start.html#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(remp)</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb13-1"><a href="start.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb13-2"><a href="start.html#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
+<span id="cb13-3"><a href="start.html#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rio)</span>
+<span id="cb13-4"><a href="start.html#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(remp)</span></code></pre></div>
 <p>in dein R Skript. In diesem Fall ist die Reihenfolge nicht entscheidend. Wenn verschiedene Packages jedoch gleichnamige Funktionen beinhalten, führt dies zu Problemen, auf die in Kapitel <a href="start.html#namespace">2.5.3</a> eingegangen wird.</p>
 </div>
 <div id="notwendige-packages" class="section level3" number="2.5.2">
 <h3><span class="header-section-number">2.5.2</span> Notwendige Packages</h3>
 <p>Diese vier essentiellen Packages werden wir nun zuerst installieren. Das <code>remotes</code> Package verwenden nur einmalig, um <code>remp</code> von Github installieren zu können. Wofür jedes einzelnen Package davon genau zuständig ist, wirst du im Verlaufe des Buches erfahren. Die Installation kann einige Minuten in Anspruch nehmen.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb13-1"><a href="start.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">&quot;tidyverse&quot;</span>, <span class="st">&quot;here&quot;</span>, <span class="st">&quot;rio&quot;</span>, <span class="st">&quot;remotes&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb14-1"><a href="start.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">&quot;tidyverse&quot;</span>, <span class="st">&quot;here&quot;</span>, <span class="st">&quot;rio&quot;</span>, <span class="st">&quot;remotes&quot;</span>))</span></code></pre></div>
 <p>Um auf diverse Übungsdatensätze und interaktive Übungen zugreifen zu können, musst du das Package <code>remp</code> installieren. Allerdings befindet es sich nicht auf CRAN sondern auf Github, weswegen der Befehl etwas anders lautet. Während der Installation des Packages kann es sein, dass du gefragt wirst, ob du bestimmte Packages aktualisieren möchtest. du solltest dies an der Stelle ohne weiteres zutun mit <code>Enter</code> verneinen.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb14-1"><a href="start.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(remotes)</span>
-<span id="cb14-2"><a href="start.html#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install_github</span>(<span class="st">&quot;j3ypi/remp&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb15-1"><a href="start.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(remotes)</span>
+<span id="cb15-2"><a href="start.html#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install_github</span>(<span class="st">&quot;j3ypi/remp&quot;</span>)</span></code></pre></div>
 <p>Alle anderen, teilweise speziell auf einen Kontext zugeschnittenen Packages, die im Rahmen des Buches vorgestellt werden, kannst du bei Bedarf installieren. Am Anfang jedes Kapitels mit einem neuen Package, wird immer extra darauf hingewiesen.</p>
 </div>
 <div id="namespace" class="section level3" number="2.5.3">
 <h3><span class="header-section-number">2.5.3</span> Namespace</h3>
 <p>Beim Laden mehrerer Packages kann es sein, dass diese Funktionen mit dem selben Namen verwenden (siehe Kapitel <a href="datenvorbereitung.html#tidyverse">6.1</a>). Während beim <code>tidyverse</code> lediglich zwei selten verwendete <code>base R</code> Funktionen überschrieben werden, kann es beim Arbeiten mit vielen verschiedenen nicht aufeinander abgestimmten Packages, durchaus häufiger zur Namensgleichheit kommen. Das ist eine schwierig zu identifizierende Fehlerquelle, weil sich die Funktion plötzlich nicht mehr so verhält wie erwartet. Dabei verwendet man automatisch die Funktion, die aus dem Package stammt, welches als letztes geladen wird. Lädt man beispielsweise zuerst das Package <code>tidyverse</code> und anschließend <code>data.table</code>, erhält man folgende Meldung:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb15-1"><a href="start.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb15-2"><a href="start.html#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(data.table)</span></code></pre></div>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb16-1"><a href="start.html#cb16-1" aria-hidden="true" tabindex="-1"></a>Attaching package<span class="sc">:</span> ‘data.table’</span>
-<span id="cb16-2"><a href="start.html#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-3"><a href="start.html#cb16-3" aria-hidden="true" tabindex="-1"></a>The following objects are masked from ‘package<span class="sc">:</span>dplyr’<span class="sc">:</span></span>
-<span id="cb16-4"><a href="start.html#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-5"><a href="start.html#cb16-5" aria-hidden="true" tabindex="-1"></a>    between, first, last</span>
-<span id="cb16-6"><a href="start.html#cb16-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-7"><a href="start.html#cb16-7" aria-hidden="true" tabindex="-1"></a>The following object is masked from ‘package<span class="sc">:</span>purrr’<span class="sc">:</span></span>
-<span id="cb16-8"><a href="start.html#cb16-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-9"><a href="start.html#cb16-9" aria-hidden="true" tabindex="-1"></a>    transpose</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb16-1"><a href="start.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb16-2"><a href="start.html#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(data.table)</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb17-1"><a href="start.html#cb17-1" aria-hidden="true" tabindex="-1"></a>Attaching package<span class="sc">:</span> ‘data.table’</span>
+<span id="cb17-2"><a href="start.html#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="start.html#cb17-3" aria-hidden="true" tabindex="-1"></a>The following objects are masked from ‘package<span class="sc">:</span>dplyr’<span class="sc">:</span></span>
+<span id="cb17-4"><a href="start.html#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-5"><a href="start.html#cb17-5" aria-hidden="true" tabindex="-1"></a>    between, first, last</span>
+<span id="cb17-6"><a href="start.html#cb17-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-7"><a href="start.html#cb17-7" aria-hidden="true" tabindex="-1"></a>The following object is masked from ‘package<span class="sc">:</span>purrr’<span class="sc">:</span></span>
+<span id="cb17-8"><a href="start.html#cb17-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-9"><a href="start.html#cb17-9" aria-hidden="true" tabindex="-1"></a>    transpose</span></code></pre></div>
 <p>Drei Funktionen (<code>between()</code>, <code>first()</code>, <code>last()</code>) aus dem Package <code>dplyr</code> und eine Funktionen (<code>transpose()</code>) aus dem Package <code>purrr</code> werden von <code>data.table</code> überschrieben. Es ist also wichtig, diese Meldungen beim Laden eines Packages nicht zu ignorieren. Im Notfall kann dies durch die Verwendung von Doppelpunkten <code>package::funktion()</code> verhindert werden. So teilt man R explizit mit, welche Funktion aus welchem Package man meint. Um trotz des späteren Ladens von <code>data.table</code> auf die <code>between()</code> Funktion von <code>dplyr</code> zuzugreifen, würde man also beim Aufrufen der Funktion folgendes schreiben:</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb17-1"><a href="start.html#cb17-1" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">between</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>, <span class="dv">7</span>, <span class="dv">9</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb18-1"><a href="start.html#cb18-1" aria-hidden="true" tabindex="-1"></a>dplyr<span class="sc">::</span><span class="fu">between</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>, <span class="dv">7</span>, <span class="dv">9</span>)</span></code></pre></div>
 <div class="warning">
 <p>Da das <code>tidyverse</code> nur andere Packages lädt kann man nicht <code>tidyverse::funktion()</code> schreiben. Stattdessen muss man das Package aus dem die Funktion stammt (z.B.<code>dplyr</code>) direkt ansprechen.</p>
 </div>
@@ -566,7 +568,7 @@ Abbildung 2.4: Vergleich vom (a) Installieren und (b) vom Laden von Packages.
 <div id="der-unterschied" class="section level3" number="2.6.1">
 <h3><span class="header-section-number">2.6.1</span> Der Unterschied</h3>
 <p>Es gibt einen großen Unterschied zwischen Fehler- und Warnmeldungen. Wie der Name bereits suggeriert, stoppen Fehlermeldungen den Code, während Warnmeldungen ein Ergebnis zurückgeben und nur auf mögliche Probleme hinweisen. Es ist also sehr wichtig, die roten Meldungen in der Konsole genau zu lesen, anstatt direkt in Panik zu geraden. Ein Beispiel für eine Fehlermeldung sehen wir, wenn wir die Zahl 1 mit dem Buchstaben <code>c</code> summieren möchten.</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb18-1"><a href="start.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="st">&quot;c&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb19-1"><a href="start.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="st">&quot;c&quot;</span></span></code></pre></div>
 <pre class="bordercode"><code>Error in 1 + &quot;c&quot;: non-numeric argument to binary operator</code></pre>
 <p>Hier ist die Fehlermeldung eindeutig. Wir versuchen einen nicht-numerisches Buchstaben (das <code>c</code>) mit einem numerischen zu addieren. Leider sind Fehlermeldungen in R keineswegs immer so eindeutig zu interpretieren. Nicht selten sind sie kryptisch und gerade am Anfang wird man oft im Internet nach einer Lösung suchen müssen.</p>
 <p>Warnmeldungen haben zwar die selbe erschreckende rote Schrift wie Fehlermeldungen, allerdings starten sie mit <code>Warning Message</code> und stoppen den Code nicht. Warnmeldungen sind für dich als Benutzer gedacht, um dich auf mögliche Probleme bei deiner Eingabe hinzuweisen. Gerade bei der statistischen Auswertungen können Warnungen Dir schonmal häufiger über den Weg laufen und sollten nicht blind ignoriert werden.</p>
@@ -576,7 +578,7 @@ Abbildung 2.4: Vergleich vom (a) Installieren und (b) vom Laden von Packages.
 <h3><span class="header-section-number">2.6.2</span> Wo bekomme ich Hilfe?</h3>
 <p>Gerade bei den ersten Kontakten mit einer Programmiersprache, dauert das Warmwerden möglicherweise eine gewisse Zeit. Damit man nicht gleich die Motivation verliert und aufgibt, sind die richtigen Quellen für eine schnelle Hilfe essentiell. Glücklicherweise ist dies einer der größten Vorteile von R. Es existieren nicht nur ausführliche Dokumentationen der verschiedenen Funktionen mit Anwendungsbeispielen. Darüber hinaus ist die R Community auch besonders hilfsbereit. Falls du verzweifelt vor deinem Computer oder Laptop sitzt und nicht weißt, wieso dein Code schon wieder nicht funktioniert, solltest du besonders an fünf Orten nach Antworten suchen.</p>
 <p><strong>Package Dokumentation.</strong> Das naheliegendste ist die Dokumentation der R Funktionen, die auch ohne Internet direkt in R aufgerufen werden können. Dafür kannst du entweder ein Fragezeichen vor die Funktion schreiben oder nach Anklicken der Funktion F1 auf der Tastatur drücken. Wenn wir zum Beispiel mehr über die Argumente der Funktion <code>install.packages()</code> erhalten möchten, könnten wir dies so erreichen:</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb20-1"><a href="start.html#cb20-1" aria-hidden="true" tabindex="-1"></a>?install.packages</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb21-1"><a href="start.html#cb21-1" aria-hidden="true" tabindex="-1"></a>?install.packages</span></code></pre></div>
 <p>Die meisten modernen Packages stellen außerdem so genannte Vignetten zur Verfügung, in denen häufige Probleme ausführlich diskutiert und erklärt werden. Diese können mit <code>vignette("nameDerVignette")</code> auch direkt innerhalb von R aufgerufen werden.</p>
 <p><strong>Suchmaschine.</strong> In die Suchmaschine gibst du einfach <code>r</code> gefolgt von der Fehlermeldung oder dem Problem ein, an dem du gerade festhängst. Es vergeht kaum eine Fehlermeldung bei der das Programmierforum StackOverflow nicht an erster Stelle angezeigt wird. Denn meistens hat jemand anderes schon einmal genau das selbe Problem gehabt hat.</p>
 <p><strong>Stackoverflow.</strong> Dies ist wohl das mit Abstand größte Forum für Programmierfragen. Allerdings kann es einschüchternd sein, dort als absoluter Anfänger selbst eine Frage zu stellen. Voraussetzung zum Fragestellen ist dort ein kurzes reproduzierbares Beispiel des Fehlers. du erreichst die Seite unter <a href="https://stackoverflow.com/">https://stackoverflow.com/</a>.</p>
@@ -595,10 +597,10 @@ Abbildung 2.4: Vergleich vom (a) Installieren und (b) vom Laden von Packages.
 </ol>
 <p>Während Punkt 1 und 3 soweit verständlich sind, bedarf es eine Erklärung für reproduzierbare Beispiel. Ein reproduzierbares Beispiel enthält alle Informationen, die jemand anderes zum replizieren des Fehlers benötigt. Es müssen also alle geladenen Packages angegeben werden. Außerdem ist es essentiell, den Datensatz in irgendeiner Form zur Verfügung zu stellen. Dabei ist es optimal eine minimale Version des Problems zu abstrahieren. Angenommen, du stößt beim Rechnen mit einem eigenen Datensatz auf ein Problem. Niemand anderes im Internet hat diesen Datensatz. Nun kann ein möglichst kleiner Datensatz innerhalb von R erstellen werden, mit dem man auch auf das selbe Problem oder auf den selben Fehler stößt. Da das jedoch gerade am Anfang nicht ganz einfach ist, wird erst in Kapitel <a href="io.html#inR">5.3</a> erläutert, wie man selbst Datensätze erstellen kann. Falls du die Frage im Forum zum Buch stellen magst, kannst du selbstverständlich den Fehler einfach an einem im <code>remp</code> enthaltenen Datensatz nachstellen. Eine weitere Möglichkeit ist die Funktion <code>dput()</code>, die einen bestehenden Datensatz in eine für andere durch Copy &amp; Paste einlesbare Struktur bringt.</p>
 <p>Gehen wir das ganze einmal durch. Angenommen, wir haben irgendeine Fehlermeldung bezüglich des <code>big_five</code> Datensatzes. Genauer gesagt möchten wir einfach nur die Spalten Extraversion und Neurotizismus in einem Streudiagramm gemeinsam abbilden. Da immer nur die minimale Struktur zur Verfügung gestellt werden soll (um das Beispiel möglichst einfach und übersichtlich zu halten), wählen wir also nur diese beiden Spalten (<code>select()</code>) der ersten 10 Personen (<code>slice_head(n = 10)</code>) aus. Die Funktion <code>dput()</code> erledigt dann den Rest.</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb21-1"><a href="start.html#cb21-1" aria-hidden="true" tabindex="-1"></a>big_five <span class="sc">%&gt;%</span> </span>
-<span id="cb21-2"><a href="start.html#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Extraversion, Geschlecht) <span class="sc">%&gt;%</span> </span>
-<span id="cb21-3"><a href="start.html#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_head</span>(<span class="at">n =</span> <span class="dv">10</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb21-4"><a href="start.html#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">dput</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb22-1"><a href="start.html#cb22-1" aria-hidden="true" tabindex="-1"></a>big_five <span class="sc">%&gt;%</span> </span>
+<span id="cb22-2"><a href="start.html#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Extraversion, Geschlecht) <span class="sc">%&gt;%</span> </span>
+<span id="cb22-3"><a href="start.html#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_head</span>(<span class="at">n =</span> <span class="dv">10</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb22-4"><a href="start.html#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">dput</span>()</span></code></pre></div>
 <pre class="bordercode"><code>structure(list(Extraversion = c(3, 3.1, 3.4, 3.3, 3, 2.8, 3.5, 
 3.5, 3, 3.1), Geschlecht = c(&quot;m&quot;, &quot;f&quot;, &quot;m&quot;, &quot;m&quot;, &quot;f&quot;, &quot;f&quot;, &quot;m&quot;, 
 &quot;m&quot;, &quot;f&quot;, &quot;m&quot;)), row.names = c(NA, -10L), class = c(&quot;tbl_df&quot;, 

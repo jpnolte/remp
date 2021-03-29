@@ -7,7 +7,7 @@ fig:unnamed-chunk-23
 fig:unnamed-chunk-24
 fig:unnamed-chunk-25
 fig:types
-fig:unnamed-chunk-47
+fig:unnamed-chunk-48
 fig:tidyverse
 fig:wideintro
 fig:longintro
@@ -37,11 +37,11 @@ eq:form3
 eq:form4
 fig:modelingb
 eq:form5
-fig:unnamed-chunk-250
-fig:unnamed-chunk-251
+fig:unnamed-chunk-263
+fig:unnamed-chunk-264
 fig:html-markdown
-fig:unnamed-chunk-252
-fig:unnamed-chunk-255
+fig:unnamed-chunk-265
+fig:unnamed-chunk-268
 fig:gt
 intro
 für-wen-ist-dieses-buch
@@ -105,6 +105,7 @@ boxplot
 violin
 barplot
 anovaplot
+kaplan-meier-kurve
 odds
 q-q-plot
 ellipsen
@@ -139,9 +140,10 @@ hierarchische-lineare-regression
 logistische-regression
 baseline-logit-modell
 kumulative-logit-modelle
+cox-regression
+zeitreihenmodelle
 korrelationsanalysen
 korrelationstests
-polychorische-korrelation
 korrelationstabellen
 contingency
 fisher

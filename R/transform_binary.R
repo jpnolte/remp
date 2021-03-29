@@ -58,12 +58,12 @@ transform_binary <- function(df, answers){
 
   trueFalse <- df == ma
 
-  answer <- tibble::as_tibble(
+  answer <- data.frame(
     matrix(ifelse(trueFalse == TRUE, 1, 0), ncol = cols)
   )
 
   names(answer) <- names(df)
 
-  return(answer)
+  return(tibble::as_tibble(answer))
 
 }

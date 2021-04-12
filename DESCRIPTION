@@ -1,6 +1,6 @@
 Package: remp
 Title: R für empirische Wissenschaften
-Version: 0.0.1
+Version: 0.0.2
 Authors@R: person("Jan Philipp", "Nolte", email = "jp.nolte@protonmail.com", role = c("aut", "cre"))
 Maintainer: Jan Philipp Nolte <jan.nolte@umit.at>
 Description: Lerne R ohne jegliches Vorwissen. Moderne und konsistente Funktionen machen R endlich zugänglich für jeden und jede. Egal wie computeraffin.

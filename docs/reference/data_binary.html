@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Interpreten beim Musik Streaming — artists • remp</title>
+<title>Binary Transformation — data_binary • remp</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -48,8 +48,10 @@
   <link href="../extra.css" rel="stylesheet">
   
 
-<meta property="og:title" content="Interpreten beim Musik Streaming — artists" />
-<meta property="og:description" content="Dies ist ein Datensatz mit den 50 am meisten gehörten Interpreten eines Nutzers auf einer der bekanntesten Musik Streaming Plattformen." />
+<meta property="og:title" content="Binary Transformation — data_binary" />
+<meta property="og:description" content="Erstellt eine binaere Ergebnismatrix, in der die richtigen Antworten mit einer 1 und die falschen mit einer 0 markiert sind.
+Falls die richtigen Antworten sowohl Numerics als auch Characters beinhalten, kann der Funktion ebenfalls ein einzeiliger data.frame / tibble gegeben werden.
+Fehlende Werte werden als falsch beantwortet gewertet." />
 <meta property="og:image" content="https://github.com/j3ypi/remp/logo.png" />
 
 
@@ -137,32 +139,58 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Interpreten beim Musik Streaming</h1>
-    <small class="dont-index">Source: <a href='https://github.com/j3ypi/remp/blob/master/R/artists.R'><code>R/artists.R</code></a></small>
-    <div class="hidden name"><code>artists.Rd</code></div>
+    <h1>Binary Transformation</h1>
+    <small class="dont-index">Source: <a href='https://github.com/j3ypi/remp/blob/master/R/data_binary.R'><code>R/data_binary.R</code></a></small>
+    <div class="hidden name"><code>data_binary.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Dies ist ein Datensatz mit den 50 am meisten gehörten Interpreten eines Nutzers auf einer der bekanntesten Musik Streaming Plattformen.</p>
+    <p>Erstellt eine binaere Ergebnismatrix, in der die richtigen Antworten mit einer 1 und die falschen mit einer 0 markiert sind.
+Falls die richtigen Antworten sowohl Numerics als auch Characters beinhalten, kann der Funktion ebenfalls ein einzeiliger data.frame / tibble gegeben werden.
+Fehlende Werte werden als falsch beantwortet gewertet.</p>
     </div>
 
-    <pre class="usage"><span class='va'>artists</span></pre>
+    <pre class="usage"><span class='fu'>data_binary</span><span class='op'>(</span><span class='va'>df</span>, <span class='va'>answers</span><span class='op'>)</span></pre>
 
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>df</th>
+      <td><p>Datensatz als data.frame / tibble.</p></td>
+    </tr>
+    <tr>
+      <th>answers</th>
+      <td><p>Antwortvektor als Vektor / einzeiliger tibble.</p></td>
+    </tr>
+    </table>
 
-    <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>Ein tibble mit 50 Zeilen and 4 Spalten:</p><dl>
-  <dt>Interpret</dt><dd><p>Name des Interpreten oder der Band.</p></dd>
-  <dt>Genre</dt><dd><p>Diverse Genre Bezeichnungen pro Interpreten.</p></dd>
-  <dt>Follower</dt><dd><p>Follower des Interpreten innerhalb der Streaming Plattform.</p></dd>
-  <dt>Bekanntheit</dt><dd><p>Index zur Quantifizierung der Bekanntheit des Interpreten.</p></dd>
+    <p>Ergebnismatrix als tibble</p>
 
-</dl>
-
-    <h2 class="hasAnchor" id="source"><a class="anchor" href="#source"></a>Source</h2>
-
-    <p><a href='Research'>Research</a></p>
-
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
+<span class='co'>########################</span>
+<span class='co'># Identische Datentypen</span>
+<span class='va'>soscisurvey</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span>
+ I1 <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>3</span>, <span class='fl'>2</span>, <span class='fl'>3</span>, <span class='fl'>1</span><span class='op'>)</span>,
+ I2 <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>2</span>, <span class='fl'>2</span>, <span class='fl'>2</span>, <span class='fl'>1</span><span class='op'>)</span>,
+ I3 <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>4</span>, <span class='fl'>1</span>, <span class='fl'>4</span>, <span class='fl'>4</span><span class='op'>)</span>
+<span class='op'>)</span>
+<span class='va'>antwortvec</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>3</span>, <span class='fl'>2</span>, <span class='fl'>4</span><span class='op'>)</span>
+<span class='fu'>data_binary</span><span class='op'>(</span><span class='va'>soscisurvey</span>, <span class='va'>antwortvec</span><span class='op'>)</span>
+<span class='co'>########################</span>
+<span class='co'># Verschiedene Datentypen</span>
+<span class='va'>soscisurvey</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span>
+ I1 <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>3</span>, <span class='fl'>2</span>, <span class='fl'>3</span>, <span class='fl'>1</span><span class='op'>)</span>,
+ I2 <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Apfel"</span>, <span class='st'>"Banane"</span>, <span class='st'>"Erdbeere"</span>, <span class='st'>"Apfel"</span><span class='op'>)</span>,
+ I3 <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>4</span>, <span class='fl'>1</span>, <span class='cn'>NA</span>, <span class='fl'>4</span><span class='op'>)</span>
+<span class='op'>)</span>
+<span class='va'>antwortvec</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span><span class='fl'>3</span>, <span class='st'>"Apfel"</span>, <span class='fl'>4</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>soscisurvey</span>, <span class='va'>antwortvec</span><span class='op'>)</span>
+<span class='op'>}</span>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

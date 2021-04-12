@@ -16,7 +16,7 @@
 #'  I3 = c(4, 1, 4, 4)
 #' )
 #' antwortvec <- c(3, 2, 4)
-#' transform_binary(soscisurvey, antwortvec)
+#' data_binary(soscisurvey, antwortvec)
 #' ########################
 #' # Verschiedene Datentypen
 #' soscisurvey <- data.frame(
@@ -25,10 +25,10 @@
 #'  I3 = c(4, 1, NA, 4)
 #' )
 #' antwortvec <- data.frame(3, "Apfel", 4)
-#' transform_binary(soscisurvey, antwortvec)
+#' data(soscisurvey, antwortvec)
 #' }
 #' @export
-transform_binary <- function(df, answers){
+data_binary <- function(df, answers){
 
   cols <- dim(df)[2]
   rows <- dim(df)[1]

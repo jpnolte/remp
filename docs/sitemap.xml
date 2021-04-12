@@ -4,7 +4,13 @@
     <loc>https://github.com/j3ypi/remp/index.html</loc>
   </url>
   <url>
+    <loc>https://github.com/j3ypi/remp/reference/A.html</loc>
+  </url>
+  <url>
     <loc>https://github.com/j3ypi/remp/reference/artists.html</loc>
+  </url>
+  <url>
+    <loc>https://github.com/j3ypi/remp/reference/B.html</loc>
   </url>
   <url>
     <loc>https://github.com/j3ypi/remp/reference/big5.html</loc>
@@ -19,10 +25,22 @@
     <loc>https://github.com/j3ypi/remp/reference/big_five_comp.html</loc>
   </url>
   <url>
+    <loc>https://github.com/j3ypi/remp/reference/C.html</loc>
+  </url>
+  <url>
+    <loc>https://github.com/j3ypi/remp/reference/D.html</loc>
+  </url>
+  <url>
+    <loc>https://github.com/j3ypi/remp/reference/data_binary.html</loc>
+  </url>
+  <url>
     <loc>https://github.com/j3ypi/remp/reference/data_eigen.html</loc>
   </url>
   <url>
     <loc>https://github.com/j3ypi/remp/reference/descriptive.html</loc>
+  </url>
+  <url>
+    <loc>https://github.com/j3ypi/remp/reference/E.html</loc>
   </url>
   <url>
     <loc>https://github.com/j3ypi/remp/reference/eye_tracking.html</loc>
@@ -35,6 +53,12 @@
   </url>
   <url>
     <loc>https://github.com/j3ypi/remp/reference/iq.html</loc>
+  </url>
+  <url>
+    <loc>https://github.com/j3ypi/remp/reference/literacy.html</loc>
+  </url>
+  <url>
+    <loc>https://github.com/j3ypi/remp/reference/literacy_mod.html</loc>
   </url>
   <url>
     <loc>https://github.com/j3ypi/remp/reference/odds_ratios.html</loc>
@@ -50,9 +74,6 @@
   </url>
   <url>
     <loc>https://github.com/j3ypi/remp/reference/tracks.html</loc>
-  </url>
-  <url>
-    <loc>https://github.com/j3ypi/remp/reference/transform_binary.html</loc>
   </url>
   <url>
     <loc>https://github.com/j3ypi/remp/reference/video.html</loc>

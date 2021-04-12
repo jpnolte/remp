@@ -10,6 +10,15 @@ Lerne R ohne jegliches Vorwissen. Moderne und konsistente Funktionen machen die 
 
 *Es handelt sich derzeit noch nicht um die finale Version.*
 
+**Features**
+
+  - Keine Vorkenntnisse notwendig
+  - Fast vollständig konsistente Funktionen
+  - Reiner Fokus auf die computergestützte Datenauswertung 
+  - Problemlos auf jedem Mobilgerät lesbar
+  - Copy & Paste Button oben rechts an jedem Code Block 
+  - Drei Farbthemen (inkl. **Night Mode**): Umstellen durch Auswahl auf dem *A* oben links im Lehrbuch. Außerdem können dort Schriftgröße und Schriftart angepasst werden.
+
 **Begleitendes R Package `remp`**
 
 Das Package `remp` ist begleitend zum Buch *R für empirische Wissenschaften* vorgesehen. Es enthält Datensätze, Funktionen und Übungen auf die im Laufe des Buches immer wieder zurückgegriffen wird. Die enthaltenen Features können im Reiter *Dokumentation* in der Navigationsleiste eingesehen werden. Da das Package aufgrund der deutschen Dokumentation und des speziellen Funktionsumfangs nicht auf CRAN veröffentlicht ist, muss es direkt von Github mithilfe des `remotes` Packages installiert werden.

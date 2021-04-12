@@ -17,7 +17,6 @@ reference:
       - starts_with("desc")
       - starts_with("data")
       - starts_with("hands")
-      - starts_with("trans")
   - title: Datensätze
     contents:
       - starts_with("art")
@@ -25,11 +24,17 @@ reference:
       - starts_with("eye")
       - starts_with("indo")
       - starts_with("iq")
+      - starts_with("liter")
       - starts_with("odds")
       - starts_with("rep")
       - starts_with("tipp")
       - starts_with("tracks")
       - starts_with("video")
+      - starts_with("A")
+      - starts_with("B")
+      - starts_with("C")
+      - starts_with("D")
+      - starts_with("E")
   - title: Übungen
 
 navbar:

@@ -5,26 +5,26 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Kapitel 10 Latente Variablenmodelle | R für empirische Wissenschaften</title>
-  <meta name="description" content="Das ist ein Test" />
+  <meta name="description" content="Lerne R ohne jegliches Vorwissen. Moderne und konsistente Funktionen machen R endlich zugänglich für jeden und jede. Egal wie computeraffin." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Kapitel 10 Latente Variablenmodelle | R für empirische Wissenschaften" />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="images/logo.png" />
-  <meta property="og:description" content="Das ist ein Test" />
+  <meta property="og:description" content="Lerne R ohne jegliches Vorwissen. Moderne und konsistente Funktionen machen R endlich zugänglich für jeden und jede. Egal wie computeraffin." />
   <meta name="github-repo" content="j3ypi/remp" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Kapitel 10 Latente Variablenmodelle | R für empirische Wissenschaften" />
   
-  <meta name="twitter:description" content="Das ist ein Test" />
+  <meta name="twitter:description" content="Lerne R ohne jegliches Vorwissen. Moderne und konsistente Funktionen machen R endlich zugänglich für jeden und jede. Egal wie computeraffin." />
   <meta name="twitter:image" content="images/logo.png" />
 
 <meta name="author" content="Jan Philipp Nolte" />
 
 
-<meta name="date" content="2021-03-29" />
+<meta name="date" content="2021-04-12" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -193,7 +193,7 @@ code span.wa { font-weight: bold; } /* Warning */
 </ul></li>
 <li class="chapter" data-level="5" data-path="io.html"><a href="io.html"><i class="fa fa-check"></i><b>5</b> Datensätze</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="io.html"><a href="io.html#einlesen-externer-dateien"><i class="fa fa-check"></i><b>5.1</b> Einlesen externer Dateien</a></li>
+<li class="chapter" data-level="5.1" data-path="io.html"><a href="io.html#import"><i class="fa fa-check"></i><b>5.1</b> Einlesen externer Dateien</a></li>
 <li class="chapter" data-level="5.2" data-path="io.html"><a href="io.html#datensätze-aus-packages-laden"><i class="fa fa-check"></i><b>5.2</b> Datensätze aus Packages laden</a></li>
 <li class="chapter" data-level="5.3" data-path="io.html"><a href="io.html#inR"><i class="fa fa-check"></i><b>5.3</b> Datensätze in R erstellen</a></li>
 <li class="chapter" data-level="5.4" data-path="io.html"><a href="io.html#speichern-und-konvertieren"><i class="fa fa-check"></i><b>5.4</b> Speichern und Konvertieren</a></li>
@@ -225,24 +225,30 @@ code span.wa { font-weight: bold; } /* Warning */
 <ul>
 <li class="chapter" data-level="8.1" data-path="visual.html"><a href="visual.html#einführung"><i class="fa fa-check"></i><b>8.1</b> Einführung</a></li>
 <li class="chapter" data-level="8.2" data-path="visual.html"><a href="visual.html#histogram"><i class="fa fa-check"></i><b>8.2</b> Histogramm und Dichte</a></li>
-<li class="chapter" data-level="8.3" data-path="visual.html"><a href="visual.html#streudiagramm"><i class="fa fa-check"></i><b>8.3</b> Streudiagramm</a></li>
+<li class="chapter" data-level="8.3" data-path="visual.html"><a href="visual.html#scatter"><i class="fa fa-check"></i><b>8.3</b> Streudiagramm</a></li>
 <li class="chapter" data-level="8.4" data-path="visual.html"><a href="visual.html#boxplot"><i class="fa fa-check"></i><b>8.4</b> Boxplot</a></li>
 <li class="chapter" data-level="8.5" data-path="visual.html"><a href="visual.html#violin"><i class="fa fa-check"></i><b>8.5</b> Violin Plot</a></li>
 <li class="chapter" data-level="8.6" data-path="visual.html"><a href="visual.html#barplot"><i class="fa fa-check"></i><b>8.6</b> Balkendiagramm</a></li>
 <li class="chapter" data-level="8.7" data-path="visual.html"><a href="visual.html#anovaplot"><i class="fa fa-check"></i><b>8.7</b> Liniendiagramm</a></li>
-<li class="chapter" data-level="8.8" data-path="visual.html"><a href="visual.html#kaplan-meier-kurve"><i class="fa fa-check"></i><b>8.8</b> Kaplan-Meier-Kurve</a></li>
-<li class="chapter" data-level="8.9" data-path="visual.html"><a href="visual.html#odds"><i class="fa fa-check"></i><b>8.9</b> Odds Ratios</a></li>
-<li class="chapter" data-level="8.10" data-path="visual.html"><a href="visual.html#q-q-plot"><i class="fa fa-check"></i><b>8.10</b> Q-Q Plot</a></li>
-<li class="chapter" data-level="8.11" data-path="visual.html"><a href="visual.html#ellipsen"><i class="fa fa-check"></i><b>8.11</b> Ellipse</a></li>
-<li class="chapter" data-level="8.12" data-path="visual.html"><a href="visual.html#morefactors"><i class="fa fa-check"></i><b>8.12</b> Mehrfaktorielle Abbildungen</a>
+<li class="chapter" data-level="8.8" data-path="visual.html"><a href="visual.html#odds"><i class="fa fa-check"></i><b>8.8</b> Odds Ratios</a></li>
+<li class="chapter" data-level="8.9" data-path="visual.html"><a href="visual.html#q-q-plot"><i class="fa fa-check"></i><b>8.9</b> Q-Q Plot</a></li>
+<li class="chapter" data-level="8.10" data-path="visual.html"><a href="visual.html#ellipsen"><i class="fa fa-check"></i><b>8.10</b> Ellipse</a></li>
+<li class="chapter" data-level="8.11" data-path="visual.html"><a href="visual.html#morefactors"><i class="fa fa-check"></i><b>8.11</b> Mehrfaktorielle Abbildungen</a>
 <ul>
-<li class="chapter" data-level="8.12.1" data-path="visual.html"><a href="visual.html#groups"><i class="fa fa-check"></i><b>8.12.1</b> Gruppierungsargumente</a></li>
-<li class="chapter" data-level="8.12.2" data-path="visual.html"><a href="visual.html#facets"><i class="fa fa-check"></i><b>8.12.2</b> Facets</a></li>
+<li class="chapter" data-level="8.11.1" data-path="visual.html"><a href="visual.html#groups"><i class="fa fa-check"></i><b>8.11.1</b> Gruppierungsargumente</a></li>
+<li class="chapter" data-level="8.11.2" data-path="visual.html"><a href="visual.html#facets"><i class="fa fa-check"></i><b>8.11.2</b> Facets</a></li>
 </ul></li>
-<li class="chapter" data-level="8.13" data-path="visual.html"><a href="visual.html#patch"><i class="fa fa-check"></i><b>8.13</b> Anordnen mehrerer Graphen</a></li>
-<li class="chapter" data-level="8.14" data-path="visual.html"><a href="visual.html#adapt"><i class="fa fa-check"></i><b>8.14</b> Anpassen des Aussehens</a></li>
-<li class="chapter" data-level="8.15" data-path="visual.html"><a href="visual.html#ggsave"><i class="fa fa-check"></i><b>8.15</b> Speichern von Graphen</a></li>
-<li class="chapter" data-level="8.16" data-path="visual.html"><a href="visual.html#example"><i class="fa fa-check"></i><b>8.16</b> Anwendungsbeispiel</a></li>
+<li class="chapter" data-level="8.12" data-path="visual.html"><a href="visual.html#patch"><i class="fa fa-check"></i><b>8.12</b> Anordnen mehrerer Graphen</a></li>
+<li class="chapter" data-level="8.13" data-path="visual.html"><a href="visual.html#adapt"><i class="fa fa-check"></i><b>8.13</b> Anpassen des Aussehens</a></li>
+<li class="chapter" data-level="8.14" data-path="visual.html"><a href="visual.html#ggsave"><i class="fa fa-check"></i><b>8.14</b> Speichern von Graphen</a></li>
+<li class="chapter" data-level="8.15" data-path="visual.html"><a href="visual.html#example"><i class="fa fa-check"></i><b>8.15</b> Anwendungsbeispiel</a></li>
+<li class="chapter" data-level="8.16" data-path="visual.html"><a href="visual.html#exemplarische-erweiterungen"><i class="fa fa-check"></i><b>8.16</b> Exemplarische Erweiterungen</a>
+<ul>
+<li class="chapter" data-level="8.16.1" data-path="visual.html"><a href="visual.html#ridgeline-plot"><i class="fa fa-check"></i><b>8.16.1</b> Ridgeline Plot</a></li>
+<li class="chapter" data-level="8.16.2" data-path="visual.html"><a href="visual.html#hervorheben-bestimmter-werte"><i class="fa fa-check"></i><b>8.16.2</b> Hervorheben bestimmter Werte</a></li>
+<li class="chapter" data-level="8.16.3" data-path="visual.html"><a href="visual.html#kaplan"><i class="fa fa-check"></i><b>8.16.3</b> Kaplan-Meier-Kurve</a></li>
+<li class="chapter" data-level="8.16.4" data-path="visual.html"><a href="visual.html#dags"><i class="fa fa-check"></i><b>8.16.4</b> Directed Acyclic Graphs</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="inductive.html"><a href="inductive.html"><i class="fa fa-check"></i><b>9</b> Inferenzstatistik</a>
 <ul>
@@ -266,20 +272,19 @@ code span.wa { font-weight: bold; } /* Warning */
 </ul></li>
 <li class="chapter" data-level="9.5" data-path="inductive.html"><a href="inductive.html#unterschiede-mehrerer-gruppen"><i class="fa fa-check"></i><b>9.5</b> Unterschiede mehrerer Gruppen</a>
 <ul>
-<li class="chapter" data-level="9.5.1" data-path="inductive.html"><a href="inductive.html#aov"><i class="fa fa-check"></i><b>9.5.1</b> Varianzanalyse</a></li>
+<li class="chapter" data-level="9.5.1" data-path="inductive.html"><a href="inductive.html#aov"><i class="fa fa-check"></i><b>9.5.1</b> AN(C)OVA</a></li>
 <li class="chapter" data-level="9.5.2" data-path="inductive.html"><a href="inductive.html#repeated"><i class="fa fa-check"></i><b>9.5.2</b> ANOVA mit Messwiederholung</a></li>
 <li class="chapter" data-level="9.5.3" data-path="inductive.html"><a href="inductive.html#kruskal-wallis-test"><i class="fa fa-check"></i><b>9.5.3</b> Kruskal-Wallis Test</a></li>
 <li class="chapter" data-level="9.5.4" data-path="inductive.html"><a href="inductive.html#friedman-test"><i class="fa fa-check"></i><b>9.5.4</b> Friedman Test</a></li>
 </ul></li>
 <li class="chapter" data-level="9.6" data-path="inductive.html"><a href="inductive.html#regressionsmodelle"><i class="fa fa-check"></i><b>9.6</b> Regressionsmodelle</a>
 <ul>
-<li class="chapter" data-level="9.6.1" data-path="inductive.html"><a href="inductive.html#linregression"><i class="fa fa-check"></i><b>9.6.1</b> Eindimensionale lineare Regression</a></li>
-<li class="chapter" data-level="9.6.2" data-path="inductive.html"><a href="inductive.html#hierarchische-lineare-regression"><i class="fa fa-check"></i><b>9.6.2</b> Hierarchische lineare Regression</a></li>
+<li class="chapter" data-level="9.6.1" data-path="inductive.html"><a href="inductive.html#linregression"><i class="fa fa-check"></i><b>9.6.1</b> Lineare Regression</a></li>
+<li class="chapter" data-level="9.6.2" data-path="inductive.html"><a href="inductive.html#lineares-gemischtes-modell"><i class="fa fa-check"></i><b>9.6.2</b> Lineares gemischtes Modell</a></li>
 <li class="chapter" data-level="9.6.3" data-path="inductive.html"><a href="inductive.html#logistische-regression"><i class="fa fa-check"></i><b>9.6.3</b> Logistische Regression</a></li>
 <li class="chapter" data-level="9.6.4" data-path="inductive.html"><a href="inductive.html#baseline-logit-modell"><i class="fa fa-check"></i><b>9.6.4</b> Baseline Logit Modell</a></li>
-<li class="chapter" data-level="9.6.5" data-path="inductive.html"><a href="inductive.html#kumulative-logit-modelle"><i class="fa fa-check"></i><b>9.6.5</b> Kumulative Logit Modelle</a></li>
-<li class="chapter" data-level="9.6.6" data-path="inductive.html"><a href="inductive.html#cox-regression"><i class="fa fa-check"></i><b>9.6.6</b> Cox Regression</a></li>
-<li class="chapter" data-level="9.6.7" data-path="inductive.html"><a href="inductive.html#zeitreihenmodelle"><i class="fa fa-check"></i><b>9.6.7</b> Zeitreihenmodelle</a></li>
+<li class="chapter" data-level="9.6.5" data-path="inductive.html"><a href="inductive.html#kumulatives-logit-modell"><i class="fa fa-check"></i><b>9.6.5</b> Kumulatives Logit Modell</a></li>
+<li class="chapter" data-level="9.6.6" data-path="inductive.html"><a href="inductive.html#cox"><i class="fa fa-check"></i><b>9.6.6</b> Cox Regression</a></li>
 </ul></li>
 <li class="chapter" data-level="9.7" data-path="inductive.html"><a href="inductive.html#korrelationsanalysen"><i class="fa fa-check"></i><b>9.7</b> Korrelationsanalysen</a>
 <ul>
@@ -294,10 +299,15 @@ code span.wa { font-weight: bold; } /* Warning */
 </ul></li>
 <li class="chapter" data-level="10" data-path="latente-variablenmodelle.html"><a href="latente-variablenmodelle.html"><i class="fa fa-check"></i><b>10</b> Latente Variablenmodelle</a>
 <ul>
-<li class="chapter" data-level="10.1" data-path="latente-variablenmodelle.html"><a href="latente-variablenmodelle.html#naive-hauptkomponentenanalyse"><i class="fa fa-check"></i><b>10.1</b> Naive Hauptkomponentenanalyse</a></li>
+<li class="chapter" data-level="10.1" data-path="latente-variablenmodelle.html"><a href="latente-variablenmodelle.html#pca"><i class="fa fa-check"></i><b>10.1</b> Hauptkomponentenanalyse</a></li>
 <li class="chapter" data-level="10.2" data-path="latente-variablenmodelle.html"><a href="latente-variablenmodelle.html#factanal"><i class="fa fa-check"></i><b>10.2</b> Explorative Faktorenanalyse</a></li>
 <li class="chapter" data-level="10.3" data-path="latente-variablenmodelle.html"><a href="latente-variablenmodelle.html#kmeans"><i class="fa fa-check"></i><b>10.3</b> <em>k</em>-Means Clustering</a></li>
-<li class="chapter" data-level="10.4" data-path="latente-variablenmodelle.html"><a href="latente-variablenmodelle.html#strukturgleichungsmodelle"><i class="fa fa-check"></i><b>10.4</b> Strukturgleichungsmodelle</a></li>
+<li class="chapter" data-level="10.4" data-path="latente-variablenmodelle.html"><a href="latente-variablenmodelle.html#structural"><i class="fa fa-check"></i><b>10.4</b> Strukturmodelle</a>
+<ul>
+<li class="chapter" data-level="10.4.1" data-path="latente-variablenmodelle.html"><a href="latente-variablenmodelle.html#mediation"><i class="fa fa-check"></i><b>10.4.1</b> Mediation</a></li>
+<li class="chapter" data-level="10.4.2" data-path="latente-variablenmodelle.html"><a href="latente-variablenmodelle.html#cfa"><i class="fa fa-check"></i><b>10.4.2</b> Konfirmatorische Faktorenanalyse</a></li>
+<li class="chapter" data-level="10.4.3" data-path="latente-variablenmodelle.html"><a href="latente-variablenmodelle.html#sem"><i class="fa fa-check"></i><b>10.4.3</b> Strukturgleichungsmodell</a></li>
+</ul></li>
 </ul></li>
 <li class="part"><span><b>IV Vertiefung</b></span></li>
 <li class="chapter" data-level="11" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html"><i class="fa fa-check"></i><b>11</b> Ergebnisse exportieren</a>
@@ -306,9 +316,9 @@ code span.wa { font-weight: bold; } /* Warning */
 <li class="chapter" data-level="11.2" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#markdown"><i class="fa fa-check"></i><b>11.2</b> Berichte</a></li>
 <li class="chapter" data-level="11.3" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#tabellen"><i class="fa fa-check"></i><b>11.3</b> Tabellen</a>
 <ul>
-<li class="chapter" data-level="11.3.1" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#word-pdf-und-html"><i class="fa fa-check"></i><b>11.3.1</b> Word, PDF und HTML</a></li>
+<li class="chapter" data-level="11.3.1" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#knitr"><i class="fa fa-check"></i><b>11.3.1</b> Word, PDF und HTML</a></li>
 <li class="chapter" data-level="11.3.2" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#latex"><i class="fa fa-check"></i><b>11.3.2</b> LaTeX</a></li>
-<li class="chapter" data-level="11.3.3" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#komplexe-tabellen"><i class="fa fa-check"></i><b>11.3.3</b> Komplexe Tabellen</a></li>
+<li class="chapter" data-level="11.3.3" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#gt"><i class="fa fa-check"></i><b>11.3.3</b> Komplexe Tabellen</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="12" data-path="datatypes.html"><a href="datatypes.html"><i class="fa fa-check"></i><b>12</b> Datenstrukturen</a>
@@ -331,17 +341,19 @@ code span.wa { font-weight: bold; } /* Warning */
 <li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#datensatzerläuterungen"><i class="fa fa-check"></i>Datensatzerläuterungen</a>
 <ul>
 <li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#big-five"><i class="fa fa-check"></i>Big Five</a></li>
-<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#tipp-wm"><i class="fa fa-check"></i>Tipp WM</a></li>
 <li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#indonesisch"><i class="fa fa-check"></i>Indonesisch</a></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#heartoprolol"><i class="fa fa-check"></i>Heartoprolol</a></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#bitcoin"><i class="fa fa-check"></i>Bitcoin</a></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#statistical-literacy"><i class="fa fa-check"></i>Statistical Literacy</a></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#eye-tracking"><i class="fa fa-check"></i>Eye Tracking</a></li>
 <li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#video"><i class="fa fa-check"></i>Video</a></li>
 <li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#artists"><i class="fa fa-check"></i>Artists</a></li>
 <li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#tracks"><i class="fa fa-check"></i>Tracks</a></li>
 <li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#fitness"><i class="fa fa-check"></i>Fitness</a></li>
-<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#statistical-literacy"><i class="fa fa-check"></i>Statistical Literacy</a></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#tipp-wm"><i class="fa fa-check"></i>Tipp WM</a></li>
 </ul></li>
-<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#übungsverzeichnis"><i class="fa fa-check"></i>Übungsverzeichnis</a></li>
 <li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#literaturverzeichnis"><i class="fa fa-check"></i>Literaturverzeichnis</a></li>
-<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#verwendete-software-versionen"><i class="fa fa-check"></i>Verwendete Software Versionen</a></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#verwendete-softwareversionen"><i class="fa fa-check"></i>Verwendete Softwareversionen</a></li>
 </ul></li>
 </ul>
 
@@ -362,68 +374,499 @@ code span.wa { font-weight: bold; } /* Warning */
             <section class="normal" id="section-">
 <div id="latente-variablenmodelle" class="section level1" number="10">
 <h1><span class="header-section-number">Kapitel 10</span> Latente Variablenmodelle</h1>
-<div id="naive-hauptkomponentenanalyse" class="section level2" number="10.1">
-<h2><span class="header-section-number">10.1</span> Naive Hauptkomponentenanalyse</h2>
-<p>Um eine naive Hauptkomponentenanalyse durchzuführen, müssen wir lediglich der Funktion <code>princomp()</code> (Akronym für <strong>prin</strong>cipal <strong>comp</strong>onent analysis, engl. für Hauptkomponenten Analyse) den Datensatz übergeben. Über naiv reden wir an der Stelle, da wir keinerlei Vorannahmen über die erwartete Anzahl zugrunde liegender Faktoren machen müssen. Exemplarisch verwenden wir hier den komplette Big5 Datensatz namens <code>big_five_comp</code>.</p>
-<div class="sourceCode" id="cb368"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb368-1"><a href="latente-variablenmodelle.html#cb368-1" aria-hidden="true" tabindex="-1"></a>pca <span class="ot">&lt;-</span> big_five_comp <span class="sc">%&gt;%</span> </span>
-<span id="cb368-2"><a href="latente-variablenmodelle.html#cb368-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>Geschlecht) <span class="sc">%&gt;%</span> </span>
-<span id="cb368-3"><a href="latente-variablenmodelle.html#cb368-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">princomp</span>() </span></code></pre></div>
-<p>Das Ergebnis ist bei so vielen Variablen sehr lang, weshalb wir uns die an dieser Stelle nicht ausgeben lassen. Für eine generelle Zusammenfassung nutzen wir auch hier wieder <code>summary()</code>.</p>
-<div class="sourceCode" id="cb369"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb369-1"><a href="latente-variablenmodelle.html#cb369-1" aria-hidden="true" tabindex="-1"></a>pca <span class="sc">%&gt;%</span> </span>
-<span id="cb369-2"><a href="latente-variablenmodelle.html#cb369-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summary</span>()</span></code></pre></div>
-<p>Um die Ladungen ausgeben zu lassen, verwenden wir <code>pluck()</code>. Die Ausgabe von <code>princomp()</code> ist eine Liste, deren verschiedene Inhalte wir mit <code>pluck()</code> ausgeben lassen können.</p>
-<div class="sourceCode" id="cb370"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb370-1"><a href="latente-variablenmodelle.html#cb370-1" aria-hidden="true" tabindex="-1"></a>pca <span class="sc">%&gt;%</span> </span>
-<span id="cb370-2"><a href="latente-variablenmodelle.html#cb370-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pluck</span>(<span class="st">&quot;loadings&quot;</span>)</span></code></pre></div>
+<div id="pca" class="section level2" number="10.1">
+<h2><span class="header-section-number">10.1</span> Hauptkomponentenanalyse</h2>
+<p>Für die Hauptkomponentenanalyse verwenden wir eine Funktion aus dem <code>psych</code> Package, welches daher installiert und geladen werden muss.</p>
+<div class="sourceCode" id="cb452"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb452-1"><a href="latente-variablenmodelle.html#cb452-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(psych)</span></code></pre></div>
+<p>Wir schauen uns einen Teil des vollständigen Big Five Datensatzes <code>big_five_comp</code> an, aus dem wir jeweils die ersten drei Items (Fragen zu den Persönlichkeitsfaktoren) auswählen. Diesen speichern wir als <code>big_five_comp1</code> ab.</p>
+<div class="sourceCode" id="cb453"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb453-1"><a href="latente-variablenmodelle.html#cb453-1" aria-hidden="true" tabindex="-1"></a>big_five_comp1 <span class="ot">&lt;-</span> big_five_comp <span class="sc">%&gt;%</span> </span>
+<span id="cb453-2"><a href="latente-variablenmodelle.html#cb453-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(E1<span class="sc">:</span>E3, N1<span class="sc">:</span>N3, A1<span class="sc">:</span>A3, C1<span class="sc">:</span>C3, O1<span class="sc">:</span>O3)</span>
+<span id="cb453-3"><a href="latente-variablenmodelle.html#cb453-3" aria-hidden="true" tabindex="-1"></a>big_five_comp1</span></code></pre></div>
+<pre class="bordercode"><code># A tibble: 5,000 x 15
+     E1    E2    E3    N1    N2    N3    A1    A2    A3    C1    C2    C3    O1    O2    O3
+  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+1     4     2     5     1     5     2     1     5     1     4     1     5     4     1     3
+2     2     2     3     2     3     4     1     3     3     4     1     3     3     3     3
+3     5     1     1     5     1     5     5     1     5     4     1     5     4     5     5
+4     2     5     2     5     4     4     2     5     4     3     3     4     4     3     5
+# ... with 4,996 more rows</code></pre>
+<p>Um eine Hauptkomponentenanalyse durchzuführen, müssen wir lediglich der Funktion <code>pca()</code> (Akronym für <strong>p</strong>rincipal <strong>c</strong>omponent <strong>a</strong>nalysis, engl. für Hauptkomponentenanalyse) aus dem <code>psych</code> Package den Datensatz übergeben. Die Voraussetzung ist dabei ein numerischer Datentyp aller Variablen im Datensatz. Das <code>nfactors()</code> Argument legt die Anzahl der erwarteten Komponenten fest.</p>
+<div class="sourceCode" id="cb455"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb455-1"><a href="latente-variablenmodelle.html#cb455-1" aria-hidden="true" tabindex="-1"></a>res_pca <span class="ot">&lt;-</span> big_five_comp1 <span class="sc">%&gt;%</span> </span>
+<span id="cb455-2"><a href="latente-variablenmodelle.html#cb455-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pca</span>(<span class="at">nfactors =</span> <span class="dv">5</span>)</span>
+<span id="cb455-3"><a href="latente-variablenmodelle.html#cb455-3" aria-hidden="true" tabindex="-1"></a>res_pca</span></code></pre></div>
+<pre class="bordercode"><code>Principal Components Analysis
+Call: principal(r = r, nfactors = nfactors, residuals = residuals, 
+    rotate = rotate, n.obs = n.obs, covar = covar, scores = scores, 
+    missing = missing, impute = impute, oblique.scores = oblique.scores, 
+    method = method, use = use, cor = cor, correct = 0.5, weight = NULL)
+Standardized loadings (pattern matrix) based upon correlation matrix
+     RC1   RC2   RC4   RC3   RC5   h2   u2 com
+E1  0.76 -0.10 -0.01  0.01  0.16 0.62 0.38 1.1
+E2 -0.74 -0.02 -0.07  0.07  0.00 0.56 0.44 1.0
+E3  0.76 -0.28 -0.03  0.16 -0.13 0.69 0.31 1.4
+N1 -0.06  0.82 -0.05 -0.10  0.06 0.69 0.31 1.1
+N2  0.16 -0.71  0.04  0.00  0.00 0.53 0.47 1.1
+N3 -0.03  0.83  0.01  0.02 -0.01 0.69 0.31 1.0
+A1 -0.11 -0.08 -0.19  0.13  0.76 0.65 0.35 1.3
+A2  0.61  0.01  0.12  0.00 -0.37 0.52 0.48 1.7
+A3  0.03  0.14  0.16 -0.26  0.71 0.61 0.39 1.5
+C1  0.09 -0.08  0.08  0.75 -0.04 0.58 0.42 1.1
+C2  0.11  0.09  0.23 -0.65  0.10 0.51 0.49 1.4
+C3  0.07  0.12  0.29  0.67  0.05 0.55 0.45 1.5
+O1  0.01 -0.04  0.74  0.07 -0.03 0.55 0.45 1.0
+O2  0.03  0.23 -0.67 -0.06  0.18 0.53 0.47 1.4
+O3  0.10  0.11  0.64 -0.03  0.10 0.45 0.55 1.2
+
+                       RC1  RC2  RC4  RC3  RC5
+SS loadings           2.16 2.07 1.63 1.56 1.32
+Proportion Var        0.14 0.14 0.11 0.10 0.09
+Cumulative Var        0.14 0.28 0.39 0.50 0.58
+Proportion Explained  0.25 0.24 0.19 0.18 0.15
+Cumulative Proportion 0.25 0.48 0.67 0.85 1.00
+
+Mean item complexity =  1.3
+Test of the hypothesis that 5 components are sufficient.
+
+The root mean square of the residuals (RMSR) is  0.08 
+ with the empirical chi square  7243.81  with prob &lt;  0 
+
+Fit based upon off diagonal values = 0.75</code></pre>
+<p>In der Ergebnisliste sehen wir die Ladungen und einige Zusatzinformationen. Wenn man ausschließlich die Ladungen angezeigt haben möchte, können wir diese mit <code>pluck()</code> (aus dem <code>tidyverse</code>) herausziehen.</p>
+<div class="sourceCode" id="cb457"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb457-1"><a href="latente-variablenmodelle.html#cb457-1" aria-hidden="true" tabindex="-1"></a>res_pca <span class="sc">%&gt;%</span> </span>
+<span id="cb457-2"><a href="latente-variablenmodelle.html#cb457-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pluck</span>(<span class="st">&quot;loadings&quot;</span>)</span></code></pre></div>
+<p>Eine sogenannte naive Hauptkomponentenanalyse könnte mit den direkt in R integrierten Funktionen <code>princomp()</code> oder <code>prcomp()</code> berechnet werden. Naiv bedeutet in dem Kontext, dass keine Vorannahme über die Anzahl der vorhandenen Komponenten getroffen werden muss.</p>
 </div>
 <div id="factanal" class="section level2" number="10.2">
 <h2><span class="header-section-number">10.2</span> Explorative Faktorenanalyse</h2>
-<p>Zur Berechnung einer Maximum Likelihood Faktorenanalyse nutzen wir die Funktion <code>factanal()</code>. Da wir im Datensatz <code>big_five_comp</code> jeweils 10 Fragen zum jeweiligen Persönlichkeitsfaktor haben, suchen wir auch nach 5 Faktoren (<code>factors</code>).</p>
-<div class="sourceCode" id="cb371"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb371-1"><a href="latente-variablenmodelle.html#cb371-1" aria-hidden="true" tabindex="-1"></a>fa <span class="ot">&lt;-</span> big_five_comp <span class="sc">%&gt;%</span> </span>
-<span id="cb371-2"><a href="latente-variablenmodelle.html#cb371-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>Geschlecht) <span class="sc">%&gt;%</span> </span>
-<span id="cb371-3"><a href="latente-variablenmodelle.html#cb371-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">factanal</span>(<span class="at">factors =</span> <span class="dv">5</span>) </span></code></pre></div>
-<p>Die Art der Rotation kann mit dem <code>rotation</code> Argument entweder auf Orthogonal ( <code>varimax</code>) oder auf Schräg respektive <em>Oblique</em> (<code>promax</code>) festgelegt werden. Eine schöne Ausgabe erhalten wir an dieser Stelle wieder mit der <code>tidy()</code> Funktion aus dem <code>broom</code> Package.</p>
-<div class="sourceCode" id="cb372"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb372-1"><a href="latente-variablenmodelle.html#cb372-1" aria-hidden="true" tabindex="-1"></a>fa <span class="sc">%&gt;%</span> </span>
-<span id="cb372-2"><a href="latente-variablenmodelle.html#cb372-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tidy</span>()</span></code></pre></div>
-<pre class="bordercode"><code># A tibble: 50 x 7
-  variable uniqueness    fl1       fl2     fl3     fl4     fl5
-  &lt;chr&gt;         &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
-1 E1            0.542  0.670 -0.0533    0.0691  0.0138  0.0357
-2 E2            0.534 -0.667  0.000977 -0.119   0.0240 -0.0790
-3 E3            0.426  0.652 -0.252     0.256   0.143  -0.0109
-4 E4            0.517 -0.677  0.150    -0.0348 -0.0241 -0.0139
-# ... with 46 more rows</code></pre>
-<p>Genau wie im vorherigen Kapitel können die Ladungen ebenfalls mit <code>pluck()</code> extrahiert und ausgegeben werden.</p>
-<div class="sourceCode" id="cb374"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb374-1"><a href="latente-variablenmodelle.html#cb374-1" aria-hidden="true" tabindex="-1"></a>fa <span class="sc">%&gt;%</span> </span>
-<span id="cb374-2"><a href="latente-variablenmodelle.html#cb374-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pluck</span>(<span class="st">&quot;loadings&quot;</span>)</span></code></pre></div>
+<p>Für die explorative Maximum Likelihood Faktorenanalyse verwenden wir im Folgenden den gleichen Datensatz wie im vorherigen Kapitel.</p>
+<div class="sourceCode" id="cb458"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb458-1"><a href="latente-variablenmodelle.html#cb458-1" aria-hidden="true" tabindex="-1"></a>big_five_comp1 <span class="ot">&lt;-</span> big_five_comp <span class="sc">%&gt;%</span> </span>
+<span id="cb458-2"><a href="latente-variablenmodelle.html#cb458-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(E1<span class="sc">:</span>E3, N1<span class="sc">:</span>N3, A1<span class="sc">:</span>A3, C1<span class="sc">:</span>C3, O1<span class="sc">:</span>O3)</span>
+<span id="cb458-3"><a href="latente-variablenmodelle.html#cb458-3" aria-hidden="true" tabindex="-1"></a>big_five_comp1</span></code></pre></div>
+<pre class="bordercode"><code># A tibble: 5,000 x 15
+     E1    E2    E3    N1    N2    N3    A1    A2    A3    C1    C2    C3    O1    O2    O3
+  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+1     4     2     5     1     5     2     1     5     1     4     1     5     4     1     3
+2     2     2     3     2     3     4     1     3     3     4     1     3     3     3     3
+3     5     1     1     5     1     5     5     1     5     4     1     5     4     5     5
+4     2     5     2     5     4     4     2     5     4     3     3     4     4     3     5
+# ... with 4,996 more rows</code></pre>
+<p>Zur Berechnung einer explorativen Faktorenanalyse nutzen wir die Funktion <code>factanal()</code> (Akronym für <strong>fact</strong>or <strong>anal</strong>ysis, engl. für Faktorenanalyse). Dabei ändert sich das Argument zu <code>factors</code> (anstelle von <code>nfactors</code>). Auch hier müssen alle enthaltenen Spalten des Datensatzes numerischen Datentyps sein. Zusätzlich verwenden wir optional noch die Funktion <code>print()</code>, mit der wir auf zwei Nachkommastellen runden, sortieren und nur alle Werte über 0.3 anzeigen lassen können.</p>
+<div class="sourceCode" id="cb460"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb460-1"><a href="latente-variablenmodelle.html#cb460-1" aria-hidden="true" tabindex="-1"></a>big_five_comp1 <span class="sc">%&gt;%</span> </span>
+<span id="cb460-2"><a href="latente-variablenmodelle.html#cb460-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">factanal</span>(<span class="at">factors =</span> <span class="dv">5</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb460-3"><a href="latente-variablenmodelle.html#cb460-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="at">digits =</span> <span class="dv">2</span>, <span class="at">cutoff =</span> <span class="fl">0.3</span>, <span class="at">sort =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre class="bordercode"><code>
+Call:
+factanal(x = ., factors = 5)
+
+Uniquenesses:
+  E1   E2   E3   N1   N2   N3   A1   A2   A3   C1   C2   C3   O1   O2   O3 
+0.56 0.62 0.35 0.41 0.66 0.45 0.74 0.64 0.69 0.61 0.77 0.72 0.63 0.69 0.80 
+
+Loadings:
+   Factor1 Factor2 Factor3 Factor4 Factor5
+E1  0.65                                  
+E2 -0.60                                  
+E3  0.73                                  
+N1          0.75                          
+N2         -0.55                          
+N3          0.74                          
+O1                  0.60                  
+O2                 -0.51                  
+C1                          0.60          
+A1                                  0.47  
+A2  0.49                           -0.32  
+A3                                  0.49  
+C2                         -0.43          
+C3                          0.47          
+O3                  0.43                  
+
+               Factor1 Factor2 Factor3 Factor4 Factor5
+SS loadings       1.62    1.57    0.94    0.88    0.63
+Proportion Var    0.11    0.10    0.06    0.06    0.04
+Cumulative Var    0.11    0.21    0.28    0.33    0.38
+
+Test of the hypothesis that 5 factors are sufficient.
+The chi square statistic is 556.98 on 40 degrees of freedom.
+The p-value is 2.82e-92 </code></pre>
+<p>Die Art der Rotation kann mit dem <code>rotation</code> Argument entweder auf orthogonal ( <code>varimax</code>) oder auf schräg respektive <em>Oblique</em> (<code>promax</code>) festgelegt werden. Eine Ausgabe bereit zum Weiterverarbeiten in Form eines <code>tibbles</code> erhalten wir an dieser Stelle wieder mit der <code>tidy()</code> Funktion aus dem <code>broom</code> Package.</p>
+<div class="sourceCode" id="cb462"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb462-1"><a href="latente-variablenmodelle.html#cb462-1" aria-hidden="true" tabindex="-1"></a>big_five_comp1 <span class="sc">%&gt;%</span> </span>
+<span id="cb462-2"><a href="latente-variablenmodelle.html#cb462-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">factanal</span>(<span class="at">factors =</span> <span class="dv">5</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb462-3"><a href="latente-variablenmodelle.html#cb462-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tidy</span>() </span></code></pre></div>
+<pre class="bordercode"><code># A tibble: 15 x 7
+  variable uniqueness     fl1     fl2     fl3      fl4     fl5
+  &lt;chr&gt;         &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;
+1 E1            0.561  0.646  -0.100   0.0220 -0.00242  0.105 
+2 E2            0.624 -0.602   0.0182 -0.0923  0.0617   0.0151
+3 E3            0.350  0.729  -0.255  -0.0250  0.160   -0.164 
+4 N1            0.414 -0.0648  0.753  -0.0479 -0.0979   0.0615
+# ... with 11 more rows</code></pre>
+<p>Genau wie im vorherigen Kapitel können die Ladungen darüber hinaus ebenfalls mit <code>pluck("loadings")</code> extrahiert und ausgegeben werden. Eine Alternative stellt die <code>fa()</code> Funktion aus dem <code>psych</code> Package dar.</p>
 </div>
 <div id="kmeans" class="section level2" number="10.3">
 <h2><span class="header-section-number">10.3</span> <em>k</em>-Means Clustering</h2>
-<p>Auch beim sogenannten <em>k</em>-Means Clustering verändert sich zu den beiden bisher kennengelernten Funktionen nicht viel. Die Cluster erstellen wir mithilfe der Funktion <code>kmeans()</code>, der wir mit dem <code>centers</code> Argument die Anzahl der erwarteten Cluster übergeben.</p>
-<div class="sourceCode" id="cb375"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb375-1"><a href="latente-variablenmodelle.html#cb375-1" aria-hidden="true" tabindex="-1"></a>k <span class="ot">&lt;-</span> big_five_comp <span class="sc">%&gt;%</span> </span>
-<span id="cb375-2"><a href="latente-variablenmodelle.html#cb375-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>Geschlecht) <span class="sc">%&gt;%</span> </span>
-<span id="cb375-3"><a href="latente-variablenmodelle.html#cb375-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kmeans</span>(<span class="at">centers =</span> <span class="dv">3</span>)</span></code></pre></div>
-<p>Anschließend könnte man die Cluster dem ursprünglichen Datensatz hinzufügen, um diese beispielsweise im nächsten Schritt mithilfe von Ellipsen (siehe Kapitel <a href="visual.html#ellipsen">8.11</a>) gruppiert zu visualisieren.</p>
-<div class="sourceCode" id="cb376"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb376-1"><a href="latente-variablenmodelle.html#cb376-1" aria-hidden="true" tabindex="-1"></a>big_five_comp <span class="sc">%&gt;%</span> </span>
-<span id="cb376-2"><a href="latente-variablenmodelle.html#cb376-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Cluster =</span> <span class="fu">as.factor</span>(k<span class="sc">$</span>cluster)) <span class="sc">%&gt;%</span></span>
-<span id="cb376-3"><a href="latente-variablenmodelle.html#cb376-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">relocate</span>(Cluster)</span></code></pre></div>
-<pre class="bordercode"><code># A tibble: 5,000 x 52
-  Cluster Geschlecht    E1    E2    E3    E4    E5    E6    E7    E8    E9   E10    N1    N2
-  &lt;fct&gt;   &lt;chr&gt;      &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-1 2       f              4     2     5     2     5     1     4     3     5     1     1     5
-2 1       m              2     2     3     3     3     3     1     5     1     5     2     3
-3 3       m              5     1     1     4     5     1     1     5     5     1     5     1
-4 1       m              2     5     2     4     3     4     3     4     4     5     5     4
-# ... with 4,996 more rows, and 38 more variables: N3 &lt;dbl&gt;, N4 &lt;dbl&gt;, N5 &lt;dbl&gt;, N6 &lt;dbl&gt;,
-#   N7 &lt;dbl&gt;, N8 &lt;dbl&gt;, N9 &lt;dbl&gt;, N10 &lt;dbl&gt;, A1 &lt;dbl&gt;, A2 &lt;dbl&gt;, A3 &lt;dbl&gt;, A4 &lt;dbl&gt;, A5 &lt;dbl&gt;,
-#   A6 &lt;dbl&gt;, A7 &lt;dbl&gt;, A8 &lt;dbl&gt;, A9 &lt;dbl&gt;, A10 &lt;dbl&gt;, C1 &lt;dbl&gt;, C2 &lt;dbl&gt;, C3 &lt;dbl&gt;, C4 &lt;dbl&gt;,
-#   C5 &lt;dbl&gt;, C6 &lt;dbl&gt;, C7 &lt;dbl&gt;, C8 &lt;dbl&gt;, C9 &lt;dbl&gt;, C10 &lt;dbl&gt;, O1 &lt;dbl&gt;, O2 &lt;dbl&gt;, O3 &lt;dbl&gt;,
-#   O4 &lt;dbl&gt;, O5 &lt;dbl&gt;, O6 &lt;dbl&gt;, O7 &lt;dbl&gt;, O8 &lt;dbl&gt;, O9 &lt;dbl&gt;, O10 &lt;dbl&gt;</code></pre>
+<p>Wir bleiben auch in diesem Kapitel beim Vorzeigen des <em>k</em>-Means Clustering beim Ausschnitt aus dem vollständigen Big Five Datensatz <code>big_five_comp</code>.</p>
+<div class="sourceCode" id="cb464"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb464-1"><a href="latente-variablenmodelle.html#cb464-1" aria-hidden="true" tabindex="-1"></a>big_five_comp1 <span class="ot">&lt;-</span> big_five_comp <span class="sc">%&gt;%</span> </span>
+<span id="cb464-2"><a href="latente-variablenmodelle.html#cb464-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(E1<span class="sc">:</span>E3, N1<span class="sc">:</span>N3, A1<span class="sc">:</span>A3, C1<span class="sc">:</span>C3, O1<span class="sc">:</span>O3)</span>
+<span id="cb464-3"><a href="latente-variablenmodelle.html#cb464-3" aria-hidden="true" tabindex="-1"></a>big_five_comp1</span></code></pre></div>
+<pre class="bordercode"><code># A tibble: 5,000 x 15
+     E1    E2    E3    N1    N2    N3    A1    A2    A3    C1    C2    C3    O1    O2    O3
+  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+1     4     2     5     1     5     2     1     5     1     4     1     5     4     1     3
+2     2     2     3     2     3     4     1     3     3     4     1     3     3     3     3
+3     5     1     1     5     1     5     5     1     5     4     1     5     4     5     5
+4     2     5     2     5     4     4     2     5     4     3     3     4     4     3     5
+# ... with 4,996 more rows</code></pre>
+<p>Auch beim <em>k</em>-Means Clustering verändert sich zu den beiden Funktionen aus den vorherigen Kapiteln nicht viel. Die Cluster erstellen wir mithilfe der direkt in R integrierten Funktion <code>kmeans()</code>, der wir mit dem <code>centers</code> Argument die Anzahl der erwarteten Cluster übergeben. Wir können so jede Person einem dieser 3 Cluster zuteilen.</p>
+<div class="sourceCode" id="cb466"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb466-1"><a href="latente-variablenmodelle.html#cb466-1" aria-hidden="true" tabindex="-1"></a>k <span class="ot">&lt;-</span> big_five_comp1 <span class="sc">%&gt;%</span> </span>
+<span id="cb466-2"><a href="latente-variablenmodelle.html#cb466-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kmeans</span>(<span class="at">centers =</span> <span class="dv">3</span>)</span></code></pre></div>
+<p>Anschließend könnte man die Cluster dem ursprünglichen Datensatz hinzufügen, um diese beispielsweise im nächsten Schritt gruppiert mithilfe von Ellipsen (siehe Kapitel <a href="visual.html#ellipsen">8.10</a>) zu visualisieren.</p>
+<div class="sourceCode" id="cb467"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb467-1"><a href="latente-variablenmodelle.html#cb467-1" aria-hidden="true" tabindex="-1"></a>big_five_comp1 <span class="sc">%&gt;%</span> </span>
+<span id="cb467-2"><a href="latente-variablenmodelle.html#cb467-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Cluster =</span> <span class="fu">as.factor</span>(k<span class="sc">$</span>cluster)) <span class="sc">%&gt;%</span></span>
+<span id="cb467-3"><a href="latente-variablenmodelle.html#cb467-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">relocate</span>(Cluster)</span></code></pre></div>
+<pre class="bordercode"><code># A tibble: 5,000 x 16
+  Cluster    E1    E2    E3    N1    N2    N3    A1    A2    A3    C1    C2    C3    O1    O2
+  &lt;fct&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+1 3           4     2     5     1     5     2     1     5     1     4     1     5     4     1
+2 3           2     2     3     2     3     4     1     3     3     4     1     3     3     3
+3 1           5     1     1     5     1     5     5     1     5     4     1     5     4     5
+4 1           2     5     2     5     4     4     2     5     4     3     3     4     4     3
+# ... with 4,996 more rows, and 1 more variable: O3 &lt;dbl&gt;</code></pre>
 </div>
-<div id="strukturgleichungsmodelle" class="section level2" number="10.4">
-<h2><span class="header-section-number">10.4</span> Strukturgleichungsmodelle</h2>
-<div class="sourceCode" id="cb378"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb378-1"><a href="latente-variablenmodelle.html#cb378-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;lavaan&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb379"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb379-1"><a href="latente-variablenmodelle.html#cb379-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sem</span>()</span></code></pre></div>
+<div id="structural" class="section level2" number="10.4">
+<h2><span class="header-section-number">10.4</span> Strukturmodelle</h2>
+<p>Für alle Strukturmodelle der Unterkapitel verwenden wir das Package <code>lavaan</code>, welches installiert und geladen werden muss. Dieses Package befindet sich noch in der Testphase (Beta Phase), weswegen die Verwendung ausdrücklich ohne Garantie erfolgt. Auf mögliche Alternativen wird im entsprechenden Unterkapitel hingewiesen.</p>
+<div class="sourceCode" id="cb469"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb469-1"><a href="latente-variablenmodelle.html#cb469-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;lavaan&quot;</span>)</span></code></pre></div>
+<p>Der erste Schritt in der Analyse eines Strukturmodells ist immer die Visualisierung der Beziehungen mithilfe eines Directed Acyclic Graphs (DAGs). Wie diese direkt in R erstellt werden können, wurde bereits in Kapitel <a href="visual.html#dags">8.16.4</a> erläutert.</p>
+<div class="warning">
+<p>Die in den folgenden Kapiteln vorgestellten Methoden werden häufig gedankenlos zur Untersuchung kausaler Beziehungen verwendet. Die geschätzten Pfadkoeffizienten werden dabei fälschlicherweise ohne Berücksichtigung der dafür notwendigen Voraussetzungen einfach kausal interpretiert. Dies ist allerdings nur unter speziellen, sehr strengen Bedingungen möglich. Für eine umfangreiche Diskussion dieser Probleme sowie für eine Einführung in die Interpretation kausaler Beziehungen sei auf <em>The Book Of Why</em> von Pearl &amp; Mackenzie (2019) verwiesen.</p>
+</div>
+<div id="mediation" class="section level3" number="10.4.1">
+<h3><span class="header-section-number">10.4.1</span> Mediation</h3>
+<p>Zur exemplarischen Untersuchung einer möglichen Mediation verwenden wir an dieser Stelle den Datensatz <code>literacy_mod</code>, welcher unter anderem Daten aus einer Erhebung zur statistischen Bildung und dem Risikoverhalten beinhaltet.</p>
+<div class="sourceCode" id="cb470"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb470-1"><a href="latente-variablenmodelle.html#cb470-1" aria-hidden="true" tabindex="-1"></a>literacy_mod</span></code></pre></div>
+<pre class="bordercode"><code># A tibble: 146 x 3
+  Risikoverhalten Schulbildung Literacy_total
+            &lt;dbl&gt;        &lt;dbl&gt;          &lt;dbl&gt;
+1            6.33            4          0.643
+2            3.83            4          0.5  
+3            1.5             1          0.643
+4            5.83            5          0.786
+# ... with 142 more rows</code></pre>
+<p>Der erste Schritt ist das Zeichnen eines DAGs (siehe Kapitel <a href="visual.html#dags">8.16.4</a>). Wir gehen davon aus, dass der Einfluss der statistischen Bildung auf das Risikoverhalten durch die allgemeine Schulbildung mediiert wird (siehe Abbildung <a href="latente-variablenmodelle.html#fig:dagmedi">10.1</a>).</p>
+<div class="figure" style="text-align: center"><span id="fig:dagmedi"></span>
+<img src="r-empirische-wissenschaften_files/figure-html/dagmedi-1.png" alt="Der Einfluss der statistischen Bildung (Literacy) auf das Risikoverhalten (Risiko) wird durch die allgemeine Schulbildung mediiert." width="672" />
+<p class="caption">
+Abbildung 10.1: Der Einfluss der statistischen Bildung (Literacy) auf das Risikoverhalten (Risiko) wird durch die allgemeine Schulbildung mediiert.
+</p>
+</div>
+<p>Als nächstes stellen wir genau dieses Modell in <code>lavaan</code> Syntax dar. Das Modell muss dabei vom Datentyp Character sein (vorne und hinten ein Anführungszeichen). Für jeden Pfad nehmen wir einen willkürlichen Buchstaben. Der direkte Pfad von der statistischen Bildung (<code>Literacy_total</code>) auf das Risikoverhalten wird mit <code>c</code> bezeichnet. Für den Mediator haben wir einmal den Pfad <code>a</code> von statistischer Bildung auf allgemeine Schulbildung und einmal Pfad <code>b</code> von der Schulbildung zum Risikoverhalten. Der indirekte Effekt ergibt sich dann aus dem Produkt dieser beiden Pfade <code>a</code> und <code>b</code>. Diesen können wir innerhalb des Modells mithilfe des Operators <code>:=</code> als <code>ab</code> definieren. Ähnlich können wir auch den Totalen Effekt definieren, welcher aus der Summe von <code>c</code> und <code>ab</code> besteht. Jetzt müssen wir dieses Modell gemeinsam mit dem Datensatznamen nur noch der <code>sem()</code> Funktion aus dem <code>lavaan</code> Package übergeben. Die Rauten im Modell signalisieren dem Programm einen Kommentar und werden daher bei der Berechnung ignoriert.</p>
+<div class="sourceCode" id="cb472"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb472-1"><a href="latente-variablenmodelle.html#cb472-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="st">&quot; </span></span>
+<span id="cb472-2"><a href="latente-variablenmodelle.html#cb472-2" aria-hidden="true" tabindex="-1"></a><span class="st"># Direkter Effekt</span></span>
+<span id="cb472-3"><a href="latente-variablenmodelle.html#cb472-3" aria-hidden="true" tabindex="-1"></a><span class="st">  Risikoverhalten ~ c*Literacy_total</span></span>
+<span id="cb472-4"><a href="latente-variablenmodelle.html#cb472-4" aria-hidden="true" tabindex="-1"></a><span class="st"># Mediator</span></span>
+<span id="cb472-5"><a href="latente-variablenmodelle.html#cb472-5" aria-hidden="true" tabindex="-1"></a><span class="st">  Schulbildung ~ a*Literacy_total</span></span>
+<span id="cb472-6"><a href="latente-variablenmodelle.html#cb472-6" aria-hidden="true" tabindex="-1"></a><span class="st">  Risikoverhalten ~ b*Schulbildung  </span></span>
+<span id="cb472-7"><a href="latente-variablenmodelle.html#cb472-7" aria-hidden="true" tabindex="-1"></a><span class="st"># Indirekter Effekt (a*b)</span></span>
+<span id="cb472-8"><a href="latente-variablenmodelle.html#cb472-8" aria-hidden="true" tabindex="-1"></a><span class="st">  ab := a*b</span></span>
+<span id="cb472-9"><a href="latente-variablenmodelle.html#cb472-9" aria-hidden="true" tabindex="-1"></a><span class="st"># Totaler Effekt</span></span>
+<span id="cb472-10"><a href="latente-variablenmodelle.html#cb472-10" aria-hidden="true" tabindex="-1"></a><span class="st">  total := c + (a*b)</span></span>
+<span id="cb472-11"><a href="latente-variablenmodelle.html#cb472-11" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;</span></span>
+<span id="cb472-12"><a href="latente-variablenmodelle.html#cb472-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb472-13"><a href="latente-variablenmodelle.html#cb472-13" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">sem</span>(model, <span class="at">data =</span> literacy_mod)</span>
+<span id="cb472-14"><a href="latente-variablenmodelle.html#cb472-14" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit)</span></code></pre></div>
+<pre class="bordercode"><code>lavaan 0.6-7 ended normally after 24 iterations
 
+  Estimator                                         ML
+  Optimization method                           NLMINB
+  Number of free parameters                          5
+                                                      
+                                                  Used       Total
+  Number of observations                           145         146
+                                                                  
+Model Test User Model:
+                                                      
+  Test statistic                                 0.000
+  Degrees of freedom                                 0
+
+Parameter Estimates:
+
+  Standard errors                             Standard
+  Information                                 Expected
+  Information saturated (h1) model          Structured
+
+Regressions:
+                    Estimate  Std.Err  z-value  P(&gt;|z|)
+  Risikoverhalten ~                                    
+    Litrcy_ttl (c)     0.392    0.553    0.710    0.478
+  Schulbildung ~                                       
+    Litrcy_ttl (a)     0.648    0.337    1.923    0.054
+  Risikoverhalten ~                                    
+    Schulbldng (b)     0.227    0.134    1.685    0.092
+
+Variances:
+                   Estimate  Std.Err  z-value  P(&gt;|z|)
+   .Risikoverhaltn    2.189    0.257    8.515    0.000
+   .Schulbildung      0.835    0.098    8.515    0.000
+
+Defined Parameters:
+                   Estimate  Std.Err  z-value  P(&gt;|z|)
+    ab                0.147    0.116    1.268    0.205
+    total             0.539    0.551    0.979    0.328</code></pre>
+<p>In der Ergebnisliste können nur nun die einzelnen Pfadkoeffizienten <code>a</code>, <code>b</code> und <code>c</code> unter <code>Estimate</code> betrachten. Auch der indirekte und totale Effekt ist aus der Liste ablesbar. Abgesehen vom <code>lavaan</code> Package kann auch das Package <code>mediation</code> verwendet werden.</p>
+<div class="warning">
+<p>Dieses Modell setzt neben einer linearen Beziehung unter anderem voraus, dass keine Confounder und Collider existieren, keine Interaktion der Fehlerterme von Schulbildung und Risikoverhalten besteht und die statistische Bildung nicht mit anderen Variablen interagiert. Die Pfadkoeffizienten können nicht ohne weiteres kausal interpretiert werden (siehe auch die Merkbox in Kapitel <a href="latente-variablenmodelle.html#structural">10.4</a>).</p>
+</div>
+</div>
+<div id="cfa" class="section level3" number="10.4.2">
+<h3><span class="header-section-number">10.4.2</span> Konfirmatorische Faktorenanalyse</h3>
+<p>Zum Berechnen einer konfirmatorischen Faktorenanalyse verwenden wir an dieser Stelle eine Auswahl aus dem vollständigen <code>big_five_comp</code> Datensatz.</p>
+<div class="sourceCode" id="cb474"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb474-1"><a href="latente-variablenmodelle.html#cb474-1" aria-hidden="true" tabindex="-1"></a>big_five_comp <span class="sc">%&gt;%</span></span>
+<span id="cb474-2"><a href="latente-variablenmodelle.html#cb474-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(E1<span class="sc">:</span>E3, N1<span class="sc">:</span>N3, A1<span class="sc">:</span>A3, C1<span class="sc">:</span>C3, O1<span class="sc">:</span>O3) </span></code></pre></div>
+<pre class="bordercode"><code># A tibble: 5,000 x 15
+     E1    E2    E3    N1    N2    N3    A1    A2    A3    C1    C2    C3    O1    O2    O3
+  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+1     4     2     5     1     5     2     1     5     1     4     1     5     4     1     3
+2     2     2     3     2     3     4     1     3     3     4     1     3     3     3     3
+3     5     1     1     5     1     5     5     1     5     4     1     5     4     5     5
+4     2     5     2     5     4     4     2     5     4     3     3     4     4     3     5
+# ... with 4,996 more rows</code></pre>
+<p>Jeder Persönlichkeitsfaktor ist in dem Datensatz durch 10 verschiedene Items (Fragen zur Persönlichkeitseigenschaft) definiert. In Abbildung <a href="latente-variablenmodelle.html#fig:dagcfa">10.2</a> ist die mit 3 Items vereinfachte erwartete Struktur der Faktoren in Form eines DAGs dargestellt (siehe Kapitel <a href="visual.html#dags">8.16.4</a>).</p>
+<div class="figure" style="text-align: center"><span id="fig:dagcfa"></span>
+<img src="images/dag_cfa.png" alt="Vereinfachte Abbildung der vermuteten Faktorenstruktur mithilfe eines DAGs." width="50%" />
+<p class="caption">
+Abbildung 10.2: Vereinfachte Abbildung der vermuteten Faktorenstruktur mithilfe eines DAGs.
+</p>
+</div>
+<p>Die Funktionsweise des <code>lavaan</code> Package ist bei einer konfirmatorischen Faktorenanalyse der aus dem vorherigen Mediationskapitel sehr ähnlich. Neu ist an dieser Stelle der <code>=~</code> Operator, welcher auf der linken Seite der Gleichung eine neue latente Variable definiert. Hierbei ist es wichtig, dass dieser Name nicht als Spaltennamen bereits im Datensatz enthalten ist. Auf der rechten Seite der Gleichung definieren wir jeweils, welche Items zu welchem Persönlichkeitsfaktor gehörten. Da die Ausgabe ohnehin schon sehr lang ist, wählen wir an dieser Stelle nur jeweils 5 der Items aus. Abschließend verwenden wir die <code>cfa()</code> Funktion anstelle von <code>sem()</code>. Dies hat zwar derzeit noch keine praktischen Konsequenzen, allerdings kann sich dies in der Zukunft noch ändern, da sich das <code>lavaan</code> Package noch in einer Testphase befindet (siehe Kapitel <a href="latente-variablenmodelle.html#structural">10.4</a>).</p>
+<div class="sourceCode" id="cb476"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb476-1"><a href="latente-variablenmodelle.html#cb476-1" aria-hidden="true" tabindex="-1"></a>model2 <span class="ot">&lt;-</span> <span class="st">&quot;</span></span>
+<span id="cb476-2"><a href="latente-variablenmodelle.html#cb476-2" aria-hidden="true" tabindex="-1"></a><span class="st">Extrav =~ E1 + E2 + E3 + E4 + E5</span></span>
+<span id="cb476-3"><a href="latente-variablenmodelle.html#cb476-3" aria-hidden="true" tabindex="-1"></a><span class="st">Neurot =~ N1 + N2 + N3 + N4 + N4</span></span>
+<span id="cb476-4"><a href="latente-variablenmodelle.html#cb476-4" aria-hidden="true" tabindex="-1"></a><span class="st">Gewiss =~ C1 + C2 + C3 + C4 + C5</span></span>
+<span id="cb476-5"><a href="latente-variablenmodelle.html#cb476-5" aria-hidden="true" tabindex="-1"></a><span class="st">Vertra =~ A1 + A2 + A3 + A4 + A5</span></span>
+<span id="cb476-6"><a href="latente-variablenmodelle.html#cb476-6" aria-hidden="true" tabindex="-1"></a><span class="st">Offenh =~ O1 + O2 + O3 + O4 + O5</span></span>
+<span id="cb476-7"><a href="latente-variablenmodelle.html#cb476-7" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;</span></span>
+<span id="cb476-8"><a href="latente-variablenmodelle.html#cb476-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb476-9"><a href="latente-variablenmodelle.html#cb476-9" aria-hidden="true" tabindex="-1"></a>fit2 <span class="ot">&lt;-</span> <span class="fu">cfa</span>(model2, <span class="at">data =</span> big_five_comp)</span>
+<span id="cb476-10"><a href="latente-variablenmodelle.html#cb476-10" aria-hidden="true" tabindex="-1"></a>fit2</span></code></pre></div>
+<pre class="bordercode"><code>lavaan 0.6-7 ended normally after 51 iterations
+
+  Estimator                                         ML
+  Optimization method                           NLMINB
+  Number of free parameters                         58
+                                                      
+  Number of observations                          5000
+                                                      
+Model Test User Model:
+                                                      
+  Test statistic                              5907.845
+  Degrees of freedom                               242
+  P-value (Chi-square)                           0.000</code></pre>
+<p>Um nun die vollständige standardisierte Ergebnisliste mit den wichtigsten Indizes herauszubekommen, würde man <code>summary()</code> verwenden. Da die Ergebnisliste sehr lang ist und wir im nächsten Kapitel ausführlich darauf zu sprechen kommen, sei an dieser Stelle darauf verzichtet.</p>
+<div class="sourceCode" id="cb478"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb478-1"><a href="latente-variablenmodelle.html#cb478-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit2, <span class="at">fit.measures =</span> <span class="cn">TRUE</span>, <span class="at">standardized =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<p>Einzelne Ergebnisse wie die Indizes (<code>fitMeasures(fit2)</code>) oder die Residuen (<code>resid(fit2)</code>) können mit dedizierten Funktionen aus der Ergebnisliste extrahiert werden. Die einzelnen Schätzer können mithilfe der Funktion <code>parameterEstimates()</code> ausgegeben werden.</p>
+<div class="sourceCode" id="cb479"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb479-1"><a href="latente-variablenmodelle.html#cb479-1" aria-hidden="true" tabindex="-1"></a><span class="fu">parameterEstimates</span>(fit2) <span class="sc">%&gt;%</span> </span>
+<span id="cb479-2"><a href="latente-variablenmodelle.html#cb479-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_tibble</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb479-3"><a href="latente-variablenmodelle.html#cb479-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="at">n =</span> <span class="dv">10</span>)</span></code></pre></div>
+<pre class="bordercode"><code># A tibble: 63 x 9
+   lhs    op    rhs      est     se     z pvalue ci.lower ci.upper
+   &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;
+ 1 Extrav =~    E1     1     0       NA       NA    1        1    
+ 2 Extrav =~    E2    -1.11  0.0296 -37.6      0   -1.17    -1.06 
+ 3 Extrav =~    E3     1.19  0.0291  40.9      0    1.13     1.25 
+ 4 Extrav =~    E4    -1.04  0.0277 -37.7      0   -1.10    -0.990
+ 5 Extrav =~    E5     1.30  0.0308  42.3      0    1.24     1.37 
+ 6 Neurot =~    N1     1     0       NA       NA    1        1    
+ 7 Neurot =~    N2    -0.671 0.0200 -33.5      0   -0.711   -0.632
+ 8 Neurot =~    N3     0.783 0.0212  37.0      0    0.742    0.825
+ 9 Neurot =~    N4    -0.422 0.0197 -21.5      0   -0.461   -0.384
+10 Gewiss =~    C1     1     0       NA       NA    1        1    
+# ... with 53 more rows</code></pre>
+<p>Anstelle des <code>lavaan</code> Packages kann auch das Package <code>sem</code> verwendet werden.</p>
+</div>
+<div id="sem" class="section level3" number="10.4.3">
+<h3><span class="header-section-number">10.4.3</span> Strukturgleichungsmodell</h3>
+<p>Für das Beispiel eines Strukturgleichungsmodell erweitern wir im folgenden das Messmodell aus dem vorherigen Kapitel. Neben den jeweiligen Items für die einzelnen Persönlichkeitsfaktoren sind schließlich noch die soziodemographischen Variablen Geschlecht und Alter im Datensatz enthalten.</p>
+<div class="sourceCode" id="cb481"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb481-1"><a href="latente-variablenmodelle.html#cb481-1" aria-hidden="true" tabindex="-1"></a>big_five_comp</span></code></pre></div>
+<pre class="bordercode"><code># A tibble: 5,000 x 52
+  Geschlecht    E1    E2    E3    E4    E5    E6    E7    E8    E9   E10    N1    N2    N3
+  &lt;chr&gt;      &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+1 f              4     2     5     2     5     1     4     3     5     1     1     5     2
+2 m              2     2     3     3     3     3     1     5     1     5     2     3     4
+3 m              5     1     1     4     5     1     1     5     5     1     5     1     5
+4 m              2     5     2     4     3     4     3     4     4     5     5     4     4
+# ... with 4,996 more rows, and 38 more variables: N4 &lt;dbl&gt;, N5 &lt;dbl&gt;, N6 &lt;dbl&gt;, N7 &lt;dbl&gt;,
+#   N8 &lt;dbl&gt;, N9 &lt;dbl&gt;, N10 &lt;dbl&gt;, A1 &lt;dbl&gt;, A2 &lt;dbl&gt;, A3 &lt;dbl&gt;, A4 &lt;dbl&gt;, A5 &lt;dbl&gt;, A6 &lt;dbl&gt;,
+#   A7 &lt;dbl&gt;, A8 &lt;dbl&gt;, A9 &lt;dbl&gt;, A10 &lt;dbl&gt;, C1 &lt;dbl&gt;, C2 &lt;dbl&gt;, C3 &lt;dbl&gt;, C4 &lt;dbl&gt;, C5 &lt;dbl&gt;,
+#   C6 &lt;dbl&gt;, C7 &lt;dbl&gt;, C8 &lt;dbl&gt;, C9 &lt;dbl&gt;, C10 &lt;dbl&gt;, O1 &lt;dbl&gt;, O2 &lt;dbl&gt;, O3 &lt;dbl&gt;, O4 &lt;dbl&gt;,
+#   O5 &lt;dbl&gt;, O6 &lt;dbl&gt;, O7 &lt;dbl&gt;, O8 &lt;dbl&gt;, O9 &lt;dbl&gt;, O10 &lt;dbl&gt;, Alter &lt;dbl&gt;</code></pre>
+<p>Der Schritt besteht erneut im Erstellen eines DAGs (siehe Kapitel <a href="visual.html#dags">8.16.4</a>). In Abbildung <a href="latente-variablenmodelle.html#fig:dagsem">10.3</a> erweitern wir das bisherige Messmodell mit einem weiteren Messmodell. Die Unterscheidung zwischen exogenem und endogenem Messmodell ist heute eher formsache und spiel mathematisch keine Rolle. Daher legen wir das Messmodell, welches die Persönlichkeitsfaktoren durch die jeweiligen Items festlegt als exogenes Messmodell fest. Das endogene Messmodell besteht aus der neuen soziodemographischen Variable <code>SDV</code>, welche sich aus dem Alter und Geschlecht der Personen zusammensetzt. Das eigentliche Strukturmodell besteht aus dem Zusammenhang der latenten Variablen des exogenen und endogenen Messmodells. In diesem Fall würden wir eventuell einen Einfluss von <code>SDV</code> auf Extraversion, Neurotizismus und Offenheit erwarten, während die Gewissenhaftigkeit und Verträglichkeit davon weitgehend unberührt bleibt. Außerdem erwarten wir zur Demonstration noch einen Einfluss von Extraversion auf Neurotizismus.</p>
+<div class="figure" style="text-align: center"><span id="fig:dagsem"></span>
+<img src="images/dag_sem.png" alt="Visualisierungs des Strukturgleichungsmodells mittels DAG." width="80%" />
+<p class="caption">
+Abbildung 10.3: Visualisierungs des Strukturgleichungsmodells mittels DAG.
+</p>
+</div>
+<p>Im eigentlichen <code>lavaan</code> Modell finden sich keine Neuerungen im Vergleich zu den beiden vorhergehenden Kapiteln. Zuerst wird das exogene Messmodell genau wie in Kapitel <a href="latente-variablenmodelle.html#factanal">10.2</a> definiert. Anschließend fügen wir das neue endogene Messmodell auf die selbe Art und Weise hinzu. Das eigentliche Strukturmodell wird als Regressionen zwischen den latenten Variablen festgelegt. Die Rauten werden auch hier vom Programm ignoriert, da diese Kommentare signalisieren. Zusätzlich könnte man mit der doppelten Tilde (<code>~~</code>) noch explizit die Kovarianzen der Residuen festlegen.</p>
+<div class="sourceCode" id="cb483"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb483-1"><a href="latente-variablenmodelle.html#cb483-1" aria-hidden="true" tabindex="-1"></a>model3 <span class="ot">&lt;-</span> <span class="st">&quot;</span></span>
+<span id="cb483-2"><a href="latente-variablenmodelle.html#cb483-2" aria-hidden="true" tabindex="-1"></a><span class="st"># Exogenes Messmodell</span></span>
+<span id="cb483-3"><a href="latente-variablenmodelle.html#cb483-3" aria-hidden="true" tabindex="-1"></a><span class="st">  Extrav =~ E1 + E2 + E3 + E4 + E5</span></span>
+<span id="cb483-4"><a href="latente-variablenmodelle.html#cb483-4" aria-hidden="true" tabindex="-1"></a><span class="st">  Neurot =~ N1 + N2 + N3 + N4 + N4</span></span>
+<span id="cb483-5"><a href="latente-variablenmodelle.html#cb483-5" aria-hidden="true" tabindex="-1"></a><span class="st">  Gewiss =~ C1 + C2 + C3 + C4 + C5</span></span>
+<span id="cb483-6"><a href="latente-variablenmodelle.html#cb483-6" aria-hidden="true" tabindex="-1"></a><span class="st">  Vertra =~ A1 + A2 + A3 + A4 + A5</span></span>
+<span id="cb483-7"><a href="latente-variablenmodelle.html#cb483-7" aria-hidden="true" tabindex="-1"></a><span class="st">  Offenh =~ O1 + O2 + O3 + O4 + O5</span></span>
+<span id="cb483-8"><a href="latente-variablenmodelle.html#cb483-8" aria-hidden="true" tabindex="-1"></a><span class="st"># Endogenes Messmodell</span></span>
+<span id="cb483-9"><a href="latente-variablenmodelle.html#cb483-9" aria-hidden="true" tabindex="-1"></a><span class="st">  SDV =~ Geschlecht + Alter</span></span>
+<span id="cb483-10"><a href="latente-variablenmodelle.html#cb483-10" aria-hidden="true" tabindex="-1"></a><span class="st"># Strukturmodell</span></span>
+<span id="cb483-11"><a href="latente-variablenmodelle.html#cb483-11" aria-hidden="true" tabindex="-1"></a><span class="st">  Extrav ~ SDV</span></span>
+<span id="cb483-12"><a href="latente-variablenmodelle.html#cb483-12" aria-hidden="true" tabindex="-1"></a><span class="st">  Offenh ~ SDV</span></span>
+<span id="cb483-13"><a href="latente-variablenmodelle.html#cb483-13" aria-hidden="true" tabindex="-1"></a><span class="st">  Neurot ~ Extrav + SDV</span></span>
+<span id="cb483-14"><a href="latente-variablenmodelle.html#cb483-14" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;</span></span>
+<span id="cb483-15"><a href="latente-variablenmodelle.html#cb483-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb483-16"><a href="latente-variablenmodelle.html#cb483-16" aria-hidden="true" tabindex="-1"></a>fit3 <span class="ot">&lt;-</span> <span class="fu">sem</span>(model3, <span class="at">data =</span> big_five_comp)</span>
+<span id="cb483-17"><a href="latente-variablenmodelle.html#cb483-17" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit3, <span class="at">fit.measures =</span> <span class="cn">TRUE</span>, <span class="at">standardized =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre class="bordercode"><code>lavaan 0.6-7 ended normally after 117 iterations
+
+  Estimator                                         ML
+  Optimization method                           NLMINB
+  Number of free parameters                         60
+                                                      
+  Number of observations                          5000
+                                                      
+Model Test User Model:
+                                                      
+  Test statistic                              6605.216
+  Degrees of freedom                               291
+  P-value (Chi-square)                           0.000
+
+Model Test Baseline Model:
+
+  Test statistic                             30429.571
+  Degrees of freedom                               325
+  P-value                                        0.000
+
+User Model versus Baseline Model:
+
+  Comparative Fit Index (CFI)                    0.790
+  Tucker-Lewis Index (TLI)                       0.766
+
+Loglikelihood and Information Criteria:
+
+  Loglikelihood user model (H0)            -202088.028
+  Loglikelihood unrestricted model (H1)             NA
+                                                      
+  Akaike (AIC)                              404296.056
+  Bayesian (BIC)                            404687.087
+  Sample-size adjusted Bayesian (BIC)       404496.428
+
+Root Mean Square Error of Approximation:
+
+  RMSEA                                          0.066
+  90 Percent confidence interval - lower         0.065
+  90 Percent confidence interval - upper         0.067
+  P-value RMSEA &lt;= 0.05                          0.000
+
+Standardized Root Mean Square Residual:
+
+  SRMR                                           0.069
+
+Parameter Estimates:
+
+  Standard errors                             Standard
+  Information                                 Expected
+  Information saturated (h1) model          Structured
+
+Latent Variables:
+                   Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+  Extrav =~                                                             
+    E1                1.000                               0.781    0.628
+    E2               -1.114    0.030  -37.562    0.000   -0.870   -0.660
+    E3                1.190    0.029   40.858    0.000    0.929    0.744
+    E4               -1.045    0.028  -37.692    0.000   -0.816   -0.663
+    E5                1.306    0.031   42.320    0.000    1.020    0.789
+  Neurot =~                                                             
+    N1                1.000                               1.012    0.768
+    N2               -0.689    0.021  -33.344    0.000   -0.698   -0.591
+    N3                0.798    0.022   36.091    0.000    0.808    0.708
+    N4               -0.422    0.020  -21.025    0.000   -0.428   -0.349
+  Gewiss =~                                                             
+    C1                1.000                               0.641    0.581
+    C2               -1.166    0.044  -26.418    0.000   -0.748   -0.546
+    C3                0.566    0.029   19.554    0.000    0.363    0.362
+    C4               -1.224    0.043  -28.379    0.000   -0.785   -0.629
+    C5                1.251    0.044   28.453    0.000    0.802    0.633
+  Vertra =~                                                             
+    A1                1.000                               0.628    0.457
+    A2               -1.014    0.041  -24.969    0.000   -0.637   -0.593
+    A3                0.682    0.037   18.381    0.000    0.429    0.353
+    A4               -1.132    0.043  -26.335    0.000   -0.711   -0.684
+    A5                1.292    0.049   26.573    0.000    0.812    0.709
+  Offenh =~                                                             
+    O1                1.000                               0.505    0.447
+    O2               -1.711    0.069  -24.635    0.000   -0.865   -0.754
+    O3                0.707    0.040   17.883    0.000    0.357    0.356
+    O4               -1.404    0.058  -24.317    0.000   -0.710   -0.633
+    O5                0.830    0.040   20.584    0.000    0.420    0.444
+  SDV =~                                                                
+    Geschlecht        1.000                               0.109    0.226
+    Alter            -0.781    2.405   -0.325    0.745   -0.085   -0.006
+
+Regressions:
+                   Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+  Extrav ~                                                              
+    SDV               3.600    0.312   11.530    0.000    0.504    0.504
+  Offenh ~                                                              
+    SDV               0.998    0.125    7.971    0.000    0.216    0.216
+  Neurot ~                                                              
+    Extrav           -0.469    0.033  -14.156    0.000   -0.362   -0.362
+    SDV               1.209    0.260    4.654    0.000    0.131    0.131
+
+Covariances:
+                   Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+  Gewiss ~~                                                             
+    Vertra           -0.057    0.008   -6.893    0.000   -0.141   -0.141
+    SDV               0.023    0.003    7.969    0.000    0.325    0.325
+  Vertra ~~                                                             
+    SDV              -0.060    0.005  -11.499    0.000   -0.878   -0.878
+ .Neurot ~~                                                             
+   .Offenh           -0.087    0.010   -8.670    0.000   -0.184   -0.184
+
+Variances:
+                   Estimate  Std.Err  z-value  P(&gt;|z|)   Std.lv  Std.all
+   .E1                0.935    0.021   43.806    0.000    0.935    0.605
+   .E2                0.981    0.023   42.633    0.000    0.981    0.564
+   .E3                0.698    0.018   38.052    0.000    0.698    0.447
+   .E4                0.848    0.020   42.508    0.000    0.848    0.560
+   .E5                0.632    0.019   34.152    0.000    0.632    0.378
+   .N1                0.713    0.028   25.547    0.000    0.713    0.410
+   .N2                0.906    0.022   41.094    0.000    0.906    0.650
+   .N3                0.651    0.020   32.073    0.000    0.651    0.499
+   .N4                1.316    0.028   47.812    0.000    1.316    0.878
+   .C1                0.805    0.021   39.166    0.000    0.805    0.662
+   .C2                1.314    0.032   41.019    0.000    1.314    0.701
+   .C3                0.876    0.019   46.889    0.000    0.876    0.869
+   .C4                0.943    0.026   36.066    0.000    0.943    0.605
+   .C5                0.963    0.027   35.743    0.000    0.963    0.599
+   .A1                1.499    0.033   45.691    0.000    1.499    0.792
+   .A2                0.748    0.018   40.944    0.000    0.748    0.648
+   .A3                1.293    0.027   47.692    0.000    1.293    0.876
+   .A4                0.574    0.016   35.060    0.000    0.574    0.532
+   .A5                0.652    0.020   32.951    0.000    0.652    0.498
+   .O1                1.025    0.023   45.130    0.000    1.025    0.801
+   .O2                0.568    0.024   23.842    0.000    0.568    0.432
+   .O3                0.880    0.019   47.224    0.000    0.880    0.873
+   .O4                0.752    0.021   35.507    0.000    0.752    0.599
+   .O5                0.719    0.016   45.218    0.000    0.719    0.803
+   .Geschlecht        0.223    0.005   47.896    0.000    0.223    0.949
+   .Alter           227.290    4.546   49.999    0.000  227.290    1.000
+   .Extrav            0.455    0.025   17.927    0.000    0.746    0.746
+   .Neurot            0.922    0.037   24.926    0.000    0.900    0.900
+    Gewiss            0.411    0.022   18.463    0.000    1.000    1.000
+    Vertra            0.395    0.027   14.781    0.000    1.000    1.000
+   .Offenh            0.244    0.017   13.959    0.000    0.953    0.953
+    SDV               0.012    0.002    5.997    0.000    1.000    1.000</code></pre>
+<p>In der Ergebnisausgabe sehen wir detailliert die geschätzten Koeffizienten für die verschiedenen Pfade. Außerdem werden durch das Argument <code>fit.measures = TRUE</code> zusätzlich Indizes der Modellpassung (wie AIC, BIC, CFI und RMSEA) ausgegeben. Alternativ zum <code>lavaan</code> Package kann auch hier das Package <code>sem</code> verwendet werden.</p>
+
+</div>
 </div>
 </div>
 

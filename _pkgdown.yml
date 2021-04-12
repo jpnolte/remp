@@ -21,6 +21,7 @@ reference:
     contents:
       - starts_with("art")
       - starts_with("big")
+      - starts_with("bit")
       - starts_with("eye")
       - starts_with("indo")
       - starts_with("iq")

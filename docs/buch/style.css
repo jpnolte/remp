@@ -128,8 +128,7 @@ p.caption {
 
 *::selection {
   text-shadow: none !important;
-  color: #fff;
-  background-color: #ee7000 !important;
+  background-color: rgba(238,112,0, 0.35) !important;
 }
 
 p code {

@@ -1,16 +1,88 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://github.com/j3ypi/remp/404.html</loc>
+  </url>
+  <url>
+    <loc>https://github.com/j3ypi/remp/Impressum.html</loc>
+  </url>
+  <url>
+    <loc>https://github.com/j3ypi/remp/LICENSE-text.html</loc>
+  </url>
+  <url>
+    <loc>https://github.com/j3ypi/remp/To_Do.html</loc>
+  </url>
+  <url>
+    <loc>https://github.com/j3ypi/remp/authors.html</loc>
+  </url>
+  <url>
+    <loc>https://github.com/j3ypi/remp/buch/404.html</loc>
+  </url>
+  <url>
+    <loc>https://github.com/j3ypi/remp/buch/appendix.html</loc>
+  </url>
+  <url>
+    <loc>https://github.com/j3ypi/remp/buch/datatypes.html</loc>
+  </url>
+  <url>
+    <loc>https://github.com/j3ypi/remp/buch/datenvorbereitung.html</loc>
+  </url>
+  <url>
+    <loc>https://github.com/j3ypi/remp/buch/descr.html</loc>
+  </url>
+  <url>
+    <loc>https://github.com/j3ypi/remp/buch/ergebnisse-exportieren.html</loc>
+  </url>
+  <url>
+    <loc>https://github.com/j3ypi/remp/buch/index.html</loc>
+  </url>
+  <url>
+    <loc>https://github.com/j3ypi/remp/buch/inductive.html</loc>
+  </url>
+  <url>
+    <loc>https://github.com/j3ypi/remp/buch/intro.html</loc>
+  </url>
+  <url>
+    <loc>https://github.com/j3ypi/remp/buch/io.html</loc>
+  </url>
+  <url>
+    <loc>https://github.com/j3ypi/remp/buch/iterationmain.html</loc>
+  </url>
+  <url>
+    <loc>https://github.com/j3ypi/remp/buch/project.html</loc>
+  </url>
+  <url>
+    <loc>https://github.com/j3ypi/remp/buch/start.html</loc>
+  </url>
+  <url>
+    <loc>https://github.com/j3ypi/remp/buch/vars.html</loc>
+  </url>
+  <url>
+    <loc>https://github.com/j3ypi/remp/buch/visual.html</loc>
+  </url>
+  <url>
     <loc>https://github.com/j3ypi/remp/index.html</loc>
+  </url>
+  <url>
+    <loc>https://github.com/j3ypi/remp/news/index.html</loc>
   </url>
   <url>
     <loc>https://github.com/j3ypi/remp/reference/A.html</loc>
   </url>
   <url>
-    <loc>https://github.com/j3ypi/remp/reference/artists.html</loc>
+    <loc>https://github.com/j3ypi/remp/reference/B.html</loc>
   </url>
   <url>
-    <loc>https://github.com/j3ypi/remp/reference/B.html</loc>
+    <loc>https://github.com/j3ypi/remp/reference/C.html</loc>
+  </url>
+  <url>
+    <loc>https://github.com/j3ypi/remp/reference/D.html</loc>
+  </url>
+  <url>
+    <loc>https://github.com/j3ypi/remp/reference/E.html</loc>
+  </url>
+  <url>
+    <loc>https://github.com/j3ypi/remp/reference/artists.html</loc>
   </url>
   <url>
     <loc>https://github.com/j3ypi/remp/reference/big5.html</loc>
@@ -28,12 +100,6 @@
     <loc>https://github.com/j3ypi/remp/reference/bitcoin.html</loc>
   </url>
   <url>
-    <loc>https://github.com/j3ypi/remp/reference/C.html</loc>
-  </url>
-  <url>
-    <loc>https://github.com/j3ypi/remp/reference/D.html</loc>
-  </url>
-  <url>
     <loc>https://github.com/j3ypi/remp/reference/data_binary.html</loc>
   </url>
   <url>
@@ -43,13 +109,16 @@
     <loc>https://github.com/j3ypi/remp/reference/descriptive.html</loc>
   </url>
   <url>
-    <loc>https://github.com/j3ypi/remp/reference/E.html</loc>
-  </url>
-  <url>
     <loc>https://github.com/j3ypi/remp/reference/eye_tracking.html</loc>
   </url>
   <url>
     <loc>https://github.com/j3ypi/remp/reference/hands_on.html</loc>
+  </url>
+  <url>
+    <loc>https://github.com/j3ypi/remp/reference/index.html</loc>
+  </url>
+  <url>
+    <loc>https://github.com/j3ypi/remp/reference/indo.html</loc>
   </url>
   <url>
     <loc>https://github.com/j3ypi/remp/reference/indonesisch.html</loc>
@@ -77,6 +146,9 @@
   </url>
   <url>
     <loc>https://github.com/j3ypi/remp/reference/tracks.html</loc>
+  </url>
+  <url>
+    <loc>https://github.com/j3ypi/remp/reference/transform_binary.html</loc>
   </url>
   <url>
     <loc>https://github.com/j3ypi/remp/reference/video.html</loc>

@@ -1,9 +1,19 @@
 url: https://github.com/j3ypi/remp
 
+lang: de
+
 template:
-  params:
-    bootswatch: paper
-    ganalytics: UA-189972467-1
+  bootstrap: 5
+  bootswatch: litera
+  includes:
+    after_body: >
+      <script data-goatcounter="https://remp.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+
+footer:
+  structure:
+    left: legal
+  components:
+    legal: <a href="https://r-empirische-wissenschaften.de/Impressum.html">Impressum und Datenschutzerklärung</a>
 
 destination: docs
 
@@ -44,7 +54,6 @@ navbar:
     - home
     - articles
     - reference
-    - forum
     - news
     right: github
   components:
@@ -60,9 +69,6 @@ navbar:
     news:
       text: News
       href: news/index.html
-    forum:
-      text: Forum
-      href: https://remp.forumotion.com/
     github:
       icon: fa-github fa-lg
       href: https://github.com/j3ypi/remp

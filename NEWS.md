@@ -1,3 +1,10 @@
+# remp 0.1.0 
+- Datum: *2022-10-02*
+- Kapitel Einleitung, Startvoraussetzung, Projektorientierung, Wichtiges Grundlagenwissen (ehem. Variablen), Datensätze, Deskriptive Statistik und Ergebnisse exportieren wurden überarbeitet.
+- Website basiert jetzt auf Bootstrap 5.
+- Kapitel Latente Variablenmodelle entfernt.
+- Kapitel zum `gt` Package entfernt, da sich das Package in absehbarer Zeit in keiner stabilen Version befinden wird.
+
 # remp 0.0.2
 
 - Die Inhalte werden sich von hier an nur noch geringfügig ändern. Eine Ausnahme stellt dabei Kapitel 9 (Inferenzstatistik) dar, welches noch komplett neu geschrieben wird, sobald das `inductive` Package fertig ist. Auch wird dort zukünftig noch auf die getesteten Hypothesen und die Interpretation der Ausgabe eingegangen.
@@ -8,5 +15,4 @@
 
 - Erster Release des Packages und der Website
 - Aktuelle Buchversion entspricht **nicht** der finalen Version
-- Das Forum ist nun online und unter [https://remp.forumotion.com/](https://remp.forumotion.com/) erreichbar
 - Datensätze und Übungen sind zum jetzigen Zeitpunkt noch nicht vollständig

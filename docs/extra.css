@@ -88,7 +88,7 @@ p code {
   background-color:rgba(238,112,0, 0.1);
   color:#000
 }
-/*
+
 .page-header {
     border-bottom: 0px solid #ddd;
     padding-bottom: 0rem;
@@ -96,7 +96,7 @@ p code {
     margin-top: 2rem;
     padding-top: 2rem;
 }
-*/
+
 .btn-primary {
   color: #F35D22;
   background-color: white;
@@ -133,7 +133,6 @@ footer p {
   background-color: rgba(238,112,0, 0.35) !important;
 }
 
-/* FAQ accordion
 #faq {
   max-width: 800px;
   margin: auto;
@@ -263,4 +262,3 @@ section.faq {
 #faq ul li input[type=checkbox]:checked ~ i:after {
   transform: translate(-2px, 0) rotate(-45deg);
 }
-*/

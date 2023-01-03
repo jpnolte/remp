@@ -7,7 +7,7 @@ Description: Lerne R mit praktischen Beispielen und Übungen ohne Programmiervor
 License: GPL-3 + file LICENSE
 Encoding: UTF-8
 LazyData: true
-URL: https://github.com/j3ypi/remp
+URL: https://r-empirische-wissenschaften.de, https://github.com/j3ypi/remp
 BugReports: https://github.com/j3ypi/remp/issues
 Depends:
     R (>= 2.10)

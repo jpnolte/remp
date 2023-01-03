@@ -33,6 +33,7 @@
 <link rel="prev" href="inductive.html"/>
 <link rel="next" href="datatypes.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -512,7 +513,7 @@ Abbildung 10.5: Beispielhafter Output einer Tabelle von R Markdown in Word.
 <span id="cb478-5"><a href="ergebnisse-exportieren.html#cb478-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xtable</span>(<span class="at">digits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">3</span>)) <span class="sc">|&gt;</span> </span>
 <span id="cb478-6"><a href="ergebnisse-exportieren.html#cb478-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="at">include.rownames =</span> <span class="cn">FALSE</span>) </span></code></pre></div>
 <pre class="bordercode"><code>% latex table generated in R 4.2.2 by xtable 1.8-4 package
-% Tue Jan  3 14:06:43 2023
+% Tue Jan  3 17:59:26 2023
 \begin{table}[ht]
 \centering
 \begin{tabular}{lrrrrr}
@@ -569,7 +570,10 @@ gitbook.start({
 "text": null
 },
 "download": null,
-"search": false,
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "section"
 },

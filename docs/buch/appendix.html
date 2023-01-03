@@ -33,6 +33,7 @@
 <link rel="prev" href="iterationmain.html"/>
 
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -447,7 +448,7 @@ Xie, Y. 2015. <em>Dynamic Documents with <span>R</span> and Knitr</em>. 2nd ed. 
 </tr>
 <tr class="odd">
 <td align="left">remp</td>
-<td align="left">0, 1, 0</td>
+<td align="left">0, 1, 1</td>
 </tr>
 <tr class="even">
 <td align="left">RColorBrewer</td>
@@ -642,7 +643,10 @@ gitbook.start({
 "text": null
 },
 "download": null,
-"search": false,
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "section"
 },

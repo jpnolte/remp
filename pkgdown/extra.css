@@ -90,8 +90,6 @@ p code {
 }
 
 .page-header {
-/*    display: flex;
-    align-items: center;*/
     border-bottom: 0px solid #ddd;
     padding-bottom: 0rem;
     margin-bottom: 0rem;

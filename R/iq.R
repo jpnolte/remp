@@ -9,5 +9,6 @@
 #'   \item{IQ}{Durchschnittlicher Intelligenzquotient}
 #'   \item{Kreativitaet}{Erfundener Score zur Messung der Kreativität}
 #' }
-#' @source \url{Research}
+#' @examples
+#' iq
 "iq"

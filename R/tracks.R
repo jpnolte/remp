@@ -10,5 +10,6 @@
 #'   \item{Bekanntheit}{Index zur Quantifizierung der Bekanntheit.}
 #'   \item{Release}{Release Datum des jeweiligen Albums/Liedes}
 #' }
-#' @source \url{Research}
+#' @examples
+#' tracks
 "tracks"

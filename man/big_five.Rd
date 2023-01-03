@@ -26,4 +26,8 @@ big_five
 Der Datensatz enthält die soziodemographische Variablen Alter und Geschlecht, die durchschnittliche Ausprägung von Extraversion,
 Neurotizismus, Verträglichkeit und Gewissenhaftigkeit sowie 10 Items, um die Offenheit zu messen.
 }
+\examples{
+big_five
+
+}
 \keyword{datasets}

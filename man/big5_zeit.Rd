@@ -5,21 +5,22 @@
 \alias{big5_zeit}
 \title{Big 5 Modifikation}
 \format{
-Ein tibble mit 1,493 Zeilen and 4 Spalten:
+Ein tibble mit 5 Zeilen and 5 Spalten:
 \describe{
-  \item{Titel}{Names des Filmes oder der Serie}
-  \item{Staffel}{Staffelnummer}
-  \item{Folge}{Name der Folge}
-  \item{Watchdate}{Datum, an dem der Titel geschaut wurde. Beachte, dass aus didaktischen Gründen bewusst das falsche Datenformat vorliegt.}
+  \item{VPN}{Versuchspersonennummer}
+  \item{Extrav_T1}{Mittlere Extraversionsausprägung zu Zeitpunkt 1.}
+  \item{Extrav_T2}{Mittlere Extraversionsausprägung zu Zeitpunkt 2.}
+  \item{Neurot_FA}{Mittlere Neurotizismusausprägung in Fragebogen A.}
+  \item{Neurot_FB}{Mittlere Neurotizismusausprägung in Fragebogen B.}
 }
-}
-\source{
-\url{Research}
 }
 \usage{
 big5_zeit
 }
 \description{
-Dies ist die Nutzerstatistik eines User beim Film- und Serienschauen auf einer der bekanntesten Videostreaming Plattformen.
+TBA
+}
+\examples{
+big5_zeit
 }
 \keyword{datasets}

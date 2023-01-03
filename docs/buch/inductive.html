@@ -5,26 +5,25 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Kapitel 9 Inferenzstatistik | R für empirische Wissenschaften</title>
-  <meta name="description" content="Lerne R ohne jegliches Vorwissen. Moderne und konsistente Funktionen machen R endlich zugänglich für jeden und jede. Egal wie computeraffin." />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="description" content="Dieses Buch bietet einfache Erklärungen mit praktischen Beispielen und Übungen, welche das Erlernen von R ohne Programmiervorkenntnisse im Selbststudium ermöglichen. Die Zielgruppe sind WissenschaftlerInnen und StudentInnen der Fachrichtungen Medizin, Psychologie, Wirtschaftswissenschaften, Sozialwissenschaften, Agrarwissenschaften, Neurowissenschaften, Biologie, Journalismus, Tourismus, Data Science, Biostatistik und allen weiteren Disziplinen, die Daten auswerten möchten." />
+  <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Kapitel 9 Inferenzstatistik | R für empirische Wissenschaften" />
   <meta property="og:type" content="book" />
-
-  <meta property="og:image" content="images/logo.png" />
-  <meta property="og:description" content="Lerne R ohne jegliches Vorwissen. Moderne und konsistente Funktionen machen R endlich zugänglich für jeden und jede. Egal wie computeraffin." />
+  <meta property="og:image" content="/images/logo.png" />
+  <meta property="og:description" content="Dieses Buch bietet einfache Erklärungen mit praktischen Beispielen und Übungen, welche das Erlernen von R ohne Programmiervorkenntnisse im Selbststudium ermöglichen. Die Zielgruppe sind WissenschaftlerInnen und StudentInnen der Fachrichtungen Medizin, Psychologie, Wirtschaftswissenschaften, Sozialwissenschaften, Agrarwissenschaften, Neurowissenschaften, Biologie, Journalismus, Tourismus, Data Science, Biostatistik und allen weiteren Disziplinen, die Daten auswerten möchten." />
   <meta name="github-repo" content="j3ypi/remp" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Kapitel 9 Inferenzstatistik | R für empirische Wissenschaften" />
-
-  <meta name="twitter:description" content="Lerne R ohne jegliches Vorwissen. Moderne und konsistente Funktionen machen R endlich zugänglich für jeden und jede. Egal wie computeraffin." />
-  <meta name="twitter:image" content="images/logo.png" />
+  
+  <meta name="twitter:description" content="Dieses Buch bietet einfache Erklärungen mit praktischen Beispielen und Übungen, welche das Erlernen von R ohne Programmiervorkenntnisse im Selbststudium ermöglichen. Die Zielgruppe sind WissenschaftlerInnen und StudentInnen der Fachrichtungen Medizin, Psychologie, Wirtschaftswissenschaften, Sozialwissenschaften, Agrarwissenschaften, Neurowissenschaften, Biologie, Journalismus, Tourismus, Data Science, Biostatistik und allen weiteren Disziplinen, die Daten auswerten möchten." />
+  <meta name="twitter:image" content="/images/logo.png" />
 
 <meta name="author" content="Jan Philipp Nolte" />
 
 
-<meta name="date" content="2021-04-16" />
+<meta name="date" content="2023-01-03" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,9 +31,8 @@
   <link rel="apple-touch-icon-precomposed" sizes="120x120" href="images/touch-icon.png" />
   <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
 <link rel="prev" href="visual.html"/>
-<link rel="next" href="latente-variablenmodelle.html"/>
-<script src="libs/header-attrs-2.5/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link rel="next" href="ergebnisse-exportieren.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -50,18 +48,9 @@
 
 
 
-
-<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-0CMQHQ9L4L"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-189972467-1');
-</script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -125,6 +114,29 @@ code span.vs { color: #0e7a0e; } /* VerbatimString */
 code span.wa { font-weight: bold; } /* Warning */
 </style>
 
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
 <link rel="stylesheet" href="style.css" type="text/css" />
 <link rel="stylesheet" href="toc.css" type="text/css" />
 <link rel="stylesheet" href="font-awesome.min.css" type="text/css" />
@@ -139,218 +151,208 @@ code span.wa { font-weight: bold; } /* Warning */
     <div class="book-summary">
       <nav role="navigation">
 
-        <ul class="summary">
-        <li><strong><a href="https://r-empirische-wissenschaften.de"> R für empirische Wissenschaften</a></strong></li>
+<ul class="summary">
+<li><strong><a href="https://r-empirische-wissenschaften.de"> R für empirische Wissenschaften</a></strong></li>
 
-        <li class="divider"></li>
-        <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Vorwort</a></li>
-        <li class="part"><span><b>I Die ersten Schritte</b></span></li>
-        <li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Einleitung</a>
-        <ul>
-        <li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#für-wen-ist-dieses-buch"><i class="fa fa-check"></i><b>1.1</b> Für wen ist dieses Buch?</a></li>
-        <li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#aufbau-und-bearbeitungsstrategie"><i class="fa fa-check"></i><b>1.2</b> Aufbau und Bearbeitungsstrategie</a></li>
-        <li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#boxen-übungen-und-datensätze"><i class="fa fa-check"></i><b>1.3</b> Boxen, Übungen und Datensätze</a></li>
-        <li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#books"><i class="fa fa-check"></i><b>1.4</b> Ergänzende Literatur</a></li>
-        </ul></li>
-        <li class="chapter" data-level="2" data-path="start.html"><a href="start.html"><i class="fa fa-check"></i><b>2</b> Startvoraussetzungen</a>
-        <ul>
-        <li class="chapter" data-level="2.1" data-path="start.html"><a href="start.html#installation-von-r-und-rstudio"><i class="fa fa-check"></i><b>2.1</b> Installation von R und RStudio</a>
-        <ul>
-        <li class="chapter" data-level="2.1.1" data-path="start.html"><a href="start.html#installr"><i class="fa fa-check"></i><b>2.1.1</b> Programmiersprache R</a></li>
-        <li class="chapter" data-level="2.1.2" data-path="start.html"><a href="start.html#rstudio"><i class="fa fa-check"></i><b>2.1.2</b> Programmierumgebung RStudio</a></li>
-        </ul></li>
-        <li class="chapter" data-level="2.2" data-path="start.html"><a href="start.html#aufbau"><i class="fa fa-check"></i><b>2.2</b> Aufbau von RStudio</a></li>
-        <li class="chapter" data-level="2.3" data-path="start.html"><a href="start.html#anpassung"><i class="fa fa-check"></i><b>2.3</b> RStudio anpassen</a></li>
-        <li class="chapter" data-level="2.4" data-path="start.html"><a href="start.html#funktionen-und-ihre-argumente"><i class="fa fa-check"></i><b>2.4</b> Funktionen und ihre Argumente</a></li>
-        <li class="chapter" data-level="2.5" data-path="start.html"><a href="start.html#packages"><i class="fa fa-check"></i><b>2.5</b> Packages (Erweiterungen)</a>
-        <ul>
-        <li class="chapter" data-level="2.5.1" data-path="start.html"><a href="start.html#installieren-und-laden"><i class="fa fa-check"></i><b>2.5.1</b> Installieren und laden</a></li>
-        <li class="chapter" data-level="2.5.2" data-path="start.html"><a href="start.html#notwendige-packages"><i class="fa fa-check"></i><b>2.5.2</b> Notwendige Packages</a></li>
-        <li class="chapter" data-level="2.5.3" data-path="start.html"><a href="start.html#namespace"><i class="fa fa-check"></i><b>2.5.3</b> Namespace</a></li>
-        </ul></li>
-        <li class="chapter" data-level="2.6" data-path="start.html"><a href="start.html#help"><i class="fa fa-check"></i><b>2.6</b> Fehler- und Warnmeldungen</a>
-        <ul>
-        <li class="chapter" data-level="2.6.1" data-path="start.html"><a href="start.html#der-unterschied"><i class="fa fa-check"></i><b>2.6.1</b> Der Unterschied</a></li>
-        <li class="chapter" data-level="2.6.2" data-path="start.html"><a href="start.html#hilfe"><i class="fa fa-check"></i><b>2.6.2</b> Wo bekomme ich Hilfe?</a></li>
-        <li class="chapter" data-level="2.6.3" data-path="start.html"><a href="start.html#fehler-beheben"><i class="fa fa-check"></i><b>2.6.3</b> Fehler beheben</a></li>
-        </ul></li>
-        <li class="chapter" data-level="2.7" data-path="start.html"><a href="start.html#historische-relikte"><i class="fa fa-check"></i><b>2.7</b> Historische Relikte</a></li>
-        </ul></li>
-        <li class="part"><span><b>II Vorbereitung</b></span></li>
-        <li class="chapter" data-level="3" data-path="project.html"><a href="project.html"><i class="fa fa-check"></i><b>3</b> Projektorientierung</a>
-        <ul>
-        <li class="chapter" data-level="3.1" data-path="project.html"><a href="project.html#das-problem"><i class="fa fa-check"></i><b>3.1</b> Das Problem</a></li>
-        <li class="chapter" data-level="3.2" data-path="project.html"><a href="project.html#r-projekte-erstellen"><i class="fa fa-check"></i><b>3.2</b> R Projekte erstellen</a></li>
-        <li class="chapter" data-level="3.3" data-path="project.html"><a href="project.html#here"><i class="fa fa-check"></i><b>3.3</b> Das <code>here</code> Package</a></li>
-        </ul></li>
-        <li class="chapter" data-level="4" data-path="vars.html"><a href="vars.html"><i class="fa fa-check"></i><b>4</b> Wichtiges Grundlagenwissen</a>
-        <ul>
-        <li class="chapter" data-level="4.1" data-path="vars.html"><a href="vars.html#pfeil"><i class="fa fa-check"></i><b>4.1</b> Variablen speichern und verwenden</a></li>
-        <li class="chapter" data-level="4.2" data-path="vars.html"><a href="vars.html#datentypen"><i class="fa fa-check"></i><b>4.2</b> Datentypen</a>
-        <ul>
-        <li class="chapter" data-level="4.2.1" data-path="vars.html"><a href="vars.html#zahlen-buchstaben-und-logische-abfragen"><i class="fa fa-check"></i><b>4.2.1</b> Zahlen, Buchstaben und logische Abfragen</a></li>
-        <li class="chapter" data-level="4.2.2" data-path="vars.html"><a href="vars.html#factor"><i class="fa fa-check"></i><b>4.2.2</b> Faktoren</a></li>
-        <li class="chapter" data-level="4.2.3" data-path="vars.html"><a href="vars.html#zeitdaten"><i class="fa fa-check"></i><b>4.2.3</b> Zeitdaten</a></li>
-        <li class="chapter" data-level="4.2.4" data-path="vars.html"><a href="vars.html#datentypen-konvertieren"><i class="fa fa-check"></i><b>4.2.4</b> Datentypen konvertieren</a></li>
-        </ul></li>
-        <li class="chapter" data-level="4.3" data-path="vars.html"><a href="vars.html#struktur-von-daten"><i class="fa fa-check"></i><b>4.3</b> Struktur von Daten</a></li>
-        <li class="chapter" data-level="4.4" data-path="vars.html"><a href="vars.html#dollar"><i class="fa fa-check"></i><b>4.4</b> Der Dollar-Operator</a></li>
-        </ul></li>
-        <li class="chapter" data-level="5" data-path="io.html"><a href="io.html"><i class="fa fa-check"></i><b>5</b> Datensätze</a>
-        <ul>
-        <li class="chapter" data-level="5.1" data-path="io.html"><a href="io.html#import"><i class="fa fa-check"></i><b>5.1</b> Einlesen externer Dateien</a></li>
-        <li class="chapter" data-level="5.2" data-path="io.html"><a href="io.html#datensätze-aus-packages-laden"><i class="fa fa-check"></i><b>5.2</b> Datensätze aus Packages laden</a></li>
-        <li class="chapter" data-level="5.3" data-path="io.html"><a href="io.html#inR"><i class="fa fa-check"></i><b>5.3</b> Datensätze in R erstellen</a></li>
-        <li class="chapter" data-level="5.4" data-path="io.html"><a href="io.html#speichern-und-konvertieren"><i class="fa fa-check"></i><b>5.4</b> Speichern und Konvertieren</a></li>
-        </ul></li>
-        <li class="chapter" data-level="6" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html"><i class="fa fa-check"></i><b>6</b> Datenvorbereitung</a>
-        <ul>
-        <li class="chapter" data-level="6.1" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#tidyverse"><i class="fa fa-check"></i><b>6.1</b> Einführung</a></li>
-        <li class="chapter" data-level="6.2" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#select"><i class="fa fa-check"></i><b>6.2</b> Spalten auswählen, umbenennen und umsortieren</a></li>
-        <li class="chapter" data-level="6.3" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#filter"><i class="fa fa-check"></i><b>6.3</b> Zeilen auswählen und umsortieren</a></li>
-        <li class="chapter" data-level="6.4" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#mutate"><i class="fa fa-check"></i><b>6.4</b> Spalteninhalte verändern</a>
-        <ul>
-        <li class="chapter" data-level="6.4.1" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#einzelne-spalten"><i class="fa fa-check"></i><b>6.4.1</b> Einzelne Spalten</a></li>
-        <li class="chapter" data-level="6.4.2" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#across"><i class="fa fa-check"></i><b>6.4.2</b> Mehrere Spalten</a></li>
-        <li class="chapter" data-level="6.4.3" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#helfer"><i class="fa fa-check"></i><b>6.4.3</b> Helferfunktionen</a></li>
-        <li class="chapter" data-level="6.4.4" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#function"><i class="fa fa-check"></i><b>6.4.4</b> Eigene Funktionen erstellen</a></li>
-        <li class="chapter" data-level="6.4.5" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#zeilenweise-berechnen"><i class="fa fa-check"></i><b>6.4.5</b> Zeilenweise berechnen</a></li>
-        </ul></li>
-        <li class="chapter" data-level="6.5" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#umgang-mit-fehlenden-werten-und-duplikaten"><i class="fa fa-check"></i><b>6.5</b> Umgang mit fehlenden Werten und Duplikaten</a></li>
-        <li class="chapter" data-level="6.6" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#tidy"><i class="fa fa-check"></i><b>6.6</b> Breites und langes Datenformat</a></li>
-        <li class="chapter" data-level="6.7" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#spalten-trennen"><i class="fa fa-check"></i><b>6.7</b> Spalten trennen</a></li>
-        <li class="chapter" data-level="6.8" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#datensätze-zusammenführen"><i class="fa fa-check"></i><b>6.8</b> Datensätze zusammenführen</a></li>
-        <li class="chapter" data-level="6.9" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#datastring"><i class="fa fa-check"></i><b>6.9</b> Buchstaben und Wörter bearbeiten</a></li>
-        <li class="chapter" data-level="6.10" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#datafactor"><i class="fa fa-check"></i><b>6.10</b> Faktoren verändern</a></li>
-        <li class="chapter" data-level="6.11" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#datazeit"><i class="fa fa-check"></i><b>6.11</b> Mit Zeitdaten arbeiten</a></li>
-        <li class="chapter" data-level="6.12" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#binäre-antwortmatrix-erstellen"><i class="fa fa-check"></i><b>6.12</b> Binäre Antwortmatrix erstellen</a></li>
-        </ul></li>
-        <li class="part"><span><b>III Auswertung</b></span></li>
-        <li class="chapter" data-level="7" data-path="descr.html"><a href="descr.html"><i class="fa fa-check"></i><b>7</b> Deskriptive Statistik</a>
-        <ul>
-        <li class="chapter" data-level="7.1" data-path="descr.html"><a href="descr.html#verschiedene-lagemaße"><i class="fa fa-check"></i><b>7.1</b> Verschiedene Lagemaße</a></li>
-        <li class="chapter" data-level="7.2" data-path="descr.html"><a href="descr.html#contigency"><i class="fa fa-check"></i><b>7.2</b> Häufigkeiten und Kontingenztafeln</a></li>
-        </ul></li>
-        <li class="chapter" data-level="8" data-path="visual.html"><a href="visual.html"><i class="fa fa-check"></i><b>8</b> Visualisierungen</a>
-        <ul>
-        <li class="chapter" data-level="8.1" data-path="visual.html"><a href="visual.html#einführung"><i class="fa fa-check"></i><b>8.1</b> Einführung</a></li>
-        <li class="chapter" data-level="8.2" data-path="visual.html"><a href="visual.html#histogram"><i class="fa fa-check"></i><b>8.2</b> Histogramm und Dichte</a></li>
-        <li class="chapter" data-level="8.3" data-path="visual.html"><a href="visual.html#scatter"><i class="fa fa-check"></i><b>8.3</b> Streudiagramm</a></li>
-        <li class="chapter" data-level="8.4" data-path="visual.html"><a href="visual.html#boxplot"><i class="fa fa-check"></i><b>8.4</b> Boxplot</a></li>
-        <li class="chapter" data-level="8.5" data-path="visual.html"><a href="visual.html#violin"><i class="fa fa-check"></i><b>8.5</b> Violin Plot</a></li>
-        <li class="chapter" data-level="8.6" data-path="visual.html"><a href="visual.html#barplot"><i class="fa fa-check"></i><b>8.6</b> Balkendiagramm</a></li>
-        <li class="chapter" data-level="8.7" data-path="visual.html"><a href="visual.html#anovaplot"><i class="fa fa-check"></i><b>8.7</b> Liniendiagramm</a></li>
-        <li class="chapter" data-level="8.8" data-path="visual.html"><a href="visual.html#quantil-quantil-plot"><i class="fa fa-check"></i><b>8.8</b> Quantil-Quantil Plot</a></li>
-        <li class="chapter" data-level="8.9" data-path="visual.html"><a href="visual.html#morefactors"><i class="fa fa-check"></i><b>8.9</b> Mehrfaktorielle Abbildungen</a>
-        <ul>
-        <li class="chapter" data-level="8.9.1" data-path="visual.html"><a href="visual.html#groups"><i class="fa fa-check"></i><b>8.9.1</b> Gruppierungsargumente</a></li>
-        <li class="chapter" data-level="8.9.2" data-path="visual.html"><a href="visual.html#facets"><i class="fa fa-check"></i><b>8.9.2</b> Facetten als weitere Dimensionen</a></li>
-        </ul></li>
-        <li class="chapter" data-level="8.10" data-path="visual.html"><a href="visual.html#adapt"><i class="fa fa-check"></i><b>8.10</b> Anpassen des Aussehens</a>
-        <ul>
-        <li class="chapter" data-level="8.10.1" data-path="visual.html"><a href="visual.html#farben"><i class="fa fa-check"></i><b>8.10.1</b> Farben</a></li>
-        <li class="chapter" data-level="8.10.2" data-path="visual.html"><a href="visual.html#thema"><i class="fa fa-check"></i><b>8.10.2</b> Thema</a></li>
-        <li class="chapter" data-level="8.10.3" data-path="visual.html"><a href="visual.html#achsen"><i class="fa fa-check"></i><b>8.10.3</b> Achsen</a></li>
-        <li class="chapter" data-level="8.10.4" data-path="visual.html"><a href="visual.html#legende-und-facetten"><i class="fa fa-check"></i><b>8.10.4</b> Legende und Facetten</a></li>
-        </ul></li>
-        <li class="chapter" data-level="8.11" data-path="visual.html"><a href="visual.html#patch"><i class="fa fa-check"></i><b>8.11</b> Anordnen mehrerer Graphen</a></li>
-        <li class="chapter" data-level="8.12" data-path="visual.html"><a href="visual.html#ggsave"><i class="fa fa-check"></i><b>8.12</b> Speichern von Graphen</a></li>
-        <li class="chapter" data-level="8.13" data-path="visual.html"><a href="visual.html#exemplarische-erweiterungen"><i class="fa fa-check"></i><b>8.13</b> Exemplarische Erweiterungen</a>
-        <ul>
-        <li class="chapter" data-level="8.13.1" data-path="visual.html"><a href="visual.html#kaplan"><i class="fa fa-check"></i><b>8.13.1</b> Kaplan-Meier-Kurve</a></li>
-        <li class="chapter" data-level="8.13.2" data-path="visual.html"><a href="visual.html#residuen-überprüfen"><i class="fa fa-check"></i><b>8.13.2</b> Residuen überprüfen</a></li>
-        <li class="chapter" data-level="8.13.3" data-path="visual.html"><a href="visual.html#ridgeline-plot"><i class="fa fa-check"></i><b>8.13.3</b> Ridgeline Plot</a></li>
-        </ul></li>
-        <li class="chapter" data-level="8.14" data-path="visual.html"><a href="visual.html#example"><i class="fa fa-check"></i><b>8.14</b> Anwendungsbeispiel</a></li>
-        </ul></li>
-        <li class="chapter" data-level="9" data-path="inductive.html"><a href="inductive.html"><i class="fa fa-check"></i><b>9</b> Inferenzstatistik</a>
-        <ul>
-        <li class="chapter" data-level="9.1" data-path="inductive.html"><a href="inductive.html#einführung-1"><i class="fa fa-check"></i><b>9.1</b> Einführung</a></li>
-        <li class="chapter" data-level="9.2" data-path="inductive.html"><a href="inductive.html#voraussetzungen-überprüfen"><i class="fa fa-check"></i><b>9.2</b> Voraussetzungen überprüfen</a>
-        <ul>
-        <li class="chapter" data-level="9.2.1" data-path="inductive.html"><a href="inductive.html#normalverteilung-der-residuen"><i class="fa fa-check"></i><b>9.2.1</b> Normalverteilung der Residuen</a></li>
-        <li class="chapter" data-level="9.2.2" data-path="inductive.html"><a href="inductive.html#varianzhomogenität"><i class="fa fa-check"></i><b>9.2.2</b> Varianzhomogenität</a></li>
-        </ul></li>
-        <li class="chapter" data-level="9.3" data-path="inductive.html"><a href="inductive.html#ein--und-zweistichprobenszenarien"><i class="fa fa-check"></i><b>9.3</b> Ein- und Zweistichprobenszenarien</a>
-        <ul>
-        <li class="chapter" data-level="9.3.1" data-path="inductive.html"><a href="inductive.html#t-test-und-welch-test"><i class="fa fa-check"></i><b>9.3.1</b> <em>t</em> Test und Welch Test</a></li>
-        <li class="chapter" data-level="9.3.2" data-path="inductive.html"><a href="inductive.html#wilcoxon-test"><i class="fa fa-check"></i><b>9.3.2</b> Wilcoxon Test</a></li>
-        </ul></li>
-        <li class="chapter" data-level="9.4" data-path="inductive.html"><a href="inductive.html#unterschiede-mehrerer-gruppen"><i class="fa fa-check"></i><b>9.4</b> Unterschiede mehrerer Gruppen</a>
-        <ul>
-        <li class="chapter" data-level="9.4.1" data-path="inductive.html"><a href="inductive.html#aov"><i class="fa fa-check"></i><b>9.4.1</b> Varianz- und Kovarianzanalyse</a></li>
-        <li class="chapter" data-level="9.4.2" data-path="inductive.html"><a href="inductive.html#repeated"><i class="fa fa-check"></i><b>9.4.2</b> Varianzanalyse mit Messwiederholung</a></li>
-        <li class="chapter" data-level="9.4.3" data-path="inductive.html"><a href="inductive.html#kruskal-wallis-test"><i class="fa fa-check"></i><b>9.4.3</b> Kruskal-Wallis Test</a></li>
-        <li class="chapter" data-level="9.4.4" data-path="inductive.html"><a href="inductive.html#friedman-test"><i class="fa fa-check"></i><b>9.4.4</b> Friedman Test</a></li>
-        </ul></li>
-        <li class="chapter" data-level="9.5" data-path="inductive.html"><a href="inductive.html#korrelationskoeffizienten"><i class="fa fa-check"></i><b>9.5</b> Korrelationskoeffizienten</a>
-        <ul>
-        <li class="chapter" data-level="9.5.1" data-path="inductive.html"><a href="inductive.html#korrelationstests"><i class="fa fa-check"></i><b>9.5.1</b> Korrelationstests</a></li>
-        <li class="chapter" data-level="9.5.2" data-path="inductive.html"><a href="inductive.html#korrelationstabellen"><i class="fa fa-check"></i><b>9.5.2</b> Korrelationstabellen</a></li>
-        </ul></li>
-        <li class="chapter" data-level="9.6" data-path="inductive.html"><a href="inductive.html#regressionsmodelle"><i class="fa fa-check"></i><b>9.6</b> Regressionsmodelle</a>
-        <ul>
-        <li class="chapter" data-level="9.6.1" data-path="inductive.html"><a href="inductive.html#linregression"><i class="fa fa-check"></i><b>9.6.1</b> Lineare Regression</a></li>
-        <li class="chapter" data-level="9.6.2" data-path="inductive.html"><a href="inductive.html#logistische-regression"><i class="fa fa-check"></i><b>9.6.2</b> Logistische Regression</a></li>
-        <li class="chapter" data-level="9.6.3" data-path="inductive.html"><a href="inductive.html#multinomiales-logit-modell"><i class="fa fa-check"></i><b>9.6.3</b> Multinomiales Logit Modell</a></li>
-        <li class="chapter" data-level="9.6.4" data-path="inductive.html"><a href="inductive.html#kumulatives-logit-modell"><i class="fa fa-check"></i><b>9.6.4</b> Kumulatives Logit Modell</a></li>
-        <li class="chapter" data-level="9.6.5" data-path="inductive.html"><a href="inductive.html#poisson-regression"><i class="fa fa-check"></i><b>9.6.5</b> Poisson Regression</a></li>
-        <li class="chapter" data-level="9.6.6" data-path="inductive.html"><a href="inductive.html#cox"><i class="fa fa-check"></i><b>9.6.6</b> Cox Regression</a></li>
-        </ul></li>
-        <li class="chapter" data-level="9.7" data-path="inductive.html"><a href="inductive.html#contingency"><i class="fa fa-check"></i><b>9.7</b> Kontingenztafeln</a>
-        <ul>
-        <li class="chapter" data-level="9.7.1" data-path="inductive.html"><a href="inductive.html#fisher"><i class="fa fa-check"></i><b>9.7.1</b> Fisher-Exact Test</a></li>
-        <li class="chapter" data-level="9.7.2" data-path="inductive.html"><a href="inductive.html#chi-quadrat-tests"><i class="fa fa-check"></i><b>9.7.2</b> Chi Quadrat-Tests</a></li>
-        </ul></li>
-        <li class="chapter" data-level="9.8" data-path="inductive.html"><a href="inductive.html#broom"><i class="fa fa-check"></i><b>9.8</b> Ergebnisse formatieren</a></li>
-        </ul></li>
-        <li class="part"><span><b>IV Vertiefung</b></span></li>
-        <li class="chapter" data-level="10" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html"><i class="fa fa-check"></i><b>10</b> Ergebnisse exportieren</a>
-        <ul>
-        <li class="chapter" data-level="10.1" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#einführung-2"><i class="fa fa-check"></i><b>10.1</b> Einführung</a></li>
-        <li class="chapter" data-level="10.2" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#markdown"><i class="fa fa-check"></i><b>10.2</b> Berichte</a></li>
-        <li class="chapter" data-level="10.3" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#tabellen"><i class="fa fa-check"></i><b>10.3</b> Tabellen</a>
-        <ul>
-        <li class="chapter" data-level="10.3.1" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#knitr"><i class="fa fa-check"></i><b>10.3.1</b> Exportieren nach Word</a></li>
-        <li class="chapter" data-level="10.3.2" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#latex"><i class="fa fa-check"></i><b>10.3.2</b> Exportieren nach LaTeX</a></li>
-        </ul></li>
-        </ul></li>
-        <li class="chapter" data-level="11" data-path="datatypes.html"><a href="datatypes.html"><i class="fa fa-check"></i><b>11</b> Datenstrukturen</a>
-        <ul>
-        <li class="chapter" data-level="11.1" data-path="datatypes.html"><a href="datatypes.html#vec"><i class="fa fa-check"></i><b>11.1</b> Vektor</a></li>
-        <li class="chapter" data-level="11.2" data-path="datatypes.html"><a href="datatypes.html#matrix"><i class="fa fa-check"></i><b>11.2</b> Matrix</a></li>
-        <li class="chapter" data-level="11.3" data-path="datatypes.html"><a href="datatypes.html#tibble"><i class="fa fa-check"></i><b>11.3</b> Data.frame und tibble</a></li>
-        <li class="chapter" data-level="11.4" data-path="datatypes.html"><a href="datatypes.html#lists"><i class="fa fa-check"></i><b>11.4</b> Liste</a></li>
-        <li class="chapter" data-level="11.5" data-path="datatypes.html"><a href="datatypes.html#umwandlung"><i class="fa fa-check"></i><b>11.5</b> Umwandlungen</a></li>
-        <li class="chapter" data-level="11.6" data-path="datatypes.html"><a href="datatypes.html#objektorientierung"><i class="fa fa-check"></i><b>11.6</b> Objektorientierung</a></li>
-        </ul></li>
-        <li class="chapter" data-level="12" data-path="iterationmain.html"><a href="iterationmain.html"><i class="fa fa-check"></i><b>12</b> Iterationen</a>
-        <ul>
-        <li class="chapter" data-level="12.1" data-path="iterationmain.html"><a href="iterationmain.html#iteration"><i class="fa fa-check"></i><b>12.1</b> Was sind iterative Prozesse?</a></li>
-        <li class="chapter" data-level="12.2" data-path="iterationmain.html"><a href="iterationmain.html#map"><i class="fa fa-check"></i><b>12.2</b> Listenbasierte Berechnungen</a></li>
-        <li class="chapter" data-level="12.3" data-path="iterationmain.html"><a href="iterationmain.html#nest"><i class="fa fa-check"></i><b>12.3</b> Einnisten</a></li>
-        </ul></li>
-        <li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i>Appendix</a>
-        <ul>
-        <li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#datensatzerläuterungen"><i class="fa fa-check"></i>Datensatzerläuterungen</a>
-        <ul>
-        <li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#big-five"><i class="fa fa-check"></i>Big Five</a></li>
-        <li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#indonesisch"><i class="fa fa-check"></i>Indonesisch</a></li>
-        <li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#heartoprolol"><i class="fa fa-check"></i>Heartoprolol</a></li>
-        <li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#bitcoin"><i class="fa fa-check"></i>Bitcoin</a></li>
-        <li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#statistical-literacy"><i class="fa fa-check"></i>Statistical Literacy</a></li>
-        <li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#eye-tracking"><i class="fa fa-check"></i>Eye Tracking</a></li>
-        <li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#video"><i class="fa fa-check"></i>Video</a></li>
-        <li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#artists"><i class="fa fa-check"></i>Artists</a></li>
-        <li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#tracks"><i class="fa fa-check"></i>Tracks</a></li>
-        <li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#fitness"><i class="fa fa-check"></i>Fitness</a></li>
-        <li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#tipp-wm"><i class="fa fa-check"></i>Tipp WM</a></li>
-        </ul></li>
-        <li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#literaturverzeichnis"><i class="fa fa-check"></i>Literaturverzeichnis</a></li>
-        <li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#verwendete-softwareversionen"><i class="fa fa-check"></i>Verwendete Softwareversionen</a></li>
-        </ul></li>
-        </ul>
-
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Vorwort</a></li>
+<li class="part"><span><b>I Die ersten Schritte</b></span></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Einleitung</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#für-wen-ist-dieses-buch"><i class="fa fa-check"></i><b>1.1</b> Für wen ist dieses Buch?</a></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#aufbau-und-bearbeitungsstrategie"><i class="fa fa-check"></i><b>1.2</b> Aufbau und Bearbeitungsstrategie</a></li>
+<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#boxen-übungen-und-datensätze"><i class="fa fa-check"></i><b>1.3</b> Boxen, Übungen und Datensätze</a></li>
+<li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#books"><i class="fa fa-check"></i><b>1.4</b> Ergänzende Literatur</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="start.html"><a href="start.html"><i class="fa fa-check"></i><b>2</b> Startvoraussetzungen</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="start.html"><a href="start.html#installation-von-r-und-rstudio"><i class="fa fa-check"></i><b>2.1</b> Installation von R und RStudio</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="start.html"><a href="start.html#installr"><i class="fa fa-check"></i><b>2.1.1</b> Programmiersprache R</a></li>
+<li class="chapter" data-level="2.1.2" data-path="start.html"><a href="start.html#rstudio"><i class="fa fa-check"></i><b>2.1.2</b> Programmierumgebung RStudio</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="start.html"><a href="start.html#aufbau"><i class="fa fa-check"></i><b>2.2</b> Aufbau von RStudio</a></li>
+<li class="chapter" data-level="2.3" data-path="start.html"><a href="start.html#anpassung"><i class="fa fa-check"></i><b>2.3</b> RStudio anpassen</a></li>
+<li class="chapter" data-level="2.4" data-path="start.html"><a href="start.html#funktionen-und-ihre-argumente"><i class="fa fa-check"></i><b>2.4</b> Funktionen und ihre Argumente</a></li>
+<li class="chapter" data-level="2.5" data-path="start.html"><a href="start.html#packages"><i class="fa fa-check"></i><b>2.5</b> Packages (Erweiterungen)</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="start.html"><a href="start.html#installieren-und-laden"><i class="fa fa-check"></i><b>2.5.1</b> Installieren und laden</a></li>
+<li class="chapter" data-level="2.5.2" data-path="start.html"><a href="start.html#notwendige-packages"><i class="fa fa-check"></i><b>2.5.2</b> Notwendige Packages</a></li>
+<li class="chapter" data-level="2.5.3" data-path="start.html"><a href="start.html#namespace"><i class="fa fa-check"></i><b>2.5.3</b> Namespace</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="start.html"><a href="start.html#help"><i class="fa fa-check"></i><b>2.6</b> Fehler- und Warnmeldungen</a>
+<ul>
+<li class="chapter" data-level="2.6.1" data-path="start.html"><a href="start.html#der-unterschied"><i class="fa fa-check"></i><b>2.6.1</b> Der Unterschied</a></li>
+<li class="chapter" data-level="2.6.2" data-path="start.html"><a href="start.html#hilfe"><i class="fa fa-check"></i><b>2.6.2</b> Wo bekomme ich Hilfe?</a></li>
+<li class="chapter" data-level="2.6.3" data-path="start.html"><a href="start.html#fehler-beheben"><i class="fa fa-check"></i><b>2.6.3</b> Fehler beheben</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="start.html"><a href="start.html#historische-relikte"><i class="fa fa-check"></i><b>2.7</b> Historische Relikte</a></li>
+</ul></li>
+<li class="part"><span><b>II Vorbereitung</b></span></li>
+<li class="chapter" data-level="3" data-path="project.html"><a href="project.html"><i class="fa fa-check"></i><b>3</b> R Projekte</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="project.html"><a href="project.html#die-probleme-der-pfade"><i class="fa fa-check"></i><b>3.1</b> Die Probleme der Pfade</a></li>
+<li class="chapter" data-level="3.2" data-path="project.html"><a href="project.html#projekte-in-rstudio-erstellen"><i class="fa fa-check"></i><b>3.2</b> Projekte in RStudio erstellen</a></li>
+<li class="chapter" data-level="3.3" data-path="project.html"><a href="project.html#here"><i class="fa fa-check"></i><b>3.3</b> Das <code>here</code> Package</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="vars.html"><a href="vars.html"><i class="fa fa-check"></i><b>4</b> Wichtiges Grundlagenwissen</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="vars.html"><a href="vars.html#pfeil"><i class="fa fa-check"></i><b>4.1</b> Variablen speichern und verwenden</a></li>
+<li class="chapter" data-level="4.2" data-path="vars.html"><a href="vars.html#datentypen"><i class="fa fa-check"></i><b>4.2</b> Datentypen</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="vars.html"><a href="vars.html#zahlen-buchstaben-und-logische-abfragen"><i class="fa fa-check"></i><b>4.2.1</b> Zahlen, Buchstaben und logische Abfragen</a></li>
+<li class="chapter" data-level="4.2.2" data-path="vars.html"><a href="vars.html#factor"><i class="fa fa-check"></i><b>4.2.2</b> Faktoren</a></li>
+<li class="chapter" data-level="4.2.3" data-path="vars.html"><a href="vars.html#zeitdaten"><i class="fa fa-check"></i><b>4.2.3</b> Zeitdaten</a></li>
+<li class="chapter" data-level="4.2.4" data-path="vars.html"><a href="vars.html#datentypen-konvertieren"><i class="fa fa-check"></i><b>4.2.4</b> Datentypen konvertieren</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="vars.html"><a href="vars.html#struktur-von-datensätzen"><i class="fa fa-check"></i><b>4.3</b> Struktur von Datensätzen</a></li>
+<li class="chapter" data-level="4.4" data-path="vars.html"><a href="vars.html#dollar"><i class="fa fa-check"></i><b>4.4</b> Der Dollar-Operator</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="io.html"><a href="io.html"><i class="fa fa-check"></i><b>5</b> Datensätze</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="io.html"><a href="io.html#import"><i class="fa fa-check"></i><b>5.1</b> Einlesen externer Dateien</a></li>
+<li class="chapter" data-level="5.2" data-path="io.html"><a href="io.html#datensätze-aus-packages-laden"><i class="fa fa-check"></i><b>5.2</b> Datensätze aus Packages laden</a></li>
+<li class="chapter" data-level="5.3" data-path="io.html"><a href="io.html#inR"><i class="fa fa-check"></i><b>5.3</b> Datensätze in R erstellen</a></li>
+<li class="chapter" data-level="5.4" data-path="io.html"><a href="io.html#speichern-und-konvertieren"><i class="fa fa-check"></i><b>5.4</b> Speichern und Konvertieren</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html"><i class="fa fa-check"></i><b>6</b> Datenvorbereitung</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#tidyverse"><i class="fa fa-check"></i><b>6.1</b> Einführung</a></li>
+<li class="chapter" data-level="6.2" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#select"><i class="fa fa-check"></i><b>6.2</b> Spalten auswählen, umbenennen und umsortieren</a></li>
+<li class="chapter" data-level="6.3" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#filter"><i class="fa fa-check"></i><b>6.3</b> Zeilen auswählen und umsortieren</a></li>
+<li class="chapter" data-level="6.4" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#mutate"><i class="fa fa-check"></i><b>6.4</b> Spalteninhalte verändern</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#single"><i class="fa fa-check"></i><b>6.4.1</b> Einzelne Spalten</a></li>
+<li class="chapter" data-level="6.4.2" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#across"><i class="fa fa-check"></i><b>6.4.2</b> Mehrere Spalten</a></li>
+<li class="chapter" data-level="6.4.3" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#helfer"><i class="fa fa-check"></i><b>6.4.3</b> Änderungen unter Bedingungen</a></li>
+<li class="chapter" data-level="6.4.4" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#function"><i class="fa fa-check"></i><b>6.4.4</b> Eigene Funktionen erstellen</a></li>
+<li class="chapter" data-level="6.4.5" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#zeilenweise-berechnen"><i class="fa fa-check"></i><b>6.4.5</b> Zeilenweise berechnen</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#umgang-mit-fehlenden-werten-und-duplikaten"><i class="fa fa-check"></i><b>6.5</b> Umgang mit fehlenden Werten und Duplikaten</a></li>
+<li class="chapter" data-level="6.6" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#tidy"><i class="fa fa-check"></i><b>6.6</b> Breites und langes Datenformat</a></li>
+<li class="chapter" data-level="6.7" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#spalten-trennen"><i class="fa fa-check"></i><b>6.7</b> Spalten trennen</a></li>
+<li class="chapter" data-level="6.8" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#datensätze-zusammenführen"><i class="fa fa-check"></i><b>6.8</b> Datensätze zusammenführen</a></li>
+<li class="chapter" data-level="6.9" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#datastring"><i class="fa fa-check"></i><b>6.9</b> Buchstaben und Wörter bearbeiten</a></li>
+<li class="chapter" data-level="6.10" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#datafactor"><i class="fa fa-check"></i><b>6.10</b> Faktoren verändern</a></li>
+<li class="chapter" data-level="6.11" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#datazeit"><i class="fa fa-check"></i><b>6.11</b> Mit Zeitdaten arbeiten</a></li>
+<li class="chapter" data-level="6.12" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#binäre-antwortmatrix-erstellen"><i class="fa fa-check"></i><b>6.12</b> Binäre Antwortmatrix erstellen</a></li>
+</ul></li>
+<li class="part"><span><b>III Auswertung</b></span></li>
+<li class="chapter" data-level="7" data-path="descr.html"><a href="descr.html"><i class="fa fa-check"></i><b>7</b> Deskriptive Statistik</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="descr.html"><a href="descr.html#lagestreu"><i class="fa fa-check"></i><b>7.1</b> Lagemaße und Streuungsmaße</a></li>
+<li class="chapter" data-level="7.2" data-path="descr.html"><a href="descr.html#contigency"><i class="fa fa-check"></i><b>7.2</b> Häufigkeiten und Kontingenztafeln</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="visual.html"><a href="visual.html"><i class="fa fa-check"></i><b>8</b> Visualisierungen</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="visual.html"><a href="visual.html#einführung"><i class="fa fa-check"></i><b>8.1</b> Einführung</a></li>
+<li class="chapter" data-level="8.2" data-path="visual.html"><a href="visual.html#histogram"><i class="fa fa-check"></i><b>8.2</b> Histogramm und Dichte</a></li>
+<li class="chapter" data-level="8.3" data-path="visual.html"><a href="visual.html#scatter"><i class="fa fa-check"></i><b>8.3</b> Streudiagramm</a></li>
+<li class="chapter" data-level="8.4" data-path="visual.html"><a href="visual.html#boxplot"><i class="fa fa-check"></i><b>8.4</b> Boxplot</a></li>
+<li class="chapter" data-level="8.5" data-path="visual.html"><a href="visual.html#violin"><i class="fa fa-check"></i><b>8.5</b> Violin Plot</a></li>
+<li class="chapter" data-level="8.6" data-path="visual.html"><a href="visual.html#barplot"><i class="fa fa-check"></i><b>8.6</b> Balkendiagramm</a></li>
+<li class="chapter" data-level="8.7" data-path="visual.html"><a href="visual.html#anovaplot"><i class="fa fa-check"></i><b>8.7</b> Liniendiagramm</a></li>
+<li class="chapter" data-level="8.8" data-path="visual.html"><a href="visual.html#qqplot"><i class="fa fa-check"></i><b>8.8</b> Quantil-Quantil Plot</a></li>
+<li class="chapter" data-level="8.9" data-path="visual.html"><a href="visual.html#morefactors"><i class="fa fa-check"></i><b>8.9</b> Mehrfaktorielle Abbildungen</a>
+<ul>
+<li class="chapter" data-level="8.9.1" data-path="visual.html"><a href="visual.html#groups"><i class="fa fa-check"></i><b>8.9.1</b> Gruppierungsargumente</a></li>
+<li class="chapter" data-level="8.9.2" data-path="visual.html"><a href="visual.html#facets"><i class="fa fa-check"></i><b>8.9.2</b> Facetten als weitere Dimensionen</a></li>
+</ul></li>
+<li class="chapter" data-level="8.10" data-path="visual.html"><a href="visual.html#adapt"><i class="fa fa-check"></i><b>8.10</b> Anpassen des Aussehens</a>
+<ul>
+<li class="chapter" data-level="8.10.1" data-path="visual.html"><a href="visual.html#color"><i class="fa fa-check"></i><b>8.10.1</b> Farben</a></li>
+<li class="chapter" data-level="8.10.2" data-path="visual.html"><a href="visual.html#themeaxis"><i class="fa fa-check"></i><b>8.10.2</b> Themen und Achsen</a></li>
+<li class="chapter" data-level="8.10.3" data-path="visual.html"><a href="visual.html#legende-und-facetten"><i class="fa fa-check"></i><b>8.10.3</b> Legende und Facetten</a></li>
+</ul></li>
+<li class="chapter" data-level="8.11" data-path="visual.html"><a href="visual.html#patch"><i class="fa fa-check"></i><b>8.11</b> Anordnen mehrerer Graphen</a></li>
+<li class="chapter" data-level="8.12" data-path="visual.html"><a href="visual.html#ggsave"><i class="fa fa-check"></i><b>8.12</b> Speichern von Abbildungen</a></li>
+<li class="chapter" data-level="8.13" data-path="visual.html"><a href="visual.html#exemplarische-erweiterungen"><i class="fa fa-check"></i><b>8.13</b> Exemplarische Erweiterungen</a>
+<ul>
+<li class="chapter" data-level="8.13.1" data-path="visual.html"><a href="visual.html#kaplan"><i class="fa fa-check"></i><b>8.13.1</b> Kaplan-Meier-Kurve</a></li>
+<li class="chapter" data-level="8.13.2" data-path="visual.html"><a href="visual.html#residuen-überprüfen"><i class="fa fa-check"></i><b>8.13.2</b> Residuen überprüfen</a></li>
+<li class="chapter" data-level="8.13.3" data-path="visual.html"><a href="visual.html#ridgeline-plot"><i class="fa fa-check"></i><b>8.13.3</b> Ridgeline Plot</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="inductive.html"><a href="inductive.html"><i class="fa fa-check"></i><b>9</b> Inferenzstatistik</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="inductive.html"><a href="inductive.html#einführung-1"><i class="fa fa-check"></i><b>9.1</b> Einführung</a></li>
+<li class="chapter" data-level="9.2" data-path="inductive.html"><a href="inductive.html#ein--und-zweistichprobenszenarien"><i class="fa fa-check"></i><b>9.2</b> Ein- und Zweistichprobenszenarien</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="inductive.html"><a href="inductive.html#t-test-und-welch-test"><i class="fa fa-check"></i><b>9.2.1</b> <em>t</em> Test und Welch Test</a></li>
+<li class="chapter" data-level="9.2.2" data-path="inductive.html"><a href="inductive.html#wilcoxon-test"><i class="fa fa-check"></i><b>9.2.2</b> Wilcoxon Test</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="inductive.html"><a href="inductive.html#unterschiede-mehrerer-gruppen"><i class="fa fa-check"></i><b>9.3</b> Unterschiede mehrerer Gruppen</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="inductive.html"><a href="inductive.html#aov"><i class="fa fa-check"></i><b>9.3.1</b> Varianz- und Kovarianzanalyse</a></li>
+<li class="chapter" data-level="9.3.2" data-path="inductive.html"><a href="inductive.html#repeated"><i class="fa fa-check"></i><b>9.3.2</b> Varianzanalyse mit Messwiederholung</a></li>
+<li class="chapter" data-level="9.3.3" data-path="inductive.html"><a href="inductive.html#kruskal-wallis-test"><i class="fa fa-check"></i><b>9.3.3</b> Kruskal-Wallis Test</a></li>
+<li class="chapter" data-level="9.3.4" data-path="inductive.html"><a href="inductive.html#friedman-test"><i class="fa fa-check"></i><b>9.3.4</b> Friedman Test</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="inductive.html"><a href="inductive.html#korrelationskoeffizienten"><i class="fa fa-check"></i><b>9.4</b> Korrelationskoeffizienten</a>
+<ul>
+<li class="chapter" data-level="9.4.1" data-path="inductive.html"><a href="inductive.html#korrelationstests"><i class="fa fa-check"></i><b>9.4.1</b> Korrelationstests</a></li>
+<li class="chapter" data-level="9.4.2" data-path="inductive.html"><a href="inductive.html#korrelationstabellen"><i class="fa fa-check"></i><b>9.4.2</b> Korrelationstabellen</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="inductive.html"><a href="inductive.html#regressionsmodelle"><i class="fa fa-check"></i><b>9.5</b> Regressionsmodelle</a>
+<ul>
+<li class="chapter" data-level="9.5.1" data-path="inductive.html"><a href="inductive.html#linregression"><i class="fa fa-check"></i><b>9.5.1</b> Lineare Regression</a></li>
+<li class="chapter" data-level="9.5.2" data-path="inductive.html"><a href="inductive.html#logistische-regression"><i class="fa fa-check"></i><b>9.5.2</b> Logistische Regression</a></li>
+<li class="chapter" data-level="9.5.3" data-path="inductive.html"><a href="inductive.html#multinomiales-logit-modell"><i class="fa fa-check"></i><b>9.5.3</b> Multinomiales Logit Modell</a></li>
+<li class="chapter" data-level="9.5.4" data-path="inductive.html"><a href="inductive.html#kumulatives-logit-modell"><i class="fa fa-check"></i><b>9.5.4</b> Kumulatives Logit Modell</a></li>
+<li class="chapter" data-level="9.5.5" data-path="inductive.html"><a href="inductive.html#poisson-regression"><i class="fa fa-check"></i><b>9.5.5</b> Poisson Regression</a></li>
+<li class="chapter" data-level="9.5.6" data-path="inductive.html"><a href="inductive.html#negative-binomial-regression"><i class="fa fa-check"></i><b>9.5.6</b> Negative Binomial Regression</a></li>
+<li class="chapter" data-level="9.5.7" data-path="inductive.html"><a href="inductive.html#cox"><i class="fa fa-check"></i><b>9.5.7</b> Cox Regression</a></li>
+</ul></li>
+<li class="chapter" data-level="9.6" data-path="inductive.html"><a href="inductive.html#contingency"><i class="fa fa-check"></i><b>9.6</b> Kontingenztafeln</a>
+<ul>
+<li class="chapter" data-level="9.6.1" data-path="inductive.html"><a href="inductive.html#fisher"><i class="fa fa-check"></i><b>9.6.1</b> Exakter Fisher-Test</a></li>
+<li class="chapter" data-level="9.6.2" data-path="inductive.html"><a href="inductive.html#chi-quadrat-tests"><i class="fa fa-check"></i><b>9.6.2</b> Chi Quadrat Tests</a></li>
+</ul></li>
+<li class="chapter" data-level="9.7" data-path="inductive.html"><a href="inductive.html#voraussetzungen-überprüfen"><i class="fa fa-check"></i><b>9.7</b> Voraussetzungen überprüfen</a>
+<ul>
+<li class="chapter" data-level="9.7.1" data-path="inductive.html"><a href="inductive.html#normalverteilung-der-residuen"><i class="fa fa-check"></i><b>9.7.1</b> Normalverteilung der Residuen</a></li>
+<li class="chapter" data-level="9.7.2" data-path="inductive.html"><a href="inductive.html#varianzhomogenität"><i class="fa fa-check"></i><b>9.7.2</b> Varianzhomogenität</a></li>
+</ul></li>
+<li class="chapter" data-level="9.8" data-path="inductive.html"><a href="inductive.html#broom"><i class="fa fa-check"></i><b>9.8</b> Ergebnisse formatieren</a></li>
+</ul></li>
+<li class="part"><span><b>IV Vertiefung</b></span></li>
+<li class="chapter" data-level="10" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html"><i class="fa fa-check"></i><b>10</b> Ergebnisse exportieren</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#einführung-2"><i class="fa fa-check"></i><b>10.1</b> Einführung</a></li>
+<li class="chapter" data-level="10.2" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#markdown"><i class="fa fa-check"></i><b>10.2</b> Berichte</a></li>
+<li class="chapter" data-level="10.3" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#tabellen"><i class="fa fa-check"></i><b>10.3</b> Tabellen</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#knitr"><i class="fa fa-check"></i><b>10.3.1</b> Exportieren nach Word und PDF</a></li>
+<li class="chapter" data-level="10.3.2" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#latex"><i class="fa fa-check"></i><b>10.3.2</b> Exportieren nach LaTeX</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="datatypes.html"><a href="datatypes.html"><i class="fa fa-check"></i><b>11</b> Datenstrukturen</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="datatypes.html"><a href="datatypes.html#vec"><i class="fa fa-check"></i><b>11.1</b> Vektor</a></li>
+<li class="chapter" data-level="11.2" data-path="datatypes.html"><a href="datatypes.html#matrix"><i class="fa fa-check"></i><b>11.2</b> Matrix</a></li>
+<li class="chapter" data-level="11.3" data-path="datatypes.html"><a href="datatypes.html#tibble"><i class="fa fa-check"></i><b>11.3</b> Data.frame und tibble</a></li>
+<li class="chapter" data-level="11.4" data-path="datatypes.html"><a href="datatypes.html#lists"><i class="fa fa-check"></i><b>11.4</b> Liste</a></li>
+<li class="chapter" data-level="11.5" data-path="datatypes.html"><a href="datatypes.html#umwandlung"><i class="fa fa-check"></i><b>11.5</b> Umwandlungen</a></li>
+<li class="chapter" data-level="11.6" data-path="datatypes.html"><a href="datatypes.html#objektorientierung"><i class="fa fa-check"></i><b>11.6</b> Objektorientierung</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="iterationmain.html"><a href="iterationmain.html"><i class="fa fa-check"></i><b>12</b> Funktionen wiederholt anwenden</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="iterationmain.html"><a href="iterationmain.html#iteration"><i class="fa fa-check"></i><b>12.1</b> Das Copy &amp; Paste Problem</a></li>
+<li class="chapter" data-level="12.2" data-path="iterationmain.html"><a href="iterationmain.html#map"><i class="fa fa-check"></i><b>12.2</b> Listenbasierte Berechnungen</a></li>
+<li class="chapter" data-level="12.3" data-path="iterationmain.html"><a href="iterationmain.html#for"><i class="fa fa-check"></i><b>12.3</b> for-Schleifen</a></li>
+<li class="chapter" data-level="12.4" data-path="iterationmain.html"><a href="iterationmain.html#nest"><i class="fa fa-check"></i><b>12.4</b> Einnisten</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i>Appendix</a>
+<ul>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#datensatzerläuterungen"><i class="fa fa-check"></i>Datensatzerläuterungen</a>
+<ul>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#big-five"><i class="fa fa-check"></i>Big Five</a></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#weitere-datensätze"><i class="fa fa-check"></i>Weitere Datensätze</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#literaturverzeichnis"><i class="fa fa-check"></i>Literaturverzeichnis</a></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#verwendete-softwareversionen"><i class="fa fa-check"></i>Verwendete Softwareversionen</a></li>
+</ul></li>
+</ul>
 
       </nav>
     </div>
@@ -367,221 +369,114 @@ code span.wa { font-weight: bold; } /* Warning */
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="inductive" class="section level1" number="9">
-<h1><span class="header-section-number">Kapitel 9</span> Inferenzstatistik</h1>
-<div id="einführung-1" class="section level2" number="9.1">
-<h2><span class="header-section-number">9.1</span> Einführung</h2>
-<p>Die Informationen aus dem Einführungskapitel treffen so nur auf Funktionen des inductive Packages zu.</p>
-<p>Für die verschiedenen inferenzstatistischen Verfahren verwenden wir die Funktionen aus dem <code>inductive</code> Package. Die darin enthaltenen Funktionen beginnen alle mit dem Präfix <code>sta_*</code> (für <strong>sta</strong>tistical) und folgen den selben Regeln (<code>sta_wilcox()</code> für den Wilcoxon Test). Dabei unterscheiden wir zwischen eindimensionalen und hierarchischen Modellierungen. Eindimensionale Methoden sind jene, die Zwischensubjektfaktoren miteinander vergleichen. Also beispielsweise Personen aus zwei Gruppen in Bezug auf irgendein Merkmal wie Geschlecht oder Alter zu vergleichen. Hierarchische Modelle erlauben hingegen nicht nur den Zwischensubjektvergleich, sondern auch jenen innerhalb der Person beziehungsweise Beobachtung. Ein klassisches Beispiel hierfür sind Messwiederholungen der selben Personen zu unterschiedlichen Zeitpunkten.</p>
-<p>Schauen wir uns zuerst eindimensionale Modelle an. In Abbildung <a href="inductive.html#fig:modeling">9.1</a> ist ein exemplarischer Anfang eines Datensatzes mit den Spalten Personenname, Extraversion, Neurotizismus und Geschlecht.</p>
+<div id="inductive" class="section level1 hasAnchor" number="9">
+<h1><span class="header-section-number">Kapitel 9</span> Inferenzstatistik<a href="inductive.html#inductive" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="einführung-1" class="section level2 hasAnchor" number="9.1">
+<h2><span class="header-section-number">9.1</span> Einführung<a href="inductive.html#einführung-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In diesem Kapitel wird die Umsetzung verschiedener in der Praxis häufig verwendeter statistischer Modelle in R gezeigt. Die Ausgabe der Statistikfunktionen sieht dabei immer ähnlich aus und enthält die wesentlichen Informationen. Die Funktionen um diese Ergebnisse so zu formatieren, dass sie als Tabelle nach Word oder in PDF exportiert werden können, werden in Kapitel <a href="inductive.html#broom">9.8</a> eingeführt. Für fast alle der Funktionen muss der Datensatz, wie in Abbildung <a href="inductive.html#fig:modeling">9.1</a> gezeigt, im breiten Datenformat vorliegen.</p>
 
-<div class="figure" style="text-align: center"><span id="fig:modeling"></span>
-<img src="images/wide_modeling.png" alt="Breiter Datensatz mit Geschlecht als zusätzlicher Zwischensubjektfaktor." width="60%" />
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:modeling"></span>
+<img src="images/wide_modeling.png" alt="Breiter Datensatz mit Extraversion, Neurotizismus und Geschlecht." width="60%" />
 <p class="caption">
-Abbildung 9.1: <strong>Breiter</strong> Datensatz mit Geschlecht als zusätzlicher Zwischensubjektfaktor.
+Abbildung 9.1: <em>Breiter</em> Datensatz mit Extraversion, Neurotizismus und Geschlecht.
 </p>
 </div>
-<p>Dem jeweiligen statistischen Test übergibt man immer die Variablen als Formel, dem sogenannten <code>formula</code> Argument. In Gleichung <a href="inductive.html#eq:form1">(9.1)</a> ist der einfachste Fall, das Einstichprobenszenario illustriert. Würden wir beispielsweise überprüfen wollen, ob ein Merkmal normalverteilt ist, könnte man wie hier gezeigt einfach den Spaltennamen als Argument übergeben.</p>
-<p><strong>Einstichproben-Szenario:</strong></p>
-<p><span class="math display" id="eq:form1">\[\begin{equation}
-    \mathrm{formula} \quad = \quad \mathrm{Extraversion}
-    \tag{9.1}
-\end{equation}\]</span></p>
-<p>Wenn wir zwei Merkmale wie Extraversion und Neurotizismus miteinander hinsichtlich Unterschiede bezüglich der mittleren Ausprägung untersuchen möchten, muss man diese Variablen lediglich mit einer sogenannten Tilde (<code>~</code>) trennen. Diese haben wir zwar bereits im Kontext von Lambda Funktionen kennengelernt, allerdings dienen sie hier einem anderen Zweck. In Gleichung <a href="inductive.html#eq:form2">(9.2)</a> sehen wir das gerade beschriebene Beispiel. Die Reihenfolge ist beim Vergleich von zwei Variablen nicht weiter von Bedeutung.</p>
-<p><strong>Vergleich zweier Vektoren:</strong></p>
-<p><span class="math display" id="eq:form2">\[\begin{equation}
-        \mathrm{formula} \quad = \quad \mathrm{Extraversion} \sim \mathrm{Neurotizismus}
-        \tag{9.2}
-\end{equation}\]</span></p>
-<p>Wenn die zweite eine gruppierende Variable wie Geschlecht ist, können wir auch einfach diese der Funktion übergeben. Dabei muss die gruppierende Variable auf der rechten Seite der Tilde stehen (siehe Gleichung <a href="inductive.html#eq:form3">(9.3)</a>) .</p>
-<p><strong>Vergleich mehrerer Gruppen:</strong></p>
-<p><span class="math display" id="eq:form3">\[\begin{equation}
-  \mathrm{formula} \quad = \quad \mathrm{Extraversion} \sim \mathrm{Geschlecht}
-  \tag{9.3}
-\end{equation}\]</span></p>
-<p>Wenn wir den Einfluss im Rahmen eines Regressionsmodells von unabhängigen Variablen auf unsere abhängige Variable herausfinden wollen, schreiben wir die abhängige immer auf die linke Seite und die unabhängigen immer auf die rechte Seite der Tilde. Wenn wir den Einfluss der unabhängigen Variablen getrennt voneinander betrachten möchten, trennen wir diese mit einem Plus. Würden wir eine Interaktion (Moderation) zwischen beispielsweise Neurotizismus und Geschlecht erwarten, würde man stattdessen einen Asterisk (<code>*</code>, <em>das Multiplikationszeichen</em>) verwenden. In Gleichung <a href="inductive.html#eq:form4">(9.4)</a> ist dieser Anwendungsfall illustriert.</p>
-<p><strong>Untersuchung einer abhängigen Variable:</strong></p>
-<p><span class="math display" id="eq:form4">\[\begin{equation}
-    \mathrm{formula} \quad = \quad \overbrace{\mathrm{Extraversion}}^{\text{abhaengige Variable}} \sim \overbrace{\mathrm{Neurotizismus} + \mathrm{Geschlecht}}^{\text{unabhaengige Variablen}}
-  \tag{9.4}
-\end{equation}\]</span></p>
-<p>Dies ist in selbiger Form auf die Untersuchung von Unterschiedshypothesen übertragbar (z.B. bei Varianzanalysen). Für hierarchische Modellierungen muss der Datensatz erst in das lange Format umgewandelt werden. Falls dir das nichts sagst, solltest du vorm Rechnen dieser Modelle noch einmal Kapitel <a href="datenvorbereitung.html#tidy">6.7</a> studieren. In Abbildung <a href="inductive.html#fig:modelingb">9.2</a> ist dies für das einfach Beispiel der Messwiederholung bezüglich der Persönlichkeitsfaktoren Extraversion und Neurotizismus illustriert.</p>
+<p>Es gibt mit einer Ausnahme nur 6 verschiedene Arten, den in R enthaltenen Funktionen für statistische Modelle Variablen zu übergeben. Bei der Auflistung steht <code>df</code> für Datensatz, <code>AV</code> für abhängige Variable und <code>UV</code> für unabhängige Variable.</p>
+<ul>
+<li>Einstichproben-Szenario: <code>x = df$Spalte1</code></li>
+<li>Vergleich zweier Vektoren: <code>x = df$Spalte1, y = df$Spalte2</code></li>
+<li>Vergleich zwischen Kategorien: <code>x ~ Kategorie</code></li>
+<li>Untersuchung einer abhängigen Variable und einer unabhängigen Variable: <code>AV ~ UV1</code></li>
+<li>Untersuchung einer abhängigen Variable und mehreren unabhängigen Variablen: <code>AV ~ UV1 + UV2</code></li>
+<li>Untersuchung einer abhängigen Variable und mehreren unabhängigen Variablen mit Interaktion: <code>AV ~ UV1 * UV2</code></li>
+</ul>
+<p>In den folgenden Kapiteln werden wir den <code>big5</code> Datensatz aus dem <code>remp</code> Package verwenden.</p>
+</div>
+<div id="ein--und-zweistichprobenszenarien" class="section level2 hasAnchor" number="9.2">
+<h2><span class="header-section-number">9.2</span> Ein- und Zweistichprobenszenarien<a href="inductive.html#ein--und-zweistichprobenszenarien" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="t-test-und-welch-test" class="section level3 hasAnchor" number="9.2.1">
+<h3><span class="header-section-number">9.2.1</span> <em>t</em> Test und Welch Test<a href="inductive.html#t-test-und-welch-test" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Für den Einstichproben <em>t</em> Test müssen wir die Spalte Extraversion aus dem Datensatz <code>big5</code> herausziehen. Die zu testende Hypothese kann mit dem <code>mu</code> Argument entsprechend angepasst werden.</p>
+<div class="sourceCode" id="cb382"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb382-1"><a href="inductive.html#cb382-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(big5<span class="sc">$</span>Extraversion) </span></code></pre></div>
+<pre class="bordercode"><code>
+    One Sample t-test
 
-<div class="figure" style="text-align: center"><span id="fig:modelingb"></span>
-<img src="images/long_modeling.png" alt="Langer Datensatz mit Persönlichkeitsfaktor als Innersubjektfaktor und Alter sowie Geschlecht als Zwischensubjektfaktoren." width="80%" />
-<p class="caption">
-Abbildung 9.2: <strong>Langer</strong> Datensatz mit Persönlichkeitsfaktor als Innersubjektfaktor und Alter sowie Geschlecht als Zwischensubjektfaktoren.
-</p>
+data:  big5$Extraversion
+t = 125.51, df = 199, p-value &lt; 2.2e-16
+alternative hypothesis: true mean is not equal to 0
+95 percent confidence interval:
+ 3.027672 3.124328
+sample estimates:
+mean of x 
+    3.076 </code></pre>
+<p>Eine einseitige Hypothese kann durch Umstellung des <code>alternative</code> Arguments auf <code>"less"</code> oder <code>"greater"</code> getestet werden. Die Standardeinstellung ist ein zweiseitiger Test. Das <span class="math inline">\(\alpha\)</span>-Niveau kann über das Argument <code>conf.level</code> modifiziert werden, welches mit 0.95 (also einem <span class="math inline">\(\alpha\)</span> von 5%) voreingestellt ist.</p>
+<p>Ein Vergleich zwischen zwei metrische Merkmalen erfolgt durch die Eingabe zweier Vektoren. Für den t-Test nehmen wir außerdem gleiche Varianzen an (<code>var.equal = TRUE</code>). Bei einem Welch Test müsste das Argument <code>var.equal</code> auf <code>FALSE</code> gesetzt werden.</p>
+<div class="sourceCode" id="cb384"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb384-1"><a href="inductive.html#cb384-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(<span class="at">x =</span> big5<span class="sc">$</span>Alter, <span class="at">y =</span> big5<span class="sc">$</span>Extraversion, <span class="at">var.equal =</span> <span class="cn">TRUE</span>) </span></code></pre></div>
+<p>Für einen Mittelwertsvergleich zwischen zwei Gruppen (hier Männer und Frauen) nutzen wir die Formelsyntax. Auf der linken Seite der Tilde ist die metrische Variable und auf der rechten Seite die kategoriale Variable eingetragen.</p>
+<div class="sourceCode" id="cb385"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb385-1"><a href="inductive.html#cb385-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(Extraversion <span class="sc">~</span> Geschlecht, <span class="at">data =</span> big5, <span class="at">var.equal =</span> <span class="cn">TRUE</span>) </span></code></pre></div>
+<pre class="bordercode"><code>
+    Two Sample t-test
+
+data:  Extraversion by Geschlecht
+t = -1.2746, df = 198, p-value = 0.2039
+alternative hypothesis: true difference in means between group f and group m is not equal to 0
+95 percent confidence interval:
+ -0.16152463  0.03469536
+sample estimates:
+mean in group f mean in group m 
+       3.050000        3.113415 </code></pre>
+<p>Für einen Test auf abhängige Stichproben, kann das <code>paired</code> Argument hinzugefügt werden. Anders als hier müssten für einen gepaarten <em>t</em> Test oder Welch Test gleich viele Werte in beiden Gruppen vorhanden sein.</p>
+<div class="sourceCode" id="cb387"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb387-1"><a href="inductive.html#cb387-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(Extraversion <span class="sc">~</span> Geschlecht, <span class="at">data =</span> big5, <span class="at">paired =</span> <span class="cn">TRUE</span>) </span></code></pre></div>
 </div>
-<p>Bei der hierarchischen Modellierung ändert sich nichts für die Analyse von Zwischensubjektfaktoren wie Geschlecht. Möchten wir nun zusätzlich die hierarchische Struktur der Daten berücksichtigen, müssen wir einen eingeklammerten Term hinzufügen. Das einfachste Beispiel hierfür ist die Messwiederholung aus der obigen Abbildung. Dafür schreiben wir die in die Klammer den Persönlichkeitsfaktor <strong>gegeben</strong> (<code>|</code>) einer Identifikation der jeweiligen Person. Dieser Anwendungsfall ist in Gleichung <a href="inductive.html#eq:form5">(9.5)</a> abgebildet.</p>
-<p><strong>Hierarchische Modelle:</strong></p>
-<p><span class="math display" id="eq:form5">\[\begin{equation}
-    \overbrace{\mathrm{Extraversion}}^{\text{abhaengige Variable}} \sim \overbrace{\mathrm{Geschlecht}}^{\text{Fixed Effect(s)}} +  \underbrace{(\text{Faktor} \mid \text{Person})}_{\text{Random Effect(s)}}
-  \tag{9.5}
-\end{equation}\]</span></p>
-<div class="idea">
-<p>Alle statistischen Tests innerhalb des <code>inductive</code> Packages funktionieren nach dem selben Prinzip. Sie beginnen alle mit dem Präfix <code>sta_*()</code> und nur die <code>data</code> und <code>formula</code> Argumente. Wenn du die in diesem Kapitel eingeführte Formelsyntax verstanden hast, kannst du alle in diesem Buch vorgestellten statistischen Tests anwenden.</p>
-</div>
-<div class="warning">
-<p>Solange das <code>inductive</code> Package noch nicht fertig ist, muss für die schön formatierte Ausgabe der statistischen Tests das <code>broom</code> Package installiert und geladen sein.</p>
-</div>
-</div>
-<div id="normalverteilung-prüfen" class="section level2" number="9.2">
-<h2><span class="header-section-number">9.2</span> Normalverteilung prüfen</h2>
-<div id="shapiro-wilk-test" class="section level3" number="9.2.1">
-<h3><span class="header-section-number">9.2.1</span> Shapiro-Wilk Test</h3>
-<p>Mit der Zeit werden alle Statistikfunktionen auf das inductive Package umgestellt.</p>
-<p>Beim Shapiro-Wilk Test zur Überprüfung der Normalverteilung müssen wir der Funktion <code>shapiro.test()</code> lediglich die entsprechende Spalte des Datensatzes als Zahlenreihe (respektive Vektor) übergeben.</p>
-<div class="sourceCode" id="cb355"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb355-1"><a href="inductive.html#cb355-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(big5<span class="sc">$</span>Extraversion) <span class="sc">%&gt;%</span> </span>
-<span id="cb355-2"><a href="inductive.html#cb355-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tidy</span>()</span></code></pre></div>
-<pre class="bordercode"><code># A tibble: 1 x 3
-  statistic    p.value method
-      &lt;dbl&gt;      &lt;dbl&gt; &lt;chr&gt;
-1     0.957 0.00000984 Shapiro-Wilk normality test</code></pre>
-<p>Da der <em>p</em>-Wert hier bei einem <span class="math inline">\(\alpha\)</span> Niveau von 5% signifikant ist, würden wir an dieser Stelle von einer Verletzung der Normalverteilung sprechen. Die Annahme der Normalverteilung muss demnach abgelehnt werden.</p>
-</div>
-<div id="kolmogorov-smirnov-test" class="section level3" number="9.2.2">
-<h3><span class="header-section-number">9.2.2</span> Kolmogorov-Smirnov Test</h3>
-<p>Mit der Zeit werden alle Statistikfunktionen auf das inductive Package umgestellt.</p>
-<p>Der Kolmogorov-Smirnov Test wird fast gleich wie der Shapiro-Wilk Test angewandt. Mit dem <code>y</code> Argument muss man allerdings zusätzlich die Verteilung, mit der wir die Spalte <code>Extraversion</code> vergleichen (hier Normalverteilung), explizit festlegen.</p>
-<div class="sourceCode" id="cb357"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb357-1"><a href="inductive.html#cb357-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ks.test</span>(big5<span class="sc">$</span>Extraversion, <span class="at">y =</span> rnorm) <span class="sc">%&gt;%</span> </span>
-<span id="cb357-2"><a href="inductive.html#cb357-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tidy</span>()</span></code></pre></div>
-<pre class="bordercode"><code># A tibble: 1 x 4
-  statistic p.value method                             alternative
-      &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;                              &lt;chr&gt;
-1      3.03       0 One-sample Kolmogorov-Smirnov test two-sided  </code></pre>
-<p>Der statistische Test kommt auf die gleiche Schlussfolgerung wie der des vorherigen Kapitels. Die beobachteten Extraversionwerte sind nicht normalverteilt. Der Kolmogorov Smirnov Test funktioniert nur gut, wenn es keine doppelten Werte gibt. Dies ist bei intervallskalierten im Regelfall gegeben. Da wir hier lediglich aus ordinalen Daten einen Mittelwert gebildet haben, sind die Extraversionswerte natürlich trotzdem nicht intervallskaliert.</p>
+<div id="wilcoxon-test" class="section level3 hasAnchor" number="9.2.2">
+<h3><span class="header-section-number">9.2.2</span> Wilcoxon Test<a href="inductive.html#wilcoxon-test" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Der Wilcoxon Test für unabhängige Stichproben wird auf Test auch Mann-Whitney U-Test genannt). Hierbei handelt es sich um einen nicht-parametrischen Test, welcher bei Verletzungen der Annahmen von Normalverteilung und Varianzhomogenität Anwendung findet. Die Formelsyntax bleibt dabei dieselbe wie beim <em>t</em> Test.</p>
+<div class="sourceCode" id="cb388"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb388-1"><a href="inductive.html#cb388-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wilcox.test</span>(Extraversion <span class="sc">~</span> Geschlecht, <span class="at">data =</span> big5) </span></code></pre></div>
+<pre class="bordercode"><code>
+    Wilcoxon rank sum test with continuity correction
+
+data:  Extraversion by Geschlecht
+W = 4265, p-value = 0.1528
+alternative hypothesis: true location shift is not equal to 0</code></pre>
+<p>Auch beim Wilcoxon Test können abhängige Stichproben berücksichtigt werden (z.B. bei Messwiederholung).</p>
+<div class="sourceCode" id="cb390"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb390-1"><a href="inductive.html#cb390-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wilcox.test</span>(Extraversion <span class="sc">~</span> Geschlecht, <span class="at">paired =</span> <span class="cn">TRUE</span>, <span class="at">data =</span> big5) </span></code></pre></div>
 </div>
 </div>
-<div id="varianzhomogenität" class="section level2" number="9.3">
-<h2><span class="header-section-number">9.3</span> Varianzhomogenität</h2>
-<div id="f-test" class="section level3" number="9.3.1">
-<h3><span class="header-section-number">9.3.1</span> <em>F</em> Test</h3>
-<p>Mit der Zeit werden alle Statistikfunktionen auf das inductive Package umgestellt.</p>
-<p>Mit dem <em>F</em> Test können wir die Hypothese der Varianzgleichheit zwischen zwei Gruppen (hier Männer und Frauen) testen.</p>
-<div class="sourceCode" id="cb359"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb359-1"><a href="inductive.html#cb359-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var.test</span>(Extraversion <span class="sc">~</span> Geschlecht, <span class="at">data =</span> big5) <span class="sc">%&gt;%</span> </span>
-<span id="cb359-2"><a href="inductive.html#cb359-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tidy</span>()</span></code></pre></div>
-<pre class="bordercode"><code># A tibble: 1 x 9
-  estimate num.df den.df statistic p.value conf.low conf.high method                alternative
-     &lt;dbl&gt;  &lt;int&gt;  &lt;int&gt;     &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;                 &lt;chr&gt;
-1     1.19    117     81      1.19   0.413    0.787      1.76 F test to compare tw~ two.sided  </code></pre>
-<p>Da der <em>p</em>-Wert mit 0.413 größer als 0.05 (häufig gewähltes <span class="math inline">\(\alpha\)</span> Niveau) ist, würden wir hier von Varianzhomogenität (Varianzgleichheit) ausgehen. Wir erhalten außerdem den <em>F</em> Wert (<code>statistic</code>), die Freiheitsgrade und das Konfidenzintervall, welches bei Gültigkeit der Nullhypothese die 1 enthalten soll.</p>
-</div>
-<div id="levene-test" class="section level3" number="9.3.2">
-<h3><span class="header-section-number">9.3.2</span> Levene Test</h3>
-<p>Mit der Zeit werden alle Statistikfunktionen auf das inductive Package umgestellt.</p>
-<p>Für den Levene Test wird derzeit noch das <code>car</code> Package benötigt.</p>
-<div class="sourceCode" id="cb361"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb361-1"><a href="inductive.html#cb361-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)</span></code></pre></div>
-<p>Nun können wir der Funktion <code>leveneTest()</code> in gewohnter Formelsyntax die Spalten <code>Extraversion</code> und <code>Geschlecht</code> des Datensatzes <code>big5</code> übergeben.</p>
-<div class="sourceCode" id="cb362"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb362-1"><a href="inductive.html#cb362-1" aria-hidden="true" tabindex="-1"></a><span class="fu">leveneTest</span>(Extraversion <span class="sc">~</span> Geschlecht, <span class="at">data =</span> big5) <span class="sc">%&gt;%</span> </span>
-<span id="cb362-2"><a href="inductive.html#cb362-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tidy</span>()</span></code></pre></div>
-<pre class="bordercode"><code># A tibble: 2 x 4
-  term       df  statistic p.value
-  &lt;chr&gt;   &lt;int&gt;      &lt;dbl&gt;   &lt;dbl&gt;
-1 &quot;group&quot;     1  0.0000925   0.992
-2 &quot;&quot;        198 NA          NA    </code></pre>
-<p>Wir erhalten auch hier die Freiheitsgrade, Teststatistik und den <em>p</em>-Wert. Dabei kommen wir ausgehend vom <em>p</em>-Wert auf den gleichen Schluss wie beim <em>F</em> Test. Der Vorteil des Levene und des Bartletts Test ist der, dass wir auf einen Schlag die Varianz mehrere Gruppen miteinander vergleichen könnten.</p>
-</div>
-<div id="bartletts-test" class="section level3" number="9.3.3">
-<h3><span class="header-section-number">9.3.3</span> Bartletts Test</h3>
-<p>Mit der Zeit werden alle Statistikfunktionen auf das inductive Package umgestellt.</p>
-<p>Der Bartlett Test funktioniert genau wie die beiden bisher eingeführten Tests zur Überprüfung der Varianzhomogenität.</p>
-<div class="sourceCode" id="cb364"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb364-1"><a href="inductive.html#cb364-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bartlett.test</span>(Extraversion <span class="sc">~</span> Geschlecht, <span class="at">data =</span> big5) <span class="sc">%&gt;%</span> </span>
-<span id="cb364-2"><a href="inductive.html#cb364-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tidy</span>()</span></code></pre></div>
-<pre class="bordercode"><code># A tibble: 1 x 4
-  statistic p.value parameter method
-      &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;
-1     0.690   0.406         1 Bartlett test of homogeneity of variances</code></pre>
-<p>Auch hier kommen wir auf die selbe Schlussfolgerung der vorhandenen Varianzhomogenität zwischen Männern und Frauen hinsichtlich der mittleren Extraversionsausprägung.</p>
-</div>
-</div>
-<div id="ein--und-zweistichprobenszenarien" class="section level2" number="9.4">
-<h2><span class="header-section-number">9.4</span> Ein- und Zweistichprobenszenarien</h2>
-<div id="t-test-und-welch-test" class="section level3" number="9.4.1">
-<h3><span class="header-section-number">9.4.1</span> <em>t</em> Test und Welch Test</h3>
-<p>Mit der Zeit werden alle Statistikfunktionen auf das inductive Package umgestellt.</p>
-<p>Für einen Einstichproben <em>t</em> Test, indem wir die Hypothese testen, ob der Mittelwert gleich 0 ist, müssen wir erneut die Spalte Extraversion aus dem Datensatz <code>big5</code> herausziehen. Die zu testende Hypothese kann mit dem <code>mu</code> Argument entsprechend angepasst werden. Außerdem müssen wir <code>var.equal = TRUE</code> setzen, da ansonsten mit der gleichen Funktion der Welch Test berechnet wird.</p>
-<div class="sourceCode" id="cb366"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb366-1"><a href="inductive.html#cb366-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(big5<span class="sc">$</span>Extraversion, <span class="at">var.equal =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb366-2"><a href="inductive.html#cb366-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tidy</span>()</span></code></pre></div>
-<pre class="bordercode"><code># A tibble: 1 x 8
-  estimate statistic   p.value parameter conf.low conf.high method            alternative
-     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;             &lt;chr&gt;
-1     3.08      126. 2.04e-191       199     3.03      3.12 One Sample t-test two.sided  </code></pre>
-<p>Die Hypothese kann mit dem <code>alternative</code> Argument auf einseitige Tests (<code>"less"</code> oder <code>"greater"</code>) umgestellt werden. Die Standardeinstellung ist ein zweiseitiger Test. Das <span class="math inline">\(\alpha\)</span> Niveau kann über das Argument <code>conf.level</code> modifiziert werden. Ausgelassen wird ein Konfidenzlevel von 0.95 verwendet.</p>
-<p>Für einen Mittelwertsvergleich zwischen zwei Gruppen (hier Männer und Frauen) nutzen wir die bekannte Formelsyntax. Exemplarisch sei hier der Welch Test berechnet (<code>var.equal = FALSE</code> ist die Standardeinstellung der Funktion). Diesen würde man verwenden, wenn zwar Normalverteilung aber keine Varianzhomogenität gegeben wäre.</p>
-<div class="sourceCode" id="cb368"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb368-1"><a href="inductive.html#cb368-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(Extraversion <span class="sc">~</span> Geschlecht, <span class="at">data =</span> big5) <span class="sc">%&gt;%</span> </span>
-<span id="cb368-2"><a href="inductive.html#cb368-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tidy</span>()</span></code></pre></div>
-<pre class="bordercode"><code># A tibble: 1 x 10
-  estimate estimate1 estimate2 statistic p.value parameter conf.low conf.high method
-     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;
-1  -0.0634      3.05      3.11     -1.29   0.197      183.   -0.160    0.0332 Welch~
-# ... with 1 more variable: alternative &lt;chr&gt;</code></pre>
-<p>Für einen Test auf abhängige Stichproben, kann das <code>paired</code> Argument hinzugefügt werden.</p>
-<div class="sourceCode" id="cb370"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb370-1"><a href="inductive.html#cb370-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(Extraversion <span class="sc">~</span> Geschlecht, <span class="at">data =</span> big5, <span class="at">paired =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb370-2"><a href="inductive.html#cb370-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tidy</span>()</span></code></pre></div>
-</div>
-<div id="wilcoxon-test" class="section level3" number="9.4.2">
-<h3><span class="header-section-number">9.4.2</span> Wilcoxon Test</h3>
-<p>Mit der Zeit werden alle Statistikfunktionen auf das inductive Package umgestellt.</p>
-<p>Der Wilcoxon Test (auch Mann Whitney U-Test genannt) wird bei Verletzungen der Normalverteilung und Varianzhomogenität verwendet. Die Formelsyntax bleibt dabei die selbe wie bei den anderen Tests.</p>
-<div class="sourceCode" id="cb371"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb371-1"><a href="inductive.html#cb371-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wilcox.test</span>(Extraversion <span class="sc">~</span> Geschlecht, <span class="at">data =</span> big5) <span class="sc">%&gt;%</span> </span>
-<span id="cb371-2"><a href="inductive.html#cb371-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tidy</span>()</span></code></pre></div>
-<pre class="bordercode"><code># A tibble: 1 x 4
-  statistic p.value method                                            alternative
-      &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;                                             &lt;chr&gt;
-1      4265   0.153 Wilcoxon rank sum test with continuity correction two.sided  </code></pre>
-</div>
-<div id="brunner-munzel-test" class="section level3" number="9.4.3">
-<h3><span class="header-section-number">9.4.3</span> Brunner Munzel Test</h3>
-<p>Mit der Zeit werden alle Statistikfunktionen auf das inductive Package umgestellt.</p>
-<p>Für den Brunner Munzel Test wird das <code>brunnermunzel</code> Package benötigt.</p>
-<div class="sourceCode" id="cb373"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb373-1"><a href="inductive.html#cb373-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(brunnermunzel)</span></code></pre></div>
-<p>Für den Brunner Munzel Test verwenden wir erneut die Formalsyntax.</p>
-<div class="sourceCode" id="cb374"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb374-1"><a href="inductive.html#cb374-1" aria-hidden="true" tabindex="-1"></a><span class="fu">brunnermunzel.test</span>(Extraversion <span class="sc">~</span> Geschlecht, <span class="at">data =</span> big5) <span class="sc">%&gt;%</span> </span>
-<span id="cb374-2"><a href="inductive.html#cb374-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tidy</span>()</span></code></pre></div>
-<pre class="bordercode"><code># A tibble: 1 x 7
-  estimate statistic p.value parameter conf.low.lower conf.high.upper method
-     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;          &lt;dbl&gt;           &lt;dbl&gt; &lt;chr&gt;
-1    0.559      1.44   0.151      180.          0.478           0.640 Brunner-Munzel Test</code></pre>
-<p>Falls man keine gruppierende Variable, sondern zwei einzelne Spalten vorliegen hat, müssen die Spalten wieder als Zahlenreihen (respektive Vektoren) aus dem Datensatz herausgezogen werden.</p>
-<div class="sourceCode" id="cb376"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb376-1"><a href="inductive.html#cb376-1" aria-hidden="true" tabindex="-1"></a><span class="fu">brunnermunzel.test</span>(big5<span class="sc">$</span>Extraversion, big5<span class="sc">$</span>Neurotizismus) <span class="sc">%&gt;%</span> </span>
-<span id="cb376-2"><a href="inductive.html#cb376-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tidy</span>()</span></code></pre></div>
-</div>
-</div>
-<div id="unterschiede-mehrerer-gruppen" class="section level2" number="9.5">
-<h2><span class="header-section-number">9.5</span> Unterschiede mehrerer Gruppen</h2>
-<div id="aov" class="section level3" number="9.5.1">
-<h3><span class="header-section-number">9.5.1</span> AN(C)OVA</h3>
-<p>Mit der Zeit werden alle Statistikfunktionen auf das inductive Package umgestellt.</p>
-<p>Varianzanalysen (auch ANOVA genannt) benötigen für Typ 2 und Typ 3 Quadratsummen in R das Package <code>car</code>.</p>
-<div class="sourceCode" id="cb377"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb377-1"><a href="inductive.html#cb377-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)</span></code></pre></div>
-<p>Von hier an muss zuerst mit <code>aov()</code> (Akronym für <strong>a</strong>nalysis <strong>o</strong>f <strong>v</strong>ariances, engl. für Varianzanalyse) das eigentliche Modell aufgestellt werden. Die Syntax ist wie im Einführungskapitel beschrieben. Wenn man die verschiedenen unabhängigen Variablen mit einem Plus-Zeichen hinzufügt, werden die Unterschiede unabhängig voneinander geprüft.</p>
-<div class="sourceCode" id="cb378"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb378-1"><a href="inductive.html#cb378-1" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">aov</span>(Extraversion <span class="sc">~</span> Gruppe <span class="sc">+</span> Alter, <span class="at">data =</span> big5_mod)</span></code></pre></div>
-<div class="sourceCode" id="cb379"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb379-1"><a href="inductive.html#cb379-1" aria-hidden="true" tabindex="-1"></a>result <span class="sc">%&gt;%</span> </span>
-<span id="cb379-2"><a href="inductive.html#cb379-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">Anova</span>(<span class="at">type =</span> <span class="dv">3</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb379-3"><a href="inductive.html#cb379-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tidy</span>()</span></code></pre></div>
-<pre class="bordercode"><code># A tibble: 4 x 5
-  term           sumsq    df statistic   p.value
-  &lt;chr&gt;          &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
-1 (Intercept) 101.         1   851.     3.14e-73
-2 Gruppe        0.314      2     1.32   2.69e- 1
-3 Alter         0.0836     1     0.705  4.02e- 1
-4 Residuals    23.2      196    NA     NA       </code></pre>
-<p>Alternativ kann das Plus-Zeichen mit einem Asterisk (beziehungsweise Muliplikationszeichen) ausgetauscht werden. So würde man die Interaktion der Kovariaten berücksichtigen und somit eine so genannte ANCOVA (Akronym für <strong>an</strong>alysis of <strong>cova</strong>riance, engl. für Kovarianzanalyse) berechnen.</p>
-<div class="sourceCode" id="cb381"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb381-1"><a href="inductive.html#cb381-1" aria-hidden="true" tabindex="-1"></a><span class="fu">aov</span>(Extraversion <span class="sc">~</span> Gruppe <span class="sc">*</span> Alter, <span class="at">data =</span> big5_mod) <span class="sc">%&gt;%</span> </span>
-<span id="cb381-2"><a href="inductive.html#cb381-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">Anova</span>(<span class="at">type =</span> <span class="dv">3</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb381-3"><a href="inductive.html#cb381-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tidy</span>()</span></code></pre></div>
-<pre class="bordercode"><code># A tibble: 5 x 5
-  term           sumsq    df statistic  p.value
-  &lt;chr&gt;          &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
-1 (Intercept)  55.7        1   472.    7.66e-54
-2 Gruppe        0.410      2     1.74  1.78e- 1
-3 Alter         0.0834     1     0.707 4.02e- 1
-4 Gruppe:Alter  0.334      2     1.42  2.45e- 1
-# ... with 1 more row</code></pre>
-<p>Die Interaktionseffekte werden mit einem Doppelpunkt in der Ausgabe markiert (hier <code>Geschlecht:Alter</code>). Für die genauer Untersuchung des Haupteffekts Gruppe, müssen wir bei Signifikanz noch einen Post-Hoc Test machen. Eine Möglichkeit dafür ist der Test von Tukey mit der Funktion <code>TukeyHSD()</code> (Akronym für <strong>H</strong>onest <strong>S</strong>ignificant <strong>D</strong>ifferences).</p>
-<div class="sourceCode" id="cb383"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb383-1"><a href="inductive.html#cb383-1" aria-hidden="true" tabindex="-1"></a><span class="fu">TukeyHSD</span>(result, <span class="st">&quot;Gruppe&quot;</span>)</span></code></pre></div>
-<pre class="bordercode"><code>Warning in replications(paste(&quot;~&quot;, xx), data = mf): non-factors ignored: Alter</code></pre>
+<div id="unterschiede-mehrerer-gruppen" class="section level2 hasAnchor" number="9.3">
+<h2><span class="header-section-number">9.3</span> Unterschiede mehrerer Gruppen<a href="inductive.html#unterschiede-mehrerer-gruppen" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="aov" class="section level3 hasAnchor" number="9.3.1">
+<h3><span class="header-section-number">9.3.1</span> Varianz- und Kovarianzanalyse<a href="inductive.html#aov" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Für Varianzanalysen (auch ANOVA genannt) mit Typ 2 und Typ 3 Quadratsummen muss in R das <code>car</code> Package installiert und geladen werden.</p>
+<div class="sourceCode" id="cb391"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb391-1"><a href="inductive.html#cb391-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)</span></code></pre></div>
+<p>Mit <code>aov()</code> (Akronym für <strong>a</strong>nalysis <strong>o</strong>f <strong>v</strong>ariances, engl. für Varianzanalyse) wird das eigentliche Modell aufgestellt. Auf der linken Seite der Tilde steht die abhängige Variable und auf der rechten Seite eine oder mehrere durch ein Pluszeichen kombinierte unabhängige Variablen. Das Ausgeben der Ergebnisse erfolgt mit der Funktion <code>Anova()</code> aus dem <code>car</code> Package.</p>
+<div class="sourceCode" id="cb392"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb392-1"><a href="inductive.html#cb392-1" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">aov</span>(Extraversion <span class="sc">~</span> Gruppe <span class="sc">+</span> Alter, <span class="at">data =</span> big5_mod)</span>
+<span id="cb392-2"><a href="inductive.html#cb392-2" aria-hidden="true" tabindex="-1"></a><span class="fu">Anova</span>(result, <span class="at">type =</span> <span class="dv">3</span>)</span></code></pre></div>
+<pre class="bordercode"><code>Anova Table (Type III tests)
+
+Response: Extraversion
+             Sum Sq  Df  F value Pr(&gt;F)    
+(Intercept) 100.840   1 850.7365 &lt;2e-16 ***
+Gruppe        0.314   2   1.3235 0.2686    
+Alter         0.084   1   0.7052 0.4021    
+Residuals    23.232 196                    
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>Um die Interaktion der Kovariaten zu berücksichtigen, verwenden wir alternativ das Pluszeichen mit einem Asterisk (bzw. Muliplikationszeichen). Dabei muss die interagierende Variable metrisches Skalenniveau haben, was einer sogenannten ANCOVA (Akronym für <strong>an</strong>alysis of <strong>cova</strong>riance, engl. für Kovarianzanalyse) entspricht.</p>
+<div class="sourceCode" id="cb394"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb394-1"><a href="inductive.html#cb394-1" aria-hidden="true" tabindex="-1"></a><span class="fu">aov</span>(Extraversion <span class="sc">~</span> Gruppe <span class="sc">*</span> Alter, <span class="at">data =</span> big5_mod) <span class="sc">|&gt;</span> </span>
+<span id="cb394-2"><a href="inductive.html#cb394-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">Anova</span>(<span class="at">type =</span> <span class="dv">3</span>) </span></code></pre></div>
+<pre class="bordercode"><code>Anova Table (Type III tests)
+
+Response: Extraversion
+             Sum Sq  Df  F value Pr(&gt;F)    
+(Intercept)  55.687   1 471.7948 &lt;2e-16 ***
+Gruppe        0.410   2   1.7388 0.1785    
+Alter         0.083   1   0.7067 0.4016    
+Gruppe:Alter  0.334   2   1.4152 0.2454    
+Residuals    22.898 194                    
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>Die Interaktionseffekte werden mit einem Doppelpunkt in der Ausgabe markiert (hier <code>Geschlecht:Alter</code>). Für die genaue Untersuchung des Haupteffekts <code>Gruppe</code>, müssen wir bei statistischer Signifikanz noch einen Post-Hoc Test durchführen. Eine Möglichkeit dafür ist der Test von Tukey mit der Funktion <code>TukeyHSD()</code> (Akronym für <strong>H</strong>onest <strong>S</strong>ignificant <strong>D</strong>ifferences).</p>
+<div class="sourceCode" id="cb396"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb396-1"><a href="inductive.html#cb396-1" aria-hidden="true" tabindex="-1"></a><span class="fu">TukeyHSD</span>(result, <span class="st">&quot;Gruppe&quot;</span>)</span></code></pre></div>
 <pre class="bordercode"><code>  Tukey multiple comparisons of means
     95% family-wise confidence level
 
@@ -593,33 +488,33 @@ Mittel-Jung   0.008320251 -0.1381335 0.15477398 0.9901253
 Weise-Jung   -0.210544218 -0.4379624 0.01687397 0.0760155
 Weise-Mittel -0.218864469 -0.4721886 0.03445966 0.1053580</code></pre>
 <p>Eine Alternative dazu stellt der <em>t</em> Test dar, welcher die einzelnen Gruppen bezüglich der Extraversion paarweise vergleicht. Dafür müssen wir der Funktion <code>pairwise.t.test()</code> die entsprechenden Spalten als Vektoren übergeben.</p>
-<div class="sourceCode" id="cb386"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb386-1"><a href="inductive.html#cb386-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pairwise.t.test</span>(big5_mod<span class="sc">$</span>Extraversion, big5_mod<span class="sc">$</span>Gruppe)</span></code></pre></div>
+<div class="sourceCode" id="cb398"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb398-1"><a href="inductive.html#cb398-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pairwise.t.test</span>(big5_mod<span class="sc">$</span>Extraversion, big5_mod<span class="sc">$</span>Gruppe)</span></code></pre></div>
 <pre class="bordercode"><code>
-    Pairwise comparisons using t tests with pooled SD
+    Pairwise comparisons using t tests with pooled SD 
 
-data:  big5_mod$Extraversion and big5_mod$Gruppe
+data:  big5_mod$Extraversion and big5_mod$Gruppe 
 
        Jung Mittel
-Mittel 0.89 -
-Weise  0.09 0.09
+Mittel 0.89 -     
+Weise  0.09 0.09  
 
 P value adjustment method: holm </code></pre>
 </div>
-<div id="repeated" class="section level3" number="9.5.2">
-<h3><span class="header-section-number">9.5.2</span> ANOVA mit Messwiederholung</h3>
-<p>Mit der Zeit werden alle Statistikfunktionen auf das inductive Package umgestellt.</p>
-<p>Für die Berechnung von Varianzanalysen mit Messwiederholung benötigen wir das <code>afex</code> Package.</p>
-<div class="sourceCode" id="cb388"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb388-1"><a href="inductive.html#cb388-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(afex)</span>
-<span id="cb388-2"><a href="inductive.html#cb388-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(emmeans)</span></code></pre></div>
-<p>Bevor wir nun zur Berechnung kommen, müssen wir den Datensatz erst in ein langes Format bringen.</p>
-<div class="sourceCode" id="cb389"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb389-1"><a href="inductive.html#cb389-1" aria-hidden="true" tabindex="-1"></a>big5_long <span class="ot">&lt;-</span> big5_mod <span class="sc">%&gt;%</span> </span>
-<span id="cb389-2"><a href="inductive.html#cb389-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
-<span id="cb389-3"><a href="inductive.html#cb389-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols =</span> Extraversion<span class="sc">:</span>Neurotizismus,</span>
-<span id="cb389-4"><a href="inductive.html#cb389-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="st">&quot;Faktor&quot;</span>,</span>
-<span id="cb389-5"><a href="inductive.html#cb389-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_to =</span> <span class="st">&quot;Auspraegung&quot;</span></span>
-<span id="cb389-6"><a href="inductive.html#cb389-6" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
-<div class="sourceCode" id="cb390"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb390-1"><a href="inductive.html#cb390-1" aria-hidden="true" tabindex="-1"></a>result2 <span class="ot">&lt;-</span> <span class="fu">aov_4</span>(Auspraegung <span class="sc">~</span> Gruppe <span class="sc">+</span> (Faktor <span class="sc">|</span> ID), <span class="at">data =</span> big5_long)</span>
-<span id="cb390-2"><a href="inductive.html#cb390-2" aria-hidden="true" tabindex="-1"></a>result2</span></code></pre></div>
+<div id="repeated" class="section level3 hasAnchor" number="9.3.2">
+<h3><span class="header-section-number">9.3.2</span> Varianzanalyse mit Messwiederholung<a href="inductive.html#repeated" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Für die Berechnung von Varianzanalysen mit Messwiederholung benötigen wir das Package <code>afex</code> und für die Post-Hoc Tests das <code>emmeans</code> Package.</p>
+<div class="sourceCode" id="cb400"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb400-1"><a href="inductive.html#cb400-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(afex)</span>
+<span id="cb400-2"><a href="inductive.html#cb400-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(emmeans)</span></code></pre></div>
+<p>Bevor wir zur Berechnung kommen, müssen wir den Datensatz erst in ein langes Format umwandeln (siehe Kapitel <a href="datenvorbereitung.html#tidy">6.6</a>).</p>
+<div class="sourceCode" id="cb401"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb401-1"><a href="inductive.html#cb401-1" aria-hidden="true" tabindex="-1"></a>big5_long <span class="ot">&lt;-</span> big5_mod <span class="sc">|&gt;</span> </span>
+<span id="cb401-2"><a href="inductive.html#cb401-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
+<span id="cb401-3"><a href="inductive.html#cb401-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols =</span> Extraversion<span class="sc">:</span>Neurotizismus,</span>
+<span id="cb401-4"><a href="inductive.html#cb401-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="st">&quot;Faktor&quot;</span>,</span>
+<span id="cb401-5"><a href="inductive.html#cb401-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_to =</span> <span class="st">&quot;Auspraegung&quot;</span></span>
+<span id="cb401-6"><a href="inductive.html#cb401-6" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
+<p>Anschließend übergeben wir innerhalb der der Funktion <code>aov_4()</code> auf der linken Seite der Tilde die abhängige Variable und auf der rechten Seite der Tilde die unabhängigen Variablen. Innerhalb runder Klammern werden die Innersubjektfaktoren (hier <code>Faktor</code>) geschrieben, gegeben (<code>|</code>) dem Personenidentifikator (hier <code>ID</code>).</p>
+<div class="sourceCode" id="cb402"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb402-1"><a href="inductive.html#cb402-1" aria-hidden="true" tabindex="-1"></a>result2 <span class="ot">&lt;-</span> <span class="fu">aov_4</span>(Auspraegung <span class="sc">~</span> Gruppe <span class="sc">+</span> (Faktor <span class="sc">|</span> ID), <span class="at">data =</span> big5_long)</span>
+<span id="cb402-2"><a href="inductive.html#cb402-2" aria-hidden="true" tabindex="-1"></a>result2</span></code></pre></div>
 <pre class="bordercode"><code>Anova Table (Type 3 tests)
 
 Response: Auspraegung
@@ -630,182 +525,174 @@ Response: Auspraegung
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;+&#39; 0.1 &#39; &#39; 1</code></pre>
 <p>Als Post-Hoc Test können wir in diesem Fall die geschätzten Randsummen mithilfe von <code>emmeans()</code> (Akronym für <strong>e</strong>stimated <strong>m</strong>arginal <strong>means</strong>) ausgeben lassen.</p>
-<div class="sourceCode" id="cb392"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb392-1"><a href="inductive.html#cb392-1" aria-hidden="true" tabindex="-1"></a>post_aov <span class="ot">&lt;-</span> <span class="fu">emmeans</span>(result2, <span class="sc">~</span> Gruppe)</span></code></pre></div>
-<pre class="bordercode"><code>NOTE: Results may be misleading due to involvement in interactions</code></pre>
-<div class="sourceCode" id="cb394"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb394-1"><a href="inductive.html#cb394-1" aria-hidden="true" tabindex="-1"></a>post_aov</span></code></pre></div>
+<div class="sourceCode" id="cb404"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb404-1"><a href="inductive.html#cb404-1" aria-hidden="true" tabindex="-1"></a>post_aov <span class="ot">&lt;-</span> <span class="fu">emmeans</span>(result2, <span class="sc">~</span> Gruppe)</span>
+<span id="cb404-2"><a href="inductive.html#cb404-2" aria-hidden="true" tabindex="-1"></a>post_aov</span></code></pre></div>
 <pre class="bordercode"><code> Gruppe emmean     SE  df lower.CL upper.CL
- Jung     3.21 0.0534 197     3.11     3.32
- Mittel   3.10 0.0617 197     2.98     3.22
- Weise    3.00 0.0783 197     2.85     3.16
+ Jung     3.14 0.0321 197     3.08     3.20
+ Mittel   3.03 0.0624 197     2.91     3.15
+ Weise    2.93 0.1042 197     2.73     3.14
 
-Results are averaged over the levels of: Faktor
-Warning: EMMs are biased unless design is perfectly balanced
+Results are averaged over the levels of: Faktor 
 Confidence level used: 0.95 </code></pre>
-<p>Für Signifikanztests der jeweiligen Randsummen können wir jene der Funktion <code>pair()</code> übergeben.</p>
-<div class="sourceCode" id="cb396"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb396-1"><a href="inductive.html#cb396-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pairs</span>(post_aov)</span></code></pre></div>
+<p>Für Signifikanztests der jeweiligen Vergleiche können wir die Randsummen der Funktion <code>pair()</code> übergeben.</p>
+<div class="sourceCode" id="cb406"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb406-1"><a href="inductive.html#cb406-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pairs</span>(post_aov)</span></code></pre></div>
 <pre class="bordercode"><code> contrast       estimate     SE  df t.ratio p.value
- Jung - Mittel    0.1097 0.0702 197 1.563   0.2642
- Jung - Weise     0.2083 0.1090 197 1.911   0.1382
- Mittel - Weise   0.0986 0.1214 197 0.812   0.6959
+ Jung - Mittel    0.1097 0.0702 197   1.563  0.2642
+ Jung - Weise     0.2083 0.1090 197   1.911  0.1382
+ Mittel - Weise   0.0986 0.1214 197   0.812  0.6959
 
-Results are averaged over the levels of: Faktor
+Results are averaged over the levels of: Faktor 
 P value adjustment: tukey method for comparing a family of 3 estimates </code></pre>
 </div>
-<div id="kruskal-wallis-test" class="section level3" number="9.5.3">
-<h3><span class="header-section-number">9.5.3</span> Kruskal-Wallis Test</h3>
-<p>Mit der Zeit werden alle Statistikfunktionen auf das inductive Package umgestellt.</p>
-<p>Den Kruskal-Wallis Test können wir anwenden, wenn wir mehr als zwei Gruppen untersuchen und wir nicht von Normalverteilung und Varianzhomogenität ausgehen können. Die Syntax bleibt dabei wie gewohnt.</p>
-<div class="sourceCode" id="cb398"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb398-1"><a href="inductive.html#cb398-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kruskal.test</span>(Extraversion <span class="sc">~</span> Gruppe, <span class="at">data =</span> big5_mod) <span class="sc">%&gt;%</span> </span>
-<span id="cb398-2"><a href="inductive.html#cb398-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tidy</span>()</span></code></pre></div>
-<pre class="bordercode"><code># A tibble: 1 x 4
-  statistic p.value parameter method
-      &lt;dbl&gt;   &lt;dbl&gt;     &lt;int&gt; &lt;chr&gt;
-1      4.65  0.0976         2 Kruskal-Wallis rank sum test</code></pre>
-</div>
-<div id="friedman-test" class="section level3" number="9.5.4">
-<h3><span class="header-section-number">9.5.4</span> Friedman Test</h3>
-<p>Mit der Zeit werden alle Statistikfunktionen auf das inductive Package umgestellt.</p>
-<p>Den Friedman Test verwenden wir in den selben Anwendungsfällen wie den Kruskal-Wallis Test. Der Unterschied ist an dieser Stelle die zusätzliche Berücksichtigung von Innersubjektfaktoren. Wir benötigen daher wie im Kontext der Varianzanalyse mit Messwiederholung in Kapitel <a href="inductive.html#repeated">9.5.2</a> den Datensatz wieder im langen Format. Von da unterscheidet sich die Syntax nur insofern, als das wir keine Klammern um den Messwiederholungsterm auf der rechten Seite der Tilde schreiben.</p>
-<div class="sourceCode" id="cb400"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb400-1"><a href="inductive.html#cb400-1" aria-hidden="true" tabindex="-1"></a><span class="fu">friedman.test</span>(Auspraegung <span class="sc">~</span> Faktor <span class="sc">|</span> ID, <span class="at">data =</span> big5_long) <span class="sc">%&gt;%</span> </span>
-<span id="cb400-2"><a href="inductive.html#cb400-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tidy</span>()</span></code></pre></div>
-<pre class="bordercode"><code># A tibble: 1 x 4
-  statistic p.value parameter method
-      &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;
-1      1.35   0.246         1 Friedman rank sum test</code></pre>
-</div>
-</div>
-<div id="regressionsmodelle" class="section level2" number="9.6">
-<h2><span class="header-section-number">9.6</span> Regressionsmodelle</h2>
-<div id="linregression" class="section level3" number="9.6.1">
-<h3><span class="header-section-number">9.6.1</span> Lineare Regression</h3>
-<p>Mit der Zeit werden alle Statistikfunktionen auf das inductive Package umgestellt.</p>
-<p>Die <code>lm()</code> Funktion (Akronym für <strong>l</strong>ineares <strong>M</strong>odell) haben wir bereits im Kontext von Varianzanalysen kennengelernt (siehe Kapitel <a href="inductive.html#aov">9.5.1</a>). Für Regressionsmodelle können wir uns einen Schritt sparen. Die Syntax bleibt allerdings die gleiche. Beachte an dieser Stelle, dass die unabhängigen Variablen bei Regressionsanalysen entweder binär (<code>0</code>, <code>1</code>) oder intervallskaliert sein müssen.</p>
-<div class="sourceCode" id="cb402"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb402-1"><a href="inductive.html#cb402-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(Extraversion <span class="sc">~</span> Geschlecht <span class="sc">+</span> Alter, <span class="at">data =</span> big5)</span></code></pre></div>
-<p>Die Zusammenfassung der Ergebnisse erhalten wir wieder schön formatiert mit <code>tidy()</code>.</p>
-<div class="sourceCode" id="cb403"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb403-1"><a href="inductive.html#cb403-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(model)</span></code></pre></div>
-<pre class="bordercode"><code># A tibble: 3 x 5
-  term         estimate std.error statistic   p.value
-  &lt;chr&gt;           &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
-1 (Intercept)  3.06      0.0327      93.4   4.12e-165
-2 Geschlechtm  0.0597    0.0499       1.19  2.34e-  1
-3 Alter       -0.000119  0.000126    -0.945 3.46e-  1</code></pre>
-<p>Zusätzliche Ausgaben wie Informationskriterien (AIC, BIC) erhalten wir durch <code>glance()</code>, welches auch im <code>broom</code> Package enthalten ist.</p>
-<div class="sourceCode" id="cb405"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb405-1"><a href="inductive.html#cb405-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glance</span>(model)</span></code></pre></div>
-<pre class="bordercode"><code># A tibble: 1 x 12
-  r.squared adj.r.squared sigma statistic p.value    df logLik   AIC   BIC deviance df.residual
-      &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;       &lt;int&gt;
-1    0.0126       0.00259 0.346      1.26   0.286     2  -70.1  148.  161.     23.6         197
-# ... with 1 more variable: nobs &lt;int&gt;</code></pre>
-<p>Falls wir, wie bei einer Varianzanalyse, eine gruppierende Variable wie Altersgruppe (<code>Gruppe</code>) mit mehr als 2 Stufen innerhalb einer Regression untersuchen möchten, müssen wir zuerst so genannte Dummy Variablen erstellen. Das heißt, wir erstellen uns für jede Altersgruppe außer unserer Referenzgruppe (z.B. <code>“Jung”</code>) eine binäre neue Spalte. Während wir das ebenfalls manuell mit <code>if_else()</code> bewerkstelligen könnten, verwenden wir an dieser Stelle Faktoren, welche die Aufgabe für uns intern übernehmen.</p>
-<div class="sourceCode" id="cb407"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb407-1"><a href="inductive.html#cb407-1" aria-hidden="true" tabindex="-1"></a>big5_mod1 <span class="ot">&lt;-</span> big5_mod <span class="sc">%&gt;%</span> </span>
-<span id="cb407-2"><a href="inductive.html#cb407-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Gruppe =</span> <span class="fu">as.factor</span>(Gruppe))</span></code></pre></div>
-<p>Wenn die gruppierende Variable ein Faktor ist, erstellt R von selbst die dummy Variablen und gibt <span class="math inline">\(\beta\)</span> Koeffizienten mit entsprechendem Signifikanztest für jede der Faktorstufen (außer der Referenzgruppe) aus.</p>
-<div class="sourceCode" id="cb408"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb408-1"><a href="inductive.html#cb408-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(Extraversion <span class="sc">~</span> Gruppe, <span class="at">data =</span> big5_mod1) <span class="sc">%&gt;%</span> </span>
-<span id="cb408-2"><a href="inductive.html#cb408-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tidy</span>()</span></code></pre></div>
-<pre class="bordercode"><code># A tibble: 3 x 5
-  term         estimate std.error statistic   p.value
-  &lt;chr&gt;           &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
-1 (Intercept)   3.09       0.0284   109.    6.14e-178
-2 GruppeMittel  0.00832    0.0620     0.134 8.93e-  1
-3 GruppeWeise  -0.211      0.0962    -2.19  2.98e-  2</code></pre>
-</div>
-<div id="lineares-gemischtes-modell" class="section level3" number="9.6.2">
-<h3><span class="header-section-number">9.6.2</span> Lineares gemischtes Modell</h3>
-<p>Mit der Zeit werden alle Statistikfunktionen auf das inductive Package umgestellt.</p>
-<p>Für die Berechnung eines gemischten Modells muss das <code>lmerTest</code> Package installiert und geladen sein.</p>
-<div class="sourceCode" id="cb410"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb410-1"><a href="inductive.html#cb410-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lmerTest)</span></code></pre></div>
-<p>Bei der im vorherigen Kapitel kennengelernten linearen Regressionen haben wir nur so genannte Fixed Effects (wie Alter oder Geschlecht) miteinander verglichen. In einem gemischten Modell haben wir nicht nur Fixed Effects, sondern zusätzlich Random Effects. Diese erlauben beispielsweise eine zufällige Variation auch innerhalb der Personen. Andere Namen für dieses Modell sind Mixed Model, Multilevel Model oder hierarchisches Modell. Fälschlicherweise wird vom hierarchischem Modell von manchen Autoren eine hierarchische Regression unterschieden. Mit der hierarchischen Regression ist dort eine Art Stepwise Regression (engl. für Schrittweise Regression) gemeint, welche beispielsweise anhand von Informationskriterien verschiedene Modelle miteinander vergleicht. In diesem Kapitel meinen wir mit hierarchischer Modellierung oder Regression allerdings ausdrücklich die zusätzliche Modellierung der zufälligen Intercepts.</p>
-<p>Zur eigentlichen Modellierung müssen wir unseren Datensatz zuerst ins lange Datenformat bringen (siehe Kapitel <a href="datenvorbereitung.html#tidy">6.7</a>). Die Altersgruppe muss an dieser Stelle als Faktor kodiert werden, da die Variable mehr als 2 Stufen hat.</p>
-<div class="sourceCode" id="cb411"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb411-1"><a href="inductive.html#cb411-1" aria-hidden="true" tabindex="-1"></a>big5_mod1 <span class="ot">&lt;-</span> big5_mod <span class="sc">%&gt;%</span> </span>
-<span id="cb411-2"><a href="inductive.html#cb411-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
-<span id="cb411-3"><a href="inductive.html#cb411-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols =</span> Extraversion<span class="sc">:</span>Neurotizismus,</span>
-<span id="cb411-4"><a href="inductive.html#cb411-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="st">&quot;Faktor&quot;</span>,</span>
-<span id="cb411-5"><a href="inductive.html#cb411-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_to =</span> <span class="st">&quot;Wert&quot;</span></span>
-<span id="cb411-6"><a href="inductive.html#cb411-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
-<span id="cb411-7"><a href="inductive.html#cb411-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Gruppe =</span> <span class="fu">as.factor</span>(Gruppe)) </span>
-<span id="cb411-8"><a href="inductive.html#cb411-8" aria-hidden="true" tabindex="-1"></a>big5_mod1</span></code></pre></div>
-<pre class="bordercode"><code># A tibble: 400 x 6
-  Alter Geschlecht Gruppe    ID Faktor         Wert
-  &lt;dbl&gt; &lt;chr&gt;      &lt;fct&gt;  &lt;int&gt; &lt;chr&gt;         &lt;dbl&gt;
-1    36 m          Mittel     1 Extraversion    3
-2    36 m          Mittel     1 Neurotizismus   1.9
-3    30 f          Jung       2 Extraversion    3.1
-4    30 f          Jung       2 Neurotizismus   3.4
-# ... with 396 more rows</code></pre>
-<p>Die Funktion für die hierarchische Modellierung lautet <code>lmer()</code>. Wie in Formel <a href="inductive.html#eq:form5">(9.5)</a> bereits eingeführt, können wir die zufälligen Effekte nun innerhalb einer runden Klammer hinzufügen.</p>
-<div class="sourceCode" id="cb413"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb413-1"><a href="inductive.html#cb413-1" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">lmer</span>(Wert <span class="sc">~</span> Gruppe <span class="sc">+</span> Geschlecht <span class="sc">+</span> Faktor <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> ID),</span>
-<span id="cb413-2"><a href="inductive.html#cb413-2" aria-hidden="true" tabindex="-1"></a>            <span class="at">data =</span> big5_mod1)</span>
-<span id="cb413-3"><a href="inductive.html#cb413-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit)</span></code></pre></div>
-<pre class="bordercode"><code>Linear mixed model fit by REML. t-tests use Satterthwaite&#39;s method [&#39;lmerModLmerTest&#39;]
-Formula: Wert ~ Gruppe + Geschlecht + Faktor + (1 | ID)
-   Data: big5_mod1
+<div id="kruskal-wallis-test" class="section level3 hasAnchor" number="9.3.3">
+<h3><span class="header-section-number">9.3.3</span> Kruskal-Wallis Test<a href="inductive.html#kruskal-wallis-test" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Der Kruskal-Wallis Test wird angewendet, wenn wir mehr als zwei Gruppen untersuchen und wir nicht von Normalverteilung und Varianzhomogenität ausgehen können. Auch hier ist auf der linken Seite der Tilde die abhängige und auf der linken Seite die unabhängige Variable.</p>
+<div class="sourceCode" id="cb408"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb408-1"><a href="inductive.html#cb408-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kruskal.test</span>(Extraversion <span class="sc">~</span> Gruppe, <span class="at">data =</span> big5_mod)</span></code></pre></div>
+<pre class="bordercode"><code>
+    Kruskal-Wallis rank sum test
 
-REML criterion at convergence: 651
+data:  Extraversion by Gruppe
+Kruskal-Wallis chi-squared = 4.6538, df = 2, p-value = 0.0976</code></pre>
+</div>
+<div id="friedman-test" class="section level3 hasAnchor" number="9.3.4">
+<h3><span class="header-section-number">9.3.4</span> Friedman Test<a href="inductive.html#friedman-test" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Den Friedman Test verwenden wir in denselben Anwendungsfällen wie den Kruskal-Wallis Test mit dem Unterschied, dass hier Innersubjektfaktoren betrachtet werden. Wir benötigen daher wie im Kontext der Varianzanalyse mit Messwiederholung in Kapitel <a href="inductive.html#repeated">9.3.2</a> den Datensatz wieder im langen Format (siehe Kapitel <a href="datenvorbereitung.html#tidy">6.6</a>).</p>
+<p>Die Syntax unterscheidet sich nur insofern, als dass wir keine Klammern um den Messwiederholungsterm auf der rechten Seite der Tilde schreiben.</p>
+<div class="sourceCode" id="cb410"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb410-1"><a href="inductive.html#cb410-1" aria-hidden="true" tabindex="-1"></a><span class="fu">friedman.test</span>(Auspraegung <span class="sc">~</span> Faktor <span class="sc">|</span> ID, <span class="at">data =</span> big5_long) </span></code></pre></div>
+<pre class="bordercode"><code>
+    Friedman rank sum test
 
-Scaled residuals:
-    Min      1Q  Median      3Q     Max
--3.3611 -0.5524 -0.0624  0.5407  2.7249
+data:  Auspraegung and Faktor and ID
+Friedman chi-squared = 1.3474, df = 1, p-value = 0.2457</code></pre>
+</div>
+</div>
+<div id="korrelationskoeffizienten" class="section level2 hasAnchor" number="9.4">
+<h2><span class="header-section-number">9.4</span> Korrelationskoeffizienten<a href="inductive.html#korrelationskoeffizienten" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="korrelationstests" class="section level3 hasAnchor" number="9.4.1">
+<h3><span class="header-section-number">9.4.1</span> Korrelationstests<a href="inductive.html#korrelationstests" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Mit der Funktion <code>cor.test()</code> können die Produkt-Moment Korrelation nach Pearson (<code>“pearson”</code>), die Rangkorrelation nach Spearman (<code>"spearman"</code>) oder nach Kendall (<code>"kendall"</code>) angewendet werden. Dafür muss lediglich das <code>method</code> Argument entsprechend angepasst werden. Als Argumente übergeben wir außerdem die beiden numerischen Spalten, die wir mit dem Dollar-Operator aus dem Datensatz herausziehen müssen.</p>
+<div class="sourceCode" id="cb412"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb412-1"><a href="inductive.html#cb412-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(big5<span class="sc">$</span>Extraversion, big5<span class="sc">$</span>Neurotizismus, <span class="at">method =</span> <span class="st">&quot;pearson&quot;</span>) </span></code></pre></div>
+<pre class="bordercode"><code>
+    Pearson&#39;s product-moment correlation
 
-Random effects:
- Groups   Name        Variance Std.Dev.
- ID       (Intercept) 0.0118   0.1086
- Residual             0.2760   0.5253
-Number of obs: 400, groups:  ID, 200
+data:  big5$Extraversion and big5$Neurotizismus
+t = 0.98352, df = 198, p-value = 0.3266
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ -0.06968989  0.20646897
+sample estimates:
+       cor 
+0.06972529 </code></pre>
+</div>
+<div id="korrelationstabellen" class="section level3 hasAnchor" number="9.4.2">
+<h3><span class="header-section-number">9.4.2</span> Korrelationstabellen<a href="inductive.html#korrelationstabellen" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Um mehrere Korrelationen auf einmal zu berechnen, benutzen wir die Funktion <code>cor()</code>. Dabei können wir der Funktion grundsätzlich unbegrenzt viele numerische Spalten übergeben.</p>
+<div class="sourceCode" id="cb414"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb414-1"><a href="inductive.html#cb414-1" aria-hidden="true" tabindex="-1"></a>big5 <span class="sc">|&gt;</span> </span>
+<span id="cb414-2"><a href="inductive.html#cb414-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Alter, Extraversion, Neurotizismus) <span class="sc">|&gt;</span> </span>
+<span id="cb414-3"><a href="inductive.html#cb414-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cor</span>()</span></code></pre></div>
+<pre class="bordercode"><code>                    Alter Extraversion Neurotizismus
+Alter          1.00000000  -0.07385301   -0.03123432
+Extraversion  -0.07385301   1.00000000    0.06972529
+Neurotizismus -0.03123432   0.06972529    1.00000000</code></pre>
+<p>Auf dieselbe Art und Weise kann die Kovarianz mithilfe der Funktion <code>cov()</code> berechnet werden.</p>
+</div>
+</div>
+<div id="regressionsmodelle" class="section level2 hasAnchor" number="9.5">
+<h2><span class="header-section-number">9.5</span> Regressionsmodelle<a href="inductive.html#regressionsmodelle" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="linregression" class="section level3 hasAnchor" number="9.5.1">
+<h3><span class="header-section-number">9.5.1</span> Lineare Regression<a href="inductive.html#linregression" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Die <code>lm()</code> Funktion (Akronym für <strong>l</strong>ineares <strong>M</strong>odell) erstellt ein lineares Regressionsmodell. Auf der linken Seite der Tilde (<code>~</code>) wird die abhängige Variable und auf die rechte Seite eine oder mehrere unabhängige Variablen übergeben. Beachte an dieser Stelle, dass die unabhängigen Variablen bei Regressionsanalysen entweder binär (<code>0</code>, <code>1</code>) oder intervallskaliert sein müssen. Die Zusammenfassung der Ergebnisse erhalten wir mit <code>summary()</code>.</p>
+<div class="sourceCode" id="cb416"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb416-1"><a href="inductive.html#cb416-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(Extraversion <span class="sc">~</span> Geschlecht <span class="sc">+</span> Alter, <span class="at">data =</span> big5)</span>
+<span id="cb416-2"><a href="inductive.html#cb416-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code></pre></div>
+<pre class="bordercode"><code>
+Call:
+lm(formula = Extraversion ~ Geschlecht + Alter, data = big5)
 
-Fixed effects:
-                     Estimate Std. Error        df t value Pr(&gt;|t|)
-(Intercept)           3.15460    0.04684 345.46356  67.351   &lt;2e-16 ***
-GruppeMittel         -0.09970    0.06990 195.99995  -1.426   0.1554
-GruppeWeise          -0.21237    0.10827 195.99995  -1.962   0.0512 .
-Geschlechtm          -0.10802    0.05582 195.99995  -1.935   0.0544 .
-FaktorNeurotizismus   0.05700    0.05253 198.99993   1.085   0.2792
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.80975 -0.25093 -0.05391  0.18644  1.24502 
+
+Coefficients:
+              Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  3.0570058  0.0327166  93.439   &lt;2e-16 ***
+Geschlechtm  0.0596565  0.0499234   1.195    0.234    
+Alter       -0.0001192  0.0001261  -0.945    0.346    
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
-Correlation of Fixed Effects:
-            (Intr) GrppMt GrppWs Gschlc
-GruppeMittl -0.276
-GruppeWeise -0.210  0.133
-Geschlechtm -0.470 -0.074  0.019
-FktrNrtzsms -0.561  0.000  0.000  0.000</code></pre>
-</div>
-<div id="logistische-regression" class="section level3" number="9.6.3">
-<h3><span class="header-section-number">9.6.3</span> Logistische Regression</h3>
-<p>Mit der Zeit werden alle Statistikfunktionen auf das inductive Package umgestellt.</p>
-<p>Falls die abhängige Variable nicht intervallskaliert (respektive metrisch) sondern binär (<code>0</code>, <code>1</code>) ist, müssen wir eine logistische Regression verwenden. In R trägt die Funktion den Namen <code>glm()</code> (Akronym für <strong>G</strong>eneralisiertes <strong>L</strong>ineares <strong>M</strong>odell). Exemplarisch erstellen wir uns zu Beginn eine binäre abhängige Variable (Geschlecht).</p>
-<div class="sourceCode" id="cb415"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb415-1"><a href="inductive.html#cb415-1" aria-hidden="true" tabindex="-1"></a>big5_bin <span class="ot">&lt;-</span> big5 <span class="sc">%&gt;%</span> </span>
-<span id="cb415-2"><a href="inductive.html#cb415-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Geschlecht =</span> <span class="fu">if_else</span>(Geschlecht <span class="sc">==</span> <span class="st">&quot;m&quot;</span>, <span class="dv">1</span>, <span class="dv">0</span>))</span></code></pre></div>
-<p>Nun können wir genau wie bei der linearen Regression das Modell aufstellen und mit <code>tidy()</code> eine schöne Ausgabe erstellen.</p>
-<div class="sourceCode" id="cb416"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb416-1"><a href="inductive.html#cb416-1" aria-hidden="true" tabindex="-1"></a>model2 <span class="ot">&lt;-</span> <span class="fu">glm</span>(Geschlecht <span class="sc">~</span> Extraversion <span class="sc">+</span> Alter, <span class="at">data =</span> big5_bin) </span>
-<span id="cb416-2"><a href="inductive.html#cb416-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(model2)</span></code></pre></div>
-<pre class="bordercode"><code># A tibble: 3 x 5
-  term          estimate std.error statistic p.value
-  &lt;chr&gt;            &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;
-1 (Intercept)   0.0475    0.313        0.152   0.880
-2 Extraversion  0.121     0.101        1.19    0.234
-3 Alter        -0.000186  0.000179    -1.03    0.302</code></pre>
-<p>Mit <code>glance()</code> erhalten wir auch hier wieder zusätzliche Informationen.</p>
-<div class="sourceCode" id="cb418"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb418-1"><a href="inductive.html#cb418-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glance</span>(model2)</span></code></pre></div>
-<pre class="bordercode"><code># A tibble: 1 x 8
-  null.deviance df.null logLik   AIC   BIC deviance df.residual  nobs
-          &lt;dbl&gt;   &lt;int&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;       &lt;int&gt; &lt;int&gt;
-1          48.4     199  -141.  289.  302.     47.7         197   200</code></pre>
-</div>
-<div id="baseline-logit-modell" class="section level3" number="9.6.4">
-<h3><span class="header-section-number">9.6.4</span> Baseline Logit Modell</h3>
-<p>Mit der Zeit werden alle Statistikfunktionen auf das inductive Package umgestellt.</p>
-<p>Zur Berechnung von Baseline Logit Modellen muss das <code>VGAM</code> Package installiert und geladen sein.</p>
-<div class="sourceCode" id="cb420"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb420-1"><a href="inductive.html#cb420-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(VGAM)</span></code></pre></div>
-<p>Baseline Logit Modelle verwenden wir dann, wenn unsere abhängige Variable nicht binär ist, sondern mehrere ungeordnete Stufen hat. Die abhängige Variable ist also multinomial. Hier schauen wir uns exemplarisch den Einfluss von Geschlecht und Alter auf eine Frage zur Offenheit (<code>O1</code>) an. Diese ist zwar eigentlich ordinal skaliert, allerdings bleiben wir der einfachheitshalber bei dem Beispiel. Entscheiden ist hier das <code>family</code> Argument. Wir müssen festlegen, welche Faktorstufe die Referenzkategorie ist, mit der wir die restlichen Kategorien vergleichen wollen.</p>
-<div class="sourceCode" id="cb421"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb421-1"><a href="inductive.html#cb421-1" aria-hidden="true" tabindex="-1"></a><span class="fu">vglm</span>(O1 <span class="sc">~</span> Geschlecht <span class="sc">+</span> Alter, <span class="at">data =</span> big5, </span>
-<span id="cb421-2"><a href="inductive.html#cb421-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">family =</span> <span class="fu">multinomial</span>(<span class="at">refLevel =</span> <span class="dv">1</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb421-3"><a href="inductive.html#cb421-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summary</span>()</span></code></pre></div>
+Residual standard error: 0.3461 on 197 degrees of freedom
+Multiple R-squared:  0.01261,   Adjusted R-squared:  0.002587 
+F-statistic: 1.258 on 2 and 197 DF,  p-value: 0.2865</code></pre>
+<p>Falls wir, wie bei einer Varianzanalyse, eine kategoriale Variable wie Altersgruppe (<code>Gruppe</code>) mit mehr als 2 Stufen innerhalb einer Regression untersuchen möchten, müssen wir zuerst sogenannte Dummy Variablen erstellen. Das heißt, wir kreieren für jede Altersgruppe außer unserer Referenzgruppe (z.B. <code>“Jung”</code>) eine binäre neue Spalte. Am einfachsten geht dies mit der Umwandlung in Faktoren (siehe Kapitel <a href="datenvorbereitung.html#datafactor">6.10</a>).</p>
+<div class="sourceCode" id="cb418"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb418-1"><a href="inductive.html#cb418-1" aria-hidden="true" tabindex="-1"></a>big5_mod1 <span class="ot">&lt;-</span> big5_mod <span class="sc">|&gt;</span> </span>
+<span id="cb418-2"><a href="inductive.html#cb418-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Gruppe =</span> <span class="fu">as.factor</span>(Gruppe))</span></code></pre></div>
+<p>Wenn die gruppierende Variable ein Faktor ist, erstellt R von selbst die Dummy Variablen und gibt die <span class="math inline">\(\beta\)</span>-Koeffizienten mit entsprechendem Signifikanztest für jede der Faktorstufen (außer der Referenzgruppe) aus.</p>
+<div class="sourceCode" id="cb419"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb419-1"><a href="inductive.html#cb419-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(Extraversion <span class="sc">~</span> Gruppe, <span class="at">data =</span> big5_mod1) <span class="sc">|&gt;</span> </span>
+<span id="cb419-2"><a href="inductive.html#cb419-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summary</span>()</span></code></pre></div>
 <pre class="bordercode"><code>
 Call:
-vglm(formula = O1 ~ Geschlecht + Alter, family = multinomial(refLevel = 1),
-    data = big5)
+lm(formula = Extraversion ~ Gruppe, data = big5_mod1)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.68912 -0.19744 -0.08912  0.21088  1.21088 
 
 Coefficients:
+             Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)   3.08912    0.02838 108.868   &lt;2e-16 ***
+GruppeMittel  0.00832    0.06197   0.134   0.8933    
+GruppeWeise  -0.21054    0.09622  -2.188   0.0298 *  
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Residual standard error: 0.344 on 197 degrees of freedom
+Multiple R-squared:  0.02464,   Adjusted R-squared:  0.01473 
+F-statistic: 2.488 on 2 and 197 DF,  p-value: 0.0857</code></pre>
+</div>
+<div id="logistische-regression" class="section level3 hasAnchor" number="9.5.2">
+<h3><span class="header-section-number">9.5.2</span> Logistische Regression<a href="inductive.html#logistische-regression" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Falls die abhängige Variable binär (<code>0</code>, <code>1</code>) ist, müssen wir eine logistische Regression verwenden (auch binomiales Logit Modell genannt). In R trägt die Funktion den Namen <code>glm()</code> (Akronym für <strong>G</strong>eneralisiertes <strong>L</strong>ineares <strong>M</strong>odell). Exemplarisch erstellen wir uns zu Beginn eine binäre abhängige Variable (Geschlecht).</p>
+<div class="sourceCode" id="cb421"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb421-1"><a href="inductive.html#cb421-1" aria-hidden="true" tabindex="-1"></a>big5_bin <span class="ot">&lt;-</span> big5 <span class="sc">|&gt;</span> </span>
+<span id="cb421-2"><a href="inductive.html#cb421-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Geschlecht =</span> <span class="fu">if_else</span>(Geschlecht <span class="sc">==</span> <span class="st">&quot;m&quot;</span>, <span class="dv">1</span>, <span class="dv">0</span>))</span></code></pre></div>
+<p>Nun können wir genau wie bei der linearen Regression das Modell aufstellen und mit <code>summary()</code> ausgeben.</p>
+<div class="sourceCode" id="cb422"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb422-1"><a href="inductive.html#cb422-1" aria-hidden="true" tabindex="-1"></a>model2 <span class="ot">&lt;-</span> <span class="fu">glm</span>(Geschlecht <span class="sc">~</span> Extraversion <span class="sc">+</span> Alter, <span class="at">data =</span> big5_bin) </span>
+<span id="cb422-2"><a href="inductive.html#cb422-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model2)</span></code></pre></div>
+<pre class="bordercode"><code>
+Call:
+glm(formula = Geschlecht ~ Extraversion + Alter, data = big5_bin)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-0.5630  -0.4113  -0.3701   0.5707   0.6859  
+
+Coefficients:
+               Estimate Std. Error t value Pr(&gt;|t|)
+(Intercept)   0.0474582  0.3131682   0.152    0.880
+Extraversion  0.1206277  0.1009469   1.195    0.234
+Alter        -0.0001855  0.0001793  -1.035    0.302
+
+(Dispersion parameter for gaussian family taken to be 0.2422681)
+
+    Null deviance: 48.380  on 199  degrees of freedom
+Residual deviance: 47.727  on 197  degrees of freedom
+AIC: 289.01
+
+Number of Fisher Scoring iterations: 2</code></pre>
+</div>
+<div id="multinomiales-logit-modell" class="section level3 hasAnchor" number="9.5.3">
+<h3><span class="header-section-number">9.5.3</span> Multinomiales Logit Modell<a href="inductive.html#multinomiales-logit-modell" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Zur Berechnung von multinomialen Logit Modellen muss das <code>VGAM</code> Package installiert und geladen sein.</p>
+<div class="sourceCode" id="cb424"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb424-1"><a href="inductive.html#cb424-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(VGAM)</span></code></pre></div>
+<p>Multinomiale Logit Modelle (auch Baseline Logit Modelle genannt) verwenden wir dann, wenn unsere abhängige Variable nicht binär ist, sondern mehrere ungeordnete Stufen hat.</p>
+<p>Hier schauen wir uns exemplarisch den Einfluss von Geschlecht und Alter auf eine Frage zur Offenheit (<code>O1</code>) an. Diese ist zwar eigentlich ordinal skaliert, allerdings bleiben wir der einfachheitshalber bei dem Beispiel. Entscheiden ist hier das <code>family</code> Argument. Wir müssen festlegen, welche Faktorstufe die Referenzkategorie darstellt, mit der wir die restlichen Kategorien vergleichen wollen. Auch hier wird die Zusammenfassung mithilfe der Funktion <code>summary()</code> ausgegeben.</p>
+<div class="sourceCode" id="cb425"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb425-1"><a href="inductive.html#cb425-1" aria-hidden="true" tabindex="-1"></a><span class="fu">vglm</span>(O1 <span class="sc">~</span> Geschlecht <span class="sc">+</span> Alter, <span class="at">data =</span> big5, <span class="at">family =</span> <span class="fu">multinomial</span>(<span class="at">refLevel =</span> <span class="dv">1</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb425-2"><a href="inductive.html#cb425-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summary</span>()</span></code></pre></div>
+<pre class="bordercode"><code>
+Call:
+vglm(formula = O1 ~ Geschlecht + Alter, family = multinomial(refLevel = 1), 
+    data = big5)
+
+Coefficients: 
               Estimate Std. Error z value Pr(&gt;|z|)
 (Intercept):1 -0.43014    1.56406  -0.275    0.783
 (Intercept):2  0.85767    1.50833   0.569    0.570
@@ -820,86 +707,100 @@ Alter:2        0.02951    0.06614   0.446    0.655
 Alter:3        0.06521    0.06442   1.012    0.311
 Alter:4        0.06540    0.06442   1.015    0.310
 
-Names of linear predictors: log(mu[,2]/mu[,1]), log(mu[,3]/mu[,1]), log(mu[,4]/mu[,1]),
+Names of linear predictors: log(mu[,2]/mu[,1]), log(mu[,3]/mu[,1]), log(mu[,4]/mu[,1]), 
 log(mu[,5]/mu[,1])
 
 Residual deviance: 534.8599 on 788 degrees of freedom
 
 Log-likelihood: -267.43 on 788 degrees of freedom
 
-Number of Fisher scoring iterations: 9
+Number of Fisher scoring iterations: 9 
 
 No Hauck-Donner effect found in any of the estimates
 
 
 Reference group is level  1  of the response</code></pre>
-<p>Beachte auch, dass wir hier <code>summary()</code> und nicht <code>tidy()</code> zur Ergebnisausgabe verwenden müssen.</p>
 </div>
-<div id="kumulatives-logit-modell" class="section level3" number="9.6.5">
-<h3><span class="header-section-number">9.6.5</span> Kumulatives Logit Modell</h3>
-<p>Mit der Zeit werden alle Statistikfunktionen auf das inductive Package umgestellt.</p>
-<p>Zur Berechnung von Kumulative Logit Modelle muss das <code>VGAM</code> Package installiert und geladen sein.</p>
-<div class="sourceCode" id="cb423"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb423-1"><a href="inductive.html#cb423-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(VGAM)</span></code></pre></div>
-<p>Kumulative Logit Modell verwenden wir bei ordinal skalierter abhängiger Variable. Die Variable <code>O1</code> ist eine Frage zur Offenheit die von 0 (<em>trifft gar nicht zu</em>) bis 5 (<em>trifft zu</em>) bewertet wird. Im Vergleich zur Baseline Logit Modellen verändert sich an dieser Stelle nur das <code>family</code> Argument. Hier müssen wir die <code>cumulative()</code> Funktion verwenden.</p>
-<div class="sourceCode" id="cb424"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb424-1"><a href="inductive.html#cb424-1" aria-hidden="true" tabindex="-1"></a><span class="fu">vglm</span>(O1 <span class="sc">~</span> Geschlecht <span class="sc">+</span> Alter, <span class="at">data =</span> big5, </span>
-<span id="cb424-2"><a href="inductive.html#cb424-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">family =</span> <span class="fu">cumulative</span>(<span class="at">parallel =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb424-3"><a href="inductive.html#cb424-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summary</span>()</span></code></pre></div>
+<div id="kumulatives-logit-modell" class="section level3 hasAnchor" number="9.5.4">
+<h3><span class="header-section-number">9.5.4</span> Kumulatives Logit Modell<a href="inductive.html#kumulatives-logit-modell" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Zur Berechnung von kumulativen Logit Modellen muss das <code>VGAM</code> Package installiert und geladen sein.</p>
+<div class="sourceCode" id="cb427"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb427-1"><a href="inductive.html#cb427-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(VGAM)</span></code></pre></div>
+<p>Kumulative Logit Modelle (auch Proportional Odds Model genannt) verwenden wir bei ordinal skalierter abhängiger Variable. Die Variable <code>O1</code> ist eine Frage zur Offenheit, die von 0 (<em>trifft gar nicht zu</em>) bis 5 (<em>trifft zu</em>) bewertet wird. Im Vergleich zu Baseline Logit Modellen verändert sich an dieser Stelle nur das <code>family</code> Argument. Hier müssen wir die <code>cumulative()</code> Funktion verwenden.</p>
+<div class="sourceCode" id="cb428"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb428-1"><a href="inductive.html#cb428-1" aria-hidden="true" tabindex="-1"></a><span class="fu">vglm</span>(O1 <span class="sc">~</span> Geschlecht <span class="sc">+</span> Alter, <span class="at">data =</span> big5, <span class="at">family =</span> <span class="fu">cumulative</span>(<span class="at">parallel =</span> <span class="cn">TRUE</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb428-2"><a href="inductive.html#cb428-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summary</span>()</span></code></pre></div>
 <pre class="bordercode"><code>
 Call:
-vglm(formula = O1 ~ Geschlecht + Alter, family = cumulative(parallel = TRUE),
+vglm(formula = O1 ~ Geschlecht + Alter, family = cumulative(parallel = TRUE), 
     data = big5)
 
-Coefficients:
-                Estimate Std. Error z value Pr(&gt;|z|)
+Coefficients: 
+                Estimate Std. Error z value Pr(&gt;|z|)    
 (Intercept):1 -3.8522994  0.4725677  -8.152 3.58e-16 ***
 (Intercept):2 -2.0844977  0.2465282  -8.455  &lt; 2e-16 ***
 (Intercept):3 -0.7750703  0.1905505  -4.068 4.75e-05 ***
 (Intercept):4  0.6701122  0.1882403   3.560 0.000371 ***
-Geschlechtm    0.4445943  0.2618293   1.698 0.089502 .
-Alter         -0.0005654  0.0007258  -0.779 0.435967
+Geschlechtm    0.4445943  0.2618293   1.698 0.089502 .  
+Alter         -0.0005654  0.0007258  -0.779 0.435967    
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 
-Names of linear predictors: logitlink(P[Y&lt;=1]), logitlink(P[Y&lt;=2]), logitlink(P[Y&lt;=3]),
+Names of linear predictors: logitlink(P[Y&lt;=1]), logitlink(P[Y&lt;=2]), logitlink(P[Y&lt;=3]), 
 logitlink(P[Y&lt;=4])
 
 Residual deviance: 552.8905 on 794 degrees of freedom
 
 Log-likelihood: -276.4453 on 794 degrees of freedom
 
-Number of Fisher scoring iterations: 5
+Number of Fisher scoring iterations: 5 
 
 Warning: Hauck-Donner effect detected in the following estimate(s):
 &#39;(Intercept):1&#39;
 
 
 Exponentiated coefficients:
-Geschlechtm       Alter
+Geschlechtm       Alter 
   1.5598572   0.9994348 </code></pre>
 </div>
-<div id="cox" class="section level3" number="9.6.6">
-<h3><span class="header-section-number">9.6.6</span> Cox Regression</h3>
-<p>Zur Berechnung einer sogenannten Cox Regression, muss das <code>survival</code> Package installiert und geladen sein.</p>
-<div class="sourceCode" id="cb426"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb426-1"><a href="inductive.html#cb426-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(surival)</span></code></pre></div>
+<div id="poisson-regression" class="section level3 hasAnchor" number="9.5.5">
+<h3><span class="header-section-number">9.5.5</span> Poisson Regression<a href="inductive.html#poisson-regression" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Zur modellierung von Häufigkeiten (Zähldaten) wird die Poisson Regression verwendet.</p>
+<div class="sourceCode" id="cb430"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb430-1"><a href="inductive.html#cb430-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glm</span>(Infektion_frequenz <span class="sc">~</span> Geschlecht <span class="sc">+</span> Alter, <span class="at">data =</span> daten, <span class="at">family =</span> poisson) <span class="sc">|&gt;</span> </span>
+<span id="cb430-2"><a href="inductive.html#cb430-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summary</span>()</span></code></pre></div>
+<p>Falls eine Over-Dispersion besteht, kann die Quasipoisson Verteilung dem entgegensteuern.</p>
+<div class="sourceCode" id="cb431"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb431-1"><a href="inductive.html#cb431-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glm</span>(Infektion_frequenz <span class="sc">~</span> Geschlecht <span class="sc">+</span> Alter, <span class="at">data =</span> daten, <span class="at">family =</span> quasipoisson) <span class="sc">|&gt;</span> </span>
+<span id="cb431-2"><a href="inductive.html#cb431-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summary</span>()</span></code></pre></div>
+</div>
+<div id="negative-binomial-regression" class="section level3 hasAnchor" number="9.5.6">
+<h3><span class="header-section-number">9.5.6</span> Negative Binomial Regression<a href="inductive.html#negative-binomial-regression" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Für dieses Kapitel ist die Installation und das Laden des <code>MASS</code> Packages notwendig.</p>
+<div class="sourceCode" id="cb432"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb432-1"><a href="inductive.html#cb432-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MASS)</span></code></pre></div>
+<p>Falls bei der Modellierung von Zähldaten eine Over-Dispersion besteht, muss anstelle der Poisson Verteilung eine negative Binomial Verteilung verwendet werden. Diese wird mit der Funktion <code>glm.nb()</code> umgesetzt.</p>
+<div class="sourceCode" id="cb433"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb433-1"><a href="inductive.html#cb433-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glm.nb</span>(Infektion_frequenz <span class="sc">~</span> Geschlecht <span class="sc">+</span> Alter, <span class="at">data =</span> daten) <span class="sc">|&gt;</span> </span>
+<span id="cb433-2"><a href="inductive.html#cb433-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summary</span>()</span></code></pre></div>
+</div>
+<div id="cox" class="section level3 hasAnchor" number="9.5.7">
+<h3><span class="header-section-number">9.5.7</span> Cox Regression<a href="inductive.html#cox" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Zur Berechnung eines Cox Proportional Hazards Model (oder kurz Cox Regression), muss das <code>survival</code> Package installiert und geladen werden.</p>
+<div class="sourceCode" id="cb434"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb434-1"><a href="inductive.html#cb434-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(surival)</span></code></pre></div>
 <p>Für unser Beispiel nehmen wir uns den <code>lung</code> Datensatz aus dem <code>survival</code> Package zur Hand.</p>
-<div class="sourceCode" id="cb427"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb427-1"><a href="inductive.html#cb427-1" aria-hidden="true" tabindex="-1"></a>lung </span></code></pre></div>
-<pre class="bordercode"><code># A tibble: 228 x 10
+<div class="sourceCode" id="cb435"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb435-1"><a href="inductive.html#cb435-1" aria-hidden="true" tabindex="-1"></a>lung </span></code></pre></div>
+<pre class="bordercode"><code># A tibble: 228 × 10
    inst  time status   age   sex ph.ecog ph.karno pat.karno meal.cal wt.loss
   &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;
 1     3   306      2    74     1       1       90       100     1175      NA
 2     3   455      2    68     1       0       90        90     1225      15
 3     3  1010      1    56     1       0       90        90       NA      15
 4     5   210      2    57     1       1       90        60     1150      11
-# ... with 224 more rows</code></pre>
-<p>Mit der Funktion <code>coxph()</code> können wir nun in fast gewohnter Manier unser Modell schätzen. Besonders ist an dieser Stelle, dass wir der Funktion keine einzelne abhängige Variable übergeben. Stattdessen übergeben wir der Funktion <code>Surv()</code> sowohl die Überlebenszeit in Tagen als auch die Information über den Tod beziehungsweise Zensierung (<code>event = status</code>). Falls eine Modellierung in Abhängigkeit der Start- und Endzeit gewünscht ist, kann die Startzeit dem <code>time</code> und die Endzeit dem <code>time2</code> Argument übergeben werden. Hier schauen wir uns exemplarisch den Einfluss der Kovariate Geschlecht auf die Überlebenszeit an. Dabei wird das biologische Geschlecht in männlich (1) und weiblich (2) kodiert.</p>
-<div class="sourceCode" id="cb429"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb429-1"><a href="inductive.html#cb429-1" aria-hidden="true" tabindex="-1"></a>cox_res <span class="ot">&lt;-</span> <span class="fu">coxph</span>(<span class="fu">Surv</span>(<span class="at">time =</span> time, <span class="at">event =</span> status) <span class="sc">~</span> sex, <span class="at">data =</span> lung)</span>
-<span id="cb429-2"><a href="inductive.html#cb429-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(cox_res)</span></code></pre></div>
+# … with 224 more rows</code></pre>
+<p>Mit der Funktion <code>coxph()</code> wird das Modell geschätzt. Besonders ist an dieser Stelle, dass wir der Funktion keine einzelne abhängige Variable übergeben. Stattdessen verwenden wir in der Helferfunktion <code>Surv()</code> sowohl die Überlebenszeit in Tagen als auch die Information über den Tod bzw. das Ausscheiden aus der Studie (<code>event = status</code>). Falls eine Modellierung in Abhängigkeit der Start- und Endzeit gewünscht ist, kann die Startzeit dem <code>time</code> und die Endzeit dem <code>time2</code> Argument übergeben werden. Hier schauen wir uns exemplarisch eine mögliche Assoziation der Kovariate Geschlecht mit der Überlebenszeit an. Dabei wird das biologische Geschlecht in männlich (1) und weiblich (2) kodiert.</p>
+<div class="sourceCode" id="cb437"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb437-1"><a href="inductive.html#cb437-1" aria-hidden="true" tabindex="-1"></a>cox_res <span class="ot">&lt;-</span> <span class="fu">coxph</span>(<span class="fu">Surv</span>(<span class="at">time =</span> time, <span class="at">event =</span> status) <span class="sc">~</span> sex, <span class="at">data =</span> lung)</span>
+<span id="cb437-2"><a href="inductive.html#cb437-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(cox_res)</span></code></pre></div>
 <pre class="bordercode"><code>Call:
 coxph(formula = Surv(time = time, event = status) ~ sex, data = lung)
 
-  n= 228, number of events= 165
+  n= 228, number of events= 165 
 
-       coef exp(coef) se(coef)      z Pr(&gt;|z|)
+       coef exp(coef) se(coef)      z Pr(&gt;|z|)   
 sex -0.5310    0.5880   0.1672 -3.176  0.00149 **
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
@@ -914,92 +815,173 @@ Score (logrank) test = 10.33  on 1 df,   p=0.001</code></pre>
 <p>In der Ausgabe sehen wir die Ergebnisse des Likelihood Ratio, Rao Score und Wald Tests. Die entsprechende Hazard Ratio der Kovariaten kann unter <code>exp(coef)</code> abgelesen werden (hier <code>0.5880</code>). Eine Hazard Ratio unter 1 sagt in unserem Beispiel also eine Risikoreduktion bei weiblichem Geschlecht aus.</p>
 </div>
 </div>
-<div id="korrelationsanalysen" class="section level2" number="9.7">
-<h2><span class="header-section-number">9.7</span> Korrelationsanalysen</h2>
-<div id="korrelationstests" class="section level3" number="9.7.1">
-<h3><span class="header-section-number">9.7.1</span> Korrelationstests</h3>
-<p>Mit der Zeit werden alle Statistikfunktionen auf das inductive Package umgestellt.</p>
-<p>Mit der Funktion <code>cor.test()</code> können die Produkt-Moment Korrelation nach Pearson (<code>“pearson”</code>), Rangkorrelation nach Spearman (<em>spearman</em>) oder Kendall <code>(kendall)</code> angewendet werden. Dafür muss nur das <code>method</code> Argument entsprechend angepasst werden. Als Argumente übergeben wir außerdem die beiden numerischen Spalten, die wir mit dem Dollar-Operator aus dem Datensatz herausziehen müssen.</p>
-<div class="sourceCode" id="cb431"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb431-1"><a href="inductive.html#cb431-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(big5<span class="sc">$</span>Extraversion, big5<span class="sc">$</span>Neurotizismus, </span>
-<span id="cb431-2"><a href="inductive.html#cb431-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">method =</span> <span class="st">&quot;pearson&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb431-3"><a href="inductive.html#cb431-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tidy</span>()</span></code></pre></div>
-<pre class="bordercode"><code># A tibble: 1 x 8
-  estimate statistic p.value parameter conf.low conf.high method                    alternative
-     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;     &lt;int&gt;    &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;                     &lt;chr&gt;
-1   0.0697     0.984   0.327       198  -0.0697     0.206 Pearson&#39;s product-moment~ two.sided  </code></pre>
-<p>Für polychorische Korrelationen muss das <code>polycor</code> Package installiert und geladen sein.</p>
-<div class="sourceCode" id="cb433"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb433-1"><a href="inductive.html#cb433-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(polycor)</span></code></pre></div>
-<p>Die Funktion <code>polychor()</code> benötigt lediglich die zwei numerischen Spalten, die untersucht werden sollen. Dabei muss die Spalte als Zahlenreihe (Vektor) aus dem Datensatz herausgezogen werden.</p>
-<div class="sourceCode" id="cb434"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb434-1"><a href="inductive.html#cb434-1" aria-hidden="true" tabindex="-1"></a><span class="fu">polychor</span>(big5<span class="sc">$</span>Extraversion, big5<span class="sc">$</span>Neurotizismus)</span></code></pre></div>
-<pre class="bordercode"><code>[1] 0.05354389</code></pre>
-</div>
-<div id="korrelationstabellen" class="section level3" number="9.7.2">
-<h3><span class="header-section-number">9.7.2</span> Korrelationstabellen</h3>
-<p>Mit der Zeit werden alle Statistikfunktionen auf das inductive Package umgestellt.</p>
-<p>Wenn mehrere Korrelationen auf einmal berechnet werden sollen, können wir die Funktion <code>cor()</code> benutzen. Dabei können wir der Funktion grundsätzlich so viele numerische Spalten übergeben, wie wir wollen.</p>
-<div class="sourceCode" id="cb436"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb436-1"><a href="inductive.html#cb436-1" aria-hidden="true" tabindex="-1"></a>big5 <span class="sc">%&gt;%</span> </span>
-<span id="cb436-2"><a href="inductive.html#cb436-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Alter, Extraversion, Neurotizismus) <span class="sc">%&gt;%</span> </span>
-<span id="cb436-3"><a href="inductive.html#cb436-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cor</span>()</span></code></pre></div>
-<pre class="bordercode"><code>                    Alter Extraversion Neurotizismus
-Alter          1.00000000  -0.07385301   -0.03123432
-Extraversion  -0.07385301   1.00000000    0.06972529
-Neurotizismus -0.03123432   0.06972529    1.00000000</code></pre>
-</div>
-</div>
-<div id="contingency" class="section level2" number="9.8">
-<h2><span class="header-section-number">9.8</span> Kontingenztafeln</h2>
-<p>Für die Auswertung von Kontingenztafeln nutzen wir die in Kapitel <a href="descr.html#contigency">7.3</a> erstellte Vierfeldertafel, die die Extraversionsausprägung über 3 gegen das Geschlecht aufträgt.</p>
-<div class="sourceCode" id="cb438"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb438-1"><a href="inductive.html#cb438-1" aria-hidden="true" tabindex="-1"></a>extraversion <span class="ot">&lt;-</span> big5_mod <span class="sc">%&gt;%</span> </span>
-<span id="cb438-2"><a href="inductive.html#cb438-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(Extraversion)</span>
-<span id="cb438-3"><a href="inductive.html#cb438-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb438-4"><a href="inductive.html#cb438-4" aria-hidden="true" tabindex="-1"></a>sex <span class="ot">&lt;-</span> big5_mod <span class="sc">%&gt;%</span> </span>
-<span id="cb438-5"><a href="inductive.html#cb438-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(Geschlecht)</span>
-<span id="cb438-6"><a href="inductive.html#cb438-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb438-7"><a href="inductive.html#cb438-7" aria-hidden="true" tabindex="-1"></a>tbl <span class="ot">&lt;-</span> <span class="fu">table</span>(extraversion <span class="sc">&gt;</span> <span class="dv">3</span>, sex)</span></code></pre></div>
-<div id="fisher" class="section level3" number="9.8.1">
-<h3><span class="header-section-number">9.8.1</span> Fisher-Exact Test</h3>
-<p>Mit der Zeit werden alle Statistikfunktionen auf das inductive Package umgestellt.</p>
+<div id="contingency" class="section level2 hasAnchor" number="9.6">
+<h2><span class="header-section-number">9.6</span> Kontingenztafeln<a href="inductive.html#contingency" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Für die Auswertung von Kontingenztafeln nutzen wir die in Kapitel <a href="descr.html#contigency">7.2</a> erstellte Vierfeldertafel, die die Extraversionsausprägung über 3 gegen das Geschlecht aufträgt.</p>
+<div class="sourceCode" id="cb439"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb439-1"><a href="inductive.html#cb439-1" aria-hidden="true" tabindex="-1"></a>tbl <span class="ot">&lt;-</span> <span class="fu">table</span>(big5_mod<span class="sc">$</span>Extraversion <span class="sc">&gt;</span> <span class="dv">3</span>, big5_mod<span class="sc">$</span>Geschlecht)</span></code></pre></div>
+<div id="fisher" class="section level3 hasAnchor" number="9.6.1">
+<h3><span class="header-section-number">9.6.1</span> Exakter Fisher-Test<a href="inductive.html#fisher" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Nach Erstellung der Kontingenztafel mit <code>table()</code> können wir diese einfach der Funktion <code>fisher.test()</code> übergeben.</p>
-<div class="sourceCode" id="cb439"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb439-1"><a href="inductive.html#cb439-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fisher.test</span>(tbl) <span class="sc">%&gt;%</span> </span>
-<span id="cb439-2"><a href="inductive.html#cb439-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tidy</span>()</span></code></pre></div>
-<pre class="bordercode"><code># A tibble: 1 x 6
-  estimate p.value conf.low conf.high method                             alternative
-     &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;                              &lt;chr&gt;
-1     1.15   0.666    0.628      2.11 Fisher&#39;s Exact Test for Count Data two.sided  </code></pre>
-<p>Als Ausgabe erhalten wir unter anderem die Odds Ratio (<code>estimate</code>) und Konfidenzintervalle, die exemplarisch in Kapitel <a href="visual.html#odds">8.8</a> zur Visualisierung der Odds Ratios verwendet wurden. Auch hier können wir mit dem <code>alternative</code> Argument auf einseitiges Testen umstellen (<code>“less”</code>, <code>“greater”</code>).</p>
+<div class="sourceCode" id="cb440"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb440-1"><a href="inductive.html#cb440-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fisher.test</span>(tbl) </span></code></pre></div>
+<pre class="bordercode"><code>
+    Fisher&#39;s Exact Test for Count Data
+
+data:  tbl
+p-value = 0.6663
+alternative hypothesis: true odds ratio is not equal to 1
+95 percent confidence interval:
+ 0.6284963 2.1062910
+sample estimates:
+odds ratio 
+  1.150348 </code></pre>
+<p>Als Ausgabe erhalten wir unter anderem die Odds Ratio und das Konfidenzintervall. Auch hier können wir mit dem <code>alternative</code> Argument auf einseitiges Testen umstellen (<code>“less”</code>, <code>“greater”</code>).</p>
 </div>
-<div id="chi-quadrat-tests" class="section level3" number="9.8.2">
-<h3><span class="header-section-number">9.8.2</span> Chi Quadrat-Tests</h3>
-<p>Mit der Zeit werden alle Statistikfunktionen auf das inductive Package umgestellt.</p>
+<div id="chi-quadrat-tests" class="section level3 hasAnchor" number="9.6.2">
+<h3><span class="header-section-number">9.6.2</span> Chi Quadrat Tests<a href="inductive.html#chi-quadrat-tests" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Für die Berechnung des <span class="math inline">\(\chi^2\)</span> Tests nach Pearson verwenden wir die Funktion <code>chisq.test()</code>.</p>
-<div class="sourceCode" id="cb441"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb441-1"><a href="inductive.html#cb441-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(tbl) <span class="sc">%&gt;%</span> </span>
-<span id="cb441-2"><a href="inductive.html#cb441-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tidy</span>()</span></code></pre></div>
-<pre class="bordercode"><code># A tibble: 1 x 4
-  statistic p.value parameter method
-      &lt;dbl&gt;   &lt;dbl&gt;     &lt;int&gt; &lt;chr&gt;
-1     0.118   0.731         1 Pearson&#39;s Chi-squared test with Yates&#39; continuity correction</code></pre>
-<p>Bei abhängigen Gruppen würde man hingegen stattdessen Mcnemars <span class="math inline">\(\chi^2\)</span> Test verwenden.</p>
-<div class="sourceCode" id="cb443"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb443-1"><a href="inductive.html#cb443-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mcnemar.test</span>(tbl) <span class="sc">%&gt;%</span> </span>
-<span id="cb443-2"><a href="inductive.html#cb443-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tidy</span>()</span></code></pre></div>
-<pre class="bordercode"><code># A tibble: 1 x 4
-  statistic p.value parameter method
-      &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;
-1     0.674   0.412         1 McNemar&#39;s Chi-squared test with continuity correction</code></pre>
+<div class="sourceCode" id="cb442"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb442-1"><a href="inductive.html#cb442-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(tbl)</span></code></pre></div>
+<pre class="bordercode"><code>
+    Pearson&#39;s Chi-squared test with Yates&#39; continuity correction
+
+data:  tbl
+X-squared = 0.11804, df = 1, p-value = 0.7312</code></pre>
+<p>Bei abhängigen Merkmalen wird stattdessen Mcnemars <span class="math inline">\(\chi^2\)</span> Test verwendet.</p>
+<div class="sourceCode" id="cb444"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb444-1"><a href="inductive.html#cb444-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mcnemar.test</span>(tbl) </span></code></pre></div>
+<pre class="bordercode"><code>
+    McNemar&#39;s Chi-squared test with continuity correction
+
+data:  tbl
+McNemar&#39;s chi-squared = 0.67368, df = 1, p-value = 0.4118</code></pre>
+</div>
+</div>
+<div id="voraussetzungen-überprüfen" class="section level2 hasAnchor" number="9.7">
+<h2><span class="header-section-number">9.7</span> Voraussetzungen überprüfen<a href="inductive.html#voraussetzungen-überprüfen" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="normalverteilung-der-residuen" class="section level3 hasAnchor" number="9.7.1">
+<h3><span class="header-section-number">9.7.1</span> Normalverteilung der Residuen<a href="inductive.html#normalverteilung-der-residuen" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Eine Alternative zu den hier vorgestellten Hypothesentests zur Überprüfung der Normalverteilung stellt der graphische Vergleich der Verteilungen mithilfe eines Quantil-Quantil Plots dar <a href="visual.html#qqplot">8.8</a>. Exemplarisch werden in den folgenden Kapitel die Residuen aus dem linearen Regressionsmodell verwendet (siehe Kapitel <a href="inductive.html#linregression">9.5.1</a>). Dafür muss das <code>broom</code> Package installiert und geladen sein.</p>
+<div class="sourceCode" id="cb446"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb446-1"><a href="inductive.html#cb446-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span></code></pre></div>
+<div class="sourceCode" id="cb447"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb447-1"><a href="inductive.html#cb447-1" aria-hidden="true" tabindex="-1"></a>resid_df <span class="ot">&lt;-</span> <span class="fu">lm</span>(Extraversion <span class="sc">~</span> Geschlecht <span class="sc">+</span> Alter, <span class="at">data =</span> big5) <span class="sc">|&gt;</span> </span>
+<span id="cb447-2"><a href="inductive.html#cb447-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">augment</span>()</span></code></pre></div>
+<div id="shapiro-wilk-test" class="section level4 hasAnchor" number="9.7.1.1">
+<h4><span class="header-section-number">9.7.1.1</span> Shapiro-Wilk Test<a href="inductive.html#shapiro-wilk-test" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Beim Shapiro-Wilk Test zur Überprüfung der Normalverteilung müssen wir der Funktion <code>shapiro.test()</code> lediglich die entsprechende Spalte des Datensatzes mit den Residuen als Zahlenreihe übergeben.</p>
+<div class="sourceCode" id="cb448"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb448-1"><a href="inductive.html#cb448-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(resid_df<span class="sc">$</span>.resid)</span></code></pre></div>
+<pre class="bordercode"><code>
+    Shapiro-Wilk normality test
+
+data:  resid_df$.resid
+W = 0.95933, p-value = 1.675e-05</code></pre>
+<p>Da der <em>p</em>-Wert hier bei einem <span class="math inline">\(\alpha\)</span> Niveau von 5% signifikant ist, würden wir an dieser Stelle von einer Verletzung der Normalverteilung sprechen. Die Annahme der Normalverteilung muss demnach abgelehnt werden.</p>
+</div>
+<div id="kolmogorov-smirnov-test" class="section level4 hasAnchor" number="9.7.1.2">
+<h4><span class="header-section-number">9.7.1.2</span> Kolmogorov-Smirnov Test<a href="inductive.html#kolmogorov-smirnov-test" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Der Kolmogorov-Smirnov Test wird fast gleich wie der Shapiro-Wilk Test angewandt. Mit dem <code>y</code> Argument muss man allerdings zusätzlich die Verteilung, mit der wir die Spalte der Residuen (<code>.resid</code>) vergleichen (hier Normalverteilung), explizit festlegen.</p>
+<div class="sourceCode" id="cb450"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb450-1"><a href="inductive.html#cb450-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ks.test</span>(resid_df<span class="sc">$</span>.resid, <span class="st">&quot;rnorm&quot;</span>)</span></code></pre></div>
+<pre class="bordercode"><code>
+    Asymptotic one-sample Kolmogorov-Smirnov test
+
+data:  resid_df$.resid
+D = 2.804, p-value &lt; 2.2e-16
+alternative hypothesis: two-sided</code></pre>
+<p>Der Kolmogorov-Smirnov Test funktioniert nur, wenn es keine doppelten Werte gibt, was bei intervallskalierten Merkmalen in der Regel gegeben ist.</p>
+</div>
+</div>
+<div id="varianzhomogenität" class="section level3 hasAnchor" number="9.7.2">
+<h3><span class="header-section-number">9.7.2</span> Varianzhomogenität<a href="inductive.html#varianzhomogenität" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="f-test" class="section level4 hasAnchor" number="9.7.2.1">
+<h4><span class="header-section-number">9.7.2.1</span> <em>F</em> Test<a href="inductive.html#f-test" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Mit dem <em>F</em> Test können wir die Hypothese der Varianzgleichheit zwischen zwei Gruppen (hier Männer und Frauen) testen.</p>
+<div class="sourceCode" id="cb452"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb452-1"><a href="inductive.html#cb452-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var.test</span>(Extraversion <span class="sc">~</span> Geschlecht, <span class="at">data =</span> big5)</span></code></pre></div>
+<pre class="bordercode"><code>
+    F test to compare two variances
+
+data:  Extraversion by Geschlecht
+F = 1.1868, num df = 117, denom df = 81, p-value = 0.413
+alternative hypothesis: true ratio of variances is not equal to 1
+95 percent confidence interval:
+ 0.7871945 1.7628258
+sample estimates:
+ratio of variances 
+          1.186837 </code></pre>
+<p>Da der <em>p</em>-Wert mit 0.413 größer als 0.05 (häufig gewähltes <span class="math inline">\(\alpha\)</span> Niveau) ist, würden wir hier von Varianzhomogenität (Varianzgleichheit) ausgehen. Wir erhalten außerdem den <em>F</em> Wert, die Freiheitsgrade und das Konfidenzintervall.</p>
+</div>
+<div id="levene-test" class="section level4 hasAnchor" number="9.7.2.2">
+<h4><span class="header-section-number">9.7.2.2</span> Levene Test<a href="inductive.html#levene-test" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Für dieses Kapitel muss das <code>car</code> Package installiert und geladen werden.</p>
+<div class="sourceCode" id="cb454"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb454-1"><a href="inductive.html#cb454-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)</span></code></pre></div>
+<p>Nun können wir der Funktion <code>leveneTest()</code> in gewohnter Formelsyntax die Spalten <code>Extraversion</code> und <code>Geschlecht</code> des Datensatzes <code>big5</code> übergeben.</p>
+<div class="sourceCode" id="cb455"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb455-1"><a href="inductive.html#cb455-1" aria-hidden="true" tabindex="-1"></a><span class="fu">leveneTest</span>(Extraversion <span class="sc">~</span> Geschlecht, <span class="at">data =</span> big5) </span></code></pre></div>
+<pre class="bordercode"><code>Levene&#39;s Test for Homogeneity of Variance (center = median)
+       Df F value Pr(&gt;F)
+group   1   1e-04 0.9923
+      198               </code></pre>
+<p>Wir erhalten auch hier die Freiheitsgrade, Teststatistik und den <em>p</em>-Wert. Dabei kommen wir ausgehend vom <em>p</em>-Wert auf den gleichen Schluss wie beim <em>F</em> Test. Der Vorteil des Levene und des Bartletts Test ist der, dass wir innerhalb einer Funktion die Varianz mehrere Gruppen miteinander vergleichen können.</p>
+</div>
+<div id="bartletts-test" class="section level4 hasAnchor" number="9.7.2.3">
+<h4><span class="header-section-number">9.7.2.3</span> Bartletts Test<a href="inductive.html#bartletts-test" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Der Bartlett Test funktioniert genau wie die beiden bisher eingeführten Tests zur Überprüfung der Varianzhomogenität.</p>
+<div class="sourceCode" id="cb457"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb457-1"><a href="inductive.html#cb457-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bartlett.test</span>(Extraversion <span class="sc">~</span> Geschlecht, <span class="at">data =</span> big5)</span></code></pre></div>
+<pre class="bordercode"><code>
+    Bartlett test of homogeneity of variances
+
+data:  Extraversion by Geschlecht
+Bartlett&#39;s K-squared = 0.69049, df = 1, p-value = 0.406</code></pre>
+<p>Auch hier kommen wir auf dieselbe Schlussfolgerung der vorhandenen Varianzhomogenität zwischen Männern und Frauen hinsichtlich der mittleren Extraversionsausprägung.</p>
+</div>
+</div>
+</div>
+<div id="broom" class="section level2 hasAnchor" number="9.8">
+<h2><span class="header-section-number">9.8</span> Ergebnisse formatieren<a href="inductive.html#broom" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Das Umformatieren in <code>tibbles</code>, die wiederum in Tabellenform exportiert werden können, muss das <code>broom</code> Package installiert und geladen werden.</p>
+<div class="sourceCode" id="cb459"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb459-1"><a href="inductive.html#cb459-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span></code></pre></div>
+<p>Als Beispiel verwenden wir das lineare Regressionsmodell aus Kapitel <a href="inductive.html#linregression">9.5.1</a>.</p>
+<div class="sourceCode" id="cb460"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb460-1"><a href="inductive.html#cb460-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(Extraversion <span class="sc">~</span> Geschlecht <span class="sc">+</span> Alter, <span class="at">data =</span> big5)</span></code></pre></div>
+<p>Die wichtigsten Informationen werden mit der Funktion <code>tidy()</code> ausgeben, welche nur das Modell als Argument benötigt.</p>
+<div class="sourceCode" id="cb461"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb461-1"><a href="inductive.html#cb461-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(model)</span></code></pre></div>
+<pre class="bordercode"><code># A tibble: 3 × 5
+  term         estimate std.error statistic   p.value
+  &lt;chr&gt;           &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
+1 (Intercept)  3.06      0.0327      93.4   4.12e-165
+2 Geschlechtm  0.0597    0.0499       1.19  2.34e-  1
+3 Alter       -0.000119  0.000126    -0.945 3.46e-  1</code></pre>
+<p>Zusätzliche Informationen wie die Varianzaufklärung oder Informationskriterien erhalten wir mit <code>glance()</code>.</p>
+<div class="sourceCode" id="cb463"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb463-1"><a href="inductive.html#cb463-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glance</span>(model)</span></code></pre></div>
+<pre class="bordercode"><code># A tibble: 1 × 12
+  r.squared adj.r.squared sigma statis…¹ p.value    df logLik   AIC   BIC devia…² df.re…³  nobs
+      &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;   &lt;int&gt; &lt;int&gt;
+1    0.0126       0.00259 0.346     1.26   0.286     2  -70.1  148.  161.    23.6     197   200
+# … with abbreviated variable names ¹​statistic, ²​deviance, ³​df.residual</code></pre>
+<p>Die Residuen erhalten wir mithilfe von <code>augment()</code>.</p>
+<div class="sourceCode" id="cb465"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb465-1"><a href="inductive.html#cb465-1" aria-hidden="true" tabindex="-1"></a><span class="fu">augment</span>(model)</span></code></pre></div>
+<pre class="bordercode"><code># A tibble: 200 × 9
+  Extraversion Geschlecht Alter .fitted  .resid    .hat .sigma   .cooksd .std.resid
+         &lt;dbl&gt; &lt;chr&gt;      &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;
+1          3   m             36    3.11 -0.112  0.0122   0.347 0.000439      -0.327
+2          3.1 f             30    3.05  0.0466 0.00858  0.347 0.0000527      0.135
+3          3.4 m             23    3.11  0.286  0.0122   0.346 0.00285        0.832
+4          3.3 m             54    3.11  0.190  0.0123   0.347 0.00126        0.552
+# … with 196 more rows</code></pre>
+<div class="idea">
+<p>Während <code>tidy()</code> für alle hier vorgestellten statistischen Modellen funktioniert (außer der Varianzanalyse mit Messwiederholung), können <code>glance()</code> und <code>augment()</code> nicht immer angewendet werden. Die aktuelle Liste der unterstützten Funktion kann in der <a href="https://broom.tidymodels.org/articles/available-methods.html">Dokumentation</a> des <code>broom</code> Packages eingesehen werden.</p>
+</div>
 
 </div>
 </div>
+
+
+
 </div>
+<script data-goatcounter="https://remp.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
             </section>
 
           </div>
         </div>
       </div>
 <a href="visual.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="latente-variablenmodelle.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="ergebnisse-exportieren.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -1029,12 +1011,12 @@ gitbook.start({
 "text": null
 },
 "download": null,
+"search": false,
 "toc": {
 "collapse": "section"
 },
 "toc_depth": 3,
-"info": false,
-"search": false
+"info": false
 });
 });
 </script>
@@ -1045,7 +1027,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

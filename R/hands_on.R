@@ -1,7 +1,7 @@
-#' Übungen starten
+#' Interaktive Übung starten
 #'
-#' Eine komfortable Funktion zum Starten der im `remp` enthaltenen Übungen im eigenen Standardbrowser.
-#' Es ist keine Internetverbindung notwendig.
+#' Starten der im Package enthaltenen Übungen im eigenen Browser.
+#' Dabei ist keine Internetverbindung notwendig. Der Fortschritt innerhalb der Übungen wird automatisch lokal auf dem eigenen Computer gespeichert.
 #' @param name Der Name der Übung als Character.
 #' @return Die ausgewählte Übung wird im Browser gestartet.
 #' @examples

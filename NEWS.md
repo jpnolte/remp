@@ -1,3 +1,9 @@
+# remp 0.1.1
+- Datum: *2023-01-03*
+- Kapitel Datenvorbereitung, Visualisierungen, Datenstrukturen und Funktionen wiederholt anwenden (ehem. Iterationen) wurden überarbeitet.
+- Neue Datensätze `df_oben`, `df_unten` und `demogr` anstelle von `A`, `B`, `C` und `D` zum Erklären von Joins.
+- Umstellung auf die Base R Pipe `|>` anstelle von `%>%` (benötigt R `4.1.0` oder neuer).
+
 # remp 0.1.0 
 - Datum: *2022-10-02*
 - Kapitel Einleitung, Startvoraussetzung, Projektorientierung, Wichtiges Grundlagenwissen (ehem. Variablen), Datensätze, Deskriptive Statistik und Ergebnisse exportieren wurden überarbeitet.

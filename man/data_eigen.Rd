@@ -2,21 +2,23 @@
 % Please edit documentation in R/data_eigen.R
 \name{data_eigen}
 \alias{data_eigen}
-\title{Datengenerierungsfunktion Eigenwerte}
+\title{Berechnung der Eigenvalues}
 \usage{
-data_eigen(fa)
+data_eigen(df)
 }
 \arguments{
-\item{fa}{Data.frame oder tibble mit numerischen Spalten.}
+\item{df}{Data.frame oder tibble mit numerischen Spalten.}
 }
 \value{
-Scree Plot
+Eigenvalues und Dimensionen.
 }
 \description{
-Die Ausgegeben Werte können direkt als Scree Plot visualisiert werden.
+Die ausgegebenen Werte können direkt als Scree Plot visualisiert werden.
 }
 \examples{
-\dontrun{
-data_eigen(dataset)
-}
+big_five_comp
+
+big_five_comp |> 
+ dplyr::select(-Geschlecht) |> 
+ data_eigen()
 }

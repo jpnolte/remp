@@ -5,21 +5,19 @@
 \alias{bitcoin}
 \title{Bitcoin Aktienkurs}
 \format{
-Ein tibble mit 1,493 Zeilen and 4 Spalten:
+Ein tibble mit 731 Zeilen and 2 Spalten:
 \describe{
-  \item{Titel}{Names des Filmes oder der Serie}
-  \item{Staffel}{Staffelnummer}
-  \item{Folge}{Name der Folge}
-  \item{Watchdate}{Datum, an dem der Titel geschaut wurde. Beachte, dass aus didaktischen Gründen bewusst das falsche Datenformat vorliegt.}
+  \item{Date}{Datum.}
+  \item{Price}{Preis der Aktie in Euro.}
 }
-}
-\source{
-\url{Research}
 }
 \usage{
 bitcoin
 }
 \description{
 TBA
+}
+\examples{
+bitcoin
 }
 \keyword{datasets}

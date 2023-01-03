@@ -5,21 +5,27 @@
 \alias{big_five_comp}
 \title{Big 5 Rohdatensatz}
 \format{
-Ein tibble mit 1,493 Zeilen and 4 Spalten:
+Ein tibble mit 5000 Zeilen and 52 Spalten:
 \describe{
-  \item{Titel}{Names des Filmes oder der Serie}
-  \item{Staffel}{Staffelnummer}
-  \item{Folge}{Name der Folge}
-  \item{Watchdate}{Datum, an dem der Titel geschaut wurde. Beachte, dass aus didaktischen Gründen bewusst das falsche Datenformat vorliegt.}
+  \item{Geschlecht}{}
+  \item{E1}{Extraversion Frage 1}
+  \item{N1}{Neurotizismus Frage 1}
+  \item{A1}{Verträglichkeit Frage 1}
+  \item{C1}{Gewissenhaftigkeit Frage 1}
+  \item{O1}{Offenheit Frage 1}
 }
 }
 \source{
-\url{Research}
+\url{https://openpsychometrics.org/_rawdata/}
 }
 \usage{
 big_five_comp
 }
 \description{
-Dies ist die Nutzerstatistik eines User beim Film- und Serienschauen auf einer der bekanntesten Videostreaming Plattformen.
+TBA
+}
+\examples{
+big_five_comp
+
 }
 \keyword{datasets}

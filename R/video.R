@@ -8,5 +8,6 @@
 #'   \item{Folge}{Name der Folge}
 #'   \item{Watchdate}{Datum, an dem der Titel geschaut wurde. Beachte, dass aus didaktischen Gründen bewusst das falsche Datenformat vorliegt.}
 #' }
-#' @source \url{Research}
+#' @examples
+#' video
 "video"

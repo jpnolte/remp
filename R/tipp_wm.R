@@ -12,5 +12,6 @@
 #'   \item{Wahre_Richtung}{Wahre Richtung: Sieg/Unenentschiedn/Niederlage(S/N/U)}
 #'   \item{Art}{Art des Spieles}
 #' }
-#' @source \url{Research}
+#' @examples
+#' tipp_wm
 "tipp_wm"

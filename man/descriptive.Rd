@@ -2,30 +2,29 @@
 % Please edit documentation in R/descriptive.R
 \name{descriptive}
 \alias{descriptive}
-\title{Descriptive Statistics}
+\title{Lagemaße und Streuungsmaße berechnen}
 \usage{
 descriptive(data, .round = 2)
 }
 \arguments{
-\item{data}{Data as data.frame, tibble or grouped.df.}
+\item{data}{Daten als data.frame, tibble oder grouped.df.}
 
-\item{.round}{The digits to round to. Default is 2.}
+\item{.round}{Runden der Nachkommastellen. Default ist 2.}
 }
 \value{
-Overview of common descriptive measures.
+Überblick über typische Lage- und Streuungsmaße.
 }
 \description{
-A function to get a quick overview over N, quartiles, mean, median, standard deviation and standard error.
+Berechnet die Anzahl N, Quartile, Mittelwert, Median, Standardabweichung und Standardfehler.
 }
 \examples{
-\dontrun{
-data(iq)
+iq
 
-iq \%>\%
+iq |> 
   descriptive()
 
-iq \%>\%
-  group_by(Zeitpunkt) \%>\%
+iq |> 
+  dplyr::group_by(Zeitpunkt) |> 
   descriptive()
-}
+
 }

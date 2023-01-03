@@ -5,21 +5,20 @@
 \alias{literacy_mod}
 \title{Statistische Bildung (Auswahl)}
 \format{
-Ein tibble mit 1,493 Zeilen and 4 Spalten:
+Ein tibble mit 146 Zeilen and 3 Spalten:
 \describe{
-  \item{Titel}{Names des Filmes oder der Serie}
-  \item{Staffel}{Staffelnummer}
-  \item{Folge}{Name der Folge}
-  \item{Watchdate}{Datum, an dem der Titel geschaut wurde. Beachte, dass aus didaktischen Gründen bewusst das falsche Datenformat vorliegt.}
+  \item{Risikoverhalten}{Risikoverhalten}
+  \item{Schulbildung}{Schulbildung}
+  \item{Literacy_total}{Ingesamte Statistikbildung.}
 }
-}
-\source{
-\url{Research}
 }
 \usage{
 literacy_mod
 }
 \description{
 TBA
+}
+\examples{
+literacy_mod
 }
 \keyword{datasets}

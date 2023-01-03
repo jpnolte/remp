@@ -2,7 +2,7 @@
 % Please edit documentation in R/hands_on.R
 \name{hands_on}
 \alias{hands_on}
-\title{Übungen starten}
+\title{Interaktive Übung starten}
 \usage{
 hands_on(name)
 }
@@ -13,8 +13,8 @@ hands_on(name)
 Die ausgewählte Übung wird im Browser gestartet.
 }
 \description{
-Eine komfortable Funktion zum Starten der im `remp` enthaltenen Übungen im eigenen Standardbrowser.
-Es ist keine Internetverbindung notwendig.
+Starten der im Package enthaltenen Übungen im eigenen Browser.
+Dabei ist keine Internetverbindung notwendig. Der Fortschritt innerhalb der Übungen wird automatisch lokal auf dem eigenen Computer gespeichert.
 }
 \examples{
 \dontrun{

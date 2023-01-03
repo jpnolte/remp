@@ -1,12 +1,12 @@
 #' Eye Tracking
 #'
-#' Dies ist die Nutzerstatistik eines User beim Film- und Serienschauen auf einer der bekanntesten Videostreaming Plattformen.
-#' @format Ein tibble mit 1,493 Zeilen and 4 Spalten:
+#' TBA
+#' @format Ein tibble mit 125 Zeilen and 3 Spalten:
 #' \describe{
-#'   \item{Titel}{Names des Filmes oder der Serie}
-#'   \item{Staffel}{Staffelnummer}
-#'   \item{Folge}{Name der Folge}
-#'   \item{Watchdate}{Datum, an dem der Titel geschaut wurde. Beachte, dass aus didaktischen Gründen bewusst das falsche Datenformat vorliegt.}
+#'   \item{Face_sum}{X.}
+#'   \item{Density}{X.}
+#'   \item{Gruppe}{X.}
 #' }
-#' @source \url{Research}
+#' @examples
+#' eye_tracking
 "eye_tracking"

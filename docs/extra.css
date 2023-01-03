@@ -1,35 +1,23 @@
 h1 {
   font-size: 1.6em;
-/*  font-weight:normal;*/
+  font-weight: 400;
+  letter-spacing: 3px;
 }
 
 h2 {
   font-size: 1.4em;
-  font-weight:normal;
+  font-weight: 400;
 }
 
 h3 {
   font-size: 1.2em;
-  font-weight:normal;
+  font-weight: 400;
+  line-height: 2;
 }
 
 p {
-/*  font-size: 1.2em; */
   font-family: sans-serif;
 }
-/*
-li {
-  font-size: 1.1em;
-}
-
-ul {
-  font-size: 1.1em;
-}
-
-ol {
-  font-size: 1.1em;
-}
-*/
 
 a:link {
   color: #F35D22;
@@ -65,20 +53,14 @@ pre code a:active {
     color: #f79d7a;
     text-decoration-color: none;
 }
-/*
-.navbar-brand {
-  font-size: 1.4em;
-}
-*/
+
 .navbar-nav {
   font-size: 1.2em;
 }
 
-
 .navbar-nav > li{
   padding-left:2px;
   padding-right:2px;
-/*  font-size: 1.1em; does not make navbar items bigger */
 }
 
 .navbar.bg-light {
@@ -89,7 +71,7 @@ pre code a:active {
 }
 
 pre {
-/*  font-size: 1.2em; */
+  background: rgba(241, 243, 245, .5);
   border-radius: 10px;
 }
 
@@ -108,10 +90,13 @@ p code {
 }
 
 .page-header {
+/*    display: flex;
+    align-items: center;*/
     border-bottom: 0px solid #ddd;
     padding-bottom: 0rem;
     margin-bottom: 0rem;
     margin-top: 2rem;
+    padding-top: 2rem;
 }
 
 .btn-primary {
@@ -141,22 +126,143 @@ p code {
   transition: 0.6s;
 }
 
-/* funktioniert nicht */
-#pkgdown-sidebar h2 {
-  font-size: 1.1em !important;
-  margin-top: 1em !important;
-}
-
-#pkgdown-sidebar div {
-  font-size: 0.5em !important;
-  margin-top: 1em !important;
-}
-
+/*
 footer p {
-/*  font-size: 1.1em; */
-}
+  font-size: 1.1em;
+}*/
 
 *::selection {
   text-shadow: none !important;
   background-color: rgba(238,112,0, 0.35) !important;
+}
+
+/* FAQ accordion */
+#faq {
+  max-width: 800px;
+  margin: auto;
+  padding: 0 1px;
+  text-align: left;
+}
+
+section.faq {
+  padding-top: 2em;
+  padding-bottom: 3em;
+}
+
+#faq ul {
+  text-align: left;
+}
+.transition, p, ul li i:before, ul li i:after {
+  transition: all 0.3s;
+}
+
+#faq .no-select, #faq h2 {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  user-select: none;
+}
+
+#faq h1 {
+  color: #000;
+  margin-bottom: 30px;
+  margin-top: 0;
+}
+
+#faq h2 {
+  color: #F35D22;
+  font-size: 1em;
+  line-height: 34px;
+  text-align: left;
+  padding: 15px 15px 0;
+  text-transform: none;
+  display: block;
+  margin: 0;
+  cursor: pointer;
+  transition: .2s;
+}
+
+#faq p {
+  text-align: left;
+  line-height: 1.45;
+  position: relative;
+  overflow: hidden;
+  max-height: 250px;
+  will-change: max-height;
+  contain: layout;
+  display: inline-block;
+  opacity: 1;
+  transform: translate(0, 0);
+  margin-top: 5px;
+  margin-bottom: 15px;
+  padding: 0 50px 0 15px;
+  transition: .3s opacity, .6s max-height;
+  hyphens: auto;
+  z-index: 2;
+}
+
+#faq ul {
+  list-style: none;
+  perspective: 900;
+  padding: 0;
+  margin: 0;
+}
+#faq ul li {
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  background: #fff;
+  box-shadow: 0 3px 10px -2px rgba(0,0,0,0.1);
+  border-radius: 10px;
+  -webkit-tap-highlight-color: transparent;
+}
+#faq ul li + li {
+  margin-top: 15px;
+}
+#faq ul li:last-of-type {
+  padding-bottom: 0;
+}
+#faq ul li i {
+  position: absolute;
+  transform: translate(-6px, 0);
+  margin-top: 28px;
+  right: 15px;
+}
+#faq ul li i:before, ul li i:after {
+  content: "";
+  position: absolute;
+  background-color: #F35D22;
+  width: 3px;
+  height: 9px;
+}
+#faq ul li i:before {
+  transform: translate(-2px, 0) rotate(45deg);
+}
+#faq ul li i:after {
+  transform: translate(2px, 0) rotate(-45deg);
+}
+#faq ul li input[type=checkbox] {
+  position: absolute;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0;
+  touch-action: manipulation;
+}
+#faq ul li input[type=checkbox]:checked ~ h2 {
+  color: #000;
+}
+#faq ul li input[type=checkbox]:checked ~ p {
+  /*margin-top: 0;*/
+  max-height: 0;
+  transition: .3s;
+  opacity: 0;
+  /*transform: translate(0, 50%);*/
+}
+#faq ul li input[type=checkbox]:checked ~ i:before {
+  transform: translate(2px, 0) rotate(45deg);
+}
+#faq ul li input[type=checkbox]:checked ~ i:after {
+  transform: translate(-2px, 0) rotate(-45deg);
 }

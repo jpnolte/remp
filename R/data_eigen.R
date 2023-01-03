@@ -1,16 +1,18 @@
-#' Datengenerierungsfunktion Eigenwerte
+#' Berechnung der Eigenvalues
 #'
-#' Die Ausgegeben Werte können direkt als Scree Plot visualisiert werden.
-#' @param fa Data.frame oder tibble mit numerischen Spalten.
-#' @return Scree Plot
+#' Die ausgegebenen Werte können direkt als Scree Plot visualisiert werden.
+#' @param df Data.frame oder tibble mit numerischen Spalten.
+#' @return Eigenvalues und Dimensionen.
 #' @examples
-#' \dontrun{
-#' data_eigen(dataset)
-#' }
+#' big_five_comp
+#' 
+#' big_five_comp |> 
+#'  dplyr::select(-Geschlecht) |> 
+#'  data_eigen()
 #' @export
-data_eigen <- function(fa) {
+data_eigen <- function(df) {
 
-  eigenvalues <- eigen(stats::cor(fa, use = "pairwise.complete.obs"), symmetric = TRUE)$values
+  eigenvalues <- eigen(stats::cor(df, use = "pairwise.complete.obs"), symmetric = TRUE)$values
 
   tibble::tibble(
     Eigenvalues = eigenvalues,

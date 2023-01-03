@@ -18,13 +18,13 @@ Ein tibble mit 200 Zeilen and 8 Spalten:
 
 }
 }
-\source{
-\url{Research}
-}
 \usage{
 indonesisch
 }
 \description{
 Ergebnisse der Hauptdimensionen des Fragebogens zu Lebensbedeutung und Lebenssinn (LEBE) an einer indonesischen Stichprobe.
+}
+\examples{
+indonesisch
 }
 \keyword{datasets}

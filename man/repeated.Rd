@@ -5,21 +5,22 @@
 \alias{repeated}
 \title{Messwiederholungsbeispiel}
 \format{
-Ein tibble mit 1,493 Zeilen and 4 Spalten:
+Ein tibble mit 90 Zeilen and 5 Spalten:
 \describe{
-  \item{Titel}{Names des Filmes oder der Serie}
-  \item{Staffel}{Staffelnummer}
-  \item{Folge}{Name der Folge}
-  \item{Watchdate}{Datum, an dem der Titel geschaut wurde. Beachte, dass aus didaktischen Gründen bewusst das falsche Datenformat vorliegt.}
+  \item{iq}{Intelligenzquotient.}
+  \item{kreativitaet}{Kreativität.}
+  \item{zeitpunkt}{Messzeitpunkt 1 oder 2.}
+  \item{gruppe}{Experimentalgruppe A, B, C oder D.}
+  \item{person_id}{Versuchspersonennummer.}
 }
-}
-\source{
-\url{Research}
 }
 \usage{
 repeated
 }
 \description{
-Dies ist die Nutzerstatistik eines User beim Film- und Serienschauen auf einer der bekanntesten Videostreaming Plattformen.
+TBA
+}
+\examples{
+repeated
 }
 \keyword{datasets}

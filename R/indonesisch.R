@@ -13,5 +13,6 @@
 #'   \item{Sinnerfuellung}{Durchschnittliche Ausprägung von Sinnerfüllung.}
 #'
 #' }
-#' @source \url{Research}
+#' @examples
+#' indonesisch
 "indonesisch"

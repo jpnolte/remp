@@ -13,5 +13,8 @@
 #'   \item{Gewissenhaftigkeit}{Durchschnittliche Ausprägung von Gewissenhaftigkeit}
 #'   \item{O1-O10}{Item 1-10 zur Ausprägung von Offenheit}
 #' }
+#' @examples
+#' big_five
+#' 
 #' @source \url{https://openpsychometrics.org/_rawdata/} (modifiziert)
 "big_five"

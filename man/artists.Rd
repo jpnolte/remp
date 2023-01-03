@@ -13,13 +13,13 @@ Ein tibble mit 50 Zeilen and 4 Spalten:
   \item{Bekanntheit}{Index zur Quantifizierung der Bekanntheit des Interpreten.}
 }
 }
-\source{
-\url{Research}
-}
 \usage{
 artists
 }
 \description{
 Dies ist ein Datensatz mit den 50 am meisten gehörten Interpreten eines Nutzers auf einer der bekanntesten Musik Streaming Plattformen.
+}
+\examples{
+artists
 }
 \keyword{datasets}

@@ -51,6 +51,11 @@ p.caption {
     background: transparent;
 }
 
+h1.title {
+    font-weight: 400 !important; 
+    letter-spacing: 3px;
+}
+
 .fa:hover {
   color: #F35D22;
   transition: 0.6s;

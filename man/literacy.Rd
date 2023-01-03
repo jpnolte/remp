@@ -5,21 +5,21 @@
 \alias{literacy}
 \title{Statistische Bildung}
 \format{
-Ein tibble mit 1,493 Zeilen and 4 Spalten:
+Ein tibble mit 146 Zeilen and 71 Spalten:
 \describe{
-  \item{Titel}{Names des Filmes oder der Serie}
-  \item{Staffel}{Staffelnummer}
-  \item{Folge}{Name der Folge}
-  \item{Watchdate}{Datum, an dem der Titel geschaut wurde. Beachte, dass aus didaktischen Gründen bewusst das falsche Datenformat vorliegt.}
+  \item{ID}{Versuchspersonennummer.}
+  \item{Version}{Fragebogenversion (1 und 2).}
+  \item{Geschlecht}{Biologisches Geschlecht mit 1:weiblich, 2:männlich (Auswahl).}
+  \item{Alter}{Lebensjahre in Jahren}
 }
-}
-\source{
-\url{Research}
 }
 \usage{
 literacy
 }
 \description{
 TBA
+}
+\examples{
+literacy
 }
 \keyword{datasets}

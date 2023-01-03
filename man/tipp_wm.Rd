@@ -16,13 +16,13 @@ Ein tibble mit 384 Zeilen and 7 Spalten:
   \item{Art}{Art des Spieles}
 }
 }
-\source{
-\url{Research}
-}
 \usage{
 tipp_wm
 }
 \description{
 Tipps von sechs verschiedenen Personen zur Fußball Weltmeisterschaft 2018 in langem Format.
+}
+\examples{
+tipp_wm
 }
 \keyword{datasets}

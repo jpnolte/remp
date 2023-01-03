@@ -1,4 +1,4 @@
-url: https://github.com/j3ypi/remp
+url: https://r-empirische-wissenschaften.de
 
 lang: de
 
@@ -32,6 +32,8 @@ reference:
       - starts_with("art")
       - starts_with("big")
       - starts_with("bit")
+      - starts_with("dem")
+      - starts_with("df")
       - starts_with("eye")
       - starts_with("indo")
       - starts_with("iq")
@@ -41,11 +43,6 @@ reference:
       - starts_with("tipp")
       - starts_with("tracks")
       - starts_with("video")
-      - starts_with("A")
-      - starts_with("B")
-      - starts_with("C")
-      - starts_with("D")
-      - starts_with("E")
   - title: Übungen
 
 navbar:

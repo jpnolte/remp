@@ -14,13 +14,13 @@ Ein tibble mit 90 Zeilen and 5 Spalten:
   \item{Kreativitaet}{Erfundener Score zur Messung der Kreativität}
 }
 }
-\source{
-\url{Research}
-}
 \usage{
 iq
 }
 \description{
 Studie zur Erfassung des Zusammenhangs zwischen Intelligenz und Kreativität an verschiedenen Messzeitpunkten.
+}
+\examples{
+iq
 }
 \keyword{datasets}

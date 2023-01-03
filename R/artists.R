@@ -8,5 +8,6 @@
 #'   \item{Follower}{Follower des Interpreten innerhalb der Streaming Plattform.}
 #'   \item{Bekanntheit}{Index zur Quantifizierung der Bekanntheit des Interpreten.}
 #' }
-#' @source \url{Research}
+#' @examples
+#' artists
 "artists"

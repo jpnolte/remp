@@ -15,13 +15,13 @@ Ein tibble mit 50 Zeilen and 6 Spalten:
   \item{Release}{Release Datum des jeweiligen Albums/Liedes}
 }
 }
-\source{
-\url{Research}
-}
 \usage{
 tracks
 }
 \description{
 Dies ist ein Datensatz mit den 50 am meisten gehörten Liedern eines Nutzers auf einer der bekanntesten Musik Streaming Plattformen.
+}
+\examples{
+tracks
 }
 \keyword{datasets}

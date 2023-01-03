@@ -13,13 +13,13 @@ Ein tibble mit 1,493 Zeilen and 4 Spalten:
   \item{Watchdate}{Datum, an dem der Titel geschaut wurde. Beachte, dass aus didaktischen Gründen bewusst das falsche Datenformat vorliegt.}
 }
 }
-\source{
-\url{Research}
-}
 \usage{
 big5
 }
 \description{
 Dies ist die Nutzerstatistik eines User beim Film- und Serienschauen auf einer der bekanntesten Videostreaming Plattformen.
+}
+\examples{
+big5
 }
 \keyword{datasets}

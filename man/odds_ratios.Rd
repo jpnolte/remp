@@ -5,21 +5,21 @@
 \alias{odds_ratios}
 \title{Odds Ratio Beispiel}
 \format{
-Ein tibble mit 1,493 Zeilen and 4 Spalten:
+Ein tibble mit 3 Zeilen and 4 Spalten:
 \describe{
-  \item{Titel}{Names des Filmes oder der Serie}
-  \item{Staffel}{Staffelnummer}
-  \item{Folge}{Name der Folge}
-  \item{Watchdate}{Datum, an dem der Titel geschaut wurde. Beachte, dass aus didaktischen Gründen bewusst das falsche Datenformat vorliegt.}
+  \item{Faktor}{Big 5 Persönlichkeitsfaktor.}
+  \item{OR}{Odds Ratio.}
+  \item{conf.low}{95iges Konfidenzintervall, untere Grenze.}
+  \item{conf.high}{95iges Konfidenzintervall, obere Grenze.}
 }
-}
-\source{
-\url{Research}
 }
 \usage{
 odds_ratios
 }
 \description{
-Dies ist die Nutzerstatistik eines User beim Film- und Serienschauen auf einer der bekanntesten Videostreaming Plattformen.
+Odds Ratios ausgewählter Persönlichkeitsfaktoren aus dem Datensatz big5.
+}
+\examples{
+odds_ratios
 }
 \keyword{datasets}

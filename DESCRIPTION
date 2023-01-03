@@ -3,7 +3,7 @@ Title: R für empirische Wissenschaften
 Version: 0.1.1
 Authors@R: person("Jan Philipp", "Nolte", email = "jp.nolte@protonmail.com", role = c("aut", "cre"))
 Maintainer: Jan Philipp Nolte <jp.nolte@protonmail.com>
-Description: Dieses Buch bietet einfache Erklärungen mit praktischen Beispielen und Übungen, welche das Erlernen von R ohne Programmiervorkenntnisse im Selbststudium ermöglichen. Die Zielgruppe sind WissenschaftlerInnen und StudentInnen der Fachrichtungen Medizin, Psychologie, Wirtschaftswissenschaften, Sozialwissenschaften, Agrarwissenschaften, Neurowissenschaften, Biologie, Journalismus, Tourismus, Data Science, Biostatistik und allen weiteren Disziplinen, die Daten auswerten möchten.
+Description: Lerne R mit praktischen Beispielen und Übungen ohne Programmiervorkenntnisse.
 License: GPL-3 + file LICENSE
 Encoding: UTF-8
 LazyData: true

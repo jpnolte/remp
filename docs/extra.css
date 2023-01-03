@@ -252,13 +252,13 @@ section.faq {
 #faq ul li input[type=checkbox]:checked ~ h2 {
   color: #000;
 }
+
 #faq ul li input[type=checkbox]:checked ~ p {
-  /*margin-top: 0;*/
   max-height: 0;
   transition: .3s;
   opacity: 0;
-  /*transform: translate(0, 50%);*/
 }
+
 #faq ul li input[type=checkbox]:checked ~ i:before {
   transform: translate(2px, 0) rotate(45deg);
 }

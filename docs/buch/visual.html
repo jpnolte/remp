@@ -23,7 +23,7 @@
 <meta name="author" content="Jan Philipp Nolte" />
 
 
-<meta name="date" content="2023-01-03" />
+<meta name="date" content="2023-01-04" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -1047,7 +1047,7 @@ Abbildung 8.20: Alternative Anordnung mehrerer Graphen
 <p>Falls alle addierten Graphen dieselbe Legende hätten, könnte diese mit <code>guide_area()</code> und dem <code>guides</code> Argument gesammelt angezeigt werden. Dabei wird mit <code>guide_area()</code> die Position der gemeinsamen Legende festgelegt.</p>
 <div class="sourceCode" id="cb358"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb358-1"><a href="visual.html#cb358-1" aria-hidden="true" tabindex="-1"></a>plots <span class="ot">&lt;-</span> a <span class="sc">+</span> b <span class="sc">+</span> c <span class="sc">+</span> <span class="fu">guide_area</span>() <span class="sc">+</span> </span>
 <span id="cb358-2"><a href="visual.html#cb358-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot_layout</span>(<span class="at">ncol =</span> <span class="dv">2</span>, <span class="at">guides =</span> <span class="st">&quot;collect&quot;</span>)</span></code></pre></div>
-<p>Eine weitere nützliche Funktion ist <code>plot_spacer()</code> zum Freilassen eines Areals in der kombinierten Abbildung. Wenn man kombinierte Abbildungen (hier als <code>plots</code> gespeichert) im Nachhinein verändern möchte, müssen diese einzeln angesprochen werden. Da diese als Liste gespeichert sind, erreichen wir dies mit einer doppelten eckigen Klammern (<a href="datatypes.html#lists">11.4</a>). Mit <code>plots[[1]]</code> extrahiert man so Abbildung <code>a</code>.</p>
+<p>Eine weitere nützliche Funktion ist <code>plot_spacer()</code> zum Freilassen eines Areals in der kombinierten Abbildung. Wenn man kombinierte Abbildungen (hier als <code>plots</code> gespeichert) im Nachhinein verändern möchte, müssen diese einzeln angesprochen werden. Da diese als Liste gespeichert sind, erreichen wir dies mit einer doppelten eckigen Klammern (siehe Kapitel <a href="datatypes.html#lists">11.4</a>). Mit <code>plots[[1]]</code> extrahiert man so Abbildung <code>a</code>.</p>
 <div class="sourceCode" id="cb359"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb359-1"><a href="visual.html#cb359-1" aria-hidden="true" tabindex="-1"></a>plots[[<span class="dv">1</span>]] <span class="sc">+</span> <span class="fu">theme_minimal</span>()</span>
 <span id="cb359-2"><a href="visual.html#cb359-2" aria-hidden="true" tabindex="-1"></a>plots[[<span class="dv">2</span>]] <span class="sc">+</span> <span class="fu">theme_minimal</span>()</span>
 <span id="cb359-3"><a href="visual.html#cb359-3" aria-hidden="true" tabindex="-1"></a>plots[[<span class="dv">3</span>]] <span class="sc">+</span> <span class="fu">theme_minimal</span>()</span></code></pre></div>
@@ -1090,7 +1090,7 @@ Abbildung 8.21: Auflösungsunterschiede je nach Größe der gespeicherten Abbild
 <p>Die meisten Erweiterungen halten sich an eine einheitliche Namensgebung. Vor dem Zweck des Packages steht also auch bei den Erweiterungspackages meistens ein <code>gg</code> (z.B. <code>ggfortify</code> oder <code>ggridges</code>). Allerdings halten sich nicht alle an eine konsistente Namensgebung (z.B. beim Erstellen von Kaplan-Meier-Kurven mit dem <code>survival</code> Package).</p>
 <div id="kaplan" class="section level3 hasAnchor" number="8.13.1">
 <h3><span class="header-section-number">8.13.1</span> Kaplan-Meier-Kurve<a href="visual.html#kaplan" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Für dieses Kapitel müssen sowohl das <code>survival</code> als auch das <code>survminer</code> Package installiert und geladen werden.</p>
+<p>Für dieses Kapitel müssen die Packages <code>survival</code>, <code>survminer</code> und <code>patchwork</code> installiert und geladen werden.</p>
 <div class="sourceCode" id="cb364"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb364-1"><a href="visual.html#cb364-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(survival)</span>
 <span id="cb364-2"><a href="visual.html#cb364-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(survminer)</span>
 <span id="cb364-3"><a href="visual.html#cb364-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span></code></pre></div>

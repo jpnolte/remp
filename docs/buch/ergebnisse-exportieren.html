@@ -23,7 +23,7 @@
 <meta name="author" content="Jan Philipp Nolte" />
 
 
-<meta name="date" content="2023-01-03" />
+<meta name="date" content="2023-01-04" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -411,7 +411,7 @@ Abbildung 10.2: Zweiter Schritt zur Erstellung eines neuen R Markdown Skripts.
 <div class="sourceCode" id="cb468"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb468-1"><a href="ergebnisse-exportieren.html#cb468-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
 <span id="cb468-2"><a href="ergebnisse-exportieren.html#cb468-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;Vorläufige Ergebnisse&quot;</span></span>
 <span id="cb468-3"><a href="ergebnisse-exportieren.html#cb468-3" aria-hidden="true" tabindex="-1"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;Student A&quot;</span></span>
-<span id="cb468-4"><a href="ergebnisse-exportieren.html#cb468-4" aria-hidden="true" tabindex="-1"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;2023-01-03&quot;</span></span>
+<span id="cb468-4"><a href="ergebnisse-exportieren.html#cb468-4" aria-hidden="true" tabindex="-1"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;2023-01-04&quot;</span></span>
 <span id="cb468-5"><a href="ergebnisse-exportieren.html#cb468-5" aria-hidden="true" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span><span class="at"> html_document</span></span>
 <span id="cb468-6"><a href="ergebnisse-exportieren.html#cb468-6" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div>
 <pre><code>```{r setup, include = FALSE}
@@ -489,7 +489,7 @@ big_five |&gt;
   descriptive() |&gt; 
   kable()
 ```</code></pre>
-<p>Es gibt verschiedene Möglichkeiten, Tabellen im Word Format durch R Code zu erstellen. Wir werden uns hier auf das bereits in RStudio integrierte Pandoc und das in Kapitel <a href="ergebnisse-exportieren.html#markdown">10.2</a> kennengelernte <code>rMarkdown</code> verlassen. Denn mit nur einer Funktion aus dem <code>knitr</code> Package, welches diverse Modifikationen für <code>rMarkdown</code> Dokumente bietet, können schöne Tabellen erstellt werden. Der Funktion <code>kable()</code> aus besagtem Package wird lediglich der Datensatz übergeben. Dann muss man nur noch das <code>rMarkdown</code> Dokument mithilfe von Pandoc in ein Word-Dokument umwandeln (siehe Kapitel <a href="ergebnisse-exportieren.html#markdown">10.2</a>.</p>
+<p>Es gibt verschiedene Möglichkeiten, Tabellen im Word Format durch R Code zu erstellen. Wir werden uns hier auf das bereits in RStudio integrierte Pandoc und das in Kapitel <a href="ergebnisse-exportieren.html#markdown">10.2</a> kennengelernte <code>rMarkdown</code> verlassen. Denn mit nur einer Funktion aus dem <code>knitr</code> Package, welches diverse Modifikationen für <code>rMarkdown</code> Dokumente bietet, können schöne Tabellen erstellt werden. Der Funktion <code>kable()</code> aus besagtem Package wird lediglich der Datensatz übergeben. Dann muss man nur noch das <code>rMarkdown</code> Dokument mithilfe von Pandoc in ein Word-Dokument umwandeln (siehe Kapitel <a href="ergebnisse-exportieren.html#markdown">10.2</a>).</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-329"></span>
 <img src="images/word_markdown.jpg" alt="Beispielhafter Output einer Tabelle von R Markdown in Word." width="98%" />
 <p class="caption">
@@ -513,7 +513,7 @@ Abbildung 10.5: Beispielhafter Output einer Tabelle von R Markdown in Word.
 <span id="cb478-5"><a href="ergebnisse-exportieren.html#cb478-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xtable</span>(<span class="at">digits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">3</span>)) <span class="sc">|&gt;</span> </span>
 <span id="cb478-6"><a href="ergebnisse-exportieren.html#cb478-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="at">include.rownames =</span> <span class="cn">FALSE</span>) </span></code></pre></div>
 <pre class="bordercode"><code>% latex table generated in R 4.2.2 by xtable 1.8-4 package
-% Tue Jan  3 17:59:26 2023
+% Wed Jan  4 14:17:34 2023
 \begin{table}[ht]
 \centering
 \begin{tabular}{lrrrrr}

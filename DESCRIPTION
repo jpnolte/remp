@@ -3,7 +3,7 @@ Title: R für empirische Wissenschaften
 Version: 0.1.1
 Authors@R: person("Jan Philipp", "Nolte", email = "jp.nolte@protonmail.com", role = c("aut", "cre"))
 Maintainer: Jan Philipp Nolte <jp.nolte@protonmail.com>
-Description: Lerne die Datenanalyse mit R ohne Vorkenntnisse mithilfe einfacher Erklärungen und praktischer Beispiele.
+Description: Lerne die Datenanalyse in R durch einfache Erklärungen mit praktischen Beispielen und Übungen ohne Vorkenntnisse im Selbststudium.
 License: GPL-3 + file LICENSE
 Encoding: UTF-8
 LazyData: true

@@ -23,7 +23,7 @@
 <meta name="author" content="Jan Philipp Nolte" />
 
 
-<meta name="date" content="2023-01-04" />
+<meta name="date" content="2023-01-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -156,7 +156,10 @@ div.csl-indent {
 <li><strong><a href="https://r-empirische-wissenschaften.de"> R für empirische Wissenschaften</a></strong></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Vorwort</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Vorwort</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#lizenz"><i class="fa fa-check"></i>Lizenz</a></li>
+</ul></li>
 <li class="part"><span><b>I Die ersten Schritte</b></span></li>
 <li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Einleitung</a>
 <ul>
@@ -272,7 +275,10 @@ div.csl-indent {
 <li class="chapter" data-level="8.13.1" data-path="visual.html"><a href="visual.html#kaplan"><i class="fa fa-check"></i><b>8.13.1</b> Kaplan-Meier-Kurve</a></li>
 <li class="chapter" data-level="8.13.2" data-path="visual.html"><a href="visual.html#residuen-überprüfen"><i class="fa fa-check"></i><b>8.13.2</b> Residuen überprüfen</a></li>
 <li class="chapter" data-level="8.13.3" data-path="visual.html"><a href="visual.html#ridgeline-plot"><i class="fa fa-check"></i><b>8.13.3</b> Ridgeline Plot</a></li>
+<li class="chapter" data-level="8.13.4" data-path="visual.html"><a href="visual.html#hervorheben-bestimmter-werte"><i class="fa fa-check"></i><b>8.13.4</b> Hervorheben bestimmter Werte</a></li>
+<li class="chapter" data-level="8.13.5" data-path="visual.html"><a href="visual.html#dags"><i class="fa fa-check"></i><b>8.13.5</b> Directed Acyclic Graphs</a></li>
 </ul></li>
+<li class="chapter" data-level="8.14" data-path="visual.html"><a href="visual.html#example"><i class="fa fa-check"></i><b>8.14</b> Anwendungsbeispiel</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="inductive.html"><a href="inductive.html"><i class="fa fa-check"></i><b>9</b> Inferenzstatistik</a>
 <ul>
@@ -319,7 +325,7 @@ div.csl-indent {
 <li class="part"><span><b>IV Vertiefung</b></span></li>
 <li class="chapter" data-level="10" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html"><i class="fa fa-check"></i><b>10</b> Ergebnisse exportieren</a>
 <ul>
-<li class="chapter" data-level="10.1" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#einführung-2"><i class="fa fa-check"></i><b>10.1</b> Einführung</a></li>
+<li class="chapter" data-level="10.1" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#intromarkdown"><i class="fa fa-check"></i><b>10.1</b> Begriffe</a></li>
 <li class="chapter" data-level="10.2" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#markdown"><i class="fa fa-check"></i><b>10.2</b> Berichte</a></li>
 <li class="chapter" data-level="10.3" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#tabellen"><i class="fa fa-check"></i><b>10.3</b> Tabellen</a>
 <ul>
@@ -376,20 +382,20 @@ div.csl-indent {
 <div id="vec" class="section level2 hasAnchor" number="11.1">
 <h2><span class="header-section-number">11.1</span> Vektor<a href="datatypes.html#vec" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Jede Spalte innerhalb eines <code>tibbles</code> ist für sich genommen ein Vektor, der aus einem einzigen Datentyp besteht. Erstellen kann man einen Vektor auf unterschiedliche Art und Weise. Bereits kennengelernt haben wir die <code>c()</code> Funktion (<strong>c</strong>ombine, engl. für kombinieren).</p>
-<div class="sourceCode" id="cb480"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb480-1"><a href="datatypes.html#cb480-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">11</span>, <span class="dv">8</span>, <span class="dv">24</span>, <span class="dv">53</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb498"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb498-1"><a href="datatypes.html#cb498-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">11</span>, <span class="dv">8</span>, <span class="dv">24</span>, <span class="dv">53</span>)</span></code></pre></div>
 <pre class="bordercode"><code>[1] 11  8 24 53</code></pre>
 <p>Man kann so neben numerischen Werten auch jeden anderen Datentyp zu einem Vektor kombinieren (z.B. Character). Für eine einfach Sequenz können wir den Doppelpunkt verwenden. Man könnte so bspw. das Erstellen des Vektors <code>c(1, 2, 3, 4)</code> etwas abkürzen.</p>
-<div class="sourceCode" id="cb482"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb482-1"><a href="datatypes.html#cb482-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">:</span><span class="dv">4</span></span></code></pre></div>
+<div class="sourceCode" id="cb500"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb500-1"><a href="datatypes.html#cb500-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">:</span><span class="dv">4</span></span></code></pre></div>
 <pre class="bordercode"><code>[1] 1 2 3 4</code></pre>
 <p>Der Doppelpunkt ist dabei ein Shortcut für <code>seq()</code> (sequence, engl. für Sequenz).</p>
-<div class="sourceCode" id="cb484"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb484-1"><a href="datatypes.html#cb484-1" aria-hidden="true" tabindex="-1"></a><span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">1</span>, <span class="at">to =</span> <span class="dv">4</span>, <span class="at">by =</span> <span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb502"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb502-1"><a href="datatypes.html#cb502-1" aria-hidden="true" tabindex="-1"></a><span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">1</span>, <span class="at">to =</span> <span class="dv">4</span>, <span class="at">by =</span> <span class="dv">1</span>)</span></code></pre></div>
 <pre class="bordercode"><code>[1] 1 2 3 4</code></pre>
 <p>Zusätzlich können hier auch die Abstände zwischen den Zahlen der Frequenz kleiner oder größer gewählt werden (z.B. <code>by = 0.2</code> oder <code>by = 2</code>).</p>
 <p>Auf einzelne Werte innerhalb eines Vektors kann mithilfe eckiger Klammern zugegriffen werden. Exemplarisch wird hier das dritte Element des Vektors <code>c(1, 3, 2, 4)</code>, welcher als <code>vec</code> gespeichert ist, ausgewählt.</p>
 <pre class="bordercode"><code>[1] 2</code></pre>
 <p>Die eckigen Klammern können auch mit <code>c()</code> oder dem Doppelpunkt kombiniert werden, um mehrere Elemente ausgeben zu lassen.</p>
-<div class="sourceCode" id="cb487"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb487-1"><a href="datatypes.html#cb487-1" aria-hidden="true" tabindex="-1"></a>vec[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">4</span>)]</span>
-<span id="cb487-2"><a href="datatypes.html#cb487-2" aria-hidden="true" tabindex="-1"></a>vec[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb505"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb505-1"><a href="datatypes.html#cb505-1" aria-hidden="true" tabindex="-1"></a>vec[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">4</span>)]</span>
+<span id="cb505-2"><a href="datatypes.html#cb505-2" aria-hidden="true" tabindex="-1"></a>vec[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>]</span></code></pre></div>
 <div class="idea">
 <p>Vektoren können immer nur einen Datentyp enthalten. Wenn eine Zahl mit einem Wort kombiniert wird, werden alle im Vektor enthaltenen Werte zum Typ <code>Character</code> umgewandelt.</p>
 </div>
@@ -397,39 +403,39 @@ div.csl-indent {
 <div id="matrix" class="section level2 hasAnchor" number="11.2">
 <h2><span class="header-section-number">11.2</span> Matrix<a href="datatypes.html#matrix" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Wenn man mehrere Vektoren eines Datentyps aneinander bindet, erhält man eine Matrix. Für zeilenweises Binden der Vektoren wird <code>rbind()</code> verwendet (<strong>r</strong>ow <strong>bind</strong>, engl. für Zeilen verbinden). Dabei müssen alle Vektoren dieselbe Länge haben.</p>
-<div class="sourceCode" id="cb488"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb488-1"><a href="datatypes.html#cb488-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rbind</span>(</span>
-<span id="cb488-2"><a href="datatypes.html#cb488-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">4</span>),</span>
-<span id="cb488-3"><a href="datatypes.html#cb488-3" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span></span>
-<span id="cb488-4"><a href="datatypes.html#cb488-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb506"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb506-1"><a href="datatypes.html#cb506-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rbind</span>(</span>
+<span id="cb506-2"><a href="datatypes.html#cb506-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">4</span>),</span>
+<span id="cb506-3"><a href="datatypes.html#cb506-3" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span></span>
+<span id="cb506-4"><a href="datatypes.html#cb506-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <pre class="bordercode"><code>     [,1] [,2] [,3] [,4]
 [1,]    1    3    2    4
 [2,]    1    2    3    4</code></pre>
 <p>Das Äquivalent zum Verbinden von Spalten ist <code>cbind()</code> (<strong>c</strong>olumn <strong>bind</strong>, engl. für Spalten verbinden).</p>
-<div class="sourceCode" id="cb490"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb490-1"><a href="datatypes.html#cb490-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cbind</span>(</span>
-<span id="cb490-2"><a href="datatypes.html#cb490-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">4</span>),</span>
-<span id="cb490-3"><a href="datatypes.html#cb490-3" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span></span>
-<span id="cb490-4"><a href="datatypes.html#cb490-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb508"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb508-1"><a href="datatypes.html#cb508-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cbind</span>(</span>
+<span id="cb508-2"><a href="datatypes.html#cb508-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">4</span>),</span>
+<span id="cb508-3"><a href="datatypes.html#cb508-3" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span></span>
+<span id="cb508-4"><a href="datatypes.html#cb508-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <pre class="bordercode"><code>     [,1] [,2]
 [1,]    1    1
 [2,]    3    2
 [3,]    2    3
 [4,]    4    4</code></pre>
 <p>Seltener in der Datenanalyse benutzt, aber trotzdem manchmal nützlich, ist die <code>matrix()</code> Funktion. Als Argumente müssen der Vektor, die Anzahl der Zeilen oder Spalten sowie die Information übergeben werden, ob die Werte zeilenweise (<code>byrow</code>) eingefügt werden soll.</p>
-<div class="sourceCode" id="cb492"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb492-1"><a href="datatypes.html#cb492-1" aria-hidden="true" tabindex="-1"></a>mat <span class="ot">&lt;-</span> <span class="fu">matrix</span>(</span>
-<span id="cb492-2"><a href="datatypes.html#cb492-2" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>,</span>
-<span id="cb492-3"><a href="datatypes.html#cb492-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">ncol =</span> <span class="dv">3</span>,</span>
-<span id="cb492-4"><a href="datatypes.html#cb492-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">byrow =</span> <span class="cn">TRUE</span></span>
-<span id="cb492-5"><a href="datatypes.html#cb492-5" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb492-6"><a href="datatypes.html#cb492-6" aria-hidden="true" tabindex="-1"></a>mat</span></code></pre></div>
+<div class="sourceCode" id="cb510"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb510-1"><a href="datatypes.html#cb510-1" aria-hidden="true" tabindex="-1"></a>mat <span class="ot">&lt;-</span> <span class="fu">matrix</span>(</span>
+<span id="cb510-2"><a href="datatypes.html#cb510-2" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>,</span>
+<span id="cb510-3"><a href="datatypes.html#cb510-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">ncol =</span> <span class="dv">3</span>,</span>
+<span id="cb510-4"><a href="datatypes.html#cb510-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">byrow =</span> <span class="cn">TRUE</span></span>
+<span id="cb510-5"><a href="datatypes.html#cb510-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb510-6"><a href="datatypes.html#cb510-6" aria-hidden="true" tabindex="-1"></a>mat</span></code></pre></div>
 <pre class="bordercode"><code>     [,1] [,2] [,3]
 [1,]    1    2    3
 [2,]    4    5    6
 [3,]    7    8    9</code></pre>
 <p>Da nun zwei Dimensionen involviert sind, müssen zum Zugreifen auf Elemente innerhalb der Matrix auch zwei Parameter berücksichtigt werden: die Spalten- und Zeilenposition. Dabei werden innerhalb der eckigen Klammern getrennt von einem Komma zuerst die Zeilen und dann die Spalten angegeben. Möchte man den Wert aus Zeile 2 und Spalte 3 erhalten, würde man <code>[2, 3]</code> an den Variablennamen hängen.</p>
-<div class="sourceCode" id="cb494"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb494-1"><a href="datatypes.html#cb494-1" aria-hidden="true" tabindex="-1"></a>mat[<span class="dv">2</span>, <span class="dv">3</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb512"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb512-1"><a href="datatypes.html#cb512-1" aria-hidden="true" tabindex="-1"></a>mat[<span class="dv">2</span>, <span class="dv">3</span>]</span></code></pre></div>
 <pre class="bordercode"><code>[1] 6</code></pre>
 <p>Wenn eine ganze Zeile oder Spalte zurückgeben werden soll, lässt man schlichtweg das auszulassende Argument weg. Für die erste Zeile schreibt man folglich:</p>
-<div class="sourceCode" id="cb496"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb496-1"><a href="datatypes.html#cb496-1" aria-hidden="true" tabindex="-1"></a>mat[<span class="dv">1</span>, ]</span></code></pre></div>
+<div class="sourceCode" id="cb514"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb514-1"><a href="datatypes.html#cb514-1" aria-hidden="true" tabindex="-1"></a>mat[<span class="dv">1</span>, ]</span></code></pre></div>
 <pre class="bordercode"><code>[1] 1 2 3</code></pre>
 <p>Das Leerzeichen nach dem Komma ist zwar nicht zwingend notwendig, allerdings macht es deutlich, dass dort ein zweiter Wert fehlt.</p>
 <div class="idea">
@@ -442,20 +448,20 @@ div.csl-indent {
 <p>Ein <code>data.frame</code> ist ein zweidimensionales Datenformat, welches direkt in R integriert ist. Hingegen müssen <code>tibbles</code> aus dem gleichnamigen <code>tibble</code> Package des <code>tidyverse</code> zur Verwendung nach jedem Start von R neu geladen werden. Beide haben eine Anordnung wie die Matrix mit Zeilen und Spalten. Zwischen den Spalten darf der Datentyp variieren, wobei innerhalb einer Spalte noch immer derselbe Datentyp vorhanden sein muss.</p>
 <p>Einer der größten Vorteile der <code>tibbles</code> ist die übersichtlichere Ausgabe. Es werden nur 10 Zeilen ausgegeben. Auf einen Blick sieht man dabei die Datentypen der Spalten und die Dimensionen des Datensatzes. Außerdem sind die Zahlen zur besseren Übersichtlichkeit entsprechend eingerückt und negative Werte rot hervorgehoben. Das automatische Runden von <code>tibbles</code> bei der Anzeige ist hingegen nicht immer ein Vorteil. Während es beim explorativen Anschauen der Daten praktisch ist, muss beim deskriptiven oder inferenzstatistischen Betrachten der Daten eine bestimmte Anzahl von Kommastellen sichtbar sein, um sie in einer wissenschaftlichen Arbeit zu berichten.</p>
 <p>Grundsätzlich können Funktionen, die auf <code>data.frames</code> angewendet werden können bis auf wenige Ausnahmen auch auf <code>tibbles</code> angewendet werden. Wie man einen <code>tibble</code> erstellt wurde bereits in Kapitel <a href="io.html#inR">5.3</a> eingeführt. Bei der Erstellung eines <code>data.frames</code> ändert sich nur die Funktion.</p>
-<div class="sourceCode" id="cb498"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb498-1"><a href="datatypes.html#cb498-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(</span>
-<span id="cb498-2"><a href="datatypes.html#cb498-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">a =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>,</span>
-<span id="cb498-3"><a href="datatypes.html#cb498-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">b =</span> <span class="dv">3</span><span class="sc">:</span><span class="dv">4</span></span>
-<span id="cb498-4"><a href="datatypes.html#cb498-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb516"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb516-1"><a href="datatypes.html#cb516-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(</span>
+<span id="cb516-2"><a href="datatypes.html#cb516-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">a =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>,</span>
+<span id="cb516-3"><a href="datatypes.html#cb516-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">b =</span> <span class="dv">3</span><span class="sc">:</span><span class="dv">4</span></span>
+<span id="cb516-4"><a href="datatypes.html#cb516-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
 <pre class="bordercode"><code>  a b
 1 1 3
 2 2 4</code></pre>
 <p>Beim Zugriff auf einzelne Spalten wurde im Verlauf des Buches entweder <code>select()</code> aus dem <code>tidyverse</code> oder der Dollar-Operator verwendet. Die Funktion <code>select()</code> gibt dabei die einzelne Spalte als <code>tibble</code> zurück.</p>
-<div class="sourceCode" id="cb500"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb500-1"><a href="datatypes.html#cb500-1" aria-hidden="true" tabindex="-1"></a>tb <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb500-2"><a href="datatypes.html#cb500-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">Geschlecht =</span> <span class="fu">c</span>(<span class="st">&quot;m&quot;</span>, <span class="st">&quot;f&quot;</span>, <span class="st">&quot;d&quot;</span>),</span>
-<span id="cb500-3"><a href="datatypes.html#cb500-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">Alter =</span> <span class="fu">c</span>(<span class="dv">44</span>, <span class="dv">16</span>, <span class="dv">52</span>),</span>
-<span id="cb500-4"><a href="datatypes.html#cb500-4" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb500-5"><a href="datatypes.html#cb500-5" aria-hidden="true" tabindex="-1"></a>tb <span class="sc">|&gt;</span> </span>
-<span id="cb500-6"><a href="datatypes.html#cb500-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Alter)</span></code></pre></div>
+<div class="sourceCode" id="cb518"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb518-1"><a href="datatypes.html#cb518-1" aria-hidden="true" tabindex="-1"></a>tb <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb518-2"><a href="datatypes.html#cb518-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">Geschlecht =</span> <span class="fu">c</span>(<span class="st">&quot;m&quot;</span>, <span class="st">&quot;f&quot;</span>, <span class="st">&quot;d&quot;</span>),</span>
+<span id="cb518-3"><a href="datatypes.html#cb518-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">Alter =</span> <span class="fu">c</span>(<span class="dv">44</span>, <span class="dv">16</span>, <span class="dv">52</span>),</span>
+<span id="cb518-4"><a href="datatypes.html#cb518-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb518-5"><a href="datatypes.html#cb518-5" aria-hidden="true" tabindex="-1"></a>tb <span class="sc">|&gt;</span> </span>
+<span id="cb518-6"><a href="datatypes.html#cb518-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Alter)</span></code></pre></div>
 <pre class="bordercode"><code># A tibble: 3 × 1
   Alter
   &lt;dbl&gt;
@@ -463,7 +469,7 @@ div.csl-indent {
 2    16
 3    52</code></pre>
 <p>Eine Alternative Schreibweise dafür sind einfache eckige Klammern. Da hier alle Zeilen der Spalte Alter zurückgegeben werden sollen, wird keine Zahl vor dem Komma angegeben.</p>
-<div class="sourceCode" id="cb502"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb502-1"><a href="datatypes.html#cb502-1" aria-hidden="true" tabindex="-1"></a>tb[ ,<span class="st">&quot;Alter&quot;</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb520"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb520-1"><a href="datatypes.html#cb520-1" aria-hidden="true" tabindex="-1"></a>tb[ ,<span class="st">&quot;Alter&quot;</span>]</span></code></pre></div>
 <pre class="bordercode"><code># A tibble: 3 × 1
   Alter
   &lt;dbl&gt;
@@ -472,11 +478,11 @@ div.csl-indent {
 3    52</code></pre>
 <p>Hier gibt es einen weiteren Unterschied zwischen <code>data.frames</code> und <code>tibbles</code>. Während in <code>data.frames</code> bei Auswahl nur einer Spalte ein Vektor zurückgegeben wird, gibt ein <code>tibble</code> immer einen <code>tibble</code> zurück.</p>
 <p>Einzelne Spalten als Vektor können entweder mit dem Dollar-Zeichen oder mit doppelten eckigen Klammern mit dem Spaltennamen in Anführungszeichen aus einem <code>data.frame</code> oder <code>tibble</code> extrahiert werden.</p>
-<div class="sourceCode" id="cb504"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb504-1"><a href="datatypes.html#cb504-1" aria-hidden="true" tabindex="-1"></a>tb<span class="sc">$</span>Alter</span>
-<span id="cb504-2"><a href="datatypes.html#cb504-2" aria-hidden="true" tabindex="-1"></a>tb[[<span class="st">&quot;Alter&quot;</span>]]</span></code></pre></div>
+<div class="sourceCode" id="cb522"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb522-1"><a href="datatypes.html#cb522-1" aria-hidden="true" tabindex="-1"></a>tb<span class="sc">$</span>Alter</span>
+<span id="cb522-2"><a href="datatypes.html#cb522-2" aria-hidden="true" tabindex="-1"></a>tb[[<span class="st">&quot;Alter&quot;</span>]]</span></code></pre></div>
 <pre class="bordercode"><code>[1] 44 16 52</code></pre>
 <p>Einzelne Werte können mit einfachen eckigen Klammern äquivalent zu Matrizen ausgewählt werden.</p>
-<div class="sourceCode" id="cb506"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb506-1"><a href="datatypes.html#cb506-1" aria-hidden="true" tabindex="-1"></a>tb[<span class="dv">2</span>, <span class="dv">1</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb524"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb524-1"><a href="datatypes.html#cb524-1" aria-hidden="true" tabindex="-1"></a>tb[<span class="dv">2</span>, <span class="dv">1</span>]</span></code></pre></div>
 <pre class="bordercode"><code># A tibble: 1 × 1
   Geschlecht
   &lt;chr&gt;     
@@ -485,12 +491,12 @@ div.csl-indent {
 <div id="lists" class="section level2 hasAnchor" number="11.4">
 <h2><span class="header-section-number">11.4</span> Liste<a href="datatypes.html#lists" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Listen sind die allgemeinste Datenstruktur. Ein Listenelement kann jede Datenstruktur enthalten – sogar ganze <code>tibbles</code>. Beim Erstellen ändert sich der Befehl zu <code>list()</code>.</p>
-<div class="sourceCode" id="cb508"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb508-1"><a href="datatypes.html#cb508-1" aria-hidden="true" tabindex="-1"></a>ls <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
-<span id="cb508-2"><a href="datatypes.html#cb508-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">Vektor =</span> vec,</span>
-<span id="cb508-3"><a href="datatypes.html#cb508-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">Matrix =</span> mat,</span>
-<span id="cb508-4"><a href="datatypes.html#cb508-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">Tibble =</span> tb</span>
-<span id="cb508-5"><a href="datatypes.html#cb508-5" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb508-6"><a href="datatypes.html#cb508-6" aria-hidden="true" tabindex="-1"></a>ls</span></code></pre></div>
+<div class="sourceCode" id="cb526"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb526-1"><a href="datatypes.html#cb526-1" aria-hidden="true" tabindex="-1"></a>ls <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb526-2"><a href="datatypes.html#cb526-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">Vektor =</span> vec,</span>
+<span id="cb526-3"><a href="datatypes.html#cb526-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">Matrix =</span> mat,</span>
+<span id="cb526-4"><a href="datatypes.html#cb526-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">Tibble =</span> tb</span>
+<span id="cb526-5"><a href="datatypes.html#cb526-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb526-6"><a href="datatypes.html#cb526-6" aria-hidden="true" tabindex="-1"></a>ls</span></code></pre></div>
 <pre class="bordercode"><code>$Vektor
 [1] 1 3 2 4
 
@@ -509,13 +515,13 @@ $Tibble
 3 d             52</code></pre>
 <p>Die Zeichen vor dem Gleichheitszeichen sind dabei die Namen der Listenelemente, die man zum Abrufen verwenden kann. Mit Listen haben wir bis zu drei Dimensionen. Die verschiedenen Elemente innerhalb der Liste, die wiederum zweidimensionale <code>tibbles</code> enthalten können. Es ist sogar möglich, Listen innerhalb von Listen zu speichern. Im Rahmen des Einnistens greifen wir diesen Gedanken in Kapitel <a href="iterationmain.html#nest">12.4</a> wieder auf.</p>
 <p>Das Prinzip beim Zugreifen ändert sich im Vergleich zu <code>tibbles</code> nicht. Allerdings gibt es eine Dimensionen mehr. Würde man also auf den <code>tibble</code> der eben erstellen Liste <code>ls</code> zugreifen wollen, könnte man <code>ls$Tibble</code> oder <code>ls[[3]]</code> verwenden. Möchte man direkt auf Elemente innerhalb des <code>tibbles</code> zugreifen, erreicht man dies wie gewohnt mit einfach eckigen Klammern.</p>
-<div class="sourceCode" id="cb510"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb510-1"><a href="datatypes.html#cb510-1" aria-hidden="true" tabindex="-1"></a>ls[[<span class="dv">3</span>]][<span class="dv">1</span> ,<span class="dv">2</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb528"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb528-1"><a href="datatypes.html#cb528-1" aria-hidden="true" tabindex="-1"></a>ls[[<span class="dv">3</span>]][<span class="dv">1</span> ,<span class="dv">2</span>]</span></code></pre></div>
 <pre class="bordercode"><code># A tibble: 1 × 1
   Alter
   &lt;dbl&gt;
 1    44</code></pre>
 <p>Eine leere Liste einer bestimmten Länge kann mit <code>vector()</code> erstellt werden (hier z.B. eine Liste der Länge 3). Dies ist vor allem bei for-Schleifen wichtig, da so die Dauer der Berechnungen reduziert werden kann (siehe Kapitel <a href="iterationmain.html#for">12.3</a>).</p>
-<div class="sourceCode" id="cb512"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb512-1"><a href="datatypes.html#cb512-1" aria-hidden="true" tabindex="-1"></a><span class="fu">vector</span>(<span class="st">&quot;list&quot;</span>, <span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb530"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb530-1"><a href="datatypes.html#cb530-1" aria-hidden="true" tabindex="-1"></a><span class="fu">vector</span>(<span class="st">&quot;list&quot;</span>, <span class="dv">3</span>)</span></code></pre></div>
 <pre class="bordercode"><code>[[1]]
 NULL
 
@@ -525,15 +531,15 @@ NULL
 [[3]]
 NULL</code></pre>
 <p>Eine besondere Art der Liste ist der <code>tibble</code>. Daher können wir grundsätzlich in eine Zelle nicht nur Zahlen oder Buchstaben hineinschreiben, sondern sogar ganze andere Datensätze darin abspeichern.</p>
-<div class="sourceCode" id="cb514"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb514-1"><a href="datatypes.html#cb514-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb514-2"><a href="datatypes.html#cb514-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">a =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>),</span>
-<span id="cb514-3"><a href="datatypes.html#cb514-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">b =</span> <span class="fu">list</span>(</span>
-<span id="cb514-4"><a href="datatypes.html#cb514-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tibble</span>(<span class="at">a =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>), <span class="at">b =</span> <span class="fu">c</span>(<span class="st">&quot;m&quot;</span>, <span class="st">&quot;f&quot;</span>, <span class="st">&quot;f&quot;</span>, <span class="st">&quot;m&quot;</span>)),</span>
-<span id="cb514-5"><a href="datatypes.html#cb514-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tibble</span>(<span class="at">x =</span> <span class="dv">4</span><span class="sc">:</span><span class="dv">5</span>, <span class="at">y =</span> <span class="dv">6</span><span class="sc">:</span><span class="dv">7</span>),</span>
-<span id="cb514-6"><a href="datatypes.html#cb514-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">Number =</span> <span class="dv">1</span></span>
-<span id="cb514-7"><a href="datatypes.html#cb514-7" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb514-8"><a href="datatypes.html#cb514-8" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb514-9"><a href="datatypes.html#cb514-9" aria-hidden="true" tabindex="-1"></a>df</span></code></pre></div>
+<div class="sourceCode" id="cb532"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb532-1"><a href="datatypes.html#cb532-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb532-2"><a href="datatypes.html#cb532-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">a =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>),</span>
+<span id="cb532-3"><a href="datatypes.html#cb532-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">b =</span> <span class="fu">list</span>(</span>
+<span id="cb532-4"><a href="datatypes.html#cb532-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tibble</span>(<span class="at">a =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>), <span class="at">b =</span> <span class="fu">c</span>(<span class="st">&quot;m&quot;</span>, <span class="st">&quot;f&quot;</span>, <span class="st">&quot;f&quot;</span>, <span class="st">&quot;m&quot;</span>)),</span>
+<span id="cb532-5"><a href="datatypes.html#cb532-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tibble</span>(<span class="at">x =</span> <span class="dv">4</span><span class="sc">:</span><span class="dv">5</span>, <span class="at">y =</span> <span class="dv">6</span><span class="sc">:</span><span class="dv">7</span>),</span>
+<span id="cb532-6"><a href="datatypes.html#cb532-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">Number =</span> <span class="dv">1</span></span>
+<span id="cb532-7"><a href="datatypes.html#cb532-7" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb532-8"><a href="datatypes.html#cb532-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb532-9"><a href="datatypes.html#cb532-9" aria-hidden="true" tabindex="-1"></a>df</span></code></pre></div>
 <pre class="bordercode"><code># A tibble: 3 × 2
       a b               
   &lt;dbl&gt; &lt;named list&gt;    
@@ -541,7 +547,7 @@ NULL</code></pre>
 2     2 &lt;tibble [2 × 2]&gt;
 3     3 &lt;dbl [1]&gt;       </code></pre>
 <p>Wie du siehst, sind in der Spalte <code>b</code> nun in den ersten zwei Zeilen <code>tibbles</code> enthalten. Wenn wir mit <code>df$b</code> oder <code>df[[2]]</code> nur diese Spalte anschauen, sehen wir eine Liste als Ausgabe.</p>
-<div class="sourceCode" id="cb516"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb516-1"><a href="datatypes.html#cb516-1" aria-hidden="true" tabindex="-1"></a>df[[<span class="dv">2</span>]]</span></code></pre></div>
+<div class="sourceCode" id="cb534"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb534-1"><a href="datatypes.html#cb534-1" aria-hidden="true" tabindex="-1"></a>df[[<span class="dv">2</span>]]</span></code></pre></div>
 <pre class="bordercode"><code>[[1]]
 # A tibble: 4 × 2
       a b    
@@ -564,22 +570,22 @@ $Number
 <div id="umwandlung" class="section level2 hasAnchor" number="11.5">
 <h2><span class="header-section-number">11.5</span> Umwandlungen<a href="datatypes.html#umwandlung" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Sofern die Voraussetzungen der Dimensionen und Datentypen erfüllt sind, können Datenstrukturen ineinander überführt werden. Dabei haben die Funktionen immer das Präfix <code>as.</code> mit der Ausnahme bei <code>tibbles</code> mit dem Präfix <code>as_</code>.</p>
-<div class="sourceCode" id="cb518"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb518-1"><a href="datatypes.html#cb518-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.vector</span>()</span>
-<span id="cb518-2"><a href="datatypes.html#cb518-2" aria-hidden="true" tabindex="-1"></a><span class="fu">as.matrix</span>()</span>
-<span id="cb518-3"><a href="datatypes.html#cb518-3" aria-hidden="true" tabindex="-1"></a><span class="fu">as.data.frame</span>()</span>
-<span id="cb518-4"><a href="datatypes.html#cb518-4" aria-hidden="true" tabindex="-1"></a><span class="fu">as_tibble</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb536"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb536-1"><a href="datatypes.html#cb536-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.vector</span>()</span>
+<span id="cb536-2"><a href="datatypes.html#cb536-2" aria-hidden="true" tabindex="-1"></a><span class="fu">as.matrix</span>()</span>
+<span id="cb536-3"><a href="datatypes.html#cb536-3" aria-hidden="true" tabindex="-1"></a><span class="fu">as.data.frame</span>()</span>
+<span id="cb536-4"><a href="datatypes.html#cb536-4" aria-hidden="true" tabindex="-1"></a><span class="fu">as_tibble</span>()</span></code></pre></div>
 <p>Besonders nützlich ist hierbei <code>as.data.frame()</code>, um einen <code>tibble</code> in einen <code>data.frame</code> umzuwandeln, falls die angezeigten Rundungen zu ungenau sind oder Funktionen nur mit <code>data.frames</code> fehlerfrei funktionieren. Für <code>as_tibble()</code> muss zuvor das <code>tibble</code> Package oder das <code>tidyverse</code> geladen sein.</p>
 </div>
 <div id="objektorientierung" class="section level2 hasAnchor" number="11.6">
 <h2><span class="header-section-number">11.6</span> Objektorientierung<a href="datatypes.html#objektorientierung" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Für dieses Kapitel muss das <code>sloop</code> Package installiert und geladen werden.</p>
-<div class="sourceCode" id="cb519"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb519-1"><a href="datatypes.html#cb519-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sloop)</span></code></pre></div>
+<div class="sourceCode" id="cb537"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb537-1"><a href="datatypes.html#cb537-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sloop)</span></code></pre></div>
 <p>Grundsätzlich basieren die meisten bisher kennengelernten Datenstrukturen auf dem sogenannten S3 System der Objektorientierung. Das ist für den normalen R Nutzer nicht relevant, allerdings gibt es noch drei andere Systeme namens S4, R6 und R7. Diese können wir nicht ohne Weiteres mit den hier kennengelernten Funktion verwenden.</p>
 <p>Ein populäres Beispiel dafür ist die Seite Bioconductor (Alternative zu CRAN), welche diverse Packages mit biologischem Fokus zur Verfügung stellt. Dort haben beinahe alle Packages das S4 System als Basis, wodurch bspw. anstelle des Dollar-Operators mit dem at-Zeichen (<code>@</code>) auf Spalten zugegriffen werden muss.</p>
-<div class="sourceCode" id="cb520"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb520-1"><a href="datatypes.html#cb520-1" aria-hidden="true" tabindex="-1"></a>ls<span class="sc">@</span>Tibbel</span></code></pre></div>
+<div class="sourceCode" id="cb538"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb538-1"><a href="datatypes.html#cb538-1" aria-hidden="true" tabindex="-1"></a>ls<span class="sc">@</span>Tibbel</span></code></pre></div>
 <p>Dies sei an dieser Stelle nur deshalb beschrieben, da S4 und R6 Systeme zu seltsamen Fehlermeldungen führen können, wenn man die normalen Funktionen darauf anwendet.</p>
 <p>Mit der Funktion <code>otype()</code> aus dem <code>sloop</code> Package kann der <strong>O</strong>bjekt<strong>typ</strong> herausgefunden werden.</p>
-<div class="sourceCode" id="cb521"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb521-1"><a href="datatypes.html#cb521-1" aria-hidden="true" tabindex="-1"></a><span class="fu">otype</span>(big_five)</span></code></pre></div>
+<div class="sourceCode" id="cb539"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb539-1"><a href="datatypes.html#cb539-1" aria-hidden="true" tabindex="-1"></a><span class="fu">otype</span>(big_five)</span></code></pre></div>
 <pre class="bordercode"><code>[1] &quot;S3&quot;</code></pre>
 <p>Langfristig werden voraussichtlich das S4 und R6 System vom neuen R7 System ersetzt werden, welches planmäßig direkt in R integriert werden soll.</p>
 

@@ -23,7 +23,7 @@
 <meta name="author" content="Jan Philipp Nolte" />
 
 
-<meta name="date" content="2023-01-04" />
+<meta name="date" content="2023-01-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -156,7 +156,10 @@ div.csl-indent {
 <li><strong><a href="https://r-empirische-wissenschaften.de"> R für empirische Wissenschaften</a></strong></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Vorwort</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Vorwort</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#lizenz"><i class="fa fa-check"></i>Lizenz</a></li>
+</ul></li>
 <li class="part"><span><b>I Die ersten Schritte</b></span></li>
 <li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Einleitung</a>
 <ul>
@@ -272,7 +275,10 @@ div.csl-indent {
 <li class="chapter" data-level="8.13.1" data-path="visual.html"><a href="visual.html#kaplan"><i class="fa fa-check"></i><b>8.13.1</b> Kaplan-Meier-Kurve</a></li>
 <li class="chapter" data-level="8.13.2" data-path="visual.html"><a href="visual.html#residuen-überprüfen"><i class="fa fa-check"></i><b>8.13.2</b> Residuen überprüfen</a></li>
 <li class="chapter" data-level="8.13.3" data-path="visual.html"><a href="visual.html#ridgeline-plot"><i class="fa fa-check"></i><b>8.13.3</b> Ridgeline Plot</a></li>
+<li class="chapter" data-level="8.13.4" data-path="visual.html"><a href="visual.html#hervorheben-bestimmter-werte"><i class="fa fa-check"></i><b>8.13.4</b> Hervorheben bestimmter Werte</a></li>
+<li class="chapter" data-level="8.13.5" data-path="visual.html"><a href="visual.html#dags"><i class="fa fa-check"></i><b>8.13.5</b> Directed Acyclic Graphs</a></li>
 </ul></li>
+<li class="chapter" data-level="8.14" data-path="visual.html"><a href="visual.html#example"><i class="fa fa-check"></i><b>8.14</b> Anwendungsbeispiel</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="inductive.html"><a href="inductive.html"><i class="fa fa-check"></i><b>9</b> Inferenzstatistik</a>
 <ul>
@@ -319,7 +325,7 @@ div.csl-indent {
 <li class="part"><span><b>IV Vertiefung</b></span></li>
 <li class="chapter" data-level="10" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html"><i class="fa fa-check"></i><b>10</b> Ergebnisse exportieren</a>
 <ul>
-<li class="chapter" data-level="10.1" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#einführung-2"><i class="fa fa-check"></i><b>10.1</b> Einführung</a></li>
+<li class="chapter" data-level="10.1" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#intromarkdown"><i class="fa fa-check"></i><b>10.1</b> Begriffe</a></li>
 <li class="chapter" data-level="10.2" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#markdown"><i class="fa fa-check"></i><b>10.2</b> Berichte</a></li>
 <li class="chapter" data-level="10.3" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#tabellen"><i class="fa fa-check"></i><b>10.3</b> Tabellen</a>
 <ul>
@@ -912,12 +918,12 @@ Abbildung 8.15: Vergleich verschiedener Farbpaletten.
 <div class="sourceCode" id="cb336"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb336-1"><a href="visual.html#cb336-1" aria-hidden="true" tabindex="-1"></a><span class="fu">brewer.pal</span>(<span class="dv">9</span>, <span class="st">&quot;Reds&quot;</span>) <span class="sc">|&gt;</span> </span>
 <span id="cb336-2"><a href="visual.html#cb336-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">show_col</span>()</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-230"></span>
-<img src="r-empirische-wissenschaften_files/figure-html/unnamed-chunk-230-1.png" alt="Hexadezimalfarben einer roten Farbpalette." width="384" />
+<img src="r-empirische-wissenschaften_files/figure-html/unnamed-chunk-230-1.png" alt="Hexadezimalfarben einer roten Farbpalette." width="288" />
 <p class="caption">
 Abbildung 8.16: Hexadezimalfarben einer roten Farbpalette.
 </p>
 </div>
-<p>In der Abbildung aus Kapitel <a href="visual.html#adapt">8.10</a> wurde die Farbpalette Viridis verwendet, die Farbenblindheit berücksichtigt. Diese Farbpalette erstellt man mit <code>scale_fill_viridis_d(start = 0.27, end = 0.72, opt = "C")</code>. Wie in bei den Graustufen zuvor können auch hier die Start- und Entwerte angepasst werden. Das optionale <code>opt</code> Argument wählt hier die dritte von acht möglichen Viridis Paletten. Für kontinuierliche Skalen muss stattdessen auf die Funktion <code>scale_fill_viridis_c()</code> zurückgegriffen werden.</p>
+<p>In der Abbildung aus Kapitel <a href="visual.html#adapt">8.10</a> wurde die Farbpalette Viridis verwendet, die Farbenblindheit berücksichtigt. Diese Farbpalette erstellt man mit <code>scale_fill_viridis_d(begin = 0.27, end = 0.72, option = "C")</code>. Wie in bei den Graustufen zuvor können auch hier die Start- und Entwerte angepasst werden. Das optionale <code>opt</code> Argument wählt hier die dritte von acht möglichen Viridis Paletten. Für kontinuierliche Skalen muss stattdessen auf die Funktion <code>scale_fill_viridis_c()</code> zurückgegriffen werden.</p>
 </div>
 <div id="themeaxis" class="section level3 hasAnchor" number="8.10.2">
 <h3><span class="header-section-number">8.10.2</span> Themen und Achsen<a href="visual.html#themeaxis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -1130,7 +1136,7 @@ Abbildung 8.21: Auflösungsunterschiede je nach Größe der gespeicherten Abbild
 Abbildung 8.22: Kaplan-Meier-Kurve mit Tabelle unterteilt nach biologischem Geschlecht.
 </p>
 </div>
-<p>Die Abbildung besteht aus zwei Teilen, der Kaplan-Meier-Kurve (<code>plot</code>) und der Tabelle (<code>table</code>). Zum Abspeichern müssen wir aus unserem Ergebnis <code>p1</code> diese beiden Anteile einzeln mit dem Dollar-Operator ansprechen und mithilfe des <code>patchwork</code> Packages zusammenfügen (siehe Kapitel <a href="visual.html#patch">8.11</a>). Mit <code>plot_layout()</code> wird festgelegt, dass die Graph und Tabelle untereinander illustriert werden (<code>ncol = 1</code>) und das Verhältnis der Abbildungen mit dem <code>heights</code> Argument. Letzteres Argument ist wichtig, da der Hauptteil der Abbildung der Kaplan-Meier-Kurve und nicht der Tabelle gewidmet werden soll.</p>
+<p>Die Abbildung besteht aus zwei Teilen, der Kaplan-Meier-Kurve (<code>plot</code>) und der Tabelle (<code>table</code>). Zum Abspeichern müssen wir aus unserem Ergebnis <code>p1</code> diese beiden Anteile einzeln mit dem Dollar-Operator ansprechen und mithilfe des <code>patchwork</code> Packages zusammenfügen (siehe Kapitel <a href="visual.html#patch">8.11</a>). Mit <code>plot_layout()</code> wird festgelegt, dass der Graph und die Tabelle untereinander illustriert werden (<code>ncol = 1</code>) und das Verhältnis der Abbildungen mit dem <code>heights</code> Argument. Letzteres Argument ist wichtig, da der Hauptteil der Abbildung der Kaplan-Meier-Kurve und nicht der Tabelle gewidmet werden soll.</p>
 <div class="sourceCode" id="cb371"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb371-1"><a href="visual.html#cb371-1" aria-hidden="true" tabindex="-1"></a>kaplan_meier <span class="ot">&lt;-</span> p1<span class="sc">$</span>plot <span class="sc">+</span> p1<span class="sc">$</span>table <span class="sc">+</span> </span>
 <span id="cb371-2"><a href="visual.html#cb371-2" aria-hidden="true" tabindex="-1"></a>   <span class="fu">plot_layout</span>(<span class="at">ncol =</span> <span class="dv">1</span>, <span class="at">heights =</span> <span class="fu">c</span>(<span class="dv">6</span>, <span class="dv">1</span>))</span></code></pre></div>
 <p>Durch das Ansprechen der einzelnen Bestandteile (z.B. mit <code>kaplan_meier[[1]]</code>) können beiden Bestandteile, wie in Kapitel <a href="visual.html#adapt">8.10</a> gelernt, angepasst werden. Gespeichert wird das Ergebnis wie gewohnt mit <code>ggsave()</code> (siehe Kapitel <a href="visual.html#ggsave">8.12</a>).</p>
@@ -1141,7 +1147,7 @@ Abbildung 8.22: Kaplan-Meier-Kurve mit Tabelle unterteilt nach biologischem Gesc
 <p>Für das schnelle graphische Überprüfen der notwendingen Voraussetzungen in Bezug auf die Residuen, müssen wir erst das <code>ggfortify</code> Package installieren und laden.</p>
 <div class="sourceCode" id="cb373"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb373-1"><a href="visual.html#cb373-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggfortify)</span>
 <span id="cb373-2"><a href="visual.html#cb373-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span></code></pre></div>
-<p>Zunächst greifen wir an dieser Stelle etwas vor und erstellen ein lineares Regressionsmodell, welches die Variation in der mittleren Extraversionsuausprägung durch Geschlecht und Alter erklären soll (siehe Kapitel (linregression)).</p>
+<p>Zunächst greifen wir an dieser Stelle etwas vor und erstellen ein lineares Regressionsmodell, welches die Variation in der mittleren Extraversionsuausprägung durch Geschlecht und Alter erklären soll (siehe Kapitel <a href="inductive.html#linregression">9.5.1</a>).</p>
 <div class="sourceCode" id="cb374"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb374-1"><a href="visual.html#cb374-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(Extraversion <span class="sc">~</span> Geschlecht <span class="sc">+</span> Alter, <span class="at">data =</span> big5)</span></code></pre></div>
 <p>Dieses Modell kann im Anschluss der Funktion <code>autoplot()</code> übergeben werden. Dies funktioniert auf dieselbe Art und Weise für die meisten Regressionsmodelle. Als weiteres Argument kann mit <code>which</code> ausgewählt werden, welche Abbildungen ausgegeben werden (hier alle 6). Das Argument <code>label.repel</code> sorgt dafür, dass der Text, der die Ausreißer beschriftet, die Linien nicht überschneidet. Als letztes wird mit <code>smooth.colour</code> noch die Farbe der Regressionsgeraden auf schwarz gesetzt.</p>
 <div class="sourceCode" id="cb375"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb375-1"><a href="visual.html#cb375-1" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">autoplot</span>(</span>
@@ -1150,7 +1156,7 @@ Abbildung 8.22: Kaplan-Meier-Kurve mit Tabelle unterteilt nach biologischem Gesc
 <span id="cb375-4"><a href="visual.html#cb375-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">label.repel =</span> <span class="cn">TRUE</span>, </span>
 <span id="cb375-5"><a href="visual.html#cb375-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">smooth.colour =</span> <span class="st">&quot;black&quot;</span></span>
 <span id="cb375-6"><a href="visual.html#cb375-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
-<p>Zum Speichern müssen, wie in Kapitel (kaplan), die einzelnen Abbildungen ausgewählt und mithilfe des <code>patchwork</code> Packages zusammengefügt werden. Da die Plots mit <code>ggplot</code> erstellt wurden, können wir das Aussehen wie gewohnt anpassen (siehe Kapitel <a href="visual.html#adapt">8.10</a>.</p>
+<p>Zum Speichern müssen, wie in Kapitel <a href="visual.html#kaplan">8.13.1</a>, die einzelnen Abbildungen ausgewählt und mithilfe des <code>patchwork</code> Packages zusammengefügt werden. Da die Plots mit <code>ggplot</code> erstellt wurden, können wir das Aussehen wie gewohnt anpassen (siehe Kapitel <a href="visual.html#adapt">8.10</a>.</p>
 <p>Auf die einzelnen Plots wird mit doppelten eckigen Klammern zugegriffen, da diese auch hier als Listen gespeichert wurden (siehe Kapitel <a href="datatypes.html#lists">11.4</a>. Anschließend fügen wir die Abbildungen zusammen und verändern das Thema sowie die Schriftgröße (siehe Kapitel <a href="visual.html#patch">8.11</a>).</p>
 <div class="sourceCode" id="cb376"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb376-1"><a href="visual.html#cb376-1" aria-hidden="true" tabindex="-1"></a>res[[<span class="dv">1</span>]] <span class="sc">+</span> res[[<span class="dv">2</span>]] <span class="sc">+</span> res[[<span class="dv">3</span>]] <span class="sc">+</span> res[[<span class="dv">4</span>]] <span class="sc">+</span> res[[<span class="dv">5</span>]] <span class="sc">+</span> res[[<span class="dv">6</span>]] <span class="sc">+</span> </span>
 <span id="cb376-2"><a href="visual.html#cb376-2" aria-hidden="true" tabindex="-1"></a>   <span class="fu">plot_layout</span>(<span class="at">ncol =</span> <span class="dv">2</span>) <span class="sc">&amp;</span></span>
@@ -1199,8 +1205,167 @@ Abbildung 8.22: Kaplan-Meier-Kurve mit Tabelle unterteilt nach biologischem Gesc
 Abbildung 8.23: Ridgeline plots mit angepasstem Thema.
 </p>
 </div>
-
 </div>
+<div id="hervorheben-bestimmter-werte" class="section level3 hasAnchor" number="8.13.4">
+<h3><span class="header-section-number">8.13.4</span> Hervorheben bestimmter Werte<a href="visual.html#hervorheben-bestimmter-werte" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Im Rahmen dieses Kapitels muss das <code>gghighlight</code> Package installiert und geladen werden.</p>
+<div class="sourceCode" id="cb382"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb382-1"><a href="visual.html#cb382-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gghighlight)</span></code></pre></div>
+<p>Manchmal soll ein besonderes Augenmerk auf einen Teil der Abbildung gelegt werden, welcher für die Beantwortung der Fragestellung eine zentrale Bedeutung hat. Dies schauen wir uns anhand des Beispiels der Balkendiagramme an (siehe Kapitel <a href="visual.html#barplot">8.6</a>). Zuerst müssen wir also die deskriptiven Statistiken in Form des Mittelwerts (<code>Mean</code>) und der Standardabweichung (<code>SD</code>) berechnen.</p>
+<div class="sourceCode" id="cb383"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb383-1"><a href="visual.html#cb383-1" aria-hidden="true" tabindex="-1"></a>big5_means2 <span class="ot">&lt;-</span> big_five_long <span class="sc">%&gt;%</span> </span>
+<span id="cb383-2"><a href="visual.html#cb383-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Faktor) <span class="sc">%&gt;%</span> </span>
+<span id="cb383-3"><a href="visual.html#cb383-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb383-4"><a href="visual.html#cb383-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Mean =</span> <span class="fu">mean</span>(Auspraegung, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb383-5"><a href="visual.html#cb383-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">SD =</span> <span class="fu">sd</span>(Auspraegung, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb383-6"><a href="visual.html#cb383-6" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb383-7"><a href="visual.html#cb383-7" aria-hidden="true" tabindex="-1"></a>big5_means2</span></code></pre></div>
+<pre class="bordercode"><code># A tibble: 4 × 3
+  Faktor              Mean    SD
+  &lt;chr&gt;              &lt;dbl&gt; &lt;dbl&gt;
+1 Extraversion        3.08 0.347
+2 Gewissenhaftigkeit  3.16 0.361
+3 Neurotizismus       3.13 0.682
+4 Vertraeglichkeit    3.2  0.367</code></pre>
+<p>Wie gewohnt visualisieren wir die Balken anschließend mit <code>geom_col()</code> (siehe Abbildung <a href="visual.html#fig:high">8.24</a> (a)).</p>
+<div class="sourceCode" id="cb385"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb385-1"><a href="visual.html#cb385-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(big5_means2, <span class="fu">aes</span>(<span class="at">x =</span> Faktor, <span class="at">y =</span> Mean)) <span class="sc">+</span></span>
+<span id="cb385-2"><a href="visual.html#cb385-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>()</span></code></pre></div>
+<p>Um einen Balken hervorzuheben, können wir der Funktion <code>gghighlight()</code> eine logische Bedingung übergeben. Ähnlich wie bei <code>filter()</code> muss also der Ausdruck innerhalb der Klammer entweder <code>TRUE</code> oder <code>FALSE</code> zurückgeben. Der Balken, worauf diese Bedingung zutrifft, wird hervorgehoben. In Abbildung <a href="visual.html#fig:high">8.24</a> (b) sehen wir exemplarisch den Balken des Persönlichkeitsfaktors Gewissenhaftigkeit hervorgehoben.</p>
+<div class="sourceCode" id="cb386"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb386-1"><a href="visual.html#cb386-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(big5_means2, <span class="fu">aes</span>(<span class="at">x =</span> Faktor, <span class="at">y =</span> Mean)) <span class="sc">+</span></span>
+<span id="cb386-2"><a href="visual.html#cb386-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span> </span>
+<span id="cb386-3"><a href="visual.html#cb386-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gghighlight</span>(Faktor <span class="sc">==</span> <span class="st">&quot;Gewissenhaftigkeit&quot;</span>)</span></code></pre></div>
+<p>In diesem Package ist die Funktionsbezeichnung abweichend von der in <code>ggplot2</code>. Anstelle des Präfixes <code>geom_*()</code> wird die Funktion hier mit zwei Gs angeführt.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:high"></span>
+<img src="r-empirische-wissenschaften_files/figure-html/high-1.png" alt="Ein Balkendiagramm mit und ohne Hervorhung." width="768" />
+<p class="caption">
+Abbildung 8.24: Ein Balkendiagramm mit und ohne Hervorhung.
+</p>
+</div>
+</div>
+<div id="dags" class="section level3 hasAnchor" number="8.13.5">
+<h3><span class="header-section-number">8.13.5</span> Directed Acyclic Graphs<a href="visual.html#dags" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Zur Abbildung von so genannten Directed Acyclic Graphs (DAGs) müssen die Packages <code>dagitty</code> und <code>ggdag</code> installiert und geladen werden.</p>
+<div class="sourceCode" id="cb387"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb387-1"><a href="visual.html#cb387-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dagitty)</span>
+<span id="cb387-2"><a href="visual.html#cb387-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggdag)</span></code></pre></div>
+<p>DAGs werden dafür verwendet, vermutete Beziehungen zwischen Variablen explizit und nachvollziehbar darzustellen. Um das Prinzip zu verdeutlichen, soll eine Mediation illustriert werden. Dabei sei X eine Behandlung, M ein Mediator und Y unser Outcome.</p>
+<p>Die Syntax innerhalb der Funktion <code>dagitty()</code> ist etwas ungewöhnlich, da im Hintergrund auf ein externes Programm zurückgegriffen wird, welches nicht direkt in R geschrieben ist. Wir übergeben also in einem Character (also in Anführungszeichen) die darzustellenden Beziehungen der Variablen. Einmal den indirekten Pfad von X über M zu Y und einmal den direkten Pfad von X zu Y.</p>
+<div class="sourceCode" id="cb388"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb388-1"><a href="visual.html#cb388-1" aria-hidden="true" tabindex="-1"></a>dag <span class="ot">&lt;-</span> <span class="fu">dagitty</span>(<span class="st">&quot;dag{X -&gt; M -&gt; Y; X -&gt; Y}&quot;</span>)</span>
+<span id="cb388-2"><a href="visual.html#cb388-2" aria-hidden="true" tabindex="-1"></a>dag</span></code></pre></div>
+<pre class="bordercode"><code>dag {
+M
+X
+Y
+M -&gt; Y
+X -&gt; M
+X -&gt; Y
+}</code></pre>
+<p>Bevor wir zur Visualisierung kommen, müssen wir noch die Koordinaten festlegen. Auch hier weichen wir etwas von der bisher kennengelernten Syntax ab. Grundsätzlich müssen für jede der oben definierten Variablen (X, M, Y) die Koordinaten festgelegt werden. Auf der x-Achse soll zuerst X, dann M und als letztes Y abgebildet werden. Auf der y-Achse sollen X und Y auf derselben Höhe sein, während sich M etwas weiter oben befindet.</p>
+<div class="sourceCode" id="cb390"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb390-1"><a href="visual.html#cb390-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coordinates</span>(dag) <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb390-2"><a href="visual.html#cb390-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> <span class="fu">c</span>(<span class="at">X =</span> <span class="dv">1</span>, <span class="at">M =</span> <span class="dv">2</span>, <span class="at">Y =</span> <span class="dv">3</span>),</span>
+<span id="cb390-3"><a href="visual.html#cb390-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">y =</span> <span class="fu">c</span>(<span class="at">X =</span> <span class="dv">0</span>, <span class="at">M =</span> <span class="dv">1</span>, <span class="at">Y =</span> <span class="dv">0</span>)</span>
+<span id="cb390-4"><a href="visual.html#cb390-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<p>Am schnellsten kann die Abbildung mit <code>ggdag()</code> erstellt werden. Zusätzlich entfernt die Funktion <code>theme_dag()</code> den Hintergrund und die Achsenbeschriftungen der Abbildung.</p>
+<div class="sourceCode" id="cb391"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb391-1"><a href="visual.html#cb391-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggdag</span>(dag) <span class="sc">+</span></span>
+<span id="cb391-2"><a href="visual.html#cb391-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_dag</span>()</span></code></pre></div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:dag"></span>
+<img src="r-empirische-wissenschaften_files/figure-html/dag-1.png" alt="Directed Acyclic Graph einer Mediation mit M als Mediator." width="480" />
+<p class="caption">
+Abbildung 8.25: Directed Acyclic Graph einer Mediation mit M als Mediator.
+</p>
+</div>
+<p>Das <code>ggdag</code> Package bietet außerdem die Möglichkeit das DAG genauer anzuschauen.</p>
+<div class="sourceCode" id="cb392"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb392-1"><a href="visual.html#cb392-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy_dagitty</span>(dag) </span></code></pre></div>
+<pre class="bordercode"><code># A DAG with 3 nodes and 3 edges
+#
+# A tibble: 4 × 8
+  name      x     y direction to     xend  yend circular
+  &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;fct&gt;     &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;lgl&gt;   
+1 M         2     1 -&gt;        Y         3     0 FALSE   
+2 X         1     0 -&gt;        M         2     1 FALSE   
+3 X         1     0 -&gt;        Y         3     0 FALSE   
+4 Y         3     0 &lt;NA&gt;      &lt;NA&gt;     NA    NA FALSE   </code></pre>
+<p>Dies können wir uns für komplexere Designs zunutze machen, indem wir auf die klassische <code>ggplot</code> Syntax zurückgreifen. Die Kreise um die Variablen werden mit <code>geom_dag_point()</code>, die Pfeile mit <code>geom_dag_edges()</code> und der Text mit <code>geom_dag_text()</code> erstellt. Das Ergebnis unterscheidet sich in dem Fall zwar nicht von <code>ggdag()</code>, allerdings können damit Modifikationen für komplexere Szenarien vorgenommen werden.</p>
+<div class="sourceCode" id="cb394"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb394-1"><a href="visual.html#cb394-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dag, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">xend =</span> xend, <span class="at">yend =</span> yend)) <span class="sc">+</span></span>
+<span id="cb394-2"><a href="visual.html#cb394-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_dag_point</span>() <span class="sc">+</span></span>
+<span id="cb394-3"><a href="visual.html#cb394-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_dag_edges</span>() <span class="sc">+</span></span>
+<span id="cb394-4"><a href="visual.html#cb394-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_dag_text</span>(<span class="at">col =</span> <span class="st">&quot;white&quot;</span>) <span class="sc">+</span></span>
+<span id="cb394-5"><a href="visual.html#cb394-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_dag</span>()</span></code></pre></div>
+</div>
+</div>
+<div id="example" class="section level2 hasAnchor" number="8.14">
+<h2><span class="header-section-number">8.14</span> Anwendungsbeispiel<a href="visual.html#example" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Wir werden uns abschließend in diesem Kapitel anhand eines Eye-Tracking Datensatzes namens <code>eye_tracking</code> anschauen, wie wir mithilfe der bisher gelernten Funktionen, eine komplexere und optische ansprechende Abbildung kreieren können. In diesem Datensatz wurden zwei Studien miteinander verglichen, die mithilfe von Eye-Tracking die Anzahl der angeschauten Gesichter gezählt haben. Dabei wurde unterschieden, wie viele Einwohner pro Quadratkilometer dargestellt wurden.</p>
+<div class="sourceCode" id="cb395"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb395-1"><a href="visual.html#cb395-1" aria-hidden="true" tabindex="-1"></a>eye_tracking</span></code></pre></div>
+<pre class="bordercode"><code># A tibble: 125 × 3
+  Face_sum Density Group  
+     &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;  
+1       86    2.30 Study 1
+2       44    1.73 Study 1
+3      156    3.66 Study 1
+4       32    2.55 Study 1
+# … with 121 more rows</code></pre>
+<p>Die Ergebnisse der beiden Studien sollen anhand eines gruppierten Streudiagramms mit Regressionsgeraden verglichen werden (siehe Kapitel <a href="visual.html#scatter">8.3</a>). Zusätzlich werden gruppierte Wahrscheinlichkeitsdichten zur Darstellung der Verteilungen abgebildet (siehe Kapitel <a href="visual.html#histogram">8.2</a>). Das gewünschte Resultat ist in Abbildung <a href="visual.html#fig:eyeplot">8.26</a> illustriert.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:eyeplot"></span>
+<img src="r-empirische-wissenschaften_files/figure-html/eyeplot-1.png" alt="Anzahl fixierter Gesichter in Abhängigkeit beobachteter Einwohner pro Quadratkilometer." width="672" />
+<p class="caption">
+Abbildung 8.26: Anzahl fixierter Gesichter in Abhängigkeit beobachteter Einwohner pro Quadratkilometer.
+</p>
+</div>
+<p>Diese Abbildung besteht im Prinzip aus vier Teilen, welche nacheinander erstellt und dann miteinander kombiniert werden müssen.</p>
+<p>Links unten ist unsere Hauptabbildung, mit bereits bekannten Komponenten. Um den notwendigen Code besser zu verstehen, gehen wir erst durch, was wir zur Visualisierung benötigen.</p>
+<ul>
+<li>Erstelle den <code>ggplot</code> mit der Bevölkerungsdichte auf der x-Achse und den fixierten Gesichtern auf der y-Achse, wobei die Farbe gruppiert nach der jeweiligen Studie gewählt werden soll.</li>
+<li>Füge ein nach Studienart gruppiertes Streudiagramm mit angepasster Größer der Punkte und reduzierter Deckkraft hinzu.</li>
+<li>Zeichne einen schwarzen Ring um jeden Punkt des Streudiagramms.</li>
+<li>Berechne die linearen Regressionsgeraden, welche sich über die komplette Abbildung erstrecken sollen und blende dabei die Konfidenzintervalle aus.</li>
+</ul>
+<p>Anschließend soll die Abbildung noch verschönert werden.</p>
+<ul>
+<li>Ändere die x-Achsen und y-Achsen Beschriftung.</li>
+<li>Verwende anstelle der Standardfarben eine Farbpalette (z.B. <code>viridis</code>), welche auch von Menschen mit Farbenblindheit unterschieden werden kann. Im Zuge dessen sollen der Titel der Legende sowie die Namen der Merkmale angepasst werden.</li>
+<li>Passe die Begrenzungen der x-Achse und y-Achse an.</li>
+<li>Verändere das generelle Thema sowie die Schriftgrößen.</li>
+<li>Verschiebe die Legende und ordne sie horizontal an.</li>
+</ul>
+<p>Die Hauptabbildung wird schließlich als <code>plot1</code> gespeichert.</p>
+<div class="sourceCode" id="cb397"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb397-1"><a href="visual.html#cb397-1" aria-hidden="true" tabindex="-1"></a>plot1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(eye_tracking, <span class="fu">aes</span>(<span class="at">x =</span> Density, <span class="at">y =</span> Face_sum, <span class="at">color =</span> Group)) <span class="sc">+</span> </span>
+<span id="cb397-2"><a href="visual.html#cb397-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> Group), <span class="at">size =</span> <span class="dv">3</span>, <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span> </span>
+<span id="cb397-3"><a href="visual.html#cb397-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">1</span>, <span class="at">color =</span> <span class="st">&quot;black&quot;</span>, <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span> </span>
+<span id="cb397-4"><a href="visual.html#cb397-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_smooth</span>(<span class="at">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="at">fullrange =</span> <span class="cn">TRUE</span>, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb397-5"><a href="visual.html#cb397-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb397-6"><a href="visual.html#cb397-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Einwohner pro Quadratkilometer&quot;</span>,</span>
+<span id="cb397-7"><a href="visual.html#cb397-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Anzahl fixierter Gesichter&quot;</span>,</span>
+<span id="cb397-8"><a href="visual.html#cb397-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb397-9"><a href="visual.html#cb397-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_viridis_d</span>(</span>
+<span id="cb397-10"><a href="visual.html#cb397-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">begin =</span> <span class="fl">0.2</span>, <span class="at">end =</span> <span class="fl">0.7</span>, <span class="at">option =</span> <span class="st">&quot;D&quot;</span>,</span>
+<span id="cb397-11"><a href="visual.html#cb397-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">name =</span> <span class="st">&quot;Studie:&quot;</span>,</span>
+<span id="cb397-12"><a href="visual.html#cb397-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;1&quot;</span>, <span class="st">&quot;2&quot;</span>)</span>
+<span id="cb397-13"><a href="visual.html#cb397-13" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span> </span>
+<span id="cb397-14"><a href="visual.html#cb397-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(</span>
+<span id="cb397-15"><a href="visual.html#cb397-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">225</span>), </span>
+<span id="cb397-16"><a href="visual.html#cb397-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>), </span>
+<span id="cb397-17"><a href="visual.html#cb397-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">225</span>, <span class="at">by =</span> <span class="dv">25</span>)</span>
+<span id="cb397-18"><a href="visual.html#cb397-18" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span> </span>
+<span id="cb397-19"><a href="visual.html#cb397-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(</span>
+<span id="cb397-20"><a href="visual.html#cb397-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">limits =</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="dv">4</span>), </span>
+<span id="cb397-21"><a href="visual.html#cb397-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>), </span>
+<span id="cb397-22"><a href="visual.html#cb397-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="fl">0.5</span>, <span class="at">to =</span> <span class="dv">4</span>, <span class="at">by =</span> <span class="fl">0.5</span>)</span>
+<span id="cb397-23"><a href="visual.html#cb397-23" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span> </span>
+<span id="cb397-24"><a href="visual.html#cb397-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>(<span class="at">base_size =</span> <span class="dv">14</span>) <span class="sc">+</span></span>
+<span id="cb397-25"><a href="visual.html#cb397-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="fu">c</span>(<span class="fl">0.25</span>, <span class="fl">0.95</span>), <span class="at">legend.direction =</span> <span class="st">&quot;horizontal&quot;</span>) </span></code></pre></div>
+<p>Bei den beiden Wahrscheinlichkeitsdichten wird erst die Bevölkerungsdichte auf der x-Achse in der einen und die Anzahl fixierter Gesichter auf der y-Achse in der anderen Abbildung übergeben. Beide Abbildungen sollen eine etwas niedriger Deckkraft als die Hauptabbildung haben, da sich beide Verteilungen überschneiden werden. Abschließend müssen wir das Thema (auch die Achsen) mithilfe von <code>theme_void()</code> vollständig ausblenden. Auch die Legende muss manuell entfernt werden. Gespeichert werden die beiden Ergebnisse als <code>dens1</code> und <code>dens2</code>.</p>
+<div class="sourceCode" id="cb398"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb398-1"><a href="visual.html#cb398-1" aria-hidden="true" tabindex="-1"></a>dens1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(eye_tracking, <span class="fu">aes</span>(<span class="at">x =</span> Density, <span class="at">fill =</span> Group)) <span class="sc">+</span> </span>
+<span id="cb398-2"><a href="visual.html#cb398-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span> </span>
+<span id="cb398-3"><a href="visual.html#cb398-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>() <span class="sc">+</span> </span>
+<span id="cb398-4"><a href="visual.html#cb398-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>)  </span>
+<span id="cb398-5"><a href="visual.html#cb398-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb398-6"><a href="visual.html#cb398-6" aria-hidden="true" tabindex="-1"></a>dens2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(eye_tracking, <span class="fu">aes</span>(<span class="at">y =</span> Face_sum, <span class="at">fill =</span> Group)) <span class="sc">+</span> </span>
+<span id="cb398-7"><a href="visual.html#cb398-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span> </span>
+<span id="cb398-8"><a href="visual.html#cb398-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>() <span class="sc">+</span> </span>
+<span id="cb398-9"><a href="visual.html#cb398-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>) </span></code></pre></div>
+<p>Als letzten Schritt fügen wir die einzelnen Teile zusammen (siehe Kapitel <a href="visual.html#patch">8.11</a>). Die Funktion <code>plot_spacer()</code> füllt dabei den leeren Raum oben rechts in der Abbildung aus. Innerhalb von <code>plot_layout()</code> verwenden wir die Argumente <code>widths</code> und <code>heights</code>, welche die Verhältnisse zwischen der Hauptabbildung und den Dichten festlegen. Schließlich soll die Wahrscheinlichkeitsdichte oben links und unten rechts kleiner dargestellt werden als unsere Hauptabbildung unten links. Abschließend muss noch die Füllfarbe für <code>dens1</code> und <code>dens2</code> angepasst werden. Beachte an dieser Stelle das Hinzufügen der Funktion mithilfe von <code>&amp;</code> anstelle von <code>+</code>.</p>
+<div class="sourceCode" id="cb399"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb399-1"><a href="visual.html#cb399-1" aria-hidden="true" tabindex="-1"></a>dens1 <span class="sc">+</span> <span class="fu">plot_spacer</span>() <span class="sc">+</span> plot1 <span class="sc">+</span> dens2 <span class="sc">+</span> </span>
+<span id="cb399-2"><a href="visual.html#cb399-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot_layout</span>(<span class="at">ncol =</span> <span class="dv">2</span>, <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">widths =</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">1</span>), <span class="at">heights =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">4</span>)) <span class="sc">&amp;</span></span>
+<span id="cb399-3"><a href="visual.html#cb399-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_d</span>(<span class="at">begin =</span> <span class="fl">0.2</span>, <span class="at">end =</span> <span class="fl">0.7</span>, <span class="at">option =</span> <span class="st">&quot;D&quot;</span>) </span></code></pre></div>
+
 </div>
 </div>
 <script data-goatcounter="https://remp.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>

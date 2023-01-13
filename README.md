@@ -9,7 +9,7 @@
 Die am häufigsten verwendete Statistikprogrammiersprache R wird in den meisten wissenschaftlichen Fachrichtungen und in vielen Unternehmen verwendet. Dieses Buch bietet einfache Erklärungen mit praktischen Beispielen und Übungen, welche das Erlernen von R ohne Programmiervorkenntnisse im Selbststudium ermöglichen. Nach Durcharbeiten dieses Buches können sämtliche Problemstellungen der Datenanalyse gelöst werden, einschließlich
 
 - Datensätze einlesen und bereinigen,
-- komplexe Abbildungen visualisieren,
+- komplexe Abbildungen erstellen,
 - deskriptive und induktive Statistik anwenden und
 - Ergebnisse in Word, als PDF oder als Website exportieren.
 

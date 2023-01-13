@@ -23,7 +23,7 @@
 <meta name="author" content="Jan Philipp Nolte" />
 
 
-<meta name="date" content="2023-01-04" />
+<meta name="date" content="2023-01-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -156,7 +156,10 @@ div.csl-indent {
 <li><strong><a href="https://r-empirische-wissenschaften.de"> R für empirische Wissenschaften</a></strong></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Vorwort</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Vorwort</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#lizenz"><i class="fa fa-check"></i>Lizenz</a></li>
+</ul></li>
 <li class="part"><span><b>I Die ersten Schritte</b></span></li>
 <li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Einleitung</a>
 <ul>
@@ -272,7 +275,10 @@ div.csl-indent {
 <li class="chapter" data-level="8.13.1" data-path="visual.html"><a href="visual.html#kaplan"><i class="fa fa-check"></i><b>8.13.1</b> Kaplan-Meier-Kurve</a></li>
 <li class="chapter" data-level="8.13.2" data-path="visual.html"><a href="visual.html#residuen-überprüfen"><i class="fa fa-check"></i><b>8.13.2</b> Residuen überprüfen</a></li>
 <li class="chapter" data-level="8.13.3" data-path="visual.html"><a href="visual.html#ridgeline-plot"><i class="fa fa-check"></i><b>8.13.3</b> Ridgeline Plot</a></li>
+<li class="chapter" data-level="8.13.4" data-path="visual.html"><a href="visual.html#hervorheben-bestimmter-werte"><i class="fa fa-check"></i><b>8.13.4</b> Hervorheben bestimmter Werte</a></li>
+<li class="chapter" data-level="8.13.5" data-path="visual.html"><a href="visual.html#dags"><i class="fa fa-check"></i><b>8.13.5</b> Directed Acyclic Graphs</a></li>
 </ul></li>
+<li class="chapter" data-level="8.14" data-path="visual.html"><a href="visual.html#example"><i class="fa fa-check"></i><b>8.14</b> Anwendungsbeispiel</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="inductive.html"><a href="inductive.html"><i class="fa fa-check"></i><b>9</b> Inferenzstatistik</a>
 <ul>
@@ -319,7 +325,7 @@ div.csl-indent {
 <li class="part"><span><b>IV Vertiefung</b></span></li>
 <li class="chapter" data-level="10" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html"><i class="fa fa-check"></i><b>10</b> Ergebnisse exportieren</a>
 <ul>
-<li class="chapter" data-level="10.1" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#einführung-2"><i class="fa fa-check"></i><b>10.1</b> Einführung</a></li>
+<li class="chapter" data-level="10.1" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#intromarkdown"><i class="fa fa-check"></i><b>10.1</b> Begriffe</a></li>
 <li class="chapter" data-level="10.2" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#markdown"><i class="fa fa-check"></i><b>10.2</b> Berichte</a></li>
 <li class="chapter" data-level="10.3" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#tabellen"><i class="fa fa-check"></i><b>10.3</b> Tabellen</a>
 <ul>
@@ -437,7 +443,7 @@ div.csl-indent {
 <div class="idea">
 <p>Grundsätzlich kann jede Funktion <code>summarise()</code> übergeben werden, die einen <strong>einzelnen</strong> Wert berechnet. Somit unterscheidet sich die Anwendung maßgeblich vom bereits kennengelernten <code>mutate()</code>. Dort musste die Ausgabe immer eine Reihe von Werten umfassen, die der Anzahl der Zeilen im Datensatz entspricht.</p>
 </div>
-<p>Auch hier können wir mehrere Spalten gleichzeitig mithilfe von <code>across()</code> auswerten (siehe Kapitel <a href="datenvorbereitung.html#across">6.4.2</a>). Die Syntax ändert sich in dem Fall im Vergleich zu vorher. Hier müssen wir die verschiedenen Funktionen mit entsprechendem Namen innerhalb einer Liste übergeben. Listen als solche werden erst später eingeführt und müssen uns an dieser Stelle nicht weiter interessieren (siehe Kapitel (lists)).</p>
+<p>Auch hier können wir mehrere Spalten gleichzeitig mithilfe von <code>across()</code> auswerten (siehe Kapitel <a href="datenvorbereitung.html#across">6.4.2</a>). Die Syntax ändert sich in dem Fall im Vergleich zu vorher. Hier müssen wir die verschiedenen Funktionen mit entsprechendem Namen innerhalb einer Liste übergeben. Listen als solche werden erst später eingeführt und müssen uns an dieser Stelle nicht weiter interessieren (siehe Kapitel <a href="datatypes.html#lists">11.4</a>).</p>
 <div class="sourceCode" id="cb256"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb256-1"><a href="descr.html#cb256-1" aria-hidden="true" tabindex="-1"></a>big5_mod <span class="sc">|&gt;</span> </span>
 <span id="cb256-2"><a href="descr.html#cb256-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">across</span>(</span>
 <span id="cb256-3"><a href="descr.html#cb256-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">.cols =</span> Extraversion<span class="sc">:</span>Neurotizismus, </span>

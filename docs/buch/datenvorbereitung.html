@@ -23,7 +23,7 @@
 <meta name="author" content="Jan Philipp Nolte" />
 
 
-<meta name="date" content="2023-01-04" />
+<meta name="date" content="2023-01-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -156,7 +156,10 @@ div.csl-indent {
 <li><strong><a href="https://r-empirische-wissenschaften.de"> R für empirische Wissenschaften</a></strong></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Vorwort</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Vorwort</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#lizenz"><i class="fa fa-check"></i>Lizenz</a></li>
+</ul></li>
 <li class="part"><span><b>I Die ersten Schritte</b></span></li>
 <li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Einleitung</a>
 <ul>
@@ -272,7 +275,10 @@ div.csl-indent {
 <li class="chapter" data-level="8.13.1" data-path="visual.html"><a href="visual.html#kaplan"><i class="fa fa-check"></i><b>8.13.1</b> Kaplan-Meier-Kurve</a></li>
 <li class="chapter" data-level="8.13.2" data-path="visual.html"><a href="visual.html#residuen-überprüfen"><i class="fa fa-check"></i><b>8.13.2</b> Residuen überprüfen</a></li>
 <li class="chapter" data-level="8.13.3" data-path="visual.html"><a href="visual.html#ridgeline-plot"><i class="fa fa-check"></i><b>8.13.3</b> Ridgeline Plot</a></li>
+<li class="chapter" data-level="8.13.4" data-path="visual.html"><a href="visual.html#hervorheben-bestimmter-werte"><i class="fa fa-check"></i><b>8.13.4</b> Hervorheben bestimmter Werte</a></li>
+<li class="chapter" data-level="8.13.5" data-path="visual.html"><a href="visual.html#dags"><i class="fa fa-check"></i><b>8.13.5</b> Directed Acyclic Graphs</a></li>
 </ul></li>
+<li class="chapter" data-level="8.14" data-path="visual.html"><a href="visual.html#example"><i class="fa fa-check"></i><b>8.14</b> Anwendungsbeispiel</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="inductive.html"><a href="inductive.html"><i class="fa fa-check"></i><b>9</b> Inferenzstatistik</a>
 <ul>
@@ -319,7 +325,7 @@ div.csl-indent {
 <li class="part"><span><b>IV Vertiefung</b></span></li>
 <li class="chapter" data-level="10" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html"><i class="fa fa-check"></i><b>10</b> Ergebnisse exportieren</a>
 <ul>
-<li class="chapter" data-level="10.1" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#einführung-2"><i class="fa fa-check"></i><b>10.1</b> Einführung</a></li>
+<li class="chapter" data-level="10.1" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#intromarkdown"><i class="fa fa-check"></i><b>10.1</b> Begriffe</a></li>
 <li class="chapter" data-level="10.2" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#markdown"><i class="fa fa-check"></i><b>10.2</b> Berichte</a></li>
 <li class="chapter" data-level="10.3" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#tabellen"><i class="fa fa-check"></i><b>10.3</b> Tabellen</a>
 <ul>
@@ -396,7 +402,7 @@ div.csl-indent {
 <li><code>stringr:</code> Veränderung von Buchstaben und Wörtern (siehe Kapitel <a href="datenvorbereitung.html#datastring">6.9</a>).</li>
 <li><code>forcats:</code> Manipulation von Faktoren (siehe Kapitel <a href="datenvorbereitung.html#datafactor">6.10</a>).</li>
 </ul>
-<p>Nicht mit dem <code>tidyverse</code> geladen, aber dennoch gut kombinierbar sind außerdem</p>
+<p>Nicht mit dem <code>tidyverse</code> geladen, aber dennoch gut kombinierbar sind außerdem:</p>
 <ul>
 <li><code>lubridate:</code> Arbeiten mit Zeitdaten (siehe Kapitel <a href="datenvorbereitung.html#datazeit">6.11</a>).</li>
 <li><code>broom:</code> Formatierung statistischer Ergebnisse (siehe Kapitel <a href="inductive.html#broom">9.8</a>).</li>
@@ -790,7 +796,7 @@ div.csl-indent {
 <div class="sourceCode" id="cb151"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb151-1"><a href="datenvorbereitung.html#cb151-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colSums</span>(<span class="fu">is.na</span>(df))</span></code></pre></div>
 <pre class="bordercode"><code>       Alter   Geschlecht Extraversion 
            1            2            0 </code></pre>
-<p>Hier sehen wir richtiger Weise, dass ein Wert in der Altersspalte und zwei Werte in der Geschlechtsspalte fehlen. Möchten wir sehen, auf welche Beobachtungen das genau zutrifft, können wir das in Kapitel @(filter) kennengelernte <code>filter()</code> verwenden. Zum Beispiel könnte man so sehen, wer keine Geschlechtsangabe gemacht hat.</p>
+<p>Hier sehen wir richtiger Weise, dass ein Wert in der Altersspalte und zwei Werte in der Geschlechtsspalte fehlen. Möchten wir sehen, auf welche Beobachtungen das genau zutrifft, können wir das in Kapitel <a href="datenvorbereitung.html#filter">6.3</a> kennengelernte <code>filter()</code> verwenden. Zum Beispiel könnte man so sehen, wer keine Geschlechtsangabe gemacht hat.</p>
 <div class="sourceCode" id="cb153"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb153-1"><a href="datenvorbereitung.html#cb153-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">|&gt;</span> </span>
 <span id="cb153-2"><a href="datenvorbereitung.html#cb153-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">is.na</span>(Geschlecht))</span></code></pre></div>
 <pre class="bordercode"><code># A tibble: 2 × 3

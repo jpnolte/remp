@@ -25,7 +25,7 @@ fig:threebox
 fig:fourbox
 fig:adaptplot
 fig:colors
-fig:unnamed-chunk-230
+fig:unnamed-chunk-241
 fig:themes
 fig:legend
 fig:patcha
@@ -37,11 +37,13 @@ fig:high
 fig:dag
 fig:eyeplot
 fig:modeling
-fig:unnamed-chunk-338
-fig:unnamed-chunk-339
+fig:unnamed-chunk-350
+fig:unnamed-chunk-351
 fig:html-markdown
-fig:unnamed-chunk-340
-fig:unnamed-chunk-342
+fig:unnamed-chunk-352
+fig:unnamed-chunk-354
+tab:unnamed-chunk-401
+tab:unnamed-chunk-402
 intro
 für-wen-ist-dieses-buch
 aufbau-und-bearbeitungsstrategie
@@ -102,6 +104,7 @@ binäre-antwortmatrix-erstellen
 descr
 lagestreu
 contigency
+zusammenhangsmaße
 visual
 einführung
 histogram
@@ -137,9 +140,10 @@ aov
 repeated
 kruskal-wallis-test
 friedman-test
-korrelationskoeffizienten
 korrelationstests
-korrelationstabellen
+produkt-moment-korrelation-nach-pearson
+rangkorrelation-nach-spearman
+kendall-tau-korrelation
 regressionsmodelle
 linregression
 logistische-regression

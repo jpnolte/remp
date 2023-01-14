@@ -23,7 +23,7 @@
 <meta name="author" content="Jan Philipp Nolte" />
 
 
-<meta name="date" content="2023-01-13" />
+<meta name="date" content="2023-01-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -246,6 +246,7 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="7.1" data-path="descr.html"><a href="descr.html#lagestreu"><i class="fa fa-check"></i><b>7.1</b> Lagemaße und Streuungsmaße</a></li>
 <li class="chapter" data-level="7.2" data-path="descr.html"><a href="descr.html#contigency"><i class="fa fa-check"></i><b>7.2</b> Häufigkeiten und Kontingenztafeln</a></li>
+<li class="chapter" data-level="7.3" data-path="descr.html"><a href="descr.html#zusammenhangsmaße"><i class="fa fa-check"></i><b>7.3</b> Zusammenhangsmaße</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="visual.html"><a href="visual.html"><i class="fa fa-check"></i><b>8</b> Visualisierungen</a>
 <ul>
@@ -295,10 +296,11 @@ div.csl-indent {
 <li class="chapter" data-level="9.3.3" data-path="inductive.html"><a href="inductive.html#kruskal-wallis-test"><i class="fa fa-check"></i><b>9.3.3</b> Kruskal-Wallis Test</a></li>
 <li class="chapter" data-level="9.3.4" data-path="inductive.html"><a href="inductive.html#friedman-test"><i class="fa fa-check"></i><b>9.3.4</b> Friedman Test</a></li>
 </ul></li>
-<li class="chapter" data-level="9.4" data-path="inductive.html"><a href="inductive.html#korrelationskoeffizienten"><i class="fa fa-check"></i><b>9.4</b> Korrelationskoeffizienten</a>
+<li class="chapter" data-level="9.4" data-path="inductive.html"><a href="inductive.html#korrelationstests"><i class="fa fa-check"></i><b>9.4</b> Korrelationstests</a>
 <ul>
-<li class="chapter" data-level="9.4.1" data-path="inductive.html"><a href="inductive.html#korrelationstests"><i class="fa fa-check"></i><b>9.4.1</b> Korrelationstests</a></li>
-<li class="chapter" data-level="9.4.2" data-path="inductive.html"><a href="inductive.html#korrelationstabellen"><i class="fa fa-check"></i><b>9.4.2</b> Korrelationstabellen</a></li>
+<li class="chapter" data-level="9.4.1" data-path="inductive.html"><a href="inductive.html#produkt-moment-korrelation-nach-pearson"><i class="fa fa-check"></i><b>9.4.1</b> Produkt-Moment Korrelation nach Pearson</a></li>
+<li class="chapter" data-level="9.4.2" data-path="inductive.html"><a href="inductive.html#rangkorrelation-nach-spearman"><i class="fa fa-check"></i><b>9.4.2</b> Rangkorrelation nach Spearman</a></li>
+<li class="chapter" data-level="9.4.3" data-path="inductive.html"><a href="inductive.html#kendall-tau-korrelation"><i class="fa fa-check"></i><b>9.4.3</b> Kendall-Tau Korrelation</a></li>
 </ul></li>
 <li class="chapter" data-level="9.5" data-path="inductive.html"><a href="inductive.html#regressionsmodelle"><i class="fa fa-check"></i><b>9.5</b> Regressionsmodelle</a>
 <ul>
@@ -413,6 +415,7 @@ Xie, Y. 2015. <em>Dynamic Documents with <span>R</span> and Knitr</em>. 2nd ed. 
 <h2>Verwendete Softwareversionen<a href="appendix.html#verwendete-softwareversionen" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Zur Erstellung dieses Buches wurden R 4.2.2 und RStudio 2022.7.1.554 verwendet. Die geladenen Packages sind wie folgt:</p>
 <table>
+<caption><span id="tab:unnamed-chunk-401">Tabelle 12.1: </span>Packageliste Teil 1.</caption>
 <thead>
 <tr class="header">
 <th align="left">Package</th>
@@ -421,125 +424,108 @@ Xie, Y. 2015. <em>Dynamic Documents with <span>R</span> and Knitr</em>. 2nd ed. 
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">forcats</td>
-<td align="left">0, 5, 2</td>
-</tr>
-<tr class="even">
-<td align="left">stringr</td>
-<td align="left">1, 4, 0</td>
-</tr>
-<tr class="odd">
-<td align="left">dplyr</td>
-<td align="left">1, 0, 10</td>
-</tr>
-<tr class="even">
-<td align="left">purrr</td>
-<td align="left">0, 3, 4</td>
-</tr>
-<tr class="odd">
-<td align="left">readr</td>
-<td align="left">2, 1, 3</td>
-</tr>
-<tr class="even">
-<td align="left">tidyr</td>
-<td align="left">1, 2, 1</td>
-</tr>
-<tr class="odd">
-<td align="left">tibble</td>
-<td align="left">3, 1, 8</td>
-</tr>
-<tr class="even">
-<td align="left">tidyverse</td>
-<td align="left">1, 3, 2</td>
-</tr>
-<tr class="odd">
-<td align="left">remp</td>
-<td align="left">0, 1, 1</td>
-</tr>
-<tr class="even">
 <td align="left">RColorBrewer</td>
 <td align="left">1, 1, 3</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">scales</td>
 <td align="left">1, 2, 1</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">emmeans</td>
 <td align="left">1, 8, 3</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">VGAM</td>
 <td align="left">1, 1, 7</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">splines</td>
 <td align="left">4, 2, 2</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">stats4</td>
 <td align="left">4, 2, 2</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">afex</td>
 <td align="left">1, 2, 0</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">lme4</td>
 <td align="left">1, 1, 31</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">Matrix</td>
 <td align="left">1, 5, 1</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">car</td>
 <td align="left">3, 1, 1</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">carData</td>
 <td align="left">3, 0, 5</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">moments</td>
 <td align="left">0, 14, 1</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">sloop</td>
 <td align="left">1, 0, 1</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">here</td>
 <td align="left">1, 0, 1</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">patchwork</td>
 <td align="left">1, 1, 2</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">xtable</td>
 <td align="left">1, 8, 4</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">broom</td>
 <td align="left">1, 0, 1</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">lubridate</td>
 <td align="left">1, 9, 0</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">timechange</td>
 <td align="left">0, 1, 1</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">knitr</td>
 <td align="left">1, 41</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">rio</td>
 <td align="left">0, 5, 29</td>
 </tr>
+<tr class="even">
+<td align="left">ggdag</td>
+<td align="left">0, 2, 7</td>
+</tr>
+<tr class="odd">
+<td align="left">dagitty</td>
+<td align="left">0, 3, 1</td>
+</tr>
+</tbody>
+</table>
+<table>
+<caption><span id="tab:unnamed-chunk-402">Tabelle 12.2: </span>Packageliste Teil 2.</caption>
+<thead>
+<tr class="header">
+<th align="left">Package</th>
+<th align="left">Version</th>
+</tr>
+</thead>
+<tbody>
 <tr class="odd">
 <td align="left">gghighlight</td>
 <td align="left">0, 4, 0</td>
@@ -561,46 +547,74 @@ Xie, Y. 2015. <em>Dynamic Documents with <span>R</span> and Knitr</em>. 2nd ed. 
 <td align="left">0, 5, 0</td>
 </tr>
 <tr class="even">
-<td align="left">ggplot2</td>
-<td align="left">3, 4, 0</td>
-</tr>
-<tr class="odd">
 <td align="left">survival</td>
 <td align="left">3, 4, 0</td>
 </tr>
+<tr class="odd">
+<td align="left">remp</td>
+<td align="left">0, 1, 1</td>
+</tr>
 <tr class="even">
-<td align="left">ggdag</td>
-<td align="left">0, 2, 7</td>
+<td align="left">forcats</td>
+<td align="left">0, 5, 2</td>
 </tr>
 <tr class="odd">
-<td align="left">dagitty</td>
-<td align="left">0, 3, 1</td>
+<td align="left">stringr</td>
+<td align="left">1, 4, 0</td>
 </tr>
 <tr class="even">
+<td align="left">dplyr</td>
+<td align="left">1, 0, 10</td>
+</tr>
+<tr class="odd">
+<td align="left">purrr</td>
+<td align="left">0, 3, 4</td>
+</tr>
+<tr class="even">
+<td align="left">readr</td>
+<td align="left">2, 1, 3</td>
+</tr>
+<tr class="odd">
+<td align="left">tidyr</td>
+<td align="left">1, 2, 1</td>
+</tr>
+<tr class="even">
+<td align="left">tibble</td>
+<td align="left">3, 1, 8</td>
+</tr>
+<tr class="odd">
+<td align="left">ggplot2</td>
+<td align="left">3, 4, 0</td>
+</tr>
+<tr class="even">
+<td align="left">tidyverse</td>
+<td align="left">1, 3, 2</td>
+</tr>
+<tr class="odd">
 <td align="left">stats</td>
 <td align="left">4, 2, 2</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">graphics</td>
 <td align="left">4, 2, 2</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">grDevices</td>
 <td align="left">4, 2, 2</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">utils</td>
 <td align="left">4, 2, 2</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">datasets</td>
 <td align="left">4, 2, 2</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">methods</td>
 <td align="left">4, 2, 2</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">base</td>
 <td align="left">4, 2, 2</td>
 </tr>

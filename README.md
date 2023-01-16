@@ -49,7 +49,7 @@ Detaillierte Installationsanweisungen von R, RStudio und den notwendigen Package
       <input type="checkbox" checked>
       <i></i>
       <h2>Welche Zielgruppe hat dieses Buch?</h2>
-      <p>WissenschaftlerInnen und StudentInnen der Fachrichtungen Medizin, Psychologie, Wirtschaftswissenschaften (BWL und VWL), Sozialwissenschaften, Agrarwissenschaften, Neurowissenschaften, Biologie, Journalismus, Tourismus, Data Science, Biostatistik und allen weiteren Disziplinen, die Daten auswerten möchten.</p>
+      <p>WissenschaftlerInnen und StudentInnen der Fachrichtungen Medizin, Psychologie, Betriebswirtschaftslehre, Wirtschaftswissenschaften, soziale Arbeit, Pharmazie, Agrarwissenschaften, Neurowissenschaften, Biologie, Journalismus, Tourismus, Data Science, Biostatistik und allen weiteren Disziplinen, die Daten auswerten möchten.</p>
     </li>
      <li>
       <input type="checkbox" checked>

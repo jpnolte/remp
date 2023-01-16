@@ -64,7 +64,6 @@ help
 der-unterschied
 hilfe
 fehler-beheben
-historische-relikte
 project
 die-probleme-der-pfade
 projekte-in-rstudio-erstellen

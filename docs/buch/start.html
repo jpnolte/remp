@@ -23,7 +23,7 @@
 <meta name="author" content="Jan Philipp Nolte" />
 
 
-<meta name="date" content="2023-01-14" />
+<meta name="date" content="2023-01-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -190,14 +190,13 @@ div.csl-indent {
 <li class="chapter" data-level="2.6.2" data-path="start.html"><a href="start.html#hilfe"><i class="fa fa-check"></i><b>2.6.2</b> Wo bekomme ich Hilfe?</a></li>
 <li class="chapter" data-level="2.6.3" data-path="start.html"><a href="start.html#fehler-beheben"><i class="fa fa-check"></i><b>2.6.3</b> Fehler beheben</a></li>
 </ul></li>
-<li class="chapter" data-level="2.7" data-path="start.html"><a href="start.html#historische-relikte"><i class="fa fa-check"></i><b>2.7</b> Historische Relikte</a></li>
 </ul></li>
 <li class="part"><span><b>II Vorbereitung</b></span></li>
 <li class="chapter" data-level="3" data-path="project.html"><a href="project.html"><i class="fa fa-check"></i><b>3</b> R Projekte</a>
 <ul>
 <li class="chapter" data-level="3.1" data-path="project.html"><a href="project.html#die-probleme-der-pfade"><i class="fa fa-check"></i><b>3.1</b> Die Probleme der Pfade</a></li>
 <li class="chapter" data-level="3.2" data-path="project.html"><a href="project.html#projekte-in-rstudio-erstellen"><i class="fa fa-check"></i><b>3.2</b> Projekte in RStudio erstellen</a></li>
-<li class="chapter" data-level="3.3" data-path="project.html"><a href="project.html#here"><i class="fa fa-check"></i><b>3.3</b> Das <code>here</code> Package</a></li>
+<li class="chapter" data-level="3.3" data-path="project.html"><a href="project.html#here"><i class="fa fa-check"></i><b>3.3</b> Der Pfad zum Datensatz</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="vars.html"><a href="vars.html"><i class="fa fa-check"></i><b>4</b> Wichtiges Grundlagenwissen</a>
 <ul>
@@ -652,19 +651,8 @@ Abbildung 2.4: Vergleich vom (a) Installieren und (b) vom Laden von Packages.
 <li>Character Spalten sind fälschlicher Weise als Faktoren dargestellt</li>
 </ul>
 <p>Das Kapitel soll nicht etwa dazu dienen, dich vor dem Fragenstellen abzuschrecken. Stattdessen soll es dafür sorgen, dir eine möglichst positive Erfahrung beim Fragenstellen zu bereiten. Auch wirst du merken, wie schnell du lernst, die Probleme selbst zu lösen. Auch wenn dies manchmal erst kurz vor dem Fragen beim Vorbereiten des reproduzierbaren Beispiels der Fall ist.</p>
-</div>
-</div>
-<div id="historische-relikte" class="section level2 hasAnchor" number="2.7">
-<h2><span class="header-section-number">2.7</span> Historische Relikte<a href="start.html#historische-relikte" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Dieses Kapitel richtet sich vor allem an diejenigen, die bereits vor diesem Buch Kontakt mit R gehabt haben. Da R seit über 25 Jahren existiert, gibt es dementsprechend auch in die Jahre gekommene Mittel und Wege, die mehr Probleme bereiten, als sie lösen. Keine der hier vorgestellten Funktionen solltest du jemals benutzen müssen:</p>
-<ul>
-<li>Die Funktionen <code>attach()</code> und <code>detach()</code> werden benutzt, um einen Datensatz unsichtbar in die Umgebung zu laden. Die in diesem Buch besprochenen Funktionen sind allerdings alle auf die Arbeit direkt am Datensatz ausgelegt.</li>
-<li><code>gc()</code> steht für <strong>G</strong>arbage <strong>C</strong>ollection (engl. für Müllsammlung) und soll Speicherplatz nach vielen Berechnungen wieder freiräumen. Allerdings führt R diese Funktion im Hintergrund automatisch aus, weswegen dieser manuelle Funktionsaufruf redundant ist.</li>
-<li>Die Funktion <code>rm(list = ls())</code> verspricht eine <em>saubere</em> neue R Session zu kreieren, weswegen man diese häufig zu Beginn von R Skripten findet. Tatsächlich löscht dieser Befehl nicht alles, was zu schwierig identifizierbaren Fehlern führen kann. Spätestens seit es R Projekte gibt, ist dieser Befehl überflüssig.</li>
-<li><code>setwd()</code> teilt R mit, wo genau auf dem Computer sich der einzulesende Datensatz befindet. Auch das ist durch R Projekte und das <code>here</code> Package überflüssig geworden (siehe Kapitel <a href="project.html#here">3.3</a>).</li>
-</ul>
-<p>Darüber hinaus solltest du es auch in Teil I bis III dieses Buches (bis auf wenige Ausnahmen) dringend vermeiden, einzelne Spalten des Datensatzes separat abzuspeichern. Sämtliche vorgestellte Funktionen arbeiten am besten direkt am Datensatz. Wenn du irgendwann im Rahmen des vierten Teils dieses Buches ein tieferes Verständnis von R gesammelt hast, kannst du dich gerne darin versuchen. Die oben genannten Funktionen solltest du hingegen auch dann auf keinen Fall verwenden.</p>
 
+</div>
 </div>
 </div>
 

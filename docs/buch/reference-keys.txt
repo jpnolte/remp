@@ -7,7 +7,7 @@ fig:unnamed-chunk-23
 fig:unnamed-chunk-24
 fig:unnamed-chunk-25
 fig:types
-fig:unnamed-chunk-64
+fig:unnamed-chunk-65
 fig:wideintro
 fig:longintro
 fig:ggplot
@@ -25,7 +25,7 @@ fig:threebox
 fig:fourbox
 fig:adaptplot
 fig:colors
-fig:unnamed-chunk-241
+fig:unnamed-chunk-244
 fig:themes
 fig:legend
 fig:patcha
@@ -37,13 +37,13 @@ fig:high
 fig:dag
 fig:eyeplot
 fig:modeling
-fig:unnamed-chunk-350
-fig:unnamed-chunk-351
-fig:html-markdown
-fig:unnamed-chunk-352
+fig:unnamed-chunk-353
 fig:unnamed-chunk-354
-tab:unnamed-chunk-401
-tab:unnamed-chunk-402
+fig:html-markdown
+fig:unnamed-chunk-355
+fig:unnamed-chunk-357
+tab:unnamed-chunk-404
+tab:unnamed-chunk-405
 intro
 für-wen-ist-dieses-buch
 aufbau-und-bearbeitungsstrategie

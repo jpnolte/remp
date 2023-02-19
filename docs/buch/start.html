@@ -23,7 +23,7 @@
 <meta name="author" content="Jan Philipp Nolte" />
 
 
-<meta name="date" content="2023-02-12" />
+<meta name="date" content="2023-02-19" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -200,7 +200,7 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="4" data-path="vars.html"><a href="vars.html"><i class="fa fa-check"></i><b>4</b> Wichtiges Grundlagenwissen</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="vars.html"><a href="vars.html#schritt-für-schritt-beginnen"><i class="fa fa-check"></i><b>4.1</b> Schritt für Schritt beginnen</a></li>
+<li class="chapter" data-level="4.1" data-path="vars.html"><a href="vars.html#begin"><i class="fa fa-check"></i><b>4.1</b> Schritt für Schritt beginnen</a></li>
 <li class="chapter" data-level="4.2" data-path="vars.html"><a href="vars.html#pfeil"><i class="fa fa-check"></i><b>4.2</b> Variablen speichern und verwenden</a></li>
 <li class="chapter" data-level="4.3" data-path="vars.html"><a href="vars.html#datentypen"><i class="fa fa-check"></i><b>4.3</b> Datentypen</a>
 <ul>
@@ -234,7 +234,7 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="6.5" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#umgang-mit-fehlenden-werten-und-duplikaten"><i class="fa fa-check"></i><b>6.5</b> Umgang mit fehlenden Werten und Duplikaten</a></li>
 <li class="chapter" data-level="6.6" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#tidy"><i class="fa fa-check"></i><b>6.6</b> Breites und langes Datenformat</a></li>
-<li class="chapter" data-level="6.7" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#spalten-trennen"><i class="fa fa-check"></i><b>6.7</b> Spalten trennen</a></li>
+<li class="chapter" data-level="6.7" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#separate"><i class="fa fa-check"></i><b>6.7</b> Spalten trennen</a></li>
 <li class="chapter" data-level="6.8" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#datensätze-zusammenführen"><i class="fa fa-check"></i><b>6.8</b> Datensätze zusammenführen</a></li>
 <li class="chapter" data-level="6.9" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#datastring"><i class="fa fa-check"></i><b>6.9</b> Buchstaben und Wörter bearbeiten</a></li>
 <li class="chapter" data-level="6.10" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#datafactor"><i class="fa fa-check"></i><b>6.10</b> Faktoren verändern</a></li>
@@ -390,7 +390,7 @@ div.csl-indent {
 Abbildung 2.1: Illustration des Unterschieds zwischen R und RStudio.
 </p>
 </div>
-<p>Die Programmierumgebung RStudio macht aus diesem minimalistischen Stahlgerüst mit dem Motor R eine komfortable Luxuslimousine mit Navigationssystem und Sitzheizung. Man kann R folglich auch ohne RStudio benutzen, aber RStudio nicht ohne R. Sonderlich viel Spaß bereitet das allerdings nicht. RStudio bietet eine Vielzahl von großartigen und praktischen Features, weshalb wir im Laufe des Buches nur innerhalb von RStudio arbeiten werden. Es wird aber trotzdem häufig von R die Rede sein, da RStudio lediglich die verwendete Programmierumgebung ist. In den folgenden Kapiteln wird Schritt für Schritt erklärt, wie du R und RStudio auf den gängigsten Betriebssystemen installierst und wichtige Anpassungen innerhalb von RStudio vornimmst. Auch wenn sich RStudio bereits auf deinem Computer oder Laptop befindet, solltest du Kapitel <a href="start.html#anpassung">2.3</a> unbedingt lesen.</p>
+<p>Die Programmierumgebung RStudio macht aus dem minimalistischen Stahlgerüst mit dem Motor R eine komfortable Luxuslimousine mit Navigationssystem und Sitzheizung. Man kann R folglich auch ohne RStudio benutzen, aber RStudio nicht ohne R. Sonderlich viel Spaß bereitet das allerdings nicht. RStudio bietet eine Vielzahl von großartigen und praktischen Features, weshalb wir im Laufe des Buches nur innerhalb von RStudio arbeiten werden. Es wird aber trotzdem häufig von R die Rede sein, da RStudio lediglich die verwendete Programmierumgebung ist. In den folgenden Kapiteln wird Schritt für Schritt erklärt, wie du R und RStudio auf den gängigsten Betriebssystemen installierst und wichtige Anpassungen innerhalb von RStudio vornimmst. Auch wenn sich RStudio bereits auf deinem Computer oder Laptop befindet, solltest du Kapitel <a href="start.html#anpassung">2.3</a> unbedingt lesen.</p>
 <div id="installr" class="section level3 hasAnchor" number="2.1.1">
 <h3><span class="header-section-number">2.1.1</span> Programmiersprache R<a href="start.html#installr" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Zum Bearbeiten der Übungen dieses Buches benötigst du die R Version <code>4.1.0</code> oder neuer. Falls beim späteren Installieren der Packages (siehe Kapitel <a href="start.html#packages">2.5</a>) ein Fehler auftritt, liegt das aller Wahrscheinlichkeit an einer zu alten R Version. Am besten installierst du R, genau wie es hier beschrieben wird, neu. Bei der Installation gibt es Unterschiede zwischen den verschiedenen Betriebssystemen Windows, macOS (Apple) und Ubuntu (Linux). In der späteren Benutzung gibt es hingegen keine Unterschiede. Du musst dir also nur den jeweiligen Abschnitt für dein Betriebssystem anschauen. Nach der Installation musst du mit R nichts weiter machen und kannst sofort zum Herunterladen von RStudio hinübergehen.</p>
@@ -530,7 +530,7 @@ Abbildung 2.3: Aufbau von R Studio mit Skript (oben links), Konsole (unten links
 <p>Auf diese Art und Weise können beliebig viele Argumente der Funktion übergeben werden. So könnte man bei einem vorliegendem fehlenden Wert (definiert als <code>NA</code>) diesen bei Zusammenzählen der Werte ignorieren und erhält nach wie vor ein Ergebnis. Das Argument zum Entfernen fehlender Werte heißt dabei <code>na.rm</code>.</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb9-1"><a href="start.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">7</span>, <span class="cn">NA</span>, <span class="dv">2</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre class="bordercode"><code>[1] 16</code></pre>
-<p>Solange die Reihenfolge der Argumente, wie in der Funktion vorgeschrieben ist, können wir den Namen des Argument weglassen. Davon werden wir im Verlauf des Buches immer wieder Gebrauch machen. In diesem Beispiel hingegen müssen wir <code>na.rm</code> explizit nennen, um den fehlenden Wert entfernen zu können. Die Entwickler der jeweiligen Funktionen definieren immer das Standardverhalten, falls keine weiteren Argumente genannt werden. Bei der Funktion <code>sum()</code> werden fehlende Werte bspw. standardmäßig nicht entfernt, weswegen wir dieses Verhalten mit <code>na.rm = TRUE</code> explizit hervorrufen müssen.</p>
+<p>Solange die Reihenfolge der Argumente, wie sie in der Funktion vorgeschrieben ist, eingehalten wird, können wir den Namen des Arguments weglassen. Davon werden wir im Verlauf des Buches immer wieder Gebrauch machen. In diesem Beispiel hingegen müssen wir <code>na.rm</code> explizit nennen, um den fehlenden Wert entfernen zu können. Die Entwickler der jeweiligen Funktionen definieren immer das Standardverhalten, falls keine weiteren Argumente genannt werden. Bei der Funktion <code>sum()</code> werden fehlende Werte bspw. standardmäßig nicht entfernt, weswegen wir dieses Verhalten mit <code>na.rm = TRUE</code> explizit hervorrufen müssen.</p>
 <div class="idea">
 <p>Der Funktionsname wird von einer öffnenden und einer schließenden runden Klammer gefolgt (z.B. <code>sum()</code> für die Summe, <code>mean()</code> für den Mittelwert oder <code>median()</code> für den Median). Verschiedene Argumente können innerhalb der runden Klammern, getrennt durch ein Komma, mit einem Gleichheitszeichen verändert werden.</p>
 </div>
@@ -541,7 +541,7 @@ Abbildung 2.3: Aufbau von R Studio mit Skript (oben links), Konsole (unten links
 <p>Die Packages werden unter anderem auf <a href="https://cran.r-project.org/web/packages/">CRAN</a>, <a href="https://github.com/">Github</a> oder <a href="https://www.bioconductor.org/">Bioconductor</a> geteilt, von wo sie heruntergeladen und in die eigene Analyse integriert werden können. Es gibt beispielsweise mittlerweile über 11000 Packages alleine auf CRAN.</p>
 <div id="installieren-und-laden" class="section level3 hasAnchor" number="2.5.1">
 <h3><span class="header-section-number">2.5.1</span> Installieren und laden<a href="start.html#installieren-und-laden" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Wir unterscheiden zwischen einer Funktion zum einmaligen Installieren und einer Funktion zum wiederholten Laden des Packages innerhalb von R. Abbildung <a href="start.html#fig:install">2.4</a> versucht, den Unterschied der beiden Funktionen zu verdeutlichen.</p>
+<p>Wir unterscheiden zwischen einer Funktion zum einmaligen Installieren und einer Funktion zum wiederholten Laden des Packages innerhalb von R. Abbildung <a href="start.html#fig:install">2.4</a> verdeutlicht den Unterschied der beiden Funktionen.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:install"></span>
 <img src="images/packages.png" alt="Vergleich vom (a) Installieren und (b) vom Laden von Packages." width="80%" />
 <p class="caption">

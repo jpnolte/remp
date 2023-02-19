@@ -23,7 +23,7 @@
 <meta name="author" content="Jan Philipp Nolte" />
 
 
-<meta name="date" content="2023-02-12" />
+<meta name="date" content="2023-02-19" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -200,7 +200,7 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="4" data-path="vars.html"><a href="vars.html"><i class="fa fa-check"></i><b>4</b> Wichtiges Grundlagenwissen</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="vars.html"><a href="vars.html#schritt-für-schritt-beginnen"><i class="fa fa-check"></i><b>4.1</b> Schritt für Schritt beginnen</a></li>
+<li class="chapter" data-level="4.1" data-path="vars.html"><a href="vars.html#begin"><i class="fa fa-check"></i><b>4.1</b> Schritt für Schritt beginnen</a></li>
 <li class="chapter" data-level="4.2" data-path="vars.html"><a href="vars.html#pfeil"><i class="fa fa-check"></i><b>4.2</b> Variablen speichern und verwenden</a></li>
 <li class="chapter" data-level="4.3" data-path="vars.html"><a href="vars.html#datentypen"><i class="fa fa-check"></i><b>4.3</b> Datentypen</a>
 <ul>
@@ -234,7 +234,7 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="6.5" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#umgang-mit-fehlenden-werten-und-duplikaten"><i class="fa fa-check"></i><b>6.5</b> Umgang mit fehlenden Werten und Duplikaten</a></li>
 <li class="chapter" data-level="6.6" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#tidy"><i class="fa fa-check"></i><b>6.6</b> Breites und langes Datenformat</a></li>
-<li class="chapter" data-level="6.7" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#spalten-trennen"><i class="fa fa-check"></i><b>6.7</b> Spalten trennen</a></li>
+<li class="chapter" data-level="6.7" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#separate"><i class="fa fa-check"></i><b>6.7</b> Spalten trennen</a></li>
 <li class="chapter" data-level="6.8" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#datensätze-zusammenführen"><i class="fa fa-check"></i><b>6.8</b> Datensätze zusammenführen</a></li>
 <li class="chapter" data-level="6.9" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#datastring"><i class="fa fa-check"></i><b>6.9</b> Buchstaben und Wörter bearbeiten</a></li>
 <li class="chapter" data-level="6.10" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#datafactor"><i class="fa fa-check"></i><b>6.10</b> Faktoren verändern</a></li>
@@ -428,7 +428,7 @@ div.csl-indent {
 <ul>
 <li>wähle die Spalten <code>Geschlecht</code> und <code>Extraversion</code> <code>UND DANN</code></li>
 <li>wähle die Zeilen, in denen Geschlecht gleich “m” (für männlich) ist <code>UND DANN</code></li>
-<li>mutiere oder verändere die (neue) Spalte <code>Extraversion_lg</code> durch die logarithmierten Werte der Extraversion.</li>
+<li>mutiere oder verändere die (neue) Spalte <code>Extraversion_lg</code>, wie in diesem Fall beschrieben, durch die logarithmierten Werte der Extraversion.</li>
 </ul>
 <p>Die anderen Funktionen sind ähnlich intuitiv und nahe an der englischen Sprache benannt. Besonders ist an dieser Stelle die sogenannte Pipe (<code>|&gt;</code>), welche für das Weiterreichen des modifizierten Datensatzes an die nächste Funktion zuständig ist. Der Name des Datensatzes muss nicht in jeder Funktion stehen, da dieser immer das erste Argument der hier behandelten Funktionen darstellt. In dem obigen Beispiel werden zuerst zwei der Spalten ausgewählt. Dann wird das Ergebnis dieses Befehls – also der Datensatz mit den zwei Spalten <code>Geschlecht</code> und <code>Extraversion</code> – im nächsten Schritt der Funktion <code>filter()</code> übergeben.</p>
 <div class="idea">
@@ -476,8 +476,8 @@ div.csl-indent {
 <p>Eine weitere nützliche Helferfunktion ist <code>starts_with()</code>. So könnte man in diesem Fall beispielsweise alle Fragen zum Persönlichkeitsfaktor Offenheit auswählen, da diese alle mit dem Buchstaben <code>O</code> beginnen.</p>
 <div class="sourceCode" id="cb112"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb112-1"><a href="datenvorbereitung.html#cb112-1" aria-hidden="true" tabindex="-1"></a>big5 <span class="sc">|&gt;</span> </span>
 <span id="cb112-2"><a href="datenvorbereitung.html#cb112-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">starts_with</span>(<span class="st">&quot;O&quot;</span>))</span></code></pre></div>
-<p>Mit der Helferfunktion <code>ends_with()</code> können auf dieselbe Art und Weise Spalten ausgewählt werden, die mit einem bestimmten Character enden, während die Helferfunktion <code>contains()</code> prüft, ob ein Character im Spaltennamen enthalten ist. Darüber hinaus gibt es noch <code>all_of()</code>, um alle zuvor ausgewählten Variablen (Spaltennamen als Character) auszuwählen.</p>
-<p>Möchte man hingegen die Spalten nur umbenennen und dabei den gesamten Datensatz behalten, verwendet man anstelle von <code>select()</code> die Funktion <code>rename()</code>. Die Syntax des Umbenennens bleibt dabei gleich.</p>
+<p>Mit der Helferfunktion <code>ends_with()</code> können auf dieselbe Art und Weise Spalten ausgewählt werden, die mit einem bestimmten Character enden (z.B. eine Spalte endend mit dem Buchstaben <code>A</code>), während die Helferfunktion <code>contains()</code> prüft, ob ein Character im Spaltennamen enthalten ist . Darüber hinaus gibt es noch <code>all_of()</code>, um alle zuvor ausgewählten Variablen (Spaltennamen als Character) auszuwählen.</p>
+<p>Möchte man hingegen die Spalten nur umbenennen und dabei den gesamten Datensatz behalten, verwendet man anstelle von <code>select()</code> die Funktion <code>rename()</code>. Die Schreibweise der Argumente beim Umbenennen bleibt dabei im Vergleich zu <code>select()</code> gleich.</p>
 <div class="sourceCode" id="cb113"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb113-1"><a href="datenvorbereitung.html#cb113-1" aria-hidden="true" tabindex="-1"></a>big5 <span class="sc">|&gt;</span> </span>
 <span id="cb113-2"><a href="datenvorbereitung.html#cb113-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">Sex =</span> Geschlecht)</span></code></pre></div>
 <pre class="bordercode"><code># A tibble: 200 × 7
@@ -491,7 +491,7 @@ div.csl-indent {
 <div class="idea">
 <p>Während beide Funktionen Spalten umbenennen können, gibt <code>select()</code> nur die ausgewählten Spalten und <code>rename()</code> hingegen alle Spalten zurück.</p>
 </div>
-<p>Außerdem können Funktionen zur Umbenennung von Spalten verwendet werden. Dafür müssen wir <code>rename_with()</code> einfach nur die gewünschte Funktion (ohne Klammern) übergeben. In diesem Beispiel werden alle Buchstaben der Spaltennamen in Großbuchstaben umgewandelt.</p>
+<p>Außerdem können Funktionen zur Umbenennung von Spalten verwendet werden. Dafür müssen wir <code>rename_with()</code> einfach nur die gewünschte Funktion (ohne Klammern) übergeben. In diesem Beispiel werden alle Buchstaben der Spaltennamen in Großbuchstaben umgewandelt. Alternativ könnten auch neue anonyme Funktion direkt innerhalb von <code>rename_with()</code> erstellt werden (siehe Kapitel <a href="datenvorbereitung.html#function">6.4.4</a>).</p>
 <div class="sourceCode" id="cb115"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb115-1"><a href="datenvorbereitung.html#cb115-1" aria-hidden="true" tabindex="-1"></a>big5 <span class="sc">|&gt;</span> </span>
 <span id="cb115-2"><a href="datenvorbereitung.html#cb115-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename_with</span>(toupper)</span></code></pre></div>
 <pre class="bordercode"><code># A tibble: 200 × 7
@@ -611,7 +611,7 @@ div.csl-indent {
 3    23 m                   3.4           2.4     3     3     5            1.22           0.875
 4    54 m                   3.3           4.2     2     5     3            1.19           1.44 
 # … with 196 more rows, and abbreviated variable name ¹​Neurotizismus_lg</code></pre>
-<p>Das <code>.names</code> Argument verhindert das Überschreiben der Spalten. Innerhalb der geschweiften Klammern wird hier der Spaltenname für jede in <code>.cols</code> gewählten Spalte nacheinander übergeben und die Endung <code>_lg</code> angehängt. Würden wir den Namen der neu zu erstellenden Spalten nicht explizit mit <code>.names</code> definieren, würden die ursprünglichen Spalten <code>Extraversion</code> und <code>Neurotizismus</code> mit den logarithmierten Werten überschrieben werden. Die eigentlichen Werte wären also nach Abspeichern dieses Zwischenergebnisses nicht mehr im Datensatz enthalten, sondern nur noch die Spalten mit den logarithmierten Werten.</p>
+<p>Das <code>.names</code> Argument verhindert dabei das Überschreiben der Spalten. Innerhalb der geschweiften Klammern wird hier der Spaltenname für jede in <code>.cols</code> gewählten Spalte nacheinander übergeben und die Endung <code>_lg</code> angehängt. Würden wir den Namen der neu zu erstellenden Spalten nicht explizit mit <code>.names</code> definieren, würden die ursprünglichen Spalten <code>Extraversion</code> und <code>Neurotizismus</code> mit den logarithmierten Werten überschrieben werden. Die eigentlichen Werte wären also nach Abspeichern dieses Zwischenergebnisses nicht mehr im Datensatz enthalten, sondern nur noch die Spalten mit den logarithmierten Werten.</p>
 <div class="warning">
 <p>Die auf mehrere Spalten anzuwendende Funktion muss innerhalb von <code>across()</code> übergeben werden. Falls ein Fehler auftritt, ist dieser in der Regel auf falsche Positionierung der Klammern zurückzuführen.</p>
 </div>
@@ -752,7 +752,7 @@ div.csl-indent {
 3    23 m                  3.22          2.88     3     3     5
 4    54 m                  3.19          3.44     2     5     3
 # … with 196 more rows</code></pre>
-<p>Eine Kurzschreibweise zum Definieren eigener Funktionen, sind sogenannte Lambda Funktionen. Dies sind anonyme Funktionen, die keinen Funktionsnamen erhalten und daher auch nur einmalig bei Verwendung aufgerufen werden können. Dabei sind zwei Sachen hervorzuheben: Auf der einen Seite muss man immer einen führenden Backslash gefolgt von runden Klammern (<code>\()</code>) hinzufügen. Innerhalb der Klammern wird der Name des Arguments (hier innerhalb von <code>log()</code>) übergeben. Im vorherigen Beispiel haben wir die Werte mit <code>x</code> und die zu addierende Zahl mit <code>zahl</code> bezeichnet. Bei anonymen Funktionen können wir entweder ebenfalls <code>x</code> oder einen beliebigen anderen Namen (z.B. <code>wert</code>) verwenden. Die folgenden zwei Funktionsaufrufe sind äquivalent.</p>
+<p>Eine Kurzschreibweise zum Definieren eigener Funktionen sind sogenannte Lambda Funktionen. Dies sind anonyme Funktionen, die keinen Funktionsnamen erhalten und daher auch nur einmalig bei Verwendung aufgerufen werden können. Dabei sind zwei Sachen hervorzuheben: Auf der einen Seite muss man immer einen führenden Backslash gefolgt von runden Klammern (<code>\()</code>) hinzufügen. Innerhalb der Klammern wird der Name des Arguments (hier innerhalb von <code>log()</code>) übergeben. Im vorherigen Beispiel haben wir die Werte mit <code>x</code> und die zu addierende Zahl mit <code>zahl</code> bezeichnet. Bei anonymen Funktionen können wir entweder ebenfalls <code>x</code> oder einen beliebigen anderen Namen (z.B. <code>wert</code>) verwenden. Die folgenden zwei Funktionsaufrufe sind äquivalent.</p>
 <div class="sourceCode" id="cb152"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb152-1"><a href="datenvorbereitung.html#cb152-1" aria-hidden="true" tabindex="-1"></a>big5 <span class="sc">|&gt;</span> </span>
 <span id="cb152-2"><a href="datenvorbereitung.html#cb152-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(Extraversion<span class="sc">:</span>Neurotizismus, \(x) <span class="fu">log</span>(x) <span class="sc">+</span> <span class="dv">2</span>))</span>
 <span id="cb152-3"><a href="datenvorbereitung.html#cb152-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -811,7 +811,7 @@ div.csl-indent {
 </div>
 <div id="zeilenweise-berechnen" class="section level3 hasAnchor" number="6.4.5">
 <h3><span class="header-section-number">6.4.5</span> Zeilenweise berechnen<a href="datenvorbereitung.html#zeilenweise-berechnen" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Für Berechnungen <strong>pro Beobachtung</strong>, muss die Funktion <code>rowwise()</code> mit <code>c_across()</code> kombiniert werden. Durch die separate Berechnung für jede Zeile über mehrere Spalten, können bspw. Mittelwerte für jede Person in einem bestimmten Merkmal berechnet werden.</p>
+<p>Für Berechnungen <strong>pro Beobachtung</strong> muss die Funktion <code>rowwise()</code> mit <code>c_across()</code> kombiniert werden. Durch die separate Berechnung für jede Zeile über mehrere Spalten können bspw. Mittelwerte für jede Person in einem bestimmten Merkmal berechnet werden.</p>
 <p>Um das Konzept zu illustrieren, soll der Mittelwert pro Person für den Persönlichkeitsfaktor Offenheit berechnet werden. Dieser ergibt sich aus drei einzelnen Fragen zur Offenheit (<code>O1</code>, <code>O2</code>, <code>O3</code>). Zuerst müssen wir die Funktion <code>rowwise()</code> aufrufen, um R das zeilenweise Berechnen zu signalisieren. Innerhalb von <code>mutate()</code> müssen unsere drei Fragen zur Offenheit nun der Funktion <code>c_across()</code> übergeben werden. Beachte das Präfix <code>c_</code> an dieser Stelle. Nach der Berechnung muss die zeilenweise Betrachtung des Datensatzes noch mit <code>ungroup()</code> aufgehoben werden.</p>
 <p>Zur Kontrolle holen wir uns die neu erstellte Spalte namens Offenheit wieder an den Anfang des Datensatzes. Auf diesen Aufruf von <code>relocate()</code> kann natürlich beim Abspeichern verzichtet werden.</p>
 <div class="sourceCode" id="cb158"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb158-1"><a href="datenvorbereitung.html#cb158-1" aria-hidden="true" tabindex="-1"></a>big5 <span class="sc">|&gt;</span> </span>
@@ -1037,9 +1037,16 @@ Abbildung 6.2: Langes Datenformat mit Persönlichkeitsfaktor als Innersubjektfak
 <p>Das ist ein Platzhalter für eine Übung. Starte die Übung mit <code>hands_on("test")</code>.</p>
 </div>
 </div>
-<div id="spalten-trennen" class="section level2 hasAnchor" number="6.7">
-<h2><span class="header-section-number">6.7</span> Spalten trennen<a href="datenvorbereitung.html#spalten-trennen" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Mit der Funktion <code>separate()</code> aus dem <code>tidyr</code> Package können Spalten getrennt werden. Dies ist vor allem praktisch, wenn der Datensatz im langen Format vorliegt. Exemplarisch sei hier der im <code>remp</code> Package enthaltene Datensatz <code>big5_zeit</code> geladen.</p>
+<div id="separate" class="section level2 hasAnchor" number="6.7">
+<h2><span class="header-section-number">6.7</span> Spalten trennen<a href="datenvorbereitung.html#separate" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Mit den Funktionen namens <code>separate_wider_*()</code> aus dem <code>tidyr</code> Package können Spalten getrennt werden. Dabei unterscheiden wir drei Szenarien, für die jeweils eine eigene Funktion existiert. Die Informationen innerhalb einer Spalte sind getrennt durch</p>
+<ul>
+<li>eine Trenner (z.B. Unterstrich, Komma, Punkt): <code>separate_wider_delim()</code>,</li>
+<li>eine genaue Position: <code>separate_wider_position()</code>,</li>
+<li>einen Regex (siehe Kapitel <a href="datenvorbereitung.html#datastring">6.9</a>): <code>separate_wider_regex()</code>.</li>
+</ul>
+<p>Falls die Spalten anstelle des weiten Datenformates in ein langes gebracht werden sollen, existieren äquivalent dazu die Funktionen <code>separate_longer_delim()</code>, <code>separate_longer_position()</code> und <code>separate_longer_regex()</code>.</p>
+<p>Exemplarisch sei hier der im <code>remp</code> Package enthaltene Datensatz <code>big5_zeit</code> geladen.</p>
 <div class="sourceCode" id="cb193"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb193-1"><a href="datenvorbereitung.html#cb193-1" aria-hidden="true" tabindex="-1"></a>big5_zeit</span></code></pre></div>
 <pre class="bordercode"><code># A tibble: 5 × 5
     VPN Extrav_T1 Extrav_T2 NeurotFA NeurotFB
@@ -1049,7 +1056,7 @@ Abbildung 6.2: Langes Datenformat mit Persönlichkeitsfaktor als Innersubjektfak
 3     3       2.8       2.7      3.2      2.8
 4     4       4.7       4.2      1.7      2.4
 # … with 1 more row</code></pre>
-<p>Um das hier bestehende Problem klarer zu machen, wandeln wir diesen erst einmal in ein langes Datenformat um.</p>
+<p>Um das hier bestehende Problem klarer zu machen, wandeln wir diesen erst einmal in ein langes Datenformat um (siehe Kapitel <a href="datenvorbereitung.html#tidy">6.6</a>).</p>
 <div class="sourceCode" id="cb195"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb195-1"><a href="datenvorbereitung.html#cb195-1" aria-hidden="true" tabindex="-1"></a>zeit1 <span class="ot">&lt;-</span> big5_zeit <span class="sc">|&gt;</span> </span>
 <span id="cb195-2"><a href="datenvorbereitung.html#cb195-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>NeurotFA, <span class="sc">-</span>NeurotFB) <span class="sc">|&gt;</span> </span>
 <span id="cb195-3"><a href="datenvorbereitung.html#cb195-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
@@ -1066,12 +1073,12 @@ Abbildung 6.2: Langes Datenformat mit Persönlichkeitsfaktor als Innersubjektfak
 3     2 Extrav_T1         1.7
 4     2 Extrav_T2         1.5
 # … with 6 more rows</code></pre>
-<p>Die Spalte <code>Faktor</code> enthält zwei Informationen. Den Persönlichkeitsfaktor (<code>Extrav</code>) und den entsprechenden Messzeitpunkt (<code>T1</code>, <code>T2</code>). Es muss mit dem <code>into</code> Argument festgelegt werden, in welche Spalten wir hier trennen müssen. In diesem Fall haben wir die Spalten <code>Faktor</code> und <code>Zeitpunkt</code>. Getrennt sind die beiden Informationen durch einen Unterstrich (<code>_</code>). Dies können wir durch das <code>sep</code> Argument definieren (Kurzform von <strong>sep</strong>arator, engl. für Trenner). Hätten wir in der Spalte <code>Faktor</code> mehr als zwei Informationen durch mehrere Unterstriche getrennt, müssten wir dem Argument <code>into</code> entsprechend drei Spaltennamen übergeben.</p>
+<p>Die Spalte <code>Faktor</code> enthält hier zwei Informationen: den Persönlichkeitsfaktor (<code>Extrav</code>) und den entsprechenden Messzeitpunkt (<code>T1</code>, <code>T2</code>). Es muss mit dem <code>names</code> Argument festgelegt werden, wie die neuen Spalten mit den getrennten Informationen heißen sollen. Die beiden Informationen sind durch einen Unterstrich (<code>_</code>) getrennt, weswegen wir dem <code>delim</code> Argument innerhalb der Funktion <code>separate_wider_delim()</code> diesen Unterstrich als Character übergeben. Würde die Spalte <code>Faktor</code> mehr als zwei Informationen getrennt durch mehrere Unterstriche enthalten, müssten wir dem Argument <code>names</code> entsprechend drei Spaltennamen übergeben.</p>
 <div class="sourceCode" id="cb197"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb197-1"><a href="datenvorbereitung.html#cb197-1" aria-hidden="true" tabindex="-1"></a>zeit1 <span class="sc">|&gt;</span> </span>
-<span id="cb197-2"><a href="datenvorbereitung.html#cb197-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(</span>
-<span id="cb197-3"><a href="datenvorbereitung.html#cb197-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">col =</span> Faktor,</span>
-<span id="cb197-4"><a href="datenvorbereitung.html#cb197-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;Faktor&quot;</span>, <span class="st">&quot;Zeitpunkt&quot;</span>),</span>
-<span id="cb197-5"><a href="datenvorbereitung.html#cb197-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">sep =</span> <span class="st">&quot;_&quot;</span></span>
+<span id="cb197-2"><a href="datenvorbereitung.html#cb197-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate_wider_delim</span>(</span>
+<span id="cb197-3"><a href="datenvorbereitung.html#cb197-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols =</span> Faktor,</span>
+<span id="cb197-4"><a href="datenvorbereitung.html#cb197-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">names =</span> <span class="fu">c</span>(<span class="st">&quot;Faktor&quot;</span>, <span class="st">&quot;Zeitpunkt&quot;</span>),</span>
+<span id="cb197-5"><a href="datenvorbereitung.html#cb197-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">delim =</span> <span class="st">&quot;_&quot;</span></span>
 <span id="cb197-6"><a href="datenvorbereitung.html#cb197-6" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
 <pre class="bordercode"><code># A tibble: 10 × 4
     VPN Faktor Zeitpunkt Auspraegung
@@ -1081,7 +1088,7 @@ Abbildung 6.2: Langes Datenformat mit Persönlichkeitsfaktor als Innersubjektfak
 3     2 Extrav T1                1.7
 4     2 Extrav T2                1.5
 # … with 6 more rows</code></pre>
-<p>Falls die Spalten nicht eindeutig durch einen Unterstrich, sondern beispielsweise durch Großschreibung voneinander getrennt werden sollen, kann man mit <code>sep</code> auch die Trennstelle (hier 6) festlegen.</p>
+<p>Falls die Informationen innerhalb einer Spalten nicht mit einem Unterstrich, sondern durch unterschiedliche Wortlängen, getrennt sind, verwendet man stattdessen die Funktion <code>separate_wider_position()</code>. Hierbei muss dem <code>widths</code> Argument innerhalb von <code>c()</code> die Anzahl der Buchstaben der ersten und zweiten Information übergeben werden. Der Persönlichkeitsfaktor <code>Neurot</code> hat sechs Buchstaben und die Information über den Messzeitpunkt zwei.</p>
 <div class="sourceCode" id="cb199"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb199-1"><a href="datenvorbereitung.html#cb199-1" aria-hidden="true" tabindex="-1"></a>big5_zeit <span class="sc">|&gt;</span> </span>
 <span id="cb199-2"><a href="datenvorbereitung.html#cb199-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>Extrav_T1, <span class="sc">-</span>Extrav_T2) <span class="sc">|&gt;</span> </span>
 <span id="cb199-3"><a href="datenvorbereitung.html#cb199-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
@@ -1089,24 +1096,31 @@ Abbildung 6.2: Langes Datenformat mit Persönlichkeitsfaktor als Innersubjektfak
 <span id="cb199-5"><a href="datenvorbereitung.html#cb199-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="st">&quot;Faktor&quot;</span>,</span>
 <span id="cb199-6"><a href="datenvorbereitung.html#cb199-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_to =</span> <span class="st">&quot;Auspraegung&quot;</span></span>
 <span id="cb199-7"><a href="datenvorbereitung.html#cb199-7" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> </span>
-<span id="cb199-8"><a href="datenvorbereitung.html#cb199-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(</span>
-<span id="cb199-9"><a href="datenvorbereitung.html#cb199-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">col =</span> Faktor,</span>
-<span id="cb199-10"><a href="datenvorbereitung.html#cb199-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">into =</span> <span class="fu">c</span>(<span class="st">&quot;Faktor&quot;</span>, <span class="st">&quot;Zeitpunkt&quot;</span>),</span>
-<span id="cb199-11"><a href="datenvorbereitung.html#cb199-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">sep =</span> <span class="dv">6</span></span>
-<span id="cb199-12"><a href="datenvorbereitung.html#cb199-12" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
+<span id="cb199-8"><a href="datenvorbereitung.html#cb199-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate_wider_position</span>(</span>
+<span id="cb199-9"><a href="datenvorbereitung.html#cb199-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols =</span> Faktor,</span>
+<span id="cb199-10"><a href="datenvorbereitung.html#cb199-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">widths =</span> <span class="fu">c</span>(<span class="at">Faktor =</span> <span class="dv">6</span>, <span class="at">Zeitpunkt =</span> <span class="dv">2</span>)</span>
+<span id="cb199-11"><a href="datenvorbereitung.html#cb199-11" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
+<pre class="bordercode"><code># A tibble: 10 × 4
+    VPN Faktor Zeitpunkt Auspraegung
+  &lt;int&gt; &lt;chr&gt;  &lt;chr&gt;           &lt;dbl&gt;
+1     1 Neurot FA                2.8
+2     1 Neurot FB                3.2
+3     2 Neurot FA                4.1
+4     2 Neurot FB                3.2
+# … with 6 more rows</code></pre>
 </div>
 <div id="datensätze-zusammenführen" class="section level2 hasAnchor" number="6.8">
 <h2><span class="header-section-number">6.8</span> Datensätze zusammenführen<a href="datenvorbereitung.html#datensätze-zusammenführen" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>In der Praxis hat man häufig nicht nur einen Datensatz vorliegen, der alle notwendigen Informationen enthält. Stattdessen sind oft die eigentlichen Daten der Studie in einem Datensatz, die demographischen Daten wie Geschlecht und Alter in einem zweiten und Laborwerte wiederum in einem anderen Datensatz. Andere mögliche Szenarien sind mehrere Untersucher oder verschiedenen Messzeitpunkte. Welcher Grund auch immer für separate Datensätze verantwortlich ist, vor der Auswertung müssen diese zusammengeführt werden.</p>
 <p>Um dieses Prinzip zu illustrieren, haben wir zwei Datensätze mit Informationen über den Puls, Vorhandensein einer Blasenentleerungsstörung und die Anzahl an Infektionen innerhalb von zwei Jahren. Diese wurden von zwei Untersuchern erhoben, weswegen diese in dem Datensatz <code>df_oben</code> und <code>df_unten</code> vorliegt.</p>
-<div class="sourceCode" id="cb200"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb200-1"><a href="datenvorbereitung.html#cb200-1" aria-hidden="true" tabindex="-1"></a>df_oben</span></code></pre></div>
+<div class="sourceCode" id="cb201"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb201-1"><a href="datenvorbereitung.html#cb201-1" aria-hidden="true" tabindex="-1"></a>df_oben</span></code></pre></div>
 <pre class="bordercode"><code># A tibble: 3 × 4
   ID        Puls Blasenstoerung Infekt_2j
   &lt;chr&gt;    &lt;dbl&gt;          &lt;dbl&gt;     &lt;dbl&gt;
 1 AX161095    83              0         1
 2 NM020683   108              1         7
 3 IO240576    60              0         2</code></pre>
-<div class="sourceCode" id="cb202"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb202-1"><a href="datenvorbereitung.html#cb202-1" aria-hidden="true" tabindex="-1"></a>df_unten</span></code></pre></div>
+<div class="sourceCode" id="cb203"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb203-1"><a href="datenvorbereitung.html#cb203-1" aria-hidden="true" tabindex="-1"></a>df_unten</span></code></pre></div>
 <pre class="bordercode"><code># A tibble: 3 × 4
   ID        Puls Blasenstoerung Infekt_2j
   &lt;chr&gt;    &lt;dbl&gt;          &lt;dbl&gt;     &lt;dbl&gt;
@@ -1114,7 +1128,7 @@ Abbildung 6.2: Langes Datenformat mit Persönlichkeitsfaktor als Innersubjektfak
 2 CB280682    92              0         0
 3 JH051199    65              0         1</code></pre>
 <p>Der Datensatz <code>demogr</code> enthält darüber hinaus demographische Daten in Form des biologischen Geschlechts und Alters.</p>
-<div class="sourceCode" id="cb204"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb204-1"><a href="datenvorbereitung.html#cb204-1" aria-hidden="true" tabindex="-1"></a>demogr</span></code></pre></div>
+<div class="sourceCode" id="cb205"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb205-1"><a href="datenvorbereitung.html#cb205-1" aria-hidden="true" tabindex="-1"></a>demogr</span></code></pre></div>
 <pre class="bordercode"><code># A tibble: 4 × 3
   ID       Sex   Alter
   &lt;chr&gt;    &lt;chr&gt; &lt;dbl&gt;
@@ -1123,9 +1137,9 @@ Abbildung 6.2: Langes Datenformat mit Persönlichkeitsfaktor als Innersubjektfak
 3 IO240576 f        40
 4 JH051199 m        24</code></pre>
 <p>Solange in beiden Datensätzen dieselben Spalten vorhanden sind, könnte man beide zeilenweise zusammenfügen. In Kapitel <a href="io.html#import">5.1</a> haben wir bereits gesehen, dass mehrere Datensätze mit gleichem Format mithilfe des zusätzlichen Arguments <code>rbind</code> (<strong>r</strong>ow <strong>bind</strong>) verbunden werden können.</p>
-<div class="sourceCode" id="cb206"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb206-1"><a href="datenvorbereitung.html#cb206-1" aria-hidden="true" tabindex="-1"></a><span class="fu">import_list</span>(dateien, <span class="at">rbind =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb207"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb207-1"><a href="datenvorbereitung.html#cb207-1" aria-hidden="true" tabindex="-1"></a><span class="fu">import_list</span>(dateien, <span class="at">rbind =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <p>Mit der Funktion <code>bind_rows()</code> kann diese Operation auch mit bereits in R geladenen Datensätzen durchgeführt werden. Die einzigen Argumente sind dabei die Namen der Datensätze.</p>
-<div class="sourceCode" id="cb207"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb207-1"><a href="datenvorbereitung.html#cb207-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bind_rows</span>(df_oben, df_unten)</span></code></pre></div>
+<div class="sourceCode" id="cb208"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb208-1"><a href="datenvorbereitung.html#cb208-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bind_rows</span>(df_oben, df_unten)</span></code></pre></div>
 <pre class="bordercode"><code># A tibble: 6 × 4
   ID        Puls Blasenstoerung Infekt_2j
   &lt;chr&gt;    &lt;dbl&gt;          &lt;dbl&gt;     &lt;dbl&gt;
@@ -1136,7 +1150,7 @@ Abbildung 6.2: Langes Datenformat mit Persönlichkeitsfaktor als Innersubjektfak
 5 CB280682    92              0         0
 6 JH051199    65              0         1</code></pre>
 <p>Problematisch ist bei dieser Funktion, dass nicht überprüft wird, ob Beobachtungen mehrfach vorkommen. Mit einem sogenannten Join (engl. für aneinanderfügen) können zwei Datensätze kontrolliert zusammengefügt werden. Die Funktion <code>full_join()</code> kombiniert alle Informationen aus beiden Datensätzen.</p>
-<div class="sourceCode" id="cb209"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb209-1"><a href="datenvorbereitung.html#cb209-1" aria-hidden="true" tabindex="-1"></a><span class="fu">full_join</span>(df_oben, df_unten)</span></code></pre></div>
+<div class="sourceCode" id="cb210"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb210-1"><a href="datenvorbereitung.html#cb210-1" aria-hidden="true" tabindex="-1"></a><span class="fu">full_join</span>(df_oben, df_unten)</span></code></pre></div>
 <pre class="bordercode"><code>Joining with `by = join_by(ID, Puls, Blasenstoerung, Infekt_2j)`</code></pre>
 <pre class="bordercode"><code># A tibble: 6 × 4
   ID        Puls Blasenstoerung Infekt_2j
@@ -1149,7 +1163,7 @@ Abbildung 6.2: Langes Datenformat mit Persönlichkeitsfaktor als Innersubjektfak
 6 JH051199    65              0         1</code></pre>
 <p>Da in diesem Beispiel alle Spalten aus beiden Datensätzen integriert werden sollen, muss zusätzlich das <code>by</code> Argument nicht spezifiziert werden. Es wird eine Benachrichtigung ausgegeben, dass nach den Spalten <code>ID</code>, <code>Puls</code>, <code>Blasenstoerung</code> und <code>Infekt_2j</code> zusammengefügt wurde. Vorsicht ist geboten, wenn es Überschneidung in den Datensätzen gibt (z.B. die gleiche Person in beiden Datensätzen aber mit unterschiedlichen Werten in einer gleichnamigen Spalte). Daher sollte bspw. ein zweiter Messzeitpunkt direkt innerhalb des Spaltennamens entsprechend gekennzeichnet werden (z.B. <code>Puls_T1</code> und <code>Puls_T2</code>).</p>
 <p>Sollen in den linken Datensatz (1. Argument, hier <code>df_oben</code>) die Informationen eines zweiten Datensatzes (2. Argument, hier <code>demogr</code>) in Abhängigkeit der Übereinstimmung einer dritten Spalte (<code>by</code> Argument, hier <code>ID</code>) eingefügt werden, verwenden wir <code>left_join()</code>.</p>
-<div class="sourceCode" id="cb212"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb212-1"><a href="datenvorbereitung.html#cb212-1" aria-hidden="true" tabindex="-1"></a><span class="fu">left_join</span>(df_oben, demogr, <span class="at">by =</span> <span class="st">&quot;ID&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb213"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb213-1"><a href="datenvorbereitung.html#cb213-1" aria-hidden="true" tabindex="-1"></a><span class="fu">left_join</span>(df_oben, demogr, <span class="at">by =</span> <span class="st">&quot;ID&quot;</span>)</span></code></pre></div>
 <pre class="bordercode"><code># A tibble: 3 × 6
   ID        Puls Blasenstoerung Infekt_2j Sex   Alter
   &lt;chr&gt;    &lt;dbl&gt;          &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt; &lt;dbl&gt;
@@ -1158,10 +1172,10 @@ Abbildung 6.2: Langes Datenformat mit Persönlichkeitsfaktor als Innersubjektfak
 3 IO240576    60              0         2 f        40</code></pre>
 <p>Obwohl in <code>demogr</code> die demographischen Informationen von vier Personen enthalten sind, werden an dieser Stelle nur jene drei an <code>df_oben</code> angehängt, deren <code>ID</code> mit der in <code>df_oben</code> übereinstimmt. Wenn der linke Datensatz in den rechten integriert werden soll, kann man äquivalent dazu <code>right_join()</code> benutzen.</p>
 <p>Wenn hingegen alle <code>ID</code>s vorhanden sind, allerdings einige demographische Informationen fehlen, werden diese mit <code>NA</code> (<strong>n</strong>ot <strong>a</strong>vailable, engl. für nicht vorhanden) angegeben. Um das zu illustrieren, werden erst <code>df_oben</code> und <code>df_unten</code> zusammengefügt.</p>
-<div class="sourceCode" id="cb214"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb214-1"><a href="datenvorbereitung.html#cb214-1" aria-hidden="true" tabindex="-1"></a>df_alle <span class="ot">&lt;-</span> <span class="fu">full_join</span>(df_oben, df_unten)</span></code></pre></div>
+<div class="sourceCode" id="cb215"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb215-1"><a href="datenvorbereitung.html#cb215-1" aria-hidden="true" tabindex="-1"></a>df_alle <span class="ot">&lt;-</span> <span class="fu">full_join</span>(df_oben, df_unten)</span></code></pre></div>
 <pre class="bordercode"><code>Joining with `by = join_by(ID, Puls, Blasenstoerung, Infekt_2j)`</code></pre>
 <p>Anschließend joinen wir wie zuvor eingeführt in Abhängigkeit der <code>ID</code>.</p>
-<div class="sourceCode" id="cb216"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb216-1"><a href="datenvorbereitung.html#cb216-1" aria-hidden="true" tabindex="-1"></a><span class="fu">left_join</span>(df_alle, demogr, <span class="at">by =</span> <span class="st">&quot;ID&quot;</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb217"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb217-1"><a href="datenvorbereitung.html#cb217-1" aria-hidden="true" tabindex="-1"></a><span class="fu">left_join</span>(df_alle, demogr, <span class="at">by =</span> <span class="st">&quot;ID&quot;</span>) </span></code></pre></div>
 <pre class="bordercode"><code># A tibble: 6 × 6
   ID        Puls Blasenstoerung Infekt_2j Sex   Alter
   &lt;chr&gt;    &lt;dbl&gt;          &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt; &lt;dbl&gt;
@@ -1182,28 +1196,21 @@ Abbildung 6.2: Langes Datenformat mit Persönlichkeitsfaktor als Innersubjektfak
 <div id="datastring" class="section level2 hasAnchor" number="6.9">
 <h2><span class="header-section-number">6.9</span> Buchstaben und Wörter bearbeiten<a href="datenvorbereitung.html#datastring" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Oft muss man entweder die Spaltennamen oder die Inhalte verschiedener Spalten, die Characters enthalten, in irgendeiner Form anpassen. In diesem Kapitel schauen wir uns an, wie man mit Funktionen aus <code>stringr</code> Character ersetzt (<code>str_replace()</code>), extrahiert (<code>str_extract()</code>) und entdeckt (<code>str_detect()</code>). Das Präfix <code>str</code> steht dabei für String – einem anderen Wort für Character.</p>
-<p>Ein häufiges Ärgernis im Kontext von Programmiersprachen sind Umlaute, da verschiedene Zeichenkodierungen diese intern unter Umständen anders übersetzen, was auf anderen Betriebssystemen zu Kauderwelsch führen kann. Schauen wir uns im Folgenden an, wie man Umlaute ersetzt. Es ist folgender Satz in der Variable <code>char</code> gespeichert:</p>
-<div class="sourceCode" id="cb218"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb218-1"><a href="datenvorbereitung.html#cb218-1" aria-hidden="true" tabindex="-1"></a>char <span class="ot">&lt;-</span> <span class="st">&quot;Österreich hat 28610 schräge Berge&quot;</span></span></code></pre></div>
+<p>Ein häufiges Ärgernis im Kontext von Programmiersprachen sind Umlaute, da verschiedene Zeichenkodierungen diese intern unter Umständen anders übersetzen, was auf anderen Betriebssystemen zu Kauderwelsch führen kann. Schauen wir uns im Folgenden an, wie man Umlaute ersetzt. Es ist folgender Satz in der Variable <code>char</code> gespeichert.</p>
+<div class="sourceCode" id="cb219"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb219-1"><a href="datenvorbereitung.html#cb219-1" aria-hidden="true" tabindex="-1"></a>char <span class="ot">&lt;-</span> <span class="st">&quot;Österreich hat 28610 schräge Berge&quot;</span></span></code></pre></div>
 <p>Möchte man nun das <strong>eine</strong> <em>ä</em> mit <em>ae</em> ersetzen, verwendet man <code>str_replace()</code>.</p>
-<div class="sourceCode" id="cb219"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb219-1"><a href="datenvorbereitung.html#cb219-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_replace</span>(</span>
-<span id="cb219-2"><a href="datenvorbereitung.html#cb219-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">string =</span> char, </span>
-<span id="cb219-3"><a href="datenvorbereitung.html#cb219-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">pattern =</span> <span class="st">&quot;ä&quot;</span>, </span>
-<span id="cb219-4"><a href="datenvorbereitung.html#cb219-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">replacement =</span> <span class="st">&quot;ae&quot;</span></span>
-<span id="cb219-5"><a href="datenvorbereitung.html#cb219-5" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb220"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb220-1"><a href="datenvorbereitung.html#cb220-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_replace</span>(<span class="at">string =</span> char, <span class="at">pattern =</span> <span class="st">&quot;ä&quot;</span>, <span class="at">replacement =</span> <span class="st">&quot;ae&quot;</span>)</span></code></pre></div>
 <pre class="bordercode"><code>[1] &quot;Österreich hat 28610 schraege Berge&quot;</code></pre>
 <p>In dem Satz ist allerdings nicht nur ein <em>ä</em> sondern auch ein <em>ö</em> enthalten. Für mehr als eine Anpassung verwendet man <code>str_replace_all()</code>. Die Syntax ist hierbei etwas anders als bisher kennengelernt, da in diesem Fall die <em>alte</em> Bezeichnung auf der linken Seite der jeweiligen Gleichung steht. Alle Änderungen müssen innerhalb von <code>c()</code> übergeben werden.</p>
-<div class="sourceCode" id="cb221"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb221-1"><a href="datenvorbereitung.html#cb221-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_replace_all</span>(</span>
-<span id="cb221-2"><a href="datenvorbereitung.html#cb221-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">string =</span> char, </span>
-<span id="cb221-3"><a href="datenvorbereitung.html#cb221-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="st">&quot;ä&quot;</span> <span class="ot">=</span> <span class="st">&quot;ae&quot;</span>, <span class="st">&quot;Ö&quot;</span> <span class="ot">=</span> <span class="st">&quot;Oe&quot;</span>)</span>
-<span id="cb221-4"><a href="datenvorbereitung.html#cb221-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb222"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb222-1"><a href="datenvorbereitung.html#cb222-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_replace_all</span>(<span class="at">string =</span> char, <span class="fu">c</span>(<span class="st">&quot;ä&quot;</span> <span class="ot">=</span> <span class="st">&quot;ae&quot;</span>, <span class="st">&quot;Ö&quot;</span> <span class="ot">=</span> <span class="st">&quot;Oe&quot;</span>))</span></code></pre></div>
 <pre class="bordercode"><code>[1] &quot;Oesterreich hat 28610 schraege Berge&quot;</code></pre>
 <p>Beachte, dass ein Umlaut großgeschrieben ist und die Funktionen <em>case sensitive</em> sind. Das bedeutet, dass wir mit den Befehlen oben nur den kleinen Buchstaben ä und den großen Buchstaben Ö ersetzen.</p>
 <p>Aber wie geht man vor, wenn Spaltennamen Umlaute enthalten? Um dem auf den Grund zu gehen, erstellen wir uns einen neuen Datensatz, der die Preise für drei verschiedene Sägen in Österreich enthält.</p>
-<div class="sourceCode" id="cb223"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb223-1"><a href="datenvorbereitung.html#cb223-1" aria-hidden="true" tabindex="-1"></a>umlaut <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb223-2"><a href="datenvorbereitung.html#cb223-2" aria-hidden="true" tabindex="-1"></a>  Säge <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;Häxler&quot;</span>, <span class="st">&quot;Sünde3000&quot;</span>, <span class="st">&quot;Lölf4&quot;</span>),</span>
-<span id="cb223-3"><a href="datenvorbereitung.html#cb223-3" aria-hidden="true" tabindex="-1"></a>  Ö<span class="at">sterreich =</span> <span class="fu">c</span>(<span class="fl">10.45</span>, <span class="fl">4.60</span>, <span class="fl">9.70</span>)</span>
-<span id="cb223-4"><a href="datenvorbereitung.html#cb223-4" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb223-5"><a href="datenvorbereitung.html#cb223-5" aria-hidden="true" tabindex="-1"></a>umlaut</span></code></pre></div>
+<div class="sourceCode" id="cb224"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb224-1"><a href="datenvorbereitung.html#cb224-1" aria-hidden="true" tabindex="-1"></a>umlaut <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb224-2"><a href="datenvorbereitung.html#cb224-2" aria-hidden="true" tabindex="-1"></a>  Säge <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;Häxler&quot;</span>, <span class="st">&quot;Sünde3000&quot;</span>, <span class="st">&quot;Lölf4&quot;</span>),</span>
+<span id="cb224-3"><a href="datenvorbereitung.html#cb224-3" aria-hidden="true" tabindex="-1"></a>  Ö<span class="at">sterreich =</span> <span class="fu">c</span>(<span class="fl">10.45</span>, <span class="fl">4.60</span>, <span class="fl">9.70</span>)</span>
+<span id="cb224-4"><a href="datenvorbereitung.html#cb224-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb224-5"><a href="datenvorbereitung.html#cb224-5" aria-hidden="true" tabindex="-1"></a>umlaut</span></code></pre></div>
 <pre class="bordercode"><code># A tibble: 3 × 2
   Säge      Österreich
   &lt;chr&gt;          &lt;dbl&gt;
@@ -1211,16 +1218,11 @@ Abbildung 6.2: Langes Datenformat mit Persönlichkeitsfaktor als Innersubjektfak
 2 Sünde3000        4.6
 3 Lölf4            9.7</code></pre>
 <p>Die Namen enthalten jeweils einen Umlaut. Möchten wir alle Spaltennamen von Umlauten befreien, könnten wir dies mithilfe von <code>rename_with()</code> und <code>str_replace_all()</code> erreichen. An dieser Stelle verwenden wir eine im Kapitel <a href="datenvorbereitung.html#function">6.4.4</a> bereits eingeführte Lambda Funktion, um die Funktion auf alle Spalten anzuwenden.</p>
-<div class="sourceCode" id="cb225"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb225-1"><a href="datenvorbereitung.html#cb225-1" aria-hidden="true" tabindex="-1"></a>umlaut <span class="sc">|&gt;</span> </span>
-<span id="cb225-2"><a href="datenvorbereitung.html#cb225-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename_with</span>(<span class="sc">~</span> <span class="fu">str_replace_all</span>(</span>
-<span id="cb225-3"><a href="datenvorbereitung.html#cb225-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">string =</span> .x, </span>
-<span id="cb225-4"><a href="datenvorbereitung.html#cb225-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">c</span>(<span class="st">&quot;ä&quot;</span> <span class="ot">=</span> <span class="st">&quot;ae&quot;</span>,</span>
-<span id="cb225-5"><a href="datenvorbereitung.html#cb225-5" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;ö&quot;</span> <span class="ot">=</span> <span class="st">&quot;oe&quot;</span>,</span>
-<span id="cb225-6"><a href="datenvorbereitung.html#cb225-6" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;ü&quot;</span> <span class="ot">=</span> <span class="st">&quot;ue&quot;</span>,</span>
-<span id="cb225-7"><a href="datenvorbereitung.html#cb225-7" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;Ä&quot;</span> <span class="ot">=</span> <span class="st">&quot;Ae&quot;</span>,</span>
-<span id="cb225-8"><a href="datenvorbereitung.html#cb225-8" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;Ö&quot;</span> <span class="ot">=</span> <span class="st">&quot;Oe&quot;</span>,</span>
-<span id="cb225-9"><a href="datenvorbereitung.html#cb225-9" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;Ü&quot;</span> <span class="ot">=</span> <span class="st">&quot;Ue&quot;</span>)</span>
-<span id="cb225-10"><a href="datenvorbereitung.html#cb225-10" aria-hidden="true" tabindex="-1"></a>  ))</span></code></pre></div>
+<div class="sourceCode" id="cb226"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb226-1"><a href="datenvorbereitung.html#cb226-1" aria-hidden="true" tabindex="-1"></a>umlaut <span class="sc">|&gt;</span> </span>
+<span id="cb226-2"><a href="datenvorbereitung.html#cb226-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename_with</span>(\(x) <span class="fu">str_replace_all</span>(</span>
+<span id="cb226-3"><a href="datenvorbereitung.html#cb226-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">string =</span> x, </span>
+<span id="cb226-4"><a href="datenvorbereitung.html#cb226-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">c</span>(<span class="st">&quot;ä&quot;</span> <span class="ot">=</span> <span class="st">&quot;ae&quot;</span>, <span class="st">&quot;ö&quot;</span> <span class="ot">=</span> <span class="st">&quot;oe&quot;</span>, <span class="st">&quot;ü&quot;</span> <span class="ot">=</span> <span class="st">&quot;ue&quot;</span>, <span class="st">&quot;Ä&quot;</span> <span class="ot">=</span> <span class="st">&quot;Ae&quot;</span>, <span class="st">&quot;Ö&quot;</span> <span class="ot">=</span> <span class="st">&quot;Oe&quot;</span>, <span class="st">&quot;Ü&quot;</span> <span class="ot">=</span> <span class="st">&quot;Ue&quot;</span>)</span>
+<span id="cb226-5"><a href="datenvorbereitung.html#cb226-5" aria-hidden="true" tabindex="-1"></a>  ))</span></code></pre></div>
 <pre class="bordercode"><code># A tibble: 3 × 2
   Saege     Oesterreich
   &lt;chr&gt;           &lt;dbl&gt;
@@ -1228,16 +1230,11 @@ Abbildung 6.2: Langes Datenformat mit Persönlichkeitsfaktor als Innersubjektfak
 2 Sünde3000         4.6
 3 Lölf4             9.7</code></pre>
 <p>Zum Ändern von Umlauten innerhalb von Spalten muss <code>str_replace_all()</code>, wie in Kapitel <a href="datenvorbereitung.html#across">6.4.2</a> kennengelernt, innerhalb von <code>mutate()</code> in Kombination von <code>across()</code> verwendet werden. So könnte man alle Spalten, die vom Datentyp Character sind, von Umlauten befreien.</p>
-<div class="sourceCode" id="cb227"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb227-1"><a href="datenvorbereitung.html#cb227-1" aria-hidden="true" tabindex="-1"></a>umlaut <span class="sc">|&gt;</span> </span>
-<span id="cb227-2"><a href="datenvorbereitung.html#cb227-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.character), <span class="sc">~</span> <span class="fu">str_replace_all</span>(</span>
-<span id="cb227-3"><a href="datenvorbereitung.html#cb227-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">string =</span> .x, </span>
-<span id="cb227-4"><a href="datenvorbereitung.html#cb227-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">c</span>(<span class="st">&quot;ä&quot;</span> <span class="ot">=</span> <span class="st">&quot;ae&quot;</span>,</span>
-<span id="cb227-5"><a href="datenvorbereitung.html#cb227-5" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;ö&quot;</span> <span class="ot">=</span> <span class="st">&quot;oe&quot;</span>,</span>
-<span id="cb227-6"><a href="datenvorbereitung.html#cb227-6" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;ü&quot;</span> <span class="ot">=</span> <span class="st">&quot;ue&quot;</span>,</span>
-<span id="cb227-7"><a href="datenvorbereitung.html#cb227-7" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;Ä&quot;</span> <span class="ot">=</span> <span class="st">&quot;Ae&quot;</span>,</span>
-<span id="cb227-8"><a href="datenvorbereitung.html#cb227-8" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;Ö&quot;</span> <span class="ot">=</span> <span class="st">&quot;Oe&quot;</span>,</span>
-<span id="cb227-9"><a href="datenvorbereitung.html#cb227-9" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;Ü&quot;</span> <span class="ot">=</span> <span class="st">&quot;Ue&quot;</span>)</span>
-<span id="cb227-10"><a href="datenvorbereitung.html#cb227-10" aria-hidden="true" tabindex="-1"></a>  )))</span></code></pre></div>
+<div class="sourceCode" id="cb228"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb228-1"><a href="datenvorbereitung.html#cb228-1" aria-hidden="true" tabindex="-1"></a>umlaut <span class="sc">|&gt;</span> </span>
+<span id="cb228-2"><a href="datenvorbereitung.html#cb228-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.character), \(x) <span class="fu">str_replace_all</span>(</span>
+<span id="cb228-3"><a href="datenvorbereitung.html#cb228-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">string =</span> x, </span>
+<span id="cb228-4"><a href="datenvorbereitung.html#cb228-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">c</span>(<span class="st">&quot;ä&quot;</span> <span class="ot">=</span> <span class="st">&quot;ae&quot;</span>, <span class="st">&quot;ö&quot;</span> <span class="ot">=</span> <span class="st">&quot;oe&quot;</span>, <span class="st">&quot;ü&quot;</span> <span class="ot">=</span> <span class="st">&quot;ue&quot;</span>, <span class="st">&quot;Ä&quot;</span> <span class="ot">=</span> <span class="st">&quot;Ae&quot;</span>, <span class="st">&quot;Ö&quot;</span> <span class="ot">=</span> <span class="st">&quot;Oe&quot;</span>, <span class="st">&quot;Ü&quot;</span> <span class="ot">=</span> <span class="st">&quot;Ue&quot;</span>)</span>
+<span id="cb228-5"><a href="datenvorbereitung.html#cb228-5" aria-hidden="true" tabindex="-1"></a>  )))</span></code></pre></div>
 <pre class="bordercode"><code># A tibble: 3 × 2
   Säge       Österreich
   &lt;chr&gt;           &lt;dbl&gt;
@@ -1246,27 +1243,27 @@ Abbildung 6.2: Langes Datenformat mit Persönlichkeitsfaktor als Innersubjektfak
 3 Loelf4            9.7</code></pre>
 <p>Für das Extrahieren von Buchstaben oder Zahlen können wir <code>str_extract()</code> verwenden. Wir nehmen wieder unseren Beispielsatz von oben, der als <code>char</code> gespeichert ist. Es ist möglich, die Zahl mithilfe eines sogenannten Regex zu erkennen (Akronym für <strong>Reg</strong>ular <strong>Ex</strong>pression). Regex sind grundsätzlich sehr komplex selbst zu schreiben. In der Praxis muss man in der Regel nur online nach dem gewünschten Regex suchen, ohne die genaue Syntax zu verstehen.</p>
 <p>Um eine Zahl mit mehr als einer Ziffer herauszuholen, könnte man nach dem Regex <code>"\d+"</code> suchen. In R muss noch ein zusätzlicher Backslash verwendet werden, wodurch wir den Ausdruck <code>"\\d+"</code> erhalten. Das d steht für <strong>d</strong>igit (engl. für Ziffer) und das Plus für eine oder mehrere Ziffern.</p>
-<div class="sourceCode" id="cb229"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb229-1"><a href="datenvorbereitung.html#cb229-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_extract</span>(char, <span class="st">&quot;</span><span class="sc">\\</span><span class="st">d+&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb230"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb230-1"><a href="datenvorbereitung.html#cb230-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_extract</span>(char, <span class="st">&quot;</span><span class="sc">\\</span><span class="st">d+&quot;</span>)</span></code></pre></div>
 <pre class="bordercode"><code>[1] &quot;28610&quot;</code></pre>
 <p>Angenommen, die Spalten eines Datensatzes mit den Antworten eines Fragebogens starten mit <code>"Q"</code> folgend von Nummer, Namen und der genauen Beschreibung. Ein Beispiel hierfür wäre die 12. Frage zur Risikowahrnehmung mit Antwortschema in Klammern <code>"Q12_Risikowahrnehmung (0 = "Trifft nicht zu")"</code>. Für die Auswertung möchten wir aufgrund der Leerzeichen und der redundanten Information den hinteren in Klammern geschriebenen Teil löschen. In anderen Worten soll der gesamte Spaltenname bis zum ersten Leerzeichen extrahiert werden. Ein möglicher Regex dafür wäre <code>([^\\s]+)</code>. Beachte auch in diesem Fall, dass bei jedem Backslash für einen Regex aus dem Internet innerhalb von R ein zweiter Backslash hinzugefügt werden muss.</p>
-<div class="sourceCode" id="cb231"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb231-1"><a href="datenvorbereitung.html#cb231-1" aria-hidden="true" tabindex="-1"></a>daten <span class="sc">|&gt;</span> </span>
-<span id="cb231-2"><a href="datenvorbereitung.html#cb231-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename_with</span>(</span>
-<span id="cb231-3"><a href="datenvorbereitung.html#cb231-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">.cols =</span> <span class="fu">starts_with</span>(<span class="st">&quot;Q&quot;</span>)</span>
-<span id="cb231-4"><a href="datenvorbereitung.html#cb231-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">.fn =</span> <span class="sc">~</span> <span class="fu">str_extract</span>(., <span class="st">&quot;([^</span><span class="sc">\\</span><span class="st">s]+)&quot;</span>), </span>
-<span id="cb231-5"><a href="datenvorbereitung.html#cb231-5" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
+<div class="sourceCode" id="cb232"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb232-1"><a href="datenvorbereitung.html#cb232-1" aria-hidden="true" tabindex="-1"></a>daten <span class="sc">|&gt;</span> </span>
+<span id="cb232-2"><a href="datenvorbereitung.html#cb232-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename_with</span>(</span>
+<span id="cb232-3"><a href="datenvorbereitung.html#cb232-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">.cols =</span> <span class="fu">starts_with</span>(<span class="st">&quot;Q&quot;</span>)</span>
+<span id="cb232-4"><a href="datenvorbereitung.html#cb232-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">.fn =</span> \(x) <span class="fu">str_extract</span>(x, <span class="st">&quot;([^</span><span class="sc">\\</span><span class="st">s]+)&quot;</span>), </span>
+<span id="cb232-5"><a href="datenvorbereitung.html#cb232-5" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
 <p>Die Funktion <code>str_detect()</code> entdeckt bestimmte Buchstaben, Wörter oder ganze Regex. Dabei gibt die Funktion einen logischen Wert aus (<code>TRUE</code>, <code>FALSE</code>), wenn das Gesuchte gefunden oder nicht gefunden wurde. Das ist daher praktisch, da man diese Funktion für logische Bedingungen innerhalb von <code>if_else()</code>, <code>case_when()</code> oder <code>filter()</code> verwenden kann.</p>
-<div class="sourceCode" id="cb232"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb232-1"><a href="datenvorbereitung.html#cb232-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_detect</span>(char, <span class="st">&quot;</span><span class="sc">\\</span><span class="st">d+&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb233"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb233-1"><a href="datenvorbereitung.html#cb233-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_detect</span>(char, <span class="st">&quot;</span><span class="sc">\\</span><span class="st">d+&quot;</span>)</span></code></pre></div>
 <pre class="bordercode"><code>[1] TRUE</code></pre>
 <p>So ermöglicht <code>str_detect()</code> bspw. genauere Abfragen innerhalb von <code>filter()</code> (siehe Kapitel <a href="datenvorbereitung.html#filter">6.3</a>. Alle Käufer der Säge namens <code>Häxler</code> auszugeben, benötigt nur die Funktion <code>filter()</code>.</p>
-<div class="sourceCode" id="cb234"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb234-1"><a href="datenvorbereitung.html#cb234-1" aria-hidden="true" tabindex="-1"></a>umlaut <span class="sc">|&gt;</span> </span>
-<span id="cb234-2"><a href="datenvorbereitung.html#cb234-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Säge <span class="sc">==</span> <span class="st">&quot;Häxler&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb235"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb235-1"><a href="datenvorbereitung.html#cb235-1" aria-hidden="true" tabindex="-1"></a>umlaut <span class="sc">|&gt;</span> </span>
+<span id="cb235-2"><a href="datenvorbereitung.html#cb235-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Säge <span class="sc">==</span> <span class="st">&quot;Häxler&quot;</span>)</span></code></pre></div>
 <pre class="bordercode"><code># A tibble: 1 × 2
   Säge   Österreich
   &lt;chr&gt;       &lt;dbl&gt;
 1 Häxler       10.4</code></pre>
 <p>Möchte man alle gekauften Sägen mit dem Buchstaben <code>ä</code> auswählen, könnte man hingegen <code>str_detect()</code> verwenden.</p>
-<div class="sourceCode" id="cb236"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb236-1"><a href="datenvorbereitung.html#cb236-1" aria-hidden="true" tabindex="-1"></a>umlaut <span class="sc">|&gt;</span> </span>
-<span id="cb236-2"><a href="datenvorbereitung.html#cb236-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">str_detect</span>(Säge, <span class="st">&quot;ä&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb237"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb237-1"><a href="datenvorbereitung.html#cb237-1" aria-hidden="true" tabindex="-1"></a>umlaut <span class="sc">|&gt;</span> </span>
+<span id="cb237-2"><a href="datenvorbereitung.html#cb237-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">str_detect</span>(Säge, <span class="st">&quot;ä&quot;</span>))</span></code></pre></div>
 <pre class="bordercode"><code># A tibble: 1 × 2
   Säge   Österreich
   &lt;chr&gt;       &lt;dbl&gt;
@@ -1281,8 +1278,8 @@ Abbildung 6.2: Langes Datenformat mit Persönlichkeitsfaktor als Innersubjektfak
 <div id="datafactor" class="section level2 hasAnchor" number="6.10">
 <h2><span class="header-section-number">6.10</span> Faktoren verändern<a href="datenvorbereitung.html#datafactor" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Falls du nicht mehr im Kopf hast, was genau Faktoren sind, schaue dir noch einmal Kapitel <a href="vars.html#factor">4.3.2</a> an. Faktoren sind vor allem zur automatischen Erstellung von Dummy Variablen für Regressionsmodelle und das Umbenennen oder Ändern der Reihenfolge beim Erstellen von Visualisierungen nützlich. Im Folgenden schauen wir uns Beispiele an, wie man mit Funktionen aus dem <code>forcats</code> Package Faktoren umbenennen (<code>fct_recode()</code>) und deren Reihenfolge ändern (<code>fct_relevel()</code>, <code>fct_reorder()</code>) kann. Dafür verwenden wir die Spalte <code>Gruppe</code> aus dem <code>big5_mod</code> Datensatz mit den Faktorstufen (oder Level) <em>Jung</em>, <em>Mittel</em> und <em>Weise</em>.</p>
-<div class="sourceCode" id="cb238"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb238-1"><a href="datenvorbereitung.html#cb238-1" aria-hidden="true" tabindex="-1"></a>big5_mod <span class="sc">|&gt;</span> </span>
-<span id="cb238-2"><a href="datenvorbereitung.html#cb238-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">relocate</span>(Gruppe)</span></code></pre></div>
+<div class="sourceCode" id="cb239"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb239-1"><a href="datenvorbereitung.html#cb239-1" aria-hidden="true" tabindex="-1"></a>big5_mod <span class="sc">|&gt;</span> </span>
+<span id="cb239-2"><a href="datenvorbereitung.html#cb239-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">relocate</span>(Gruppe)</span></code></pre></div>
 <pre class="bordercode"><code># A tibble: 200 × 6
   Gruppe Alter Geschlecht Extraversion Neurotizismus    ID
   &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;             &lt;dbl&gt;         &lt;dbl&gt; &lt;int&gt;
@@ -1292,43 +1289,43 @@ Abbildung 6.2: Langes Datenformat mit Persönlichkeitsfaktor als Innersubjektfak
 4 Weise     54 m                   3.3           4.2     4
 # … with 196 more rows</code></pre>
 <p>Um die Veränderungen der Faktorstufen besser darstellen zu können, ziehen wir uns die Spalte <code>Gruppe</code> aus dem Datensatz heraus (siehe Kapitel <a href="vars.html#dollar">4.5</a>). Zuvor müssen wir die Spalte allerdings noch zum Datentyp Faktor umwandeln. Dafür übergibt man der Funktion <code>factor()</code> den Spaltennamen sowie die Faktorstufen (<code>levels</code>).</p>
-<div class="sourceCode" id="cb240"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb240-1"><a href="datenvorbereitung.html#cb240-1" aria-hidden="true" tabindex="-1"></a>big5_mod <span class="ot">&lt;-</span> big5_mod <span class="sc">|&gt;</span> </span>
-<span id="cb240-2"><a href="datenvorbereitung.html#cb240-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Gruppe =</span> <span class="fu">factor</span>(Gruppe, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;Jung&quot;</span>, <span class="st">&quot;Mittel&quot;</span>, <span class="st">&quot;Weise&quot;</span>)))</span>
-<span id="cb240-3"><a href="datenvorbereitung.html#cb240-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb240-4"><a href="datenvorbereitung.html#cb240-4" aria-hidden="true" tabindex="-1"></a>faktoren <span class="ot">&lt;-</span> big5_mod<span class="sc">$</span>Gruppe</span></code></pre></div>
+<div class="sourceCode" id="cb241"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb241-1"><a href="datenvorbereitung.html#cb241-1" aria-hidden="true" tabindex="-1"></a>big5_mod <span class="ot">&lt;-</span> big5_mod <span class="sc">|&gt;</span> </span>
+<span id="cb241-2"><a href="datenvorbereitung.html#cb241-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Gruppe =</span> <span class="fu">factor</span>(Gruppe, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;Jung&quot;</span>, <span class="st">&quot;Mittel&quot;</span>, <span class="st">&quot;Weise&quot;</span>)))</span>
+<span id="cb241-3"><a href="datenvorbereitung.html#cb241-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb241-4"><a href="datenvorbereitung.html#cb241-4" aria-hidden="true" tabindex="-1"></a>faktoren <span class="ot">&lt;-</span> big5_mod<span class="sc">$</span>Gruppe</span></code></pre></div>
 <p>Alternativ könnte auch <code>as.factor(Gruppe)</code> aufgerufen werden, allerdings werden so nur bestehende Stufen zu Faktoren umgewandelt. Wenn bspw. eine Erkrankung in der eigenen Stichprobe nie vorkommt, würde das später nicht angezeigt werden. Mit dem expliziten Festlegen aller grundsätzlich möglichen Faktorstufen mithilfe des <code>levels</code> Arguments innerhalb von <code>factor()</code> würde bei weiterer Auswertung eine Häufigkeit von 0 für die fehlende Kategorie ausgegeben werden.</p>
 <p>Zum Anzeigen der Faktorstufen verwenden wir die Funktion <code>levels()</code>.</p>
-<div class="sourceCode" id="cb241"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb241-1"><a href="datenvorbereitung.html#cb241-1" aria-hidden="true" tabindex="-1"></a>faktoren <span class="sc">|&gt;</span> </span>
-<span id="cb241-2"><a href="datenvorbereitung.html#cb241-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">levels</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb242"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb242-1"><a href="datenvorbereitung.html#cb242-1" aria-hidden="true" tabindex="-1"></a>faktoren <span class="sc">|&gt;</span> </span>
+<span id="cb242-2"><a href="datenvorbereitung.html#cb242-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">levels</span>()</span></code></pre></div>
 <pre class="bordercode"><code>[1] &quot;Jung&quot;   &quot;Mittel&quot; &quot;Weise&quot; </code></pre>
 <p>Dass die Reihenfolge schon der Altersreihenfolge entspricht, liegt nur daran, dass wir die Faktorstufen oben genau spezifiziert haben. Ansonsten können durchaus unerwartete Reihenfolgen der Faktorstufen auftreten. Es lohnt sich also in jedem Fall ein Blick in die Faktorstufen zu werfen, bevor man sie verwendet. Möchte man einzelne Faktoren umbenennen, verwendet man <code>fct_recode()</code>.</p>
-<div class="sourceCode" id="cb243"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb243-1"><a href="datenvorbereitung.html#cb243-1" aria-hidden="true" tabindex="-1"></a>faktoren <span class="sc">|&gt;</span> </span>
-<span id="cb243-2"><a href="datenvorbereitung.html#cb243-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fct_recode</span>(<span class="at">Alt =</span> <span class="st">&quot;Weise&quot;</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb243-3"><a href="datenvorbereitung.html#cb243-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">levels</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb244"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb244-1"><a href="datenvorbereitung.html#cb244-1" aria-hidden="true" tabindex="-1"></a>faktoren <span class="sc">|&gt;</span> </span>
+<span id="cb244-2"><a href="datenvorbereitung.html#cb244-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fct_recode</span>(<span class="at">Alt =</span> <span class="st">&quot;Weise&quot;</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb244-3"><a href="datenvorbereitung.html#cb244-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">levels</span>()</span></code></pre></div>
 <pre class="bordercode"><code>[1] &quot;Jung&quot;   &quot;Mittel&quot; &quot;Alt&quot;   </code></pre>
 <p>Mit der Funktion <code>fct_relevel()</code> kann ein Faktor als erste Stufe definiert werden.</p>
-<div class="sourceCode" id="cb245"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb245-1"><a href="datenvorbereitung.html#cb245-1" aria-hidden="true" tabindex="-1"></a>faktoren <span class="sc">|&gt;</span> </span>
-<span id="cb245-2"><a href="datenvorbereitung.html#cb245-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fct_relevel</span>(<span class="st">&quot;Mittel&quot;</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb245-3"><a href="datenvorbereitung.html#cb245-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">levels</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb246"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb246-1"><a href="datenvorbereitung.html#cb246-1" aria-hidden="true" tabindex="-1"></a>faktoren <span class="sc">|&gt;</span> </span>
+<span id="cb246-2"><a href="datenvorbereitung.html#cb246-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fct_relevel</span>(<span class="st">&quot;Mittel&quot;</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb246-3"><a href="datenvorbereitung.html#cb246-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">levels</span>()</span></code></pre></div>
 <pre class="bordercode"><code>[1] &quot;Mittel&quot; &quot;Jung&quot;   &quot;Weise&quot; </code></pre>
 <p>Zum Ändern der gesamten Reihenfolge kann man beliebig viele weitere Faktorstufen der Funktion übergeben.</p>
-<div class="sourceCode" id="cb247"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb247-1"><a href="datenvorbereitung.html#cb247-1" aria-hidden="true" tabindex="-1"></a>faktoren <span class="sc">|&gt;</span> </span>
-<span id="cb247-2"><a href="datenvorbereitung.html#cb247-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fct_relevel</span>(<span class="st">&quot;Weise&quot;</span>, <span class="st">&quot;Mittel&quot;</span>, <span class="st">&quot;Jung&quot;</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb247-3"><a href="datenvorbereitung.html#cb247-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">levels</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb248"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb248-1"><a href="datenvorbereitung.html#cb248-1" aria-hidden="true" tabindex="-1"></a>faktoren <span class="sc">|&gt;</span> </span>
+<span id="cb248-2"><a href="datenvorbereitung.html#cb248-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fct_relevel</span>(<span class="st">&quot;Weise&quot;</span>, <span class="st">&quot;Mittel&quot;</span>, <span class="st">&quot;Jung&quot;</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb248-3"><a href="datenvorbereitung.html#cb248-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">levels</span>()</span></code></pre></div>
 <pre class="bordercode"><code>[1] &quot;Weise&quot;  &quot;Mittel&quot; &quot;Jung&quot;  </code></pre>
 <p>In der Praxis werden sämtlich Funktion aus dem <code>forcats</code> Package meistens innerhalb von <code>mutate()</code> verwendet. So könnte man die Referenzgruppe, also die erste Faktorstufe, für die ältestes Altersgruppe festlegen.</p>
-<div class="sourceCode" id="cb249"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb249-1"><a href="datenvorbereitung.html#cb249-1" aria-hidden="true" tabindex="-1"></a>big5_mod <span class="sc">|&gt;</span> </span>
-<span id="cb249-2"><a href="datenvorbereitung.html#cb249-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Gruppe =</span> <span class="fu">fct_relevel</span>(Gruppe, <span class="st">&quot;Weise&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb250"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb250-1"><a href="datenvorbereitung.html#cb250-1" aria-hidden="true" tabindex="-1"></a>big5_mod <span class="sc">|&gt;</span> </span>
+<span id="cb250-2"><a href="datenvorbereitung.html#cb250-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Gruppe =</span> <span class="fu">fct_relevel</span>(Gruppe, <span class="st">&quot;Weise&quot;</span>))</span></code></pre></div>
 <p>Wenn die Reihenfolge der Faktoren in absteigender (<code>.desc = TRUE</code>) oder aufsteigender (<code>.desc = FALSE</code>) Reihenfolge z.B. in Abhängigkeit des Mittelwertes einer anderen Spalte (wie dem Ausmaß an Extraversion) sortiert werden soll, verwendet man <code>fct_reorder()</code>. Dabei kann man mit dem Argument <code>.fun</code> die gewünschte Funktion zur Auswertung der zweiten Variable (hier Extraversion) festlegen.</p>
-<div class="sourceCode" id="cb250"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb250-1"><a href="datenvorbereitung.html#cb250-1" aria-hidden="true" tabindex="-1"></a>extraversion <span class="ot">&lt;-</span> big5_mod<span class="sc">$</span>Extraversion</span>
-<span id="cb250-2"><a href="datenvorbereitung.html#cb250-2" aria-hidden="true" tabindex="-1"></a>faktoren <span class="sc">|&gt;</span> </span>
-<span id="cb250-3"><a href="datenvorbereitung.html#cb250-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fct_reorder</span>(extraversion, <span class="at">.fun =</span> mean, <span class="at">.desc =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb250-4"><a href="datenvorbereitung.html#cb250-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">levels</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb251"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb251-1"><a href="datenvorbereitung.html#cb251-1" aria-hidden="true" tabindex="-1"></a>extraversion <span class="ot">&lt;-</span> big5_mod<span class="sc">$</span>Extraversion</span>
+<span id="cb251-2"><a href="datenvorbereitung.html#cb251-2" aria-hidden="true" tabindex="-1"></a>faktoren <span class="sc">|&gt;</span> </span>
+<span id="cb251-3"><a href="datenvorbereitung.html#cb251-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fct_reorder</span>(extraversion, <span class="at">.fun =</span> mean, <span class="at">.desc =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb251-4"><a href="datenvorbereitung.html#cb251-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">levels</span>()</span></code></pre></div>
 <pre class="bordercode"><code>[1] &quot;Mittel&quot; &quot;Jung&quot;   &quot;Weise&quot; </code></pre>
 <p>In unserem Beispiel ist die Ausprägung der Extraversion in der mittleren Altersklasse am höchsten gefolgt von der jüngsten und der ältesten.</p>
 <p>Zur Verwendung direkt am Datensatz wird auch hier der Befehl innerhalb von <code>mutate()</code> aufgerufen (siehe Kapitel <a href="datenvorbereitung.html#mutate">6.4</a>). Die erste Spalte ist der umzugruppierende Faktor und die zweite (hier Alter) jene, nach der gereiht werden soll.</p>
-<div class="sourceCode" id="cb252"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb252-1"><a href="datenvorbereitung.html#cb252-1" aria-hidden="true" tabindex="-1"></a>big5_mod <span class="sc">|&gt;</span> </span>
-<span id="cb252-2"><a href="datenvorbereitung.html#cb252-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Gruppe =</span> <span class="fu">fct_reorder</span>(Gruppe, Alter, <span class="at">.fun =</span> mean, <span class="at">.desc =</span> <span class="cn">FALSE</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb253"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb253-1"><a href="datenvorbereitung.html#cb253-1" aria-hidden="true" tabindex="-1"></a>big5_mod <span class="sc">|&gt;</span> </span>
+<span id="cb253-2"><a href="datenvorbereitung.html#cb253-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Gruppe =</span> <span class="fu">fct_reorder</span>(Gruppe, Alter, <span class="at">.fun =</span> mean, <span class="at">.desc =</span> <span class="cn">FALSE</span>))</span></code></pre></div>
 <pre class="bordercode"><code># A tibble: 200 × 6
   Alter Geschlecht Extraversion Neurotizismus Gruppe    ID
   &lt;dbl&gt; &lt;chr&gt;             &lt;dbl&gt;         &lt;dbl&gt; &lt;fct&gt;  &lt;int&gt;
@@ -1347,23 +1344,23 @@ Abbildung 6.2: Langes Datenformat mit Persönlichkeitsfaktor als Innersubjektfak
 <div id="datazeit" class="section level2 hasAnchor" number="6.11">
 <h2><span class="header-section-number">6.11</span> Mit Zeitdaten arbeiten<a href="datenvorbereitung.html#datazeit" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Für das Arbeiten mit Zeitdaten muss das <code>lubridate</code> Package installiert und geladen sein.</p>
-<div class="sourceCode" id="cb254"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb254-1"><a href="datenvorbereitung.html#cb254-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span></code></pre></div>
+<div class="sourceCode" id="cb255"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb255-1"><a href="datenvorbereitung.html#cb255-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span></code></pre></div>
 <p>In Kapitel <a href="vars.html#zeitdaten">4.3.3</a> wurden bereits die Datentypen <code>POSIXct</code>, <code>Date</code> und <code>Difftime</code> vorgestellt. Dabei ist <code>POSIXct</code> ein selten erwünschter Datentyp. Wir können mit <code>mutate()</code> in Kombination mit <code>across()</code> aus Kapitel <a href="datenvorbereitung.html#across">6.4.2</a> alle Spalten vom Datentyp <code>POSIXct</code> in den Datentyp <code>Date</code> umwandeln.</p>
-<div class="sourceCode" id="cb255"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb255-1"><a href="datenvorbereitung.html#cb255-1" aria-hidden="true" tabindex="-1"></a>daten <span class="sc">|&gt;</span> </span>
-<span id="cb255-2"><a href="datenvorbereitung.html#cb255-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.POSIXct), as.Date))</span></code></pre></div>
-<p>Die Funktion <code>as.Date()</code> stößt an ihre Grenzen, wenn das Datum nicht im <code>Jahr-Monat-Tag</code> Format ist (z.B. <code>"2002-02-15"</code>). Daher gibt es im <code>lubridate</code> Package neben <code>ymd()</code> (<strong>y</strong>ear <strong>m</strong>onth <strong>d</strong>ate) mit gleichem Anwendungsfall wie <code>as.Date()</code> auch noch <code>dmy()</code> (<strong>d</strong>ay <strong>m</strong>onth <strong>y</strong>ear). Möchte man nur den Tag, Monat oder das Jahr separat aus dem Datum extrahieren, können wir dies mit <code>day()</code>, <code>month()</code> und <code>year()</code> erreichen.</p>
 <div class="sourceCode" id="cb256"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb256-1"><a href="datenvorbereitung.html#cb256-1" aria-hidden="true" tabindex="-1"></a>daten <span class="sc">|&gt;</span> </span>
-<span id="cb256-2"><a href="datenvorbereitung.html#cb256-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb256-3"><a href="datenvorbereitung.html#cb256-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Birthday =</span> <span class="fu">ymd</span>(Birthday),</span>
-<span id="cb256-4"><a href="datenvorbereitung.html#cb256-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Age =</span> <span class="dv">2022</span> <span class="sc">-</span> <span class="fu">year</span>(Birthday)</span>
-<span id="cb256-5"><a href="datenvorbereitung.html#cb256-5" aria-hidden="true" tabindex="-1"></a>  ) </span></code></pre></div>
+<span id="cb256-2"><a href="datenvorbereitung.html#cb256-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.POSIXct), as.Date))</span></code></pre></div>
+<p>Die Funktion <code>as.Date()</code> stößt an ihre Grenzen, wenn das Datum nicht im <code>Jahr-Monat-Tag</code> Format ist (z.B. <code>"2002-02-15"</code>). Daher gibt es im <code>lubridate</code> Package neben <code>ymd()</code> (<strong>y</strong>ear <strong>m</strong>onth <strong>d</strong>ate) mit gleichem Anwendungsfall wie <code>as.Date()</code> auch noch <code>dmy()</code> (<strong>d</strong>ay <strong>m</strong>onth <strong>y</strong>ear). Möchte man nur den Tag, Monat oder das Jahr separat aus dem Datum extrahieren, können wir dies mit <code>day()</code>, <code>month()</code> und <code>year()</code> erreichen.</p>
+<div class="sourceCode" id="cb257"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb257-1"><a href="datenvorbereitung.html#cb257-1" aria-hidden="true" tabindex="-1"></a>daten <span class="sc">|&gt;</span> </span>
+<span id="cb257-2"><a href="datenvorbereitung.html#cb257-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb257-3"><a href="datenvorbereitung.html#cb257-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Birthday =</span> <span class="fu">ymd</span>(Birthday),</span>
+<span id="cb257-4"><a href="datenvorbereitung.html#cb257-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Age =</span> <span class="dv">2022</span> <span class="sc">-</span> <span class="fu">year</span>(Birthday)</span>
+<span id="cb257-5"><a href="datenvorbereitung.html#cb257-5" aria-hidden="true" tabindex="-1"></a>  ) </span></code></pre></div>
 <p>Wenn das genaue Datum bekannt ist, können auch direkt die Daten voneinander subtrahiert werden. Dabei wird die Differenz in Tagen angegeben. Möchte man die Zeitdifferenz in Jahren angegeben haben (z.B. beim Alter), muss man durch die Funktion <code>dyears()</code> teilen. Als Argument wird die Anzahl an zu teilenden Jahren übergeben.</p>
 <p>Um diesen Wert beispielsweise in die vergangenen Jahre umzuwandeln, können wir durch die Funktion <code>dyears()</code> teilen. Als Argument können die Anzahl der Jahre übergeben werden. Äquivalent dazu können wir auch durch Monate (<code>dmonths()</code>) und Tage (<code>ddays()</code>) teilen.</p>
-<div class="sourceCode" id="cb257"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb257-1"><a href="datenvorbereitung.html#cb257-1" aria-hidden="true" tabindex="-1"></a>daten1 <span class="sc">|&gt;</span> </span>
-<span id="cb257-2"><a href="datenvorbereitung.html#cb257-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb257-3"><a href="datenvorbereitung.html#cb257-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Alter_Diagnose =</span> (<span class="fu">ymd</span>(Erstdiagnose) <span class="sc">-</span> <span class="fu">ymd</span>(Geburtsdatum)) <span class="sc">/</span> <span class="fu">dyears</span>(<span class="dv">1</span>),</span>
-<span id="cb257-4"><a href="datenvorbereitung.html#cb257-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">OS_zeit =</span> <span class="fu">ymd</span>(OS_datum) <span class="sc">-</span> <span class="fu">ymd</span>(Erstdiagnose),</span>
-<span id="cb257-5"><a href="datenvorbereitung.html#cb257-5" aria-hidden="true" tabindex="-1"></a>  ) </span></code></pre></div>
+<div class="sourceCode" id="cb258"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb258-1"><a href="datenvorbereitung.html#cb258-1" aria-hidden="true" tabindex="-1"></a>daten1 <span class="sc">|&gt;</span> </span>
+<span id="cb258-2"><a href="datenvorbereitung.html#cb258-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb258-3"><a href="datenvorbereitung.html#cb258-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Alter_Diagnose =</span> (<span class="fu">ymd</span>(Erstdiagnose) <span class="sc">-</span> <span class="fu">ymd</span>(Geburtsdatum)) <span class="sc">/</span> <span class="fu">dyears</span>(<span class="dv">1</span>),</span>
+<span id="cb258-4"><a href="datenvorbereitung.html#cb258-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">OS_zeit =</span> <span class="fu">ymd</span>(OS_datum) <span class="sc">-</span> <span class="fu">ymd</span>(Erstdiagnose),</span>
+<span id="cb258-5"><a href="datenvorbereitung.html#cb258-5" aria-hidden="true" tabindex="-1"></a>  ) </span></code></pre></div>
 <div class="exercise2">
 <p>Das ist ein Platzhalter für eine Übung. Starte die Übung mit <code>hands_on("test")</code>.</p>
 </div>
@@ -1372,9 +1369,9 @@ Abbildung 6.2: Langes Datenformat mit Persönlichkeitsfaktor als Innersubjektfak
 <h2><span class="header-section-number">6.12</span> Binäre Antwortmatrix erstellen<a href="datenvorbereitung.html#binäre-antwortmatrix-erstellen" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Im Kontext von Fragebögen ist man häufig an richtiger oder falscher Beantwortung der ProbandInnen interessiert. Mit <code>data_binary()</code> aus dem <code>remp</code> Package kann man den Datensatz in die gewünschte binäre Antwortmatrix umwandeln. Für jede Frage pro Person wird also zurückgegeben, ob das Item richtig (1) oder falsch (0) beantwortet wurde.</p>
 <p>Exemplarisch nehmen wir die ersten drei Spalten zur Offenheit für neue Erfahrungen aus dem <code>big5</code> Datensatz.</p>
-<div class="sourceCode" id="cb258"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb258-1"><a href="datenvorbereitung.html#cb258-1" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> big5 <span class="sc">|&gt;</span> </span>
-<span id="cb258-2"><a href="datenvorbereitung.html#cb258-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(O1<span class="sc">:</span>O3)</span>
-<span id="cb258-3"><a href="datenvorbereitung.html#cb258-3" aria-hidden="true" tabindex="-1"></a>df2</span></code></pre></div>
+<div class="sourceCode" id="cb259"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb259-1"><a href="datenvorbereitung.html#cb259-1" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> big5 <span class="sc">|&gt;</span> </span>
+<span id="cb259-2"><a href="datenvorbereitung.html#cb259-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(O1<span class="sc">:</span>O3)</span>
+<span id="cb259-3"><a href="datenvorbereitung.html#cb259-3" aria-hidden="true" tabindex="-1"></a>df2</span></code></pre></div>
 <pre class="bordercode"><code># A tibble: 200 × 3
      O1    O2    O3
   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
@@ -1384,8 +1381,8 @@ Abbildung 6.2: Langes Datenformat mit Persönlichkeitsfaktor als Innersubjektfak
 4     2     5     3
 # … with 196 more rows</code></pre>
 <p>Stell dir vor, bei Frage 1 ist die Antwort 3 richtig, bei Frage 2 die Antwort 2 und bei Item 3 die Antwort 4. Dann würden diese richtigen Antworten dem <code>answers</code> Argument kombiniert übergeben werden.</p>
-<div class="sourceCode" id="cb260"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb260-1"><a href="datenvorbereitung.html#cb260-1" aria-hidden="true" tabindex="-1"></a>df2 <span class="sc">|&gt;</span> </span>
-<span id="cb260-2"><a href="datenvorbereitung.html#cb260-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data_binary</span>(<span class="at">answers =</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">5</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb261"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb261-1"><a href="datenvorbereitung.html#cb261-1" aria-hidden="true" tabindex="-1"></a>df2 <span class="sc">|&gt;</span> </span>
+<span id="cb261-2"><a href="datenvorbereitung.html#cb261-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data_binary</span>(<span class="at">answers =</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">5</span>))</span></code></pre></div>
 <pre class="bordercode"><code># A tibble: 200 × 3
      O1    O2    O3
   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;

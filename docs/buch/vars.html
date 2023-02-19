@@ -23,7 +23,7 @@
 <meta name="author" content="Jan Philipp Nolte" />
 
 
-<meta name="date" content="2023-02-12" />
+<meta name="date" content="2023-02-19" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -200,7 +200,7 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="4" data-path="vars.html"><a href="vars.html"><i class="fa fa-check"></i><b>4</b> Wichtiges Grundlagenwissen</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="vars.html"><a href="vars.html#schritt-für-schritt-beginnen"><i class="fa fa-check"></i><b>4.1</b> Schritt für Schritt beginnen</a></li>
+<li class="chapter" data-level="4.1" data-path="vars.html"><a href="vars.html#begin"><i class="fa fa-check"></i><b>4.1</b> Schritt für Schritt beginnen</a></li>
 <li class="chapter" data-level="4.2" data-path="vars.html"><a href="vars.html#pfeil"><i class="fa fa-check"></i><b>4.2</b> Variablen speichern und verwenden</a></li>
 <li class="chapter" data-level="4.3" data-path="vars.html"><a href="vars.html#datentypen"><i class="fa fa-check"></i><b>4.3</b> Datentypen</a>
 <ul>
@@ -234,7 +234,7 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="6.5" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#umgang-mit-fehlenden-werten-und-duplikaten"><i class="fa fa-check"></i><b>6.5</b> Umgang mit fehlenden Werten und Duplikaten</a></li>
 <li class="chapter" data-level="6.6" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#tidy"><i class="fa fa-check"></i><b>6.6</b> Breites und langes Datenformat</a></li>
-<li class="chapter" data-level="6.7" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#spalten-trennen"><i class="fa fa-check"></i><b>6.7</b> Spalten trennen</a></li>
+<li class="chapter" data-level="6.7" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#separate"><i class="fa fa-check"></i><b>6.7</b> Spalten trennen</a></li>
 <li class="chapter" data-level="6.8" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#datensätze-zusammenführen"><i class="fa fa-check"></i><b>6.8</b> Datensätze zusammenführen</a></li>
 <li class="chapter" data-level="6.9" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#datastring"><i class="fa fa-check"></i><b>6.9</b> Buchstaben und Wörter bearbeiten</a></li>
 <li class="chapter" data-level="6.10" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#datafactor"><i class="fa fa-check"></i><b>6.10</b> Faktoren verändern</a></li>
@@ -381,8 +381,8 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="vars" class="section level1 hasAnchor" number="4">
 <h1><span class="header-section-number">Kapitel 4</span> Wichtiges Grundlagenwissen<a href="vars.html#vars" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="schritt-für-schritt-beginnen" class="section level2 hasAnchor" number="4.1">
-<h2><span class="header-section-number">4.1</span> Schritt für Schritt beginnen<a href="vars.html#schritt-für-schritt-beginnen" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="begin" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Schritt für Schritt beginnen<a href="vars.html#begin" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><strong>1. Schritt: RStudio starten.</strong> Nach der Installation von R und RStudio (siehe Kapitel <a href="start.html#installr">2.1.1</a> und <a href="start.html#rstudio">2.1.2</a>) kann RStudio in Windows durch Tippen der Windows-Taste mit anschließender Eingabe von <code>RStudio</code> und in macOS über den Finder gestartet werden. In der Konsole wird dabei automatisch die installierte R Version angezeigt.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:rstart1"></span>
 <img src="images/rstart1.png" alt="Starten von RStudio." width="95%" />
@@ -606,7 +606,7 @@ Levels: m f d</code></pre>
 </div>
 <div id="dollar" class="section level2 hasAnchor" number="4.5">
 <h2><span class="header-section-number">4.5</span> Der Dollar-Operator<a href="vars.html#dollar" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Manche Funktionen benötigen jedoch nicht den gesamten Datensatz im vorherigen Kapitel beschriebenen Format als Argument, sondern lediglich eine Spalte daraus. Diese Spalte können wir mit dem sogenannten Dollar-Operator aus dem Datensatz extrahieren. Das praktische an dem Dollar-Operator im Vergleich zu anderen Methoden zum Extrahieren der Spalte, ist die Möglichkeit der automatischen Vervollständigung durch RStudio.</p>
+<p>Manche Funktionen benötigen jedoch nicht den gesamten Datensatz im vorherigen Kapitel beschriebenen Format als Argument, sondern lediglich eine Spalte daraus. Diese Spalte können wir mit dem sogenannten Dollar-Operator aus dem Datensatz extrahieren. Das Praktische an dem Dollar-Operator im Vergleich zu anderen Methoden zum Extrahieren der Spalte ist die Möglichkeit der automatischen Vervollständigung durch RStudio.</p>
 <p>Wenn wir den Namen des Datensatzes <code>big5</code> gefolgt von einem Dollar-Zeichen angeben, werden uns alle enthaltenen Spalten in einem Dropdown-Menu angezeigt. Dies ist vor allem bei langen Namen der jeweiligen Spalten äußerst praktisch und schützt uns vor Tippfehlern. Hier wählen wir exemplarisch die Spalte Alter aus.</p>
 <div class="sourceCode" id="cb85"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb85-1"><a href="vars.html#cb85-1" aria-hidden="true" tabindex="-1"></a>big5<span class="sc">$</span>Alter</span></code></pre></div>
 <p>Hier würden uns alle 200 Alterswerte in einer Wertereihe bzw. als sogenannter Vektor zurückgegeben werden (siehe Kapitel <a href="datatypes.html#vec">11.1</a>). Um das ganze übersichtlich zu halten, lassen wir uns mit <code>head()</code> das Alter der ersten 6 Personen ausgeben.</p>

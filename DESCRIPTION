@@ -11,4 +11,4 @@ URL: https://r-empirische-wissenschaften.de, https://github.com/j3ypi/remp
 BugReports: https://github.com/j3ypi/remp/issues
 Depends:
     R (>= 2.10)
-RoxygenNote: 7.1.1
+RoxygenNote: 7.2.3

@@ -3,23 +3,29 @@
 \docType{data}
 \name{big5}
 \alias{big5}
-\title{Big 5 Modifikation}
+\title{BIG 5 Modifikation}
 \format{
-Ein tibble mit 1,493 Zeilen and 4 Spalten:
+Ein tible mit 200 Zeilen and 16 Spalten:
 \describe{
-  \item{Titel}{Names des Filmes oder der Serie}
-  \item{Staffel}{Staffelnummer}
-  \item{Folge}{Name der Folge}
-  \item{Watchdate}{Datum, an dem der Titel geschaut wurde. Beachte, dass aus didaktischen Gründen bewusst das falsche Datenformat vorliegt.}
+  \item{Alter}{Alter in Lebensjahren}
+  \item{Geschlecht}{f = Weiblich, m = Männlich}
+  \item{Extraversion}{Durchschnittliche Ausprägung von Extraversion}
+  \item{Neurotizismus}{Durchschnittliche Ausprägung von Neurotizismus}
+  \item{O1-O3}{Item 1-3 zur Ausprägung von Offenheit}
 }
+}
+\source{
+\url{https://openpsychometrics.org/_rawdata/} (modifiziert)
 }
 \usage{
 big5
 }
 \description{
-Dies ist die Nutzerstatistik eines User beim Film- und Serienschauen auf einer der bekanntesten Videostreaming Plattformen.
+Der Datensatz enthält die soziodemographische Variablen Alter und Geschlecht, die durchschnittliche Ausprägung von Extraversion,
+Neurotizismus, Verträglichkeit und Gewissenhaftigkeit sowie 10 Items, um die Offenheit zu messen.
 }
 \examples{
 big5
+
 }
 \keyword{datasets}

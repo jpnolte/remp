@@ -31,7 +31,7 @@ fig:threebox
 fig:fourbox
 fig:adaptplot
 fig:colors
-fig:unnamed-chunk-251
+fig:unnamed-chunk-252
 fig:themes
 fig:legend
 fig:patcha
@@ -43,13 +43,13 @@ fig:high
 fig:dag
 fig:eyeplot
 fig:modeling
-fig:unnamed-chunk-363
 fig:unnamed-chunk-364
-fig:html-markdown
 fig:unnamed-chunk-365
-fig:unnamed-chunk-367
-tab:unnamed-chunk-414
-tab:unnamed-chunk-415
+fig:html-markdown
+fig:unnamed-chunk-366
+fig:unnamed-chunk-368
+tab:unnamed-chunk-416
+tab:unnamed-chunk-417
 intro
 für-wen-ist-dieses-buch
 aufbau-und-bearbeitungsstrategie
@@ -75,7 +75,7 @@ die-probleme-der-pfade
 projekte-in-rstudio-erstellen
 here
 vars
-schritt-für-schritt-beginnen
+begin
 pfeil
 datentypen
 zahlen-buchstaben-und-logische-abfragen
@@ -101,7 +101,7 @@ function
 zeilenweise-berechnen
 umgang-mit-fehlenden-werten-und-duplikaten
 tidy
-spalten-trennen
+separate
 datensätze-zusammenführen
 datastring
 datafactor

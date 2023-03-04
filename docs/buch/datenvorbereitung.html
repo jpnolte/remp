@@ -23,7 +23,7 @@
 <meta name="author" content="Jan Philipp Nolte" />
 
 
-<meta name="date" content="2023-02-19" />
+<meta name="date" content="2023-03-04" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -1041,7 +1041,7 @@ Abbildung 6.2: Langes Datenformat mit Persönlichkeitsfaktor als Innersubjektfak
 <h2><span class="header-section-number">6.7</span> Spalten trennen<a href="datenvorbereitung.html#separate" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Mit den Funktionen namens <code>separate_wider_*()</code> aus dem <code>tidyr</code> Package können Spalten getrennt werden. Dabei unterscheiden wir drei Szenarien, für die jeweils eine eigene Funktion existiert. Die Informationen innerhalb einer Spalte sind getrennt durch</p>
 <ul>
-<li>eine Trenner (z.B. Unterstrich, Komma, Punkt): <code>separate_wider_delim()</code>,</li>
+<li>einen Trenner (z.B. Unterstrich, Komma, Punkt): <code>separate_wider_delim()</code>,</li>
 <li>eine genaue Position: <code>separate_wider_position()</code>,</li>
 <li>einen Regex (siehe Kapitel <a href="datenvorbereitung.html#datastring">6.9</a>): <code>separate_wider_regex()</code>.</li>
 </ul>
@@ -1282,7 +1282,7 @@ Abbildung 6.2: Langes Datenformat mit Persönlichkeitsfaktor als Innersubjektfak
 <span id="cb239-2"><a href="datenvorbereitung.html#cb239-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">relocate</span>(Gruppe)</span></code></pre></div>
 <pre class="bordercode"><code># A tibble: 200 × 6
   Gruppe Alter Geschlecht Extraversion Neurotizismus    ID
-  &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;             &lt;dbl&gt;         &lt;dbl&gt; &lt;int&gt;
+  &lt;fct&gt;  &lt;dbl&gt; &lt;chr&gt;             &lt;dbl&gt;         &lt;dbl&gt; &lt;int&gt;
 1 Mittel    36 m                   3             1.9     1
 2 Jung      30 f                   3.1           3.4     2
 3 Jung      23 m                   3.4           2.4     3

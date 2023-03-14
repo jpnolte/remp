@@ -23,7 +23,7 @@
 <meta name="author" content="Jan Philipp Nolte" />
 
 
-<meta name="date" content="2023-03-04" />
+<meta name="date" content="2023-03-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -52,6 +52,8 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@xiee/utils/js/key-buttons.min.js" defer></script>
+<link href="https://cdn.jsdelivr.net/npm/@xiee/utils/css/key-buttons.min.css" rel="stylesheet"></link>
 
 
 <style type="text/css">
@@ -335,6 +337,7 @@ div.csl-indent {
 <li class="chapter" data-level="10.3.1" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#knitr"><i class="fa fa-check"></i><b>10.3.1</b> Exportieren nach Word und PDF</a></li>
 <li class="chapter" data-level="10.3.2" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#latex"><i class="fa fa-check"></i><b>10.3.2</b> Exportieren nach LaTeX</a></li>
 </ul></li>
+<li class="chapter" data-level="10.4" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#quarto"><i class="fa fa-check"></i><b>10.4</b> Alternative mit Quarto</a></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="datatypes.html"><a href="datatypes.html"><i class="fa fa-check"></i><b>11</b> Datenstrukturen</a>
 <ul>
@@ -381,6 +384,9 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="visual" class="section level1 hasAnchor" number="8">
 <h1><span class="header-section-number">Kapitel 8</span> Visualisierungen<a href="visual.html#visual" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<blockquote>
+<p>Eine der informativsten und zugänglichsten Form der Darstellung von Unterschieden oder Zusammenhängen ist ein Diagramm. Optisch ansprechende Abbildungen zu erstellen, die dann auch noch für wissenschaftliche Publikationen geeignet sind, war bisher allerdings oftmals ein Krampf. Innerhalb dieses Kapitels wird ein konsistentes Schema zur Erstellung und Anpassung einfacher bis komplexer Abbildungen verschiedener Art vorgestellt und an vielen praktischen Beispielen gefestigt.</p>
+</blockquote>
 <div id="einführung" class="section level2 hasAnchor" number="8.1">
 <h2><span class="header-section-number">8.1</span> Einführung<a href="visual.html#einführung" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Mit R können komplexe und dabei optisch ansprechende Abbildungen erstellt werden, die durch die umfangreichen Anpassungsmöglichkeiten gleichermaßen für wissenschaftlichen Publikationen oder in Unternehmen verwendet werden. Durch das Package <code>ggplot</code> können auf konsistente Art und Weise Histogramme, Streudiagramme, Boxplots, Balkendiagramme, Liniendiagramme und viele mehr erstellt werden. Die zwei g des im <code>tidyverse</code> enthaltenen Packages <code>ggplot</code> stehen für <strong>g</strong>rammar of <strong>g</strong>raphics, was frei als Grammatik der Abbildungen übersetzt werden kann. Für alle Unterkapitel muss folglich das <code>tidyverse</code> installiert und geladen sein.</p>
@@ -411,13 +417,23 @@ Abbildung 8.1: Vereinfachte Anordnung der Layer im Rahmen der Grammar of Graphic
 <div class="warning">
 <p>Anders als sonst können Funktionen aus <code>ggplot2</code> nicht mit einer Pipe aneinander gebunden werden. Das hat ausschließlich historische Gründe, da zu der Zeit der Erstellung von <code>ggplot2</code> die Pipe noch nicht existiert hat. Dies wird sich in Zukunft voraussichtlich auch nicht mehr ändern.</p>
 </div>
-<p>Schauen wir uns die einzelnen Befehle einmal genauer an. Die erste Zeile kreiert nur den Plot an sich und kein Histogramm. Die beiden Argumente <code>data</code> und <code>mapping</code> schreiben wir von nun an nicht mehr explizit aus, da die Reihenfolge dieser Argumente im Verlaufe des Buches dieselbe ist.</p>
+<p>Schauen wir uns die einzelnen Befehle einmal genauer an. Die erste Zeile kreiert nur den Plot an sich und kein Histogramm. Die beiden Namen der Argumente <code>data</code> und <code>mapping</code> schreiben wir von nun an nicht mehr explizit aus, da die Reihenfolge dieser Argumente im Verlaufe des Buches dieselbe ist.</p>
 <div class="sourceCode" id="cb318"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb318-1"><a href="visual.html#cb318-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(big5_mod, <span class="fu">aes</span>(<span class="at">x =</span> Extraversion)) </span></code></pre></div>
-<p><img src="r-empirische-wissenschaften_files/figure-html/unnamed-chunk-208-1.png" width="288" style="display: block; margin: auto;" /></p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:firstplot"></span>
+<img src="r-empirische-wissenschaften_files/figure-html/firstplot-1.svg" alt="Data und Aesthetics Layer." width="288" />
+<p class="caption">
+Abbildung 8.2: Data und Aesthetics Layer.
+</p>
+</div>
 <p>Wie zuvor kurz erwähnt, beginnt die Funktion zur eigentlichen Visualisierung der Daten mit <code>geom_</code> und endet mit dem Namen der Abbildungsart (hier ein Histogramm).</p>
 <div class="sourceCode" id="cb319"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb319-1"><a href="visual.html#cb319-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(big5_mod, <span class="fu">aes</span>(<span class="at">x =</span> Extraversion)) <span class="sc">+</span> </span>
 <span id="cb319-2"><a href="visual.html#cb319-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>() </span></code></pre></div>
-<p><img src="r-empirische-wissenschaften_files/figure-html/unnamed-chunk-209-1.png" width="288" style="display: block; margin: auto;" /></p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:secondplot"></span>
+<img src="r-empirische-wissenschaften_files/figure-html/secondplot-1.svg" alt="Data, Aesthetics und Geometries Layer." width="288" />
+<p class="caption">
+Abbildung 8.3: Data, Aesthetics und Geometries Layer.
+</p>
+</div>
 <p>Das standardmäßige Aussehen mit dem grauen Hintergrund ist in dieser Form nicht publikationsreif. Anpassungsmöglichkeiten werden in Kapitel <a href="visual.html#adapt">8.10</a> eingeführt.</p>
 </div>
 <div id="histogram" class="section level2 hasAnchor" number="8.2">
@@ -425,7 +441,7 @@ Abbildung 8.1: Vereinfachte Anordnung der Layer im Rahmen der Grammar of Graphic
 <p>Das Histogramm wurde exemplarisch bereits zur Erklärung des Aufbau eines <code>ggplot</code>s in der Einführung beschrieben. Histogramme verwendet man zur Abbildung von Häufigkeitsverteilungen kontinuierlicher Variablen. Zur Erstellung eines Histograms in R bedarf es nur der Zuweisung der interessierenden Variable für die x-Achse, da auf der y-Achse die Häufigkeiten dargestellt werden.</p>
 <div class="sourceCode" id="cb320"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb320-1"><a href="visual.html#cb320-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(big5_mod, <span class="fu">aes</span>(<span class="at">x =</span> Extraversion)) <span class="sc">+</span> </span>
 <span id="cb320-2"><a href="visual.html#cb320-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>() </span></code></pre></div>
-<p>Für ein schlichteres Aussehen fügen wir in Abbildung <a href="visual.html#fig:histogramplot">8.2</a> (b) noch eine schwarze Rahmenfarbe mit dem <code>color</code> Argument und eine weiße Füllungsfarbe mit <code>fill</code> hinzu (siehe Kapitel <a href="visual.html#color">8.10.1</a>).</p>
+<p>Für ein schlichteres Aussehen fügen wir in Abbildung <a href="visual.html#fig:histogramplot">8.4</a> (b) noch eine schwarze Rahmenfarbe mit dem <code>color</code> Argument und eine weiße Füllungsfarbe mit <code>fill</code> hinzu (siehe Kapitel <a href="visual.html#color">8.10.1</a>).</p>
 <p>Histogramme sind allerdings maßgeblich von der gewählten Breite der Balken abhängig. Bei zu wenigen Balken können Informationen der Verteilung verloren gehen, bei zu vielen hingegen irrelevante Trends erscheinen. Dieses kann entweder direkt mit der Anzahl der Balken (<code>bins</code> Argument) oder mit der Breite (<code>binwidth</code> Argument) verändert werden. Wir werden hier das Argument <code>binwidth</code> verwenden, da diesem auch eine Funktion übergeben werden kann.</p>
 <div class="sourceCode" id="cb321"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb321-1"><a href="visual.html#cb321-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(big5_mod, <span class="fu">aes</span>(<span class="at">x =</span> Extraversion)) <span class="sc">+</span> </span>
 <span id="cb321-2"><a href="visual.html#cb321-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(</span>
@@ -434,23 +450,23 @@ Abbildung 8.1: Vereinfachte Anordnung der Layer im Rahmen der Grammar of Graphic
 <span id="cb321-5"><a href="visual.html#cb321-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">binwidth =</span> <span class="fl">0.2</span></span>
 <span id="cb321-6"><a href="visual.html#cb321-6" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:histogramplot"></span>
-<img src="r-empirische-wissenschaften_files/figure-html/histogramplot-1.png" alt="Histogramme im Vergleich." width="768" />
+<img src="r-empirische-wissenschaften_files/figure-html/histogramplot-1.svg" alt="Histogramme im Vergleich." width="768" />
 <p class="caption">
-Abbildung 8.2: Histogramme im Vergleich.
+Abbildung 8.4: Histogramme im Vergleich.
 </p>
 </div>
-<p>Es gibt verschiedene Arten, eine möglichst optimale <code>binwidth</code> herauszufinden. Exemplarisch sei hier die Freedman-Diaconis Regel angewandt. Diese können wir mithilfe einer neuen anonymen Funktion dem <code>binwidth</code> Argument übergeben (siehe Kapitel <a href="datenvorbereitung.html#function">6.4.4</a>). Das Ergebnis ist in Abbildung <a href="visual.html#fig:histodensity">8.3</a> (a) gezeigt.</p>
+<p>Es gibt verschiedene Arten, eine möglichst optimale <code>binwidth</code> herauszufinden. Exemplarisch sei hier die Freedman-Diaconis Regel angewandt. Diese können wir mithilfe einer neuen anonymen Funktion dem <code>binwidth</code> Argument übergeben (siehe Kapitel <a href="datenvorbereitung.html#function">6.4.4</a>). Das Ergebnis ist in Abbildung <a href="visual.html#fig:histodensity">8.5</a> (a) gezeigt.</p>
 <div class="sourceCode" id="cb322"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb322-1"><a href="visual.html#cb322-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(big5_mod, <span class="fu">aes</span>(<span class="at">x =</span> Extraversion)) <span class="sc">+</span> </span>
 <span id="cb322-2"><a href="visual.html#cb322-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(</span>
 <span id="cb322-3"><a href="visual.html#cb322-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">&quot;black&quot;</span>, </span>
 <span id="cb322-4"><a href="visual.html#cb322-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">&quot;white&quot;</span>,</span>
 <span id="cb322-5"><a href="visual.html#cb322-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">binwidth =</span> \(x) (<span class="fu">max</span>(x) <span class="sc">-</span> <span class="fu">min</span>(x)) <span class="sc">/</span> <span class="fu">nclass.FD</span>(x)</span>
 <span id="cb322-6"><a href="visual.html#cb322-6" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
-<p>Eine weitere Möglichkeit, die Verteilung der Extraversion unserer Population darzustellen, ist die Wahrscheinlichkeitsdichte. Dazu müssen wir lediglich das Suffix des <em>Geometry</em> Layers zu <code>density</code> (engl. für Dichte) verändern (siehe Abbildung <a href="visual.html#fig:histodensity">8.3</a> (b)).</p>
+<p>Eine weitere Möglichkeit, die Verteilung der Extraversion unserer Population darzustellen, ist die Wahrscheinlichkeitsdichte. Dazu müssen wir lediglich das Suffix des <em>Geometry</em> Layers zu <code>density</code> (engl. für Dichte) verändern (siehe Abbildung <a href="visual.html#fig:histodensity">8.5</a> (b)).</p>
 <div class="sourceCode" id="cb323"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb323-1"><a href="visual.html#cb323-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(big5_mod, <span class="fu">aes</span>(<span class="at">x =</span> Extraversion)) <span class="sc">+</span> </span>
 <span id="cb323-2"><a href="visual.html#cb323-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>()</span></code></pre></div>
 <p>Um das Histogramm gemeinsam mit der Wahrscheinlichkeitsdichte abzubilden, müssen sich beide auf derselben Skala befinden. Zum Beispiel könnte man die Häufigkeiten des Histogramms ebenfalls als Dichte ausdrücken. Dafür muss dem <code>height</code> und <code>y</code> Argument jeweils die berechnete Dichte (<code>density</code>) übergeben werden. Diese wird mithilfe der Helferfunktion <code>after_stat()</code> berechnet.</p>
-<p>Anschließend muss lediglich mit einem weiteren Pluszeichen die Dichtefunktion hinzugefügt werden. Für eine ansprechendere optische Darstellung sei eine graue Füllfarbe ergänzt, welche mithilfe des <code>alpha</code> Argument etwas durchsichtig wird. Das Ergebnis kann in Abbildung <a href="visual.html#fig:histodensity">8.3</a> (c) betrachtet werden.</p>
+<p>Anschließend muss lediglich mit einem weiteren Pluszeichen die Dichtefunktion hinzugefügt werden. Für eine ansprechendere optische Darstellung sei eine graue Füllfarbe ergänzt, welche mithilfe des <code>alpha</code> Argument etwas durchsichtig wird. Das Ergebnis kann in Abbildung <a href="visual.html#fig:histodensity">8.5</a> (c) betrachtet werden.</p>
 <div class="sourceCode" id="cb324"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb324-1"><a href="visual.html#cb324-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(big5_mod, <span class="fu">aes</span>(<span class="at">x =</span> Extraversion, <span class="at">height =</span> <span class="fu">after_stat</span>(density))) <span class="sc">+</span> </span>
 <span id="cb324-2"><a href="visual.html#cb324-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(</span>
 <span id="cb324-3"><a href="visual.html#cb324-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">after_stat</span>(density)),</span>
@@ -458,14 +474,11 @@ Abbildung 8.2: Histogramme im Vergleich.
 <span id="cb324-5"><a href="visual.html#cb324-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">&quot;black&quot;</span>,</span>
 <span id="cb324-6"><a href="visual.html#cb324-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">&quot;white&quot;</span></span>
 <span id="cb324-7"><a href="visual.html#cb324-7" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span> </span>
-<span id="cb324-8"><a href="visual.html#cb324-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(</span>
-<span id="cb324-9"><a href="visual.html#cb324-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">&quot;grey&quot;</span>,</span>
-<span id="cb324-10"><a href="visual.html#cb324-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">alpha =</span> <span class="fl">0.7</span></span>
-<span id="cb324-11"><a href="visual.html#cb324-11" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
+<span id="cb324-8"><a href="visual.html#cb324-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">fill =</span> <span class="st">&quot;grey&quot;</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:histodensity"></span>
-<img src="r-empirische-wissenschaften_files/figure-html/histodensity-1.png" alt="Histogramm und Wahrscheinlichkeitsdichte separat und kombiniert." width="768" />
+<img src="r-empirische-wissenschaften_files/figure-html/histodensity-1.svg" alt="Histogramm und Wahrscheinlichkeitsdichte separat und kombiniert." width="768" />
 <p class="caption">
-Abbildung 8.3: Histogramm und Wahrscheinlichkeitsdichte separat und kombiniert.
+Abbildung 8.5: Histogramm und Wahrscheinlichkeitsdichte separat und kombiniert.
 </p>
 </div>
 <div class="exercise2">
@@ -474,14 +487,14 @@ Abbildung 8.3: Histogramm und Wahrscheinlichkeitsdichte separat und kombiniert.
 </div>
 <div id="scatter" class="section level2 hasAnchor" number="8.3">
 <h2><span class="header-section-number">8.3</span> Streudiagramm<a href="visual.html#scatter" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Das Erstellen eines Streudiagramms in R benötigt das Festlegen der x-Achse und y-Achse (auch Punktdiagramm oder Scatter Plot genannt). Im Vergleich zum bereits kennengelernten Histogramm ändert sich sonst nur der <em>Geometry</em> Layer zu <code>geom_point()</code>. Exemplarisch sei hier die mittlere Extraversion gegen das Lebensalter in Jahren aufgetragen (siehe Abbildung <a href="visual.html#fig:points">8.4</a> (a)). Auf weitere Parameter wie das Ändern der Farbe (<code>color</code>) oder Form (<code>shape</code>) verzichten wir an dieser Stelle.</p>
+<p>Das Erstellen eines Streudiagramms in R benötigt das Festlegen der x-Achse und y-Achse (auch Punktdiagramm oder Scatter Plot genannt). Im Vergleich zum bereits kennengelernten Histogramm ändert sich sonst nur der <em>Geometry</em> Layer zu <code>geom_point()</code>. Exemplarisch sei hier die mittlere Extraversion gegen das Lebensalter in Jahren aufgetragen (siehe Abbildung <a href="visual.html#fig:points">8.6</a> (a)). Auf weitere Parameter wie das Ändern der Farbe (<code>color</code>) oder Form (<code>shape</code>) verzichten wir an dieser Stelle.</p>
 <div class="sourceCode" id="cb325"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb325-1"><a href="visual.html#cb325-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(big5_mod, <span class="fu">aes</span>(<span class="at">x =</span> Extraversion, <span class="at">y =</span> Alter)) <span class="sc">+</span> </span>
 <span id="cb325-2"><a href="visual.html#cb325-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
-<p>Bei größeren Datensätzen kann es passieren, dass die Punkte sich überlappen. Um das zu verhindern, kann die Position zu <code>jitter</code> verändert werden. Dies bewirkt eine leichte zufällige Variation jedes Datenpunktes (siehe Abbildung <a href="visual.html#fig:points">8.4</a> (b)).</p>
+<p>Bei größeren Datensätzen kann es passieren, dass die Punkte sich überlappen. Um das zu verhindern, kann die Position zu <code>jitter</code> verändert werden. Dies bewirkt eine leichte zufällige Variation jedes Datenpunktes (siehe Abbildung <a href="visual.html#fig:points">8.6</a> (b)).</p>
 <div class="sourceCode" id="cb326"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb326-1"><a href="visual.html#cb326-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(big5_mod, <span class="fu">aes</span>(<span class="at">x =</span> Extraversion, <span class="at">y =</span> Alter)) <span class="sc">+</span> </span>
 <span id="cb326-2"><a href="visual.html#cb326-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">position =</span> <span class="st">&quot;jitter&quot;</span>)</span></code></pre></div>
 <p>Mit <code>geom_smooth()</code> wird eine am besten passende Linie durch die Punkte gezogen. Wir entscheiden uns an dieser Stelle für eine lineare Regressionsgeraden (<code>method = lm</code>). Außerdem färben wir die Gerade schwarz und fügen ein <code>95%</code>iges Konfidenzintervall mit <code>se = TRUE</code> hinzu.</p>
-<p>Damit die Regressionsgerade nicht nur in dem Bereich, in dem Daten beobachtet wurden, abgebildet wird, kann zusätzlich das <code>fullrange</code> Argument auf <code>TRUE</code> gesetzt werden. Um den Effekt dieser Funktion zu illustrieren, greifen wir etwas voraus und definieren mit <code>xlim(c(2, 5))</code> die untere Grenze der x-Achse mit 2 und die obere mit 5 (siehe Abbildung <a href="visual.html#fig:points">8.4</a> (c)).</p>
+<p>Damit die Regressionsgerade nicht nur in dem Bereich, in dem Daten beobachtet wurden, abgebildet wird, kann zusätzlich das <code>fullrange</code> Argument auf <code>TRUE</code> gesetzt werden. Um den Effekt dieser Funktion zu illustrieren, greifen wir etwas voraus und definieren mit <code>xlim(c(2, 5))</code> die untere Grenze der x-Achse mit 2 und die obere mit 5 (siehe Abbildung <a href="visual.html#fig:points">8.6</a> (c)).</p>
 <div class="sourceCode" id="cb327"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb327-1"><a href="visual.html#cb327-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(big5_mod, <span class="fu">aes</span>(<span class="at">x =</span> Extraversion, <span class="at">y =</span> Alter)) <span class="sc">+</span> </span>
 <span id="cb327-2"><a href="visual.html#cb327-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">position =</span> <span class="st">&quot;jitter&quot;</span>) <span class="sc">+</span></span>
 <span id="cb327-3"><a href="visual.html#cb327-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(</span>
@@ -492,9 +505,9 @@ Abbildung 8.3: Histogramm und Wahrscheinlichkeitsdichte separat und kombiniert.
 <span id="cb327-8"><a href="visual.html#cb327-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span> </span>
 <span id="cb327-9"><a href="visual.html#cb327-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlim</span>(<span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">5</span>))  </span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:points"></span>
-<img src="r-empirische-wissenschaften_files/figure-html/points-1.png" alt="Streudiagramm mit und ohne Regressionsgerade." width="768" />
+<img src="r-empirische-wissenschaften_files/figure-html/points-1.svg" alt="Streudiagramm mit und ohne Regressionsgerade." width="768" />
 <p class="caption">
-Abbildung 8.4: Streudiagramm mit und ohne Regressionsgerade.
+Abbildung 8.6: Streudiagramm mit und ohne Regressionsgerade.
 </p>
 </div>
 <div class="exercise2">
@@ -503,7 +516,7 @@ Abbildung 8.4: Streudiagramm mit und ohne Regressionsgerade.
 </div>
 <div id="boxplot" class="section level2 hasAnchor" number="8.4">
 <h2><span class="header-section-number">8.4</span> Boxplot<a href="visual.html#boxplot" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Würde man nur einen Boxplot für die mittlere Ausprägung von Extraversion erstellen wollen, könnte man dies genau wie in den beiden zuvor besprochenen Kapiteln durch das Auswechseln des <em>Geometry</em> Layers mit <code>geom_boxplot()</code> erreichen (siehe Abbildung <a href="visual.html#fig:boxplot">8.5</a> (a)).</p>
+<p>Würde man nur einen Boxplot für die mittlere Ausprägung von Extraversion erstellen wollen, könnte man dies genau wie in den beiden zuvor besprochenen Kapiteln durch das Auswechseln des <em>Geometry</em> Layers mit <code>geom_boxplot()</code> erreichen (siehe Abbildung <a href="visual.html#fig:boxplot">8.7</a> (a)).</p>
 <div class="sourceCode" id="cb328"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb328-1"><a href="visual.html#cb328-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(big5_mod, <span class="fu">aes</span>(<span class="at">y =</span> Extraversion)) <span class="sc">+</span> </span>
 <span id="cb328-2"><a href="visual.html#cb328-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div>
 <p>Dies stellt allerdings eine seltene Situation dar. Meistens ist man am Vergleich mehrerer Variablen interessiert, die auf der x-Achse aufgetragen werden.</p>
@@ -524,17 +537,17 @@ Abbildung 8.4: Streudiagramm mit und ohne Regressionsgerade.
 4    30 f          Jung       2 Neurotizismus         3.4 T1       
 # … with 396 more rows</code></pre>
 <p>Nach der Umwandlung sind in <code>big5_long</code> die Persönlichkeitsfaktoren in der Spalte <code>Faktor</code> und die Extraversions- und Neurotizismusausprägung in der Spalte <code>Auspraegung</code>.</p>
-<p>Einen Boxplot erstellt man mit <code>geom_boxplot()</code>. Auf der x-Achse möchten wir die Persönlichkeitsfaktoren und auf der y-Achse die mittleren Ausprägungen darstellen (siehe Abbildung <a href="visual.html#fig:boxplot">8.5</a> (b)).</p>
+<p>Einen Boxplot erstellt man mit <code>geom_boxplot()</code>. Auf der x-Achse möchten wir die Persönlichkeitsfaktoren und auf der y-Achse die mittleren Ausprägungen darstellen (siehe Abbildung <a href="visual.html#fig:boxplot">8.7</a> (b)).</p>
 <div class="sourceCode" id="cb332"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb332-1"><a href="visual.html#cb332-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(big5_long, <span class="fu">aes</span>(<span class="at">x =</span> Faktor, <span class="at">y =</span> Auspraegung)) <span class="sc">+</span> </span>
 <span id="cb332-2"><a href="visual.html#cb332-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div>
-<p>Um zusätzlich Fehlerbalken zu erhalten, müssen diese mit <code>stat_boxplot()</code> berechnet werden. Das Argument <code>geom</code> muss auf <code>"errorbar"</code> (engl. für Fehlerbalken) gesetzt werden. Die Breite des Fehlerbalkens kann durch das optionale Argument <code>width</code> kontrolliert werden. Zum Ausblenden der Ausreißer setzt man innerhalb von <code>geom_boxplot()</code> die <code>outlier.shape</code> auf <code>NA</code> (Akronym für <strong>N</strong>ot <strong>A</strong>vailable, engl. für nicht vorhanden). Das Ergebnis ist in Abbildung <a href="visual.html#fig:boxplot">8.5</a> (c) illustriert.</p>
+<p>Um zusätzlich Fehlerbalken zu erhalten, müssen diese mit <code>stat_boxplot()</code> berechnet werden. Das Argument <code>geom</code> muss auf <code>"errorbar"</code> (engl. für Fehlerbalken) gesetzt werden. Die Breite des Fehlerbalkens kann durch das optionale Argument <code>width</code> kontrolliert werden. Zum Ausblenden der Ausreißer setzt man innerhalb von <code>geom_boxplot()</code> die <code>outlier.shape</code> auf <code>NA</code> (Akronym für <strong>N</strong>ot <strong>A</strong>vailable, engl. für nicht vorhanden). Das Ergebnis ist in Abbildung <a href="visual.html#fig:boxplot">8.7</a> (c) illustriert.</p>
 <div class="sourceCode" id="cb333"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb333-1"><a href="visual.html#cb333-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(big5_long, <span class="fu">aes</span>(<span class="at">x =</span> Faktor, <span class="at">y =</span> Auspraegung)) <span class="sc">+</span> </span>
 <span id="cb333-2"><a href="visual.html#cb333-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_boxplot</span>(<span class="at">geom =</span> <span class="st">&quot;errorbar&quot;</span>, <span class="at">width =</span> <span class="fl">0.4</span>) <span class="sc">+</span></span>
 <span id="cb333-3"><a href="visual.html#cb333-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">outlier.shape =</span> <span class="cn">NA</span>) </span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:boxplot"></span>
-<img src="r-empirische-wissenschaften_files/figure-html/boxplot-1.png" alt="Boxplots im Vergleich." width="768" />
+<img src="r-empirische-wissenschaften_files/figure-html/boxplot-1.svg" alt="Boxplots im Vergleich." width="768" />
 <p class="caption">
-Abbildung 8.5: Boxplots im Vergleich.
+Abbildung 8.7: Boxplots im Vergleich.
 </p>
 </div>
 <div class="idea">
@@ -546,22 +559,22 @@ Abbildung 8.5: Boxplots im Vergleich.
 </div>
 <div id="violin" class="section level2 hasAnchor" number="8.5">
 <h2><span class="header-section-number">8.5</span> Violin Plot<a href="visual.html#violin" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Im Vergleich zu Boxplots ändert sich zum einen der <em>Geometry</em> Layer, welcher nun <code>geom_violin()</code> heißt und zum anderen muss noch eine willkürliche Koordinate für die x-Achse gewählt werden (hier 0) (siehe Abbildung <a href="visual.html#fig:violinplot">8.6</a> (a)).</p>
+<p>Im Vergleich zu Boxplots ändert sich zum einen der <em>Geometry</em> Layer, welcher nun <code>geom_violin()</code> heißt und zum anderen muss noch eine willkürliche Koordinate für die x-Achse gewählt werden (hier 0) (siehe Abbildung <a href="visual.html#fig:violinplot">8.8</a> (a)).</p>
 <div class="sourceCode" id="cb334"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb334-1"><a href="visual.html#cb334-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(big5_mod, <span class="fu">aes</span>(<span class="at">x =</span> <span class="dv">0</span>, <span class="at">y =</span> Extraversion)) <span class="sc">+</span> </span>
 <span id="cb334-2"><a href="visual.html#cb334-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_violin</span>()</span></code></pre></div>
-<p>Für mehrere Violin Plots nutzen wir genau wie zuvor bei den Boxplots den Datensatz im langen Datenformat namens <code>big5_long</code> (siehe Kapitel <a href="visual.html#boxplot">8.4</a> und <a href="datenvorbereitung.html#tidy">6.6</a>). Auch hier werden auf der x-Achse die Persönlichkeitsfaktoren und auf der y-Achse die jeweilige Ausprägung ausgegeben (siehe Abbildung <a href="visual.html#fig:violinplot">8.6</a> (b)).</p>
+<p>Für mehrere Violin Plots nutzen wir genau wie zuvor bei den Boxplots den Datensatz im langen Datenformat namens <code>big5_long</code> (siehe Kapitel <a href="visual.html#boxplot">8.4</a> und <a href="datenvorbereitung.html#tidy">6.6</a>). Auch hier werden auf der x-Achse die Persönlichkeitsfaktoren und auf der y-Achse die jeweilige Ausprägung ausgegeben (siehe Abbildung <a href="visual.html#fig:violinplot">8.8</a> (b)).</p>
 <div class="sourceCode" id="cb335"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb335-1"><a href="visual.html#cb335-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(big5_long, <span class="fu">aes</span>(<span class="at">x =</span> Faktor, <span class="at">y =</span> Auspraegung)) <span class="sc">+</span> </span>
 <span id="cb335-2"><a href="visual.html#cb335-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_violin</span>()</span></code></pre></div>
-<p>Optional kann zusätzlich das Argument <code>trim</code> auf <code>FALSE</code> gesetzt werden, um das Abschneiden der Enden des Violin Plots zu verhindern. Mithilfe des Arguments <code>draw_quantiles</code> können wir explizit beliebige Quantile (hier Quartile) einzeichnen lassen. Das Ergebnis ist in Abbildung <a href="visual.html#fig:violinplot">8.6</a> (c) zu sehen.</p>
+<p>Optional kann zusätzlich das Argument <code>trim</code> auf <code>FALSE</code> gesetzt werden, um das Abschneiden der Enden des Violin Plots zu verhindern. Mithilfe des Arguments <code>draw_quantiles</code> können wir explizit beliebige Quantile (hier Quartile) einzeichnen lassen. Das Ergebnis ist in Abbildung <a href="visual.html#fig:violinplot">8.8</a> (c) zu sehen.</p>
 <div class="sourceCode" id="cb336"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb336-1"><a href="visual.html#cb336-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(big5_long, <span class="fu">aes</span>(<span class="at">x =</span> Faktor, <span class="at">y =</span> Auspraegung)) <span class="sc">+</span> </span>
 <span id="cb336-2"><a href="visual.html#cb336-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_violin</span>(</span>
 <span id="cb336-3"><a href="visual.html#cb336-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">trim =</span> <span class="cn">FALSE</span>, </span>
 <span id="cb336-4"><a href="visual.html#cb336-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">draw_quantiles =</span> <span class="fu">c</span>(<span class="fl">0.25</span>, <span class="fl">0.5</span>, <span class="fl">0.75</span>)</span>
 <span id="cb336-5"><a href="visual.html#cb336-5" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:violinplot"></span>
-<img src="r-empirische-wissenschaften_files/figure-html/violinplot-1.png" alt="Violin Plots im Vergleich." width="768" />
+<img src="r-empirische-wissenschaften_files/figure-html/violinplot-1.svg" alt="Violin Plots im Vergleich." width="768" />
 <p class="caption">
-Abbildung 8.6: Violin Plots im Vergleich.
+Abbildung 8.8: Violin Plots im Vergleich.
 </p>
 </div>
 <div class="exercise2">
@@ -570,13 +583,13 @@ Abbildung 8.6: Violin Plots im Vergleich.
 </div>
 <div id="barplot" class="section level2 hasAnchor" number="8.6">
 <h2><span class="header-section-number">8.6</span> Balkendiagramm<a href="visual.html#barplot" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>In einem Balkendiagramm werden im Regelfall entweder Häufigkeiten oder Mittelwerte miteinander verglichen (auch Säulendiagramm oder Barplot genannt). Zum Darstellen absoluter Häufigkeiten kategorealer Variablen wird die Funktion <code>geom_bar()</code> verwendet. Wir können dabei frei entscheiden, ob die Balken vertikal oder horizontal angeordnet werden sollen. Für eine vertikale Illustration auf der x-Achse übergeben wir die Spalte <code>Geschlecht</code> dem <code>x</code> Argument (siehe Abbildung <a href="visual.html#fig:barplots">8.7</a>) (a)).</p>
+<p>In einem Balkendiagramm werden im Regelfall entweder Häufigkeiten oder Mittelwerte miteinander verglichen (auch Säulendiagramm oder Barplot genannt). Zum Darstellen absoluter Häufigkeiten kategorealer Variablen wird die Funktion <code>geom_bar()</code> verwendet. Wir können dabei frei entscheiden, ob die Balken vertikal oder horizontal angeordnet werden sollen. Für eine vertikale Illustration auf der x-Achse übergeben wir die Spalte <code>Geschlecht</code> dem <code>x</code> Argument (siehe Abbildung <a href="visual.html#fig:barplots">8.9</a>) (a)).</p>
 <div class="sourceCode" id="cb337"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb337-1"><a href="visual.html#cb337-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(big5_mod, <span class="fu">aes</span>(<span class="at">x =</span> Geschlecht)) <span class="sc">+</span> </span>
 <span id="cb337-2"><a href="visual.html#cb337-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code></pre></div>
-<p>Äquivalent dazu können wir horizontale Balkendiagramme durch Abbildung der entsprechenden Spalte auf der y-Achse mit dem <code>y</code> Argument erstellen (siehe Abbildung <a href="visual.html#fig:barplots">8.7</a>) (b)).</p>
+<p>Äquivalent dazu können wir horizontale Balkendiagramme durch Abbildung der entsprechenden Spalte auf der y-Achse mit dem <code>y</code> Argument erstellen (siehe Abbildung <a href="visual.html#fig:barplots">8.9</a>) (b)).</p>
 <div class="sourceCode" id="cb338"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb338-1"><a href="visual.html#cb338-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(big5_mod, <span class="fu">aes</span>(<span class="at">y =</span> Geschlecht)) <span class="sc">+</span> </span>
 <span id="cb338-2"><a href="visual.html#cb338-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code></pre></div>
-<p>Anstelle von absoluten Häufigkeiten können ebenfalls relative Häufigkeiten verglichen werden. Hierzu müssen wir innerhalb der Helferfunktion <code>after_stat()</code> das Argument <code>prop</code> übergeben und zeitgleich das <code>group</code> Argument auf 1 setzen (siehe Abbildung <a href="visual.html#fig:barplots">8.7</a>) (c)). Diese Helferfunktion haben wir bereits im Kontext der Histogramme in Kapitel <a href="visual.html#histogram">8.2</a> kennengelernt.</p>
+<p>Anstelle von absoluten Häufigkeiten können ebenfalls relative Häufigkeiten verglichen werden. Hierzu müssen wir innerhalb der Helferfunktion <code>after_stat()</code> das Argument <code>prop</code> übergeben und zeitgleich das <code>group</code> Argument auf 1 setzen (siehe Abbildung <a href="visual.html#fig:barplots">8.9</a>) (c)). Diese Helferfunktion haben wir bereits im Kontext der Histogramme in Kapitel <a href="visual.html#histogram">8.2</a> kennengelernt.</p>
 <div class="sourceCode" id="cb339"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb339-1"><a href="visual.html#cb339-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(big5_mod, <span class="fu">aes</span>(<span class="at">x =</span> Geschlecht, <span class="at">y =</span> <span class="fu">after_stat</span>(prop), <span class="at">group =</span> <span class="dv">1</span>)) <span class="sc">+</span> </span>
 <span id="cb339-2"><a href="visual.html#cb339-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code></pre></div>
 <p>Möchten wir Mittelwerte miteinander vergleichen, müssen wir auf die Funktion <code>geom_col()</code> zurückgreifen. Beim Gegenüberstellen mehrerer Merkmale, wird zunächst, wie bereits in den Kapiteln <a href="visual.html#boxplot">8.4</a> und <a href="visual.html#violin">8.5</a> bei den Boxplots und Violin Plots kennengelernt, der Datensatz in ein langes Format gebracht (siehe Kapitel <a href="datenvorbereitung.html#tidy">6.6</a>).</p>
@@ -608,16 +621,16 @@ Abbildung 8.6: Violin Plots im Vergleich.
   &lt;chr&gt;         &lt;dbl&gt; &lt;dbl&gt;
 1 Extraversion   3.08 0.347
 2 Neurotizismus  3.13 0.682</code></pre>
-<p>Die Balken werden mit <code>geom_col()</code> erstellt. Auf der x-Achse sind demnach wie zuvor auch die Persönlichkeitsfaktoren und auf der y-Achse die Mittelwerte aufgetragen (siehe Abbildung <a href="visual.html#fig:barplots">8.7</a> (d)).</p>
+<p>Die Balken werden mit <code>geom_col()</code> erstellt. Auf der x-Achse sind demnach wie zuvor auch die Persönlichkeitsfaktoren und auf der y-Achse die Mittelwerte aufgetragen (siehe Abbildung <a href="visual.html#fig:barplots">8.9</a> (d)).</p>
 <div class="sourceCode" id="cb345"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb345-1"><a href="visual.html#cb345-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(big5_means, <span class="fu">aes</span>(<span class="at">x =</span> Faktor, <span class="at">y =</span> Mean)) <span class="sc">+</span></span>
 <span id="cb345-2"><a href="visual.html#cb345-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>() </span></code></pre></div>
 <div class="idea">
 <p>Verwechsle <code>geom_col()</code> nicht mit <code>geom_bar()</code>. Erstere Funktion stellt genau das dar, was man ihr übergibt (z.B. Mittelwerte). Letztere Funktion hingegen erstellt Balken mit absoluten oder relativen Häufigkeiten.</p>
 </div>
-<p>Um das Balkendiagramm zu verschönern, können wir auch hier die Füllfarbe (<code>fill</code>) und die Rahmenfarbe (<code>color</code>) entsprechend anpassen (siehe Abbildung <a href="visual.html#fig:barplots">8.7</a> (e)).</p>
+<p>Um das Balkendiagramm zu verschönern, können wir auch hier die Füllfarbe (<code>fill</code>) und die Rahmenfarbe (<code>color</code>) entsprechend anpassen (siehe Abbildung <a href="visual.html#fig:barplots">8.9</a> (e)).</p>
 <div class="sourceCode" id="cb346"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb346-1"><a href="visual.html#cb346-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(big5_means, <span class="fu">aes</span>(<span class="at">x =</span> Faktor, <span class="at">y =</span> Mean)) <span class="sc">+</span></span>
 <span id="cb346-2"><a href="visual.html#cb346-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">&quot;white&quot;</span>, <span class="at">color =</span> <span class="st">&quot;black&quot;</span>)</span></code></pre></div>
-<p>Zusätzlich bilden wir mit der Funktion <code>geom_errorbar()</code> die Standardabweichung (<code>SD</code>) ab, indem das Minimum des Fehlerbalken als Mittelwert <strong>minus</strong> der Standardabweichung und das Maximum als Mittelwert <strong>plus</strong> der Standardabweichung festlegt wird. Die Breite der Fehlerbalken wird mit dem Argument <code>width</code> verändert. Beachte an dieser Stelle, dass die Grenzen der Fehlerbalken (<code>ymin</code> und <code>ymax</code>) im Gegensatz zur Fehlerbalkenbreite innerhalb der Helferfunktion <code>aes()</code> definiert werden müssen. Das Ergebnis ist in Abbildung <a href="visual.html#fig:barplots">8.7</a> (f) illustriert.</p>
+<p>Zusätzlich bilden wir mit der Funktion <code>geom_errorbar()</code> die Standardabweichung (<code>SD</code>) ab, indem das Minimum des Fehlerbalken als Mittelwert <strong>minus</strong> der Standardabweichung und das Maximum als Mittelwert <strong>plus</strong> der Standardabweichung festlegt wird. Die Breite der Fehlerbalken wird mit dem Argument <code>width</code> verändert. Beachte an dieser Stelle, dass die Grenzen der Fehlerbalken (<code>ymin</code> und <code>ymax</code>) im Gegensatz zur Fehlerbalkenbreite innerhalb der Helferfunktion <code>aes()</code> definiert werden müssen. Das Ergebnis ist in Abbildung <a href="visual.html#fig:barplots">8.9</a> (f) illustriert.</p>
 <div class="sourceCode" id="cb347"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb347-1"><a href="visual.html#cb347-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(big5_means, <span class="fu">aes</span>(<span class="at">x =</span> Faktor, <span class="at">y =</span> Mean)) <span class="sc">+</span></span>
 <span id="cb347-2"><a href="visual.html#cb347-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">&quot;white&quot;</span>, <span class="at">color =</span> <span class="st">&quot;black&quot;</span>) <span class="sc">+</span></span>
 <span id="cb347-3"><a href="visual.html#cb347-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(</span>
@@ -626,9 +639,9 @@ Abbildung 8.6: Violin Plots im Vergleich.
 <span id="cb347-6"><a href="visual.html#cb347-6" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
 <p>Falls du mehr als eine Gruppe innerhalb eines Balkendiagramms vergleichen möchtest, musst du ein Gruppierungsargument verwenden, welches in Kapitel <a href="visual.html#morefactors">8.9</a> eingeführt wird.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:barplots"></span>
-<img src="r-empirische-wissenschaften_files/figure-html/barplots-1.png" alt="Verschiedene Balkendiagramme mit und ohne Fehlerbalken." width="768" />
+<img src="r-empirische-wissenschaften_files/figure-html/barplots-1.svg" alt="Verschiedene Balkendiagramme mit und ohne Fehlerbalken." width="768" />
 <p class="caption">
-Abbildung 8.7: Verschiedene Balkendiagramme mit und ohne Fehlerbalken.
+Abbildung 8.9: Verschiedene Balkendiagramme mit und ohne Fehlerbalken.
 </p>
 </div>
 <div class="exercise2">
@@ -638,7 +651,7 @@ Abbildung 8.7: Verschiedene Balkendiagramme mit und ohne Fehlerbalken.
 <div id="anovaplot" class="section level2 hasAnchor" number="8.7">
 <h2><span class="header-section-number">8.7</span> Liniendiagramm<a href="visual.html#anovaplot" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Bei Mittelwertvergleichen in Form von Liniendiagrammen ändert sich im Vergleich zu den Balkendiagrammen nur wenig. Auch hier verwenden wir wieder den Datensatz <code>big5_means</code>, der unsere Mittelwerte und Standardabweichungen für Extraversion und Neurotizismus enthält (siehe Kapitel <a href="visual.html#barplot">8.6</a>.</p>
-<p>Zum Erstellen der Verbindungslinie zwischen den beiden Persönlichkeitsfaktoren muss das <code>group</code> Argument auf <code>1</code> gesetzt werden. Abschließend müssen wir noch die Linie mit <code>geom_line()</code>, die Mittelwerte als Punkte mit <code>geom_point()</code> und die Fehlerbalken mit <code>geom_errorbar()</code> erstellen. Auch bei den Fehlerbalken ändert sich nichts im Vergleich zu den Balkendiagrammen. Das Ergebnis ist in Abbildung <a href="visual.html#fig:linienplot">8.8</a> (a) illustriert.</p>
+<p>Zum Erstellen der Verbindungslinie zwischen den beiden Persönlichkeitsfaktoren muss das <code>group</code> Argument auf <code>1</code> gesetzt werden. Abschließend müssen wir noch die Linie mit <code>geom_line()</code>, die Mittelwerte als Punkte mit <code>geom_point()</code> und die Fehlerbalken mit <code>geom_errorbar()</code> erstellen. Auch bei den Fehlerbalken ändert sich nichts im Vergleich zu den Balkendiagrammen. Das Ergebnis ist in Abbildung <a href="visual.html#fig:linienplot">8.10</a> (a) illustriert.</p>
 <div class="sourceCode" id="cb348"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb348-1"><a href="visual.html#cb348-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(big5_means, <span class="fu">aes</span>(<span class="at">x =</span> Faktor, <span class="at">y =</span> Mean, <span class="at">group =</span> <span class="dv">1</span>)) <span class="sc">+</span> </span>
 <span id="cb348-2"><a href="visual.html#cb348-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span> </span>
 <span id="cb348-3"><a href="visual.html#cb348-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
@@ -657,12 +670,12 @@ Abbildung 8.7: Verschiedene Balkendiagramme mit und ohne Fehlerbalken.
 4 2019-01-04 3858.
 # … with 727 more rows</code></pre>
 <p>Auf der x-Achse soll das Datum und auf der y-Achse der Preis bei geschlossener Börse in USD abgebildet werden. Die Zeitreihe wird wie zuvor mit <code>geom_line()</code> visualisiert. Wichtig ist hierbei, dass das Datum vom Datentyp <code>Date</code> ist (siehe Kapitel <a href="datenvorbereitung.html#datazeit">6.11</a>). Zusätzlich können wir, wie beim Streudiagramm in Kapitel <a href="visual.html#scatter">8.3</a>, mit <code>stat_smooth()</code> eine am besten passendste Kurve zur Kursbeschreibung hinzufügen.</p>
-<p>Abschließend greifen wir an dieser Stelle etwas vor und verändern noch die Benennung der x-Achse mithilfe von <code>scale_x_date()</code>. Dabei gibt es verschiedene Möglichkeiten der Anzeige, die jeweils mit einem Prozentzeichen angeführt werden müssen. Hier zeigen wir den abgekürzten Monatsnamen (<code>%b</code>) und das entsprechende Jahr (<code>%Y</code>). Das Ergebnis ist in Abbildung <a href="visual.html#fig:linienplot">8.8</a> (b) illustriert.</p>
+<p>Abschließend greifen wir an dieser Stelle etwas vor und verändern noch die Benennung der x-Achse mithilfe von <code>scale_x_date()</code>. Dabei gibt es verschiedene Möglichkeiten der Anzeige, die jeweils mit einem Prozentzeichen angeführt werden müssen. Hier zeigen wir den abgekürzten Monatsnamen (<code>%b</code>) und das entsprechende Jahr (<code>%Y</code>). Das Ergebnis ist in Abbildung <a href="visual.html#fig:linienplot">8.10</a> (b) illustriert.</p>
 <div class="sourceCode" id="cb351"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb351-1"><a href="visual.html#cb351-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(bitcoin, <span class="fu">aes</span>(<span class="at">x =</span> Date, <span class="at">y =</span> Price)) <span class="sc">+</span> </span>
 <span id="cb351-2"><a href="visual.html#cb351-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span> </span>
 <span id="cb351-3"><a href="visual.html#cb351-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_smooth</span>(<span class="at">color =</span> <span class="st">&quot;black&quot;</span>) <span class="sc">+</span> </span>
 <span id="cb351-4"><a href="visual.html#cb351-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_date</span>(<span class="at">date_labels =</span> <span class="st">&quot;%b %Y&quot;</span>)</span></code></pre></div>
-<p>Eine weitere Anwendung finden Liniendiagramme bei sogenannten Scree Plots zur Auswahl der Anzahl der Faktoren für explorative Faktorenanalysen. Dafür benötigen wir den kompletten Big Five Rohdatensatz mit den einzelnen Fragen zu den Persönlichkeitsfaktoren namens <code>big_five_comp</code>. Mit der im <code>remp</code> Package enthaltenen Funktion <code>data_eigen()</code> können die entsprechenden Eigenvalues berechnet werden, die wir im Scree Plot abbilden wollen.</p>
+<p>Eine weitere Anwendung finden Liniendiagramme bei sogenannten Scree Plots zur Auswahl der Anzahl der Faktoren für explorative Faktorenanalysen. Dafür benötigen wir den kompletten Big Five Rohdatensatz mit den einzelnen Fragen zu den Persönlichkeitsfaktoren namens <code>big_five_comp</code>. Mit der im <a href="https://r-empirische-wissenschaften.de">remp</a> Package enthaltenen Funktion <code>data_eigen()</code> können die entsprechenden Eigenvalues berechnet werden, die wir im Scree Plot abbilden wollen.</p>
 <div class="sourceCode" id="cb352"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb352-1"><a href="visual.html#cb352-1" aria-hidden="true" tabindex="-1"></a>big5_erg <span class="ot">&lt;-</span> <span class="fu">select</span>(big_five_comp, <span class="sc">-</span>Geschlecht) </span>
 <span id="cb352-2"><a href="visual.html#cb352-2" aria-hidden="true" tabindex="-1"></a>big5_scree <span class="ot">&lt;-</span> <span class="fu">data_eigen</span>(big5_erg)</span>
 <span id="cb352-3"><a href="visual.html#cb352-3" aria-hidden="true" tabindex="-1"></a>big5_scree</span></code></pre></div>
@@ -674,7 +687,7 @@ Abbildung 8.7: Verschiedene Balkendiagramme mit und ohne Fehlerbalken.
 3        3.62         3
 4        3.57         4
 # … with 47 more rows</code></pre>
-<p>Auf der x-Achse haben wir unsere verschiedenen Dimensionen und auf der y-Achse die Eigenvalues. Zusätzlich modifizieren wir die Funktionen <code>geom_point()</code> und <code>geom_line()</code> optisch leicht. Neu ist an dieser Stelle die Funktion <code>geom_hline()</code> (für <strong>h</strong>orizontal line), welche eine horizontale Linie beim Schnittpunkt mit der y-Achse von 1 einzeichnet (siehe Abbildung <a href="visual.html#fig:linienplot">8.8</a> (c)).</p>
+<p>Auf der x-Achse haben wir unsere verschiedenen Dimensionen und auf der y-Achse die Eigenvalues. Zusätzlich modifizieren wir die Funktionen <code>geom_point()</code> und <code>geom_line()</code> optisch leicht. Neu ist an dieser Stelle die Funktion <code>geom_hline()</code> (für <strong>h</strong>orizontal line), welche eine horizontale Linie beim Schnittpunkt mit der y-Achse von 1 einzeichnet (siehe Abbildung <a href="visual.html#fig:linienplot">8.10</a> (c)).</p>
 <div class="sourceCode" id="cb354"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb354-1"><a href="visual.html#cb354-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(big5_scree, <span class="fu">aes</span>(<span class="at">x =</span> Dimension, <span class="at">y =</span> Eigenvalues)) <span class="sc">+</span></span>
 <span id="cb354-2"><a href="visual.html#cb354-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">shape =</span> <span class="dv">19</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
 <span id="cb354-3"><a href="visual.html#cb354-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
@@ -684,9 +697,9 @@ Abbildung 8.7: Verschiedene Balkendiagramme mit und ohne Fehlerbalken.
 <span id="cb354-7"><a href="visual.html#cb354-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">linetype =</span> <span class="st">&quot;longdash&quot;</span></span>
 <span id="cb354-8"><a href="visual.html#cb354-8" aria-hidden="true" tabindex="-1"></a>  ) </span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:linienplot"></span>
-<img src="r-empirische-wissenschaften_files/figure-html/linienplot-1.png" alt="Abbildung von Liniendiagrammen als (a) Mittelwertsvergleich (b) Zeitreihe und (c) Scree Plot" width="768" />
+<img src="r-empirische-wissenschaften_files/figure-html/linienplot-1.svg" alt="Abbildung von Liniendiagrammen als (a) Mittelwertsvergleich (b) Zeitreihe und (c) Scree Plot" width="768" />
 <p class="caption">
-Abbildung 8.8: Abbildung von Liniendiagrammen als (a) Mittelwertsvergleich (b) Zeitreihe und (c) Scree Plot
+Abbildung 8.10: Abbildung von Liniendiagrammen als (a) Mittelwertsvergleich (b) Zeitreihe und (c) Scree Plot
 </p>
 </div>
 <div class="exercise2">
@@ -700,14 +713,14 @@ Abbildung 8.8: Abbildung von Liniendiagrammen als (a) Mittelwertsvergleich (b) Z
 <p>Um mithilfe eines Q-Q Plots die <strong>Q</strong>uantile zweier Verteilungen zu überprüfen, können wir <code>geom_qq()</code> und <code>geom_qq_line()</code> verwenden. Ein häufiger Anwendungsfall ist die graphische Überprüfung, ob die Residuen eines Modells normalverteilt sind. Daher ist dies auch die Standardeinstellung innerhalb der Funktionen. Die Berechnung der Residuen erfolgt mithilfe von <code>augment()</code>, welche genau wie die <code>lm()</code> erst später eingeführt werden (siehe Kapitel <a href="inductive.html#broom">9.8</a> und <a href="inductive.html#linregression">9.5.1</a>).</p>
 <div class="sourceCode" id="cb356"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb356-1"><a href="visual.html#cb356-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(Extraversion <span class="sc">~</span> Geschlecht <span class="sc">+</span> Alter, <span class="at">data =</span> big5)</span>
 <span id="cb356-2"><a href="visual.html#cb356-2" aria-hidden="true" tabindex="-1"></a>resid_df <span class="ot">&lt;-</span> <span class="fu">augment</span>(model) </span></code></pre></div>
-<p>Die interessierende Variable (hier die Residuen <code>.resid</code>) muss dem <code>sample</code> Argument (engl. für Stichprobe) übergeben werden (siehe Abbildung <a href="visual.html#fig:qqplots">8.9</a>).</p>
+<p>Die interessierende Variable (hier die Residuen <code>.resid</code>) muss dem <code>sample</code> Argument (engl. für Stichprobe) übergeben werden (siehe Abbildung <a href="visual.html#fig:qqplots">8.11</a>).</p>
 <div class="sourceCode" id="cb357"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb357-1"><a href="visual.html#cb357-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(resid_df, <span class="fu">aes</span>(<span class="at">sample =</span> .resid)) <span class="sc">+</span> </span>
 <span id="cb357-2"><a href="visual.html#cb357-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_qq</span>() <span class="sc">+</span> </span>
 <span id="cb357-3"><a href="visual.html#cb357-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_qq_line</span>()</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:qqplots"></span>
-<img src="r-empirische-wissenschaften_files/figure-html/qqplots-1.png" alt="Q-Q Plots" width="384" />
+<img src="r-empirische-wissenschaften_files/figure-html/qqplots-1.svg" alt="Q-Q Plots" width="384" />
 <p class="caption">
-Abbildung 8.9: Q-Q Plots
+Abbildung 8.11: Q-Q Plots
 </p>
 </div>
 <p>Möchte man die Verteilung einer Spalte mit einer anderen Verteilung vergleichen, können mit dem <code>distribution</code> Argument die Quantile einer anderen Verteilung wie der Binomialverteilung (<code>qbinom</code>) oder der t-Verteilung (<code>qt</code>) ohne Anführungszeichen festgelegt werden.</p>
@@ -723,7 +736,7 @@ Abbildung 8.9: Q-Q Plots
 <p>Gruppierungen können in Abhängigkeit der gewünschten Darstellung durch die Argumente <code>color</code>, <code>fill</code>, <code>linetype</code>, <code>size</code> oder <code>shape</code> innerhalb der Helferfunktion <code>aes()</code> erstellt werden. Anders als bisher wird diesen Argumenten in diesem Fall kein Character (z.B. <code>color = "black"</code>), sondern das gruppierende Argument ohne Anführungszeichen übergeben (z.B. <code>color = Geschlecht</code>).</p>
 <p>Für einige Abbildungen wie bei Mittelwertsvergleichen in Form von Balken- oder Liniendiagrammen benötigen wir ein zusätzliches <code>position</code> Argument. Dieses spezifiziert, wie die Gruppen zueinander in Verhältnis zu setzen sind. Eine nützliche Wahl ist hierfür die Funktion <code>position_dodge(0.95)</code> (engl. für ausweichen), welche die Gruppen direkt nebeneinander darstellt. Die Zahl in der Klammer steht für den genauen Abstand zwischen den Elementen.</p>
 <p>Alternativ könnte man bei Balkendiagrammen auch <code>position = "stack"</code> für eine aufeinander gestapelte Ansicht pro Kategorie verwenden. Wenn man stattdessen <code>position = "fill"</code> verwendet, werden diese übereinander gestapelten Anteile auf 1 standardisiert, sodass man die Verhältnisse besser vergleichen kann.</p>
-<p>Zum Abbilden der mittleren Ausprägung von Extraversion und Neurotizismus unterteilt nach Geschlecht in Form eines Boxplots verwenden wir den Datensatz <code>big5_long</code> aus dem <code>remp</code> Package.</p>
+<p>Zum Abbilden der mittleren Ausprägung von Extraversion und Neurotizismus unterteilt nach Geschlecht in Form eines Boxplots verwenden wir den Datensatz <code>big5_long</code> aus dem <a href="https://r-empirische-wissenschaften.de">remp</a> Package.</p>
 <div class="sourceCode" id="cb358"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb358-1"><a href="visual.html#cb358-1" aria-hidden="true" tabindex="-1"></a>big5_long</span></code></pre></div>
 <pre class="bordercode"><code># A tibble: 400 × 7
   Alter Geschlecht Gruppe    ID Faktor        Auspraegung Zeitpunkt
@@ -733,10 +746,10 @@ Abbildung 8.9: Q-Q Plots
 3    30 f          Jung       2 Extraversion          3.1 T1       
 4    30 f          Jung       2 Neurotizismus         3.4 T1       
 # … with 396 more rows</code></pre>
-<p>Die Füllfarbe (<code>fill</code>) machen wir abhängig vom Geschlecht und das Positionsargument wird ebenfalls entsprechend angepasst werden. Das Ergebnis ist in Abbildung <a href="visual.html#fig:twobox">8.10</a> (a) illustriert.</p>
+<p>Die Füllfarbe (<code>fill</code>) machen wir abhängig vom Geschlecht und das Positionsargument wird ebenfalls entsprechend angepasst werden. Das Ergebnis ist in Abbildung <a href="visual.html#fig:twobox">8.12</a> (a) illustriert.</p>
 <div class="sourceCode" id="cb360"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb360-1"><a href="visual.html#cb360-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(big5_long, <span class="fu">aes</span>(<span class="at">x =</span> Faktor, <span class="at">y =</span> Auspraegung, <span class="at">fill =</span> Geschlecht)) <span class="sc">+</span> </span>
 <span id="cb360-2"><a href="visual.html#cb360-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">outlier.shape =</span> <span class="cn">NA</span>, <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="fl">0.95</span>)) </span></code></pre></div>
-<p>Falls zusätzlich ein Fehlerbalken angezeigt werden soll, muss auch in <code>stat_boxplot()</code> das Positionsargument verwendet werden (siehe Abbildung <a href="visual.html#fig:twobox">8.10</a> (b)).</p>
+<p>Falls zusätzlich ein Fehlerbalken angezeigt werden soll, muss auch in <code>stat_boxplot()</code> das Positionsargument verwendet werden (siehe Abbildung <a href="visual.html#fig:twobox">8.12</a> (b)).</p>
 <div class="sourceCode" id="cb361"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb361-1"><a href="visual.html#cb361-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(big5_long, <span class="fu">aes</span>(<span class="at">x =</span> Faktor, <span class="at">y =</span> Auspraegung, <span class="at">fill =</span> Geschlecht)) <span class="sc">+</span> </span>
 <span id="cb361-2"><a href="visual.html#cb361-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_boxplot</span>(</span>
 <span id="cb361-3"><a href="visual.html#cb361-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">geom =</span> <span class="st">&quot;errorbar&quot;</span>, </span>
@@ -745,9 +758,9 @@ Abbildung 8.9: Q-Q Plots
 <span id="cb361-6"><a href="visual.html#cb361-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
 <span id="cb361-7"><a href="visual.html#cb361-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">outlier.shape =</span> <span class="cn">NA</span>, <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="fl">0.95</span>)) </span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:twobox"></span>
-<img src="r-empirische-wissenschaften_files/figure-html/twobox-1.png" alt="Boxplots mit und ohne Fehlerbalken nach drei Variablen gruppiert." width="768" />
+<img src="r-empirische-wissenschaften_files/figure-html/twobox-1.svg" alt="Boxplots mit und ohne Fehlerbalken nach drei Variablen gruppiert." width="768" />
 <p class="caption">
-Abbildung 8.10: Boxplots mit und ohne Fehlerbalken nach drei Variablen gruppiert.
+Abbildung 8.12: Boxplots mit und ohne Fehlerbalken nach drei Variablen gruppiert.
 </p>
 </div>
 <p>Wenn Mittelwerte in Form von Balken- oder Liniendiagrammen unterteilt nach einer dritten Variable miteinander verglichen werden sollen, müssen diese zuerst berechnet werden (siehe Kapitel <a href="descr.html#descr">7</a>). Dabei müssen wir zusätzlich nach der dritten Variable (hier <code>Geschlecht</code>) gruppieren.</p>
@@ -766,7 +779,7 @@ Abbildung 8.10: Boxplots mit und ohne Fehlerbalken nach drei Variablen gruppiert
 2 Extraversion  m           3.11 0.328
 3 Neurotizismus f           3.25 0.633
 4 Neurotizismus m           2.96 0.718</code></pre>
-<p>Ansonsten ändert sich im Vergleich zum vorherigen Beispiel nichts. Auch hier muss die Füllfarbe (<code>fill = Geschlecht</code>) und die Position der gruppierten Balken definiert werden. Das Ergebnis ist in Abbildung <a href="visual.html#fig:twob">8.11</a> (a) illustriert.</p>
+<p>Ansonsten ändert sich im Vergleich zum vorherigen Beispiel nichts. Auch hier muss die Füllfarbe (<code>fill = Geschlecht</code>) und die Position der gruppierten Balken definiert werden. Das Ergebnis ist in Abbildung <a href="visual.html#fig:twob">8.13</a> (a) illustriert.</p>
 <div class="sourceCode" id="cb364"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb364-1"><a href="visual.html#cb364-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(big5_means2, <span class="fu">aes</span>(<span class="at">x =</span> Faktor, <span class="at">y =</span> Mean, <span class="at">fill =</span> Geschlecht)) <span class="sc">+</span> </span>
 <span id="cb364-2"><a href="visual.html#cb364-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="fl">0.95</span>), <span class="at">color =</span> <span class="st">&quot;black&quot;</span>) <span class="sc">+</span> </span>
 <span id="cb364-3"><a href="visual.html#cb364-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(</span>
@@ -774,7 +787,7 @@ Abbildung 8.10: Boxplots mit und ohne Fehlerbalken nach drei Variablen gruppiert
 <span id="cb364-5"><a href="visual.html#cb364-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">width =</span> <span class="fl">0.4</span>, </span>
 <span id="cb364-6"><a href="visual.html#cb364-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="fl">0.95</span>)</span>
 <span id="cb364-7"><a href="visual.html#cb364-7" aria-hidden="true" tabindex="-1"></a>  )  </span></code></pre></div>
-<p>Ein weiterer Anwendungsfall sind gruppierte Liniendiagramme. Hierfür ändern wir an dieser Stelle das Argument <code>fill</code> zu <code>linetype</code>. Zusätzlich muss das Gruppierungsargument (hier <code>Geschlecht</code>) den einzelnen Funktionen übergeben werden, da sonst keine Linien zwischen den Gruppen gezeichnet werden würden (siehe Abbildung <a href="visual.html#fig:twob">8.11</a> (b)).</p>
+<p>Ein weiterer Anwendungsfall sind gruppierte Liniendiagramme. Hierfür ändern wir an dieser Stelle das Argument <code>fill</code> zu <code>linetype</code>. Zusätzlich muss das Gruppierungsargument (hier <code>Geschlecht</code>) den einzelnen Funktionen übergeben werden, da sonst keine Linien zwischen den Gruppen gezeichnet werden würden (siehe Abbildung <a href="visual.html#fig:twob">8.13</a> (b)).</p>
 <div class="sourceCode" id="cb365"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb365-1"><a href="visual.html#cb365-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(big5_means2, <span class="fu">aes</span>(<span class="at">x =</span> Faktor, <span class="at">y =</span> Mean, <span class="at">linetype =</span> Geschlecht)) <span class="sc">+</span> </span>
 <span id="cb365-2"><a href="visual.html#cb365-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(</span>
 <span id="cb365-3"><a href="visual.html#cb365-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">group =</span> Geschlecht), </span>
@@ -787,9 +800,9 @@ Abbildung 8.10: Boxplots mit und ohne Fehlerbalken nach drei Variablen gruppiert
 <span id="cb365-10"><a href="visual.html#cb365-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="fl">0.2</span>)</span>
 <span id="cb365-11"><a href="visual.html#cb365-11" aria-hidden="true" tabindex="-1"></a>  ) </span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:twob"></span>
-<img src="r-empirische-wissenschaften_files/figure-html/twob-1.png" alt="Balken- und Liniendiagramme mit drei Variablen." width="768" />
+<img src="r-empirische-wissenschaften_files/figure-html/twob-1.svg" alt="Balken- und Liniendiagramme mit drei Variablen." width="768" />
 <p class="caption">
-Abbildung 8.11: Balken- und Liniendiagramme mit drei Variablen.
+Abbildung 8.13: Balken- und Liniendiagramme mit drei Variablen.
 </p>
 </div>
 <div class="exercise2">
@@ -798,7 +811,7 @@ Abbildung 8.11: Balken- und Liniendiagramme mit drei Variablen.
 </div>
 <div id="facets" class="section level3 hasAnchor" number="8.9.2">
 <h3><span class="header-section-number">8.9.2</span> Facetten als weitere Dimensionen<a href="visual.html#facets" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Für das Hinzufügen einer vierten Variable ändert sich im Vergleich zu Kapitel <a href="visual.html#groups">8.9.1</a> nur die zusätzliche Funktion <code>facet_wrap()</code>, welche die vierte Variable in Form einer sogenannten Facette abbildet. Auch hier verwenden wir den <code>big5_long</code> Datensatz aus dem <code>remp</code> Package.</p>
+<p>Für das Hinzufügen einer vierten Variable ändert sich im Vergleich zu Kapitel <a href="visual.html#groups">8.9.1</a> nur die zusätzliche Funktion <code>facet_wrap()</code>, welche die vierte Variable in Form einer sogenannten Facette abbildet. Auch hier verwenden wir den <code>big5_long</code> Datensatz aus dem <a href="https://r-empirische-wissenschaften.de">remp</a> Package.</p>
 <div class="sourceCode" id="cb366"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb366-1"><a href="visual.html#cb366-1" aria-hidden="true" tabindex="-1"></a>big5_long</span></code></pre></div>
 <pre class="bordercode"><code># A tibble: 400 × 7
   Alter Geschlecht Gruppe    ID Faktor        Auspraegung Zeitpunkt
@@ -813,12 +826,12 @@ Abbildung 8.11: Balken- und Liniendiagramme mit drei Variablen.
 <span id="cb368-2"><a href="visual.html#cb368-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">outlier.shape =</span> <span class="cn">NA</span>, <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="fl">0.95</span>)) <span class="sc">+</span></span>
 <span id="cb368-3"><a href="visual.html#cb368-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> Gruppe)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:threebox"></span>
-<img src="r-empirische-wissenschaften_files/figure-html/threebox-1.png" alt="Boxplot mit vier Variablen." width="768" />
+<img src="r-empirische-wissenschaften_files/figure-html/threebox-1.svg" alt="Boxplot mit vier Variablen." width="768" />
 <p class="caption">
-Abbildung 8.12: Boxplot mit vier Variablen.
+Abbildung 8.14: Boxplot mit vier Variablen.
 </p>
 </div>
-<p>Wir sehen in Abbildung <a href="visual.html#fig:threebox">8.12</a>, dass die Altersgruppen in einem Raster als separate Graphen angezeigt werden. Die Anzahl der Spalten in der Anordnung können mit dem <code>ncol</code> Argument angepasst werden (z.B. <code>ncol = 2</code>). Mit dem <code>scales</code> Argument ist es möglich, die x-Achse (<code>scales = "free_x"</code>) oder y-Achse (<code>scales = "free_y"</code>) auf unterschiedlichen Skalen anzeigen zu lassen.</p>
+<p>Wir sehen in Abbildung <a href="visual.html#fig:threebox">8.14</a>, dass die Altersgruppen in einem Raster als separate Graphen angezeigt werden. Die Anzahl der Spalten in der Anordnung können mit dem <code>ncol</code> Argument angepasst werden (z.B. <code>ncol = 2</code>). Mit dem <code>scales</code> Argument ist es möglich, die x-Achse (<code>scales = "free_x"</code>) oder y-Achse (<code>scales = "free_y"</code>) auf unterschiedlichen Skalen anzeigen zu lassen.</p>
 <p>Äquivalent zum Abbilden von drei Variablen in Kapitel <a href="visual.html#groups">8.9.1</a>, müssen beim Mittelwertsvergleich in Form von Balken- oder Liniendiagrammen auch hier erst die entsprechenden Werte berechnet werden. Der Unterschied ist die zusätzlich gruppierende Variable (hier <code>Gruppe</code>) innerhalb von <code>group_by()</code> (siehe Kapitel <a href="descr.html#descr">7</a>).</p>
 <div class="sourceCode" id="cb369"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb369-1"><a href="visual.html#cb369-1" aria-hidden="true" tabindex="-1"></a>big5_means3 <span class="ot">&lt;-</span> big5_long <span class="sc">|&gt;</span> </span>
 <span id="cb369-2"><a href="visual.html#cb369-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Faktor, Geschlecht, Gruppe) <span class="sc">|&gt;</span> </span>
@@ -850,9 +863,9 @@ Abbildung 8.12: Boxplot mit vier Variablen.
 <span id="cb372-2"><a href="visual.html#cb372-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">outlier.shape =</span> <span class="cn">NA</span>, <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="fl">0.95</span>)) <span class="sc">+</span></span>
 <span id="cb372-3"><a href="visual.html#cb372-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(Zeitpunkt <span class="sc">~</span> Gruppe)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:fourbox"></span>
-<img src="r-empirische-wissenschaften_files/figure-html/fourbox-1.png" alt="Boxplot mit fünf Variablen." width="768" />
+<img src="r-empirische-wissenschaften_files/figure-html/fourbox-1.svg" alt="Boxplot mit fünf Variablen." width="768" />
 <p class="caption">
-Abbildung 8.13: Boxplot mit fünf Variablen.
+Abbildung 8.15: Boxplot mit fünf Variablen.
 </p>
 </div>
 <p>Bei Mittelwertsvergleichen müssen diese mit <code>group_by()</code> und <code>summarise()</code> durch das Hinzufügen einer vierten gruppierenden Variable zunächst berechnet werden.</p>
@@ -892,7 +905,7 @@ Abbildung 8.13: Boxplot mit fünf Variablen.
 <p>Wir werden uns anhand der Abbildung aus Kapitel <a href="visual.html#groups">8.9.1</a> die verschiedenen Anpassungsmöglichkeiten anschauen. Zusätzlich fügen wir bereits an dieser Stelle das <code>alpha</code> Argument hinzu, welches die Deckkraft mit <code>0.8</code> auf 80% hinuntersetzt. Dies sorgt für ein hochwertigeres Aussehen der Farben. Der gruppierte Boxplot wird als <code>p</code> gespeichert und in den folgenden Kapiteln verwendet.</p>
 <div class="sourceCode" id="cb376"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb376-1"><a href="visual.html#cb376-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(big5_long, <span class="fu">aes</span>(<span class="at">x =</span> Faktor, <span class="at">y =</span> Auspraegung, <span class="at">fill =</span> Geschlecht)) <span class="sc">+</span> </span>
 <span id="cb376-2"><a href="visual.html#cb376-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">outlier.shape =</span> <span class="cn">NA</span>, <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="fl">0.95</span>), <span class="at">alpha =</span> <span class="fl">0.8</span>)</span></code></pre></div>
-<p>In Abbildung <a href="visual.html#fig:adaptplot">8.14</a> ist die Standardeinstellung von <code>ggplot</code> unserer modifizierten Abbildungen gegenübergestellt. Die verschiedenen Anpassungen können ebenfalls mit einem Pluszeichen (<code>+</code>) aneinandergekettet werden. Wofür welche Funktion genau zuständig ist, wird im weiteren Verlauf kleinschrittig eingeführt.</p>
+<p>In Abbildung <a href="visual.html#fig:adaptplot">8.16</a> ist die Standardeinstellung von <code>ggplot</code> unserer modifizierten Abbildungen gegenübergestellt. Die verschiedenen Anpassungen können ebenfalls mit einem Pluszeichen (<code>+</code>) aneinandergekettet werden. Wofür welche Funktion genau zuständig ist, wird im weiteren Verlauf kleinschrittig eingeführt.</p>
 <div class="sourceCode" id="cb377"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb377-1"><a href="visual.html#cb377-1" aria-hidden="true" tabindex="-1"></a>p <span class="sc">+</span>  </span>
 <span id="cb377-2"><a href="visual.html#cb377-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_d</span>(</span>
 <span id="cb377-3"><a href="visual.html#cb377-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">begin =</span> <span class="fl">0.27</span>, <span class="at">end =</span> <span class="fl">0.72</span>, <span class="at">option =</span> <span class="st">&quot;C&quot;</span>,</span>
@@ -909,9 +922,9 @@ Abbildung 8.13: Boxplot mit fünf Variablen.
 <span id="cb377-14"><a href="visual.html#cb377-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">13</span>)</span>
 <span id="cb377-15"><a href="visual.html#cb377-15" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:adaptplot"></span>
-<img src="r-empirische-wissenschaften_files/figure-html/adaptplot-1.png" alt="Standardausgabe im Vergleich mit einer publikationsreifen Abbildung." width="864" />
+<img src="r-empirische-wissenschaften_files/figure-html/adaptplot-1.svg" alt="Standardausgabe im Vergleich mit einer publikationsreifen Abbildung." width="864" />
 <p class="caption">
-Abbildung 8.14: Standardausgabe im Vergleich mit einer publikationsreifen Abbildung.
+Abbildung 8.16: Standardausgabe im Vergleich mit einer publikationsreifen Abbildung.
 </p>
 </div>
 <div id="color" class="section level3 hasAnchor" number="8.10.1">
@@ -923,21 +936,21 @@ Abbildung 8.14: Standardausgabe im Vergleich mit einer publikationsreifen Abbild
 <span id="cb378-2"><a href="visual.html#cb378-2" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> p <span class="sc">+</span> <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">&quot;Blues&quot;</span>)</span>
 <span id="cb378-3"><a href="visual.html#cb378-3" aria-hidden="true" tabindex="-1"></a>c <span class="ot">&lt;-</span> p <span class="sc">+</span> <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;#A50F15&quot;</span>, <span class="st">&quot;#FC9272&quot;</span>))</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:colors"></span>
-<img src="r-empirische-wissenschaften_files/figure-html/colors-1.png" alt="Vergleich verschiedener Farbpaletten." width="768" />
+<img src="r-empirische-wissenschaften_files/figure-html/colors-1.svg" alt="Vergleich verschiedener Farbpaletten." width="768" />
 <p class="caption">
-Abbildung 8.15: Vergleich verschiedener Farbpaletten.
+Abbildung 8.17: Vergleich verschiedener Farbpaletten.
 </p>
 </div>
 <p>Bei der Auswahl einzelner Werte sollte ebenfalls auf Farben innerhalb von Paletten zurückgegriffen werden, da diese aufeinander abgestimmt sind. Es ist generell davon abzuraten, eigene Farbkombinationen zu wählen, da diese oft einen unprofessionellen Eindruck erwecken. Die Hexadezimal-Farbkodierung erhält man entweder durch Nachschlagen in einer Suchmaschine oder durch Nachschauen in den Farbpaletten. Dafür müssen die Packages <code>scales</code> und <code>RColorBrewer</code> installiert und geladen werden.</p>
 <div class="sourceCode" id="cb379"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb379-1"><a href="visual.html#cb379-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales)</span>
 <span id="cb379-2"><a href="visual.html#cb379-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(RColorBrewer)</span></code></pre></div>
-<p>Die Rottöne aus Abbildung <a href="visual.html#fig:colors">8.15</a> wurden bspw. aus der Brewer Farbpalette ausgewählt. Zum Anzeigen von 9 Farben der roten Farbpalette kombinieren wir die Funktion <code>brewer.pal()</code> mit <code>show_col()</code>. Beachte die Trennung der Funktionsnamen einmal mit Punkt und einmal mit Unterstrich.</p>
+<p>Die Rottöne aus Abbildung <a href="visual.html#fig:colors">8.17</a> wurden bspw. aus der Brewer Farbpalette ausgewählt. Zum Anzeigen von 9 Farben der roten Farbpalette kombinieren wir die Funktion <code>brewer.pal()</code> mit <code>show_col()</code>. Beachte die Trennung der Funktionsnamen einmal mit Punkt und einmal mit Unterstrich.</p>
 <div class="sourceCode" id="cb380"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb380-1"><a href="visual.html#cb380-1" aria-hidden="true" tabindex="-1"></a><span class="fu">brewer.pal</span>(<span class="dv">9</span>, <span class="st">&quot;Reds&quot;</span>) <span class="sc">|&gt;</span> </span>
 <span id="cb380-2"><a href="visual.html#cb380-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">show_col</span>()</span></code></pre></div>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-256"></span>
-<img src="r-empirische-wissenschaften_files/figure-html/unnamed-chunk-256-1.png" alt="Hexadezimalfarben einer roten Farbpalette." width="288" />
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-254"></span>
+<img src="r-empirische-wissenschaften_files/figure-html/unnamed-chunk-254-1.svg" alt="Hexadezimalfarben einer roten Farbpalette." width="288" />
 <p class="caption">
-Abbildung 8.16: Hexadezimalfarben einer roten Farbpalette.
+Abbildung 8.18: Hexadezimalfarben einer roten Farbpalette.
 </p>
 </div>
 <p>In der Abbildung aus Kapitel <a href="visual.html#adapt">8.10</a> wurde die Farbpalette Viridis verwendet, die Farbenblindheit berücksichtigt. Diese Farbpalette erstellt man mit <code>scale_fill_viridis_d(begin = 0.27, end = 0.72, option = "C")</code>. Wie bei den Graustufen zuvor können auch hier die Start- und Entwerte angepasst werden. Das optionale <code>opt</code> Argument wählt hier die dritte von acht möglichen Viridis Paletten. Für kontinuierliche Skalen muss stattdessen auf die Funktion <code>scale_fill_viridis_c()</code> zurückgegriffen werden.</p>
@@ -949,9 +962,9 @@ Abbildung 8.16: Hexadezimalfarben einer roten Farbpalette.
 <span id="cb381-2"><a href="visual.html#cb381-2" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> p <span class="sc">+</span> <span class="fu">theme_minimal</span>() </span>
 <span id="cb381-3"><a href="visual.html#cb381-3" aria-hidden="true" tabindex="-1"></a>c <span class="ot">&lt;-</span> p <span class="sc">+</span> <span class="fu">theme_bw</span>() </span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:themes"></span>
-<img src="r-empirische-wissenschaften_files/figure-html/themes-1.png" alt="Vergleich verschiedener Themen aus `ggplot`." width="768" />
+<img src="r-empirische-wissenschaften_files/figure-html/themes-1.svg" alt="Vergleich verschiedener Themen aus `ggplot`." width="768" />
 <p class="caption">
-Abbildung 8.17: Vergleich verschiedener Themen aus <code>ggplot</code>.
+Abbildung 8.19: Vergleich verschiedener Themen aus <code>ggplot</code>.
 </p>
 </div>
 <p>Neben den direkt in <code>ggplot</code> enthaltenen Themen, stellt das <code>ggthemes</code> Package noch weitere Themen zur Verfügung. Die Beschriftung der x-Achse und y-Achse wird mithilfe der Funktion <code>labs()</code> (Akronym für <strong>lab</strong>el<strong>s</strong>, engl. für Beschriftung) angepasst.</p>
@@ -981,7 +994,7 @@ Abbildung 8.17: Vergleich verschiedener Themen aus <code>ggplot</code>.
 <pre class="bordercode"><code>[1]  0  2  4  6  8 10</code></pre>
 <p>Ein häufiges Problem sind zu lange Achsenbeschriftung, die sich überschneiden. Um das Problem zu lösen, gibt es drei Möglichkeiten. Man kann die Beschriftungen mit <code>angle</code> (engl. für Winkel) in Kombination mit <code>hjust</code> (Akronym für <strong>h</strong>orizontal ad<strong>just</strong>ment) in einer 45 Grad Winkel bringen.</p>
 <div class="sourceCode" id="cb388"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb388-1"><a href="visual.html#cb388-1" aria-hidden="true" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span></code></pre></div>
-<p>Eine weitere Möglichkeit ist potentielle Überlappungen innerhalb der Funktion <code>guide_axis()</code> zu überprüfen (<code>check.overlap = TRUE</code>) und die Anzahl der verwendeten Zeilen festzulegen (<code>n.dodge = 2</code>). Dies wurde in mehreren Abbildungen dieses Buches verwendet (z.B. in Abbildung <a href="visual.html#fig:themes">8.17</a>).</p>
+<p>Eine weitere Möglichkeit ist potentielle Überlappungen innerhalb der Funktion <code>guide_axis()</code> zu überprüfen (<code>check.overlap = TRUE</code>) und die Anzahl der verwendeten Zeilen festzulegen (<code>n.dodge = 2</code>). Dies wurde in mehreren Abbildungen dieses Buches verwendet (z.B. in Abbildung <a href="visual.html#fig:themes">8.19</a>).</p>
 <div class="sourceCode" id="cb389"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb389-1"><a href="visual.html#cb389-1" aria-hidden="true" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">scale_x_discrete</span>(<span class="at">guide =</span> <span class="fu">guide_axis</span>(<span class="at">n.dodge =</span> <span class="dv">2</span>, <span class="at">check.overlap =</span> <span class="cn">TRUE</span>))</span></code></pre></div>
 <p>Als dritte Option können lange Beschriftungen mit <code>str_wrap()</code>, einer Funktion aus dem <code>stringr</code> Package, in mehrere Zeilen gebrochen werden (siehe Kapitel <a href="datenvorbereitung.html#datastring">6.9</a>). Wenn bspw. mehr als zehn Buchstaben (<code>width = 10</code>) vorhanden sind, werden die Beschriftungen in mehrere Zeilen gebrochen. Diese Option ist vor allem für Beschriftungen mit mehr als einem Wort nützlich.</p>
 <div class="sourceCode" id="cb390"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb390-1"><a href="visual.html#cb390-1" aria-hidden="true" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">scale_x_discrete</span>(<span class="at">labels =</span> \(text) <span class="fu">str_wrap</span>(text, <span class="at">width =</span> <span class="dv">10</span>))</span></code></pre></div>
@@ -997,18 +1010,18 @@ Abbildung 8.17: Vergleich verschiedener Themen aus <code>ggplot</code>.
 <span id="cb392-4"><a href="visual.html#cb392-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">name =</span> <span class="st">&quot;Geschlecht (Auswahl):&quot;</span>,</span>
 <span id="cb392-5"><a href="visual.html#cb392-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;Weiblich&quot;</span>, <span class="st">&quot;Männlich&quot;</span>)</span>
 <span id="cb392-6"><a href="visual.html#cb392-6" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
-<p>Die Reihenfolge der gruppierenden Variable, die in der Legende angezeigt wird, verändern wir mithilfe von <code>lims()</code> (siehe Abbildung <a href="visual.html#fig:legend">8.18</a> (b) im Vergleich zur Ausgangslage (a)).</p>
+<p>Die Reihenfolge der gruppierenden Variable, die in der Legende angezeigt wird, verändern wir mithilfe von <code>lims()</code> (siehe Abbildung <a href="visual.html#fig:legend">8.20</a> (b) im Vergleich zur Ausgangslage (a)).</p>
 <div class="sourceCode" id="cb393"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb393-1"><a href="visual.html#cb393-1" aria-hidden="true" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">lims</span>(<span class="at">fill =</span> <span class="fu">c</span>(<span class="st">&quot;m&quot;</span>, <span class="st">&quot;f&quot;</span>))</span></code></pre></div>
 <p>Zum Ändern der Reihenfolge der Füllfarben für die jeweiligen Merkmale müssen die Faktorstufen vor Erstellung der Abbildung verändert werden (siehe Kapitel <a href="datenvorbereitung.html#datafactor">6.10</a>).</p>
 <div class="sourceCode" id="cb394"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb394-1"><a href="visual.html#cb394-1" aria-hidden="true" tabindex="-1"></a>big5_long_rev <span class="ot">&lt;-</span> big5_long <span class="sc">|&gt;</span> </span>
 <span id="cb394-2"><a href="visual.html#cb394-2" aria-hidden="true" tabindex="-1"></a>   <span class="fu">mutate</span>(<span class="at">Geschlecht =</span> <span class="fu">fct_relevel</span>(Geschlecht, <span class="st">&quot;m&quot;</span>)) </span></code></pre></div>
-<p>Beim anschließenden Visualisieren verändert sich hingegen nichts im Vergleich zur vorherigen Reihenfolge. Das Ergebnis ist in Abbildung <a href="visual.html#fig:legend">8.18</a> illustriert.</p>
+<p>Beim anschließenden Visualisieren verändert sich hingegen nichts im Vergleich zur vorherigen Reihenfolge. Das Ergebnis ist in Abbildung <a href="visual.html#fig:legend">8.20</a> (c) illustriert.</p>
 <div class="sourceCode" id="cb395"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb395-1"><a href="visual.html#cb395-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(big5_long, <span class="fu">aes</span>(<span class="at">x =</span> Faktor, <span class="at">y =</span> Auspraegung, <span class="at">fill =</span> Geschlecht)) <span class="sc">+</span> </span>
 <span id="cb395-2"><a href="visual.html#cb395-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">outlier.shape =</span> <span class="cn">NA</span>, <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="fl">0.95</span>), <span class="at">alpha =</span> <span class="fl">0.8</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:legend"></span>
-<img src="r-empirische-wissenschaften_files/figure-html/legend-1.png" alt="Verschiedene Reihenfolgen der gruppierenden Variable." width="864" />
+<img src="r-empirische-wissenschaften_files/figure-html/legend-1.svg" alt="Verschiedene Reihenfolgen der gruppierenden Variable." width="864" />
 <p class="caption">
-Abbildung 8.18: Verschiedene Reihenfolgen der gruppierenden Variable.
+Abbildung 8.20: Verschiedene Reihenfolgen der gruppierenden Variable.
 </p>
 </div>
 <p>Die Textgröße von Legendentitel und -text werden in der bereits eingeführten <code>theme()</code> Funktion angepasst (siehe Kapitel <a href="visual.html#themeaxis">8.10.2</a>). Ausgeblendet wird der Titel der Legende mit <code>legend.title = element_blank()</code>. Die Position wird am besten über x- und y- Koordinaten festgelegt. Welche Werte hierfür am passendsten sind, hängt direkt von der gewählten Dimension und somit Auflösung der Abbildung beim Speichern ab (siehe Kapitel <a href="visual.html#ggsave">8.12</a>).</p>
@@ -1044,17 +1057,17 @@ Abbildung 8.18: Verschiedene Reihenfolgen der gruppierenden Variable.
 <span id="cb399-10"><a href="visual.html#cb399-10" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(big5_mod, <span class="fu">aes</span>(<span class="at">sample =</span> Alter)) <span class="sc">+</span> </span>
 <span id="cb399-11"><a href="visual.html#cb399-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_qq</span>() <span class="sc">+</span> </span>
 <span id="cb399-12"><a href="visual.html#cb399-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_qq_line</span>()</span></code></pre></div>
-<p>Anschließend addieren wir die vier Graphen in gewünschter Reihenfolge. Die Funktion <code>plot_layout()</code> spezifiziert unter anderem die Anzahl der Spalten (<code>ncol</code>) und <code>plot_annotation()</code> ergänzt mit dem <code>tag_levels</code> Argument Beschriftungen zu jeder Abbildung (siehe Abbildung <a href="visual.html#fig:patcha">8.19</a>).</p>
+<p>Anschließend addieren wir die vier Graphen in gewünschter Reihenfolge. Die Funktion <code>plot_layout()</code> spezifiziert unter anderem die Anzahl der Spalten (<code>ncol</code>) und <code>plot_annotation()</code> ergänzt mit dem <code>tag_levels</code> Argument Beschriftungen zu jeder Abbildung (siehe Abbildung <a href="visual.html#fig:patcha">8.21</a>).</p>
 <div class="sourceCode" id="cb400"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb400-1"><a href="visual.html#cb400-1" aria-hidden="true" tabindex="-1"></a>a <span class="sc">+</span> b <span class="sc">+</span> c <span class="sc">+</span> d <span class="sc">+</span> </span>
 <span id="cb400-2"><a href="visual.html#cb400-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot_layout</span>(<span class="at">ncol =</span> <span class="dv">2</span>) <span class="sc">+</span> </span>
 <span id="cb400-3"><a href="visual.html#cb400-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot_annotation</span>(<span class="at">tag_levels =</span> <span class="st">&quot;A&quot;</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:patcha"></span>
-<img src="r-empirische-wissenschaften_files/figure-html/patcha-1.png" alt="Anordnung mehrerer Graphen" width="672" />
+<img src="r-empirische-wissenschaften_files/figure-html/patcha-1.svg" alt="Anordnung mehrerer Graphen" width="672" />
 <p class="caption">
-Abbildung 8.19: Anordnung mehrerer Graphen
+Abbildung 8.21: Anordnung mehrerer Graphen
 </p>
 </div>
-<p>Neben <code>"A"</code> kann der Funktion <code>plot_annotation()</code> außerdem <code>"i"</code>, <code>"I"</code>, <code>"a"</code> und <code>"1"</code> übergeben werden. Die <code>tag_levels</code> können durch <code>tag_prefix</code> und <code>tag_suffix</code> weiter an die eigenen Bedürfnisse angepasst werden. Außerdem können Abbildungen auch in unterschiedlicher Anzahl neben- und untereinander gesetzt werden. Dafür muss man lediglich die oben stehenden Abbildungen mit vertikalen Linien unterteilen und diese dann durch die Abbildung, die unten stehen soll, teilen (siehe Abbildung <a href="visual.html#fig:patchb">8.20</a>).</p>
+<p>Neben <code>"A"</code> kann der Funktion <code>plot_annotation()</code> außerdem <code>"i"</code>, <code>"I"</code>, <code>"a"</code> und <code>"1"</code> übergeben werden. Die <code>tag_levels</code> können durch <code>tag_prefix</code> und <code>tag_suffix</code> weiter an die eigenen Bedürfnisse angepasst werden. Außerdem können Abbildungen auch in unterschiedlicher Anzahl neben- und untereinander gesetzt werden. Dafür muss man lediglich die oben stehenden Abbildungen mit vertikalen Linien unterteilen und diese dann durch die Abbildung, die unten stehen soll, teilen (siehe Abbildung <a href="visual.html#fig:patchb">8.22</a>).</p>
 <div class="sourceCode" id="cb401"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb401-1"><a href="visual.html#cb401-1" aria-hidden="true" tabindex="-1"></a>(a <span class="sc">|</span> b <span class="sc">|</span> c) <span class="sc">/</span> d <span class="sc">+</span> </span>
 <span id="cb401-2"><a href="visual.html#cb401-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot_annotation</span>(</span>
 <span id="cb401-3"><a href="visual.html#cb401-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">tag_levels =</span> <span class="st">&quot;a&quot;</span>,</span>
@@ -1062,9 +1075,9 @@ Abbildung 8.19: Anordnung mehrerer Graphen
 <span id="cb401-5"><a href="visual.html#cb401-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">tag_suffix =</span> <span class="st">&quot;)&quot;</span></span>
 <span id="cb401-6"><a href="visual.html#cb401-6" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:patchb"></span>
-<img src="r-empirische-wissenschaften_files/figure-html/patchb-1.png" alt="Alternative Anordnung mehrerer Graphen" width="672" />
+<img src="r-empirische-wissenschaften_files/figure-html/patchb-1.svg" alt="Alternative Anordnung mehrerer Graphen" width="672" />
 <p class="caption">
-Abbildung 8.20: Alternative Anordnung mehrerer Graphen
+Abbildung 8.22: Alternative Anordnung mehrerer Graphen
 </p>
 </div>
 <p>Falls alle addierten Graphen dieselbe Legende hätten, könnte diese mit <code>guide_area()</code> und dem <code>guides</code> Argument gesammelt angezeigt werden. Dabei wird mit <code>guide_area()</code> die Position der gemeinsamen Legende festgelegt.</p>
@@ -1096,11 +1109,11 @@ Abbildung 8.20: Alternative Anordnung mehrerer Graphen
 <span id="cb407-4"><a href="visual.html#cb407-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">width =</span> <span class="dv">8</span>,</span>
 <span id="cb407-5"><a href="visual.html#cb407-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">height =</span> <span class="dv">7</span></span>
 <span id="cb407-6"><a href="visual.html#cb407-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
-<p>In Abbildung <a href="visual.html#fig:saving">8.21</a> (a) ist <code>plotA.png</code> mit einer Breite und Höhe von 5 Zoll abgebildet, während <code>plotB.png</code> in (b) mit 8 x 7 Zoll bedeutend größer gespeichert wurde. Während in (a) die Achsenbeschriftungen groß sind und die Legende sogar mit der y-Achse überlappt, ist dies in (b) nicht zu beobachten.</p>
+<p>In Abbildung <a href="visual.html#fig:saving">8.23</a> (a) ist <code>plotA.png</code> mit einer Breite und Höhe von 5 Zoll abgebildet, während <code>plotB.png</code> in (b) mit 8 x 7 Zoll bedeutend größer gespeichert wurde. Während in (a) die Achsenbeschriftungen groß sind und die Legende sogar mit der y-Achse überlappt, ist dies in (b) nicht zu beobachten.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:saving"></span>
 <img src="images/saving.jpg" alt="Auflösungsunterschiede je nach Größe der gespeicherten Abbildung." width="98%" />
 <p class="caption">
-Abbildung 8.21: Auflösungsunterschiede je nach Größe der gespeicherten Abbildung.
+Abbildung 8.23: Auflösungsunterschiede je nach Größe der gespeicherten Abbildung.
 </p>
 </div>
 <div class="idea">
@@ -1152,9 +1165,9 @@ Abbildung 8.21: Auflösungsunterschiede je nach Größe der gespeicherten Abbild
 <span id="cb415-2"><a href="visual.html#cb415-2" aria-hidden="true" tabindex="-1"></a>   <span class="fu">plot_layout</span>(<span class="at">ncol =</span> <span class="dv">1</span>, <span class="at">heights =</span> <span class="fu">c</span>(<span class="dv">8</span>, <span class="dv">1</span>))</span>
 <span id="cb415-3"><a href="visual.html#cb415-3" aria-hidden="true" tabindex="-1"></a>kaplan_meier</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:survplot"></span>
-<img src="r-empirische-wissenschaften_files/figure-html/survplot-1.png" alt="Kaplan-Meier-Kurve mit Tabelle unterteilt nach biologischem Geschlecht." width="672" />
+<img src="r-empirische-wissenschaften_files/figure-html/survplot-1.svg" alt="Kaplan-Meier-Kurve mit Tabelle unterteilt nach biologischem Geschlecht." width="672" />
 <p class="caption">
-Abbildung 8.22: Kaplan-Meier-Kurve mit Tabelle unterteilt nach biologischem Geschlecht.
+Abbildung 8.24: Kaplan-Meier-Kurve mit Tabelle unterteilt nach biologischem Geschlecht.
 </p>
 </div>
 <p>Durch das Ansprechen der einzelnen Bestandteile (z.B. mit <code>kaplan_meier[[1]]</code>) können beiden Bestandteile, wie in Kapitel <a href="visual.html#adapt">8.10</a> gelernt, angepasst werden. Gespeichert wird das Ergebnis wie gewohnt mit <code>ggsave()</code> (siehe Kapitel <a href="visual.html#ggsave">8.12</a>).</p>
@@ -1179,7 +1192,12 @@ Abbildung 8.22: Kaplan-Meier-Kurve mit Tabelle unterteilt nach biologischem Gesc
 <div class="sourceCode" id="cb420"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb420-1"><a href="visual.html#cb420-1" aria-hidden="true" tabindex="-1"></a>res[[<span class="dv">1</span>]] <span class="sc">+</span> res[[<span class="dv">2</span>]] <span class="sc">+</span> res[[<span class="dv">3</span>]] <span class="sc">+</span> res[[<span class="dv">4</span>]] <span class="sc">+</span> res[[<span class="dv">5</span>]] <span class="sc">+</span> res[[<span class="dv">6</span>]] <span class="sc">+</span> </span>
 <span id="cb420-2"><a href="visual.html#cb420-2" aria-hidden="true" tabindex="-1"></a>   <span class="fu">plot_layout</span>(<span class="at">ncol =</span> <span class="dv">2</span>) <span class="sc">&amp;</span></span>
 <span id="cb420-3"><a href="visual.html#cb420-3" aria-hidden="true" tabindex="-1"></a>   <span class="fu">theme_classic</span>(<span class="at">base_size =</span> <span class="dv">14</span>)</span></code></pre></div>
-<p><img src="r-empirische-wissenschaften_files/figure-html/unnamed-chunk-292-1.png" width="768" style="display: block; margin: auto;" /></p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:residuals"></span>
+<img src="r-empirische-wissenschaften_files/figure-html/residuals-1.svg" alt="Graphische Überprüfung der Residuen." width="768" />
+<p class="caption">
+Abbildung 8.25: Graphische Überprüfung der Residuen.
+</p>
+</div>
 </div>
 <div id="ridgeline-plot" class="section level3 hasAnchor" number="8.13.3">
 <h3><span class="header-section-number">8.13.3</span> Ridgeline Plot<a href="visual.html#ridgeline-plot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -1218,9 +1236,9 @@ Abbildung 8.22: Kaplan-Meier-Kurve mit Tabelle unterteilt nach biologischem Gesc
 <span id="cb425-9"><a href="visual.html#cb425-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="dv">1</span>, <span class="at">vjust =</span> <span class="fl">0.2</span>, <span class="at">size =</span> <span class="dv">13</span>)</span>
 <span id="cb425-10"><a href="visual.html#cb425-10" aria-hidden="true" tabindex="-1"></a>  ) </span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:ridge"></span>
-<img src="r-empirische-wissenschaften_files/figure-html/ridge-1.png" alt="Ridgeline plots mit angepasstem Thema." width="768" />
+<img src="r-empirische-wissenschaften_files/figure-html/ridge-1.svg" alt="Ridgeline plots mit angepasstem Thema." width="768" />
 <p class="caption">
-Abbildung 8.23: Ridgeline plots mit angepasstem Thema.
+Abbildung 8.26: Ridgeline plots mit angepasstem Thema.
 </p>
 </div>
 </div>
@@ -1243,18 +1261,18 @@ Abbildung 8.23: Ridgeline plots mit angepasstem Thema.
 2 Gewissenhaftigkeit  3.16 0.361
 3 Neurotizismus       3.13 0.682
 4 Vertraeglichkeit    3.2  0.367</code></pre>
-<p>Wie gewohnt visualisieren wir die Balken anschließend mit <code>geom_col()</code> (siehe Abbildung <a href="visual.html#fig:high">8.24</a> (a)).</p>
+<p>Wie gewohnt visualisieren wir die Balken anschließend mit <code>geom_col()</code> (siehe Abbildung <a href="visual.html#fig:high">8.27</a> (a)).</p>
 <div class="sourceCode" id="cb429"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb429-1"><a href="visual.html#cb429-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(big5_means2, <span class="fu">aes</span>(<span class="at">x =</span> Faktor, <span class="at">y =</span> Mean)) <span class="sc">+</span></span>
 <span id="cb429-2"><a href="visual.html#cb429-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>()</span></code></pre></div>
-<p>Um einen Balken hervorzuheben, können wir der Funktion <code>gghighlight()</code> eine logische Bedingung übergeben. Ähnlich wie bei <code>filter()</code> muss also der Ausdruck innerhalb der Klammer entweder <code>TRUE</code> oder <code>FALSE</code> zurückgeben. Der Balken, worauf diese Bedingung zutrifft, wird hervorgehoben. In Abbildung <a href="visual.html#fig:high">8.24</a> (b) sehen wir exemplarisch den Balken des Persönlichkeitsfaktors Gewissenhaftigkeit hervorgehoben.</p>
+<p>Um einen Balken hervorzuheben, können wir der Funktion <code>gghighlight()</code> eine logische Bedingung übergeben. Ähnlich wie bei <code>filter()</code> muss also der Ausdruck innerhalb der Klammer entweder <code>TRUE</code> oder <code>FALSE</code> zurückgeben. Der Balken, worauf diese Bedingung zutrifft, wird hervorgehoben. In Abbildung <a href="visual.html#fig:high">8.27</a> (b) sehen wir exemplarisch den Balken des Persönlichkeitsfaktors Gewissenhaftigkeit hervorgehoben.</p>
 <div class="sourceCode" id="cb430"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb430-1"><a href="visual.html#cb430-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(big5_means2, <span class="fu">aes</span>(<span class="at">x =</span> Faktor, <span class="at">y =</span> Mean)) <span class="sc">+</span></span>
 <span id="cb430-2"><a href="visual.html#cb430-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span> </span>
 <span id="cb430-3"><a href="visual.html#cb430-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gghighlight</span>(Faktor <span class="sc">==</span> <span class="st">&quot;Gewissenhaftigkeit&quot;</span>)</span></code></pre></div>
 <p>In diesem Package ist die Funktionsbezeichnung abweichend von der in <code>ggplot2</code>. Anstelle des Präfixes <code>geom_*()</code> wird die Funktion hier mit zwei Gs angeführt.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:high"></span>
-<img src="r-empirische-wissenschaften_files/figure-html/high-1.png" alt="Ein Balkendiagramm mit und ohne Hervorhung." width="768" />
+<img src="r-empirische-wissenschaften_files/figure-html/high-1.svg" alt="Ein Balkendiagramm mit und ohne Hervorhung." width="768" />
 <p class="caption">
-Abbildung 8.24: Ein Balkendiagramm mit und ohne Hervorhung.
+Abbildung 8.27: Ein Balkendiagramm mit und ohne Hervorhung.
 </p>
 </div>
 </div>
@@ -1284,9 +1302,9 @@ X -&gt; Y
 <div class="sourceCode" id="cb435"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb435-1"><a href="visual.html#cb435-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggdag</span>(dag) <span class="sc">+</span></span>
 <span id="cb435-2"><a href="visual.html#cb435-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_dag</span>()</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:dag"></span>
-<img src="r-empirische-wissenschaften_files/figure-html/dag-1.png" alt="Directed Acyclic Graph einer Mediation mit M als Mediator." width="480" />
+<img src="r-empirische-wissenschaften_files/figure-html/dag-1.svg" alt="Directed Acyclic Graph einer Mediation mit M als Mediator." width="480" />
 <p class="caption">
-Abbildung 8.25: Directed Acyclic Graph einer Mediation mit M als Mediator.
+Abbildung 8.28: Directed Acyclic Graph einer Mediation mit M als Mediator.
 </p>
 </div>
 <p>Das <code>ggdag</code> Package bietet außerdem die Möglichkeit das DAG genauer anzuschauen.</p>
@@ -1320,11 +1338,11 @@ Abbildung 8.25: Directed Acyclic Graph einer Mediation mit M als Mediator.
 3      156    3.66 Study 1
 4       32    2.55 Study 1
 # … with 121 more rows</code></pre>
-<p>Die Ergebnisse der beiden Studien sollen anhand eines gruppierten Streudiagramms mit Regressionsgeraden verglichen werden (siehe Kapitel <a href="visual.html#scatter">8.3</a>). Zusätzlich werden gruppierte Wahrscheinlichkeitsdichten zur Darstellung der Verteilungen abgebildet (siehe Kapitel <a href="visual.html#histogram">8.2</a>). Das gewünschte Resultat ist in Abbildung <a href="visual.html#fig:eyeplot">8.26</a> illustriert.</p>
+<p>Die Ergebnisse der beiden Studien sollen anhand eines gruppierten Streudiagramms mit Regressionsgeraden verglichen werden (siehe Kapitel <a href="visual.html#scatter">8.3</a>). Zusätzlich werden gruppierte Wahrscheinlichkeitsdichten zur Darstellung der Verteilungen abgebildet (siehe Kapitel <a href="visual.html#histogram">8.2</a>). Das gewünschte Resultat ist in Abbildung <a href="visual.html#fig:eyeplot">8.29</a> illustriert.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:eyeplot"></span>
-<img src="r-empirische-wissenschaften_files/figure-html/eyeplot-1.png" alt="Anzahl fixierter Gesichter in Abhängigkeit beobachteter Einwohner pro Quadratkilometer." width="672" />
+<img src="r-empirische-wissenschaften_files/figure-html/eyeplot-1.svg" alt="Anzahl fixierter Gesichter in Abhängigkeit beobachteter Einwohner pro Quadratkilometer." width="672" />
 <p class="caption">
-Abbildung 8.26: Anzahl fixierter Gesichter in Abhängigkeit beobachteter Einwohner pro Quadratkilometer.
+Abbildung 8.29: Anzahl fixierter Gesichter in Abhängigkeit beobachteter Einwohner pro Quadratkilometer.
 </p>
 </div>
 <p>Diese Abbildung besteht im Prinzip aus vier Teilen, welche nacheinander erstellt und dann miteinander kombiniert werden müssen.</p>

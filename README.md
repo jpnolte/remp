@@ -17,18 +17,18 @@ Veröffentlicht ist das Buch unter der *Creative Commons Attribution-NonCommerci
 
 ### Inhaltsverzeichnis
 
-1. [Einleitung](https://r-empirische-wissenschaften.de/buch/intro.html)
-2. [Startvoraussetzungen](https://r-empirische-wissenschaften.de/buch/start.html) (R, RStudio und Erweiterungen installieren)
-3. [R Projekte](https://r-empirische-wissenschaften.de/buch/project.html) (Projekte in RStudio erstellen)
-4. [Wichtiges Grundlagenwissen](https://r-empirische-wissenschaften.de/buch/vars.html) (Variablen, Datentypen, Dollar-Operator)
-5. [Datensätze](https://r-empirische-wissenschaften.de/buch/io.html) (einlesen, erstellen, speichern)
-6. [Datenvorbereitung](https://r-empirische-wissenschaften.de/buch/datenvorbereitung.html) (u.a. auswählen, verändern, umwandeln, zusammenführen)
-7. [Deskriptive Statistik](https://r-empirische-wissenschaften.de/buch/descr.html) (Lage- und Streuungsmaße, Häufigkeiten)
-8. [Visualisierungen](https://r-empirische-wissenschaften.de/buch/visual.html) (Grundlagen von `ggplot` mit verschiedenen Abbildungen)
-9. [Inferenzstatistik](https://r-empirische-wissenschaften.de/buch/inductive.html) (statistische Modelle aufstellen)
-10. [Ergebnisse exportieren](https://r-empirische-wissenschaften.de/buch/ergebnisse-exportieren.html) (Tabellen und Berichte in Word, PDF und HTML)
-11. [Datenstrukturen](https://r-empirische-wissenschaften.de/buch/datatypes.html) (Vektor, Matrix, data.frame, tibble, Liste, Objektorientierung)
-12. [Funktionen wiederholt anwenden](https://r-empirische-wissenschaften.de/buch/iterationmain.html) (`map()`, for-Schleifen, einnisten)
+1. [Einleitung](https://r-empirische-wissenschaften.de/buch/intro.html): Aufbau des Buches, ergänzende Literatur.
+2. [Startvoraussetzungen](https://r-empirische-wissenschaften.de/buch/start.html): Installation von R, RStudio und Packages.
+3. [R Projekte](https://r-empirische-wissenschaften.de/buch/project.html): Relative Pfade, Projekte in RStudio erstellen.
+4. [Wichtiges Grundlagenwissen](https://r-empirische-wissenschaften.de/buch/vars.html): Variablen, Datentypen, Dollar-Operator.
+5. [Datensätze](https://r-empirische-wissenschaften.de/buch/io.html): Einlesen von R, Excel, SPSS und csv Dateien.
+6. [Datenvorbereitung](https://r-empirische-wissenschaften.de/buch/datenvorbereitung.html): Datensätze aufbereiten, Spalten hinzufügen, Funktionen erstellen u.v.m.
+7. [Deskriptive Statistik](https://r-empirische-wissenschaften.de/buch/descr.html): Lage- und Streuungsmaße, Häufigkeiten, Zusammenhangsmaße.
+8. [Visualisierungen](https://r-empirische-wissenschaften.de/buch/visual.html): Abbildungen publikationsreif erstellen und anpassen.
+9. [Inferenzstatistik](https://r-empirische-wissenschaften.de/buch/inductive.html): Klassische statistische Modelle aufstellen.
+10. [Ergebnisse exportieren](https://r-empirische-wissenschaften.de/buch/ergebnisse-exportieren.html): Tabellen und Berichte in Word, PDF und HTML.
+11. [Datenstrukturen](https://r-empirische-wissenschaften.de/buch/datatypes.html): Vektor, Matrix, data.frame, tibble, Liste, Objektorientierung.
+12. [Funktionen wiederholt anwenden](https://r-empirische-wissenschaften.de/buch/iterationmain.html): Listenbasiertes Rechnen, for-Schleifen, einnisten.
 
 ### Begleitendes R Package `remp`
 

@@ -23,7 +23,7 @@
 <meta name="author" content="Jan Philipp Nolte" />
 
 
-<meta name="date" content="2023-03-04" />
+<meta name="date" content="2023-03-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -52,6 +52,8 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@xiee/utils/js/key-buttons.min.js" defer></script>
+<link href="https://cdn.jsdelivr.net/npm/@xiee/utils/css/key-buttons.min.css" rel="stylesheet"></link>
 
 
 <style type="text/css">
@@ -335,6 +337,7 @@ div.csl-indent {
 <li class="chapter" data-level="10.3.1" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#knitr"><i class="fa fa-check"></i><b>10.3.1</b> Exportieren nach Word und PDF</a></li>
 <li class="chapter" data-level="10.3.2" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#latex"><i class="fa fa-check"></i><b>10.3.2</b> Exportieren nach LaTeX</a></li>
 </ul></li>
+<li class="chapter" data-level="10.4" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#quarto"><i class="fa fa-check"></i><b>10.4</b> Alternative mit Quarto</a></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="datatypes.html"><a href="datatypes.html"><i class="fa fa-check"></i><b>11</b> Datenstrukturen</a>
 <ul>
@@ -381,24 +384,27 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="iterationmain" class="section level1 hasAnchor" number="12">
 <h1><span class="header-section-number">Kapitel 12</span> Funktionen wiederholt anwenden<a href="iterationmain.html#iterationmain" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<blockquote>
+<p>Im Zuge der Datenanalyse muss man häufig dieselben Berechnungen für mehrere Szenarien vornehmen. Um sich Zeit zu sparen und die Häufigkeit von Fehlern zu minimieren, existieren in jeder Programmiersprache sogenannte Schleifen. In diesem Kapitel lernst du drei verschiedene Arten kennen, diese sogenannten iterativen Prozesse selbst in R umzusetzen.</p>
+</blockquote>
 <div id="iteration" class="section level2 hasAnchor" number="12.1">
 <h2><span class="header-section-number">12.1</span> Das Copy &amp; Paste Problem<a href="iterationmain.html#iteration" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>In diesem Kapitel ist das Installieren und Laden des <code>purrr</code> Packages aus dem <code>tidyverse</code> eine Voraussetzung.</p>
-<div class="sourceCode" id="cb594"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb594-1"><a href="iterationmain.html#cb594-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+<div class="sourceCode" id="cb600"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb600-1"><a href="iterationmain.html#cb600-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
 <p>In vielen Szenarien ist es nötig, die Funktion nicht nur einmal, sondern mehrmals anzuwenden. Die naheliegende Lösung dafür ist den Funktionsaufruf zu kopieren und leicht modifiziert für den nächsten Anwendungsfall zu verwenden. Ein Beispiel dafür haben wir bereits in Kapitel <a href="inductive.html#contingency">9.6</a> beim Ausgeben der Häufigkeiten kategorialer Variablen gesehen. Wenn ein oder zwei Häufigkeiten ausgegeben werden sollen, ist das Kopieren der Funktion noch kein Problem.</p>
-<div class="sourceCode" id="cb595"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb595-1"><a href="iterationmain.html#cb595-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(big5_mod<span class="sc">$</span>Geschlecht)</span></code></pre></div>
+<div class="sourceCode" id="cb601"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb601-1"><a href="iterationmain.html#cb601-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(big5_mod<span class="sc">$</span>Geschlecht)</span></code></pre></div>
 <pre class="bordercode"><code>
   f   m 
 118  82 </code></pre>
-<div class="sourceCode" id="cb597"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb597-1"><a href="iterationmain.html#cb597-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(big5_mod<span class="sc">$</span>Gruppe)</span></code></pre></div>
+<div class="sourceCode" id="cb603"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb603-1"><a href="iterationmain.html#cb603-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(big5_mod<span class="sc">$</span>Gruppe)</span></code></pre></div>
 <pre class="bordercode"><code>
   Jung Mittel  Weise 
    147     39     14 </code></pre>
 <p>Falls jedoch die Häufigkeiten von 20 bis 30 Variablen gewünscht sind, ist das Kopieren der jeweiligen Funktion nicht nur zeitaufwendig, sondern auch fehleranfällig. Im Verlauf der nächsten Kapitel werden wir drei mögliche Automatisierungen kennenlernen: <code>map()</code>, for-Schleifen und Einnisten.</p>
 <p>Mit der Funktion <code>map()</code> können wir die Funktion <code>table()</code> zur Berechnung der Häufigkeiten auf jede ausgewählte Spalte anwenden. Es werden also zuerst die Häufigkeiten der Geschlechter und anschließend die der Altersgruppen berechnet.</p>
-<div class="sourceCode" id="cb599"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb599-1"><a href="iterationmain.html#cb599-1" aria-hidden="true" tabindex="-1"></a>big5_mod <span class="sc">|&gt;</span></span>
-<span id="cb599-2"><a href="iterationmain.html#cb599-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Geschlecht, Gruppe) <span class="sc">|&gt;</span></span>
-<span id="cb599-3"><a href="iterationmain.html#cb599-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">map</span>(table)</span></code></pre></div>
+<div class="sourceCode" id="cb605"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb605-1"><a href="iterationmain.html#cb605-1" aria-hidden="true" tabindex="-1"></a>big5_mod <span class="sc">|&gt;</span></span>
+<span id="cb605-2"><a href="iterationmain.html#cb605-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Geschlecht, Gruppe) <span class="sc">|&gt;</span></span>
+<span id="cb605-3"><a href="iterationmain.html#cb605-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">map</span>(table)</span></code></pre></div>
 <pre class="bordercode"><code>$Geschlecht
 
   f   m 
@@ -409,10 +415,10 @@ $Gruppe
   Jung Mittel  Weise 
    147     39     14 </code></pre>
 <p>Durch einen weiteren Aufruf von <code>map()</code> dieses Mal mit der Funktion <code>prop.table()</code> können zusätzlich die Verhältnisse der Merkmale ausgegeben werden.</p>
-<div class="sourceCode" id="cb601"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb601-1"><a href="iterationmain.html#cb601-1" aria-hidden="true" tabindex="-1"></a>big5_mod <span class="sc">|&gt;</span></span>
-<span id="cb601-2"><a href="iterationmain.html#cb601-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Geschlecht, Gruppe) <span class="sc">|&gt;</span></span>
-<span id="cb601-3"><a href="iterationmain.html#cb601-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">map</span>(table) <span class="sc">|&gt;</span></span>
-<span id="cb601-4"><a href="iterationmain.html#cb601-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">map</span>(prop.table)</span></code></pre></div>
+<div class="sourceCode" id="cb607"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb607-1"><a href="iterationmain.html#cb607-1" aria-hidden="true" tabindex="-1"></a>big5_mod <span class="sc">|&gt;</span></span>
+<span id="cb607-2"><a href="iterationmain.html#cb607-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Geschlecht, Gruppe) <span class="sc">|&gt;</span></span>
+<span id="cb607-3"><a href="iterationmain.html#cb607-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">map</span>(table) <span class="sc">|&gt;</span></span>
+<span id="cb607-4"><a href="iterationmain.html#cb607-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">map</span>(prop.table)</span></code></pre></div>
 <pre class="bordercode"><code>$Geschlecht
 
    f    m 
@@ -423,9 +429,9 @@ $Gruppe
   Jung Mittel  Weise 
  0.735  0.195  0.070 </code></pre>
 <p>Da Häufigkeiten in der Regel nur bei kategorialen Variablen erwünscht sind, könnten wir auch nur Spalten vom Datentyp Character oder Factor ausrechnen lassen (siehe Kapitel <a href="datenvorbereitung.html#select">6.2</a>).</p>
-<div class="sourceCode" id="cb603"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb603-1"><a href="iterationmain.html#cb603-1" aria-hidden="true" tabindex="-1"></a>big5_mod <span class="sc">|&gt;</span></span>
-<span id="cb603-2"><a href="iterationmain.html#cb603-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">where</span>(is.character) <span class="sc">|</span> <span class="fu">where</span>(is.factor)) <span class="sc">|&gt;</span></span>
-<span id="cb603-3"><a href="iterationmain.html#cb603-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">map</span>(table)</span></code></pre></div>
+<div class="sourceCode" id="cb609"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb609-1"><a href="iterationmain.html#cb609-1" aria-hidden="true" tabindex="-1"></a>big5_mod <span class="sc">|&gt;</span></span>
+<span id="cb609-2"><a href="iterationmain.html#cb609-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">where</span>(is.character) <span class="sc">|</span> <span class="fu">where</span>(is.factor)) <span class="sc">|&gt;</span></span>
+<span id="cb609-3"><a href="iterationmain.html#cb609-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">map</span>(table)</span></code></pre></div>
 <div class="idea">
 <p>Copy &amp; Paste ist fehleranfällig und sollte nur bei weniger als zehn wiederholten Anwendungen von Funktionen verwendet werden. Alternativ können diese Funktionswiederholungen auf verschiedene Arten automatisiert werden.</p>
 </div>
@@ -433,17 +439,17 @@ $Gruppe
 <div id="map" class="section level2 hasAnchor" number="12.2">
 <h2><span class="header-section-number">12.2</span> Listenbasierte Berechnungen<a href="iterationmain.html#map" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Für dieses Kapitel muss das <code>purrr</code> Package aus dem <code>tidyverse</code> installiert und geladen werden.</p>
-<div class="sourceCode" id="cb604"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb604-1"><a href="iterationmain.html#cb604-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+<div class="sourceCode" id="cb610"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb610-1"><a href="iterationmain.html#cb610-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
 <p>Ein Beispiel zum wiederholten Anwenden einer Funktion mithilfe von <code>map()</code> wurde bereits im vorherigen Kapitel eingeführt. Während dort die Funktion auf einen <code>tibble</code> angewandt wurde (eine Sonderform der Liste), werden wir uns hier den klassischen Anwendungsfall von <code>map()</code> im Kontext von Listen anschauen.</p>
 <p>Als Beispiel wollen wir an dieser Stelle ein lineares Regressionsmodell zur Erklärung der Variation von Extraversion durch Geschlecht für jede Altersgruppe einzeln berechnen (siehe Kapitel <a href="inductive.html#linregression">9.5.1</a>). Dafür trennen wir den Datensatz zunächst mithilfe der Funktion <code>split()</code> in eine Liste mit drei Elementen. Das erste Element enthält einen Datensatz mit den jüngsten Personen, das zweite die mittlere Altersklasse und das dritte Element die Ältesten.</p>
-<div class="sourceCode" id="cb605"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb605-1"><a href="iterationmain.html#cb605-1" aria-hidden="true" tabindex="-1"></a>mod_ls <span class="ot">&lt;-</span> <span class="fu">split</span>(big5_mod, <span class="sc">~</span> Gruppe)</span></code></pre></div>
+<div class="sourceCode" id="cb611"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb611-1"><a href="iterationmain.html#cb611-1" aria-hidden="true" tabindex="-1"></a>mod_ls <span class="ot">&lt;-</span> <span class="fu">split</span>(big5_mod, <span class="sc">~</span> Gruppe)</span></code></pre></div>
 <p>Zum Erstellen der Regressionsmodelle kopieren wir den Befehl dreimalig. Dabei wird jedes Mal mithilfe der doppelten eckigen Klammern auf ein anderes Listenelement zugegriffen (siehe Kapitel <a href="datatypes.html#lists">11.4</a>).</p>
-<div class="sourceCode" id="cb606"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb606-1"><a href="iterationmain.html#cb606-1" aria-hidden="true" tabindex="-1"></a>model1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Extraversion <span class="sc">~</span> Geschlecht, <span class="at">data =</span> mod_ls[[<span class="dv">1</span>]])</span>
-<span id="cb606-2"><a href="iterationmain.html#cb606-2" aria-hidden="true" tabindex="-1"></a>model2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Extraversion <span class="sc">~</span> Geschlecht, <span class="at">data =</span> mod_ls[[<span class="dv">2</span>]])</span>
-<span id="cb606-3"><a href="iterationmain.html#cb606-3" aria-hidden="true" tabindex="-1"></a>model3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Extraversion <span class="sc">~</span> Geschlecht, <span class="at">data =</span> mod_ls[[<span class="dv">3</span>]])</span></code></pre></div>
+<div class="sourceCode" id="cb612"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb612-1"><a href="iterationmain.html#cb612-1" aria-hidden="true" tabindex="-1"></a>model1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Extraversion <span class="sc">~</span> Geschlecht, <span class="at">data =</span> mod_ls[[<span class="dv">1</span>]])</span>
+<span id="cb612-2"><a href="iterationmain.html#cb612-2" aria-hidden="true" tabindex="-1"></a>model2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Extraversion <span class="sc">~</span> Geschlecht, <span class="at">data =</span> mod_ls[[<span class="dv">2</span>]])</span>
+<span id="cb612-3"><a href="iterationmain.html#cb612-3" aria-hidden="true" tabindex="-1"></a>model3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Extraversion <span class="sc">~</span> Geschlecht, <span class="at">data =</span> mod_ls[[<span class="dv">3</span>]])</span></code></pre></div>
 <p>Mit der Funktion <code>map()</code> kann das redundante Kopieren der Funktion vermieden werden. Als einziges Argument wird das Regressionsmodell als anonyme Lambdafunktion übergeben (siehe Kapitel <a href="datenvorbereitung.html#function">6.4.4</a>). Als Ergebnis erhalten wir eine Liste mit einem Modell pro Listenelement.</p>
-<div class="sourceCode" id="cb607"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb607-1"><a href="iterationmain.html#cb607-1" aria-hidden="true" tabindex="-1"></a>mod_ls <span class="sc">|&gt;</span> </span>
-<span id="cb607-2"><a href="iterationmain.html#cb607-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">map</span>(\(teildaten) <span class="fu">lm</span>(Extraversion <span class="sc">~</span> Geschlecht, <span class="at">data =</span> teildaten)) </span></code></pre></div>
+<div class="sourceCode" id="cb613"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb613-1"><a href="iterationmain.html#cb613-1" aria-hidden="true" tabindex="-1"></a>mod_ls <span class="sc">|&gt;</span> </span>
+<span id="cb613-2"><a href="iterationmain.html#cb613-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">map</span>(\(teildaten) <span class="fu">lm</span>(Extraversion <span class="sc">~</span> Geschlecht, <span class="at">data =</span> teildaten)) </span></code></pre></div>
 <pre class="bordercode"><code>$Jung
 
 Call:
@@ -473,13 +479,13 @@ Coefficients:
 (Intercept)  Geschlechtm  
      2.8333       0.1267  </code></pre>
 <p>Mit einem weiteren Aufruf von <code>map()</code> können wir für jedes der drei Modelle die Zusammenfassungen der Ergebnisse zeigen.</p>
-<div class="sourceCode" id="cb609"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb609-1"><a href="iterationmain.html#cb609-1" aria-hidden="true" tabindex="-1"></a>mod_ls <span class="sc">|&gt;</span> </span>
-<span id="cb609-2"><a href="iterationmain.html#cb609-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">map</span>(\(teildaten) <span class="fu">lm</span>(Extraversion <span class="sc">~</span> Geschlecht, <span class="at">data =</span> teildaten)) <span class="sc">|&gt;</span></span>
-<span id="cb609-3"><a href="iterationmain.html#cb609-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">map</span>(summary)</span></code></pre></div>
+<div class="sourceCode" id="cb615"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb615-1"><a href="iterationmain.html#cb615-1" aria-hidden="true" tabindex="-1"></a>mod_ls <span class="sc">|&gt;</span> </span>
+<span id="cb615-2"><a href="iterationmain.html#cb615-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">map</span>(\(teildaten) <span class="fu">lm</span>(Extraversion <span class="sc">~</span> Geschlecht, <span class="at">data =</span> teildaten)) <span class="sc">|&gt;</span></span>
+<span id="cb615-3"><a href="iterationmain.html#cb615-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">map</span>(summary)</span></code></pre></div>
 <p>Alternativ könnte auch die <code>tidy()</code> Funktion zum Ausgeben als <code>tibble</code> (anstelle einer Liste) verwendet werden (siehe Kapitel <a href="inductive.html#broom">9.8</a>). Da die gewünschte Ausgabe hier ein <code>tibble</code> bzw. <code>data.frame</code> (kurz: df) ist, müssen wir stattdessen die Funktion <code>map_df()</code> benutzen.</p>
-<div class="sourceCode" id="cb610"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb610-1"><a href="iterationmain.html#cb610-1" aria-hidden="true" tabindex="-1"></a>mod_ls <span class="sc">|&gt;</span> </span>
-<span id="cb610-2"><a href="iterationmain.html#cb610-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">map</span>(\(teildaten) <span class="fu">lm</span>(Extraversion <span class="sc">~</span> Geschlecht, <span class="at">data =</span> teildaten)) <span class="sc">|&gt;</span> </span>
-<span id="cb610-3"><a href="iterationmain.html#cb610-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">map_df</span>(tidy)</span></code></pre></div>
+<div class="sourceCode" id="cb616"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb616-1"><a href="iterationmain.html#cb616-1" aria-hidden="true" tabindex="-1"></a>mod_ls <span class="sc">|&gt;</span> </span>
+<span id="cb616-2"><a href="iterationmain.html#cb616-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">map</span>(\(teildaten) <span class="fu">lm</span>(Extraversion <span class="sc">~</span> Geschlecht, <span class="at">data =</span> teildaten)) <span class="sc">|&gt;</span> </span>
+<span id="cb616-3"><a href="iterationmain.html#cb616-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">map_df</span>(tidy)</span></code></pre></div>
 <pre class="bordercode"><code># A tibble: 6 × 5
   term        estimate std.error statistic   p.value
   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
@@ -493,14 +499,14 @@ Coefficients:
 <div id="for" class="section level2 hasAnchor" number="12.3">
 <h2><span class="header-section-number">12.3</span> for-Schleifen<a href="iterationmain.html#for" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Eine wiederholte Anwendung von Funktionen für jeden Kontext unabhängig der Datenstruktur und des Datentyps wird durch for-Schleifen ermöglicht. Um das Konzept einzuführen, greifen wir an dieser Stelle auf dieselbe listenbasierte Berechnung mehrerer linearer Regressionmodelle des vorherigen Kapitels zurück. Zuerst wird also erneut der Datensatz als Liste aufgeteilt.</p>
-<div class="sourceCode" id="cb612"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb612-1"><a href="iterationmain.html#cb612-1" aria-hidden="true" tabindex="-1"></a>mod_ls <span class="ot">&lt;-</span> <span class="fu">split</span>(big5_mod, <span class="sc">~</span> Gruppe)</span></code></pre></div>
+<div class="sourceCode" id="cb618"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb618-1"><a href="iterationmain.html#cb618-1" aria-hidden="true" tabindex="-1"></a>mod_ls <span class="ot">&lt;-</span> <span class="fu">split</span>(big5_mod, <span class="sc">~</span> Gruppe)</span></code></pre></div>
 <p>Mit Copy &amp; Paste müsste das Modell dreimalig ausgeschrieben werden.</p>
-<div class="sourceCode" id="cb613"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb613-1"><a href="iterationmain.html#cb613-1" aria-hidden="true" tabindex="-1"></a>model1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Extraversion <span class="sc">~</span> Geschlecht, <span class="at">data =</span> mod_ls[[<span class="dv">1</span>]])</span>
-<span id="cb613-2"><a href="iterationmain.html#cb613-2" aria-hidden="true" tabindex="-1"></a>model2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Extraversion <span class="sc">~</span> Geschlecht, <span class="at">data =</span> mod_ls[[<span class="dv">2</span>]])</span>
-<span id="cb613-3"><a href="iterationmain.html#cb613-3" aria-hidden="true" tabindex="-1"></a>model3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Extraversion <span class="sc">~</span> Geschlecht, <span class="at">data =</span> mod_ls[[<span class="dv">3</span>]])</span></code></pre></div>
+<div class="sourceCode" id="cb619"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb619-1"><a href="iterationmain.html#cb619-1" aria-hidden="true" tabindex="-1"></a>model1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Extraversion <span class="sc">~</span> Geschlecht, <span class="at">data =</span> mod_ls[[<span class="dv">1</span>]])</span>
+<span id="cb619-2"><a href="iterationmain.html#cb619-2" aria-hidden="true" tabindex="-1"></a>model2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Extraversion <span class="sc">~</span> Geschlecht, <span class="at">data =</span> mod_ls[[<span class="dv">2</span>]])</span>
+<span id="cb619-3"><a href="iterationmain.html#cb619-3" aria-hidden="true" tabindex="-1"></a>model3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Extraversion <span class="sc">~</span> Geschlecht, <span class="at">data =</span> mod_ls[[<span class="dv">3</span>]])</span></code></pre></div>
 <p>Den ersten Schritt beim Berechnen einer for-Schleife stellt das Kreieren einer leeren Ergebnisliste dar.</p>
-<div class="sourceCode" id="cb614"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb614-1"><a href="iterationmain.html#cb614-1" aria-hidden="true" tabindex="-1"></a>erg_ls <span class="ot">&lt;-</span> <span class="fu">vector</span>(<span class="st">&quot;list&quot;</span>, <span class="dv">3</span>)</span>
-<span id="cb614-2"><a href="iterationmain.html#cb614-2" aria-hidden="true" tabindex="-1"></a>erg_ls</span></code></pre></div>
+<div class="sourceCode" id="cb620"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb620-1"><a href="iterationmain.html#cb620-1" aria-hidden="true" tabindex="-1"></a>erg_ls <span class="ot">&lt;-</span> <span class="fu">vector</span>(<span class="st">&quot;list&quot;</span>, <span class="dv">3</span>)</span>
+<span id="cb620-2"><a href="iterationmain.html#cb620-2" aria-hidden="true" tabindex="-1"></a>erg_ls</span></code></pre></div>
 <pre class="bordercode"><code>[[1]]
 NULL
 
@@ -510,10 +516,10 @@ NULL
 [[3]]
 NULL</code></pre>
 <p>Falls das Ergebnis für andere Kontexte nicht als Liste, sondern bspw. als numerischer Vektor gespeichert werden soll, könnte man stattdessen <code>vector("numeric", 3)</code> wählen. In der eigentlichen Schleife soll <strong>für</strong> jedes <code>i</code> von <code>1</code> bis <code>3</code> das Modell aufgestellt und in <code>erg_ls</code> an entsprechender Stelle gespeichert werden. Dabei greifen wir auf den jeweiligen Datensatz an der Stelle von Index <code>i</code> aufgrund der Liste innerhalb einer doppelten eckigen Klammer zu.</p>
-<div class="sourceCode" id="cb616"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb616-1"><a href="iterationmain.html#cb616-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>) {</span>
-<span id="cb616-2"><a href="iterationmain.html#cb616-2" aria-hidden="true" tabindex="-1"></a>  erg_ls[[i]] <span class="ot">&lt;-</span> <span class="fu">lm</span>(Extraversion <span class="sc">~</span> Geschlecht, <span class="at">data =</span> mod_ls[[i]])</span>
-<span id="cb616-3"><a href="iterationmain.html#cb616-3" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb616-4"><a href="iterationmain.html#cb616-4" aria-hidden="true" tabindex="-1"></a>erg_ls</span></code></pre></div>
+<div class="sourceCode" id="cb622"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb622-1"><a href="iterationmain.html#cb622-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>) {</span>
+<span id="cb622-2"><a href="iterationmain.html#cb622-2" aria-hidden="true" tabindex="-1"></a>  erg_ls[[i]] <span class="ot">&lt;-</span> <span class="fu">lm</span>(Extraversion <span class="sc">~</span> Geschlecht, <span class="at">data =</span> mod_ls[[i]])</span>
+<span id="cb622-3"><a href="iterationmain.html#cb622-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb622-4"><a href="iterationmain.html#cb622-4" aria-hidden="true" tabindex="-1"></a>erg_ls</span></code></pre></div>
 <pre class="bordercode"><code>[[1]]
 
 Call:
@@ -550,10 +556,10 @@ Coefficients:
 <div id="nest" class="section level2 hasAnchor" number="12.4">
 <h2><span class="header-section-number">12.4</span> Einnisten<a href="iterationmain.html#nest" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Zum Bearbeiten dieses Kapitels muss das <code>tidyr</code> Package aus dem <code>tidyverse</code> geladen werden.</p>
-<div class="sourceCode" id="cb618"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb618-1"><a href="iterationmain.html#cb618-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+<div class="sourceCode" id="cb624"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb624-1"><a href="iterationmain.html#cb624-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
 <p>Durch die Funktion <code>nest()</code> können innerhalb von Zellen eines <code>tibbles</code> Datenstrukturen jeder Art verschachtelt werden. Dies wurde bereits in Kapitel <a href="datatypes.html#lists">11.4</a> anhand eines einfachen Beispiels eingeführt. Dieses Konzept wenden wir beim <code>big5_mod</code> Datensatz an und gruppieren dafür innerhalb von <code>nest()</code> mithilfe des Arguments <code>.by</code>.</p>
-<div class="sourceCode" id="cb619"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb619-1"><a href="iterationmain.html#cb619-1" aria-hidden="true" tabindex="-1"></a>big5_mod <span class="sc">|&gt;</span>  </span>
-<span id="cb619-2"><a href="iterationmain.html#cb619-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">nest</span>(<span class="at">.by =</span> Gruppe)</span></code></pre></div>
+<div class="sourceCode" id="cb625"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb625-1"><a href="iterationmain.html#cb625-1" aria-hidden="true" tabindex="-1"></a>big5_mod <span class="sc">|&gt;</span>  </span>
+<span id="cb625-2"><a href="iterationmain.html#cb625-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">nest</span>(<span class="at">.by =</span> Gruppe)</span></code></pre></div>
 <pre class="bordercode"><code># A tibble: 3 × 2
   Gruppe data              
   &lt;fct&gt;  &lt;list&gt;            
@@ -562,12 +568,12 @@ Coefficients:
 3 Weise  &lt;tibble [14 × 5]&gt; </code></pre>
 <p>Als Ergebnis erhalten wir einen <code>tibble</code>, welcher in der ersten Spalte die Altersgruppen abbildet. Daneben steht eine neue zweite Spalte namens <code>data</code>, in der wiederum drei <code>tibbles</code> mit den Dimensionen <code>39x5</code>, <code>147x5</code> und <code>14x5</code> gespeichert sind.</p>
 <p>Ähnlich wie bei den listenbasierten Berechnungen in Kapitel <a href="iterationmain.html#map">12.2</a> können wir auch auf diese verschachtelten <code>tibbles</code> die <code>map()</code> Funktionen anwenden. Der Unterschied besteht darin, dass wir den Befehl innerhalb von <code>mutate()</code> ausführen müssen (siehe Kapitel <a href="datenvorbereitung.html#mutate">6.4</a>). Schließlich soll mit den Inhalten einer Spalte eines <code>tibbles</code> eine neue Spalte erstellt werden. Im zweiten Schritt nehmen wir die Modelle und geben diese in einem aufgeräumten Format mit der Funktion <code>tidy()</code> aus (siehe Kapitel <a href="inductive.html#broom">9.8</a>).</p>
-<div class="sourceCode" id="cb621"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb621-1"><a href="iterationmain.html#cb621-1" aria-hidden="true" tabindex="-1"></a>big5_mod <span class="sc">|&gt;</span>  </span>
-<span id="cb621-2"><a href="iterationmain.html#cb621-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">nest</span>(<span class="at">.by =</span> Gruppe) <span class="sc">|&gt;</span> </span>
-<span id="cb621-3"><a href="iterationmain.html#cb621-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb621-4"><a href="iterationmain.html#cb621-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Modelle =</span> <span class="fu">map</span>(data, \(teildaten) <span class="fu">lm</span>(Extraversion <span class="sc">~</span> Geschlecht, <span class="at">data =</span> teildaten)),</span>
-<span id="cb621-5"><a href="iterationmain.html#cb621-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">Ergebnisse =</span> <span class="fu">map</span>(Modelle, tidy)</span>
-<span id="cb621-6"><a href="iterationmain.html#cb621-6" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
+<div class="sourceCode" id="cb627"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb627-1"><a href="iterationmain.html#cb627-1" aria-hidden="true" tabindex="-1"></a>big5_mod <span class="sc">|&gt;</span>  </span>
+<span id="cb627-2"><a href="iterationmain.html#cb627-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">nest</span>(<span class="at">.by =</span> Gruppe) <span class="sc">|&gt;</span> </span>
+<span id="cb627-3"><a href="iterationmain.html#cb627-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb627-4"><a href="iterationmain.html#cb627-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Modelle =</span> <span class="fu">map</span>(data, \(teildaten) <span class="fu">lm</span>(Extraversion <span class="sc">~</span> Geschlecht, <span class="at">data =</span> teildaten)),</span>
+<span id="cb627-5"><a href="iterationmain.html#cb627-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">Ergebnisse =</span> <span class="fu">map</span>(Modelle, tidy)</span>
+<span id="cb627-6"><a href="iterationmain.html#cb627-6" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
 <pre class="bordercode"><code># A tibble: 3 × 4
   Gruppe data               Modelle Ergebnisse      
   &lt;fct&gt;  &lt;list&gt;             &lt;list&gt;  &lt;list&gt;          
@@ -575,13 +581,13 @@ Coefficients:
 2 Jung   &lt;tibble [147 × 5]&gt; &lt;lm&gt;    &lt;tibble [2 × 5]&gt;
 3 Weise  &lt;tibble [14 × 5]&gt;  &lt;lm&gt;    &lt;tibble [2 × 5]&gt;</code></pre>
 <p>Die neue Spalte namens <code>Modelle</code> hat Einträge des Datentyps <code>&lt;lm&gt;</code> (die linearen Modelle). Daneben sind die Ergebnisse von <code>tidy()</code> verschachtelt (u.a. mit Teststatistiken und <em>p</em>-Werten). Damit wir an diese Ergebnisse herankommen, müssen wir diese abschließend mit der Funktion <code>unnest()</code> aus der eingenisteten Struktur herausholen.</p>
-<div class="sourceCode" id="cb623"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb623-1"><a href="iterationmain.html#cb623-1" aria-hidden="true" tabindex="-1"></a>big5_mod <span class="sc">|&gt;</span>  </span>
-<span id="cb623-2"><a href="iterationmain.html#cb623-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">nest</span>(<span class="at">.by =</span> Gruppe) <span class="sc">|&gt;</span> </span>
-<span id="cb623-3"><a href="iterationmain.html#cb623-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb623-4"><a href="iterationmain.html#cb623-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Modelle =</span> <span class="fu">map</span>(data, \(teildaten) <span class="fu">lm</span>(Extraversion <span class="sc">~</span> Geschlecht, <span class="at">data =</span> teildaten)),</span>
-<span id="cb623-5"><a href="iterationmain.html#cb623-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">Ergebnisse =</span> <span class="fu">map</span>(Modelle, tidy)</span>
-<span id="cb623-6"><a href="iterationmain.html#cb623-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> </span>
-<span id="cb623-7"><a href="iterationmain.html#cb623-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest</span>(Ergebnisse) </span></code></pre></div>
+<div class="sourceCode" id="cb629"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb629-1"><a href="iterationmain.html#cb629-1" aria-hidden="true" tabindex="-1"></a>big5_mod <span class="sc">|&gt;</span>  </span>
+<span id="cb629-2"><a href="iterationmain.html#cb629-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">nest</span>(<span class="at">.by =</span> Gruppe) <span class="sc">|&gt;</span> </span>
+<span id="cb629-3"><a href="iterationmain.html#cb629-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb629-4"><a href="iterationmain.html#cb629-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Modelle =</span> <span class="fu">map</span>(data, \(teildaten) <span class="fu">lm</span>(Extraversion <span class="sc">~</span> Geschlecht, <span class="at">data =</span> teildaten)),</span>
+<span id="cb629-5"><a href="iterationmain.html#cb629-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">Ergebnisse =</span> <span class="fu">map</span>(Modelle, tidy)</span>
+<span id="cb629-6"><a href="iterationmain.html#cb629-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> </span>
+<span id="cb629-7"><a href="iterationmain.html#cb629-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest</span>(Ergebnisse) </span></code></pre></div>
 <pre class="bordercode"><code># A tibble: 6 × 8
   Gruppe data               Modelle term        estimate std.error statistic   p.value
   &lt;fct&gt;  &lt;list&gt;             &lt;list&gt;  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;

@@ -23,7 +23,7 @@
 <meta name="author" content="Jan Philipp Nolte" />
 
 
-<meta name="date" content="2023-03-04" />
+<meta name="date" content="2023-03-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -52,6 +52,8 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@xiee/utils/js/key-buttons.min.js" defer></script>
+<link href="https://cdn.jsdelivr.net/npm/@xiee/utils/css/key-buttons.min.css" rel="stylesheet"></link>
 
 
 <style type="text/css">
@@ -335,6 +337,7 @@ div.csl-indent {
 <li class="chapter" data-level="10.3.1" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#knitr"><i class="fa fa-check"></i><b>10.3.1</b> Exportieren nach Word und PDF</a></li>
 <li class="chapter" data-level="10.3.2" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#latex"><i class="fa fa-check"></i><b>10.3.2</b> Exportieren nach LaTeX</a></li>
 </ul></li>
+<li class="chapter" data-level="10.4" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#quarto"><i class="fa fa-check"></i><b>10.4</b> Alternative mit Quarto</a></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="datatypes.html"><a href="datatypes.html"><i class="fa fa-check"></i><b>11</b> Datenstrukturen</a>
 <ul>
@@ -381,6 +384,9 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="vars" class="section level1 hasAnchor" number="4">
 <h1><span class="header-section-number">Kapitel 4</span> Wichtiges Grundlagenwissen<a href="vars.html#vars" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<blockquote>
+<p>Bevor wir richtig loslegen können, müssen wir einige Grundlagen besprechen. Das Abspeichern von Zwischenergebnissen in Form von Variablen ist genauso essentiell wie die verschiedenen Datentypen, die in den jeweiligen Spalten deines Datensatzes enthalten sind. Auch einzelne Spalten mithilfe des Dollar-Operators aus einem Datensatz herauszuziehen ist ein zentrales Konzept, auf das wir im Verlauf dieses Buches häufig zurückgreifen werden.</p>
+</blockquote>
 <div id="begin" class="section level2 hasAnchor" number="4.1">
 <h2><span class="header-section-number">4.1</span> Schritt für Schritt beginnen<a href="vars.html#begin" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><strong>1. Schritt: RStudio starten.</strong> Nach der Installation von R und RStudio (siehe Kapitel <a href="start.html#installr">2.1.1</a> und <a href="start.html#rstudio">2.1.2</a>) kann RStudio in Windows durch Tippen der Windows-Taste mit anschließender Eingabe von <code>RStudio</code> und in macOS über den Finder gestartet werden. In der Konsole wird dabei automatisch die installierte R Version angezeigt.</p>
@@ -397,21 +403,21 @@ Abbildung 4.1: Starten von RStudio.
 Abbildung 4.2: Innerhalb von RStudio ein neues R Projekt erstellen.
 </p>
 </div>
-<p><strong>3. Schritt: R Skript erstellen.</strong> Da die Funktionsaufrufe in der Konsole nur einmalig ausgeführt und nicht gespeichert werden, muss anschließend das R Skript entweder durch Klicken des Pluszeichens links oben oder durch die Tastenkombination <code>Strg/Cmd + Shift + N</code> erstellt werden (siehe Kapitel <a href="start.html#rstudio">2.1.2</a>).</p>
+<p><strong>3. Schritt: R Skript erstellen.</strong> Da die Funktionsaufrufe in der Konsole nur einmalig ausgeführt und nicht gespeichert werden, muss anschließend das R Skript entweder durch Klicken des Pluszeichens links oben oder durch die Tastenkombination <kbd>Strg</kbd> / <code>Cmd + Shift + N</code> erstellt werden (siehe Kapitel <a href="start.html#rstudio">2.1.2</a>).</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:rstart3"></span>
 <img src="images/rstart3.png" alt="Ein neues R Skript für die Analysen erstellen." width="95%" />
 <p class="caption">
 Abbildung 4.3: Ein neues R Skript für die Analysen erstellen.
 </p>
 </div>
-<p><strong>4. Schritt: Benötigte Packages laden.</strong> Bei jedem Start von RStudio müssen zunächst alle verwendeten Packages neu geladen werden. Dafür markieren wir die verschiedenen <code>library()</code> Aufrufe (hier vier Stück) und führen diese mit der Tastenkombination <code>Strg/Cmd + Enter</code> aus. Anders als in der Konsole werden die Funktion in einem R Skript also nicht mit <code>Enter</code> sondern mit <code>Strg/Cmd + Enter</code> ausgeführt. Um einzelne Zeilen auszuführen, genügt es, den Cursor auf der Zeile zu haben und dabei <code>Strg/Cmd + Enter</code> auszuführen. Manche Packages geben beim Laden Benachrichtigungen zurück. Was die Benachrichtigung des <code>tidyverse</code> in Abbildung <a href="vars.html#fig:rstart4">4.4</a> bedeutet, wird in Kapitel <a href="datenvorbereitung.html#datenvorbereitung">6</a> erläutert.</p>
+<p><strong>4. Schritt: Benötigte Packages laden.</strong> Bei jedem Start von RStudio müssen zunächst alle verwendeten Packages neu geladen werden. Dafür markieren wir die verschiedenen <code>library()</code> Aufrufe (hier vier Stück) und führen diese mit der Tastenkombination <code>Strg/Cmd + Enter</code> aus. Anders als in der Konsole werden die Funktion in einem R Skript also nicht alleine mit Enter sondern mit der Kombination <kbd>Strg</kbd> / <code>Cmd + Enter</code> ausgeführt. Um einzelne Zeilen auszuführen, genügt es, den Cursor auf der Zeile zu haben und dabei <kbd>Strg</kbd> / <code>Cmd + Enter</code> auszuführen. Manche Packages geben beim Laden Benachrichtigungen zurück. Was die Benachrichtigungen des <code>tidyverse</code> in Abbildung <a href="vars.html#fig:rstart4">4.4</a> bedeuten, wird in Kapitel <a href="datenvorbereitung.html#datenvorbereitung">6</a> erläutert.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:rstart4"></span>
 <img src="images/rstart4.png" alt="Packages nach jedem Start neu markieren und ausführen." width="95%" />
 <p class="caption">
 Abbildung 4.4: Packages nach jedem Start neu markieren und ausführen.
 </p>
 </div>
-<p><strong>5. Schritt: Datensatz einlesen und Analysen durchführen.</strong> Nach Laden der Packages kann der Datensatz eingelesen werden (siehe Kapitel <a href="io.html#import">5.1</a>). Durch das Einlesen und Speichern mit Zuweisungspfeil erscheint der Datensatz rechts oben in der <code>Environment</code> (siehe Kapitel <a href="vars.html#pfeil">4.2</a>). Man kann also im weiteren Verlauf auf den <code>big_five</code> Datensatz namens <code>daten</code> zugreifen. Auch dieser muss bei Neustart von RStudio erneut durch Auswahl der Zeile (hier Zeile 7) und Betätigen der Tastenkombination <code>Strg/Cmd + Enter</code> eingelesen werden. Anschließend sollte man im Rahmen der weiteren Auswertung der Daten immer Kommentare einbauen, die mit einer führenden Raute markiert werden (siehe Zeile 9 in Abbildung <a href="vars.html#fig:rstart5">4.5</a>). Exemplarisch schauen wir uns hier die Spalten Extraversion und Neurotizismus als ersten Schritt unserer Datenanalyse an (siehe Kapitel <a href="datenvorbereitung.html#select">6.2</a>).</p>
+<p><strong>5. Schritt: Datensatz einlesen und Analysen durchführen.</strong> Nach Laden der Packages kann der Datensatz eingelesen werden (siehe Kapitel <a href="io.html#import">5.1</a>). Durch das Einlesen und Speichern mit Zuweisungspfeil erscheint der Datensatz rechts oben in der <code>Environment</code> (siehe Kapitel <a href="vars.html#pfeil">4.2</a>). Man kann also im weiteren Verlauf auf den <code>big_five</code> Datensatz namens <code>daten</code> zugreifen. Auch dieser muss bei Neustart von RStudio erneut durch Auswahl der Zeile (hier Zeile 7) und Betätigen der Tastenkombination <kbd>Strg</kbd> / <code>Cmd + Enter</code> eingelesen werden. Anschließend sollte man im Rahmen der weiteren Auswertung der Daten immer Kommentare einbauen, die mit einer führenden Raute markiert werden (siehe Zeile 9 in Abbildung <a href="vars.html#fig:rstart5">4.5</a>). Exemplarisch schauen wir uns hier die Spalten Extraversion und Neurotizismus als ersten Schritt unserer Datenanalyse an (siehe Kapitel <a href="datenvorbereitung.html#select">6.2</a>).</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:rstart5"></span>
 <img src="images/rstart5.png" alt="Datensatz einlesen und Analysen durchführen." width="95%" />
 <p class="caption">

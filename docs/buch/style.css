@@ -52,7 +52,7 @@ p.caption {
 }
 
 h1.title {
-    font-weight: 400 !important; 
+    font-weight: 400 !important;
     letter-spacing: 3px;
 }
 
@@ -232,7 +232,7 @@ div {
 }
 
 div.idea {
-  padding: 1em 1em 1em 4em;
+  padding: 1em 1em 0.2em 4em;
   margin-bottom: 10px;
   background-color: rgb(247, 253, 251);
   border-color: rgb(101, 223, 190);
@@ -249,7 +249,7 @@ div.idea {
 div.idea:before {
   content: "\f0eb";
   font-family: FontAwesome;
-  left:4%;
+  left: 4%;
   position: absolute;
   top: 50%;
   -moz-transform: translateX(-50%) translateY(-50%);
@@ -280,7 +280,7 @@ div.idea:before {
 }
 
 div.warning {
-  padding: 1em 1em 1em 4em;
+  padding: 1em 1em 0.2em 4em;
   margin-bottom: 10px;
   background-color: rgb(254, 246, 246);
   border-color: rgb(241, 125, 124);
@@ -328,7 +328,7 @@ div.warning:before {
 }
 
 div.exercise2 {
-  padding: 1em 1em 1em 4em;
+  padding: 1em 1em 0.2em 4em;
   margin-bottom: 10px;
   background-color: rgb(248, 250, 252);
   border-color: rgb(112, 160, 233);

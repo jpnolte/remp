@@ -23,7 +23,7 @@
 <meta name="author" content="Jan Philipp Nolte" />
 
 
-<meta name="date" content="2023-03-04" />
+<meta name="date" content="2023-03-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -52,6 +52,8 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@xiee/utils/js/key-buttons.min.js" defer></script>
+<link href="https://cdn.jsdelivr.net/npm/@xiee/utils/css/key-buttons.min.css" rel="stylesheet"></link>
 
 
 <style type="text/css">
@@ -335,6 +337,7 @@ div.csl-indent {
 <li class="chapter" data-level="10.3.1" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#knitr"><i class="fa fa-check"></i><b>10.3.1</b> Exportieren nach Word und PDF</a></li>
 <li class="chapter" data-level="10.3.2" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#latex"><i class="fa fa-check"></i><b>10.3.2</b> Exportieren nach LaTeX</a></li>
 </ul></li>
+<li class="chapter" data-level="10.4" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#quarto"><i class="fa fa-check"></i><b>10.4</b> Alternative mit Quarto</a></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="datatypes.html"><a href="datatypes.html"><i class="fa fa-check"></i><b>11</b> Datenstrukturen</a>
 <ul>
@@ -381,6 +384,9 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="project" class="section level1 hasAnchor" number="3">
 <h1><span class="header-section-number">Kapitel 3</span> R Projekte<a href="project.html#project" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<blockquote>
+<p>Woher weiß der Computer, an welchem Ort sich mein Datensatz befindet? Die Antwort auf diese Frage war lange umständlich und je nach Betriebssystem unterschiedlich. Das Konzept der Projekte innerhalb von R stellt die Basis zum einfachen Einlesen deines Datensatzes dar.</p>
+</blockquote>
 <div id="die-probleme-der-pfade" class="section level2 hasAnchor" number="3.1">
 <h2><span class="header-section-number">3.1</span> Die Probleme der Pfade<a href="project.html#die-probleme-der-pfade" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Erinnere dich an das letzte Mal zurück, als du eine Datei irgendwo hochgeladen hast. Normalerweise öffnet sich dann ein kleines Dialogfenster, durch das du bis zu deiner Datei navigieren kannst. Das hat den Hintergrund, dass dein Betriebssystem den genauen Ort der Datei – den so genannten Pfad – wissen muss, um diese finden und hochladen zu können. Das gleiche kannst du beobachten, wenn du gefragt wirst, wo genau du auf deinem Computer eine heruntergeladene Datei speichern möchtest. In R war das Einlesen von Datensätzen genau deswegen lange ein Problem. Dabei gibt es vor allem vier zentrale Probleme hervorzuheben:</p>

@@ -23,7 +23,7 @@
 <meta name="author" content="Jan Philipp Nolte" />
 
 
-<meta name="date" content="2023-03-04" />
+<meta name="date" content="2023-03-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -52,6 +52,8 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@xiee/utils/js/key-buttons.min.js" defer></script>
+<link href="https://cdn.jsdelivr.net/npm/@xiee/utils/css/key-buttons.min.css" rel="stylesheet"></link>
 
 
 <style type="text/css">
@@ -335,6 +337,7 @@ div.csl-indent {
 <li class="chapter" data-level="10.3.1" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#knitr"><i class="fa fa-check"></i><b>10.3.1</b> Exportieren nach Word und PDF</a></li>
 <li class="chapter" data-level="10.3.2" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#latex"><i class="fa fa-check"></i><b>10.3.2</b> Exportieren nach LaTeX</a></li>
 </ul></li>
+<li class="chapter" data-level="10.4" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#quarto"><i class="fa fa-check"></i><b>10.4</b> Alternative mit Quarto</a></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="datatypes.html"><a href="datatypes.html"><i class="fa fa-check"></i><b>11</b> Datenstrukturen</a>
 <ul>
@@ -381,6 +384,9 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="descr" class="section level1 hasAnchor" number="7">
 <h1><span class="header-section-number">Kapitel 7</span> Deskriptive Statistik<a href="descr.html#descr" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<blockquote>
+<p>Die beschreibende Statistik bietet neben Informationen über die Verteilungen und Zusammenhänge der interessierenden Merkmale ebenfalls die Möglichkeit, unplausible Werte zu identifizieren, die mit den im vorherigen Kapitel gelernten Methoden entfernt oder korrigiert werden müssen. Die Angabe der in diesem Kapitel eingeführten Lage- und Streuungsmaße, Häufigkeiten und Zusammenhangsmaße dürfen in keiner wissenschaftlichen Arbeit fehlen.</p>
+</blockquote>
 <div id="lagestreu" class="section level2 hasAnchor" number="7.1">
 <h2><span class="header-section-number">7.1</span> Lagemaße und Streuungsmaße<a href="descr.html#lagestreu" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Deskriptive Statistiken sind wichtig, um einen ersten Überblick über die Daten zu erhalten. Wir werden an dieser Stelle den <code>big5_mod</code> Datensatz verwenden.</p>
@@ -471,7 +477,7 @@ div.csl-indent {
   Extraversion_mean Extraversion_sd Neurotizismus_mean Neurotizismus_sd
               &lt;dbl&gt;           &lt;dbl&gt;              &lt;dbl&gt;            &lt;dbl&gt;
 1              3.08           0.347               3.13            0.682</code></pre>
-<p>Bei vielen Lagemaßen kann es schon einmal recht viel zu schreiben sein. Wenn man keine Lust hat, dies jedes Mal manuell abzutippen, kann man auch direkt vereinfachte Funktionen zur deskriptiven Statistik verwenden. Das <code>remp</code> Package bietet die Funktion <code>descriptive()</code> an. Dieser muss man kein weiteres Argument übergeben. Es wird dann die Anzahl, das Minimum, das erste Quartil, der Mittelwert, der Median, das zweite Quartil, die Standardabweichung und der Standardfehler für sämtliche numerische Spalten zurückgegeben. Alle anderen Datentypen werden von dieser Funktion ignoriert.</p>
+<p>Bei vielen Lagemaßen kann es schon einmal recht viel zu schreiben sein. Wenn man keine Lust hat, dies jedes Mal manuell abzutippen, kann man auch direkt vereinfachte Funktionen zur deskriptiven Statistik verwenden. Das <a href="https://r-empirische-wissenschaften.de">remp</a> Package bietet die Funktion <code>descriptive()</code> an. Dieser muss man kein weiteres Argument übergeben. Es wird dann die Anzahl, das Minimum, das erste Quartil, der Mittelwert, der Median, das zweite Quartil, die Standardabweichung und der Standardfehler für sämtliche numerische Spalten zurückgegeben. Alle anderen Datentypen werden von dieser Funktion ignoriert.</p>
 <div class="sourceCode" id="cb276"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb276-1"><a href="descr.html#cb276-1" aria-hidden="true" tabindex="-1"></a>big5_mod <span class="sc">|&gt;</span> </span>
 <span id="cb276-2"><a href="descr.html#cb276-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">descriptive</span>()</span></code></pre></div>
 <pre class="bordercode"><code># A tibble: 4 × 10

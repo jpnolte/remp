@@ -23,7 +23,7 @@
 <meta name="author" content="Jan Philipp Nolte" />
 
 
-<meta name="date" content="2023-03-04" />
+<meta name="date" content="2023-03-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -52,6 +52,8 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@xiee/utils/js/key-buttons.min.js" defer></script>
+<link href="https://cdn.jsdelivr.net/npm/@xiee/utils/css/key-buttons.min.css" rel="stylesheet"></link>
 
 
 <style type="text/css">
@@ -335,6 +337,7 @@ div.csl-indent {
 <li class="chapter" data-level="10.3.1" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#knitr"><i class="fa fa-check"></i><b>10.3.1</b> Exportieren nach Word und PDF</a></li>
 <li class="chapter" data-level="10.3.2" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#latex"><i class="fa fa-check"></i><b>10.3.2</b> Exportieren nach LaTeX</a></li>
 </ul></li>
+<li class="chapter" data-level="10.4" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#quarto"><i class="fa fa-check"></i><b>10.4</b> Alternative mit Quarto</a></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="datatypes.html"><a href="datatypes.html"><i class="fa fa-check"></i><b>11</b> Datenstrukturen</a>
 <ul>
@@ -381,6 +384,9 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="intro" class="section level1 hasAnchor" number="1">
 <h1><span class="header-section-number">Kapitel 1</span> Einleitung<a href="intro.html#intro" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<blockquote>
+<p>In diesem Kapitel wird die allgemeine Herangehensweise an die verschiedenen Themen dieses Buches erläutert. Außerdem werden hilfreiche Bücher zur Vertiefung und zum Erlangen des Statistikverständnisses vorgestellt.</p>
+</blockquote>
 <div id="für-wen-ist-dieses-buch" class="section level2 hasAnchor" number="1.1">
 <h2><span class="header-section-number">1.1</span> Für wen ist dieses Buch?<a href="intro.html#für-wen-ist-dieses-buch" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Das Buch ist grundsätzlich für jeden geeignet, der R lernen möchte. Ein Vorwissen über Programmiersprachen wird nicht vorausgesetzt. Neben der Grundlagen von R wirst du nach Lesen dieses Buches einen Datensatz einlesen und bereinigen können. Du wirst verstehen, wie man publikationsreife Visualisierungen und Tabellen erstellt. Auch wirst du deskriptive Maße und die üblichsten statistischen Hypothesentests berechnen können. Die statistischen Verfahren werden nicht separat eingeführt, da es dafür bereits ausführliche Lehrbücher gibt. Dieses Buch konzentriert sich folglich auf die computergestützte Datenauswertung und nicht auf die zugrundeliegende Statistik.</p>
@@ -408,15 +414,15 @@ div.csl-indent {
 <p><strong>Übung 6.1.</strong> In dieser Übung lernst du das Auswählen und Umbenennen von Spalten eines Datensatzes. Starte die Übung mit <code>hands_on("6.1")</code>.</p>
 </div>
 <p>Die Funktion <code>hands_on()</code> öffnet deinen Browser, in welchem du dann die Übungen bearbeiten kannst. Dafür wird <strong>kein</strong> Internet benötigt. Alternativ stehen die Übungsaufgaben und Lösungen auch auf der Internetseite zum Buch bereit (<a href="https://r-empirische-wissenschaften.de">https://r-empirische-wissenschaften.de</a>). Das zugehörige Übungsverzeichnis findest du im Appendix. Im Laufe des Buches werden aus didaktischen Gründen verschiedene Datensätze verwendet, die ebenfalls im Appendix genau vorgestellt werden.</p>
-<p>Zum Anwenden auf dem heimischen Computer oder Laptop kannst du entweder händisch den im Buch beschrieben Code abtippen oder du verwendest den <em>Copy to Clipboard</em> Button, der online oben rechts im Codeblock erscheint. Dieser macht genau dasselbe, als würdest du den Befehl markieren und mit <code>strg + c</code> oder <code>Rechtsklick + Kopieren</code> kopieren.</p>
+<p>Zum Anwenden auf dem heimischen Computer oder Laptop kannst du entweder händisch den im Buch beschrieben Code abtippen oder du verwendest den <em>Copy to Clipboard</em> Button, der online oben rechts im Codeblock erscheint. Dieser macht genau dasselbe, als würdest du den Befehl markieren und mit <kbd>Strg</kbd> + <kbd>c</kbd> oder <code>Rechtsklick + Kopieren</code> kopieren.</p>
 </div>
 <div id="books" class="section level2 hasAnchor" number="1.4">
 <h2><span class="header-section-number">1.4</span> Ergänzende Literatur<a href="intro.html#books" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><strong>Statistik: Der Weg zur Datenanalyse.</strong> Ein verständliches, deutschsprachiges Buch als Einleitung für die wichtigsten Konzepte der Statistik. Der Fokus liegt tendenziell eher auf Sozial- und WirtschaftswissenschaftlerInnen, allerdings eignet sich das Buch generell als Einführung in die Statistik.</p>
 <p><strong>Regression Methods in Biostatistics: Linear, Logistic, Survival, and Repeated Measures Models.</strong> Dieses Buch ist etwas fortgeschrittener als das zuvor genannte, wobei hier alle in diesem Buch verwendeten statistischen Modelle ausführlich erklärt werden.</p>
 <p><strong>ggplot2: Elegant Graphics for Data Analysis (3rd Edition).</strong> In R für empirische Wissenschaften wird ein sehr umfangreiches Erweiterungspaket namens <code>ggplo2</code> zum Erstellen der Visualisierungen verwendet. Während es hier um konkrete Anwendungen geht, werden im vorgeschlagenen Buch die technischen Hintergründe erläutert. Diese sind vor allem interessant, wenn man darauf basierende Erweiterungen entweder verwenden oder selbst erstellen möchte. Das Buch kann kostenlos unter <a href="https://ggplot2-book.org/">https://ggplot2-book.org/</a> eingesehen werden.</p>
-<p><strong>R Markdown: The Definite Guide.</strong> Dieses Buch erläutert die in Kapitel <a href="ergebnisse-exportieren.html#markdown">10.2</a> eingeführten Exportierungsmöglichkeiten mithilfe von rMarkdown deutlich ausführlicher. Denn mit rMarkdown kann man nicht nur kurze Berichte schreiben, sondern auch Bücher, Internetseiten und Abschlussarbeiten erstellen. Es ist kostenlos lesbar auf <a href="https://bookdown.org/yihui/rmarkdown/">https://bookdown.org/yihui/rmarkdown/</a>.</p>
-<p><strong>Advanced R (2nd Edition).</strong> Hier werden tiefe Einblicke in R als Programmiersprache als solche gegeben. Wenn man seine Programmierfähigkeit mit R ausbauen möchte, kommt man an diesem Buch nicht vorbei. Auch hier kann das Buch im Internet (<a href="https://adv-r.hadley.nz/">https://adv-r.hadley.nz/</a>) kostenfrei gelesen werden.</p>
+<p><strong>R Markdown: The Definite Guide.</strong> Dieses Buch erläutert die in Kapitel <a href="ergebnisse-exportieren.html#markdown">10.2</a> eingeführten Exportierungsmöglichkeiten mithilfe von R Markdown deutlich ausführlicher. Denn mit R Markdown kann man nicht nur Tabellen und kurze Berichte, sondern auch Bücher, Internetseiten und Abschlussarbeiten erstellen. Es ist kostenlos auf der Seite <a href="https://bookdown.org/yihui/rmarkdown/">https://bookdown.org/yihui/rmarkdown/</a> lesbar.</p>
+<p><strong>Advanced R (2nd Edition).</strong> Hier werden tiefe Einblicke in R als Programmiersprache als solche gegeben. Wenn man seine Programmierfähigkeit mit R ausbauen möchte, kommt man an diesem Buch nicht vorbei. Auch hier kann das Buch im Internet kostenfrei gelesen werden (<a href="https://adv-r.hadley.nz/">https://adv-r.hadley.nz/</a>).</p>
 
 </div>
 </div>

@@ -23,7 +23,7 @@
 <meta name="author" content="Jan Philipp Nolte" />
 
 
-<meta name="date" content="2023-03-14" />
+<meta name="date" content="2023-03-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -226,7 +226,7 @@ div.csl-indent {
 <li class="chapter" data-level="6.1" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#tidyverse"><i class="fa fa-check"></i><b>6.1</b> Einführung</a></li>
 <li class="chapter" data-level="6.2" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#select"><i class="fa fa-check"></i><b>6.2</b> Spalten auswählen, umbenennen und umsortieren</a></li>
 <li class="chapter" data-level="6.3" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#filter"><i class="fa fa-check"></i><b>6.3</b> Zeilen auswählen und umsortieren</a></li>
-<li class="chapter" data-level="6.4" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#mutate"><i class="fa fa-check"></i><b>6.4</b> Spalteninhalte verändern</a>
+<li class="chapter" data-level="6.4" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#mutate"><i class="fa fa-check"></i><b>6.4</b> Spalten hinzufügen und Spalteninhalte verändern</a>
 <ul>
 <li class="chapter" data-level="6.4.1" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#single"><i class="fa fa-check"></i><b>6.4.1</b> Einzelne Spalten</a></li>
 <li class="chapter" data-level="6.4.2" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#across"><i class="fa fa-check"></i><b>6.4.2</b> Mehrere Spalten</a></li>
@@ -389,48 +389,61 @@ div.csl-indent {
 </blockquote>
 <div id="lagestreu" class="section level2 hasAnchor" number="7.1">
 <h2><span class="header-section-number">7.1</span> Lagemaße und Streuungsmaße<a href="descr.html#lagestreu" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Deskriptive Statistiken sind wichtig, um einen ersten Überblick über die Daten zu erhalten. Wir werden an dieser Stelle den <code>big5_mod</code> Datensatz verwenden.</p>
-<div class="sourceCode" id="cb263"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb263-1"><a href="descr.html#cb263-1" aria-hidden="true" tabindex="-1"></a>big5_mod </span></code></pre></div>
-<pre class="bordercode"><code># A tibble: 200 × 6
-  Alter Geschlecht Extraversion Neurotizismus Gruppe    ID
-  &lt;dbl&gt; &lt;chr&gt;             &lt;dbl&gt;         &lt;dbl&gt; &lt;fct&gt;  &lt;int&gt;
-1    36 m                   3             1.9 Mittel     1
-2    30 f                   3.1           3.4 Jung       2
-3    23 m                   3.4           2.4 Jung       3
-4    54 m                   3.3           4.2 Weise      4
+<p>Wir werden in diesem Kapitel den <code>big5_mod</code> Datensatz ohne die Spalte namens <code>ID</code> verwenden und bezeichnen diesen als <code>big5_mod1</code>.</p>
+<div class="sourceCode" id="cb265"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb265-1"><a href="descr.html#cb265-1" aria-hidden="true" tabindex="-1"></a>big5_mod1 <span class="ot">&lt;-</span> big5_mod <span class="sc">|&gt;</span> </span>
+<span id="cb265-2"><a href="descr.html#cb265-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>ID)</span>
+<span id="cb265-3"><a href="descr.html#cb265-3" aria-hidden="true" tabindex="-1"></a>big5_mod1</span></code></pre></div>
+<pre class="bordercode"><code># A tibble: 200 × 5
+  Alter Geschlecht Extraversion Neurotizismus Gruppe
+  &lt;dbl&gt; &lt;chr&gt;             &lt;dbl&gt;         &lt;dbl&gt; &lt;fct&gt; 
+1    36 m                   3             1.9 Mittel
+2    30 f                   3.1           3.4 Jung  
+3    23 m                   3.4           2.4 Jung  
+4    54 m                   3.3           4.2 Weise 
 # … with 196 more rows</code></pre>
-<p>Für die Berechnung von Mittelwert (<code>mean()</code>) und Standardabweichung (<code>sd()</code>) verwenden wir die im <code>tidyverse</code> enthaltene Funktion <code>summarise()</code>. Das <code>tidyverse</code> wird in Kapitel <a href="datenvorbereitung.html#datenvorbereitung">6</a> eingeführt. Auf der linken Seite des Gleichheitszeichens stehen auch hier wieder die Namen der neu erstellten Spalten.</p>
-<div class="sourceCode" id="cb265"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb265-1"><a href="descr.html#cb265-1" aria-hidden="true" tabindex="-1"></a>big5_mod <span class="sc">|&gt;</span> </span>
-<span id="cb265-2"><a href="descr.html#cb265-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb265-3"><a href="descr.html#cb265-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean =</span> <span class="fu">mean</span>(Extraversion),</span>
-<span id="cb265-4"><a href="descr.html#cb265-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">sd =</span> <span class="fu">sd</span>(Extraversion)</span>
-<span id="cb265-5"><a href="descr.html#cb265-5" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
+<p>Einen ersten Überblick über die Daten können wir mit der direkt in R integrierten Funktion <code>summary()</code> erhalten, der wir lediglich den Namen des Datensatzes übergeben müssen.</p>
+<div class="sourceCode" id="cb267"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb267-1"><a href="descr.html#cb267-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(big5_mod1)</span></code></pre></div>
+<pre class="bordercode"><code>     Alter        Geschlecht         Extraversion   Neurotizismus      Gruppe   
+ Min.   :13.00   Length:200         Min.   :2.300   Min.   :1.400   Jung  :147  
+ 1st Qu.:18.75   Class :character   1st Qu.:2.800   1st Qu.:2.700   Mittel: 39  
+ Median :23.00   Mode  :character   Median :3.000   Median :3.100   Weise : 14  
+ Mean   :26.48                      Mean   :3.076   Mean   :3.133               
+ 3rd Qu.:31.25                      3rd Qu.:3.300   3rd Qu.:3.600               
+ Max.   :60.00                      Max.   :4.300   Max.   :4.600               </code></pre>
+<p>Hier sehen wir einen Vorteil von Faktoren. Während wir die Häufigkeiten der Altersgruppe ausgegeben bekommen, kann R für die Spalte mit Geschlecht lediglich die Anzahl an Character Werten zählen. Für weitere Informationen über Faktoren und deren Umgang schaue dir erneut Kapitel <a href="vars.html#factor">4.3.2</a> und <a href="datenvorbereitung.html#datafactor">6.10</a> an.</p>
+<p>Falls wir gruppierte Lage- und Streuungsmaße erhalten oder andere Werte wie den Standardfehler ausrechnen möchten, müssen wir auf die <code>summarise()</code> Funktion aus dem Package <code>dplyr</code> (enthalten im <code>tidyverse</code>) zurückgreifen. Auch hier werden wir einzelne Befehle mit der Pipe (<code>|&gt;</code>) aneinanderketten (siehe Kapitel <a href="datenvorbereitung.html#tidyverse">6.1</a>).</p>
+<p>Exemplarisch soll zunächst der Mittelwert mit der Funktion <code>mean()</code> und die Standardabweichung mit <code>sd()</code> berechnet werden. Beide Funktionen müssen wir dabei innerhalb der Funktion <code>summarise()</code> verwenden. Auf der linken Seite des Gleichheitszeichens stehen auch hier wieder die Namen der neu erstellten Spalten.</p>
+<div class="sourceCode" id="cb269"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb269-1"><a href="descr.html#cb269-1" aria-hidden="true" tabindex="-1"></a>big5_mod1 <span class="sc">|&gt;</span> </span>
+<span id="cb269-2"><a href="descr.html#cb269-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb269-3"><a href="descr.html#cb269-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">M =</span> <span class="fu">mean</span>(Extraversion),</span>
+<span id="cb269-4"><a href="descr.html#cb269-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">SD =</span> <span class="fu">sd</span>(Extraversion)</span>
+<span id="cb269-5"><a href="descr.html#cb269-5" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
 <pre class="bordercode"><code># A tibble: 1 × 2
-   mean    sd
+      M    SD
   &lt;dbl&gt; &lt;dbl&gt;
 1  3.08 0.347</code></pre>
-<p>Zum Gruppieren der Variablen wird <code>group_by()</code> verwendet.</p>
-<div class="sourceCode" id="cb267"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb267-1"><a href="descr.html#cb267-1" aria-hidden="true" tabindex="-1"></a>big5_mod <span class="sc">|&gt;</span> </span>
-<span id="cb267-2"><a href="descr.html#cb267-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Geschlecht) <span class="sc">|&gt;</span> </span>
-<span id="cb267-3"><a href="descr.html#cb267-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb267-4"><a href="descr.html#cb267-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean =</span> <span class="fu">mean</span>(Extraversion),</span>
-<span id="cb267-5"><a href="descr.html#cb267-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">sd =</span> <span class="fu">sd</span>(Extraversion)</span>
-<span id="cb267-6"><a href="descr.html#cb267-6" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
+<p>Zum Gruppieren der Variablen wird die Funktion <code>group_by()</code> verwendet.</p>
+<div class="sourceCode" id="cb271"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb271-1"><a href="descr.html#cb271-1" aria-hidden="true" tabindex="-1"></a>big5_mod1 <span class="sc">|&gt;</span> </span>
+<span id="cb271-2"><a href="descr.html#cb271-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Geschlecht) <span class="sc">|&gt;</span> </span>
+<span id="cb271-3"><a href="descr.html#cb271-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb271-4"><a href="descr.html#cb271-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">M =</span> <span class="fu">mean</span>(Extraversion),</span>
+<span id="cb271-5"><a href="descr.html#cb271-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">SD =</span> <span class="fu">sd</span>(Extraversion)</span>
+<span id="cb271-6"><a href="descr.html#cb271-6" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
 <pre class="bordercode"><code># A tibble: 2 × 3
-  Geschlecht  mean    sd
+  Geschlecht     M    SD
   &lt;chr&gt;      &lt;dbl&gt; &lt;dbl&gt;
 1 f           3.05 0.358
 2 m           3.11 0.328</code></pre>
-<p>Dabei können beliebig viele Spalten der Funktion übergeben werden. So könnte man bspw. nicht nur nach Geschlecht, sondern auch nach der Altersgruppe gruppieren.</p>
-<div class="sourceCode" id="cb269"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb269-1"><a href="descr.html#cb269-1" aria-hidden="true" tabindex="-1"></a>big5_mod <span class="sc">|&gt;</span> </span>
-<span id="cb269-2"><a href="descr.html#cb269-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Geschlecht, Gruppe) <span class="sc">|&gt;</span> </span>
-<span id="cb269-3"><a href="descr.html#cb269-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb269-4"><a href="descr.html#cb269-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean =</span> <span class="fu">mean</span>(Extraversion),</span>
-<span id="cb269-5"><a href="descr.html#cb269-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">sd =</span> <span class="fu">sd</span>(Extraversion)</span>
-<span id="cb269-6"><a href="descr.html#cb269-6" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
+<p>Dabei können der Funktion beliebig viele Spalten übergeben werden. So könnte man bspw. nicht nur nach Geschlecht, sondern auch nach der Altersgruppe gruppieren.</p>
+<div class="sourceCode" id="cb273"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb273-1"><a href="descr.html#cb273-1" aria-hidden="true" tabindex="-1"></a>big5_mod1 <span class="sc">|&gt;</span> </span>
+<span id="cb273-2"><a href="descr.html#cb273-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Geschlecht, Gruppe) <span class="sc">|&gt;</span> </span>
+<span id="cb273-3"><a href="descr.html#cb273-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb273-4"><a href="descr.html#cb273-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">M =</span> <span class="fu">mean</span>(Extraversion),</span>
+<span id="cb273-5"><a href="descr.html#cb273-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">SD =</span> <span class="fu">sd</span>(Extraversion)</span>
+<span id="cb273-6"><a href="descr.html#cb273-6" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
 <pre class="bordercode"><code># A tibble: 6 × 4
 # Groups:   Geschlecht [2]
-  Geschlecht Gruppe  mean    sd
+  Geschlecht Gruppe     M    SD
   &lt;chr&gt;      &lt;fct&gt;  &lt;dbl&gt; &lt;dbl&gt;
 1 f          Jung    3.07 0.373
 2 f          Mittel  3.07 0.299
@@ -438,82 +451,81 @@ div.csl-indent {
 4 m          Jung    3.12 0.324
 # … with 2 more rows</code></pre>
 <p>Alternativ können wir zum Gruppieren anstelle von <code>group_by()</code> auch das Argument <code>.by</code> hinzufügen. Während der Datensatz nach <code>group_by()</code> gruppiert ist, was bei weiterer Verwendung mit <code>ungroup()</code> aufgelöst werden müsste, gruppiert das <code>.by</code> Argument nur einmalig. Das Argument kann auch mit der in Kapitel <a href="datenvorbereitung.html#mutate">6.4</a> kennengelernten Funktion <code>mutate()</code> verwendet werden. Da die Ausgabe von <code>summarise()</code> in der Regel bereits ein Endergebnis darstellt, ist die Wahl zwischen <code>group_by()</code> oder <code>.by</code> größtenteils abhängig von persönlicher Präferenz.</p>
-<div class="sourceCode" id="cb271"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb271-1"><a href="descr.html#cb271-1" aria-hidden="true" tabindex="-1"></a>big5_mod <span class="sc">|&gt;</span> </span>
-<span id="cb271-2"><a href="descr.html#cb271-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb271-3"><a href="descr.html#cb271-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean =</span> <span class="fu">mean</span>(Extraversion),</span>
-<span id="cb271-4"><a href="descr.html#cb271-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">sd =</span> <span class="fu">sd</span>(Extraversion),</span>
-<span id="cb271-5"><a href="descr.html#cb271-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">.by =</span> <span class="fu">c</span>(Geschlecht, Gruppe)</span>
-<span id="cb271-6"><a href="descr.html#cb271-6" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
+<div class="sourceCode" id="cb275"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb275-1"><a href="descr.html#cb275-1" aria-hidden="true" tabindex="-1"></a>big5_mod1 <span class="sc">|&gt;</span> </span>
+<span id="cb275-2"><a href="descr.html#cb275-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb275-3"><a href="descr.html#cb275-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">M =</span> <span class="fu">mean</span>(Extraversion),</span>
+<span id="cb275-4"><a href="descr.html#cb275-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">SD =</span> <span class="fu">sd</span>(Extraversion),</span>
+<span id="cb275-5"><a href="descr.html#cb275-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">.by =</span> <span class="fu">c</span>(Geschlecht, Gruppe)</span>
+<span id="cb275-6"><a href="descr.html#cb275-6" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
 <pre class="bordercode"><code># A tibble: 6 × 4
-  Geschlecht Gruppe  mean    sd
+  Geschlecht Gruppe     M    SD
   &lt;chr&gt;      &lt;fct&gt;  &lt;dbl&gt; &lt;dbl&gt;
 1 m          Mittel  3.13 0.281
 2 f          Jung    3.07 0.373
 3 m          Jung    3.12 0.324
 4 m          Weise   2.96 0.546
 # … with 2 more rows</code></pre>
-<p>Neben dem Mittelwert und der Standardabweichung gibt es noch diverse weitere Funktionen: <code>n()</code> für die Anzahl an Beobachtungen, <code>min()</code> und <code>max()</code> für Minimum und Maximum, <code>var()</code> für die Varianz, <code>sqrt()</code> für die Quadratwurzel, <code>median()</code> für den Median und <code>quantile()</code> zur Berechnung der jeweiligen Quantile.</p>
+<p>Neben der Funktionen für den Mittelwert und der Standardabweichung gibt es noch diverse weitere: <code>n()</code> für die Anzahl an Beobachtungen, <code>min()</code> und <code>max()</code> für Minimum und Maximum, <code>var()</code> für die Varianz, <code>sqrt()</code> für die Quadratwurzel, <code>median()</code> für den Median und <code>quantile()</code> zur Berechnung der jeweiligen Quantile.</p>
 <p>Für die Berechnung des Standardfehlers teilen wir direkt innerhalb des Funktionsaufrufes die Standardabweichung durch die Wurzel aus der Anzahl der Personen.</p>
-<div class="sourceCode" id="cb273"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb273-1"><a href="descr.html#cb273-1" aria-hidden="true" tabindex="-1"></a>big5_mod <span class="sc">|&gt;</span> </span>
-<span id="cb273-2"><a href="descr.html#cb273-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb273-3"><a href="descr.html#cb273-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">N =</span> <span class="fu">n</span>(), </span>
-<span id="cb273-4"><a href="descr.html#cb273-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Min =</span> <span class="fu">min</span>(Alter),</span>
-<span id="cb273-5"><a href="descr.html#cb273-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">Mean =</span> <span class="fu">mean</span>(Alter),</span>
-<span id="cb273-6"><a href="descr.html#cb273-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">Median =</span> <span class="fu">median</span>(Alter),</span>
-<span id="cb273-7"><a href="descr.html#cb273-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">Max =</span> <span class="fu">max</span>(Alter),</span>
-<span id="cb273-8"><a href="descr.html#cb273-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">SD =</span> <span class="fu">sd</span>(Alter),</span>
-<span id="cb273-9"><a href="descr.html#cb273-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">SE =</span> SD <span class="sc">/</span> <span class="fu">sqrt</span>(N)</span>
-<span id="cb273-10"><a href="descr.html#cb273-10" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
+<div class="sourceCode" id="cb277"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb277-1"><a href="descr.html#cb277-1" aria-hidden="true" tabindex="-1"></a>big5_mod1 <span class="sc">|&gt;</span> </span>
+<span id="cb277-2"><a href="descr.html#cb277-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb277-3"><a href="descr.html#cb277-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">N =</span> <span class="fu">n</span>(), </span>
+<span id="cb277-4"><a href="descr.html#cb277-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Min =</span> <span class="fu">min</span>(Alter),</span>
+<span id="cb277-5"><a href="descr.html#cb277-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">Mean =</span> <span class="fu">mean</span>(Alter),</span>
+<span id="cb277-6"><a href="descr.html#cb277-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">Median =</span> <span class="fu">median</span>(Alter),</span>
+<span id="cb277-7"><a href="descr.html#cb277-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">Max =</span> <span class="fu">max</span>(Alter),</span>
+<span id="cb277-8"><a href="descr.html#cb277-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">SD =</span> <span class="fu">sd</span>(Alter),</span>
+<span id="cb277-9"><a href="descr.html#cb277-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">SE =</span> SD <span class="sc">/</span> <span class="fu">sqrt</span>(N)</span>
+<span id="cb277-10"><a href="descr.html#cb277-10" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
 <div class="idea">
 <p>Grundsätzlich kann jede Funktion <code>summarise()</code> übergeben werden, die einen <strong>einzelnen</strong> Wert berechnet. Somit unterscheidet sich die Anwendung maßgeblich vom bereits kennengelernten <code>mutate()</code>. Dort musste die Ausgabe immer eine Reihe von Werten umfassen, die der Anzahl der Zeilen im Datensatz entspricht.</p>
 </div>
 <p>Auch hier können wir mehrere Spalten gleichzeitig mithilfe von <code>across()</code> auswerten (siehe Kapitel <a href="datenvorbereitung.html#across">6.4.2</a>). Die Syntax ändert sich in dem Fall im Vergleich zu vorher. Hier müssen wir die verschiedenen Funktionen mit entsprechendem Namen innerhalb einer Liste übergeben. Listen als solche werden erst später eingeführt und müssen uns an dieser Stelle nicht weiter interessieren (siehe Kapitel <a href="datatypes.html#lists">11.4</a>).</p>
-<div class="sourceCode" id="cb274"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb274-1"><a href="descr.html#cb274-1" aria-hidden="true" tabindex="-1"></a>big5_mod <span class="sc">|&gt;</span> </span>
-<span id="cb274-2"><a href="descr.html#cb274-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">across</span>(</span>
-<span id="cb274-3"><a href="descr.html#cb274-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">.cols =</span> Extraversion<span class="sc">:</span>Neurotizismus, </span>
-<span id="cb274-4"><a href="descr.html#cb274-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">.fns =</span> <span class="fu">list</span>(<span class="at">mean =</span> mean, <span class="at">sd =</span> sd))</span>
-<span id="cb274-5"><a href="descr.html#cb274-5" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
+<div class="sourceCode" id="cb278"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb278-1"><a href="descr.html#cb278-1" aria-hidden="true" tabindex="-1"></a>big5_mod1 <span class="sc">|&gt;</span> </span>
+<span id="cb278-2"><a href="descr.html#cb278-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">across</span>(</span>
+<span id="cb278-3"><a href="descr.html#cb278-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">.cols =</span> Extraversion<span class="sc">:</span>Neurotizismus, </span>
+<span id="cb278-4"><a href="descr.html#cb278-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">.fns =</span> <span class="fu">list</span>(<span class="at">M =</span> mean, <span class="at">SD =</span> sd))</span>
+<span id="cb278-5"><a href="descr.html#cb278-5" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
 <pre class="bordercode"><code># A tibble: 1 × 4
-  Extraversion_mean Extraversion_sd Neurotizismus_mean Neurotizismus_sd
-              &lt;dbl&gt;           &lt;dbl&gt;              &lt;dbl&gt;            &lt;dbl&gt;
-1              3.08           0.347               3.13            0.682</code></pre>
-<p>Bei vielen Lagemaßen kann es schon einmal recht viel zu schreiben sein. Wenn man keine Lust hat, dies jedes Mal manuell abzutippen, kann man auch direkt vereinfachte Funktionen zur deskriptiven Statistik verwenden. Das <a href="https://r-empirische-wissenschaften.de">remp</a> Package bietet die Funktion <code>descriptive()</code> an. Dieser muss man kein weiteres Argument übergeben. Es wird dann die Anzahl, das Minimum, das erste Quartil, der Mittelwert, der Median, das zweite Quartil, die Standardabweichung und der Standardfehler für sämtliche numerische Spalten zurückgegeben. Alle anderen Datentypen werden von dieser Funktion ignoriert.</p>
-<div class="sourceCode" id="cb276"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb276-1"><a href="descr.html#cb276-1" aria-hidden="true" tabindex="-1"></a>big5_mod <span class="sc">|&gt;</span> </span>
-<span id="cb276-2"><a href="descr.html#cb276-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">descriptive</span>()</span></code></pre></div>
-<pre class="bordercode"><code># A tibble: 4 × 10
-  Variable          N   Min    Q1   Mean Median    Q3   Max    SD    SE
-  &lt;chr&gt;         &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-1 Alter           200  13    18.8  26.5    23    31.2  60   11.4   0.8 
-2 Extraversion    200   2.3   2.8   3.08    3     3.3   4.3  0.35  0.02
-3 ID              200   1    50.8 100.    100.  150.  200   57.9   4.09
-4 Neurotizismus   200   1.4   2.7   3.13    3.1   3.6   4.6  0.68  0.05</code></pre>
+  Extraversion_M Extraversion_SD Neurotizismus_M Neurotizismus_SD
+           &lt;dbl&gt;           &lt;dbl&gt;           &lt;dbl&gt;            &lt;dbl&gt;
+1           3.08           0.347            3.13            0.682</code></pre>
+<p>Bei vielen Lagemaßen kann es schnell umständlich werden, jede einzeln aufzurufen. Wenn man keine Lust hat, dies jedes Mal manuell abzutippen, kann man auch direkt vereinfachte Funktionen zur deskriptiven Statistik verwenden. Das <a href="https://r-empirische-wissenschaften.de">remp</a> Package bietet die Funktion <code>descriptive()</code> an. Dieser muss man kein weiteres Argument übergeben. Es wird die Anzahl, das Minimum, das erste Quartil, der Mittelwert, der Median, das zweite Quartil, die Standardabweichung und der Standardfehler für sämtliche numerische Spalten zurückgegeben. Alle anderen Datentypen werden von dieser Funktion ignoriert.</p>
+<div class="sourceCode" id="cb280"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb280-1"><a href="descr.html#cb280-1" aria-hidden="true" tabindex="-1"></a>big5_mod1 <span class="sc">|&gt;</span> </span>
+<span id="cb280-2"><a href="descr.html#cb280-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">descriptive</span>()</span></code></pre></div>
+<pre class="bordercode"><code># A tibble: 3 × 10
+  Variable          N   Min    Q1  Mean Median    Q3   Max    SD    SE
+  &lt;chr&gt;         &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+1 Alter           200  13    18.8 26.5    23    31.2  60   11.4   0.8 
+2 Extraversion    200   2.3   2.8  3.08    3     3.3   4.3  0.35  0.02
+3 Neurotizismus   200   1.4   2.7  3.13    3.1   3.6   4.6  0.68  0.05</code></pre>
 <p>Auch hier können wir die Berechnungen auf dieselbe Art und Weise gruppieren.</p>
-<div class="sourceCode" id="cb278"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb278-1"><a href="descr.html#cb278-1" aria-hidden="true" tabindex="-1"></a>big5_mod <span class="sc">|&gt;</span> </span>
-<span id="cb278-2"><a href="descr.html#cb278-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Geschlecht) <span class="sc">|&gt;</span> </span>
-<span id="cb278-3"><a href="descr.html#cb278-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">descriptive</span>() </span></code></pre></div>
+<div class="sourceCode" id="cb282"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb282-1"><a href="descr.html#cb282-1" aria-hidden="true" tabindex="-1"></a>big5_mod1 <span class="sc">|&gt;</span> </span>
+<span id="cb282-2"><a href="descr.html#cb282-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Geschlecht) <span class="sc">|&gt;</span> </span>
+<span id="cb282-3"><a href="descr.html#cb282-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">descriptive</span>() </span></code></pre></div>
 <p>Alternativen für einen schnellen Überblick bieten beispielsweise auch das <code>skimr</code> Package mit der Funktion <code>skim()</code> oder <code>describe()</code> aus dem <code>psych</code> Package. Beide können auch nicht-numerische Spalten auswerten und erstere gibt zu jeder Spalte sogar ein kleines Histogramm aus.</p>
-<p>Wie dir vielleicht bereits aufgefallen ist, sieht die Ausgabe von <code>descriptive()</code> anders aus als die von <code>summarise()</code>. Während erstere die Variablen untereinander in unterschiedliche Zeilen übersichtlich auflistet, fügt <code>summarise()</code> die Ergebnisse spaltenweise hinzu. Wenn wir den selben Output wie in <code>descriptive()</code> erreichen möchten, müssen wir zuerst den Datensatz in ein langes Format bringen (siehe Kapitel <a href="datenvorbereitung.html#tidy">6.6</a>). Nun gruppieren wir nach der neuen Spalte namens <code>Variable</code>. Anschließend können wir wie gewohnt mit <code>summarise()</code> die deskriptiven Statistiken berechnen. Nichts anderes macht die Funktion <code>descriptive()</code> intern.</p>
-<div class="sourceCode" id="cb279"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb279-1"><a href="descr.html#cb279-1" aria-hidden="true" tabindex="-1"></a>big5_mod <span class="sc">|&gt;</span> </span>
-<span id="cb279-2"><a href="descr.html#cb279-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
-<span id="cb279-3"><a href="descr.html#cb279-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols =</span> <span class="fu">c</span>(Alter, Extraversion, Neurotizismus),</span>
-<span id="cb279-4"><a href="descr.html#cb279-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="st">&quot;Variable&quot;</span>,</span>
-<span id="cb279-5"><a href="descr.html#cb279-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_to =</span> <span class="st">&quot;Wert&quot;</span></span>
-<span id="cb279-6"><a href="descr.html#cb279-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> </span>
-<span id="cb279-7"><a href="descr.html#cb279-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Variable) <span class="sc">|&gt;</span> </span>
-<span id="cb279-8"><a href="descr.html#cb279-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb279-9"><a href="descr.html#cb279-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">Q1 =</span> <span class="fu">quantile</span>(Wert, <span class="fl">0.25</span>),</span>
-<span id="cb279-10"><a href="descr.html#cb279-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">Mean =</span> <span class="fu">mean</span>(Wert),</span>
-<span id="cb279-11"><a href="descr.html#cb279-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">Q3 =</span> <span class="fu">quantile</span>(Wert, <span class="fl">0.75</span>),</span>
-<span id="cb279-12"><a href="descr.html#cb279-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">Schiefe =</span> <span class="fu">skewness</span>(Wert),</span>
-<span id="cb279-13"><a href="descr.html#cb279-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">Kurtosis =</span> <span class="fu">kurtosis</span>(Wert)</span>
-<span id="cb279-14"><a href="descr.html#cb279-14" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
+<p>Wie dir vielleicht bereits aufgefallen ist, sieht die Ausgabe von <code>descriptive()</code> anders aus als die von <code>summarise()</code>. Während erstere die Variablen untereinander in unterschiedliche Zeilen übersichtlich auflistet, fügt <code>summarise()</code> die Ergebnisse spaltenweise hinzu. Wenn wir denselben Output wie in <code>descriptive()</code> erreichen möchten, müssen wir zuerst den Datensatz in ein langes Format bringen (siehe Kapitel <a href="datenvorbereitung.html#tidy">6.6</a>). Nun gruppieren wir nach der neuen Spalte namens <code>Variable</code>. Anschließend können wir wie gewohnt mit <code>summarise()</code> die deskriptiven Statistiken berechnen. Nichts anderes macht die Funktion <code>descriptive()</code> hinter den Kulissen.</p>
+<div class="sourceCode" id="cb283"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb283-1"><a href="descr.html#cb283-1" aria-hidden="true" tabindex="-1"></a>big5_mod1 <span class="sc">|&gt;</span> </span>
+<span id="cb283-2"><a href="descr.html#cb283-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
+<span id="cb283-3"><a href="descr.html#cb283-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols =</span> <span class="fu">c</span>(Alter, Extraversion, Neurotizismus),</span>
+<span id="cb283-4"><a href="descr.html#cb283-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="st">&quot;Variable&quot;</span>,</span>
+<span id="cb283-5"><a href="descr.html#cb283-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_to =</span> <span class="st">&quot;Wert&quot;</span></span>
+<span id="cb283-6"><a href="descr.html#cb283-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> </span>
+<span id="cb283-7"><a href="descr.html#cb283-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Variable) <span class="sc">|&gt;</span> </span>
+<span id="cb283-8"><a href="descr.html#cb283-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb283-9"><a href="descr.html#cb283-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">Q1 =</span> <span class="fu">quantile</span>(Wert, <span class="fl">0.25</span>),</span>
+<span id="cb283-10"><a href="descr.html#cb283-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">Mean =</span> <span class="fu">mean</span>(Wert),</span>
+<span id="cb283-11"><a href="descr.html#cb283-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">Q3 =</span> <span class="fu">quantile</span>(Wert, <span class="fl">0.75</span>),</span>
+<span id="cb283-12"><a href="descr.html#cb283-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">Schiefe =</span> <span class="fu">skewness</span>(Wert),</span>
+<span id="cb283-13"><a href="descr.html#cb283-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">Kurtosis =</span> <span class="fu">kurtosis</span>(Wert)</span>
+<span id="cb283-14"><a href="descr.html#cb283-14" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
 <pre class="bordercode"><code># A tibble: 3 × 6
   Variable         Q1  Mean    Q3 Schiefe Kurtosis
   &lt;chr&gt;         &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;
 1 Alter          18.8 26.5   31.2   1.34      3.97
 2 Extraversion    2.8  3.08   3.3   0.761     3.95
 3 Neurotizismus   2.7  3.13   3.6  -0.132     2.56</code></pre>
-<p>Beachte an dieser Stelle, dass für die externen Funktionen <code>skewness()</code> und <code>kurtosis()</code> das <code>moments</code> Package installiert und geladen sein muss.</p>
+<p>Beachte an dieser Stelle, dass für die Funktionen <code>skewness()</code> und <code>kurtosis()</code> das <code>moments</code> Package installiert und geladen sein muss.</p>
 <div class="exercise2">
 <p>Das ist ein Platzhalter für eine Übung. Starte die Übung mit <code>hands_on("test")</code>.</p>
 </div>
@@ -521,16 +533,16 @@ div.csl-indent {
 <div id="contigency" class="section level2 hasAnchor" number="7.2">
 <h2><span class="header-section-number">7.2</span> Häufigkeiten und Kontingenztafeln<a href="descr.html#contigency" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Eine Möglichkeit Häufigkeiten zu zählen, haben wir bereits mit <code>n()</code> innerhalb von <code>summarise()</code> kennengelernt. Eine Alternative stellt die <code>count()</code> Funktion aus selbigem Package dar. Hier können wir uns <code>group_by()</code> sparen und stattdessen die gruppierenden Spalten direkt in <code>count()</code> schreiben.</p>
-<div class="sourceCode" id="cb281"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb281-1"><a href="descr.html#cb281-1" aria-hidden="true" tabindex="-1"></a>big5_mod <span class="sc">|&gt;</span> </span>
-<span id="cb281-2"><a href="descr.html#cb281-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(Geschlecht)</span></code></pre></div>
+<div class="sourceCode" id="cb285"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb285-1"><a href="descr.html#cb285-1" aria-hidden="true" tabindex="-1"></a>big5_mod <span class="sc">|&gt;</span> </span>
+<span id="cb285-2"><a href="descr.html#cb285-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(Geschlecht)</span></code></pre></div>
 <pre class="bordercode"><code># A tibble: 2 × 2
   Geschlecht     n
   &lt;chr&gt;      &lt;int&gt;
 1 f            118
 2 m             82</code></pre>
 <p>Dabei können beliebig viele Spalten übergeben werden. Um die höchste Anzahl zu Beginn auszugeben, würden wir zusätzlich das <code>sort</code> Argument auf <code>TRUE</code> setzen.</p>
-<div class="sourceCode" id="cb283"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb283-1"><a href="descr.html#cb283-1" aria-hidden="true" tabindex="-1"></a>big5_mod <span class="sc">|&gt;</span> </span>
-<span id="cb283-2"><a href="descr.html#cb283-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(Geschlecht, Gruppe, <span class="at">sort =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb287"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb287-1"><a href="descr.html#cb287-1" aria-hidden="true" tabindex="-1"></a>big5_mod <span class="sc">|&gt;</span> </span>
+<span id="cb287-2"><a href="descr.html#cb287-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(Geschlecht, Gruppe, <span class="at">sort =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre class="bordercode"><code># A tibble: 6 × 3
   Geschlecht Gruppe     n
   &lt;chr&gt;      &lt;fct&gt;  &lt;int&gt;
@@ -540,9 +552,9 @@ div.csl-indent {
 4 m          Mittel    19
 # … with 2 more rows</code></pre>
 <p>Zum Darstellen der Anteile der jeweiligen Gruppen, müssen wir innerhalb von <code>mutate()</code> die einzelnen Häufigkeiten durch Anzahl in der jeweiligen Gruppe teilen (siehe Kapitel <a href="datenvorbereitung.html#mutate">6.4</a>).</p>
-<div class="sourceCode" id="cb285"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb285-1"><a href="descr.html#cb285-1" aria-hidden="true" tabindex="-1"></a>big5_mod <span class="sc">|&gt;</span></span>
-<span id="cb285-2"><a href="descr.html#cb285-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(Geschlecht, Gruppe) <span class="sc">|&gt;</span></span>
-<span id="cb285-3"><a href="descr.html#cb285-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Prop =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n))</span></code></pre></div>
+<div class="sourceCode" id="cb289"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb289-1"><a href="descr.html#cb289-1" aria-hidden="true" tabindex="-1"></a>big5_mod <span class="sc">|&gt;</span></span>
+<span id="cb289-2"><a href="descr.html#cb289-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(Geschlecht, Gruppe) <span class="sc">|&gt;</span></span>
+<span id="cb289-3"><a href="descr.html#cb289-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Prop =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n))</span></code></pre></div>
 <pre class="bordercode"><code># A tibble: 6 × 4
   Geschlecht Gruppe     n  Prop
   &lt;chr&gt;      &lt;fct&gt;  &lt;int&gt; &lt;dbl&gt;
@@ -553,11 +565,11 @@ div.csl-indent {
 5 m          Mittel    19 0.095
 6 m          Weise      5 0.025</code></pre>
 <p>Hier werden die Verhältnisse über alle Häufigkeiten berechnet, da <code>count()</code> keinen gruppierten Datensatz zurückgibt. Sollen die Häufigkeiten innerhalb einer Gruppe berechnet werden, muss zusätzlich mithilfe von <code>group_by()</code> explizit neu gruppiert werden.</p>
-<div class="sourceCode" id="cb287"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb287-1"><a href="descr.html#cb287-1" aria-hidden="true" tabindex="-1"></a>big5_mod <span class="sc">|&gt;</span></span>
-<span id="cb287-2"><a href="descr.html#cb287-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(Geschlecht, Gruppe) <span class="sc">|&gt;</span></span>
-<span id="cb287-3"><a href="descr.html#cb287-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Geschlecht) <span class="sc">|&gt;</span> </span>
-<span id="cb287-4"><a href="descr.html#cb287-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Prop =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n)) <span class="sc">|&gt;</span> </span>
-<span id="cb287-5"><a href="descr.html#cb287-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb291"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb291-1"><a href="descr.html#cb291-1" aria-hidden="true" tabindex="-1"></a>big5_mod <span class="sc">|&gt;</span></span>
+<span id="cb291-2"><a href="descr.html#cb291-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(Geschlecht, Gruppe) <span class="sc">|&gt;</span></span>
+<span id="cb291-3"><a href="descr.html#cb291-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Geschlecht) <span class="sc">|&gt;</span> </span>
+<span id="cb291-4"><a href="descr.html#cb291-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Prop =</span> n <span class="sc">/</span> <span class="fu">sum</span>(n)) <span class="sc">|&gt;</span> </span>
+<span id="cb291-5"><a href="descr.html#cb291-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span></code></pre></div>
 <pre class="bordercode"><code># A tibble: 6 × 4
   Geschlecht Gruppe     n   Prop
   &lt;chr&gt;      &lt;fct&gt;  &lt;int&gt;  &lt;dbl&gt;
@@ -568,19 +580,19 @@ div.csl-indent {
 5 m          Mittel    19 0.232 
 6 m          Weise      5 0.0610</code></pre>
 <p>Für die Erstellung von Kontingenztafeln, die wir mit statistischen Tests auswerten können, benötigen wir allerdings eine andere Funktion namens <code>table()</code>. Damit können wir ähnlich wie mit <code>count()</code> die Häufigkeiten kategorialer Merkmale abbilden. Die Werte müssen dabei als Wertereihe (bzw. Vektor) mit dem Dollar-Operator aus dem Datensatz extrahiert werden (siehe Kapitel <a href="vars.html#dollar">4.5</a>).</p>
-<div class="sourceCode" id="cb289"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb289-1"><a href="descr.html#cb289-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(big5_mod<span class="sc">$</span>Geschlecht)</span></code></pre></div>
+<div class="sourceCode" id="cb293"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb293-1"><a href="descr.html#cb293-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(big5_mod<span class="sc">$</span>Geschlecht)</span></code></pre></div>
 <pre class="bordercode"><code>
   f   m 
 118  82 </code></pre>
 <p>Zur Erstellung einer klassischen Vierfeldertafel wird eine zusätzliche Variable in die Funktion geschrieben. Wenn wir also untersuchen möchten, ob es Unterschiede in der Häufigkeit extrovertierter Menschen zwischen den Geschlechtern gibt, wählen wir erst die Spalte <code>Extraversion</code> des Datensatzes <code>big5_mod</code> und anschließend die Spalte <code>Geschlecht</code>. Beachte die logische Abfrage bei der Extraversion: wenn Extraversion größer als 3 ist, wird eine 1 und ansonsten eine 0 zurückgegeben.</p>
-<div class="sourceCode" id="cb291"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb291-1"><a href="descr.html#cb291-1" aria-hidden="true" tabindex="-1"></a>tb <span class="ot">&lt;-</span> <span class="fu">table</span>(big5_mod<span class="sc">$</span>Extraversion <span class="sc">&gt;</span> <span class="dv">3</span>, big5_mod<span class="sc">$</span>Geschlecht)</span>
-<span id="cb291-2"><a href="descr.html#cb291-2" aria-hidden="true" tabindex="-1"></a>tb</span></code></pre></div>
+<div class="sourceCode" id="cb295"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb295-1"><a href="descr.html#cb295-1" aria-hidden="true" tabindex="-1"></a>tb <span class="ot">&lt;-</span> <span class="fu">table</span>(big5_mod<span class="sc">$</span>Extraversion <span class="sc">&gt;</span> <span class="dv">3</span>, big5_mod<span class="sc">$</span>Geschlecht)</span>
+<span id="cb295-2"><a href="descr.html#cb295-2" aria-hidden="true" tabindex="-1"></a>tb</span></code></pre></div>
 <pre class="bordercode"><code>       
          f  m
   FALSE 66 43
   TRUE  52 39</code></pre>
 <p>Es können beliebig viele Häufigkeiten von Merkmalen miteinander in Beziehung gesetzt werden. Allerdings sind mehr als drei Dimensionen nur selten sinnvoll zu interpretieren.</p>
-<div class="sourceCode" id="cb293"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb293-1"><a href="descr.html#cb293-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(big5_mod<span class="sc">$</span>Extraversion <span class="sc">&gt;</span> <span class="dv">3</span>, big5_mod<span class="sc">$</span>Geschlecht, big5_mod<span class="sc">$</span>Neurotizismus <span class="sc">&gt;</span> <span class="fl">3.5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb297"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb297-1"><a href="descr.html#cb297-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(big5_mod<span class="sc">$</span>Extraversion <span class="sc">&gt;</span> <span class="dv">3</span>, big5_mod<span class="sc">$</span>Geschlecht, big5_mod<span class="sc">$</span>Neurotizismus <span class="sc">&gt;</span> <span class="fl">3.5</span>)</span></code></pre></div>
 <pre class="bordercode"><code>, ,  = FALSE
 
        
@@ -595,30 +607,30 @@ div.csl-indent {
   FALSE 19  4
   TRUE  19 16</code></pre>
 <p>Nach Erstellen der Kontingenztafeln mithilfe von <code>table()</code> können die Verhältnisse der Merkmale mit der Funktion <code>prop.table()</code> ausgegeben werden. Dies stellt eine Alternative zur bereits kennengelernten Kombination aus <code>count()</code> und <code>mutate()</code> dar.</p>
-<div class="sourceCode" id="cb295"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb295-1"><a href="descr.html#cb295-1" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.table</span>(tb)</span></code></pre></div>
+<div class="sourceCode" id="cb299"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb299-1"><a href="descr.html#cb299-1" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.table</span>(tb)</span></code></pre></div>
 <pre class="bordercode"><code>       
             f     m
   FALSE 0.330 0.215
   TRUE  0.260 0.195</code></pre>
 <p>Der Vorteil ist hier, dass wir zusätzlich bestimmen können, ob wir auf die Zeilen oder Spalten bedingen möchten. Zum Konditionieren auf die Zeilen, muss nur eine <code>1</code> hinzugefügt werden.</p>
-<div class="sourceCode" id="cb297"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb297-1"><a href="descr.html#cb297-1" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.table</span>(tb, <span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb301"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb301-1"><a href="descr.html#cb301-1" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.table</span>(tb, <span class="dv">1</span>)</span></code></pre></div>
 <pre class="bordercode"><code>       
                 f         m
   FALSE 0.6055046 0.3944954
   TRUE  0.5714286 0.4285714</code></pre>
 <p>Äquivalent dazu wird mit einer zusätzlichen <code>2</code> auf die Spalten bedingt.</p>
-<div class="sourceCode" id="cb299"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb299-1"><a href="descr.html#cb299-1" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.table</span>(tb, <span class="dv">2</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb303"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb303-1"><a href="descr.html#cb303-1" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.table</span>(tb, <span class="dv">2</span>) </span></code></pre></div>
 <pre class="bordercode"><code>       
                 f         m
   FALSE 0.5593220 0.5243902
   TRUE  0.4406780 0.4756098</code></pre>
 <p>Möchte man die Kontingenztafel für jede Spalte ausgeben lassen, kann <code>table()</code> ohne Klammern in der Funktion <code>map()</code> genutzt werden. Diese wendet <code>table()</code> auf jeden Spalte der Reihe nach an und speichert diese in Form einer Liste ab.</p>
-<div class="sourceCode" id="cb301"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb301-1"><a href="descr.html#cb301-1" aria-hidden="true" tabindex="-1"></a>big5_mod <span class="sc">|&gt;</span></span>
-<span id="cb301-2"><a href="descr.html#cb301-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">map</span>(table)</span></code></pre></div>
+<div class="sourceCode" id="cb305"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb305-1"><a href="descr.html#cb305-1" aria-hidden="true" tabindex="-1"></a>big5_mod <span class="sc">|&gt;</span></span>
+<span id="cb305-2"><a href="descr.html#cb305-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">map</span>(table)</span></code></pre></div>
 <p>Zur besseren Übersicht schalten wir an dieser Stelle noch ein <code>select()</code> davor, um nur das Geschlecht und die Altersgruppe auszuwählen. Wir könnten aber auf dieselbe Art und Weise sämtlich Spalten in einer Kontingenztafel ausgeben lassen.</p>
-<div class="sourceCode" id="cb302"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb302-1"><a href="descr.html#cb302-1" aria-hidden="true" tabindex="-1"></a>big5_mod <span class="sc">|&gt;</span></span>
-<span id="cb302-2"><a href="descr.html#cb302-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Geschlecht, Gruppe) <span class="sc">|&gt;</span>  </span>
-<span id="cb302-3"><a href="descr.html#cb302-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">map</span>(table)</span></code></pre></div>
+<div class="sourceCode" id="cb306"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb306-1"><a href="descr.html#cb306-1" aria-hidden="true" tabindex="-1"></a>big5_mod <span class="sc">|&gt;</span></span>
+<span id="cb306-2"><a href="descr.html#cb306-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Geschlecht, Gruppe) <span class="sc">|&gt;</span>  </span>
+<span id="cb306-3"><a href="descr.html#cb306-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">map</span>(table)</span></code></pre></div>
 <pre class="bordercode"><code>$Geschlecht
 
   f   m 
@@ -629,10 +641,10 @@ $Gruppe
   Jung Mittel  Weise 
    147     39     14 </code></pre>
 <p>So können auch alle Verhältnisse ausgegeben werden.</p>
-<div class="sourceCode" id="cb304"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb304-1"><a href="descr.html#cb304-1" aria-hidden="true" tabindex="-1"></a>big5_mod <span class="sc">|&gt;</span></span>
-<span id="cb304-2"><a href="descr.html#cb304-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Geschlecht, Gruppe) <span class="sc">|&gt;</span>  </span>
-<span id="cb304-3"><a href="descr.html#cb304-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">map</span>(table) <span class="sc">|&gt;</span> </span>
-<span id="cb304-4"><a href="descr.html#cb304-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">map</span>(prop.table)</span></code></pre></div>
+<div class="sourceCode" id="cb308"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb308-1"><a href="descr.html#cb308-1" aria-hidden="true" tabindex="-1"></a>big5_mod <span class="sc">|&gt;</span></span>
+<span id="cb308-2"><a href="descr.html#cb308-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Geschlecht, Gruppe) <span class="sc">|&gt;</span>  </span>
+<span id="cb308-3"><a href="descr.html#cb308-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">map</span>(table) <span class="sc">|&gt;</span> </span>
+<span id="cb308-4"><a href="descr.html#cb308-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">map</span>(prop.table)</span></code></pre></div>
 <pre class="bordercode"><code>$Geschlecht
 
    f    m 
@@ -650,23 +662,22 @@ $Gruppe
 <div id="zusammenhangsmaße" class="section level2 hasAnchor" number="7.3">
 <h2><span class="header-section-number">7.3</span> Zusammenhangsmaße<a href="descr.html#zusammenhangsmaße" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Zwei der wichtigsten Zusammenhangsmaße sind die Kovarianz und die darauf basierende Korrelation. Eine Korrelation berechnen wir mit der <code>cor()</code> Funktion, welche standardmäßig die Produkt-Moment-Korrelation berechnet.</p>
-<div class="sourceCode" id="cb306"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb306-1"><a href="descr.html#cb306-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(big5_mod<span class="sc">$</span>Extraversion, big5_mod<span class="sc">$</span>Neurotizismus)</span></code></pre></div>
+<div class="sourceCode" id="cb310"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb310-1"><a href="descr.html#cb310-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(big5_mod<span class="sc">$</span>Extraversion, big5_mod<span class="sc">$</span>Neurotizismus)</span></code></pre></div>
 <pre class="bordercode"><code>[1] 0.06972529</code></pre>
 <p>Für die Rangkorrelation nach Spearman oder die Kendall-Tau Korrelation muss das Argument <code>method</code> auf <code>"spearman"</code> oder <code>kendall</code> gesetzt werden.</p>
-<div class="sourceCode" id="cb308"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb308-1"><a href="descr.html#cb308-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(big5_mod<span class="sc">$</span>Extraversion, big5_mod<span class="sc">$</span>Neurotizismus, <span class="at">method =</span> <span class="st">&quot;spearman&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb312"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb312-1"><a href="descr.html#cb312-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(big5_mod<span class="sc">$</span>Extraversion, big5_mod<span class="sc">$</span>Neurotizismus, <span class="at">method =</span> <span class="st">&quot;spearman&quot;</span>)</span></code></pre></div>
 <pre class="bordercode"><code>[1] 0.04874732</code></pre>
-<p>Um mehrere Korrelationen auf einmal zu berechnen, übergeben wir der Funktion <code>cor()</code> mehr als zwei Spalten. Dabei können wir der Funktion grundsätzlich unbegrenzt viele numerische Spalten übergeben.</p>
-<div class="sourceCode" id="cb310"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb310-1"><a href="descr.html#cb310-1" aria-hidden="true" tabindex="-1"></a>big5_mod <span class="sc">|&gt;</span> </span>
-<span id="cb310-2"><a href="descr.html#cb310-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Alter, Extraversion, Neurotizismus) <span class="sc">|&gt;</span> </span>
-<span id="cb310-3"><a href="descr.html#cb310-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cor</span>()</span></code></pre></div>
+<p>Um mehrere Korrelationen auf einmal zu berechnen, übergeben wir der Funktion <code>cor()</code> mehr als zwei Spalten. Dabei können wir der Funktion grundsätzlich unbegrenzt viele numerische Spalten übergeben. Erst wählen wir die gewünschten Spalten aus und bezeichnen das Zwischenergebnis als <code>big5_mod2</code>.</p>
+<div class="sourceCode" id="cb314"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb314-1"><a href="descr.html#cb314-1" aria-hidden="true" tabindex="-1"></a>big5_mod2 <span class="ot">&lt;-</span> big5_mod <span class="sc">|&gt;</span> </span>
+<span id="cb314-2"><a href="descr.html#cb314-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Alter, Extraversion, Neurotizismus)</span></code></pre></div>
+<p>Diesen Datensatz mit ausschließlich numerischen Spalten übergeben wir dann der Funktion <code>cor()</code>.</p>
+<div class="sourceCode" id="cb315"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb315-1"><a href="descr.html#cb315-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(big5_mod2)</span></code></pre></div>
 <pre class="bordercode"><code>                   Alter Extraversion Neurotizismus
 Alter          1.0000000  -0.12250136   -0.23019948
 Extraversion  -0.1225014   1.00000000    0.06972529
 Neurotizismus -0.2301995   0.06972529    1.00000000</code></pre>
 <p>Auf dieselbe Art und Weise kann die Kovarianz mithilfe der Funktion <code>cov()</code> berechnet werden.</p>
-<div class="sourceCode" id="cb312"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb312-1"><a href="descr.html#cb312-1" aria-hidden="true" tabindex="-1"></a>big5_mod <span class="sc">|&gt;</span> </span>
-<span id="cb312-2"><a href="descr.html#cb312-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Alter, Extraversion, Neurotizismus) <span class="sc">|&gt;</span> </span>
-<span id="cb312-3"><a href="descr.html#cb312-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cov</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb317"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb317-1"><a href="descr.html#cb317-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cov</span>(big5_mod2)</span></code></pre></div>
 <pre class="bordercode"><code>                    Alter Extraversion Neurotizismus
 Alter         128.8837940  -0.48201005   -1.78158291
 Extraversion   -0.4820101   0.12012462    0.01647437

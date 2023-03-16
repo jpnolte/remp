@@ -13,7 +13,7 @@ Die am häufigsten verwendete Statistikprogrammiersprache R wird in den meisten 
 - deskriptive und induktive Statistik anwenden und
 - Ergebnisse in Word, als PDF oder als Website exportieren.
 
-Veröffentlicht ist das Buch unter der *Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License*.
+Veröffentlicht ist das Buch unter der *Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International* Lizenz und das begleitende R Package remp unter der GPL-3 Lizenz.
 
 ### Inhaltsverzeichnis
 

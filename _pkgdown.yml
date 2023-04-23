@@ -26,24 +26,23 @@ reference:
     contents:
       - starts_with("desc")
       - starts_with("data")
-      - starts_with("hands")
+      - starts_with("ueb")
   - title: Datensätze
     contents:
       - starts_with("art")
       - starts_with("big")
       - starts_with("bit")
+      - starts_with("chem")
+      - starts_with("covi")
       - starts_with("dem")
       - starts_with("df")
       - starts_with("eye")
       - starts_with("indo")
       - starts_with("iq")
       - starts_with("liter")
-      - starts_with("odds")
-      - starts_with("rep")
+      - starts_with("musik")
       - starts_with("tipp")
-      - starts_with("tracks")
       - starts_with("video")
-  - title: Übungen
 
 navbar:
   structure:

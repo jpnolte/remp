@@ -85,6 +85,12 @@
     <loc>https://r-empirische-wissenschaften.de/reference/bitcoin.html</loc>
   </url>
   <url>
+    <loc>https://r-empirische-wissenschaften.de/reference/chemo.html</loc>
+  </url>
+  <url>
+    <loc>https://r-empirische-wissenschaften.de/reference/covid.html</loc>
+  </url>
+  <url>
     <loc>https://r-empirische-wissenschaften.de/reference/data_binary.html</loc>
   </url>
   <url>
@@ -127,6 +133,9 @@
     <loc>https://r-empirische-wissenschaften.de/reference/literacy_mod.html</loc>
   </url>
   <url>
+    <loc>https://r-empirische-wissenschaften.de/reference/musikstream.html</loc>
+  </url>
+  <url>
     <loc>https://r-empirische-wissenschaften.de/reference/odds_ratios.html</loc>
   </url>
   <url>
@@ -145,6 +154,21 @@
     <loc>https://r-empirische-wissenschaften.de/reference/transform_binary.html</loc>
   </url>
   <url>
+    <loc>https://r-empirische-wissenschaften.de/reference/uebung_anzeigen.html</loc>
+  </url>
+  <url>
+    <loc>https://r-empirische-wissenschaften.de/reference/uebung_starten.html</loc>
+  </url>
+  <url>
     <loc>https://r-empirische-wissenschaften.de/reference/video.html</loc>
+  </url>
+  <url>
+    <loc>https://r-empirische-wissenschaften.de/reference/videostream.html</loc>
+  </url>
+  <url>
+    <loc>https://r-empirische-wissenschaften.de/tutorials/00-setup.html</loc>
+  </url>
+  <url>
+    <loc>https://r-empirische-wissenschaften.de/tutorials/index.html</loc>
   </url>
 </urlset>

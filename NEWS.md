@@ -1,3 +1,9 @@
+
+# remp 0.1.2
+- Datum: *2023-04-23*
+- Kapitel Inferenzstatistik wurde überarbeitet.
+- Neue Datensätze: `chemo` und `covid`
+
 # remp 0.1.1
 - Datum: *2023-01-03*
 - Kapitel Datenvorbereitung, Visualisierungen, Datenstrukturen und Funktionen wiederholt anwenden (ehem. Iterationen) wurden überarbeitet.

@@ -23,7 +23,7 @@
 <meta name="author" content="Jan Philipp Nolte" />
 
 
-<meta name="date" content="2023-03-16" />
+<meta name="date" content="2023-04-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -248,7 +248,7 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="7.1" data-path="descr.html"><a href="descr.html#lagestreu"><i class="fa fa-check"></i><b>7.1</b> Lagemaße und Streuungsmaße</a></li>
 <li class="chapter" data-level="7.2" data-path="descr.html"><a href="descr.html#contigency"><i class="fa fa-check"></i><b>7.2</b> Häufigkeiten und Kontingenztafeln</a></li>
-<li class="chapter" data-level="7.3" data-path="descr.html"><a href="descr.html#zusammenhangsmaße"><i class="fa fa-check"></i><b>7.3</b> Zusammenhangsmaße</a></li>
+<li class="chapter" data-level="7.3" data-path="descr.html"><a href="descr.html#cor"><i class="fa fa-check"></i><b>7.3</b> Zusammenhangsmaße</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="visual.html"><a href="visual.html"><i class="fa fa-check"></i><b>8</b> Visualisierungen</a>
 <ul>
@@ -276,10 +276,8 @@ div.csl-indent {
 <li class="chapter" data-level="8.13" data-path="visual.html"><a href="visual.html#exemplarische-erweiterungen"><i class="fa fa-check"></i><b>8.13</b> Exemplarische Erweiterungen</a>
 <ul>
 <li class="chapter" data-level="8.13.1" data-path="visual.html"><a href="visual.html#kaplan"><i class="fa fa-check"></i><b>8.13.1</b> Kaplan-Meier-Kurve</a></li>
-<li class="chapter" data-level="8.13.2" data-path="visual.html"><a href="visual.html#residuen-überprüfen"><i class="fa fa-check"></i><b>8.13.2</b> Residuen überprüfen</a></li>
+<li class="chapter" data-level="8.13.2" data-path="visual.html"><a href="visual.html#residuals"><i class="fa fa-check"></i><b>8.13.2</b> Residuen überprüfen</a></li>
 <li class="chapter" data-level="8.13.3" data-path="visual.html"><a href="visual.html#ridgeline-plot"><i class="fa fa-check"></i><b>8.13.3</b> Ridgeline Plot</a></li>
-<li class="chapter" data-level="8.13.4" data-path="visual.html"><a href="visual.html#hervorheben-bestimmter-werte"><i class="fa fa-check"></i><b>8.13.4</b> Hervorheben bestimmter Werte</a></li>
-<li class="chapter" data-level="8.13.5" data-path="visual.html"><a href="visual.html#dags"><i class="fa fa-check"></i><b>8.13.5</b> Directed Acyclic Graphs</a></li>
 </ul></li>
 <li class="chapter" data-level="8.14" data-path="visual.html"><a href="visual.html#example"><i class="fa fa-check"></i><b>8.14</b> Anwendungsbeispiel</a></li>
 </ul></li>
@@ -288,42 +286,39 @@ div.csl-indent {
 <li class="chapter" data-level="9.1" data-path="inductive.html"><a href="inductive.html#einführung-1"><i class="fa fa-check"></i><b>9.1</b> Einführung</a></li>
 <li class="chapter" data-level="9.2" data-path="inductive.html"><a href="inductive.html#ein--und-zweistichprobenszenarien"><i class="fa fa-check"></i><b>9.2</b> Ein- und Zweistichprobenszenarien</a>
 <ul>
-<li class="chapter" data-level="9.2.1" data-path="inductive.html"><a href="inductive.html#t-test-und-welch-test"><i class="fa fa-check"></i><b>9.2.1</b> <em>t</em> Test und Welch Test</a></li>
+<li class="chapter" data-level="9.2.1" data-path="inductive.html"><a href="inductive.html#ttest"><i class="fa fa-check"></i><b>9.2.1</b> <em>t</em> Test und Welch Test</a></li>
 <li class="chapter" data-level="9.2.2" data-path="inductive.html"><a href="inductive.html#wilcoxon-test"><i class="fa fa-check"></i><b>9.2.2</b> Wilcoxon Test</a></li>
 </ul></li>
 <li class="chapter" data-level="9.3" data-path="inductive.html"><a href="inductive.html#unterschiede-mehrerer-gruppen"><i class="fa fa-check"></i><b>9.3</b> Unterschiede mehrerer Gruppen</a>
 <ul>
 <li class="chapter" data-level="9.3.1" data-path="inductive.html"><a href="inductive.html#aov"><i class="fa fa-check"></i><b>9.3.1</b> Varianz- und Kovarianzanalyse</a></li>
 <li class="chapter" data-level="9.3.2" data-path="inductive.html"><a href="inductive.html#repeated"><i class="fa fa-check"></i><b>9.3.2</b> Varianzanalyse mit Messwiederholung</a></li>
-<li class="chapter" data-level="9.3.3" data-path="inductive.html"><a href="inductive.html#kruskal-wallis-test"><i class="fa fa-check"></i><b>9.3.3</b> Kruskal-Wallis Test</a></li>
-<li class="chapter" data-level="9.3.4" data-path="inductive.html"><a href="inductive.html#friedman-test"><i class="fa fa-check"></i><b>9.3.4</b> Friedman Test</a></li>
+<li class="chapter" data-level="9.3.3" data-path="inductive.html"><a href="inductive.html#kruskal"><i class="fa fa-check"></i><b>9.3.3</b> Welch Approximation und Kruskal-Wallis Test</a></li>
+<li class="chapter" data-level="9.3.4" data-path="inductive.html"><a href="inductive.html#friedman"><i class="fa fa-check"></i><b>9.3.4</b> Friedman Test</a></li>
 </ul></li>
-<li class="chapter" data-level="9.4" data-path="inductive.html"><a href="inductive.html#korrelationskoeffizienten"><i class="fa fa-check"></i><b>9.4</b> Korrelationskoeffizienten</a>
+<li class="chapter" data-level="9.4" data-path="inductive.html"><a href="inductive.html#cortest"><i class="fa fa-check"></i><b>9.4</b> Korrelationsanalysen</a>
 <ul>
-<li class="chapter" data-level="9.4.1" data-path="inductive.html"><a href="inductive.html#produkt-moment-korrelation-nach-pearson"><i class="fa fa-check"></i><b>9.4.1</b> Produkt-Moment Korrelation nach Pearson</a></li>
-<li class="chapter" data-level="9.4.2" data-path="inductive.html"><a href="inductive.html#rangkorrelation-nach-spearman"><i class="fa fa-check"></i><b>9.4.2</b> Rangkorrelation nach Spearman</a></li>
-<li class="chapter" data-level="9.4.3" data-path="inductive.html"><a href="inductive.html#kendall-tau-korrelation"><i class="fa fa-check"></i><b>9.4.3</b> Kendall-Tau Korrelation</a></li>
+<li class="chapter" data-level="9.4.1" data-path="inductive.html"><a href="inductive.html#pearsoncor"><i class="fa fa-check"></i><b>9.4.1</b> Produkt-Moment Korrelation</a></li>
+<li class="chapter" data-level="9.4.2" data-path="inductive.html"><a href="inductive.html#rangcor"><i class="fa fa-check"></i><b>9.4.2</b> Rangkorrelationen</a></li>
 </ul></li>
-<li class="chapter" data-level="9.5" data-path="inductive.html"><a href="inductive.html#regressionsmodelle"><i class="fa fa-check"></i><b>9.5</b> Regressionsmodelle</a>
+<li class="chapter" data-level="9.5" data-path="inductive.html"><a href="inductive.html#regression"><i class="fa fa-check"></i><b>9.5</b> Regressionsmodelle</a>
 <ul>
 <li class="chapter" data-level="9.5.1" data-path="inductive.html"><a href="inductive.html#linregression"><i class="fa fa-check"></i><b>9.5.1</b> Lineare Regression</a></li>
-<li class="chapter" data-level="9.5.2" data-path="inductive.html"><a href="inductive.html#mixedregression"><i class="fa fa-check"></i><b>9.5.2</b> Lineare gemischte Regression</a></li>
-<li class="chapter" data-level="9.5.3" data-path="inductive.html"><a href="inductive.html#logistische-regression"><i class="fa fa-check"></i><b>9.5.3</b> Logistische Regression</a></li>
-<li class="chapter" data-level="9.5.4" data-path="inductive.html"><a href="inductive.html#multinomiales-logit-modell"><i class="fa fa-check"></i><b>9.5.4</b> Multinomiales Logit Modell</a></li>
-<li class="chapter" data-level="9.5.5" data-path="inductive.html"><a href="inductive.html#kumulatives-logit-modell"><i class="fa fa-check"></i><b>9.5.5</b> Kumulatives Logit Modell</a></li>
-<li class="chapter" data-level="9.5.6" data-path="inductive.html"><a href="inductive.html#poisson-regression"><i class="fa fa-check"></i><b>9.5.6</b> Poisson Regression</a></li>
-<li class="chapter" data-level="9.5.7" data-path="inductive.html"><a href="inductive.html#negative-binomial-regression"><i class="fa fa-check"></i><b>9.5.7</b> Negative Binomial Regression</a></li>
-<li class="chapter" data-level="9.5.8" data-path="inductive.html"><a href="inductive.html#cox"><i class="fa fa-check"></i><b>9.5.8</b> Cox Regression</a></li>
+<li class="chapter" data-level="9.5.2" data-path="inductive.html"><a href="inductive.html#logistische-regression"><i class="fa fa-check"></i><b>9.5.2</b> Logistische Regression</a></li>
+<li class="chapter" data-level="9.5.3" data-path="inductive.html"><a href="inductive.html#multinomiales-logit-modell"><i class="fa fa-check"></i><b>9.5.3</b> Multinomiales Logit Modell</a></li>
+<li class="chapter" data-level="9.5.4" data-path="inductive.html"><a href="inductive.html#propodds"><i class="fa fa-check"></i><b>9.5.4</b> Kumulatives Logit Modell</a></li>
+<li class="chapter" data-level="9.5.5" data-path="inductive.html"><a href="inductive.html#poisson-regression"><i class="fa fa-check"></i><b>9.5.5</b> Poisson Regression</a></li>
+<li class="chapter" data-level="9.5.6" data-path="inductive.html"><a href="inductive.html#cox"><i class="fa fa-check"></i><b>9.5.6</b> Cox Regression</a></li>
 </ul></li>
 <li class="chapter" data-level="9.6" data-path="inductive.html"><a href="inductive.html#contingency"><i class="fa fa-check"></i><b>9.6</b> Kontingenztafeln</a>
 <ul>
-<li class="chapter" data-level="9.6.1" data-path="inductive.html"><a href="inductive.html#fisher"><i class="fa fa-check"></i><b>9.6.1</b> Exakter Fisher-Test</a></li>
-<li class="chapter" data-level="9.6.2" data-path="inductive.html"><a href="inductive.html#chi-quadrat-tests"><i class="fa fa-check"></i><b>9.6.2</b> Chi Quadrat Tests</a></li>
+<li class="chapter" data-level="9.6.1" data-path="inductive.html"><a href="inductive.html#fisher"><i class="fa fa-check"></i><b>9.6.1</b> Exakter Fisher Test</a></li>
+<li class="chapter" data-level="9.6.2" data-path="inductive.html"><a href="inductive.html#chi"><i class="fa fa-check"></i><b>9.6.2</b> Chi Quadrat Tests</a></li>
 </ul></li>
-<li class="chapter" data-level="9.7" data-path="inductive.html"><a href="inductive.html#voraussetzungen-überprüfen"><i class="fa fa-check"></i><b>9.7</b> Voraussetzungen überprüfen</a>
+<li class="chapter" data-level="9.7" data-path="inductive.html"><a href="inductive.html#voraussetzung"><i class="fa fa-check"></i><b>9.7</b> Voraussetzungen überprüfen</a>
 <ul>
-<li class="chapter" data-level="9.7.1" data-path="inductive.html"><a href="inductive.html#normalverteilung-der-residuen"><i class="fa fa-check"></i><b>9.7.1</b> Normalverteilung der Residuen</a></li>
-<li class="chapter" data-level="9.7.2" data-path="inductive.html"><a href="inductive.html#varianzhomogenität"><i class="fa fa-check"></i><b>9.7.2</b> Varianzhomogenität</a></li>
+<li class="chapter" data-level="9.7.1" data-path="inductive.html"><a href="inductive.html#normalverteilung"><i class="fa fa-check"></i><b>9.7.1</b> Normalverteilung</a></li>
+<li class="chapter" data-level="9.7.2" data-path="inductive.html"><a href="inductive.html#varianzhomogenitaet"><i class="fa fa-check"></i><b>9.7.2</b> Varianzhomogenität und Homoskedastizität</a></li>
 </ul></li>
 <li class="chapter" data-level="9.8" data-path="inductive.html"><a href="inductive.html#broom"><i class="fa fa-check"></i><b>9.8</b> Ergebnisse formatieren</a></li>
 </ul></li>
@@ -360,6 +355,7 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#datensatzerläuterungen"><i class="fa fa-check"></i>Datensatzerläuterungen</a>
 <ul>
 <li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#big-five"><i class="fa fa-check"></i>Big Five</a></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#chemo"><i class="fa fa-check"></i>Chemo</a></li>
 <li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#weitere-datensätze"><i class="fa fa-check"></i>Weitere Datensätze</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#literaturverzeichnis"><i class="fa fa-check"></i>Literaturverzeichnis</a></li>
@@ -385,7 +381,7 @@ div.csl-indent {
 <div id="header">
 <h1 class="title">R für empirische Wissenschaften</h1>
 <p class="author"><em>Jan Philipp Nolte</em></p>
-<p class="date"><em>2023-03-16</em></p>
+<p class="date"><em>2023-04-23</em></p>
 </div>
 <div id="vorwort" class="section level1 unnumbered hasAnchor">
 <h1>Vorwort<a href="index.html#vorwort" class="anchor-section" aria-label="Anchor link to header"></a></h1>

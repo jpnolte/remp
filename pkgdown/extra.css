@@ -2,7 +2,7 @@ h1 {
   font-size: 1.6em;
   font-weight: 400;
   letter-spacing: 3px;
-} 
+}
 
 h2 {
   font-size: 1.4em;
@@ -80,7 +80,20 @@ p code {
 }
 
 .navbar-light .navbar-nav .nav-item>.nav-link:hover {
-  background: rgba(238,112,0, 0.1)
+  background: rgba(238,112,0, 0.1);
+  color: #343a40;
+}
+
+.navbar-light .navbar-nav .nav-item>.nav-link {
+  color: rgba(0,0,0,0.55);
+}
+
+.navbar-light .navbar-nav .nav-item>.nav-link:active {
+  color: #343a40;
+}
+
+.navbar-light .navbar-brand {
+    color: #343a40;
 }
 
 #toc>.nav a.nav-link:hover,

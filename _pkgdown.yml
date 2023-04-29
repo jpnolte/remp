@@ -29,8 +29,8 @@ reference:
       - starts_with("ueb")
   - title: Datensätze
     contents:
-      - starts_with("art")
       - starts_with("big")
+      - starts_with("bild")
       - starts_with("bit")
       - starts_with("chem")
       - starts_with("covi")
@@ -39,7 +39,6 @@ reference:
       - starts_with("eye")
       - starts_with("indo")
       - starts_with("iq")
-      - starts_with("liter")
       - starts_with("musik")
       - starts_with("tipp")
       - starts_with("video")

@@ -1,6 +1,6 @@
-#' BIG 5 im langen Format
+#' BIG 5 Persönlichkeitstest: langes Format
 #'
-#' Der Datensatz enthält einen Teil des Big5 Datensatzes im langen Format.
+#' Der Datensatz enthält einen Teil des Big5 Datensatzes im langen Format. Für mehr Informationen siehe den Datensatz `big5_comp`.
 #'
 #' @format Ein tible mit 200 Zeilen and 16 Spalten:
 #' \describe{

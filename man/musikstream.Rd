@@ -3,7 +3,7 @@
 \docType{data}
 \name{musikstream}
 \alias{musikstream}
-\title{Lieder eines Musik Streamingdienstes}
+\title{Musikstreaming Nutzerstatistik}
 \format{
 Ein tibble mit 50 Zeilen and 6 Spalten:
 \describe{
@@ -12,14 +12,14 @@ Ein tibble mit 50 Zeilen and 6 Spalten:
   \item{Album}{Name des Albums}
   \item{Anzahl}{Anzahl der Lieder auf dem jeweiligen Album}
   \item{Bekanntheit}{Index zur Quantifizierung der Bekanntheit.}
-  \item{Release}{Release Datum des jeweiligen Albums/Liedes}
+  \item{Release}{Veröffentlichungsdatum des jeweiligen Albums oder Liedes}
 }
 }
 \usage{
 musikstream
 }
 \description{
-Dies ist ein Datensatz mit den 50 am meisten gehörten Liedern eines Nutzers auf einer der bekanntesten Musik Streaming Plattformen.
+Dies ist ein Datensatz mit den 50 am meisten gehörten Liedern eines Nutzers in einem bestimmten Zeitraum auf einer Musikstreaming Plattform.
 }
 \examples{
 musikstream

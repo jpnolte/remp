@@ -2,7 +2,7 @@
 % Please edit documentation in R/data_eigen.R
 \name{data_eigen}
 \alias{data_eigen}
-\title{Berechnung der Eigenvalues}
+\title{Berechnung der Eigenwerte}
 \usage{
 data_eigen(df)
 }
@@ -10,15 +10,15 @@ data_eigen(df)
 \item{df}{Data.frame oder tibble mit numerischen Spalten.}
 }
 \value{
-Eigenvalues und Dimensionen.
+Eigenwerte und Dimensionen.
 }
 \description{
-Die ausgegebenen Werte können direkt als Scree Plot visualisiert werden.
+Die ausgegebenen Eigenwerte können direkt als Scree Plot visualisiert werden.
 }
 \examples{
-big_five_comp
+big5_comp
 
-big_five_comp |> 
+big5_comp |> 
  dplyr::select(-Geschlecht) |> 
  data_eigen()
 }

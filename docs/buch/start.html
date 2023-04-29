@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Kapitel 2 Startvoraussetzungen | R für empirische Wissenschaften</title>
   <meta name="description" content="Dieses Buch bietet einfache Erklärungen mit praktischen Beispielen und Übungen, welche das Erlernen von R ohne Programmiervorkenntnisse im Selbststudium ermöglichen. Die Zielgruppe sind WissenschaftlerInnen und StudentInnen der Fachrichtungen Medizin, Psychologie, Wirtschaftswissenschaften, Sozialwissenschaften, Agrarwissenschaften, Neurowissenschaften, Biologie, Journalismus, Tourismus, Data Science, Biostatistik und allen weiteren Disziplinen, die Daten auswerten möchten." />
-  <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.33 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Kapitel 2 Startvoraussetzungen | R für empirische Wissenschaften" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Jan Philipp Nolte" />
 
 
-<meta name="date" content="2023-04-23" />
+<meta name="date" content="2023-04-29" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -341,7 +341,7 @@ div.csl-indent {
 <li class="chapter" data-level="11.3" data-path="datatypes.html"><a href="datatypes.html#tibble"><i class="fa fa-check"></i><b>11.3</b> Data.frame und tibble</a></li>
 <li class="chapter" data-level="11.4" data-path="datatypes.html"><a href="datatypes.html#lists"><i class="fa fa-check"></i><b>11.4</b> Liste</a></li>
 <li class="chapter" data-level="11.5" data-path="datatypes.html"><a href="datatypes.html#umwandlung"><i class="fa fa-check"></i><b>11.5</b> Umwandlungen</a></li>
-<li class="chapter" data-level="11.6" data-path="datatypes.html"><a href="datatypes.html#objektorientierung"><i class="fa fa-check"></i><b>11.6</b> Objektorientierung</a></li>
+<li class="chapter" data-level="11.6" data-path="datatypes.html"><a href="datatypes.html#objekte-und-objektorientierung"><i class="fa fa-check"></i><b>11.6</b> Objekte und Objektorientierung</a></li>
 </ul></li>
 <li class="chapter" data-level="12" data-path="iterationmain.html"><a href="iterationmain.html"><i class="fa fa-check"></i><b>12</b> Funktionen wiederholt anwenden</a>
 <ul>
@@ -352,12 +352,6 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i>Appendix</a>
 <ul>
-<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#datensatzerläuterungen"><i class="fa fa-check"></i>Datensatzerläuterungen</a>
-<ul>
-<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#big-five"><i class="fa fa-check"></i>Big Five</a></li>
-<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#chemo"><i class="fa fa-check"></i>Chemo</a></li>
-<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#weitere-datensätze"><i class="fa fa-check"></i>Weitere Datensätze</a></li>
-</ul></li>
 <li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#literaturverzeichnis"><i class="fa fa-check"></i>Literaturverzeichnis</a></li>
 <li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#verwendete-softwareversionen"><i class="fa fa-check"></i>Verwendete Softwareversionen</a></li>
 </ul></li>
@@ -442,11 +436,13 @@ Abbildung 2.2: Richtige Installation von R ohne Sprachsupport
 <ol start="3" style="list-style-type: decimal">
 <li>Füge nun den Key hinzu, um für jetzt und zukünftige Updates einen sicheren Download zu gewährleisten.</li>
 </ol>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash bordercode"><code class="sourceCode bash"><span id="cb3-1"><a href="start.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span> <span class="at">-qO-</span> https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc <span class="kw">|</span> <span class="fu">sudo</span> tee <span class="at">-a</span> /etc/apt/trusted.gpg.d/cran\_ubuntu\_key.asc</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash bordercode"><code class="sourceCode bash"><span id="cb3-1"><a href="start.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span> <span class="at">-qO-</span> https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc <span class="kw">|</span> <span class="dt">\</span></span>
+<span id="cb3-2"><a href="start.html#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> tee <span class="at">-a</span> /etc/apt/trusted.gpg.d/cran\_ubuntu\_key.asc</span></code></pre></div>
 <ol start="4" style="list-style-type: decimal">
-<li>Das entsprechende Repository kann anschließend mit folgendem Befehl hinzugefügt werden.</li>
+<li>Das entsprechende Repository kann anschließend mit folgendem Befehl hinzugefügt werden. Bei Wechsel der Hauptversion (z.B. von <code>4.0.0</code> auf <code>5.0.0</code>) muss die Endung <code>cran40</code> auf <code>cran50</code> geändert werden.</li>
 </ol>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash bordercode"><code class="sourceCode bash"><span id="cb4-1"><a href="start.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> add-apt-repository <span class="st">&quot;deb https://cloud.r-project.org/bin/linux/ubuntu </span><span class="va">$(</span><span class="ex">lsb_release</span> <span class="at">-cs</span><span class="va">)</span><span class="st">-cran40/&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash bordercode"><code class="sourceCode bash"><span id="cb4-1"><a href="start.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> add-apt-repository <span class="st">&quot;deb https://cloud.r-project.org/bin/linux/ubuntu </span><span class="dt">\</span></span>
+<span id="cb4-2"><a href="start.html#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="va">$(</span><span class="ex">lsb_release</span> <span class="at">-cs</span><span class="va">)</span><span class="st">-cran40/&quot;</span></span></code></pre></div>
 <ol start="5" style="list-style-type: decimal">
 <li>Zum Installieren von R führe nun folgenden Befehl aus:</li>
 </ol>
@@ -526,7 +522,8 @@ Abbildung 2.3: Aufbau von R Studio mit Skript (oben links), Konsole (unten links
 </div>
 <div id="funktionen-und-ihre-argumente" class="section level2 hasAnchor" number="2.4">
 <h2><span class="header-section-number">2.4</span> Funktionen und ihre Argumente<a href="start.html#funktionen-und-ihre-argumente" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Eine Funktion erkennst du immer daran, dass sie von zwei runden Klammern gefolgt ist. Wenn du den Anweisungen in Kapitel <a href="start.html#anpassung">2.3</a> gefolgt bist, wird der Name der Funktion farblich hervorgehoben. Schauen wir uns exemplarisch die Funktion zur Berechnungen der Summe mehrerer Werte an. Hier sollen die Werte <code>3</code>, <code>4</code>, <code>7</code> und <code>2</code> mithilfe der Funktion <code>sum()</code> zusammengezählt werden. Sämtliche Argumente (hier die vier Zahlen) müssen innerhalb runder Klammern der Funktion übergeben und dabei mit einem Komma voneinander getrennt werden.</p>
+<p>Eine Funktion erkennst du immer daran, dass sie von zwei runden Klammern gefolgt ist. In diesem Buch sind alle Funktion in orange hevorgehoben. Innerhalb von RStudio werden diese ebenfalls farblich markiert werden, wenn du den Anweisungen aus Kapitel <a href="start.html#anpassung">2.3</a> gefolgt bist.</p>
+<p>Aber was ist eine Funktion eigentlich? Schauen wir uns exemplarisch die Funktion zur Berechnung der Summe mehrerer Werte an. Hier sollen die Werte <code>3</code>, <code>4</code>, <code>7</code> und <code>2</code> mithilfe der Funktion <code>sum()</code> zusammengezählt werden. Sämtliche Argumente (hier die vier Zahlen) müssen innerhalb runder Klammern der Funktion übergeben und dabei mit einem Komma voneinander getrennt werden.</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb7-1"><a href="start.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">7</span>, <span class="dv">2</span>)</span></code></pre></div>
 <pre class="bordercode"><code>[1] 16</code></pre>
 <p>Auf diese Art und Weise können beliebig viele Argumente der Funktion übergeben werden. So könnte man bei einem vorliegendem fehlenden Wert (definiert als <code>NA</code>) diesen bei Zusammenzählen der Werte ignorieren und erhält nach wie vor ein Ergebnis. Das Argument zum Entfernen fehlender Werte heißt dabei <code>na.rm</code>.</p>
@@ -534,7 +531,7 @@ Abbildung 2.3: Aufbau von R Studio mit Skript (oben links), Konsole (unten links
 <pre class="bordercode"><code>[1] 16</code></pre>
 <p>Solange die Reihenfolge der Argumente, wie sie in der Funktion vorgeschrieben ist, eingehalten wird, können wir den Namen des Arguments weglassen. Davon werden wir im Verlauf des Buches immer wieder Gebrauch machen. In diesem Beispiel hingegen müssen wir <code>na.rm</code> explizit nennen, um den fehlenden Wert entfernen zu können. Die Entwickler der jeweiligen Funktionen definieren immer das Standardverhalten, falls keine weiteren Argumente genannt werden. Bei der Funktion <code>sum()</code> werden fehlende Werte bspw. standardmäßig nicht entfernt, weswegen wir dieses Verhalten mit <code>na.rm = TRUE</code> explizit hervorrufen müssen.</p>
 <div class="idea">
-<p>Der Funktionsname wird von einer öffnenden und einer schließenden runden Klammer gefolgt (z.B. <code>sum()</code> für die Summe, <code>mean()</code> für den Mittelwert oder <code>median()</code> für den Median). Verschiedene Argumente können innerhalb der runden Klammern, getrennt durch ein Komma, mit einem Gleichheitszeichen verändert werden.</p>
+<p>Funktionen stellen eine Abkürzung zu Berechnung dar, die wir ansonsten manuell durchführen müssten. Der Funktionsname wird von einer öffnenden und einer schließenden runden Klammer gefolgt (z.B. <code>sum()</code> für die Summe, <code>mean()</code> für den Mittelwert oder <code>median()</code> für den Median). Argumente verändern das Verhalten einer Funktion und können innerhalb der runden Klammern, getrennt durch ein Komma, mit einem Gleichheitszeichen verändert werden.</p>
 </div>
 </div>
 <div id="packages" class="section level2 hasAnchor" number="2.5">

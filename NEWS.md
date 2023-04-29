@@ -1,3 +1,10 @@
+# remp 0.1.3
+- Datum: *2023-04-30*
+- Dokumentation der Funktionen und Datensätze wurden überarbeitet.
+- Finale Korrektur der Datensätze.
+- Kleinere Textanpassungen.
+- Funktion `descriptive()`  mit den neuen Argumenten `.print` und `.tibble`.
+- Die Installation des Packages setzt nun die R Version 3.5 voraus.
 
 # remp 0.1.2
 - Datum: *2023-04-23*
@@ -19,12 +26,12 @@
 
 # remp 0.0.2
 
-- Die Inhalte werden sich von hier an nur noch geringfügig ändern. Eine Ausnahme stellt dabei Kapitel 9 (Inferenzstatistik) dar, welches noch komplett neu geschrieben wird, sobald das `inductive` Package fertig ist. Auch wird dort zukünftig noch auf die getesteten Hypothesen und die Interpretation der Ausgabe eingegangen.
+- Rohform des Buches ist nun vorhanden. Eine Ausnahme stellt dabei Kapitel 9 (Inferenzstatistik) dar, welches noch komplett neu geschrieben wird.
 - `transform_binary()` in `data_binary()` umbenannt mit leichten internen Modifikationen
-- Neue Datensätze: `bitcoin`, `literacy`, `A`, `B`, `C`, `D`, `E`
+- Neue Datensätze: `bitcoin`, `literacy`, `A`, `B`, `C`, `D`
 
 # remp 0.0.1
 
-- Erster Release des Packages und der Website
-- Aktuelle Buchversion entspricht **nicht** der finalen Version
-- Datensätze und Übungen sind zum jetzigen Zeitpunkt noch nicht vollständig
+- Erster Release des Packages und der Website.
+- Aktuelle Buchversion entspricht **nicht** der finalen Version.
+- Datensätze und Übungen sind zum jetzigen Zeitpunkt noch nicht vollständig.

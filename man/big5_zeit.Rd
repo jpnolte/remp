@@ -3,7 +3,7 @@
 \docType{data}
 \name{big5_zeit}
 \alias{big5_zeit}
-\title{Big 5 Modifikation}
+\title{BIG 5 Persönlichkeitstest: Zeitpunkte und Fragebögen}
 \format{
 Ein tibble mit 5 Zeilen and 5 Spalten:
 \describe{
@@ -18,7 +18,7 @@ Ein tibble mit 5 Zeilen and 5 Spalten:
 big5_zeit
 }
 \description{
-TBA
+Ausschnitt aus dem BIG 5 Datensatz zur Illustrierung der Trennung von Spalten. Für mehr Informationen siehe den Datensatz `big5_comp`.
 }
 \examples{
 big5_zeit

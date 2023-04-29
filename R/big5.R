@@ -1,15 +1,16 @@
-#' BIG 5 Modifikation
+#' BIG 5 Persönlichkeitstest: Auswahl
 #'
-#' Der Datensatz enthält die soziodemographische Variablen Alter und Geschlecht, die durchschnittliche Ausprägung von Extraversion,
-#' Neurotizismus, Verträglichkeit und Gewissenhaftigkeit sowie 10 Items, um die Offenheit zu messen.
+#' Der Datensatz enthält die soziodemographischen Variablen Alter und Geschlecht, die durchschnittliche Ausprägung von Extraversion und Neurotizismus sowie 3 Items, um die Offenheit zu messen. Für mehr Informationen siehe den Datensatz `big5_comp`.
 #'
-#' @format Ein tible mit 200 Zeilen and 16 Spalten:
+#' @format Ein tible mit 200 Zeilen and 7 Spalten:
 #' \describe{
 #'   \item{Alter}{Alter in Lebensjahren}
 #'   \item{Geschlecht}{f = Weiblich, m = Männlich}
 #'   \item{Extraversion}{Durchschnittliche Ausprägung von Extraversion}
 #'   \item{Neurotizismus}{Durchschnittliche Ausprägung von Neurotizismus}
-#'   \item{O1-O3}{Item 1-3 zur Ausprägung von Offenheit}
+#'   \item{O1}{Ich besitze einen großen Wortschatz.}
+#'   \item{O2}{Ich habe Schwierigkeiten abstrakte Ideen zu verstehen. (INVERS)}
+#'   \item{O3}{Ich habe eine lebhafte Vorstellungskraft.}
 #' }
 #' @examples
 #' big5

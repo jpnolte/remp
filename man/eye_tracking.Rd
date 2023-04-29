@@ -5,18 +5,18 @@
 \alias{eye_tracking}
 \title{Eye Tracking}
 \format{
-Ein tibble mit 125 Zeilen and 3 Spalten:
+Ein tibble mit 100 Zeilen and 3 Spalten:
 \describe{
-  \item{Face_sum}{X.}
-  \item{Density}{X.}
-  \item{Gruppe}{X.}
+  \item{Gesichter}{Anzahl fixierter Gesichter.}
+  \item{Dichte}{Gezeigte Informationsdichte.}
+  \item{Studie}{Study 1 oder Study 2.}
 }
 }
 \usage{
 eye_tracking
 }
 \description{
-TBA
+Vergleich von zwei Eye Tracking Studien zur Untersuchung der Anzahl fixierter Gesichter in Abhängigkeit der Informationsdichte
 }
 \examples{
 eye_tracking

@@ -17,7 +17,7 @@ Ein tibble mit 1,493 Zeilen and 4 Spalten:
 videostream
 }
 \description{
-Dies ist die Nutzerstatistik eines User beim Film- und Serienschauen auf einer der bekanntesten Videostreaming Plattformen.
+Dies ist die Nutzerstatistik eines Users beim Film- und Serienschauen auf einer Videostreaming Plattform.
 }
 \examples{
 videostream

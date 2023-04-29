@@ -3,7 +3,7 @@
 \docType{data}
 \name{big5_long}
 \alias{big5_long}
-\title{BIG 5 im langen Format}
+\title{BIG 5 Persönlichkeitstest: langes Format}
 \format{
 Ein tible mit 200 Zeilen and 16 Spalten:
 \describe{
@@ -23,7 +23,7 @@ Ein tible mit 200 Zeilen and 16 Spalten:
 big5_long
 }
 \description{
-Der Datensatz enthält einen Teil des Big5 Datensatzes im langen Format.
+Der Datensatz enthält einen Teil des Big5 Datensatzes im langen Format. Für mehr Informationen siehe den Datensatz `big5_comp`.
 }
 \examples{
 big5_long

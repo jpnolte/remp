@@ -7,15 +7,15 @@
 \format{
 Ein tibble mit 731 Zeilen and 2 Spalten:
 \describe{
-  \item{Date}{Datum.}
-  \item{Price}{Preis der Aktie in Euro.}
+  \item{Datum}{Datum der Preismessung.}
+  \item{Preis}{Preise der Aktie zu einem bestimmten Datum in Euro.}
 }
 }
 \usage{
 bitcoin
 }
 \description{
-TBA
+Preise der Bitcoin Aktie zwischen Januar 2019 und Dezember 2020.
 }
 \examples{
 bitcoin

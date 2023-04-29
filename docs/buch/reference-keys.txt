@@ -13,7 +13,8 @@ fig:rstart3
 fig:rstart4
 fig:rstart5
 fig:types
-fig:unnamed-chunk-71
+fig:bigexcel
+fig:unnamed-chunk-70
 fig:wideintro
 fig:longintro
 fig:ggplot
@@ -32,7 +33,7 @@ fig:threebox
 fig:fourbox
 fig:adaptplot
 fig:colors
-fig:unnamed-chunk-266
+fig:hexacolor
 fig:themes
 fig:legend
 fig:patcha
@@ -46,14 +47,14 @@ fig:eyeplot
 fig:survplot2
 fig:resid
 fig:resid2
-fig:unnamed-chunk-394
-fig:unnamed-chunk-395
-fig:html-markdown
 fig:unnamed-chunk-396
+fig:unnamed-chunk-397
+fig:html-markdown
 fig:unnamed-chunk-398
+fig:unnamed-chunk-400
 fig:quarto
-tab:unnamed-chunk-446
-tab:unnamed-chunk-447
+tab:unnamed-chunk-450
+tab:unnamed-chunk-451
 intro
 für-wen-ist-dieses-buch
 aufbau-und-bearbeitungsstrategie
@@ -178,7 +179,7 @@ matrix
 tibble
 lists
 umwandlung
-objektorientierung
+objekte-und-objektorientierung
 iterationmain
 iteration
 map

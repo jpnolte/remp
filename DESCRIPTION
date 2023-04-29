@@ -1,6 +1,6 @@
 Package: remp
 Title: R für empirische Wissenschaften
-Version: 0.1.2
+Version: 0.1.3
 Authors@R: person("Jan Philipp", "Nolte", email = "jp.nolte@protonmail.com", role = c("aut", "cre"))
 Maintainer: Jan Philipp Nolte <jp.nolte@protonmail.com>
 Description: Lerne die Datenanalyse in R durch einfache Erklärungen mit praktischen Beispielen und Übungen ohne Vorkenntnisse im Selbststudium.
@@ -10,5 +10,5 @@ LazyData: true
 URL: https://r-empirische-wissenschaften.de, https://github.com/j3ypi/remp
 BugReports: https://github.com/j3ypi/remp/issues
 Depends:
-    R (>= 2.10)
+    R (>= 3.50)
 RoxygenNote: 7.2.3

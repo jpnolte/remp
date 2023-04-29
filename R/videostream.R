@@ -1,6 +1,6 @@
 #' Videostreaming Nutzerstatistik
 #'
-#' Dies ist die Nutzerstatistik eines User beim Film- und Serienschauen auf einer der bekanntesten Videostreaming Plattformen.
+#' Dies ist die Nutzerstatistik eines Users beim Film- und Serienschauen auf einer Videostreaming Plattform.
 #' @format Ein tibble mit 1,493 Zeilen and 4 Spalten:
 #' \describe{
 #'   \item{Titel}{Names des Filmes oder der Serie}

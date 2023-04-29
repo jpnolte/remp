@@ -3,13 +3,13 @@
 \docType{data}
 \name{tipp_wm_wide}
 \alias{tipp_wm_wide}
-\title{Tipp WM (breites Format)}
+\title{Tipp WM: breites Format}
 \format{
 Ein tibble mit 64 Zeilen and 7 Spalten:
 \describe{
-  \item{Thomas_Bayes}{Tipps von Thomas Bayes.}
-  \item{Egon_Pearson}{Tipps von Egon Pearson.}
-  \item{Jerzy_Neyman}{Tipps von Jerzy_Neyman.}
+  \item{Thomas_bayes}{Tipps von Thomas Bayes.}
+  \item{Egon_pearson}{Tipps von Egon Pearson.}
+  \item{Jerzy_neyman}{Tipps von Jerzy_Neyman.}
   \item{Alice}{Tipps von Alice.}
   \item{Bob}{Tipps von Bob.}
   \item{Charlie}{Tipps von Charlie.}

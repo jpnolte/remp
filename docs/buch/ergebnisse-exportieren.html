@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Kapitel 10 Ergebnisse exportieren | R für empirische Wissenschaften</title>
   <meta name="description" content="Dieses Buch bietet einfache Erklärungen mit praktischen Beispielen und Übungen, welche das Erlernen von R ohne Programmiervorkenntnisse im Selbststudium ermöglichen. Die Zielgruppe sind WissenschaftlerInnen und StudentInnen der Fachrichtungen Medizin, Psychologie, Wirtschaftswissenschaften, Sozialwissenschaften, Agrarwissenschaften, Neurowissenschaften, Biologie, Journalismus, Tourismus, Data Science, Biostatistik und allen weiteren Disziplinen, die Daten auswerten möchten." />
-  <meta name="generator" content="bookdown 0.31 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.33 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Kapitel 10 Ergebnisse exportieren | R für empirische Wissenschaften" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Jan Philipp Nolte" />
 
 
-<meta name="date" content="2023-04-23" />
+<meta name="date" content="2023-04-29" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -341,7 +341,7 @@ div.csl-indent {
 <li class="chapter" data-level="11.3" data-path="datatypes.html"><a href="datatypes.html#tibble"><i class="fa fa-check"></i><b>11.3</b> Data.frame und tibble</a></li>
 <li class="chapter" data-level="11.4" data-path="datatypes.html"><a href="datatypes.html#lists"><i class="fa fa-check"></i><b>11.4</b> Liste</a></li>
 <li class="chapter" data-level="11.5" data-path="datatypes.html"><a href="datatypes.html#umwandlung"><i class="fa fa-check"></i><b>11.5</b> Umwandlungen</a></li>
-<li class="chapter" data-level="11.6" data-path="datatypes.html"><a href="datatypes.html#objektorientierung"><i class="fa fa-check"></i><b>11.6</b> Objektorientierung</a></li>
+<li class="chapter" data-level="11.6" data-path="datatypes.html"><a href="datatypes.html#objekte-und-objektorientierung"><i class="fa fa-check"></i><b>11.6</b> Objekte und Objektorientierung</a></li>
 </ul></li>
 <li class="chapter" data-level="12" data-path="iterationmain.html"><a href="iterationmain.html"><i class="fa fa-check"></i><b>12</b> Funktionen wiederholt anwenden</a>
 <ul>
@@ -352,12 +352,6 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i>Appendix</a>
 <ul>
-<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#datensatzerläuterungen"><i class="fa fa-check"></i>Datensatzerläuterungen</a>
-<ul>
-<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#big-five"><i class="fa fa-check"></i>Big Five</a></li>
-<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#chemo"><i class="fa fa-check"></i>Chemo</a></li>
-<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#weitere-datensätze"><i class="fa fa-check"></i>Weitere Datensätze</a></li>
-</ul></li>
 <li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#literaturverzeichnis"><i class="fa fa-check"></i>Literaturverzeichnis</a></li>
 <li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#verwendete-softwareversionen"><i class="fa fa-check"></i>Verwendete Softwareversionen</a></li>
 </ul></li>
@@ -398,8 +392,8 @@ div.csl-indent {
 <p><strong>Quarto.</strong> Eine neuere Alternative zu R Markdown ist Quarto. Auch hier handelt es sich um ein eigenes Dateiformat, welches mit <code>.qmd</code> endet. Die Anwendung der beiden Formate ist grundsätzlich sehr ähnlich. Unterschiede und mögliche Vorteile werden in der folgenden Info-Box diskutiert.</p>
 <p><strong>Pandoc.</strong> Die Umwandlung der Dateien findet hinter den Kulissen mithilfe von Pandoc statt. Da Pandoc seit der RStudio Version <code>1.3</code> vorinstalliert ist, muss du dir darum keine Gedanken mehr machen. Wer eine ältere Version auf dem Computer hat, muss Pandoc manuell unter <a href="https://pandoc.org/installing.html">https://pandoc.org/installing.html</a> herunterladen. Für das Umwandeln von R Markdown Dateien in Word durch Pandoc ist außerdem eine Installation von Microsoft Office oder LibreOffice auf dem Computer notwendig.</p>
 <p><strong>LaTeX.</strong> Das zuvor beschriebene Pandoc formiert die Datei in LaTeX um, welches wiederum für das Kreieren des PDFs verantwortlich ist. LaTeX wird in abgeänderter Form bereits seit Ende der 70er Jahre vor allem von NaturwissenschaftlerInnen für die Erstellung wissenschaftlicher Arbeiten verwendet wird. Es ist notwendig, dieses Programm auf dem Computer installiert zu haben, wenn man seine Analyse in ein PDF umwandeln möchte. Für R Nutzer ist die einfachste Installation über das <code>tinytex</code> Package. Dafür muss zuerst das Package installiert werden. Anschließend erfolgt mit <code>install_tinytex()</code> die Installation von LaTeX.</p>
-<div class="sourceCode" id="cb597"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb597-1"><a href="ergebnisse-exportieren.html#cb597-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;tinytex&quot;</span>)</span>
-<span id="cb597-2"><a href="ergebnisse-exportieren.html#cb597-2" aria-hidden="true" tabindex="-1"></a>tinytex<span class="sc">::</span><span class="fu">install_tinytex</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb603"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb603-1"><a href="ergebnisse-exportieren.html#cb603-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;tinytex&quot;</span>)</span>
+<span id="cb603-2"><a href="ergebnisse-exportieren.html#cb603-2" aria-hidden="true" tabindex="-1"></a>tinytex<span class="sc">::</span><span class="fu">install_tinytex</span>()</span></code></pre></div>
 <p>Alternativ kann auf Windows MiKTeX, auf macOS MacTeX und auf Linux LiveTeX installiert werden. Dies erfolgt unabhängig von R durch Befolgen der jeweiligen Installationsanweisungen auf der entsprechenden Internetseite.</p>
 <div class="idea">
 <p>Das Unternehmen Posit (EntwicklerInnen von RStudio) hat eine Alternative zu R Markdown namens Quarto entwickelt. Der Aufbau von R Markdown und Quarto Dateien ist dabei sehr ähnlich, weswegen es kaum einen Unterschied macht, für welches Programm man sich zunächst entscheidet. R Markdown existiert deutlich länger, weswegen es diverse Erweiterungen und Dokumentation dafür gibt. Einige dieser Erweiterungen sind ohne Zusatzpakete direkt in Quarto integriert. Tendenziell sehen die Umwandlungen mit Quarto etwas moderner aus. Außerdem kann Quarto besser mit anderen Programmiersprachen wie Python oder Julia verwendet werden. Für welches dieser Formate man sich letzten Endes entscheidet, hängt von der persönlichen Präferenz und dem eigenen Anwendungsgebiet ab.</p>
@@ -408,16 +402,16 @@ div.csl-indent {
 <div id="markdown" class="section level2 hasAnchor" number="10.2">
 <h2><span class="header-section-number">10.2</span> Berichte erstellen<a href="ergebnisse-exportieren.html#markdown" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Für dieses Kapitel muss das <code>knitr</code> Package installiert und geladen werden.</p>
-<div class="sourceCode" id="cb598"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb598-1"><a href="ergebnisse-exportieren.html#cb598-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span></code></pre></div>
+<div class="sourceCode" id="cb604"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb604-1"><a href="ergebnisse-exportieren.html#cb604-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span></code></pre></div>
 <p>Öffne zum Erstellen von R Markdown Dokumenten (Endung <code>.Rmd</code>) das Dropdown-Menü mit dem Papier und dem grünen Pluszeichen unter dem Reiter <code>File</code>.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-394"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-396"></span>
 <img src="images/new_markdown1.png" alt="Erster Schritt in der Erstellung eines neuen R Markdown Skripts." width="98%" />
 <p class="caption">
 Abbildung 10.1: Erster Schritt in der Erstellung eines neuen R Markdown Skripts.
 </p>
 </div>
 <p>Wähle in diesem Reiter <code>R Markdown</code> aus. Die Punkte implizieren, dass noch weitere Informationen vor dem Erstellen notwendig sind. Anschließend kann man das gewünschte Ausgabeformat, den Titel und Autor festlegen. Beim Bestätigen auf OK wird eine Vorlage erstellt, die man nach Belieben anpassen kann.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-395"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-397"></span>
 <img src="images/title_markdown1.png" alt="Zweiter Schritt zur Erstellung eines neuen R Markdown Skripts." width="98%" />
 <p class="caption">
 Abbildung 10.2: Zweiter Schritt zur Erstellung eines neuen R Markdown Skripts.
@@ -436,18 +430,18 @@ Abbildung 10.2: Zweiter Schritt zur Erstellung eines neuen R Markdown Skripts.
 <p>Im ersten Code Block laden wir alle Packages und Datensätze. Auch Vorberechnungen, die später nicht dargestellt werden sollen, würden an dieser Stelle ihren Platz finden. Durch die Option <code>include: FALSE</code> wird der Inhalt zwar ausgeführt, aber nicht angezeigt.</p>
 <p>Eine weitere Option zum Ausblenden des Codes ist das Argument <code>echo</code>, welches ebenfalls auf <code>FALSE</code> gesetzt werden kann. So können bspw. ausschließlich die Ergebnisse in Form von Tabellen ohne zugehörigen R Code angezeigt werden.</p>
 <p><strong>– Beginn der Datei Beispiel.Rmd – </strong></p>
-<div class="sourceCode" id="cb599"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb599-1"><a href="ergebnisse-exportieren.html#cb599-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
-<span id="cb599-2"><a href="ergebnisse-exportieren.html#cb599-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;Vorläufige Ergebnisse&quot;</span></span>
-<span id="cb599-3"><a href="ergebnisse-exportieren.html#cb599-3" aria-hidden="true" tabindex="-1"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;Student A&quot;</span></span>
-<span id="cb599-4"><a href="ergebnisse-exportieren.html#cb599-4" aria-hidden="true" tabindex="-1"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;2023-01-13&quot;</span></span>
-<span id="cb599-5"><a href="ergebnisse-exportieren.html#cb599-5" aria-hidden="true" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span></span>
-<span id="cb599-6"><a href="ergebnisse-exportieren.html#cb599-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html_document</span><span class="kw">:</span></span>
-<span id="cb599-7"><a href="ergebnisse-exportieren.html#cb599-7" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">df_print</span><span class="kw">:</span><span class="at"> paged</span></span>
-<span id="cb599-8"><a href="ergebnisse-exportieren.html#cb599-8" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">pdf_document</span><span class="kw">:</span><span class="at"> </span></span>
-<span id="cb599-9"><a href="ergebnisse-exportieren.html#cb599-9" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">df_print</span><span class="kw">:</span><span class="at"> kable</span></span>
-<span id="cb599-10"><a href="ergebnisse-exportieren.html#cb599-10" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">word_document</span><span class="kw">:</span><span class="at"> </span></span>
-<span id="cb599-11"><a href="ergebnisse-exportieren.html#cb599-11" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">df_print</span><span class="kw">:</span><span class="at"> kable</span></span>
-<span id="cb599-12"><a href="ergebnisse-exportieren.html#cb599-12" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div>
+<div class="sourceCode" id="cb605"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb605-1"><a href="ergebnisse-exportieren.html#cb605-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb605-2"><a href="ergebnisse-exportieren.html#cb605-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;Vorläufige Ergebnisse&quot;</span></span>
+<span id="cb605-3"><a href="ergebnisse-exportieren.html#cb605-3" aria-hidden="true" tabindex="-1"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;Student A&quot;</span></span>
+<span id="cb605-4"><a href="ergebnisse-exportieren.html#cb605-4" aria-hidden="true" tabindex="-1"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;2023-01-13&quot;</span></span>
+<span id="cb605-5"><a href="ergebnisse-exportieren.html#cb605-5" aria-hidden="true" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span></span>
+<span id="cb605-6"><a href="ergebnisse-exportieren.html#cb605-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html_document</span><span class="kw">:</span></span>
+<span id="cb605-7"><a href="ergebnisse-exportieren.html#cb605-7" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">df_print</span><span class="kw">:</span><span class="at"> paged</span></span>
+<span id="cb605-8"><a href="ergebnisse-exportieren.html#cb605-8" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">pdf_document</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb605-9"><a href="ergebnisse-exportieren.html#cb605-9" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">df_print</span><span class="kw">:</span><span class="at"> kable</span></span>
+<span id="cb605-10"><a href="ergebnisse-exportieren.html#cb605-10" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">word_document</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb605-11"><a href="ergebnisse-exportieren.html#cb605-11" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">df_print</span><span class="kw">:</span><span class="at"> kable</span></span>
+<span id="cb605-12"><a href="ergebnisse-exportieren.html#cb605-12" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div>
 <pre><code>```{r}
 #| label: setup
 #| include: FALSE
@@ -458,12 +452,12 @@ library(knitr)
 
 options(dplyr.summarise.inform = FALSE)
 
-data(big_five)
+data(big5_mod2)
 ```</code></pre>
 <p>## Deskriptive Statistik</p>
 <p>Verschiedene Lagemaße wie Minimum, 1. Quartil, Mittelwert, Median, 3. Quartil, Maximum, Standardabweichung und Standardfehler.</p>
 <pre><code>```{r}
-big_five |&gt; 
+big5_mod2 |&gt; 
   descriptive() 
 ```</code></pre>
 <p>## Visualisierung</p>
@@ -472,7 +466,7 @@ big_five |&gt;
 #| echo: FALSE
 #| fig.cap: &quot;Streudiagramm zur Extraversion und Neurotizismus.&quot;
 
-ggplot(big_five, aes(x = Extraversion, y = Neurotizismus)) + 
+ggplot(big5_mod2, aes(x = Extraversion, y = Neurotizismus)) + 
   geom_point(position = &quot;jitter&quot;)
 ```</code></pre>
 <p><strong>– Ende der Datei Beispiel.Rmd –</strong></p>
@@ -499,7 +493,7 @@ Abbildung 10.3: Umwandlung von Markdown in HTML.
 </ul>
 </div>
 <p>Umwandeln können wir das R Markdown Dokument durch Klicken auf das Wort Knit (engl. für stricken) in der Leiste unter dem Reiter der geöffneten Dateien oder durch die Tastenkombination <kbd>Strg</kbd> / <code>Cmd + Shift + K</code>. Wenn man nur auf das Symbol drückt, wird die Datei in das an erster Stelle im YAML Kopf festgelegten Format umgewandelt. Besser ist es jedoch, das Dropdown-Menü durch einen Klick auf den Pfeil nach unten zu öffnen und den gewünschten Dateityp auszuwählen.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-396"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-398"></span>
 <img src="images/knit_markdown1.png" alt="Umwandlung des R Markdown Skripts in HTML, PDF oder Word." width="98%" />
 <p class="caption">
 Abbildung 10.4: Umwandlung des R Markdown Skripts in HTML, PDF oder Word.
@@ -517,17 +511,17 @@ Abbildung 10.4: Umwandlung des R Markdown Skripts in HTML, PDF oder Word.
 <div id="knitr" class="section level3 hasAnchor" number="10.3.1">
 <h3><span class="header-section-number">10.3.1</span> Exportieren nach Word und PDF<a href="ergebnisse-exportieren.html#knitr" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Für die Tabellen benötigen wir für beide Formate das <code>knitr</code> Package.</p>
-<div class="sourceCode" id="cb603"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb603-1"><a href="ergebnisse-exportieren.html#cb603-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span></code></pre></div>
+<div class="sourceCode" id="cb609"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb609-1"><a href="ergebnisse-exportieren.html#cb609-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span></code></pre></div>
 <p>Wenn keine ganzen Berichte, sondern nur Tabellen für die eigene Arbeit z.B. in Word erstellt werden sollen, vereinfacht sich die R Markdown Datei aus Kapitel <a href="ergebnisse-exportieren.html#markdown">10.2</a>. Im YAML-Kopf spezifizieren wir an dieser Stelle nur den Titel und den Ausgabetyp als Word und PDF. Alle Tabellen sollen dabei mit der <code>kable()</code> Funktion aus dem <code>knitr</code> Package erstellt werden (<code>df_print: kable</code>). Damit der R Code nicht angezeigt wird, muss in weiterer Folge noch die Option <code>echo: FALSE</code> in den entsprechenden Code Abschnitten hinzugefügt werden.</p>
 <p><strong>– Beginn der Datei Tabelle.Rmd –</strong></p>
-<div class="sourceCode" id="cb604"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb604-1"><a href="ergebnisse-exportieren.html#cb604-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
-<span id="cb604-2"><a href="ergebnisse-exportieren.html#cb604-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">&#39;Beispiel&#39;</span></span>
-<span id="cb604-3"><a href="ergebnisse-exportieren.html#cb604-3" aria-hidden="true" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span></span>
-<span id="cb604-4"><a href="ergebnisse-exportieren.html#cb604-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">word_document</span><span class="kw">:</span><span class="at"> </span></span>
-<span id="cb604-5"><a href="ergebnisse-exportieren.html#cb604-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">df_print</span><span class="kw">:</span><span class="at"> kable</span></span>
-<span id="cb604-6"><a href="ergebnisse-exportieren.html#cb604-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">pdf_document</span><span class="kw">:</span><span class="at"> </span></span>
-<span id="cb604-7"><a href="ergebnisse-exportieren.html#cb604-7" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">df_print</span><span class="kw">:</span><span class="at"> kable</span></span>
-<span id="cb604-8"><a href="ergebnisse-exportieren.html#cb604-8" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div>
+<div class="sourceCode" id="cb610"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb610-1"><a href="ergebnisse-exportieren.html#cb610-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb610-2"><a href="ergebnisse-exportieren.html#cb610-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">&#39;Beispiel&#39;</span></span>
+<span id="cb610-3"><a href="ergebnisse-exportieren.html#cb610-3" aria-hidden="true" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span></span>
+<span id="cb610-4"><a href="ergebnisse-exportieren.html#cb610-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">word_document</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb610-5"><a href="ergebnisse-exportieren.html#cb610-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">df_print</span><span class="kw">:</span><span class="at"> kable</span></span>
+<span id="cb610-6"><a href="ergebnisse-exportieren.html#cb610-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">pdf_document</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb610-7"><a href="ergebnisse-exportieren.html#cb610-7" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">df_print</span><span class="kw">:</span><span class="at"> kable</span></span>
+<span id="cb610-8"><a href="ergebnisse-exportieren.html#cb610-8" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div>
 <pre><code>```{r}
 #| label: setup
 #| include: FALSE
@@ -536,17 +530,17 @@ library(tidyverse)
 library(knitr)
 library(remp)
 
-data(big_five)
+data(big5_mod2)
 ```</code></pre>
 <pre><code>```{r}
 #| echo: FALSE
 
-big_five |&gt; 
+big5_mod2 |&gt; 
   select(Extraversion, Neurotizismus) |&gt; 
   descriptive() 
 ```</code></pre>
 <p><strong>– Ende der Datei Tabelle.Rmd –</strong></p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-398"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-400"></span>
 <img src="images/word_markdown.png" alt="Beispielhafter Output einer Tabelle von R Markdown in Word." width="98%" />
 <p class="caption">
 Abbildung 10.5: Beispielhafter Output einer Tabelle von R Markdown in Word.
@@ -560,23 +554,28 @@ Abbildung 10.5: Beispielhafter Output einer Tabelle von R Markdown in Word.
 <div id="latex" class="section level3 hasAnchor" number="10.3.2">
 <h3><span class="header-section-number">10.3.2</span> Exportieren nach LaTeX<a href="ergebnisse-exportieren.html#latex" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Für dieses Kapitel muss das <code>xtable</code> Package installiert und geladen sein.</p>
-<div class="sourceCode" id="cb607"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb607-1"><a href="ergebnisse-exportieren.html#cb607-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(xtable)</span></code></pre></div>
+<div class="sourceCode" id="cb613"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb613-1"><a href="ergebnisse-exportieren.html#cb613-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(xtable)</span></code></pre></div>
 <p>Es gibt auch die Möglichkeit, <code>tibbles</code> aus R direkt in LaTeX Code umzuwandeln, um diesen dann in die zugehörige LaTeX Datei einzufügen. In den bisherigen Kapiteln wurde LaTeX nur hinter den Kulissen von Pandoc zum Erstellen von PDFs verwendet. Falls du eine wissenschaftliche Publikation direkt in LaTeX schreibst, benötigst du allerdings den tatsächlichen LaTeX Code. Exemplarisch verwenden wir dieselben deskriptiven Lage- und Streuungsmaße wie im letzten Kapitel.</p>
-<div class="sourceCode" id="cb608"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb608-1"><a href="ergebnisse-exportieren.html#cb608-1" aria-hidden="true" tabindex="-1"></a>erg <span class="ot">&lt;-</span> big_five <span class="sc">|&gt;</span> </span>
-<span id="cb608-2"><a href="ergebnisse-exportieren.html#cb608-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Extraversion, Neurotizismus) <span class="sc">|&gt;</span> </span>
-<span id="cb608-3"><a href="ergebnisse-exportieren.html#cb608-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">descriptive</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb608-4"><a href="ergebnisse-exportieren.html#cb608-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Variable, Min, Mean, Median, Max, SE) </span>
-<span id="cb608-5"><a href="ergebnisse-exportieren.html#cb608-5" aria-hidden="true" tabindex="-1"></a>erg</span></code></pre></div>
+<div class="sourceCode" id="cb614"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb614-1"><a href="ergebnisse-exportieren.html#cb614-1" aria-hidden="true" tabindex="-1"></a>erg <span class="ot">&lt;-</span> big5_mod2 <span class="sc">|&gt;</span> </span>
+<span id="cb614-2"><a href="ergebnisse-exportieren.html#cb614-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Extraversion, Neurotizismus) <span class="sc">|&gt;</span> </span>
+<span id="cb614-3"><a href="ergebnisse-exportieren.html#cb614-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">descriptive</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb614-4"><a href="ergebnisse-exportieren.html#cb614-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Variable, Min, Mean, Median, Max, SE) </span></code></pre></div>
+<pre class="bordercode"><code># A tibble: 2 × 10
+  Variable          N   Min    Q1  Mean Median    Q3   Max    SD    SE
+  &lt;chr&gt;         &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+1 Extraversion    200   2.3   2.8  3.08    3     3.3   4.3  0.35  0.02
+2 Neurotizismus   200   1.4   2.7  3.13    3.1   3.6   4.6  0.68  0.05</code></pre>
+<div class="sourceCode" id="cb616"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb616-1"><a href="ergebnisse-exportieren.html#cb616-1" aria-hidden="true" tabindex="-1"></a>erg</span></code></pre></div>
 <pre class="bordercode"><code># A tibble: 2 × 6
   Variable        Min  Mean Median   Max    SE
   &lt;chr&gt;         &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
 1 Extraversion    2.3  3.08    3     4.3  0.02
 2 Neurotizismus   1.4  3.13    3.1   4.6  0.05</code></pre>
 <p>Zum Erstellen des LaTeX Codes greift man auf die Funktion <code>xtable()</code> aus dem gleichnamigen Package zurück. Das erste Argument ist hierbei der auszugebende Datensatz. Das zweite Argument der Funktion ist <code>digits</code>, mit dem man pro Spalte die Anzahl der gerundeten Nachkommastellen festlegt. Dabei können wir entweder eine einzelne Zahl eingeben und somit für alle Spalten dieselbe Rundung anwenden oder für jede Spalte die Rundung einzeln als Vektor mithilfe von <code>c()</code> definieren. Da in der Funktion auch die Zeilennamen berücksichtigt werden, muss der Vektor immer um eins länger sein als die Anzahl der Spalten des eigentlichen Datensatzes. Die Funktion <code>print()</code> mit dem Argument <code>include.rownames</code> verhindert anschließend, dass jede Zeile des Datensatzes nummeriert ausgegeben wird.</p>
-<div class="sourceCode" id="cb610"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb610-1"><a href="ergebnisse-exportieren.html#cb610-1" aria-hidden="true" tabindex="-1"></a>tabelle <span class="ot">&lt;-</span> <span class="fu">xtable</span>(erg, <span class="at">digits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">3</span>)) </span>
-<span id="cb610-2"><a href="ergebnisse-exportieren.html#cb610-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(tabelle, <span class="at">include.rownames =</span> <span class="cn">FALSE</span>) </span></code></pre></div>
-<pre class="bordercode"><code>% latex table generated in R 4.2.3 by xtable 1.8-4 package
-% Sun Apr 23 16:15:30 2023
+<div class="sourceCode" id="cb618"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb618-1"><a href="ergebnisse-exportieren.html#cb618-1" aria-hidden="true" tabindex="-1"></a>tabelle <span class="ot">&lt;-</span> <span class="fu">xtable</span>(erg, <span class="at">digits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">3</span>)) </span>
+<span id="cb618-2"><a href="ergebnisse-exportieren.html#cb618-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(tabelle, <span class="at">include.rownames =</span> <span class="cn">FALSE</span>) </span></code></pre></div>
+<pre class="bordercode"><code>% latex table generated in R 4.3.0 by xtable 1.8-4 package
+% Sat Apr 29 18:39:41 2023
 \begin{table}[ht]
 \centering
 \begin{tabular}{lrrrrr}
@@ -596,19 +595,19 @@ Extraversion &amp; 2.30 &amp; 3.08 &amp; 3.00 &amp; 4.30 &amp; 0.020 \\
 <p>Auch hier startet die Datei mit einem YAML-Kopf zum Festlegen der Optionen des Dokuments. An dieser Stelle ergibt sich ein wichtiger Unterschied zu R Markdown Dateien. Während in R Markdown die Ausgabeformate mit <code>output</code> definiert wurden, heißt das Argument hier <code>format</code>. Auch die Bezeichnung der Optionen innerhalb der Formate ist anders. Wichtig ist bei Ausgabe als Internetseite (HTML-Dokument) die zusätzliche Verwendung des Arguments <code>embed-resources</code>, da ansonsten ein extra Ordner mit den zugehörigen Javascript und CSS Dateien erstellt wird, die für das Verhalten und Aussehen des HTML-Dokuments verantwortlich sind.</p>
 <p>Wir verwenden an dieser Stelle dasselbe Beispiel wie in Kapitel <a href="ergebnisse-exportieren.html#markdown">10.2</a>. Die einzigen Unterschiede sind der abgeänderte YAML-Kopf und die Dateiendung mit <code>.qmd</code> anstelle von <code>.Rmd</code>.</p>
 <p><strong>– Beginn der Datei Quarto.qmd – </strong></p>
-<div class="sourceCode" id="cb612"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb612-1"><a href="ergebnisse-exportieren.html#cb612-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
-<span id="cb612-2"><a href="ergebnisse-exportieren.html#cb612-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;Vorläufige Ergebnisse&quot;</span></span>
-<span id="cb612-3"><a href="ergebnisse-exportieren.html#cb612-3" aria-hidden="true" tabindex="-1"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;Student A&quot;</span></span>
-<span id="cb612-4"><a href="ergebnisse-exportieren.html#cb612-4" aria-hidden="true" tabindex="-1"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;2023-01-13&quot;</span></span>
-<span id="cb612-5"><a href="ergebnisse-exportieren.html#cb612-5" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
-<span id="cb612-6"><a href="ergebnisse-exportieren.html#cb612-6" aria-hidden="true" tabindex="-1"></a><span class="at">   </span><span class="fu">html</span><span class="kw">:</span></span>
-<span id="cb612-7"><a href="ergebnisse-exportieren.html#cb612-7" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">embed-resources</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb612-8"><a href="ergebnisse-exportieren.html#cb612-8" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">df-print</span><span class="kw">:</span><span class="at"> paged</span></span>
-<span id="cb612-9"><a href="ergebnisse-exportieren.html#cb612-9" aria-hidden="true" tabindex="-1"></a><span class="at">   </span><span class="fu">docx</span><span class="kw">:</span><span class="at"> </span></span>
-<span id="cb612-10"><a href="ergebnisse-exportieren.html#cb612-10" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">df-print</span><span class="kw">:</span><span class="at"> kable</span></span>
-<span id="cb612-11"><a href="ergebnisse-exportieren.html#cb612-11" aria-hidden="true" tabindex="-1"></a><span class="at">   </span><span class="fu">pdf</span><span class="kw">:</span></span>
-<span id="cb612-12"><a href="ergebnisse-exportieren.html#cb612-12" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">df-print</span><span class="kw">:</span><span class="at"> kable</span></span>
-<span id="cb612-13"><a href="ergebnisse-exportieren.html#cb612-13" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div>
+<div class="sourceCode" id="cb620"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb620-1"><a href="ergebnisse-exportieren.html#cb620-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb620-2"><a href="ergebnisse-exportieren.html#cb620-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;Vorläufige Ergebnisse&quot;</span></span>
+<span id="cb620-3"><a href="ergebnisse-exportieren.html#cb620-3" aria-hidden="true" tabindex="-1"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;Student A&quot;</span></span>
+<span id="cb620-4"><a href="ergebnisse-exportieren.html#cb620-4" aria-hidden="true" tabindex="-1"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;2023-01-13&quot;</span></span>
+<span id="cb620-5"><a href="ergebnisse-exportieren.html#cb620-5" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb620-6"><a href="ergebnisse-exportieren.html#cb620-6" aria-hidden="true" tabindex="-1"></a><span class="at">   </span><span class="fu">html</span><span class="kw">:</span></span>
+<span id="cb620-7"><a href="ergebnisse-exportieren.html#cb620-7" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">embed-resources</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb620-8"><a href="ergebnisse-exportieren.html#cb620-8" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">df-print</span><span class="kw">:</span><span class="at"> paged</span></span>
+<span id="cb620-9"><a href="ergebnisse-exportieren.html#cb620-9" aria-hidden="true" tabindex="-1"></a><span class="at">   </span><span class="fu">docx</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb620-10"><a href="ergebnisse-exportieren.html#cb620-10" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">df-print</span><span class="kw">:</span><span class="at"> kable</span></span>
+<span id="cb620-11"><a href="ergebnisse-exportieren.html#cb620-11" aria-hidden="true" tabindex="-1"></a><span class="at">   </span><span class="fu">pdf</span><span class="kw">:</span></span>
+<span id="cb620-12"><a href="ergebnisse-exportieren.html#cb620-12" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">df-print</span><span class="kw">:</span><span class="at"> kable</span></span>
+<span id="cb620-13"><a href="ergebnisse-exportieren.html#cb620-13" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div>
 <pre><code>```{r}
 #| label: setup
 #| include: FALSE
@@ -619,12 +618,12 @@ library(knitr)
 
 options(dplyr.summarise.inform = FALSE)
 
-data(big_five)
+data(big5_mod2)
 ```</code></pre>
 <p>## Deskriptive Statistik</p>
 <p>Verschiedene Lagemaße wie Minimum, 1. Quartil, Mittelwert, Median, 3. Quartil, Maximum, Standardabweichung und Standardfehler.</p>
 <pre><code>```{r}
-big_five |&gt; 
+big5_mod2 |&gt; 
   descriptive() 
 ```</code></pre>
 <p>## Visualisierung</p>
@@ -633,7 +632,7 @@ big_five |&gt;
 #| echo: FALSE
 #| fig.cap: &quot;Streudiagramm zur Extraversion und Neurotizismus.&quot;
 
-ggplot(big_five, aes(x = Extraversion, y = Neurotizismus)) + 
+ggplot(big5_mod2, aes(x = Extraversion, y = Neurotizismus)) + 
   geom_point(position = &quot;jitter&quot;)
 ```</code></pre>
 <p><strong>– Ende der Datei Quarto.qmd –</strong></p>

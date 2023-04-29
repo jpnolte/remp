@@ -1,8 +1,8 @@
 #' Antwortmatrix erstellen
 #'
-#' Erstellt eine binäre Ergebnismatrix, in der die richtigen Antworten mit einer 1 und die falschen mit einer 0 markiert sind.
-#' Falls die richtigen Antworten sowohl Numerics als auch Characters beinhalten, kann der Funktion ebenfalls ein einzeiliger data.frame / tibble gegeben werden.
-#' Fehlende Werte werden als falsch beantwortet gewertet.
+#' Erstellt eine binäre Ergebnismatrix, in der die richtigen Antworten mit einer 1 und die falschen mit einer 0 ausgegeben werden.
+#' Falls die richtigen Antworten sowohl Numerics als auch Characters beinhalten, kann der Funktion ebenfalls ein einzeiliger data.frame oder tibble übergeben werden.
+#' Fehlende Werte werden automatisch als falsch beantwortet gewertet.
 #' @param df Datensatz als data.frame oder tibble.
 #' @param answers Antwortvektor als Vektor oder einzeiliger data.frame bzw. tibble.
 #' @return Antwortmatrix als tibble.

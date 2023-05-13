@@ -23,7 +23,7 @@
 <meta name="author" content="Jan Philipp Nolte" />
 
 
-<meta name="date" content="2023-04-29" />
+<meta name="date" content="2023-05-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -142,7 +142,6 @@ div.csl-indent {
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 <link rel="stylesheet" href="toc.css" type="text/css" />
-<link rel="stylesheet" href="font-awesome.min.css" type="text/css" />
 </head>
 
 <body>
@@ -429,8 +428,8 @@ div.csl-indent {
 </div>
 <p>Die Verwendung der Pipe hat zwei große Vorteile:</p>
 <ol style="list-style-type: decimal">
-<li>Die Verschachtelung mehrerer Funktionen ineinander wird verhindert.</li>
 <li>Wir müssen nicht jedes Ergebnis der verschiedenen Funktionen einzeln zwischenspeichern.</li>
+<li>Die Verschachtelung mehrerer Funktionen ineinander wird verringert.</li>
 </ol>
 <p>Trotzdem müssen wir das Ergebnis dieser aneinandergeketteten Funktion irgendwann mit dem Zuweisungspfeil speichern.</p>
 <div class="sourceCode" id="cb115"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb115-1"><a href="datenvorbereitung.html#cb115-1" aria-hidden="true" tabindex="-1"></a>daten <span class="ot">&lt;-</span> big5 <span class="sc">|&gt;</span> </span>
@@ -998,14 +997,14 @@ div.csl-indent {
 <h2><span class="header-section-number">6.6</span> Breites und langes Datenformat<a href="datenvorbereitung.html#tidy" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Grundsätzlich unterscheidet man ein sogenanntes breites Datenformat von einem langen Datenformat. Im breiten Datensatz ist jede Spalte eine Variable, jede Zeile eine Beobachtung und jede Zelle ein Wert. Für die meisten Fälle ist das unser gewünschtes Datenformat. In Abbildung <a href="datenvorbereitung.html#fig:wideintro">6.1</a> ist ein einfaches Beispiel für einen breiten Datensatz mit drei Personen und zwei Variablen illustriert.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:wideintro"></span>
-<img src="images/wide_intro.png" alt="Breites Datenformat mit drei Personen und drei Variablen." width="50%" />
+<img src="images/wide_intro.png" alt="Breites Datenformat mit drei Personen und drei Variablen." width="331" height="145" />
 <p class="caption">
 Abbildung 6.1: Breites Datenformat mit drei Personen und drei Variablen.
 </p>
 </div>
 <p>Für das Erstellen mehrfaktorieller Abbildungen und hierarchischer statistischer Modellierung benötigen wir allerdings das lange Datenformat. In Abbildung <a href="datenvorbereitung.html#fig:longintro">6.2</a> ist der zuvor gezeigte Datensatz in ein langes Format umgewandelt.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:longintro"></span>
-<img src="images/long_intro.png" alt="Langes Datenformat mit Persönlichkeitsfaktor als Innersubjektfaktor." width="60%" />
+<img src="images/long_intro.png" alt="Langes Datenformat mit Persönlichkeitsfaktor als Innersubjektfaktor." width="400" height="250" />
 <p class="caption">
 Abbildung 6.2: Langes Datenformat mit Persönlichkeitsfaktor als Innersubjektfaktor.
 </p>
@@ -1310,7 +1309,7 @@ Abbildung 6.2: Langes Datenformat mit Persönlichkeitsfaktor als Innersubjektfak
 <span id="cb253-2"><a href="datenvorbereitung.html#cb253-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">relocate</span>(Gruppe)</span></code></pre></div>
 <pre class="bordercode"><code># A tibble: 200 × 6
   Gruppe Alter Geschlecht Extraversion Neurotizismus    ID
-  &lt;fct&gt;  &lt;dbl&gt; &lt;chr&gt;             &lt;dbl&gt;         &lt;dbl&gt; &lt;int&gt;
+  &lt;chr&gt;  &lt;dbl&gt; &lt;chr&gt;             &lt;dbl&gt;         &lt;dbl&gt; &lt;int&gt;
 1 Mittel    36 m                   3             1.9     1
 2 Jung      30 f                   3.1           3.4     2
 3 Jung      23 m                   3.4           2.4     3

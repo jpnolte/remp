@@ -23,7 +23,7 @@
 <meta name="author" content="Jan Philipp Nolte" />
 
 
-<meta name="date" content="2023-04-29" />
+<meta name="date" content="2023-05-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -142,7 +142,6 @@ div.csl-indent {
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 <link rel="stylesheet" href="toc.css" type="text/css" />
-<link rel="stylesheet" href="font-awesome.min.css" type="text/css" />
 </head>
 
 <body>
@@ -393,7 +392,7 @@ div.csl-indent {
 # ℹ 196 more rows</code></pre>
 <p>In Abbildung <a href="visual.html#fig:ggplot">8.1</a> sind die grundsätzlichen Komponenten einer <code>ggplot</code> Abbildung links und je ein entsprechendes Beispiel rechts abgebildet. Jeder <code>ggplot</code> besteht aus verschiedenen Layern, die untereinander gelegt werden. Um eine Abbildung zu erstellen, muss auf jeden Fall <em>Data</em>, <em>Aestetics</em> und <em>Geometries</em> vorhanden sein. Die Layer namens <em>Scales</em> und <em>Theme</em> sind hingegen optional und passen lediglich das Erscheinungsbild an. Wir werden uns in Kapitel <a href="visual.html#histogram">8.2</a> bis <a href="visual.html#qqplot">8.8</a> die verschiedenen <em>Geometries</em> Layer anschauen. Erst in Kapitel <a href="visual.html#adapt">8.10</a> werden die Anpassungsmöglichkeiten mithilfe der <em>Scales</em> und <em>Theme</em> Layer umfangreich erklärt.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:ggplot"></span>
-<img src="images/grammar_of_graphics.png" alt="Vereinfachte Anordnung der Layer im Rahmen der Grammar of Graphics mit Beispielen." width="98%" />
+<img src="images/grammar_of_graphics.png" alt="Vereinfachte Anordnung der Layer im Rahmen der Grammar of Graphics mit Beispielen." width="754" height="327" />
 <p class="caption">
 Abbildung 8.1: Vereinfachte Anordnung der Layer im Rahmen der Grammar of Graphics mit Beispielen.
 </p>
@@ -415,7 +414,7 @@ Abbildung 8.1: Vereinfachte Anordnung der Layer im Rahmen der Grammar of Graphic
 <div class="sourceCode" id="cb343"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb343-1"><a href="visual.html#cb343-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> big5_mod, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Extraversion)) <span class="sc">+</span> </span>
 <span id="cb343-2"><a href="visual.html#cb343-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>() </span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:layers"></span>
-<img src="r-empirische-wissenschaften_files/figure-html/layers-1.svg" alt="(a) Nur Data Layer (b) Data und Aesthetics Layer und (c) Data, Aesthetics und Geometry Layer." width="768" />
+<img src="r-empirische-wissenschaften_files/figure-html/layers-1.svg" alt="(a) Nur Data Layer (b) Data und Aesthetics Layer und (c) Data, Aesthetics und Geometry Layer." width="768" height="288" />
 <p class="caption">
 Abbildung 8.2: (a) Nur Data Layer (b) Data und Aesthetics Layer und (c) Data, Aesthetics und Geometry Layer.
 </p>
@@ -436,7 +435,7 @@ Abbildung 8.2: (a) Nur Data Layer (b) Data und Aesthetics Layer und (c) Data, Ae
 <span id="cb345-5"><a href="visual.html#cb345-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">binwidth =</span> <span class="fl">0.2</span></span>
 <span id="cb345-6"><a href="visual.html#cb345-6" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:histogramplot"></span>
-<img src="r-empirische-wissenschaften_files/figure-html/histogramplot-1.svg" alt="Histogramme im Vergleich." width="768" />
+<img src="r-empirische-wissenschaften_files/figure-html/histogramplot-1.svg" alt="Histogramme im Vergleich." width="768" height="288" />
 <p class="caption">
 Abbildung 8.3: Histogramme im Vergleich.
 </p>
@@ -462,7 +461,7 @@ Abbildung 8.3: Histogramme im Vergleich.
 <span id="cb348-7"><a href="visual.html#cb348-7" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span> </span>
 <span id="cb348-8"><a href="visual.html#cb348-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">fill =</span> <span class="st">&quot;grey&quot;</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:histodensity"></span>
-<img src="r-empirische-wissenschaften_files/figure-html/histodensity-1.svg" alt="Histogramm und Wahrscheinlichkeitsdichte separat und kombiniert." width="768" />
+<img src="r-empirische-wissenschaften_files/figure-html/histodensity-1.svg" alt="Histogramm und Wahrscheinlichkeitsdichte separat und kombiniert." width="768" height="288" />
 <p class="caption">
 Abbildung 8.4: Histogramm und Wahrscheinlichkeitsdichte separat und kombiniert.
 </p>
@@ -488,7 +487,7 @@ Abbildung 8.4: Histogramm und Wahrscheinlichkeitsdichte separat und kombiniert.
 <span id="cb351-8"><a href="visual.html#cb351-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span> </span>
 <span id="cb351-9"><a href="visual.html#cb351-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlim</span>(<span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">5</span>))  </span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:points"></span>
-<img src="r-empirische-wissenschaften_files/figure-html/points-1.svg" alt="Streudiagramm mit und ohne Regressionsgerade." width="768" />
+<img src="r-empirische-wissenschaften_files/figure-html/points-1.svg" alt="Streudiagramm mit und ohne Regressionsgerade." width="768" height="288" />
 <p class="caption">
 Abbildung 8.5: Streudiagramm mit und ohne Regressionsgerade.
 </p>
@@ -525,7 +524,7 @@ Abbildung 8.5: Streudiagramm mit und ohne Regressionsgerade.
 <span id="cb357-2"><a href="visual.html#cb357-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_boxplot</span>(<span class="at">geom =</span> <span class="st">&quot;errorbar&quot;</span>, <span class="at">width =</span> <span class="fl">0.4</span>) <span class="sc">+</span></span>
 <span id="cb357-3"><a href="visual.html#cb357-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">outlier.shape =</span> <span class="cn">NA</span>) </span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:boxplot"></span>
-<img src="r-empirische-wissenschaften_files/figure-html/boxplot-1.svg" alt="Boxplots im Vergleich." width="768" />
+<img src="r-empirische-wissenschaften_files/figure-html/boxplot-1.svg" alt="Boxplots im Vergleich." width="768" height="288" />
 <p class="caption">
 Abbildung 8.6: Boxplots im Vergleich.
 </p>
@@ -549,7 +548,7 @@ Abbildung 8.6: Boxplots im Vergleich.
 <span id="cb360-4"><a href="visual.html#cb360-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">draw_quantiles =</span> <span class="fu">c</span>(<span class="fl">0.25</span>, <span class="fl">0.5</span>, <span class="fl">0.75</span>)</span>
 <span id="cb360-5"><a href="visual.html#cb360-5" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:violinplot"></span>
-<img src="r-empirische-wissenschaften_files/figure-html/violinplot-1.svg" alt="Violin Plots im Vergleich." width="768" />
+<img src="r-empirische-wissenschaften_files/figure-html/violinplot-1.svg" alt="Violin Plots im Vergleich." width="768" height="288" />
 <p class="caption">
 Abbildung 8.7: Violin Plots im Vergleich.
 </p>
@@ -613,7 +612,7 @@ Abbildung 8.7: Violin Plots im Vergleich.
 <span id="cb371-6"><a href="visual.html#cb371-6" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
 <p>Falls du mehr als eine Gruppe innerhalb eines Balkendiagramms vergleichen möchtest, musst du ein Gruppierungsargument verwenden, welches in Kapitel <a href="visual.html#morefactors">8.9</a> eingeführt wird.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:barplots"></span>
-<img src="r-empirische-wissenschaften_files/figure-html/barplots-1.svg" alt="Verschiedene Balkendiagramme mit und ohne Fehlerbalken." width="768" />
+<img src="r-empirische-wissenschaften_files/figure-html/barplots-1.svg" alt="Verschiedene Balkendiagramme mit und ohne Fehlerbalken." width="768" height="480" />
 <p class="caption">
 Abbildung 8.8: Verschiedene Balkendiagramme mit und ohne Fehlerbalken.
 </p>
@@ -668,7 +667,7 @@ Abbildung 8.8: Verschiedene Balkendiagramme mit und ohne Fehlerbalken.
 <span id="cb378-7"><a href="visual.html#cb378-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">linetype =</span> <span class="st">&quot;longdash&quot;</span></span>
 <span id="cb378-8"><a href="visual.html#cb378-8" aria-hidden="true" tabindex="-1"></a>  ) </span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:linienplot"></span>
-<img src="r-empirische-wissenschaften_files/figure-html/linienplot-1.svg" alt="Abbildung von Liniendiagrammen als (a) Mittelwertsvergleich (b) Zeitreihe und (c) Scree Plot" width="768" />
+<img src="r-empirische-wissenschaften_files/figure-html/linienplot-1.svg" alt="Abbildung von Liniendiagrammen als (a) Mittelwertsvergleich (b) Zeitreihe und (c) Scree Plot" width="768" height="384" />
 <p class="caption">
 Abbildung 8.9: Abbildung von Liniendiagrammen als (a) Mittelwertsvergleich (b) Zeitreihe und (c) Scree Plot
 </p>
@@ -682,7 +681,7 @@ Abbildung 8.9: Abbildung von Liniendiagrammen als (a) Mittelwertsvergleich (b) Z
 <span id="cb379-2"><a href="visual.html#cb379-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_qq</span>() <span class="sc">+</span> </span>
 <span id="cb379-3"><a href="visual.html#cb379-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_qq_line</span>()</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:qqplots"></span>
-<img src="r-empirische-wissenschaften_files/figure-html/qqplots-1.svg" alt="Q-Q Plots" width="384" />
+<img src="r-empirische-wissenschaften_files/figure-html/qqplots-1.svg" alt="Q-Q Plots" width="384" height="288" />
 <p class="caption">
 Abbildung 8.10: Q-Q Plots
 </p>
@@ -719,7 +718,7 @@ Abbildung 8.10: Q-Q Plots
 <span id="cb383-6"><a href="visual.html#cb383-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
 <span id="cb383-7"><a href="visual.html#cb383-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">outlier.shape =</span> <span class="cn">NA</span>, <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="fl">0.95</span>)) </span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:twobox"></span>
-<img src="r-empirische-wissenschaften_files/figure-html/twobox-1.svg" alt="Boxplots mit und ohne Fehlerbalken nach drei Variablen gruppiert." width="768" />
+<img src="r-empirische-wissenschaften_files/figure-html/twobox-1.svg" alt="Boxplots mit und ohne Fehlerbalken nach drei Variablen gruppiert." width="768" height="288" />
 <p class="caption">
 Abbildung 8.11: Boxplots mit und ohne Fehlerbalken nach drei Variablen gruppiert.
 </p>
@@ -761,7 +760,7 @@ Abbildung 8.11: Boxplots mit und ohne Fehlerbalken nach drei Variablen gruppiert
 <span id="cb387-10"><a href="visual.html#cb387-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="fl">0.2</span>)</span>
 <span id="cb387-11"><a href="visual.html#cb387-11" aria-hidden="true" tabindex="-1"></a>  ) </span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:twob"></span>
-<img src="r-empirische-wissenschaften_files/figure-html/twob-1.svg" alt="Balken- und Liniendiagramme mit drei Variablen." width="768" />
+<img src="r-empirische-wissenschaften_files/figure-html/twob-1.svg" alt="Balken- und Liniendiagramme mit drei Variablen." width="768" height="288" />
 <p class="caption">
 Abbildung 8.12: Balken- und Liniendiagramme mit drei Variablen.
 </p>
@@ -784,7 +783,7 @@ Abbildung 8.12: Balken- und Liniendiagramme mit drei Variablen.
 <span id="cb390-2"><a href="visual.html#cb390-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">outlier.shape =</span> <span class="cn">NA</span>, <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="fl">0.95</span>)) <span class="sc">+</span></span>
 <span id="cb390-3"><a href="visual.html#cb390-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> Gruppe)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:threebox"></span>
-<img src="r-empirische-wissenschaften_files/figure-html/threebox-1.svg" alt="Boxplot mit vier Variablen." width="768" />
+<img src="r-empirische-wissenschaften_files/figure-html/threebox-1.svg" alt="Boxplot mit vier Variablen." width="768" height="288" />
 <p class="caption">
 Abbildung 8.13: Boxplot mit vier Variablen.
 </p>
@@ -821,7 +820,7 @@ Abbildung 8.13: Boxplot mit vier Variablen.
 <span id="cb394-2"><a href="visual.html#cb394-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">outlier.shape =</span> <span class="cn">NA</span>, <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="fl">0.95</span>)) <span class="sc">+</span></span>
 <span id="cb394-3"><a href="visual.html#cb394-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(Zeitpunkt <span class="sc">~</span> Gruppe)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:fourbox"></span>
-<img src="r-empirische-wissenschaften_files/figure-html/fourbox-1.svg" alt="Boxplot mit fünf Variablen." width="768" />
+<img src="r-empirische-wissenschaften_files/figure-html/fourbox-1.svg" alt="Boxplot mit fünf Variablen." width="768" height="480" />
 <p class="caption">
 Abbildung 8.14: Boxplot mit fünf Variablen.
 </p>
@@ -877,7 +876,7 @@ Abbildung 8.14: Boxplot mit fünf Variablen.
 <span id="cb399-14"><a href="visual.html#cb399-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">13</span>)</span>
 <span id="cb399-15"><a href="visual.html#cb399-15" aria-hidden="true" tabindex="-1"></a>  ) </span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:adaptplot"></span>
-<img src="r-empirische-wissenschaften_files/figure-html/adaptplot-1.svg" alt="Standardausgabe im Vergleich mit einer publikationsreifen Abbildung." width="864" />
+<img src="r-empirische-wissenschaften_files/figure-html/adaptplot-1.svg" alt="Standardausgabe im Vergleich mit einer publikationsreifen Abbildung." width="770" height="428" />
 <p class="caption">
 Abbildung 8.15: Standardausgabe im Vergleich mit einer publikationsreifen Abbildung.
 </p>
@@ -891,7 +890,7 @@ Abbildung 8.15: Standardausgabe im Vergleich mit einer publikationsreifen Abbild
 <span id="cb400-2"><a href="visual.html#cb400-2" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> p <span class="sc">+</span> <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">&quot;Blues&quot;</span>)</span>
 <span id="cb400-3"><a href="visual.html#cb400-3" aria-hidden="true" tabindex="-1"></a>c <span class="ot">&lt;-</span> p <span class="sc">+</span> <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;#A50F15&quot;</span>, <span class="st">&quot;#FC9272&quot;</span>))</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:colors"></span>
-<img src="r-empirische-wissenschaften_files/figure-html/colors-1.svg" alt="Vergleich verschiedener Farbpaletten." width="768" />
+<img src="r-empirische-wissenschaften_files/figure-html/colors-1.svg" alt="Vergleich verschiedener Farbpaletten." width="768" height="288" />
 <p class="caption">
 Abbildung 8.16: Vergleich verschiedener Farbpaletten.
 </p>
@@ -903,7 +902,7 @@ Abbildung 8.16: Vergleich verschiedener Farbpaletten.
 <div class="sourceCode" id="cb402"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb402-1"><a href="visual.html#cb402-1" aria-hidden="true" tabindex="-1"></a><span class="fu">show_col</span>(<span class="fu">brewer.pal</span>(<span class="dv">9</span>, <span class="st">&quot;Reds&quot;</span>))</span>
 <span id="cb402-2"><a href="visual.html#cb402-2" aria-hidden="true" tabindex="-1"></a><span class="fu">show_col</span>(<span class="fu">brewer.pal</span>(<span class="dv">8</span>, <span class="st">&quot;Dark2&quot;</span>))</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:hexacolor"></span>
-<img src="r-empirische-wissenschaften_files/figure-html/hexacolor-1.svg" alt="Farbpaletten mit Hexadezimalcodes der Rottöne und Dark2." width="50%" /><img src="r-empirische-wissenschaften_files/figure-html/hexacolor-2.svg" alt="Farbpaletten mit Hexadezimalcodes der Rottöne und Dark2." width="50%" />
+<img src="r-empirische-wissenschaften_files/figure-html/hexacolor-1.svg" alt="Farbpaletten mit Hexadezimalcodes der Rottöne und Dark2." width="385" height="275" /><img src="r-empirische-wissenschaften_files/figure-html/hexacolor-2.svg" alt="Farbpaletten mit Hexadezimalcodes der Rottöne und Dark2." width="385" height="275" />
 <p class="caption">
 Abbildung 8.17: Farbpaletten mit Hexadezimalcodes der Rottöne und Dark2.
 </p>
@@ -917,7 +916,7 @@ Abbildung 8.17: Farbpaletten mit Hexadezimalcodes der Rottöne und Dark2.
 <span id="cb403-2"><a href="visual.html#cb403-2" aria-hidden="true" tabindex="-1"></a>b <span class="ot">&lt;-</span> p <span class="sc">+</span> <span class="fu">theme_minimal</span>() </span>
 <span id="cb403-3"><a href="visual.html#cb403-3" aria-hidden="true" tabindex="-1"></a>c <span class="ot">&lt;-</span> p <span class="sc">+</span> <span class="fu">theme_bw</span>() </span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:themes"></span>
-<img src="r-empirische-wissenschaften_files/figure-html/themes-1.svg" alt="Vergleich verschiedener Themen aus `ggplot`." width="768" />
+<img src="r-empirische-wissenschaften_files/figure-html/themes-1.svg" alt="Vergleich verschiedener Themen aus `ggplot`." width="768" height="288" />
 <p class="caption">
 Abbildung 8.18: Vergleich verschiedener Themen aus <code>ggplot</code>.
 </p>
@@ -974,7 +973,7 @@ Abbildung 8.18: Vergleich verschiedener Themen aus <code>ggplot</code>.
 <div class="sourceCode" id="cb417"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb417-1"><a href="visual.html#cb417-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(big5_long, <span class="fu">aes</span>(<span class="at">x =</span> Faktor, <span class="at">y =</span> Auspraegung, <span class="at">fill =</span> Geschlecht)) <span class="sc">+</span> </span>
 <span id="cb417-2"><a href="visual.html#cb417-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">outlier.shape =</span> <span class="cn">NA</span>, <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="fl">0.95</span>), <span class="at">alpha =</span> <span class="fl">0.8</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:legend"></span>
-<img src="r-empirische-wissenschaften_files/figure-html/legend-1.svg" alt="Verschiedene Reihenfolgen der gruppierenden Variable." width="864" />
+<img src="r-empirische-wissenschaften_files/figure-html/legend-1.svg" alt="Verschiedene Reihenfolgen der gruppierenden Variable." width="770" height="257" />
 <p class="caption">
 Abbildung 8.19: Verschiedene Reihenfolgen der gruppierenden Variable.
 </p>
@@ -1017,7 +1016,7 @@ Abbildung 8.19: Verschiedene Reihenfolgen der gruppierenden Variable.
 <span id="cb422-2"><a href="visual.html#cb422-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot_layout</span>(<span class="at">ncol =</span> <span class="dv">2</span>) <span class="sc">+</span> </span>
 <span id="cb422-3"><a href="visual.html#cb422-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot_annotation</span>(<span class="at">tag_levels =</span> <span class="st">&quot;A&quot;</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:patcha"></span>
-<img src="r-empirische-wissenschaften_files/figure-html/patcha-1.svg" alt="Anordnung mehrerer Graphen" width="672" />
+<img src="r-empirische-wissenschaften_files/figure-html/patcha-1.svg" alt="Anordnung mehrerer Graphen" width="672" height="480" />
 <p class="caption">
 Abbildung 8.20: Anordnung mehrerer Graphen
 </p>
@@ -1030,7 +1029,7 @@ Abbildung 8.20: Anordnung mehrerer Graphen
 <span id="cb423-5"><a href="visual.html#cb423-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">tag_suffix =</span> <span class="st">&quot;)&quot;</span></span>
 <span id="cb423-6"><a href="visual.html#cb423-6" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:patchb"></span>
-<img src="r-empirische-wissenschaften_files/figure-html/patchb-1.svg" alt="Alternative Anordnung und Benennung mehrerer Graphen." width="672" />
+<img src="r-empirische-wissenschaften_files/figure-html/patchb-1.svg" alt="Alternative Anordnung und Benennung mehrerer Graphen." width="672" height="480" />
 <p class="caption">
 Abbildung 8.21: Alternative Anordnung und Benennung mehrerer Graphen.
 </p>
@@ -1053,7 +1052,7 @@ Abbildung 8.21: Alternative Anordnung und Benennung mehrerer Graphen.
 <div class="sourceCode" id="cb427"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb427-1"><a href="visual.html#cb427-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="at">filename =</span> <span class="st">&quot;plotA.png&quot;</span>, <span class="at">plot =</span> p, <span class="at">width =</span> <span class="dv">4</span>, <span class="at">height =</span> <span class="dv">5</span>)</span>
 <span id="cb427-2"><a href="visual.html#cb427-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="at">filename =</span> <span class="st">&quot;plotB.png&quot;</span>, <span class="at">plot =</span> p, <span class="at">width =</span> <span class="dv">8</span>, <span class="at">height =</span> <span class="dv">10</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:saving"></span>
-<img src="images/plot1.svg" alt="Auflösungsunterschiede je nach Größe der gespeicherten Abbildung." width="50%" /><img src="images/plot2.svg" alt="Auflösungsunterschiede je nach Größe der gespeicherten Abbildung." width="50%" />
+<img src="images/plot1.svg" alt="Auflösungsunterschiede je nach Größe der gespeicherten Abbildung." width="385" height="385" /><img src="images/plot2.svg" alt="Auflösungsunterschiede je nach Größe der gespeicherten Abbildung." width="385" height="385" />
 <p class="caption">
 Abbildung 8.22: Auflösungsunterschiede je nach Größe der gespeicherten Abbildung.
 </p>
@@ -1086,7 +1085,7 @@ Abbildung 8.22: Auflösungsunterschiede je nach Größe der gespeicherten Abbild
 <div class="sourceCode" id="cb430"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb430-1"><a href="visual.html#cb430-1" aria-hidden="true" tabindex="-1"></a>res1 <span class="ot">&lt;-</span> <span class="fu">survfit</span>(<span class="fu">Surv</span>(<span class="at">time =</span> Beob_zeit, <span class="at">event =</span> Status) <span class="sc">~</span> <span class="dv">1</span>, <span class="at">data =</span> chemo)</span>
 <span id="cb430-2"><a href="visual.html#cb430-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsurvplot</span>(res1)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:survplotges"></span>
-<img src="r-empirische-wissenschaften_files/figure-html/survplotges-1.svg" alt="Kaplan-Meier-Kurve ohne Strata." width="672" />
+<img src="r-empirische-wissenschaften_files/figure-html/survplotges-1.svg" alt="Kaplan-Meier-Kurve ohne Strata." width="672" height="384" />
 <p class="caption">
 Abbildung 8.23: Kaplan-Meier-Kurve ohne Strata.
 </p>
@@ -1114,7 +1113,7 @@ Abbildung 8.23: Kaplan-Meier-Kurve ohne Strata.
 <span id="cb434-2"><a href="visual.html#cb434-2" aria-hidden="true" tabindex="-1"></a>   <span class="fu">plot_layout</span>(<span class="at">ncol =</span> <span class="dv">1</span>, <span class="at">heights =</span> <span class="fu">c</span>(<span class="dv">8</span>, <span class="fl">1.5</span>))</span>
 <span id="cb434-3"><a href="visual.html#cb434-3" aria-hidden="true" tabindex="-1"></a>kaplan_meier</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:survplot"></span>
-<img src="r-empirische-wissenschaften_files/figure-html/survplot-1.svg" alt="Kaplan-Meier-Kurve mit Tabelle unterteilt nach Behandlungsart." width="768" />
+<img src="r-empirische-wissenschaften_files/figure-html/survplot-1.svg" alt="Kaplan-Meier-Kurve mit Tabelle unterteilt nach Behandlungsart." width="768" height="576" />
 <p class="caption">
 Abbildung 8.24: Kaplan-Meier-Kurve mit Tabelle unterteilt nach Behandlungsart.
 </p>
@@ -1187,7 +1186,7 @@ Abbildung 8.25: Graphische Überprüfung der Residuen.
 <span id="cb444-9"><a href="visual.html#cb444-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="dv">1</span>, <span class="at">vjust =</span> <span class="fl">0.2</span>, <span class="at">size =</span> <span class="dv">13</span>)</span>
 <span id="cb444-10"><a href="visual.html#cb444-10" aria-hidden="true" tabindex="-1"></a>  ) </span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:ridge"></span>
-<img src="r-empirische-wissenschaften_files/figure-html/ridge-1.svg" alt="Ridgeline plots mit angepasstem Thema." width="768" />
+<img src="r-empirische-wissenschaften_files/figure-html/ridge-1.svg" alt="Ridgeline plots mit angepasstem Thema." width="768" height="288" />
 <p class="caption">
 Abbildung 8.26: Ridgeline plots mit angepasstem Thema.
 </p>
@@ -1208,7 +1207,7 @@ Abbildung 8.26: Ridgeline plots mit angepasstem Thema.
 # ℹ 96 more rows</code></pre>
 <p>Die Ergebnisse der beiden Studien sollen anhand eines gruppierten Streudiagramms mit Regressionsgeraden verglichen werden (siehe Kapitel <a href="visual.html#scatter">8.3</a>). Zusätzlich werden gruppierte Wahrscheinlichkeitsdichten zur Darstellung der Verteilungen abgebildet (siehe Kapitel <a href="visual.html#histogram">8.2</a>). Das gewünschte Resultat ist in Abbildung <a href="visual.html#fig:eyeplot">8.27</a> illustriert.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:eyeplot"></span>
-<img src="r-empirische-wissenschaften_files/figure-html/eyeplot-1.svg" alt="Anzahl fixierter Gesichter in Abhängigkeit der Informationsdichte." width="672" />
+<img src="r-empirische-wissenschaften_files/figure-html/eyeplot-1.svg" alt="Anzahl fixierter Gesichter in Abhängigkeit der Informationsdichte." width="672" height="480" />
 <p class="caption">
 Abbildung 8.27: Anzahl fixierter Gesichter in Abhängigkeit der Informationsdichte.
 </p>

@@ -23,7 +23,7 @@
 <meta name="author" content="Jan Philipp Nolte" />
 
 
-<meta name="date" content="2023-04-29" />
+<meta name="date" content="2023-05-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -142,7 +142,6 @@ div.csl-indent {
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 <link rel="stylesheet" href="toc.css" type="text/css" />
-<link rel="stylesheet" href="font-awesome.min.css" type="text/css" />
 </head>
 
 <body>
@@ -405,14 +404,14 @@ div.csl-indent {
 <div class="sourceCode" id="cb604"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb604-1"><a href="ergebnisse-exportieren.html#cb604-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span></code></pre></div>
 <p>Öffne zum Erstellen von R Markdown Dokumenten (Endung <code>.Rmd</code>) das Dropdown-Menü mit dem Papier und dem grünen Pluszeichen unter dem Reiter <code>File</code>.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-396"></span>
-<img src="images/new_markdown1.png" alt="Erster Schritt in der Erstellung eines neuen R Markdown Skripts." width="98%" />
+<img src="images/new_markdown1.png" alt="Erster Schritt in der Erstellung eines neuen R Markdown Skripts." width="750" height="421" />
 <p class="caption">
 Abbildung 10.1: Erster Schritt in der Erstellung eines neuen R Markdown Skripts.
 </p>
 </div>
 <p>Wähle in diesem Reiter <code>R Markdown</code> aus. Die Punkte implizieren, dass noch weitere Informationen vor dem Erstellen notwendig sind. Anschließend kann man das gewünschte Ausgabeformat, den Titel und Autor festlegen. Beim Bestätigen auf OK wird eine Vorlage erstellt, die man nach Belieben anpassen kann.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-397"></span>
-<img src="images/title_markdown1.png" alt="Zweiter Schritt zur Erstellung eines neuen R Markdown Skripts." width="98%" />
+<img src="images/title_markdown1.png" alt="Zweiter Schritt zur Erstellung eines neuen R Markdown Skripts." width="750" height="421" />
 <p class="caption">
 Abbildung 10.2: Zweiter Schritt zur Erstellung eines neuen R Markdown Skripts.
 </p>
@@ -472,7 +471,7 @@ ggplot(big5_mod2, aes(x = Extraversion, y = Neurotizismus)) +
 <p><strong>– Ende der Datei Beispiel.Rmd –</strong></p>
 <p>Die Ausgabe nach Umwandlung in ein HTML Dokument ist in Abbildung <a href="ergebnisse-exportieren.html#fig:html-markdown">10.3</a> zu sehen.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:html-markdown"></span>
-<img src="images/html_markdown1.png" alt="Umwandlung von Markdown in HTML." width="98%" />
+<img src="images/html_markdown1.png" alt="Umwandlung von Markdown in HTML." width="700" height="1038" />
 <p class="caption">
 Abbildung 10.3: Umwandlung von Markdown in HTML.
 </p>
@@ -494,7 +493,7 @@ Abbildung 10.3: Umwandlung von Markdown in HTML.
 </div>
 <p>Umwandeln können wir das R Markdown Dokument durch Klicken auf das Wort Knit (engl. für stricken) in der Leiste unter dem Reiter der geöffneten Dateien oder durch die Tastenkombination <kbd>Strg</kbd> / <code>Cmd + Shift + K</code>. Wenn man nur auf das Symbol drückt, wird die Datei in das an erster Stelle im YAML Kopf festgelegten Format umgewandelt. Besser ist es jedoch, das Dropdown-Menü durch einen Klick auf den Pfeil nach unten zu öffnen und den gewünschten Dateityp auszuwählen.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-398"></span>
-<img src="images/knit_markdown1.png" alt="Umwandlung des R Markdown Skripts in HTML, PDF oder Word." width="98%" />
+<img src="images/knit_markdown1.png" alt="Umwandlung des R Markdown Skripts in HTML, PDF oder Word." width="750" height="421" />
 <p class="caption">
 Abbildung 10.4: Umwandlung des R Markdown Skripts in HTML, PDF oder Word.
 </p>
@@ -541,7 +540,7 @@ big5_mod2 |&gt;
 ```</code></pre>
 <p><strong>– Ende der Datei Tabelle.Rmd –</strong></p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-400"></span>
-<img src="images/word_markdown.png" alt="Beispielhafter Output einer Tabelle von R Markdown in Word." width="98%" />
+<img src="images/word_markdown.png" alt="Beispielhafter Output einer Tabelle von R Markdown in Word." width="750" height="421" />
 <p class="caption">
 Abbildung 10.5: Beispielhafter Output einer Tabelle von R Markdown in Word.
 </p>
@@ -575,7 +574,7 @@ Abbildung 10.5: Beispielhafter Output einer Tabelle von R Markdown in Word.
 <div class="sourceCode" id="cb618"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb618-1"><a href="ergebnisse-exportieren.html#cb618-1" aria-hidden="true" tabindex="-1"></a>tabelle <span class="ot">&lt;-</span> <span class="fu">xtable</span>(erg, <span class="at">digits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">3</span>)) </span>
 <span id="cb618-2"><a href="ergebnisse-exportieren.html#cb618-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(tabelle, <span class="at">include.rownames =</span> <span class="cn">FALSE</span>) </span></code></pre></div>
 <pre class="bordercode"><code>% latex table generated in R 4.3.0 by xtable 1.8-4 package
-% Sat Apr 29 18:39:41 2023
+% Sat May 13 10:00:56 2023
 \begin{table}[ht]
 \centering
 \begin{tabular}{lrrrrr}
@@ -638,7 +637,7 @@ ggplot(big5_mod2, aes(x = Extraversion, y = Neurotizismus)) +
 <p><strong>– Ende der Datei Quarto.qmd –</strong></p>
 <p>Umgewandelt wird bei Quarto Dokumenten nicht mit dem Button <code>Knit</code>, sondern durch <code>Render</code>. Du kannst alternativ auch hier die Tastenkombination <kbd>Strg</kbd> / <code>Cmd + Shift + K</code> verwenden. Das Ergebnis nach Umwandlung in ein HTML-Dokument ist in Abbildung <a href="ergebnisse-exportieren.html#fig:quarto">10.6</a> zu sehen. Die Ausgabe unterscheidet sich nur im Aussehen von der durch R Markdown erstellten Datei. Nach Umwandlung in ein Word- oder PDF-Dokument finden sich noch weniger optische Unterschiede. Erst bei komplexeren Anwendungsfällen wirst du mögliche Vor- oder Nachteile von Quarto gegenüber R Markdown bemerken.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:quarto"></span>
-<img src="images/quarto.png" alt="Umwandlung der Quarto Datei in HTML, PDF oder Word." width="98%" />
+<img src="images/quarto.png" alt="Umwandlung der Quarto Datei in HTML, PDF oder Word." width="700" height="1038" />
 <p class="caption">
 Abbildung 10.6: Umwandlung der Quarto Datei in HTML, PDF oder Word.
 </p>

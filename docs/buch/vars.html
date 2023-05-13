@@ -23,7 +23,7 @@
 <meta name="author" content="Jan Philipp Nolte" />
 
 
-<meta name="date" content="2023-04-29" />
+<meta name="date" content="2023-05-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -142,7 +142,6 @@ div.csl-indent {
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 <link rel="stylesheet" href="toc.css" type="text/css" />
-<link rel="stylesheet" href="font-awesome.min.css" type="text/css" />
 </head>
 
 <body>
@@ -381,35 +380,35 @@ div.csl-indent {
 <h2><span class="header-section-number">4.1</span> Schritt für Schritt beginnen<a href="vars.html#begin" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><strong>1. Schritt: RStudio starten.</strong> Nach der Installation von R und RStudio (siehe Kapitel <a href="start.html#installr">2.1.1</a> und <a href="start.html#rstudio">2.1.2</a>) kann RStudio in Windows durch Tippen der Windows-Taste mit anschließender Eingabe von <code>RStudio</code> und in macOS über den Finder gestartet werden. In der Konsole wird dabei automatisch die installierte R Version angezeigt.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:rstart1"></span>
-<img src="images/rstart1.png" alt="Starten von RStudio." width="95%" />
+<img src="images/rstart1.png" alt="Starten von RStudio." width="750" height="421" />
 <p class="caption">
 Abbildung 4.1: Starten von RStudio.
 </p>
 </div>
 <p><strong>2. Schritt: R Projekt erstellen.</strong> Als nächster Schritt sollte ein in sich abgeschlossenes Projekt erstellt werden (siehe Kapitel <a href="project.html#project">3</a>). Das erfolgreiche Erstellen und Öffnen des Projektes erkennt man daran, dass oben rechts in RStudio anstelle von <code>Project: (None)</code> der Name des Projektes steht (z.B. <code>Beispiel</code>). Manchmal wird, wie in Abbildung <a href="vars.html#fig:rstart2">4.2</a> gezeigt, der Überordner der Projektdatei mit angezeigt (hier der Ordner <code>R Skripte</code>). Wir sehen auch, dass unten rechts im Reiter <code>Files</code> jetzt die im Projektordner befindlichen Dateien angezeigt werden.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:rstart2"></span>
-<img src="images/rstart2.png" alt="Innerhalb von RStudio ein neues R Projekt erstellen." width="95%" />
+<img src="images/rstart2.png" alt="Innerhalb von RStudio ein neues R Projekt erstellen." width="750" height="421" />
 <p class="caption">
 Abbildung 4.2: Innerhalb von RStudio ein neues R Projekt erstellen.
 </p>
 </div>
 <p><strong>3. Schritt: R Skript erstellen.</strong> Da die Funktionsaufrufe in der Konsole nur einmalig ausgeführt und nicht gespeichert werden, muss anschließend das R Skript entweder durch Klicken des Pluszeichens links oben oder durch die Tastenkombination <kbd>Strg</kbd> / <code>Cmd + Shift + N</code> erstellt werden (siehe Kapitel <a href="start.html#rstudio">2.1.2</a>).</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:rstart3"></span>
-<img src="images/rstart3.png" alt="Ein neues R Skript für die Analysen erstellen." width="95%" />
+<img src="images/rstart3.png" alt="Ein neues R Skript für die Analysen erstellen." width="750" height="421" />
 <p class="caption">
 Abbildung 4.3: Ein neues R Skript für die Analysen erstellen.
 </p>
 </div>
 <p><strong>4. Schritt: Benötigte Packages laden.</strong> Bei jedem Start von RStudio müssen zunächst alle verwendeten Packages neu geladen werden. Dafür markieren wir die verschiedenen <code>library()</code> Aufrufe (hier vier Stück) und führen diese mit der Tastenkombination <kbd>Strg</kbd> / <code>Cmd + Enter</code> aus. Anders als in der Konsole werden die Funktion in einem R Skript also nicht alleine mit Enter sondern mit der Kombination <kbd>Strg</kbd> / <code>Cmd + Enter</code> ausgeführt. Um einzelne Zeilen auszuführen, genügt es, den Cursor auf der Zeile zu haben und dabei <kbd>Strg</kbd> / <code>Cmd + Enter</code> auszuführen. Manche Packages geben beim Laden Benachrichtigungen zurück. Was die Benachrichtigungen des <code>tidyverse</code> in Abbildung <a href="vars.html#fig:rstart4">4.4</a> bedeuten, wird in Kapitel <a href="datenvorbereitung.html#datenvorbereitung">6</a> erläutert.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:rstart4"></span>
-<img src="images/rstart4.png" alt="Packages nach jedem Start neu markieren und ausführen." width="95%" />
+<img src="images/rstart4.png" alt="Packages nach jedem Start neu markieren und ausführen." width="750" height="421" />
 <p class="caption">
 Abbildung 4.4: Packages nach jedem Start neu markieren und ausführen.
 </p>
 </div>
 <p><strong>5. Schritt: Datensatz einlesen und Analysen durchführen.</strong> Nach Laden der Packages kann der Datensatz eingelesen werden (siehe Kapitel <a href="io.html#import">5.1</a>). Durch das Einlesen und Speichern mit Zuweisungspfeil erscheint der Datensatz rechts oben in der <code>Environment</code> (siehe Kapitel <a href="vars.html#pfeil">4.2</a>). Man kann also im weiteren Verlauf auf den <code>big5</code> Datensatz namens <code>daten</code> zugreifen. Auch dieser muss bei Neustart von RStudio erneut durch Auswahl der Zeile (hier Zeile 7) und Betätigen der Tastenkombination <kbd>Strg</kbd> / <code>Cmd + Enter</code> eingelesen werden. Anschließend sollte man im Rahmen der weiteren Auswertung der Daten immer Kommentare einbauen, die mit einer führenden Raute markiert werden (siehe Zeile 9 in Abbildung <a href="vars.html#fig:rstart5">4.5</a>). Exemplarisch schauen wir uns hier die Spalten Extraversion und Neurotizismus als ersten Schritt unserer Datenanalyse an (siehe Kapitel <a href="datenvorbereitung.html#select">6.2</a>).</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:rstart5"></span>
-<img src="images/rstart5.png" alt="Datensatz einlesen und Analysen durchführen." width="95%" />
+<img src="images/rstart5.png" alt="Datensatz einlesen und Analysen durchführen." width="750" height="421" />
 <p class="caption">
 Abbildung 4.5: Datensatz einlesen und Analysen durchführen.
 </p>
@@ -447,7 +446,7 @@ Abbildung 4.5: Datensatz einlesen und Analysen durchführen.
 <h2><span class="header-section-number">4.3</span> Datentypen<a href="vars.html#datentypen" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Grundsätzlich gibt es in R vier verschiedene Grunddatentypen: <code>Integer</code>, <code>Double</code>, <code>Character</code> und <code>Logical</code> (siehe Abbildung <a href="vars.html#fig:types">4.6</a>). Dabei lassen sich <code>Integer</code> und <code>Double</code> zum Datentyp <code>Numeric</code> zusammenfassen, da die Unterscheidung dieser beiden in R selten von Bedeutung ist. Schauen wir uns die Datentypen nun etwas genauer an. <code>Numeric</code> (kurz: <code>&lt;num&gt;</code>) beschreibt numerische Werte, also Zahlen. <code>Integer</code> (kurz: <code>&lt;int&gt;</code>) sind ganze Zahlen und <code>Doubles</code> (kurz: <code>&lt;dbl&gt;</code>) Dezimalzahlen. Beachte dabei, dass Dezimalzahlen in R mit Punkten und nicht mit Kommata dargestellt werden.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:types"></span>
-<img src="images/data_types.png" alt="Schematische Übersicht über die wichtigsten Datentypen in R." width="70%" />
+<img src="images/data_types.png" alt="Schematische Übersicht über die wichtigsten Datentypen in R." width="450" height="280" />
 <p class="caption">
 Abbildung 4.6: Schematische Übersicht über die wichtigsten Datentypen in R.
 </p>

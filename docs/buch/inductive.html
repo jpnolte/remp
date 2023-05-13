@@ -23,7 +23,7 @@
 <meta name="author" content="Jan Philipp Nolte" />
 
 
-<meta name="date" content="2023-04-29" />
+<meta name="date" content="2023-05-13" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -142,7 +142,6 @@ div.csl-indent {
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 <link rel="stylesheet" href="toc.css" type="text/css" />
-<link rel="stylesheet" href="font-awesome.min.css" type="text/css" />
 </head>
 
 <body>
@@ -479,7 +478,7 @@ mean difference
     Wilcoxon rank sum test with continuity correction
 
 data:  Leukos_t6 by Geschlecht
-W = 26824, p-value = 0.2571
+W = 26825, p-value = 0.2571
 alternative hypothesis: true location shift is not equal to 0</code></pre>
 <p>Als Ergebnis erhalten wir die geschätzte Teststatistik <code>W</code> und den zugehörigen <em>p</em>-Wert. Der <em>p</em>-Wert ist mit 0.2571 größer als 0.05 und somit nicht statistisch signifikant. Es wird also die Alternativhypothese abgelehnt und die Nullhypothese angenommen. Die Leukozytenverteilungen der beiden biologischen Geschlechter unterscheiden sich demnach in unseren Daten nicht nennenswert voneinander.</p>
 <p>Im Kontext von abhängigen (bzw. gepaarten) Stichproben findet stattdessen der Wilcoxon-Vorzeichen-Rang Test Anwendung. Dies ist häufig in Szenarien mit wiederholten Messungen für dieselbe Person der Fall. In unserem Datensatz haben wir die Leukozytenzahl zu zwei verschiedenen Zeitpunkten gemessen. Durch das Setzen des Arguments <code>paired</code> auf <code>TRUE</code> erhalten wir den entsprechenden Schätzer. Wie im vorherigen Kapitel übergeben wir die beiden Spalten als Vektoren mithilfe des Dollar-Operators (siehe Kapitel <a href="vars.html#dollar">4.5</a>).</p>
@@ -665,7 +664,7 @@ Confidence level used: 0.95 </code></pre>
 <span id="cb489-5"><a href="inductive.html#cb489-5" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
 <p>In der Funktion <code>aov_4()</code> setzen wir nun zusätzlich das Argument <code>factorize</code> auf <code>FALSE</code>, um die automatische Umwandlung der Kovariate <code>Alter</code> in einen Faktor zu verhindern.</p>
 <div class="sourceCode" id="cb490"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb490-1"><a href="inductive.html#cb490-1" aria-hidden="true" tabindex="-1"></a><span class="fu">aov_4</span>(</span>
-<span id="cb490-2"><a href="inductive.html#cb490-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">formula =</span> Leukos <span class="sc">~</span> Behandlung <span class="sc">*</span> Alter <span class="sc">*</span> (Zeitpunkt <span class="sc">|</span> Pat_id), </span>
+<span id="cb490-2"><a href="inductive.html#cb490-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">formula =</span> Leukos <span class="sc">~</span> Behandlung <span class="sc">+</span> Alter <span class="sc">+</span> (Zeitpunkt <span class="sc">|</span> Pat_id), </span>
 <span id="cb490-3"><a href="inductive.html#cb490-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> chemo_long1, </span>
 <span id="cb490-4"><a href="inductive.html#cb490-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">anova_table =</span> <span class="fu">list</span>(<span class="at">es =</span> <span class="st">&quot;pes&quot;</span>),</span>
 <span id="cb490-5"><a href="inductive.html#cb490-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">factorize =</span> <span class="cn">FALSE</span></span>
@@ -673,14 +672,12 @@ Confidence level used: 0.95 </code></pre>
 <pre class="bordercode"><code>Anova Table (Type 3 tests)
 
 Response: Leukos
-                      Effect     df  MSE            F   pes p.value
-1                 Behandlung 2, 444 0.22       3.56 *  .016    .029
-2                      Alter 1, 444 0.22       4.79 *  .011    .029
-3           Behandlung:Alter 2, 444 0.22         0.12 &lt;.001    .888
-4                  Zeitpunkt 1, 444 0.00 62889.01 ***  .993   &lt;.001
-5       Behandlung:Zeitpunkt 2, 444 0.00         0.40  .002    .672
-6            Alter:Zeitpunkt 1, 444 0.00         1.87  .004    .172
-7 Behandlung:Alter:Zeitpunkt 2, 444 0.00         0.10 &lt;.001    .904
+                Effect     df  MSE            F  pes p.value
+1           Behandlung 2, 446 0.22       3.56 * .016    .029
+2                Alter 1, 446 0.22       4.93 * .011    .027
+3            Zeitpunkt 1, 446 0.00 63370.93 *** .993   &lt;.001
+4 Behandlung:Zeitpunkt 2, 446 0.00         0.41 .002    .664
+5      Alter:Zeitpunkt 1, 446 0.00         1.85 .004    .175
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;+&#39; 0.1 &#39; &#39; 1</code></pre>
 <div class="idea">
@@ -1216,7 +1213,7 @@ Score (logrank) test = 275.7  on 3 df,   p=&lt;2e-16</code></pre>
 <p>Anschließend werden die Harzard Ratios diesmal mit 95% Konfidenzintervall gezeigt. Zuletzt werden die Ergebnisse der drei üblichsten Likelihood Tests für die globale Nullhypothese, dass alle <span class="math inline">\(\beta\)</span>-Koeffizienten gleich 0 sind, angegeben. Die Alternativhypothese stellt hier das Abweichen mindestens eines <span class="math inline">\(\beta\)</span>-Koeffizienten von 0 dar.</p>
 <p>Der sogenannte Log-Rank Test stellt eine Alternative dar, falls nur zwei Gruppen in Bezug auf Unterschiede der Überlebenszeit miteinander verglichen werden sollen. Wir könnten bspw. nur an Geschlechtsunterschieden hinsichtlich des Überlebens interessiert sein. In Abbildung <a href="inductive.html#fig:survplot2">9.1</a> lassen die Kaplan-Maier Kurven bereits einen Zusammenhang zwischen Überleben und Geschlecht vermuten. Für Männer scheint die Prognose schlechter zu sein.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:survplot2"></span>
-<img src="r-empirische-wissenschaften_files/figure-html/survplot2-1.svg" alt="Kaplan-Meier-Kurve unterteilt nach biologischem Geschlecht." width="672" />
+<img src="r-empirische-wissenschaften_files/figure-html/survplot2-1.svg" alt="Kaplan-Meier-Kurve unterteilt nach biologischem Geschlecht." width="672" height="384" />
 <p class="caption">
 Abbildung 9.1: Kaplan-Meier-Kurve unterteilt nach biologischem Geschlecht.
 </p>
@@ -1367,7 +1364,7 @@ W = 0.99734, p-value = 0.6904</code></pre>
 <p>Eine Alternative der Hypothesentests zur Überprüfung der Normalverteilung stellen graphische Vergleiche der Verteilungen mithilfe eines Quantil-Quantil Plots dar. In Kapitel <a href="visual.html#qqplot">8.8</a> haben wir bereits die Darstellung eines Q-Q Plots für intervallskalierte Variablen gesehen. Auch Residuen wurden bereits mit der Funktion <code>autoplot()</code> unter anderem auf Normalverteilung überprüft (siehe Kapitel <a href="visual.html#residuals">8.13.2</a>). In Abbildung <a href="inductive.html#fig:resid">9.2</a> werden die Quantile der standardisierten Residuen (y-Achse) mit den theoretischen Quantilen der Normalverteilung durch <code>autoplot()</code> verglichen. Solange die Werte auf der Diagonalen liegen, kann von einer Normalverteilung ausgegangen werden.</p>
 <div class="sourceCode" id="cb584"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb584-1"><a href="inductive.html#cb584-1" aria-hidden="true" tabindex="-1"></a><span class="fu">autoplot</span>(model1, <span class="at">which =</span> <span class="dv">2</span>, <span class="at">label.repel =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:resid"></span>
-<img src="r-empirische-wissenschaften_files/figure-html/resid-1.svg" alt="Graphische Überprüfungen der Normalverteilung der Residuen" width="672" />
+<img src="r-empirische-wissenschaften_files/figure-html/resid-1.svg" alt="Graphische Überprüfungen der Normalverteilung der Residuen" width="672" height="384" />
 <p class="caption">
 Abbildung 9.2: Graphische Überprüfungen der Normalverteilung der Residuen
 </p>
@@ -1414,7 +1411,7 @@ Bartlett&#39;s K-squared = 1.785, df = 2, p-value = 0.4096</code></pre>
 <p>Eine Voraussetzung für die Regressionsanalysen ist die Homoskedastizität, welche die Gleichheit der Varianz der Residuen über den gesamten Parameterraum beschreibt. Die beste Überprüfung erfolgt graphisch durch das Auftragen der Residuen gegen die vorhergesagten Werte. Homoskedastizität ist gegeben, solange die Werte gleichmäßig um die horizontale Nulllinie der y-Achse streuen. Die dafür verwendete Funktion <code>autoplot()</code> wurde bereits im Kapitel <a href="visual.html#residuals">8.13.2</a> vorgestellt.</p>
 <div class="sourceCode" id="cb592"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb592-1"><a href="inductive.html#cb592-1" aria-hidden="true" tabindex="-1"></a><span class="fu">autoplot</span>(model1, <span class="at">which =</span> <span class="dv">1</span>, <span class="at">label.repel =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:resid2"></span>
-<img src="r-empirische-wissenschaften_files/figure-html/resid2-1.svg" alt="Graphische Überprüfungen der Homoskedastizität der Residuen." width="672" />
+<img src="r-empirische-wissenschaften_files/figure-html/resid2-1.svg" alt="Graphische Überprüfungen der Homoskedastizität der Residuen." width="672" height="384" />
 <p class="caption">
 Abbildung 9.3: Graphische Überprüfungen der Homoskedastizität der Residuen.
 </p>

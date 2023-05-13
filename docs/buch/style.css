@@ -136,6 +136,11 @@ h1.title {
   background-color: rgba(238,112,0, 0.35) !important;
 }
 
+img {
+  height: auto;
+/*  width: 100%; */
+}
+
 p code {
   white-space: inherit;
   border-radius: 20px;

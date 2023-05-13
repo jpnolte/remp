@@ -478,7 +478,7 @@ mean difference
     Wilcoxon rank sum test with continuity correction
 
 data:  Leukos_t6 by Geschlecht
-W = 26825, p-value = 0.2571
+W = 26824, p-value = 0.2571
 alternative hypothesis: true location shift is not equal to 0</code></pre>
 <p>Als Ergebnis erhalten wir die geschätzte Teststatistik <code>W</code> und den zugehörigen <em>p</em>-Wert. Der <em>p</em>-Wert ist mit 0.2571 größer als 0.05 und somit nicht statistisch signifikant. Es wird also die Alternativhypothese abgelehnt und die Nullhypothese angenommen. Die Leukozytenverteilungen der beiden biologischen Geschlechter unterscheiden sich demnach in unseren Daten nicht nennenswert voneinander.</p>
 <p>Im Kontext von abhängigen (bzw. gepaarten) Stichproben findet stattdessen der Wilcoxon-Vorzeichen-Rang Test Anwendung. Dies ist häufig in Szenarien mit wiederholten Messungen für dieselbe Person der Fall. In unserem Datensatz haben wir die Leukozytenzahl zu zwei verschiedenen Zeitpunkten gemessen. Durch das Setzen des Arguments <code>paired</code> auf <code>TRUE</code> erhalten wir den entsprechenden Schätzer. Wie im vorherigen Kapitel übergeben wir die beiden Spalten als Vektoren mithilfe des Dollar-Operators (siehe Kapitel <a href="vars.html#dollar">4.5</a>).</p>

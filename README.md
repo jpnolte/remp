@@ -36,7 +36,7 @@ Das `remp` Package enthält Datensätze, Funktionen und Übungen auf die im Lauf
 
 ```R
 library(remotes)
-install_github("j3ypi/remp")
+install_github("jpnolte/remp")
 ```
 
 Detaillierte Installationsanweisungen von R, RStudio und den notwendigen Packages sind im Buch enthalten.

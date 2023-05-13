@@ -1,3 +1,8 @@
+# remp 1.0.0
+- Datum: *2023-05-15*
+- Zukünftig werden noch Übungen hinzugefügt und der Text ggf. geringfügig angepasst.  
+- Das Repository liegt nun auf dem Account `jpnolte`. Die Installationsanleitung des Packages ist entsprechend angepasst. 
+
 # remp 0.1.3
 - Datum: *2023-04-30*
 - Dokumentation der Funktionen und Datensätze wurden überarbeitet.

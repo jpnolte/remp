@@ -19,7 +19,7 @@ destination: docs
 
 authors:
   Jan Philipp Nolte:
-    url: https://github.com/j3ypi/
+    url: https://github.com/jpnolte/
 
 reference:
   - title: Funktionen
@@ -66,4 +66,4 @@ navbar:
       href: news/index.html
     github:
       icon: fa-github fa-lg
-      href: https://github.com/j3ypi/remp
+      href: https://github.com/jpnolte/remp

@@ -19,7 +19,7 @@ destination: docs
 
 authors:
   Jan Philipp Nolte:
-    url: https://github.com/jpnolte/
+    href: https://github.com/jpnolte/
 
 reference:
   - title: Funktionen

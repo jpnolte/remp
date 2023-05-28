@@ -5,3 +5,7 @@
 build.R
 *.Rproj
 *.rproj
+remp.Rproj
+.Rproj
+.rproj
+.Rbuildignore

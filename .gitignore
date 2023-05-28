@@ -3,4 +3,5 @@
 .RData
 .Ruserdata
 build.R
-remp.Rproj
+*.Rproj
+*.rproj

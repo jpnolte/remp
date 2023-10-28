@@ -23,7 +23,7 @@
 <meta name="author" content="Jan Philipp Nolte" />
 
 
-<meta name="date" content="2023-05-13" />
+<meta name="date" content="2023-10-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -166,7 +166,7 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#für-wen-ist-dieses-buch"><i class="fa fa-check"></i><b>1.1</b> Für wen ist dieses Buch?</a></li>
 <li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#aufbau-und-bearbeitungsstrategie"><i class="fa fa-check"></i><b>1.2</b> Aufbau und Bearbeitungsstrategie</a></li>
-<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#boxen-übungen-und-datensätze"><i class="fa fa-check"></i><b>1.3</b> Boxen, Übungen und Datensätze</a></li>
+<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#uebungen"><i class="fa fa-check"></i><b>1.3</b> Boxen, Übungen und Datensätze</a></li>
 <li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#books"><i class="fa fa-check"></i><b>1.4</b> Ergänzende Literatur</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="start.html"><a href="start.html"><i class="fa fa-check"></i><b>2</b> Startvoraussetzungen</a>
@@ -178,11 +178,11 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="2.2" data-path="start.html"><a href="start.html#aufbau"><i class="fa fa-check"></i><b>2.2</b> Aufbau von RStudio</a></li>
 <li class="chapter" data-level="2.3" data-path="start.html"><a href="start.html#anpassung"><i class="fa fa-check"></i><b>2.3</b> RStudio anpassen</a></li>
-<li class="chapter" data-level="2.4" data-path="start.html"><a href="start.html#funktionen-und-ihre-argumente"><i class="fa fa-check"></i><b>2.4</b> Funktionen und ihre Argumente</a></li>
+<li class="chapter" data-level="2.4" data-path="start.html"><a href="start.html#functions"><i class="fa fa-check"></i><b>2.4</b> Funktionen und ihre Argumente</a></li>
 <li class="chapter" data-level="2.5" data-path="start.html"><a href="start.html#packages"><i class="fa fa-check"></i><b>2.5</b> Packages (Erweiterungen)</a>
 <ul>
 <li class="chapter" data-level="2.5.1" data-path="start.html"><a href="start.html#installieren-und-laden"><i class="fa fa-check"></i><b>2.5.1</b> Installieren und laden</a></li>
-<li class="chapter" data-level="2.5.2" data-path="start.html"><a href="start.html#notwendige-packages-für-dieses-buch"><i class="fa fa-check"></i><b>2.5.2</b> Notwendige Packages für dieses Buch</a></li>
+<li class="chapter" data-level="2.5.2" data-path="start.html"><a href="start.html#required"><i class="fa fa-check"></i><b>2.5.2</b> Notwendige Packages für dieses Buch</a></li>
 <li class="chapter" data-level="2.5.3" data-path="start.html"><a href="start.html#namespace"><i class="fa fa-check"></i><b>2.5.3</b> Namespace</a></li>
 </ul></li>
 <li class="chapter" data-level="2.6" data-path="start.html"><a href="start.html#help"><i class="fa fa-check"></i><b>2.6</b> Fehler- und Warnmeldungen</a>
@@ -205,7 +205,7 @@ div.csl-indent {
 <li class="chapter" data-level="4.2" data-path="vars.html"><a href="vars.html#pfeil"><i class="fa fa-check"></i><b>4.2</b> Variablen speichern und verwenden</a></li>
 <li class="chapter" data-level="4.3" data-path="vars.html"><a href="vars.html#datentypen"><i class="fa fa-check"></i><b>4.3</b> Datentypen</a>
 <ul>
-<li class="chapter" data-level="4.3.1" data-path="vars.html"><a href="vars.html#zahlen-buchstaben-und-logische-abfragen"><i class="fa fa-check"></i><b>4.3.1</b> Zahlen, Buchstaben und logische Abfragen</a></li>
+<li class="chapter" data-level="4.3.1" data-path="vars.html"><a href="vars.html#basetypes"><i class="fa fa-check"></i><b>4.3.1</b> Zahlen, Buchstaben und logische Abfragen</a></li>
 <li class="chapter" data-level="4.3.2" data-path="vars.html"><a href="vars.html#factor"><i class="fa fa-check"></i><b>4.3.2</b> Faktoren</a></li>
 <li class="chapter" data-level="4.3.3" data-path="vars.html"><a href="vars.html#zeitdaten"><i class="fa fa-check"></i><b>4.3.3</b> Zeitdaten</a></li>
 <li class="chapter" data-level="4.3.4" data-path="vars.html"><a href="vars.html#datentypen-konvertieren"><i class="fa fa-check"></i><b>4.3.4</b> Datentypen konvertieren</a></li>
@@ -390,9 +390,9 @@ div.csl-indent {
 <p>Jeder hat einen individuellen Lernstil und liest ein Lehrbuch auf unterschiedliche Art und Weise. Die einzelnen Kapitel des Buches bauen zwar grundsätzlich aufeinander auf, allerdings wurde gleichzeitig darauf geachtet, die Kapitel zum schnellen Nachschlagen möglichst in sich geschlossen zu halten. Wer also nicht das gesamte Buch Schritt für Schritt durcharbeiten möchte, sollte aber zumindest nachfolgende Kapitel gelesen haben. Dies gilt auch für jene, die nur an einem ganz bestimmten statistischen Test für die Bachelorarbeit interessiert sind.</p>
 <p><strong>Zeitmangel?</strong> Man sollte sich mindestens mit den Kapiteln <a href="start.html#start">2</a>, <a href="project.html#project">3</a>, <a href="vars.html#vars">4</a>, <a href="io.html#io">5</a> und <a href="datenvorbereitung.html#tidyverse">6.1</a> vertraut machen, da diese essentiell zum Arbeiten mit R sind.</p>
 </div>
-<div id="boxen-übungen-und-datensätze" class="section level2 hasAnchor" number="1.3">
-<h2><span class="header-section-number">1.3</span> Boxen, Übungen und Datensätze<a href="intro.html#boxen-übungen-und-datensätze" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Es gibt drei Arten von Boxen mit jeweils unterschiedlicher Farbe und Symbol. Die mit der Glühbirne markierten Boxen fassen besonders wichtige Konzepte zusammen, die mit dem Warnzeichnen weisen auf häufige Probleme hin und die mit dem Laptop enthalten interaktive Übungen.</p>
+<div id="uebungen" class="section level2 hasAnchor" number="1.3">
+<h2><span class="header-section-number">1.3</span> Boxen, Übungen und Datensätze<a href="intro.html#uebungen" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In diesem Buch gibt es drei Arten von Boxen in jeweils unterschiedlicher Farbe und mit anderem Symbol. Die mit der Glühbirne markierten Boxen heben besonders wichtige Konzepte des Kapitels hervor, die Boxen mit dem Warnzeichen weisen auf häufige Probleme hin und die Boxen mit dem Laptop beschreiben interaktive Übungen. Beispiele für diese Boxen könnten wie folgt aussehen:</p>
 <div class="idea">
 <p>Nach Durcharbeiten dieses Buches kann jeder und jede selbstständig Fragestellungen verschiedener wissenschaftlicher Fachrichtungen anhand eigener Datensätze beantworten.</p>
 </div>
@@ -400,10 +400,20 @@ div.csl-indent {
 <p>Nach dem Starten von R sollte immer erst ein Projekt erstellt werden, bevor die Datensätze durch Befehle innerhalb eines R Skripts eingelesen werden.</p>
 </div>
 <div class="exercise2">
-<p><strong>Übung 6.2.</strong> In dieser Übung lernst du das Auswählen und Umbenennen von Spalten eines Datensatzes. Starte die Übung mit <code>uebung_starten(6.2)</code>.</p>
+<p><strong>Übung 4.3.1.</strong> Das Verstehen der Grunddatentypen ist zum Arbeiten mit R essentiell. In dieser Übung wird das Verständnis mithilfe allgemeiner Fragen und anhand einer Nutzerstatistik eines Musikstreamingdienstes geprüft. Besonders werden zudem die logischen Datentypen wiederholt. Starte die Übung mit <code>uebung_starten("4-3-1")</code> (siehe Kapitel <a href="intro.html#uebungen">1.3</a>).</p>
 </div>
-<p>Die Funktion <code>uebung_starten()</code> öffnet zunächst ein Fenster innerhalb von RStudio, in welchem du dann die Übungen bearbeiten kannst. Dafür wird <strong>kein</strong> Internet benötigt. Alternativ stehen die Übungsaufgaben und Lösungen auch auf der Internetseite zum Buch bereit (<a href="https://r-empirische-wissenschaften.de">https://r-empirische-wissenschaften.de</a>). Das zugehörige Übungsverzeichnis findest ebenfalls auf der Website oder durch Ausführen der Funktion <code>uebung_anzeigen()</code>. Im Laufe des Buches werden aus didaktischen Gründen verschiedene Datensätze verwendet, die ebenfalls im Appendix genau vorgestellt werden.</p>
-<p>Zum Anwenden auf dem heimischen Computer oder Laptop kannst du entweder händisch den im Buch beschrieben Code abtippen oder du verwendest den <em>Copy to Clipboard</em> Button, der online oben rechts im Codeblock erscheint. Dieser macht genau dasselbe, als würdest du den Befehl markieren und mit <kbd>Strg</kbd> + <kbd>c</kbd> oder <code>Rechtsklick + Kopieren</code> kopieren.</p>
+<p>Für ausgewählte Kapitel gibt es interaktive Übungen, die lokal auf deinem Computer gestartet werden. Der Fortschritt, den du bei diesen Übungen machst, wird gespeichert. So kannst du später an der Übung weiterarbeiten. Bei größeren Updates der Übungen (z.B. nach Fehlerbehebungen) kann es allerdings passieren, dass du die Übung von vorne beginnen musst.</p>
+<p>In Abbildung <a href="intro.html#fig:uebung">1.1</a> ist exemplarisch eine Übung aus Kapitel <a href="vars.html#basetypes">4.3.1</a> gezeigt. Auf der linken Seite ist eine Navigationsleiste, in der verschiedene Unterkapitel der Übung angezeigt werden, zwischen denen man wechseln kann. Darunter können die Fortschritte der Übung mit <em>Neustart</em> zurückgesetzt werden. Dein Wissen aus den Kapiteln wird im Regelfall über Single-Choice oder Multiple-Choice Fragen abgefragt. Dabei werden teilweise Eingabefelder für deinen Code bereitgestellt, um verschiedene Dinge vor Beantwortung der Fragen auszuprobieren. Über dem Eingabefeld kann mit <em>Neustart</em> der Inhalt des Feldes gelöscht werden. Daneben gibt es den Button <em>Tipps</em>, welcher dir bei Bedarf Hinweise über die zu verwendende Funktion liefert. Schließlich kannst du den Code über den Button <em>Code ausführen</em> ausführen.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:uebung"></span>
+<img src="images/uebung.png" alt="Beispiel einer interaktiven Übung." width="700" height="1038" />
+<p class="caption">
+Abbildung 1.1: Beispiel einer interaktiven Übung.
+</p>
+</div>
+<p>Alle vorhandenen Übungen können mit <code>uebung_anzeigen()</code> ausgegeben werden. Gestartet wird eine Übung mit der Funktion <code>uebung_starten()</code> mit der Kapitelnummer innerhalb der Klammern. Was genau eine Funktion ist und wo diese auf welche Art ausgeführt werden muss, wirst du in Kapitel <a href="start.html#aufbau">2.2</a> und <a href="start.html#functions">2.4</a> lernen. Beachte, dass zum Ausführen der Übungen eine Erweiterung namens <code>learnr</code> installiert sein muss (siehe Kapitel <a href="start.html#required">2.5.2</a>).</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb1-1"><a href="intro.html#cb1-1" tabindex="-1"></a><span class="fu">uebung_starten</span>(<span class="st">&quot;4-3-1&quot;</span>)</span></code></pre></div>
+<p>Dies ist ein Beispiel für einen Code Block. In diesem Buch werden viele konkrete Code Beispiele zum Erlernen der verschiedenen Konzepte verwendet, welche immer grau hinterlegt sind. Wenn du in der Online Version deine Maus über diesen Code Block bewegst, erscheint auf der rechten Seite ein Button mit zwei Dokumenten. Durch Klicken dieses Buttons wird der Code des Blocks gespeichert und du kannst ihn für deine Zwecke verwenden. Alternativ kannst du auch den Code markieren und mit <kbd>Strg</kbd> + <kbd>c</kbd> bzw. <code>Rechtsklick + Kopieren</code> kopieren oder den Code händisch abtippen.</p>
+<p>Begleitend zum Buch werden zudem 19 Datensätze bereitgestellt, die im Appendix und im Internet unter <a href="https://r-empirische-wissenschaften.de/reference/index.html">https://r-empirische-wissenschaften.de/reference/index.html</a> vorgestellt werden. Während ein Teil der Datensätze direkt im Buch verwendet wird, wirst du mit anderen nur in den Übungen konfrontiert werden.</p>
 </div>
 <div id="books" class="section level2 hasAnchor" number="1.4">
 <h2><span class="header-section-number">1.4</span> Ergänzende Literatur<a href="intro.html#books" class="anchor-section" aria-label="Anchor link to header"></a></h2>

@@ -4,9 +4,9 @@
 <!-- badges: end -->
 
 
-# R für empirische Wissenschaften
+# R für empirische Wissenschaften {#lerneR}
 
-Die am häufigsten verwendete Statistikprogrammiersprache R wird in den meisten wissenschaftlichen Fachrichtungen und in vielen Unternehmen verwendet. Dieses Buch bietet einfache Erklärungen mit praktischen Beispielen und Übungen, welche das Erlernen von R ohne Programmiervorkenntnisse im Selbststudium ermöglichen. Nach Durcharbeiten dieses Buches können sämtliche Problemstellungen der Datenanalyse gelöst werden, einschließlich
+Lerne R ohne Programmiervorkenntnisse im Selbststudium anhand einfacher Erklärungen mit Beispielen aus der Praxis und interaktiver Übungen. Die am häufigsten verwendete Statistikprogrammiersprache R wird in den meisten wissenschaftlichen Fachrichtungen und in diversen Unternehmen verwendet.  Nach Durcharbeiten dieses Buches können sämtliche Problemstellungen der Datenanalyse gelöst werden, einschließlich
 
 - Datensätze einlesen und bereinigen,
 - komplexe Abbildungen erstellen,
@@ -15,7 +15,7 @@ Die am häufigsten verwendete Statistikprogrammiersprache R wird in den meisten 
 
 Veröffentlicht ist das Buch unter der *Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International* Lizenz und das begleitende R Package remp unter der GPL-3 Lizenz.
 
-### Inhaltsverzeichnis
+### Inhaltsverzeichnis {#tutorial}
 
 1. [Einleitung](https://r-empirische-wissenschaften.de/buch/intro.html): Aufbau des Buches, ergänzende Literatur.
 2. [Startvoraussetzungen](https://r-empirische-wissenschaften.de/buch/start.html): Installation von R, RStudio und Packages.
@@ -30,7 +30,7 @@ Veröffentlicht ist das Buch unter der *Creative Commons Attribution-NonCommerci
 11. [Datenstrukturen](https://r-empirische-wissenschaften.de/buch/datatypes.html): Vektor, Matrix, data.frame, tibble, Liste, Objektorientierung.
 12. [Funktionen wiederholt anwenden](https://r-empirische-wissenschaften.de/buch/iterationmain.html): Listenbasiertes Rechnen, for-Schleifen, einnisten.
 
-### Begleitendes R Package `remp`
+### Begleitendes R Package `remp` {#package}
 
 Das `remp` Package enthält Datensätze, Funktionen und Übungen auf die im Laufe des Buches immer wieder zurückgegriffen wird. Die enthaltenen Features können im Reiter *Dokumentation* in der Navigationsleiste eingesehen werden. Die Installation erfolgt mithilfe des `remotes` Packages.
 
@@ -41,7 +41,7 @@ install_github("jpnolte/remp")
 
 Detaillierte Installationsanweisungen von R, RStudio und den notwendigen Packages sind im Buch enthalten.
 
-### FAQ
+### FAQ {#fragenR}
 
 <div id="faq">
   <ul>

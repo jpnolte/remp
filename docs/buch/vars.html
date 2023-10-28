@@ -23,7 +23,7 @@
 <meta name="author" content="Jan Philipp Nolte" />
 
 
-<meta name="date" content="2023-05-13" />
+<meta name="date" content="2023-10-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -166,7 +166,7 @@ div.csl-indent {
 <ul>
 <li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#für-wen-ist-dieses-buch"><i class="fa fa-check"></i><b>1.1</b> Für wen ist dieses Buch?</a></li>
 <li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#aufbau-und-bearbeitungsstrategie"><i class="fa fa-check"></i><b>1.2</b> Aufbau und Bearbeitungsstrategie</a></li>
-<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#boxen-übungen-und-datensätze"><i class="fa fa-check"></i><b>1.3</b> Boxen, Übungen und Datensätze</a></li>
+<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#uebungen"><i class="fa fa-check"></i><b>1.3</b> Boxen, Übungen und Datensätze</a></li>
 <li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#books"><i class="fa fa-check"></i><b>1.4</b> Ergänzende Literatur</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="start.html"><a href="start.html"><i class="fa fa-check"></i><b>2</b> Startvoraussetzungen</a>
@@ -178,11 +178,11 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="2.2" data-path="start.html"><a href="start.html#aufbau"><i class="fa fa-check"></i><b>2.2</b> Aufbau von RStudio</a></li>
 <li class="chapter" data-level="2.3" data-path="start.html"><a href="start.html#anpassung"><i class="fa fa-check"></i><b>2.3</b> RStudio anpassen</a></li>
-<li class="chapter" data-level="2.4" data-path="start.html"><a href="start.html#funktionen-und-ihre-argumente"><i class="fa fa-check"></i><b>2.4</b> Funktionen und ihre Argumente</a></li>
+<li class="chapter" data-level="2.4" data-path="start.html"><a href="start.html#functions"><i class="fa fa-check"></i><b>2.4</b> Funktionen und ihre Argumente</a></li>
 <li class="chapter" data-level="2.5" data-path="start.html"><a href="start.html#packages"><i class="fa fa-check"></i><b>2.5</b> Packages (Erweiterungen)</a>
 <ul>
 <li class="chapter" data-level="2.5.1" data-path="start.html"><a href="start.html#installieren-und-laden"><i class="fa fa-check"></i><b>2.5.1</b> Installieren und laden</a></li>
-<li class="chapter" data-level="2.5.2" data-path="start.html"><a href="start.html#notwendige-packages-für-dieses-buch"><i class="fa fa-check"></i><b>2.5.2</b> Notwendige Packages für dieses Buch</a></li>
+<li class="chapter" data-level="2.5.2" data-path="start.html"><a href="start.html#required"><i class="fa fa-check"></i><b>2.5.2</b> Notwendige Packages für dieses Buch</a></li>
 <li class="chapter" data-level="2.5.3" data-path="start.html"><a href="start.html#namespace"><i class="fa fa-check"></i><b>2.5.3</b> Namespace</a></li>
 </ul></li>
 <li class="chapter" data-level="2.6" data-path="start.html"><a href="start.html#help"><i class="fa fa-check"></i><b>2.6</b> Fehler- und Warnmeldungen</a>
@@ -205,7 +205,7 @@ div.csl-indent {
 <li class="chapter" data-level="4.2" data-path="vars.html"><a href="vars.html#pfeil"><i class="fa fa-check"></i><b>4.2</b> Variablen speichern und verwenden</a></li>
 <li class="chapter" data-level="4.3" data-path="vars.html"><a href="vars.html#datentypen"><i class="fa fa-check"></i><b>4.3</b> Datentypen</a>
 <ul>
-<li class="chapter" data-level="4.3.1" data-path="vars.html"><a href="vars.html#zahlen-buchstaben-und-logische-abfragen"><i class="fa fa-check"></i><b>4.3.1</b> Zahlen, Buchstaben und logische Abfragen</a></li>
+<li class="chapter" data-level="4.3.1" data-path="vars.html"><a href="vars.html#basetypes"><i class="fa fa-check"></i><b>4.3.1</b> Zahlen, Buchstaben und logische Abfragen</a></li>
 <li class="chapter" data-level="4.3.2" data-path="vars.html"><a href="vars.html#factor"><i class="fa fa-check"></i><b>4.3.2</b> Faktoren</a></li>
 <li class="chapter" data-level="4.3.3" data-path="vars.html"><a href="vars.html#zeitdaten"><i class="fa fa-check"></i><b>4.3.3</b> Zeitdaten</a></li>
 <li class="chapter" data-level="4.3.4" data-path="vars.html"><a href="vars.html#datentypen-konvertieren"><i class="fa fa-check"></i><b>4.3.4</b> Datentypen konvertieren</a></li>
@@ -417,15 +417,15 @@ Abbildung 4.5: Datensatz einlesen und Analysen durchführen.
 <div id="pfeil" class="section level2 hasAnchor" number="4.2">
 <h2><span class="header-section-number">4.2</span> Variablen speichern und verwenden<a href="vars.html#pfeil" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Ein zentrales Konzept in R ist das Speichern von Variablen mithilfe des Zuweisungspfeils. Dies ist vor allem für all jene ungewöhnlich, die das Erstellen von Variablen aus anderen Programmiersprachen mit dem Gleichheitszeichen kennengelernt haben. Wenn man das Ergebnis der durchgeführten Operation nicht speichert, ist es sofort weg und muss erneut ausgeführt werden. Würde man nun</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb28-1"><a href="vars.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">+</span> <span class="dv">2</span></span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb29-1"><a href="vars.html#cb29-1" tabindex="-1"></a><span class="dv">2</span> <span class="sc">+</span> <span class="dv">2</span></span></code></pre></div>
 <pre class="bordercode"><code>[1] 4</code></pre>
 <p>rechnen, gibt R zwar 4 zurück, allerdings kann man später nicht mehr auf diese 4 zurückgreifen. Wenn man beispielsweise einen Datensatz einliest, ohne diesen mit dem Zuweisungspfeil zu speichern, kann man auf diesen im weiteren Verlauf nicht zugreifen. Mithilfe des Zuweisungspfeils wird die Variable in die lokale <strong>Environment</strong> gespeichert. Wir erinnern uns, die Environment ist in der Standardeinstellung nach Installation von RStudio im Fenster oben rechts. Möchten wir beispielsweise die Rechenoperation von vorhin namens <code>rechnung</code> speichern, würde man wie folgt vorgehen:</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb30-1"><a href="vars.html#cb30-1" aria-hidden="true" tabindex="-1"></a>rechnung <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="sc">+</span> <span class="dv">2</span></span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb31-1"><a href="vars.html#cb31-1" tabindex="-1"></a>rechnung <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="sc">+</span> <span class="dv">2</span></span></code></pre></div>
 <p>Im Nachfolgenden könnte man nun diese Variable jederzeit wieder aufrufen.</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb31-1"><a href="vars.html#cb31-1" aria-hidden="true" tabindex="-1"></a>rechnung</span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb32-1"><a href="vars.html#cb32-1" tabindex="-1"></a>rechnung</span></code></pre></div>
 <pre class="bordercode"><code>[1] 4</code></pre>
 <p>Auch ist es nun möglich, weitere Rechenoperationen mit dem vorherigen Ergebnis auszuführen. Zum Beispiel könnte man unser Ergebnis namens <code>rechnung</code> mit der Zahl 4 multiplizieren.</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb33-1"><a href="vars.html#cb33-1" aria-hidden="true" tabindex="-1"></a>rechnung <span class="sc">*</span> <span class="dv">4</span></span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb34-1"><a href="vars.html#cb34-1" tabindex="-1"></a>rechnung <span class="sc">*</span> <span class="dv">4</span></span></code></pre></div>
 <pre class="bordercode"><code>[1] 16</code></pre>
 <p>Variablen kann man grundsätzlich fast so benennen, wie man möchte. Man darf nur nicht mit einer Zahl anfangen oder nach einem Punkt direkt eine Zahl als Namen wählen wie bspw. bei <code>.2VariablenName</code>. Auf Umlaute sollte im Zusammenhang mit Programmiersprachen aufgrund verschiedener Zeichenkodierungen ebenfalls <strong>immer</strong> verzichtet werden. Groß- und Kleinschreibung macht ebenfalls einen Unterschied.</p>
 <div class="warning">
@@ -437,9 +437,9 @@ Abbildung 4.5: Datensatz einlesen und Analysen durchführen.
 <p>Behalte immer im Hinterkopf, dass der Zuweisungspfeil zwar die Variable speichert, aber keinen direkten Output in der Konsole ausgibt. Oft erweckt das den Eindruck, als wäre nichts passiert. Es hilft dann, den Namen der Variable, wie zuvor gezeigt, explizit aufzurufen.</p>
 </div>
 <p>Wenn man etwas im Code kommentieren möchte, muss eine führende Raute hinzugefügt werden. Das eignet sich nicht nur für kurze Beschreibungen, sondern auch als Gliederung eines langen R Skriptes. Beispielsweise könnte man so den Abschnitt der Berechnung vom Erstellen von Visualisierungen optisch trennen. Die Anzahl der Rauten spielt dabei keine Rolle.</p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb35-1"><a href="vars.html#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Berechnung I</span></span>
-<span id="cb35-2"><a href="vars.html#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Dieser Code summiert 2 und 4</span></span>
-<span id="cb35-3"><a href="vars.html#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">+</span> <span class="dv">4</span></span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb36-1"><a href="vars.html#cb36-1" tabindex="-1"></a><span class="co"># Berechnung I</span></span>
+<span id="cb36-2"><a href="vars.html#cb36-2" tabindex="-1"></a><span class="co"># Dieser Code summiert 2 und 4</span></span>
+<span id="cb36-3"><a href="vars.html#cb36-3" tabindex="-1"></a><span class="dv">2</span> <span class="sc">+</span> <span class="dv">4</span></span></code></pre></div>
 <pre class="bordercode"><code>[1] 6</code></pre>
 </div>
 <div id="datentypen" class="section level2 hasAnchor" number="4.3">
@@ -451,33 +451,33 @@ Abbildung 4.5: Datensatz einlesen und Analysen durchführen.
 Abbildung 4.6: Schematische Übersicht über die wichtigsten Datentypen in R.
 </p>
 </div>
-<div id="zahlen-buchstaben-und-logische-abfragen" class="section level3 hasAnchor" number="4.3.1">
-<h3><span class="header-section-number">4.3.1</span> Zahlen, Buchstaben und logische Abfragen<a href="vars.html#zahlen-buchstaben-und-logische-abfragen" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="basetypes" class="section level3 hasAnchor" number="4.3.1">
+<h3><span class="header-section-number">4.3.1</span> Zahlen, Buchstaben und logische Abfragen<a href="vars.html#basetypes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Beispiele für <code>Numerics</code> wären zum Beispiel Alter, Gehalt oder der Blutdruck. Wenn wir später Datentypen aus einem echten Datensatz ansehen, wirst du schnell merken, dass beinahe alle Zahlen als <code>Double</code> deklariert werden. Das liegt an der Eigenheit von R, ein <code>L</code> hinter die Zahl setzen zu müssen, wenn es sich um eine ganze Zahl hat. Dies hat allerdings keinerlei Auswirkung auf die in diesem Buch vorgestellten Funktionen.</p>
 <p>Double:</p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb37-1"><a href="vars.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fl">3.14</span> </span>
-<span id="cb37-2"><a href="vars.html#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="dv">42</span>   </span></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb38-1"><a href="vars.html#cb38-1" tabindex="-1"></a><span class="fl">3.14</span> </span>
+<span id="cb38-2"><a href="vars.html#cb38-2" tabindex="-1"></a><span class="dv">42</span>   </span></code></pre></div>
 <p>Integer:</p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb38-1"><a href="vars.html#cb38-1" aria-hidden="true" tabindex="-1"></a>42L  </span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb39-1"><a href="vars.html#cb39-1" tabindex="-1"></a>42L  </span></code></pre></div>
 <p><code>Character</code> (<code>&lt;chr&gt;</code>) ist der Datentyp, der Text enthalten kann – also einzelne Buchstaben, Zeichen, Wörter oder ganze Sätze. Dabei muss der Text <strong>immer</strong> in Anführungszeichen stehen. Solange die Anführungszeichen verwendet werden, kann mit Ausnahme vom Backslash (<code>\</code>) alles geschrieben werden. Beispiele für <code>Characters</code> wären zum Beispiel die Blutgruppe, das Herkunftsland oder Allergien.</p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb39-1"><a href="vars.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;Hallo Welt&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb40-1"><a href="vars.html#cb40-1" tabindex="-1"></a><span class="st">&quot;Hallo Welt&quot;</span></span></code></pre></div>
 <p><code>Logical</code> oder auch logische Datentypen sind etwas abstrakter und kommen in Datensätzen seltener vor. Sie werden dann benötigt, wenn wir aufgrund von bestimmten Bedingungen manche Operationen durchführen möchten und andere wiederum nicht. Beispiele dafür wären die Auswahl derjenigen Personen, die über 50 Jahre alt sind oder eine neue Spalte namens Geschlecht zu erstellen, die nur bei weiblichen Personen eine 1 und ansonsten eine 0 einträgt. Dabei wird nämlich geprüft, ob die Aussage (zum Beispiel Person A ist älter als 50) wahr oder falsch ist. Das heißt, es gibt dabei zwei Zustände: <code>TRUE</code> oder <code>FALSE</code> (immer in Großbuchstaben). Eine Bedingung kann entweder zutreffen oder eben nicht. Es gibt verschiedene Funktionen, die <code>TRUE</code> oder <code>FALSE</code> zurückgeben, auf die wir im Verlaufe des Buches noch stoßen werden. Grundsätzlich gibt es dabei nur wenige verschiedene Grundoperatoren, die man kennen sollte. Um zu schauen, ob zwei Werte gleich sind, benutzen wir ein <strong>doppeltes</strong> Gleichheitszeichen (<code>==</code>).</p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb40-1"><a href="vars.html#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">==</span> <span class="dv">2</span></span></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb41-1"><a href="vars.html#cb41-1" tabindex="-1"></a><span class="dv">2</span> <span class="sc">==</span> <span class="dv">2</span></span></code></pre></div>
 <pre class="bordercode"><code>[1] TRUE</code></pre>
 <p>Gleiches Prinzip gilt für größer gleich (<code>&gt;=</code>) und kleiner gleich (<code>&lt;=</code>). Für größer (<code>&gt;</code>) oder kleiner (<code>&lt;</code>) reicht hingegen das einzelne mathematische Zeichen. Möchten wir nun logische Operationen kombinieren, verwenden wir UND (<code>&amp;</code>) oder ODER (<code>|</code>). Bei UND müssen beide Aussagen wahr sein.</p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb42-1"><a href="vars.html#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">&lt;</span> <span class="dv">2</span> <span class="sc">&amp;</span> <span class="dv">1</span> <span class="sc">==</span> <span class="dv">2</span></span></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb43-1"><a href="vars.html#cb43-1" tabindex="-1"></a><span class="dv">1</span> <span class="sc">&lt;</span> <span class="dv">2</span> <span class="sc">&amp;</span> <span class="dv">1</span> <span class="sc">==</span> <span class="dv">2</span></span></code></pre></div>
 <pre class="bordercode"><code>[1] FALSE</code></pre>
 <p>Im Falle vom ODER-Operator muss nur eine logische Abfrage zutreffen, um ein <code>TRUE</code> ausgegeben zu bekommen. Man würde es wie folgt lesen: Entweder ist 1 kleiner 2 ODER 1 ist gleich 2. Da die erste Aussage wahr ist, wird <code>TRUE</code> zurückgegeben.</p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb44-1"><a href="vars.html#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">&lt;</span> <span class="dv">2</span> <span class="sc">|</span> <span class="dv">1</span> <span class="sc">==</span> <span class="dv">2</span></span></code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb45-1"><a href="vars.html#cb45-1" tabindex="-1"></a><span class="dv">1</span> <span class="sc">&lt;</span> <span class="dv">2</span> <span class="sc">|</span> <span class="dv">1</span> <span class="sc">==</span> <span class="dv">2</span></span></code></pre></div>
 <pre class="bordercode"><code>[1] TRUE</code></pre>
 <div class="idea">
 <p>Neben den logischen Operatoren <code>&amp;</code> und <code>|</code> existieren in R ebenfalls die doppelten Varianten <code>&amp;&amp;</code> und <code>||</code>. Der Unterschied besteht in dem Ausgabeformat. Im Falle der einzelnen Operatoren (<code>&amp;</code>, <code>|</code>) können (vektorisiert) unbegrenzt viele Abfragen überprüft werden. Der Ausdruck <code>c("A", "C") == "A"</code> gibt bspw. <code>TRUE FALSE</code> zurück, da der erste Buchstabe ein A ist und der zweite nicht. Bei den doppelten Operatoren (<code>&amp;&amp;</code>, <code>||</code>) würde dieser Ausdruck einen Fehler produzieren, da hier die logische Abfrage immer nur einen einzigen logischen Wert zurückgeben darf (entweder <code>TRUE</code> oder <code>FALSE</code>). Dies ist vor allem bei <code>if</code>-Abfragen oder <code>while</code>-Schleifen nützlich. Im Kontext der wissenschaftlichen Datenanalyse greifen wir in den meisten Fällen auf die einzelnen logischen Operatoren zurück (<code>&amp;</code>, <code>|</code>).</p>
 </div>
 <p>So können beliebig viele logischen Operationen miteinander kombiniert werden. Ein besonderer Fall logischer Datentypen ist <code>NA</code> (Akronym für <strong>N</strong>ot <strong>A</strong>vailable), also die Bezeichnung für einen fehlenden Wert. Wir können einen Wert oder eine Variable auf seinen Datentyp überprüfen. Zurückgegeben wird uns nur <code>TRUE</code> oder <code>FALSE</code>. Die für uns interessanten Funktionen hierfür heißen <code>is.numeric()</code>, <code>is.character()</code>, <code>is.logical()</code>, <code>is.factor()</code>, <code>is.Date()</code>, <code>is.POSIXct()</code> und <code>is.na()</code>. Natürlich gibt es auch <code>is.double()</code> und <code>is.integer()</code>, allerdings genügt uns für die Anwendungen in diesem Buch <code>is.numeric()</code>. Möchte man generell herausfinden, mit welchem Datentyp man es zu tun hat, verwendet man <code>typeof()</code>.</p>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb46-1"><a href="vars.html#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(<span class="st">&quot;Kontrollgruppe&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb47-1"><a href="vars.html#cb47-1" tabindex="-1"></a><span class="fu">typeof</span>(<span class="st">&quot;Kontrollgruppe&quot;</span>)</span></code></pre></div>
 <pre class="bordercode"><code>[1] &quot;character&quot;</code></pre>
 <p>Da es unpraktisch ist, bei diversen Spalten eines Datensatzes einzeln den Typ abzufragen, wird dieser in <code>tibbles</code> (siehe Kapitel <a href="datatypes.html#tibble">11.3</a>) – dem Datensatzformat, welches wir innerhalb von R konsistent im gesamten Buch verwenden – direkt unter dem Spaltennamen angezeigt.</p>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb48-1"><a href="vars.html#cb48-1" aria-hidden="true" tabindex="-1"></a>big5</span></code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb49-1"><a href="vars.html#cb49-1" tabindex="-1"></a>big5</span></code></pre></div>
 <pre class="bordercode"><code># A tibble: 200 × 7
   Alter Geschlecht Extraversion Neurotizismus    O1    O2    O3
   &lt;dbl&gt; &lt;chr&gt;             &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
@@ -487,7 +487,7 @@ Abbildung 4.6: Schematische Übersicht über die wichtigsten Datentypen in R.
 4    54 m                   3.3           4.2     2     5     3
 # ℹ 196 more rows</code></pre>
 <p>Da dort nur die Spalten angezeigt werden, die auf den Bildschirm passen, bietet <code>glimpse()</code> eine übersichtlichere Möglichkeit, einen schnellen Überblick über sämtliche Datentypen zu erhalten.</p>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb50-1"><a href="vars.html#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(big5)</span></code></pre></div>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb51-1"><a href="vars.html#cb51-1" tabindex="-1"></a><span class="fu">glimpse</span>(big5)</span></code></pre></div>
 <pre class="bordercode"><code>Rows: 200
 Columns: 7
 $ Alter         &lt;dbl&gt; 36, 30, 23, 54, 24, 14, 32, 20, 29, 17, 30, 15, 14, 23, 27, 15, 1964, 2…
@@ -498,97 +498,98 @@ $ O1            &lt;dbl&gt; 5, 5, 3, 2, 5, 5, 3, 2, 4, 4, 5, 4, 2, 5, 4, 2, 5, 3
 $ O2            &lt;dbl&gt; 1, 3, 3, 5, 1, 1, 1, 1, 1, 3, 2, 3, 3, 1, 2, 3, 1, 2, 4, 1, 1, 1, 4, 3,…
 $ O3            &lt;dbl&gt; 5, 5, 5, 3, 5, 5, 5, 3, 5, 4, 5, 4, 3, 5, 4, 5, 5, 5, 4, 4, 1, 5, 3, 2,…</code></pre>
 <p>Möchten wir nun mehrere Werte <strong>eines</strong> Datentypens aneinanderreihen, um sie zum Beispiel in eine Spalte eines Datensatzes zu schreiben, können wir <code>c()</code> (Abkürzung für <strong>C</strong>ombine, engl. für kombinieren) verwenden. Möchtest du beispielsweise die Werte 1, 4, 5, und 10 kombinieren, erstellt dir <code>c()</code> einen entsprechenden Vektor (siehe Kapitel <a href="datatypes.html#vec">11.1</a>). Die Feinheiten und Merkmale von Vektoren brauchen dich an dieser Stelle nicht zu interessieren. Allerdings brauchen wir die Funktion <code>c()</code> des Öfteren, um Werte aneinander zu reihen.</p>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb52-1"><a href="vars.html#cb52-1" aria-hidden="true" tabindex="-1"></a>vec <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb53-1"><a href="vars.html#cb53-1" tabindex="-1"></a>vec <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">10</span>)</span></code></pre></div>
 <p>Wenn du verschiedene Datentypen innerhalb von <code>c()</code> miteinander kombinierst, werden die Datentypen ineinander umgewandelt. Dabei gilt <code>Character &gt; Integer &gt; Logical</code>. Wenn Zahlen mit Buchstaben kombiniert werden, wird also alles zu Buchstaben, auch wenn eigentlich Zahlen gemeint sind. Es gibt diverse Datentypen, die auf diesen vier Grundtypen aufbauen. Zwei wichtige, Faktoren und Zeitdaten, werden wir uns im Folgenden noch anschauen.</p>
 <div class="warning">
 <p>Es kann passieren, dass Zahlen von R als Buchstaben interpretiert werden. Das kommt vor allem beim Einlesen von schlecht formatierten Datensätzen vor. Wenn eine Berechnung nicht so funktioniert, wie sie sollte, lohnt es sich, die Datentypen der jeweiligen Spalten zu überprüfen.</p>
 </div>
 <div class="exercise2">
-<p><strong>Übung 4.3.1.</strong> (Noch nicht enthalten) Starte die Übung mit <code>uebung_starten(4.3.1)</code>.</p>
+<p><strong>Übung 4.3.1.</strong> Das Verstehen der Grunddatentypen ist zum Arbeiten mit R essentiell. In dieser Übung wird das Verständnis mithilfe allgemeiner Fragen und anhand einer Nutzerstatistik eines Musikstreamingdienstes geprüft. Besonders werden zudem die logischen Datentypen wiederholt. Starte die Übung mit <code>uebung_starten("4-3-1")</code> (siehe Kapitel <a href="intro.html#uebungen">1.3</a>).</p>
 </div>
 </div>
 <div id="factor" class="section level3 hasAnchor" number="4.3.2">
 <h3><span class="header-section-number">4.3.2</span> Faktoren<a href="vars.html#factor" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Wenn wir wissen, wie viele Ausprägungen <code>Characters</code> (Zeichenketten) annehmen können, verwenden wir sogenannte <code>Faktoren</code>. Dabei handelt es sich um nominal skalierte Kategorien. Die einzelnen Kategorien sind folglich voneinander abgrenzbar, aber nicht zwingend in eine Reihenfolge zu bringen. Ein illustratives Beispiel hierfür wäre die Aufteilung in Experimental- und Kontrollgruppen. Bereits bei der Versuchsplanung überlegst du, wie viele Gruppen du benötigst (bspw. eine Experimental- und zwei Kontrollgruppen), um eine entsprechende Stichprobenplanung durchzuführen. Schauen wir uns das ganze nun etwas konkreter an. Angenommen, die Information über die Bedingung (Experimental, Kontrolle) befindet sich in der Variable namens <code>Bedingung</code> als <code>Characters</code>.</p>
-<div class="sourceCode" id="cb53"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb53-1"><a href="vars.html#cb53-1" aria-hidden="true" tabindex="-1"></a>bedingung <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;exp&quot;</span>, <span class="st">&quot;kont1&quot;</span>, <span class="st">&quot;exp&quot;</span>, <span class="st">&quot;exp&quot;</span>, <span class="st">&quot;kont2&quot;</span>, <span class="st">&quot;kont1&quot;</span>)</span></code></pre></div>
+<p>Faktoren bieten in R die Möglichkeit, die Ausprägungsgrade von Kategorien eindeutig zu definieren und wahlweise auch in eine Reihenfolge zu bringen. Wir möchten Variablen (Spalten) also dann in einen Faktor umwandeln, wenn wir zwei oder mehr Kategorien vorliegen haben. Ein Faktor für zwei Kategorien erlaubt es uns beispielsweise die Reihenfolge der Balken in einem Balkendiagramm zu verändern. Bei mehr als zwei Kategorien können wir z.B. im Kontext von Regressionsmodellen sogenannte Dummy Variablen erstellen, die die Ausprägungen mit einer Referenzkategorie vergleichen.</p>
+<p>Es handelt sich bei Faktoren also um nominalskalierte Kategorien, die in ausgewählten Anwendungsfällen auch geordnet werden können (ordinales Skalenniveau). Ein illustratives Beispiel hierfür wäre die Aufteilung in Experimental- und Kontrollgruppen. Bereits bei der Versuchsplanung überlegst du dir, wie viele Gruppen du benötigst (beispielsweise eine Experimental- und zwei Kontrollgruppen), um eine entsprechende Stichprobenplanung durchzuführen. Schauen wir uns das ganze nun etwas konkreter an. Angenommen, die Information über die Bedingung (Experimental, Kontrolle) befindet sich in der Variable namens <code>Bedingung</code> mit dem Datentyp <code>Character</code>.</p>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb54-1"><a href="vars.html#cb54-1" tabindex="-1"></a>bedingung <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;exp&quot;</span>, <span class="st">&quot;kont1&quot;</span>, <span class="st">&quot;exp&quot;</span>, <span class="st">&quot;exp&quot;</span>, <span class="st">&quot;kont2&quot;</span>, <span class="st">&quot;kont1&quot;</span>)</span></code></pre></div>
 <p>Mit der Funktion <code>factor()</code> können nun Faktoren daraus gemacht werden. Zusätzlich sollte man das optionale <code>levels</code> Argument verwenden, um die Reihenfolge der Faktorstufen festzulegen.</p>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb54-1"><a href="vars.html#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">factor</span>(bedingung, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;exp&quot;</span>, <span class="st">&quot;kont1&quot;</span>, <span class="st">&quot;kont2&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb55-1"><a href="vars.html#cb55-1" tabindex="-1"></a><span class="fu">factor</span>(bedingung, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;exp&quot;</span>, <span class="st">&quot;kont1&quot;</span>, <span class="st">&quot;kont2&quot;</span>))</span></code></pre></div>
 <pre class="bordercode"><code>[1] exp   kont1 exp   exp   kont2 kont1
 Levels: exp kont1 kont2</code></pre>
 <p>Das <code>levels</code> Argument ist außerdem wichtig, wenn wir nicht alle Faktorstufen beobachtet haben. Wenn beispielsweise eine der Gruppen in der Erhebung nicht vorkam, möchten wir eine Häufigkeit von 0 angezeigt bekommen. Würden wir die Faktorstufen nicht explizit definieren, würde die fehlende Gruppe in den im weiteren Verlauf des Buches verwendeten Funktionen schlichtweg nicht angezeigt werden.</p>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb56-1"><a href="vars.html#cb56-1" aria-hidden="true" tabindex="-1"></a>bedingung <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;exp&quot;</span>, <span class="st">&quot;kont1&quot;</span>, <span class="st">&quot;exp&quot;</span>, <span class="st">&quot;exp&quot;</span>, <span class="st">&quot;kont1&quot;</span>)</span>
-<span id="cb56-2"><a href="vars.html#cb56-2" aria-hidden="true" tabindex="-1"></a><span class="fu">factor</span>(bedingung, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;exp&quot;</span>, <span class="st">&quot;kont1&quot;</span>, <span class="st">&quot;kont2&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb57-1"><a href="vars.html#cb57-1" tabindex="-1"></a>bedingung <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;exp&quot;</span>, <span class="st">&quot;kont1&quot;</span>, <span class="st">&quot;exp&quot;</span>, <span class="st">&quot;exp&quot;</span>, <span class="st">&quot;kont1&quot;</span>)</span>
+<span id="cb57-2"><a href="vars.html#cb57-2" tabindex="-1"></a><span class="fu">factor</span>(bedingung, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;exp&quot;</span>, <span class="st">&quot;kont1&quot;</span>, <span class="st">&quot;kont2&quot;</span>))</span></code></pre></div>
 <pre class="bordercode"><code>[1] exp   kont1 exp   exp   kont1
 Levels: exp kont1 kont2</code></pre>
 <p>Die Ausgabe der Funktion zeigt uns, dass die Stufe <code>kont2</code> vorliegen könnte und innerhalb des Faktors gespeichert ist.</p>
 <p>Wenn die als Faktor zu kodierende Spalte numerisch ist, können mit dem Argument <code>labels</code> die Namen der verschiedenen Ausprägungsgrade spezifiziert werden. Ein häufiges Beispiel hierfür wäre die Variable Geschlecht mit drei Ausprägungsgeraden.</p>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb58-1"><a href="vars.html#cb58-1" aria-hidden="true" tabindex="-1"></a>geschlecht <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb59-1"><a href="vars.html#cb59-1" tabindex="-1"></a>geschlecht <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">3</span>)</span></code></pre></div>
 <p>Die Umkodierung geht mit dem <code>labels</code> Argument intuitiv, sofern man auf die Reihenfolge der Labels achtet.</p>
-<div class="sourceCode" id="cb59"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb59-1"><a href="vars.html#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">factor</span>(geschlecht, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;m&quot;</span>, <span class="st">&quot;f&quot;</span>, <span class="st">&quot;d&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb60-1"><a href="vars.html#cb60-1" tabindex="-1"></a><span class="fu">factor</span>(geschlecht, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;m&quot;</span>, <span class="st">&quot;f&quot;</span>, <span class="st">&quot;d&quot;</span>))</span></code></pre></div>
 <pre class="bordercode"><code>[1] m m f d m d
 Levels: m f d</code></pre>
 <p>Mithilfe des zusätzlich Arguments <code>ordered</code> ist es möglich, aus den nominalen Kategorien ein ordinales Skalenniveau zu bilden. Dies wäre z.B. bei der Untersuchung möglicher Zusammenhänge zwischen Schmerzintensität und verschiedenen Behandlungsmethoden notwendig (siehe Kapitel <a href="inductive.html#propodds">9.5.4</a>). Schließlich ist auf einer Schmerzskala von 0 (keine Schmerzen) bis 5 (unerträgliche Schmerzen) ein Schmerz von 3 als höher zu bewerten als 2. Da dennoch nicht bekannt ist, wie groß der Abstand zwischen den Stufen der Schmerzskala genau ist, haben wir hier ordinales Skalenniveau vorliegen (in Abgrenzung zu intervallskalierten Merkmalen). Angenommen, wir befragen fünf Personen über ihre momentan Schmerzen. Standardmäßig sind Faktoren nominal aufsteigend nach Größe sortiert.</p>
-<div class="sourceCode" id="cb61"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb61-1"><a href="vars.html#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="fu">factor</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">4</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb62-1"><a href="vars.html#cb62-1" tabindex="-1"></a><span class="fu">factor</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">4</span>))</span></code></pre></div>
 <pre class="bordercode"><code>[1] 0 3 1 5 4
 Levels: 0 1 3 4 5</code></pre>
 <p>Durch das <code>ordered</code> Argument erhalten diese eine explizite Reihenfolge.</p>
-<div class="sourceCode" id="cb63"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb63-1"><a href="vars.html#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="fu">factor</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">4</span>), <span class="at">ordered =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb64-1"><a href="vars.html#cb64-1" tabindex="-1"></a><span class="fu">factor</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">4</span>), <span class="at">ordered =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre class="bordercode"><code>[1] 0 3 1 5 4
 Levels: 0 &lt; 1 &lt; 3 &lt; 4 &lt; 5</code></pre>
-<p>Grundsätzlich sollte man Faktoren nur <strong>bei Bedarf</strong> erstellen (zum Beispiel unmittelbar vor der ANOVA oder vor Erstellen einer Abbildung), da Faktoren nicht mit allen Funktionen erwartungsgemäß harmonieren. Dies hängt damit zusammen, dass Faktoren als Zahlen gespeichert werden. So erhalten wir für den Faktor <code>fact1</code> als <code>class()</code> den Datentyp des Faktors,</p>
-<div class="sourceCode" id="cb65"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb65-1"><a href="vars.html#cb65-1" aria-hidden="true" tabindex="-1"></a>fct1 <span class="ot">&lt;-</span> <span class="fu">factor</span>(bedingung, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;exp&quot;</span>, <span class="st">&quot;kont1&quot;</span>, <span class="st">&quot;kont2&quot;</span>))</span>
-<span id="cb65-2"><a href="vars.html#cb65-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(fct1)</span></code></pre></div>
+<p>Grundsätzlich sollte man Faktoren nur <strong>bei Bedarf</strong> erstellen, da Faktoren nicht mit allen Funktionen erwartungsgemäß harmonieren (z.B. unmittelbar vor der statistischen Analyse oder vor Erstellen einer Abbildung). Dies hängt damit zusammen, dass Faktoren als Zahlen gespeichert werden. So erhalten wir für den Faktor <code>fact1</code> als <code>class()</code> den Datentyp des Faktors,</p>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb66-1"><a href="vars.html#cb66-1" tabindex="-1"></a>fct1 <span class="ot">&lt;-</span> <span class="fu">factor</span>(bedingung, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;exp&quot;</span>, <span class="st">&quot;kont1&quot;</span>, <span class="st">&quot;kont2&quot;</span>))</span>
+<span id="cb66-2"><a href="vars.html#cb66-2" tabindex="-1"></a><span class="fu">class</span>(fct1)</span></code></pre></div>
 <pre class="bordercode"><code>[1] &quot;factor&quot;</code></pre>
-<p>während uns <code>typeof()</code> den Datentyp Integer zurückgibt.</p>
-<div class="sourceCode" id="cb67"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb67-1"><a href="vars.html#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(fct1)</span></code></pre></div>
+<p>während uns <code>typeof()</code> den Datentyp <code>Integer</code> zurückgibt.</p>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb68-1"><a href="vars.html#cb68-1" tabindex="-1"></a><span class="fu">typeof</span>(fct1)</span></code></pre></div>
 <pre class="bordercode"><code>[1] &quot;integer&quot;</code></pre>
 <div class="idea">
 <p>Tatsächlich behandelt R Faktoren als Integer (Zahlen), was zu überraschenden Outputs führen kann. Verwende Faktoren also am besten nur dann, wenn du sie wirklich brauchst. Beispielsweise zum Rechnen inferenzstatistischer Verfahren oder unmittelbar vor dem Erstellen von Visualisierungen.</p>
 </div>
 <p>Wie man mit Faktoren konkret umgehen kann, wird in Kapitel <a href="datenvorbereitung.html#datafactor">6.10</a> erklärt.</p>
 <div class="exercise2">
-<p><strong>Übung 4.3.2.</strong> (Noch nicht enthalten) Starte die Übung mit <code>uebung_starten(4.3.2)</code>.</p>
+<p><strong>Übung 4.3.2.</strong> In dieser Übung werden die typischen Verständnisprobleme im Kontext von Faktoren näher beleuchtet und die Konzepte anhand eines Datensatzes zur statistischen Bildung wiederholt. Starte die Übung mit <code>uebung_starten("4-3-2")</code> (siehe Kapitel <a href="intro.html#uebungen">1.3</a>).</p>
 </div>
 </div>
 <div id="zeitdaten" class="section level3 hasAnchor" number="4.3.3">
 <h3><span class="header-section-number">4.3.3</span> Zeitdaten<a href="vars.html#zeitdaten" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Wie bereits in Abbildung <a href="vars.html#fig:types">4.6</a> illustriert, interessieren uns die Datentypen <code>Date</code> und <code>POSIXct</code>. Letzteres ist im Regelfall ein unerwünschtes Format, welches häufig beim Einlesen von Excel Dokumenten entsteht.</p>
 <p>Der Datentyp <code>POSIXct</code> ist ein Akronym für <strong>P</strong>ortable <strong>O</strong>perating <strong>S</strong>ystem <strong>I</strong>nferface <strong>c</strong>alendar <strong>t</strong>ime (in der Ausgabe von <code>tibbles</code> und der Funktion <code>glimpse()</code> mit <code>dttm</code> für Datetime abgekürzt). Enthalten ist das Datum (Jahr.Monat.Tag) und die Uhrzeit. Die Uhrzeit ist allerdings in den wenigstens Forschungskontexten von Interesse.</p>
-<div class="sourceCode" id="cb69"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb69-1"><a href="vars.html#cb69-1" aria-hidden="true" tabindex="-1"></a>date_time <span class="ot">&lt;-</span> <span class="fu">as.POSIXct</span>(<span class="st">&quot;2024-01-09 08:30&quot;</span>)</span>
-<span id="cb69-2"><a href="vars.html#cb69-2" aria-hidden="true" tabindex="-1"></a>date_time</span></code></pre></div>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb70-1"><a href="vars.html#cb70-1" tabindex="-1"></a>date_time <span class="ot">&lt;-</span> <span class="fu">as.POSIXct</span>(<span class="st">&quot;2024-01-09 08:30&quot;</span>)</span>
+<span id="cb70-2"><a href="vars.html#cb70-2" tabindex="-1"></a>date_time</span></code></pre></div>
 <pre class="bordercode"><code>[1] &quot;2024-01-09 08:30:00 CET&quot;</code></pre>
 <p>In das gewünschte <code>Date</code> Format können wir mit <code>as.Date()</code> umwandeln.</p>
-<div class="sourceCode" id="cb71"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb71-1"><a href="vars.html#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.Date</span>(date_time)</span></code></pre></div>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb72-1"><a href="vars.html#cb72-1" tabindex="-1"></a><span class="fu">as.Date</span>(date_time)</span></code></pre></div>
 <pre class="bordercode"><code>[1] &quot;2024-01-09&quot;</code></pre>
 <p>Hier haben wir nur Informationen über das Jahr, den Monat und den Tag. Wenn wir ein Datum ausgeben, sieht es zunächst wie eine Buchstabenfolge aus.</p>
-<div class="sourceCode" id="cb73"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb73-1"><a href="vars.html#cb73-1" aria-hidden="true" tabindex="-1"></a>date_past <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(<span class="st">&quot;2002-02-15&quot;</span>)</span>
-<span id="cb73-2"><a href="vars.html#cb73-2" aria-hidden="true" tabindex="-1"></a>date_past</span></code></pre></div>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb74-1"><a href="vars.html#cb74-1" tabindex="-1"></a>date_past <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(<span class="st">&quot;2002-02-15&quot;</span>)</span>
+<span id="cb74-2"><a href="vars.html#cb74-2" tabindex="-1"></a>date_past</span></code></pre></div>
 <pre class="bordercode"><code>[1] &quot;2002-02-15&quot;</code></pre>
 <p>Wir können uns aber mit <code>is.Date()</code> vergewissern, dass wir den Datentype <code>Date</code> vorliegen haben.</p>
-<div class="sourceCode" id="cb75"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb75-1"><a href="vars.html#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.Date</span>(date_past)</span></code></pre></div>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb76-1"><a href="vars.html#cb76-1" tabindex="-1"></a><span class="fu">is.Date</span>(date_past)</span></code></pre></div>
 <pre class="bordercode"><code>[1] TRUE</code></pre>
 <p>Ähnlich wie bei Faktoren müssen wir auch hier zum Verständnis zwischen der Klasse des Datums</p>
-<div class="sourceCode" id="cb77"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb77-1"><a href="vars.html#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(date_past)</span></code></pre></div>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb78-1"><a href="vars.html#cb78-1" tabindex="-1"></a><span class="fu">class</span>(date_past)</span></code></pre></div>
 <pre class="bordercode"><code>[1] &quot;Date&quot;</code></pre>
 <p>und dem Datentyp unterscheiden.</p>
-<div class="sourceCode" id="cb79"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb79-1"><a href="vars.html#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(date_past)</span></code></pre></div>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb80-1"><a href="vars.html#cb80-1" tabindex="-1"></a><span class="fu">typeof</span>(date_past)</span></code></pre></div>
 <pre class="bordercode"><code>[1] &quot;double&quot;</code></pre>
 <p>Der zugrundeliegende Datentyp des Datums ist eine Dezimalzahl (<code>Double</code>). Intern speichert R das Datum als Anzahl von Tagen seit einem bestimmten Datum ab. Meistens ist dieses Datum der 1. Januar 1900. Von diesem Datum bis zum 15. Februar 2002 sind 37300 Tage vergangen. Überprüfen können wir das durch Subtrahieren der beiden Daten.</p>
-<div class="sourceCode" id="cb81"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb81-1"><a href="vars.html#cb81-1" aria-hidden="true" tabindex="-1"></a>date_past <span class="sc">-</span> <span class="fu">as.Date</span>(<span class="st">&quot;1900-01-01&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb82-1"><a href="vars.html#cb82-1" tabindex="-1"></a>date_past <span class="sc">-</span> <span class="fu">as.Date</span>(<span class="st">&quot;1900-01-01&quot;</span>)</span></code></pre></div>
 <pre class="bordercode"><code>Time difference of 37300 days</code></pre>
 <p>Dieses Format ist eine sogenannte <code>difftime</code> (engl. für Zeitdifferenz). Es passiert tatsächlich öfter als man denkt, dass das Datum nicht als Datum sondern als Zahl angezeigt wird. Dann können wir unter Angabe des Startdatums (<code>origin</code>), die Zahl wieder in ein Datum umwandeln.</p>
-<div class="sourceCode" id="cb83"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb83-1"><a href="vars.html#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.Date</span>(<span class="dv">37300</span>, <span class="at">origin =</span> <span class="st">&quot;1900-01-01&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb84-1"><a href="vars.html#cb84-1" tabindex="-1"></a><span class="fu">as.Date</span>(<span class="dv">37300</span>, <span class="at">origin =</span> <span class="st">&quot;1900-01-01&quot;</span>)</span></code></pre></div>
 <pre class="bordercode"><code>[1] &quot;2002-02-15&quot;</code></pre>
 <p>Die Gründe hierfür können vielfältig sein. Wenn man bspw. bei unbekanntem Tag des Datums <code>"UN.06.2022"</code> in eine Zelle einträgt. Beim Einlesen kann die Spalte dann nicht als Datum eingelesen werden. Dies zu korrigieren, kann unter Umständen sehr mühsam sein. Einige Methoden zum konkreten Umgang mit diesen und weiteren Problemstellungen im Kontext von Zeitdaten wird in Kapitel <a href="datenvorbereitung.html#datazeit">6.11</a> erläutert.</p>
 <div class="exercise2">
-<p><strong>Übung 4.3.3.</strong> (Noch nicht enthalten) Starte die Übung mit <code>uebung_starten(4.3.3)</code>.</p>
+<p><strong>Übung 4.3.3.</strong> An dieser Stelle kannst du dein Verständnis der hier kennengelernten Zeitdatentypen anhand mehrerer Fragen wiederholen. Mit einem Datensatz zur Nutzerstatistik einer Videostreaming Plattform wird das Gelernte weiter konkretisiert. Starte die Übung mit <code>uebung_starten("4-3-3")</code> (siehe Kapitel <a href="intro.html#uebungen">1.3</a>).</p>
 </div>
 </div>
 <div id="datentypen-konvertieren" class="section level3 hasAnchor" number="4.3.4">
 <h3><span class="header-section-number">4.3.4</span> Datentypen konvertieren<a href="vars.html#datentypen-konvertieren" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Datentypen können auch umgewandelt werden. Die Namen sind ähnlich wie beim Abfragen des Datentypes, nur dass der Präfix hier nicht <code>is</code>, sondern <code>as</code> ist. Um den vorhin erstellten Vektor <code>vec</code> in den Typ Character umzuwandeln, würde man dementsprechend <code>as.character()</code> verwenden.
 `</p>
-<div class="sourceCode" id="cb85"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb85-1"><a href="vars.html#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.character</span>(vec)</span></code></pre></div>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb86-1"><a href="vars.html#cb86-1" tabindex="-1"></a><span class="fu">as.character</span>(vec)</span></code></pre></div>
 <pre class="bordercode"><code>[1] &quot;1&quot;  &quot;4&quot;  &quot;5&quot;  &quot;10&quot;</code></pre>
 <p>Wie man sieht, stehen nun sämtliche Zahlen in Anführungszeichen, weswegen man zum Beispiel nicht mehr eine Zahl ohne Weiteres addieren könnte.</p>
 <ul>
@@ -609,7 +610,7 @@ Levels: 0 &lt; 1 &lt; 3 &lt; 4 &lt; 5</code></pre>
 <li>Jede <strong>Zelle</strong> beinhaltet einen einzigen Wert, der genau einer Variable einer Beobachtung zuzuordnen ist.</li>
 </ul>
 <p>Wenn diese Voraussetzungen erfüllt sind, spricht man auch von einem <code>tidy</code> (engl. für aufgeräumten) Datensatz. Achte also am besten bereits beim Erheben der Daten auf eine richtige Struktur, da sonst die Funktionen, die wir in Kapitel <a href="datenvorbereitung.html#datenvorbereitung">6</a> kennenlernen werden, nicht ohne Weiteres anwendbar sind. Als ein Praxisbeispiel betrachten wir den <code>big5</code> Datensatz. Darin entspricht jede Zeile einem Proband oder einer Probandin, der oder die einen Fragebogen zu den Big5 Persönlichkeitsfaktoren beantwortet haben. Die Spalten sind dabei eine Mischung aus demographischen Variablen (z.B. Alter) und den Werten der eigentlichen Fragen (z.B. O1 für die erste Frage der Dimension Offenheit für neue Erfahrungen).</p>
-<div class="sourceCode" id="cb87"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb87-1"><a href="vars.html#cb87-1" aria-hidden="true" tabindex="-1"></a>big5</span></code></pre></div>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb88-1"><a href="vars.html#cb88-1" tabindex="-1"></a>big5</span></code></pre></div>
 <pre class="bordercode"><code># A tibble: 200 × 7
   Alter Geschlecht Extraversion Neurotizismus    O1    O2    O3
   &lt;dbl&gt; &lt;chr&gt;             &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
@@ -623,12 +624,12 @@ Levels: 0 &lt; 1 &lt; 3 &lt; 4 &lt; 5</code></pre>
 <h2><span class="header-section-number">4.5</span> Der Dollar-Operator<a href="vars.html#dollar" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Manche Funktionen benötigen jedoch nicht den gesamten Datensatz im vorherigen Kapitel beschriebenen Format als Argument, sondern lediglich eine Spalte daraus. Diese Spalte können wir mit dem sogenannten Dollar-Operator aus dem Datensatz extrahieren. Das Praktische an dem Dollar-Operator im Vergleich zu anderen Methoden zum Extrahieren der Spalte ist die Möglichkeit der automatischen Vervollständigung durch RStudio.</p>
 <p>Wenn wir den Namen des Datensatzes <code>big5</code> gefolgt von einem Dollar-Zeichen angeben, werden uns alle enthaltenen Spalten in einem Dropdown-Menu angezeigt. Dies ist vor allem bei langen Namen der jeweiligen Spalten äußerst praktisch und schützt uns vor Tippfehlern. Hier wählen wir exemplarisch die Spalte Alter aus.</p>
-<div class="sourceCode" id="cb89"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb89-1"><a href="vars.html#cb89-1" aria-hidden="true" tabindex="-1"></a>big5<span class="sc">$</span>Alter</span></code></pre></div>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb90-1"><a href="vars.html#cb90-1" tabindex="-1"></a>big5<span class="sc">$</span>Alter</span></code></pre></div>
 <p>Dieser Befehl würde uns alle 200 Alterswerte in einer Wertereihe bzw. als sogenannter Vektor zurückgegeben werden (siehe Kapitel <a href="datatypes.html#vec">11.1</a>). Um das ganze übersichtlich zu halten, lassen wir uns mit <code>head()</code> nur das Alter der ersten 6 Personen ausgeben.</p>
-<div class="sourceCode" id="cb90"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb90-1"><a href="vars.html#cb90-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(big5<span class="sc">$</span>Alter)</span></code></pre></div>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb91-1"><a href="vars.html#cb91-1" tabindex="-1"></a><span class="fu">head</span>(big5<span class="sc">$</span>Alter)</span></code></pre></div>
 <pre class="bordercode"><code>[1] 36 30 23 54 24 14</code></pre>
 <p>Als zweites Beispiel schauen wir uns den <code>demogr</code> Datensatz an, in welchem die drei Spalten <code>ID</code>, <code>Sex</code> und <code>Alter</code> enthalten sind.</p>
-<div class="sourceCode" id="cb92"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb92-1"><a href="vars.html#cb92-1" aria-hidden="true" tabindex="-1"></a>demogr</span></code></pre></div>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb93-1"><a href="vars.html#cb93-1" tabindex="-1"></a>demogr</span></code></pre></div>
 <pre class="bordercode"><code># A tibble: 4 × 3
   ID       Sex   Alter
   &lt;chr&gt;    &lt;chr&gt; &lt;dbl&gt;
@@ -637,14 +638,11 @@ Levels: 0 &lt; 1 &lt; 3 &lt; 4 &lt; 5</code></pre>
 3 IO240576 f        40
 4 JH051199 m        24</code></pre>
 <p>Die einzelnen Angaben über das biologische Geschlecht der Personen innerhalb des Datensatzes, werden erneut mit der Kombination aus Datensatznamen, Dollar-Zeichen und Spaltennamen als Aneinanderreihung von Werten extrahiert.</p>
-<div class="sourceCode" id="cb94"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb94-1"><a href="vars.html#cb94-1" aria-hidden="true" tabindex="-1"></a>demogr<span class="sc">$</span>Sex</span></code></pre></div>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb95-1"><a href="vars.html#cb95-1" tabindex="-1"></a>demogr<span class="sc">$</span>Sex</span></code></pre></div>
 <pre class="bordercode"><code>[1] &quot;m&quot; &quot;f&quot; &quot;f&quot; &quot;m&quot;</code></pre>
 <p>Nach demselben Prinzip können wir auch die Personenkennungen aus der Spalte <code>ID</code> ausgeben lassen. Auch hier werden nur vier Werte zurückgegeben, da im <code>demogr</code> Datensatz die Informationen von vier Personen gespeichert sind.</p>
-<div class="sourceCode" id="cb96"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb96-1"><a href="vars.html#cb96-1" aria-hidden="true" tabindex="-1"></a>demogr<span class="sc">$</span>ID</span></code></pre></div>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb97-1"><a href="vars.html#cb97-1" tabindex="-1"></a>demogr<span class="sc">$</span>ID</span></code></pre></div>
 <pre class="bordercode"><code>[1] &quot;AX161095&quot; &quot;NM020683&quot; &quot;IO240576&quot; &quot;JH051199&quot;</code></pre>
-<div class="exercise2">
-<p><strong>Übung 4.5.</strong> (Noch nicht enthalten) Starte die Übung mit <code>uebung_starten(4.5)</code>.</p>
-</div>
 
 </div>
 </div>

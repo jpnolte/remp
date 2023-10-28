@@ -1,7 +1,7 @@
 #' BIG 5 Persönlichkeitstest: Modifikation 2
 #'
 #' Der Datensatz enthält die soziodemographische Variablen Alter und Geschlecht, die durchschnittliche Ausprägung von Extraversion,
-#' Neurotizismus, Verträglichkeit und Gewissenhaftigkeit sowie 10 Items, um die Offenheit zu messen. Für mehr Informationen siehe den Datensatz `big5_comp`.
+#' Neurotizismus, Verträglichkeit und Gewissenhaftigkeit sowie 10 Items, um die Offenheit zu messen. Für mehr Informationen siehe den Datensatz big5_comp.
 #'
 #' @format Ein tible mit 200 Zeilen and 16 Spalten:
 #' \describe{
@@ -20,7 +20,7 @@
 #'   \item{O7}{Ich verstehe Dinge schnell.}
 #'   \item{O8}{Ich gebrauche schwierige Wörter.}
 #'   \item{O9}{Ich verbringe Zeit damit über Dinge nachzudenken.}
-#'   \item{O10}{Ich bin voller Ideen.	}
+#'   \item{O10}{Ich bin voller Ideen.}
 #' }
 #' @examples
 #' big5_mod2

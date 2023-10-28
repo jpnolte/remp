@@ -1,7 +1,7 @@
 #' BIG 5 Persönlichkeitstest: Vollständig
 #' 
 #' @description
-#' Fragebogen zu den BIG 5 Persönlichkeitsfaktoren durch das *50-Item Lexical Big-Five Factor Markers* Inventar (IPIP). Jede der fünf Persönlichkeitseigenschaften wurde mithilfe von jeweils 10 Items gemessen. Die unterschiedlichen Fragen konnten auf einer Likert Skala beantwortet werden (1: Sehr unzutreffend, 2: Moderat unzutreffend, 3: Weder zutreffend noch unzutreffend, 4: Moderat zutreffend, 5: Sehr zutreffend). 
+#' Fragebogen zu den BIG 5 Persönlichkeitsfaktoren durch das 50-Item Lexical Big-Five Factor Markers Inventar (IPIP). Jede der fünf Persönlichkeitseigenschaften wurde mithilfe von jeweils 10 Items gemessen. Die unterschiedlichen Fragen konnten auf einer Likert Skala beantwortet werden (1: Sehr unzutreffend, 2: Moderat unzutreffend, 3: Weder zutreffend noch unzutreffend, 4: Moderat zutreffend, 5: Sehr zutreffend). 
 #' 
 #' Invers kodierte Items sind in der Beschreibung unten entsprechend markiert. Der Anfangsbuchstabe der Spalte drückt den Persönlichkeitsfaktor aus: Extraversion, Neurotizismus, Verträglichkeit, Gewissenhaftigkeit und Offenheit für neue Erfahrungen).
 #' @format Ein tibble mit 5000 Zeilen and 52 Spalten:

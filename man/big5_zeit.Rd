@@ -18,7 +18,7 @@ Ein tibble mit 5 Zeilen and 5 Spalten:
 big5_zeit
 }
 \description{
-Ausschnitt aus dem BIG 5 Datensatz zur Illustrierung der Trennung von Spalten. Für mehr Informationen siehe den Datensatz `big5_comp`.
+Ausschnitt aus dem BIG 5 Datensatz zur Illustrierung der Trennung von Spalten. Für mehr Informationen siehe den Datensatz big5_comp.
 }
 \examples{
 big5_zeit

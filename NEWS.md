@@ -1,3 +1,11 @@
+# remp 1.0.1
+- Datum: *2023-10-28*
+- Übungen 
+    - Die Testphase der interaktiven Übungen hat mit den ersten 3 Übungen für das Kapitel *Datentypen* begonnen. 
+    - Das für die Übungen benötigte `learnr` Package wurde als zur Installation empfohlenes Package (*Suggests*) hinzugefügt. 
+- Die Funktionen `uebung_anzeigen()` und `uebung_starten()` funktionieren nun erwartungsgemäß.
+- FAQ Accordion Fehlerbehebung der maximalen Höhe auf Mobilgeräten. 
+
 # remp 1.0.0
 - Datum: *2023-05-15*
 - Zukünftig werden noch Übungen hinzugefügt und der Text ggf. geringfügig angepasst.  

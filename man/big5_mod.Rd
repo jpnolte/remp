@@ -23,7 +23,7 @@ big5_mod
 }
 \description{
 Der Datensatz enthält die soziodemographische Variablen Alter und Geschlecht sowie die durchschnittliche Ausprägung von Extraversion und Neurotizismus.
-Außerdem sind drei Altersgruppen auf Basis der Spalte Alter erstellt worden. Für mehr Informationen siehe den Datensatz `big5_comp`.
+Außerdem sind drei Altersgruppen auf Basis der Spalte Alter erstellt worden. Für mehr Informationen siehe den Datensatz big5_comp.
 }
 \examples{
 big5_mod

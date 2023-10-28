@@ -17,7 +17,7 @@ Ein tibble mit 3 Zeilen and 4 Spalten:
 df_oben
 }
 \description{
-Ein minimales Beispiel eines Datensatzes über die Infektionshäufigkeit bei Blasenstörung von Untersucher 1. Ein weiterer Untersucher hat ebenfalls Daten an derselben Klinik gesammelt, welche in `df_unten` gespeichert sind. Die zugehörigen demographischen Daten sind in `demogr` enthalten.
+Ein minimales Beispiel eines Datensatzes über die Infektionshäufigkeit bei Blasenstörung von Untersucher 1. Ein weiterer Untersucher hat ebenfalls Daten an derselben Klinik gesammelt, welche in df_unten gespeichert sind. Die zugehörigen demographischen Daten sind in demogr enthalten.
 }
 \examples{
 df_oben

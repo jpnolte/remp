@@ -1,9 +1,9 @@
 Package: remp
 Title: R für empirische Wissenschaften
-Version: 1.0.0
+Version: 1.0.1
 Authors@R: person("Jan Philipp", "Nolte", email = "jp.nolte@proton.me", role = c("aut", "cre"))
 Maintainer: Jan Philipp Nolte <jp.nolte@proton.me>
-Description: Lerne die Datenanalyse in R durch einfache Erklärungen mit praktischen Beispielen und Übungen ohne Vorkenntnisse im Selbststudium.
+Description: Lerne R ohne Programmiervorkenntnisse im Selbststudium anhand von einfachen Erklärungen mit Beispielen aus der Praxis und interaktiven Übungen.
 License: GPL-3 + file LICENSE
 Encoding: UTF-8
 LazyData: true
@@ -12,3 +12,5 @@ BugReports: https://github.com/jpnolte/remp/issues
 Depends:
     R (>= 3.50)
 RoxygenNote: 7.2.3
+Suggests:
+    learnr

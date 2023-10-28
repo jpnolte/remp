@@ -16,6 +16,6 @@ Ein data.frame mit Übungsnummer und Kurzbeschreibung
 Anzeigen der im Package enthaltenen Übungen mit Beschreibung.
 }
 \examples{
+uebung_anzeigen("4-3-1")
 uebung_anzeigen()
-uebung_anzeigen(6.2)
 }

@@ -1,0 +1,124 @@
+---
+title: "Kapitel 4.3.2"
+tutorial:
+  id: "de.wissenschaften.empirische.r-4-3-2"
+  version: 0.1
+output: 
+  learnr::tutorial:
+    language: de
+runtime: shiny_prerendered
+description: >
+  Faktoren und ihre Eigenschaften
+---
+
+```{r setup, include=FALSE, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(learnr)
+library(knitr)
+
+data(bildung, package = "remp")
+
+knitr::opts_chunk$set(echo = FALSE)
+tutorial_options(exercise.completion = FALSE)
+```
+
+# Faktoren
+
+## Allgemeine Fragen
+
+In dieser Übung werden die typischen Verständnisprobleme im Kontext von Faktoren näher beleuchtet. 
+
+```{r q1}
+ question("Auf welchem Datentyp basiert ein Faktor?",
+    answer("Character"),
+    answer("Double"),
+    answer("Integer", correct = TRUE),
+    answer("Logical"), 
+    allow_retry = TRUE, 
+    correct = paste("Richtig.", random_praise("de")), 
+    incorrect = paste("Falsch.", random_encouragement("de"))
+  )
+```
+
+```{r q2}
+ question("Für welche Art von Variablen (Spalten) benötigen wir Faktoren?",
+    answer("Zahlen (z.B. Einkommen in Euro)"),
+    answer("Kategorien mit zwei oder mehr Ausprägungen", correct = TRUE),
+    answer("Geordnete Kategorien", correct = TRUE), 
+    allow_retry = TRUE, 
+    correct = paste("Richtig.", random_praise("de")), 
+    incorrect = paste("Falsch.", random_encouragement("de"))
+  )
+```
+
+```{r q3}
+question("Für welche Anwendungen werden Faktoren benötigt?",
+    answer("Berechnen des Mittelwertes einer metrischen Variable (z.B. das Alter in Jahren)."),
+    answer("Anordnen von Merkmalen in einer Abbildung in festgelegter Reihenfolge, die auf den Faktorstufen basiert.", correct = TRUE),
+    answer("Erstellen von sogenannten Dummy Variablen, um Kategorien mit mehr als zwei Ausprägungen im Vergleich zu einer Referenzkategorie auszudrücken.", correct = TRUE),
+    allow_retry = TRUE, 
+    correct = paste("Richtig.", random_praise("de")), 
+    incorrect = paste("Falsch.", random_encouragement("de"))
+  )
+```
+
+
+```{r q4}
+question("Welche Argumente haben wir im Kontext von Faktoren in Kapitel 4.3.2 kennengelernt?",
+    answer("levels", correct = TRUE),
+    answer("labels", correct = TRUE),
+    answer("categories"), 
+    answer("ordered", correct = TRUE),
+    allow_retry = TRUE, 
+    correct = paste("Richtig.", random_praise("de")), 
+    incorrect = paste("Falsch.", random_encouragement("de"))
+  )
+```
+
+
+## Fragen zum Datensatz
+
+In dieser Studie mit 146 ProbandInnen wurde zum einen versucht, einen Zusammenhang zwischen statistischer Bildung und Risikoverhalten zu finden und zum anderen eine Verbesserung statistischer Bildung durch eine graphische Hilfestellung zu entdecken.
+
+Dafür wurden zwei verschiedene Fragebogenversionen ausgeteilt. In der einen gab es nach rund der Hälfte der Aufgaben eine graphische Hilfestellung, die eine mögliche Lösungsstrategie zu einem Teil der Aufgaben erklärt (Interventionsgruppe). 
+
+An dieser Stelle schauen wir uns nur die Fragebogenversion, das Geschlecht (m, f), das Alter, die Schulbildung sowie das subjektive Interesse an Wissenschaft und das Ausüben von Risikosportarten (Ja:1, Nein: 0) an.
+
+```{r, echo = FALSE}
+bildung |> 
+  select(Fragebogen, Geschlecht, Alter, Schulbildung, Interesse_Wissenschaft, Risikosportarten) |>
+  head(10) |> 
+  kable()
+```
+
+```{r q5}
+ question("Welche Spalten würden zur Umwandlung in einen Faktor inhaltlich infrage kommen?",
+    answer("Fragebogen", correct = TRUE),
+    answer("Geschlecht", correct = TRUE),
+    answer("Alter"), 
+    answer("Schulbildung", correct = TRUE), 
+    answer("Interesse_wissenschaft", correct = TRUE), 
+    answer("Risikosportarten", correct = TRUE), 
+    allow_retry = TRUE, 
+    correct = paste("Richtig.", random_praise("de")), 
+    incorrect = paste("Falsch.", random_encouragement("de")),
+    try_again = "Falsch. Nur für Kategorien sollten Faktoren erstellt werden. In der Statistik reden wir in diesem Kontext auch von nominalem oder bei geordneten Kategorien von ordinalem Skalenniveau."
+  )
+```
+
+```{r q6}
+ question("Für welche Spalten wäre eine Umwandlung in einen Faktor vor einer Auswertung empfehlenswert und je nach statistischem Modell sogar notwendig?",
+    answer("Fragebogen"),
+    answer("Geschlecht"),
+    answer("Alter"), 
+    answer("Schulbildung", correct = TRUE), 
+    answer("Interesse_wissenschaft", correct = TRUE), 
+    answer("Risikosportarten"), 
+    allow_retry = TRUE, 
+    correct = paste("Richtig.", random_praise("de")), 
+    incorrect = paste("Falsch.", random_encouragement("de")),
+    try_again = "Falsch. Wenn wir mehr als zwei Ausprägungsgrade eines Merkmals vorliegen haben, müssen wir z.B. bei Regressionsmodellen einen Faktor erstellen. Auf welche Spalten trifft das in diesem Fall zu?"
+  )
+```
+
+In Kapitel 6.10 werden wir den Umgang mit Faktoren an konkreten Beispielen vertiefen. 

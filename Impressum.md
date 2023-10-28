@@ -2,9 +2,9 @@
 
 Angaben gem. § 5 TMG:
 
-Jan Philipp Nolte, 6020 Innsbruck
+Jan Philipp Nolte, 1180 Wien
 
-<a href="mailto:j-phnolte@web@@de" onmouseover="this.href=this.href.replace('@@','.')"> E-Mail senden  </a>
+<a href="mailto:jp.nolte@protonmail@@com" onmouseover="this.href=this.href.replace('@@','.')"> E-Mail senden  </a>
 
 # Datenschutzerklärung nach der DSGVO
 
@@ -12,11 +12,11 @@ Der Verantwortliche im Sinne der Datenschutz-Grundverordnung und anderer nationa
 
 Jan Philipp Nolte
 
-6020 Innsbruck
+1180 Wien
 
 Österreich
 
-<a href="mailto:j-phnolte@web@@de" onmouseover="this.href=this.href.replace('@@','.')"> E-Mail senden  </a>
+<a href="mailto:jp.nolte@protonmail@@com" onmouseover="this.href=this.href.replace('@@','.')"> E-Mail senden  </a>
 
 **I. Allgemeines zur Datenverarbeitung**
 

@@ -1,0 +1,215 @@
+---
+title: "Kapitel 4.3.1"
+tutorial:
+  id: "de.wissenschaften.empirische.r-4-3-1"
+  version: 0.1
+output: 
+  learnr::tutorial:
+    language: de
+runtime: shiny_prerendered
+description: >
+  Zahlen, Buchstaben und logische Abfragen
+---
+
+```{r setup, include=FALSE, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(learnr)
+library(knitr)
+
+data(musikstream, package = "remp")
+
+knitr::opts_chunk$set(echo = FALSE)
+tutorial_options(exercise.completion = FALSE)
+```
+
+# Zahlen, Buchstaben und logische Abfragen
+
+## Allgemeine Fragen
+
+In dieser Übung geht es um die Datentypen Numeric, Character und Logical. Die Übungen gliedern sich in allgemeine Fragen zu den Grunddatentypen, Fragen zu einem Datensatz und logische Abfragen. Zunächst wollen wir uns einige Fragen zur Wiederholung des bisher gelernten ansehen. 
+
+```{r q1}
+quiz(
+  question("Welche Aussagen zu den Grunddatentypen treffen zu?",
+    answer("Der Datentyp Character kann beliebig viele Buchstaben und Wörter enthalten, solange diese in Anführungszeichen geschrieben werden.", correct = TRUE),
+    answer("Numerische Daten sind alle Zahlen, die nicht in Anführungszeichen gesetzt werden.", correct = TRUE),
+    answer("Der logische Datentyp findet in der Praxis auch zur bedingten Auswahl von Zeilen oder Spalten keine nennenswerte Anwendung."), 
+    answer("In einer Spalte eines Datensatzes können mehrere Datentypen (z.B. Character und Numeric) miteinander kombiniert werden."),
+    allow_retry = TRUE, 
+    correct = paste("Richtig.", random_praise("de")), 
+    incorrect = paste("Falsch.", random_encouragement("de"))
+  ),
+  question("Welche Aussagen zu den Datentypen Integer und Double treffen zu?",
+    answer("Double beinhaltet ausschließlich ganze, rationale Zahlen."),
+    answer("Beide sind Unterarten des numerischen Datentyps.", correct = TRUE),
+    answer("Um Integer zu definieren, muss die Zahl mit dem Buchstaben L enden (z.B. 6L im Vergleich zu 6).", correct = TRUE),
+    allow_retry = TRUE, 
+    correct = paste("Richtig.", random_praise("de")), 
+    incorrect = paste("Falsch.", random_encouragement("de"))
+  ), 
+  question("Welche Logische Abfrage ist korrekt?",
+    answer("3 = 3"),
+    answer("3 < 2"),
+    answer("11 == 11", correct = TRUE),
+    answer("1 >= 100"),
+    allow_retry = TRUE, 
+    correct = paste("Richtig.", random_praise("de")), 
+    incorrect = paste("Falsch.", random_encouragement("de")),
+    try_again = "Falsch. Um die Gleichheit zweier Zahlen oder Wörter miteinander zu vergleichen, muss ein doppeltes Gleichheitszeichen verwendet werden."
+  ),
+  question("Es gibt verschiedene Möglichkeiten, um auf den Datentyp einer Variablen (Spalte) in einem Datensatz zu kommen. Welche gehören dazu? Wir nehmen an, der Datensatz ist als df gespeichert.",
+    answer("Überblick durch glimpse(df)", correct = TRUE),
+    answer("Anzeigen durch show(df)"),
+    answer("typeof(df)"),
+    answer("Anzeigen unterhalb des Spaltennamens bei Eingabe von df", correct = TRUE),
+    allow_retry = TRUE, 
+    correct = paste("Richtig.", random_praise("de")), 
+    incorrect = paste("Falsch.", random_encouragement("de")),
+    try_again = "Falsch. Der Funktion typeof() muss eine einzelne Spalte und nicht der gesamte Datensatz übergeben werden."
+  ), caption = "Beantworte folgende Fragen:"
+)
+```
+
+
+## Fragen zum Datensatz
+
+Jetzt möchten wir das Ganze anhand des Datensatzes `musikstream` konkretisieren. Dabei handelt es sich um die 50 meistgehörten Lieder eines Nutzers auf einer Musikstreaming Plattform. 
+
+```{r, echo = FALSE}
+musikstream |> 
+  select(-Release) |> 
+  head(5) |> 
+  kable()
+```
+
+Falls du dir bezüglich des richtigen Datentyps nicht sicher bist, kannst du in dem nachfolgenden Feld verschiedene Funktionen durch `Strg` + `Enter` (`Cmd` + `Enter` auf Mac) oder durch Betätigen des Buttons mit der Aufschrift *Code Ausführen* anwenden.
+
+```{r e0, exercise=TRUE}
+
+```
+
+
+```{r e0-hint-1}
+glimpse(...)
+```
+
+
+```{r e0-hint-2}
+glimpse(musikstream)
+```
+
+```{r q2}
+ question("Welchen Datentyp hat die Spalte Anzahl?",
+    answer("Character"),
+    answer("Numeric", correct = TRUE),
+    answer("Logical"), 
+    allow_retry = TRUE, 
+    correct = paste("Richtig.", random_praise("de")), 
+    incorrect = paste("Falsch.", random_encouragement("de"))
+  )
+```
+
+```{r q3}
+question("Welchen Datentyp hat die Spalte Interpret?",
+    answer("Character", correct = TRUE),
+    answer("Numeric"),
+    answer("Logical"),
+    allow_retry = TRUE, 
+    correct = paste("Richtig.", random_praise("de")), 
+    incorrect = paste("Falsch.", random_encouragement("de"))
+  )
+```
+
+
+```{r q4}
+question("Welchen Datentyp hat der Name des Liedes?",
+    answer("Character", correct = TRUE),
+    answer("Numeric"),
+    answer("Logical"), 
+    allow_retry = TRUE, 
+    correct = paste("Richtig.", random_praise("de")), 
+    incorrect = paste("Falsch.", random_encouragement("de"))
+  )
+```
+
+
+```{r q5}
+ question("Welchen Datentyp hat die Bekanntheit des Titels?",
+    answer("Character"),
+    answer("Numeric", correct = TRUE),
+    answer("Logical"), 
+    allow_retry = TRUE, 
+    correct = paste("Richtig.", random_praise("de")), 
+    incorrect = paste("Falsch.", random_encouragement("de"))
+  )
+```
+
+
+## Logische Abfragen
+
+Logische Abfragen sind zu Beginn nicht leicht zu verstehen. Daher lohnt es sich, die verschiedenen Operatoren erneut gut zu durchdenken. 
+
+```{r q6}
+  question("Was ergibt die Aussage 5 > 4?",
+    answer("TRUE", correct = TRUE),
+    answer("FALSE"), 
+    allow_retry = TRUE, 
+    correct = paste("Richtig.", random_praise("de")), 
+    incorrect = paste("Falsch.", random_encouragement("de"))
+  )
+```
+
+
+```{r q7}
+question("Was ergibt die Aussage 3 == 2",
+    answer("TRUE"),
+    answer("FALSE", correct = TRUE), 
+    allow_retry = TRUE, 
+    correct = paste("Richtig.", random_praise("de")), 
+    incorrect = paste("Falsch.", random_encouragement("de"))
+  )
+```
+
+
+```{r q8}
+ question("Was ergibt die Aussage 10 == 9 & 2 == 2",
+    answer("TRUE"),
+    answer("FALSE", correct = TRUE), 
+    allow_retry = TRUE, 
+    correct = paste("Richtig.", random_praise("de")), 
+    incorrect = paste("Falsch.", random_encouragement("de"))
+  )
+```
+
+
+```{r q9}
+ question("Was ergibt die Aussage 3 == 2 | 4 > 3?",
+    answer("TRUE", correct = TRUE),
+    answer("FALSE"), 
+    allow_retry = TRUE, 
+    correct = paste("Richtig.", random_praise("de")), 
+    incorrect = paste("Falsch.", random_encouragement("de"))
+  )
+
+```
+
+```{r q10}
+question("Was ergibt die Aussage 3 < 1 | 5 == 5 | 6 > 8",
+    answer("TRUE", correct = TRUE),
+    answer("FALSE"), 
+    allow_retry = TRUE, 
+    correct = paste("Richtig.", random_praise("de")), 
+    incorrect = paste("Falsch.", random_encouragement("de"))
+  )
+
+```
+
+```{r q11}
+question("Was ergibt die Aussage 6 < 7 & 7 > 6 & 10 == 10?",
+    answer("TRUE", correct = TRUE),
+    answer("FALSE"), 
+    allow_retry = TRUE, 
+    correct = paste("Richtig.", random_praise("de")), 
+    incorrect = paste("Falsch.", random_encouragement("de"))
+  )
+```

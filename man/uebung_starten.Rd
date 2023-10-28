@@ -18,6 +18,6 @@ Dabei ist keine Internetverbindung notwendig. Der Fortschritt innerhalb der Übu
 }
 \examples{
 \dontrun{
-uebung_starten("6.1")
+uebung_starten("4-3-1")
 }
 }

@@ -1,6 +1,6 @@
 #' BIG 5 Persönlichkeitstest: Zeitpunkte und Fragebögen
 #'
-#' Ausschnitt aus dem BIG 5 Datensatz zur Illustrierung der Trennung von Spalten. Für mehr Informationen siehe den Datensatz `big5_comp`.
+#' Ausschnitt aus dem BIG 5 Datensatz zur Illustrierung der Trennung von Spalten. Für mehr Informationen siehe den Datensatz big5_comp.
 #' @format Ein tibble mit 5 Zeilen and 5 Spalten:
 #' \describe{
 #'   \item{VPN}{Versuchspersonennummer}

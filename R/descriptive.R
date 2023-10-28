@@ -4,7 +4,7 @@
 #' @param data Daten als data.frame, tibble oder grouped.df.
 #' @param .round Anzahl der Nachkommastellen (Default: 2).
 #' @param .print Anzahl der Zeilen, die ausgegeben werden sollen (Default: 20). Das Argument überschreibt das Standardverhalten eines tibbles, i.d.R nur 10 Zeilen anzuzeigen.
-#' @param .tibble Ausgabe als data.frame (`FALSE`) oder tibble (`TRUE`) (Default: `TRUE`).
+#' @param .tibble Ausgabe als data.frame (FALSE) oder tibble (TRUE) (Default: TRUE).
 #' @return Überblick über typische Lage- und Streuungsmaße.
 #' @examples
 #' chemo

@@ -13,11 +13,11 @@ Ein tibble mit 146 Zeilen and 71 Spalten:
   \item{Alter}{Alter in Lebensjahren}
   \item{Schulbildung}{Höchste abgeschlossene Schulausbildung.}
   \item{Risikosportarten}{Praktizieren mindestens einer Risikosportart.}
-  \item{Statistische_Kenntnisse}{Selbsteinschätzung der eigenen Statistikkenntnisse auf einer Skala von 0 *keine Kenntnisse* bis 6 *ausgezeichnete Kenntnisse*.}
-  \item{Interesse_Wissenschaft}{Subjektives Interesse an Wissenschaft auf einer Skala von 0 *kein Interesse* bis 6 *sehr starkes Interesse*.}
-  \item{Dospert_verhalten}{Median der DOSPERT Skala zum Risikoverhalten mit einer Skala von 1 *sehr unwahrscheinlich* bis 7 *sehr wahrscheinlich*.}
-  \item{Dospert_wahrnehmung}{Median der DOSPERT Skala zur Risikowahrnehmung mit einer Skala von 1 *überhaupt kein Risiko* bis 7 *sehr hohes Risiko*.}
-  \item{Dospert_nutzen}{Median der DOSPERT Skala zum Risikonutzen mit einer Skala von 1 *gar kein nutzen* bis 7 *sehr hoher Nutzen*.}
+  \item{Statistische_Kenntnisse}{Selbsteinschätzung der eigenen Statistikkenntnisse auf einer Skala von 0 (keine Kenntnisse) bis 6 (ausgezeichnete Kenntnisse).}
+  \item{Interesse_Wissenschaft}{Subjektives Interesse an Wissenschaft auf einer Skala von 0 (kein Interesse) bis 6 (sehr starkes Interesse).}
+  \item{Dospert_verhalten}{Median der DOSPERT Skala zum Risikoverhalten mit einer Skala von 1 (sehr unwahrscheinlich) bis 7 (sehr wahrscheinlich).}
+  \item{Dospert_wahrnehmung}{Median der DOSPERT Skala zur Risikowahrnehmung mit einer Skala von 1 (überhaupt kein Risiko) bis 7 (sehr hohes Risiko).}
+  \item{Dospert_nutzen}{Median der DOSPERT Skala zum Risikonutzen mit einer Skala von 1 (gar kein nutzen) bis 7 (sehr hoher Nutzen).}
   \item{Bildung_pre}{Mittlere Lösungswahrscheinlichkeit über alle Fragen vor der Intervention.}
   \item{Bildung_post}{Mittlere Lösungswahrscheinlichkeit über alle Fragen nach Intervention.}
   \item{Bildung_gesamt}{Mittlere Lösungswahrscheinlichkeit insgesamt.}

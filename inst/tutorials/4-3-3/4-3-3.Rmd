@@ -1,0 +1,111 @@
+---
+title: "Kapitel 4.3.3"
+tutorial:
+  id: "de.wissenschaften.empirische.r-4-3-3"
+  version: 0.2
+output: 
+  learnr::tutorial:
+    language: de
+    df_print: tibble
+runtime: shiny_prerendered
+description: >
+  Die wichtigsten Zeitdaten
+---
+
+```{r setup, include=FALSE, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(learnr)
+library(knitr)
+
+data(videostream, package = "remp")
+
+knitr::opts_chunk$set(echo = FALSE, comment = "")
+tutorial_options(exercise.completion = FALSE)
+```
+
+# Zeitdaten
+
+## Allgemeine Fragen
+
+Im Buch wurden drei Zeitdatentypen vorgestellt. Diese Übung dient als kurze Wiederholung deren wichtigster Eigenschaften.
+
+```{r q1}
+ question("Auf welchem Datentyp basieren Zeitdaten?",
+    answer("Character"),
+    answer("Double", correct = TRUE),
+    answer("Integer"),
+    answer("Logical"), 
+    allow_retry = TRUE, 
+    correct = paste("Richtig.", random_praise("de")), 
+    incorrect = paste("Falsch.", random_encouragement("de"))
+  )
+```
+
+```{r q2}
+ question("Wie wird das Datum innerhalb von R berechnet?",
+    answer("Das Datum ist eine Art von Faktor, welche als Character angezeigt wird und durch die Bildung von Kategorien geordnet werden kann."),
+    answer("Ein Computer kann ein Datum ohne Umwege als Datum in der Form Tag-Monat-Jahr speichern."),
+    answer("Vergangene Tage seit dem 1. Januar 1900.", correct = TRUE), 
+    allow_retry = TRUE, 
+    correct = paste("Richtig.", random_praise("de")), 
+    incorrect = paste("Falsch.", random_encouragement("de")),
+    try_again = "Falsch. Ein Computer kennt kein Datum, weswegen es den Umweg über die Zeitdifferenz seit einem bestimmten Datum gibt. So kann der Computer das Datum in Form einer Zahl speichern."
+  )
+```
+
+```{r q3}
+question("Welche Aussagen zu den kennengelernten Zeitdatentypen sind korrekt?",
+    answer("POSIXct ist ein Akronym für Portable Operating System Inferface calendar time und muss in der Regel zur weiteren Verarbeitung in ein Date umgewandelt werden", correct = TRUE),
+    answer("Difftime entspricht der Differenz zwischen zwei Daten", correct = TRUE),
+    answer("Date enthält neben dem Datum ebenfalls die Uhrzeit."),
+    allow_retry = TRUE, 
+    correct = paste("Richtig.", random_praise("de")), 
+    incorrect = paste("Falsch.", random_encouragement("de"))
+  )
+```
+
+
+## Fragen zum Datensatz
+
+Dieser Datensatz beinhaltet die Nutzerstatistik einer Videostreaming Plattform beim Konsumieren von Filmen und Serien. Der Datensatz befindet sich in zufälliger Reihenfolge und bietet neben des Titels, der Staffel und Folge auch Informationen über das Datum, an dem die Serie oder der Film angesehen wurde. 
+
+```{r, echo = FALSE}
+videostream 
+```
+
+```{r q4}
+ question("Welche Variable (Spalte) beinhaltet einen Zeitdatentyp?",
+    answer("Titel"),
+    answer("Staffel"),
+    answer("Folge"), 
+    answer("Watchdate", correct = TRUE),
+    allow_retry = TRUE, 
+    correct = paste("Richtig.", random_praise("de")), 
+    incorrect = paste("Falsch.", random_encouragement("de"))
+  )
+```
+
+```{r q5}
+question("Welcher kennengelernte Datentyp der Zeit ist hier vorhanden?",
+    answer("POSIXct", correct = TRUE),
+    answer("Date"),
+    answer("Difftime"),
+    allow_retry = TRUE, 
+    correct = paste("Richtig.", random_praise("de")), 
+    incorrect = paste("Falsch.", random_encouragement("de"))
+  )
+```
+
+```{r q6}
+question("Mit welcher Funktion könnten wir die Spalte in das gewünschte Format eines Datums bringen?",
+    answer("as.POSIXct()"),
+    answer("as.Date()", correct = TRUE),
+    answer("as.numeric()"),
+    answer("as.character()"),
+    allow_retry = TRUE, 
+    correct = paste("Richtig.", random_praise("de")), 
+    incorrect = paste("Falsch.", random_encouragement("de"))
+  )
+```
+
+In Kapitel 6.11 werden wir das Arbeiten mit Zeitdaten an konkreten Beispielen erlernen. 

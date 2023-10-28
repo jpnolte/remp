@@ -26,7 +26,7 @@ Ein tibble mit 450 Zeilen and 13 Spalten:
 chemo
 }
 \description{
-PatientInnen mit einer Krebserkrankungen (malignen Neoplasie) wurden in Hinblick auf verschiedene Aspekte untersucht. Die Variablen wurden mithilfe des `simstudy` Packages simuliert.
+PatientInnen mit einer Krebserkrankungen (malignen Neoplasie) wurden in Hinblick auf verschiedene Aspekte untersucht. Die Variablen wurden mithilfe des simstudy Packages simuliert.
 }
 \examples{
 chemo

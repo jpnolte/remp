@@ -23,7 +23,7 @@ Ein tible mit 200 Zeilen and 7 Spalten:
 big5
 }
 \description{
-Der Datensatz enthält die soziodemographischen Variablen Alter und Geschlecht, die durchschnittliche Ausprägung von Extraversion und Neurotizismus sowie 3 Items, um die Offenheit zu messen. Für mehr Informationen siehe den Datensatz `big5_comp`.
+Der Datensatz enthält die soziodemographischen Variablen Alter und Geschlecht, die durchschnittliche Ausprägung von Extraversion und Neurotizismus sowie 3 Items, um die Offenheit zu messen. Für mehr Informationen siehe den Datensatz big5_comp.
 }
 \examples{
 big5

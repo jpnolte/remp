@@ -4,16 +4,16 @@
 \alias{descriptive}
 \title{Lagemaße und Streuungsmaße berechnen}
 \usage{
-descriptive(data, .round = 2, .print = 20, .tibble = TRUE)
+descriptive(data, .round = 2, .print = NA, .tibble = TRUE)
 }
 \arguments{
 \item{data}{Daten als data.frame, tibble oder grouped.df.}
 
-\item{.round}{Anzahl der Nachkommastellen (Default: 2).}
+\item{.round}{Anzahl der Nachkommastellen.}
 
-\item{.print}{Anzahl der Zeilen, die ausgegeben werden sollen (Default: 20). Das Argument überschreibt das Standardverhalten eines tibbles, i.d.R nur 10 Zeilen anzuzeigen.}
+\item{.print}{Anzahl der Zeilen, die ausgegeben werden sollen. Bei Angabe einer Zahl wird das Standardverhalten eines tibbles, i.d.R nur 10 Zeilen anzuzeigen, überschrieben.}
 
-\item{.tibble}{Ausgabe als data.frame (FALSE) oder tibble (TRUE) (Default: TRUE).}
+\item{.tibble}{Ausgabe als data.frame (FALSE) oder tibble (TRUE).}
 }
 \value{
 Überblick über typische Lage- und Streuungsmaße.
@@ -29,5 +29,5 @@ chemo |>
 
 chemo |> 
   dplyr::group_by(Behandlung) |> 
-  descriptive()
+  descriptive(.print = 25)
 }

@@ -88,7 +88,7 @@ basetypes
 factor
 zeitdaten
 datentypen-konvertieren
-struktur-von-datensätzen
+struktur
 dollar
 io
 import
@@ -167,7 +167,7 @@ voraussetzung
 normalverteilung
 varianzhomogenitaet
 broom
-ergebnisse-exportieren
+export
 intromarkdown
 markdown
 tabellen-umwandeln

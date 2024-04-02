@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">remp</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.2</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Navigation ein-/ausschalten">
@@ -60,7 +60,7 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Verwendung<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">descriptive</span><span class="op">(</span><span class="va">data</span>, .round <span class="op">=</span> <span class="fl">2</span>, .print <span class="op">=</span> <span class="fl">20</span>, .tibble <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">descriptive</span><span class="op">(</span><span class="va">data</span>, .round <span class="op">=</span> <span class="fl">2</span>, .print <span class="op">=</span> <span class="cn">NA</span>, .tibble <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -70,15 +70,15 @@
 
 
 <dt>.round</dt>
-<dd><p>Anzahl der Nachkommastellen (Default: 2).</p></dd>
+<dd><p>Anzahl der Nachkommastellen.</p></dd>
 
 
 <dt>.print</dt>
-<dd><p>Anzahl der Zeilen, die ausgegeben werden sollen (Default: 20). Das Argument überschreibt das Standardverhalten eines tibbles, i.d.R nur 10 Zeilen anzuzeigen.</p></dd>
+<dd><p>Anzahl der Zeilen, die ausgegeben werden sollen. Bei Angabe einer Zahl wird das Standardverhalten eines tibbles, i.d.R nur 10 Zeilen anzuzeigen, überschrieben.</p></dd>
 
 
 <dt>.tibble</dt>
-<dd><p>Ausgabe als data.frame (FALSE) oder tibble (TRUE) (Default: TRUE).</p></dd>
+<dd><p>Ausgabe als data.frame (FALSE) oder tibble (TRUE).</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -93,17 +93,17 @@
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">chemo</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 450 × 13</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    Pat_id Geschlecht Behandlung Leukos_t6 Leukos_t0 Alter Infektionen Stationaer</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     <span style="color: #949494;font-style: italic;">&lt;int&gt;</span><span> </span><span style="color: #949494;font-style: italic;">&lt;chr&gt;</span><span>      </span><span style="color: #949494;font-style: italic;">&lt;fct&gt;</span><span>          </span><span style="color: #949494;font-style: italic;">&lt;dbl&gt;</span><span>     </span><span style="color: #949494;font-style: italic;">&lt;dbl&gt;</span><span> </span><span style="color: #949494;font-style: italic;">&lt;dbl&gt;</span><span>       </span><span style="color: #949494;font-style: italic;">&lt;int&gt;</span><span>      </span><span style="color: #949494;font-style: italic;">&lt;int&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span><span>      1 f          Radio           5.68      5.74    49           4          0</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span><span>      2 f          Radiochemo      6.64      6.71    46           3          0</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span><span>      3 m          Radio           5.97      6.03    41           3          0</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span><span>      4 f          Radio           5.55      5.6     43           1          1</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span><span>      5 f          Radio           5.6       5.66    47           3          0</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span><span>      6 f          Chemo           5.96      6.02    45           4          0</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span><span>      7 m          Chemo           5.6       5.65    50           4          0</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span><span>      8 m          Chemo           5.4       5.45    43           3          0</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span><span>      9 m          Radiochemo      5.92      5.98    37           1          0</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span><span>     10 m          Radiochemo      5.63      5.68    47           2          0</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>      1 f          Radio           5.68      5.74    49           4          0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span>      2 f          Radiochemo      6.64      6.71    46           3          0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span>      3 m          Radio           5.97      6.03    41           3          0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span>      4 f          Radio           5.55      5.6     43           1          1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span>      5 f          Radio           5.6       5.66    47           3          0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span>      6 f          Chemo           5.96      6.02    45           4          0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span>      7 m          Chemo           5.6       5.65    50           4          0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>      8 m          Chemo           5.4       5.45    43           3          0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>      9 m          Radiochemo      5.92      5.98    37           1          0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>     10 m          Radiochemo      5.63      5.68    47           2          0</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 440 more rows</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 5 more variables: Komorb &lt;fct&gt;, Beob_zeit &lt;dbl&gt;, Status &lt;dbl&gt;,</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;">#   Schmerzen &lt;int&gt;, Lebensqualitaet &lt;int&gt;</span></span>
@@ -112,46 +112,51 @@
 <span class="r-in"><span>  <span class="fu">descriptive</span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 10 × 10</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    Variable            N   Min     Q1   Mean Median     Q3    Max     SD    SE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494;font-style: italic;">&lt;chr&gt;</span><span>           </span><span style="color: #949494;font-style: italic;">&lt;int&gt;</span><span> </span><span style="color: #949494;font-style: italic;">&lt;dbl&gt;</span><span>  </span><span style="color: #949494;font-style: italic;">&lt;dbl&gt;</span><span>  </span><span style="color: #949494;font-style: italic;">&lt;dbl&gt;</span><span>  </span><span style="color: #949494;font-style: italic;">&lt;dbl&gt;</span><span>  </span><span style="color: #949494;font-style: italic;">&lt;dbl&gt;</span><span>  </span><span style="color: #949494;font-style: italic;">&lt;dbl&gt;</span><span>  </span><span style="color: #949494;font-style: italic;">&lt;dbl&gt;</span><span> </span><span style="color: #949494;font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span><span> Alter             450 33     42     44.8   45     48     57      4.31  0.2 </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span><span> Beob_zeit         450  0.07   0.99   2.4    1.83   3.25  15.0    2.05  0.1 </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span><span> Infektionen       450  0      1      2.26   2      3     10      2.05  0.1 </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span><span> Lebensqualitaet   450  1      2      3.59   3      5     10      2.2   0.1 </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span><span> Leukos_t0         450  5.1    5.8    6.04   6.05   6.27   6.92   0.33  0.02</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span><span> Leukos_t6         450  5.05   5.74   5.98   5.99   6.21   6.85   0.33  0.02</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span><span> Pat_id            450  1    113.   226.   226.   338.   450    130.    6.13</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span><span> Schmerzen         450  1      3      5.15   5      7     10      2.35  0.11</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span><span> Stationaer        450  0      0      0.09   0      0      1      0.28  0.01</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span><span> Status            450  0      1      0.9    1      1      1      0.29  0.01</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> Alter             450 33     42     44.8   45     48     57      4.31  0.2 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> Beob_zeit         450  0.07   0.99   2.4    1.83   3.25  15.0    2.05  0.1 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> Infektionen       450  0      1      2.26   2      3     10      2.05  0.1 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> Lebensqualitaet   450  1      2      3.59   3      5     10      2.2   0.1 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> Leukos_t0         450  5.1    5.8    6.04   6.05   6.27   6.92   0.33  0.02</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> Leukos_t6         450  5.05   5.74   5.98   5.99   6.21   6.85   0.33  0.02</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> Pat_id            450  1    113.   226.   226.   338.   450    130.    6.13</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> Schmerzen         450  1      3      5.15   5      7     10      2.35  0.11</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> Stationaer        450  0      0      0.09   0      0      1      0.28  0.01</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> Status            450  0      1      0.9    1      1      1      0.29  0.01</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">chemo</span> <span class="op">|&gt;</span> </span></span>
 <span class="r-in"><span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">Behandlung</span><span class="op">)</span> <span class="op">|&gt;</span> </span></span>
-<span class="r-in"><span>  <span class="fu">descriptive</span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="fu">descriptive</span><span class="op">(</span>.print <span class="op">=</span> <span class="fl">25</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 30 × 11</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># Groups:   Behandlung [3]</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    Behandlung Variable         N   Min     Q1   Mean Median     Q3    Max     SD</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494;font-style: italic;">&lt;fct&gt;</span><span>      </span><span style="color: #949494;font-style: italic;">&lt;chr&gt;</span><span>        </span><span style="color: #949494;font-style: italic;">&lt;int&gt;</span><span> </span><span style="color: #949494;font-style: italic;">&lt;dbl&gt;</span><span>  </span><span style="color: #949494;font-style: italic;">&lt;dbl&gt;</span><span>  </span><span style="color: #949494;font-style: italic;">&lt;dbl&gt;</span><span>  </span><span style="color: #949494;font-style: italic;">&lt;dbl&gt;</span><span>  </span><span style="color: #949494;font-style: italic;">&lt;dbl&gt;</span><span>  </span><span style="color: #949494;font-style: italic;">&lt;dbl&gt;</span><span>  </span><span style="color: #949494;font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span><span> Radiochemo Alter          151 35     41.5   44.7   45     47.5   56      4.41</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span><span> Radiochemo Beob_zeit      151  0.18   2.04   3.84   3.31   5.06  15.0    2.58</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span><span> Radiochemo Infektionen    151  0      1      1.98   1      3     10      2.05</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span><span> Radiochemo Lebensquali…   151  1      2      3.39   3      5     10      2.2 </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span><span> Radiochemo Leukos_t0      151  5.1    5.88   6.08   6.07   6.32   6.9    0.35</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span><span> Radiochemo Leukos_t6      151  5.05   5.82   6.02   6.01   6.26   6.83   0.35</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span><span> Radiochemo Pat_id         151  2    106.   220.   218    330.   446    130.  </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span><span> Radiochemo Schmerzen      151  1      3      5.3    5      7     10      2.44</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span><span> Radiochemo Stationaer     151  0      0      0.05   0      0      1      0.21</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span><span> Radiochemo Status         151  0      1      0.87   1      1      1      0.34</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">11</span><span> Chemo      Alter          150 35     42     45.1   45     48     57      4.4 </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">12</span><span> Chemo      Beob_zeit      150  0.07   1.06   2.09   1.8    2.87   6.14   1.35</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">13</span><span> Chemo      Infektionen    150  0      1      2.33   2      3      9      1.97</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">14</span><span> Chemo      Lebensquali…   150  1      2      3.63   3      5     10      2.21</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">15</span><span> Chemo      Leukos_t0      150  5.38   5.81   6.05   6.08   6.29   6.92   0.33</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">16</span><span> Chemo      Leukos_t6      150  5.33   5.75   5.99   6.02   6.23   6.85   0.33</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">17</span><span> Chemo      Pat_id         150  6    121.   231.   238.   342    450    133.  </span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">18</span><span> Chemo      Schmerzen      150  1      3      5.14   5      7     10      2.32</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">19</span><span> Chemo      Stationaer     150  0      0      0.07   0      0      1      0.26</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">20</span><span> Chemo      Status         150  0      1      0.91   1      1      1      0.29</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 10 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> Radiochemo Alter          151 35     41.5   44.7   45     47.5   56      4.41</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> Radiochemo Beob_zeit      151  0.18   2.04   3.84   3.31   5.06  15.0    2.58</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> Radiochemo Infektionen    151  0      1      1.98   1      3     10      2.05</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> Radiochemo Lebensquali…   151  1      2      3.39   3      5     10      2.2 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> Radiochemo Leukos_t0      151  5.1    5.88   6.08   6.07   6.32   6.9    0.35</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> Radiochemo Leukos_t6      151  5.05   5.82   6.02   6.01   6.26   6.83   0.35</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> Radiochemo Pat_id         151  2    106.   220.   218    330.   446    130.  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> Radiochemo Schmerzen      151  1      3      5.3    5      7     10      2.44</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> Radiochemo Stationaer     151  0      0      0.05   0      0      1      0.21</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> Radiochemo Status         151  0      1      0.87   1      1      1      0.34</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">11</span> Chemo      Alter          150 35     42     45.1   45     48     57      4.4 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">12</span> Chemo      Beob_zeit      150  0.07   1.06   2.09   1.8    2.87   6.14   1.35</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">13</span> Chemo      Infektionen    150  0      1      2.33   2      3      9      1.97</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">14</span> Chemo      Lebensquali…   150  1      2      3.63   3      5     10      2.21</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">15</span> Chemo      Leukos_t0      150  5.38   5.81   6.05   6.08   6.29   6.92   0.33</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">16</span> Chemo      Leukos_t6      150  5.33   5.75   5.99   6.02   6.23   6.85   0.33</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">17</span> Chemo      Pat_id         150  6    121.   231.   238.   342    450    133.  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">18</span> Chemo      Schmerzen      150  1      3      5.14   5      7     10      2.32</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">19</span> Chemo      Stationaer     150  0      0      0.07   0      0      1      0.26</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">20</span> Chemo      Status         150  0      1      0.91   1      1      1      0.29</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">21</span> Radio      Alter          149 33     42     44.5   44     47     55      4.12</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">22</span> Radio      Beob_zeit      149  0.14   0.68   1.24   1.05   1.7    3.42   0.73</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">23</span> Radio      Infektionen    149  0      1      2.49   2      3     10      2.13</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">24</span> Radio      Lebensquali…   149  1      2      3.76   4      5     10      2.19</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">25</span> Radio      Leukos_t0      149  5.22   5.74   5.98   6      6.21   6.72   0.31</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 5 more rows</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 1 more variable: SE &lt;dbl&gt;</span></span>
 </code></pre></div>
     </div>

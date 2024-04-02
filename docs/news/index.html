@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">remp</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.2</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Navigation ein-/ausschalten">
@@ -53,6 +53,13 @@
       <small>Quelle: <a href="https://github.com/jpnolte/remp/blob/HEAD/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
     </div>
 
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="1.0.2" id="remp-102">remp 1.0.2<a class="anchor" aria-label="anchor" href="#remp-102"></a></h2>
+<ul><li>Datum: <em>2024-04-01</em>
+</li>
+<li>Kleinere Textanpassungen.</li>
+<li>Die Funktion <code><a href="../reference/descriptive.html">descriptive()</a></code> gibt nun standardmäßig einen normalen <code>tibble</code> aus. Falls mehr als 10 Zeilen gewünscht sind, muss dies explizit mit dem <code>.print</code> Argument festgelegt werden. Das Verhalten zuvor war problematisch, falls man mit direkt in ein einer Pipe weiterrechnen wollte, da das Ergebnis so mehrmals ausgegeben wurde.</li>
+</ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.0.1" id="remp-101">remp 1.0.1<a class="anchor" aria-label="anchor" href="#remp-101"></a></h2>
 <ul><li>Datum: <em>2023-10-28</em>

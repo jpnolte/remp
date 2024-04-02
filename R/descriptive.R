@@ -2,9 +2,9 @@
 #'
 #' Berechnet die Anzahl N, Quartile, Mittelwert, Median, Standardabweichung und Standardfehler.
 #' @param data Daten als data.frame, tibble oder grouped.df.
-#' @param .round Anzahl der Nachkommastellen (Default: 2).
-#' @param .print Anzahl der Zeilen, die ausgegeben werden sollen (Default: 20). Das Argument überschreibt das Standardverhalten eines tibbles, i.d.R nur 10 Zeilen anzuzeigen.
-#' @param .tibble Ausgabe als data.frame (FALSE) oder tibble (TRUE) (Default: TRUE).
+#' @param .round Anzahl der Nachkommastellen.
+#' @param .print Anzahl der Zeilen, die ausgegeben werden sollen. Bei Angabe einer Zahl wird das Standardverhalten eines tibbles, i.d.R nur 10 Zeilen anzuzeigen, überschrieben.
+#' @param .tibble Ausgabe als data.frame (FALSE) oder tibble (TRUE).
 #' @return Überblick über typische Lage- und Streuungsmaße.
 #' @examples
 #' chemo
@@ -14,9 +14,9 @@
 #'
 #' chemo |> 
 #'   dplyr::group_by(Behandlung) |> 
-#'   descriptive()
+#'   descriptive(.print = 25)
 #' @export
-descriptive <- function(data, .round = 2, .print = 20, .tibble = TRUE) {
+descriptive <- function(data, .round = 2, .print = NA, .tibble = TRUE) {
   
   old_opt <- options()$dplyr.summarise.inform
   options(dplyr.summarise.inform = FALSE)
@@ -54,5 +54,6 @@ descriptive <- function(data, .round = 2, .print = 20, .tibble = TRUE) {
   }
   
   if (!.tibble) as.data.frame(res) 
-  else print(res, n = .print)
+  else if (is.numeric(.print)) print(res, n = .print)
+  else if (.tibble) res
 }

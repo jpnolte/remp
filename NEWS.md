@@ -1,3 +1,8 @@
+# remp 1.0.2
+- Datum: *2024-04-01*
+- Kleinere Textanpassungen.
+- Die Funktion `descriptive()` gibt nun standardmäßig einen normalen `tibble` aus. Falls mehr als 10 Zeilen gewünscht sind, muss dies explizit mit dem `.print` Argument festgelegt werden. Das Verhalten zuvor war problematisch, falls man mit direkt in ein einer Pipe weiterrechnen wollte, da das Ergebnis so mehrmals ausgegeben wurde.
+
 # remp 1.0.1
 - Datum: *2023-10-28*
 - Übungen 

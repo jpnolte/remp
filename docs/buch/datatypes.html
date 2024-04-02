@@ -23,14 +23,14 @@
 <meta name="author" content="Jan Philipp Nolte" />
 
 
-<meta name="date" content="2023-10-28" />
+<meta name="date" content="2024-03-26" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   <link rel="apple-touch-icon-precomposed" sizes="120x120" href="images/touch-icon.png" />
   <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
-<link rel="prev" href="ergebnisse-exportieren.html"/>
+<link rel="prev" href="export.html"/>
 <link rel="next" href="iterationmain.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -210,7 +210,7 @@ div.csl-indent {
 <li class="chapter" data-level="4.3.3" data-path="vars.html"><a href="vars.html#zeitdaten"><i class="fa fa-check"></i><b>4.3.3</b> Zeitdaten</a></li>
 <li class="chapter" data-level="4.3.4" data-path="vars.html"><a href="vars.html#datentypen-konvertieren"><i class="fa fa-check"></i><b>4.3.4</b> Datentypen konvertieren</a></li>
 </ul></li>
-<li class="chapter" data-level="4.4" data-path="vars.html"><a href="vars.html#struktur-von-datensätzen"><i class="fa fa-check"></i><b>4.4</b> Struktur von Datensätzen</a></li>
+<li class="chapter" data-level="4.4" data-path="vars.html"><a href="vars.html#struktur"><i class="fa fa-check"></i><b>4.4</b> Struktur von Datensätzen</a></li>
 <li class="chapter" data-level="4.5" data-path="vars.html"><a href="vars.html#dollar"><i class="fa fa-check"></i><b>4.5</b> Der Dollar-Operator</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="io.html"><a href="io.html"><i class="fa fa-check"></i><b>5</b> Datensätze</a>
@@ -322,16 +322,16 @@ div.csl-indent {
 <li class="chapter" data-level="9.8" data-path="inductive.html"><a href="inductive.html#broom"><i class="fa fa-check"></i><b>9.8</b> Ergebnisse formatieren</a></li>
 </ul></li>
 <li class="part"><span><b>IV Vertiefung</b></span></li>
-<li class="chapter" data-level="10" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html"><i class="fa fa-check"></i><b>10</b> Ergebnisse exportieren</a>
+<li class="chapter" data-level="10" data-path="export.html"><a href="export.html"><i class="fa fa-check"></i><b>10</b> Ergebnisse exportieren</a>
 <ul>
-<li class="chapter" data-level="10.1" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#intromarkdown"><i class="fa fa-check"></i><b>10.1</b> Wichtige Begriffe</a></li>
-<li class="chapter" data-level="10.2" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#markdown"><i class="fa fa-check"></i><b>10.2</b> Berichte erstellen</a></li>
-<li class="chapter" data-level="10.3" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#tabellen-umwandeln"><i class="fa fa-check"></i><b>10.3</b> Tabellen umwandeln</a>
+<li class="chapter" data-level="10.1" data-path="export.html"><a href="export.html#intromarkdown"><i class="fa fa-check"></i><b>10.1</b> Wichtige Begriffe</a></li>
+<li class="chapter" data-level="10.2" data-path="export.html"><a href="export.html#markdown"><i class="fa fa-check"></i><b>10.2</b> Berichte erstellen</a></li>
+<li class="chapter" data-level="10.3" data-path="export.html"><a href="export.html#tabellen-umwandeln"><i class="fa fa-check"></i><b>10.3</b> Tabellen umwandeln</a>
 <ul>
-<li class="chapter" data-level="10.3.1" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#knitr"><i class="fa fa-check"></i><b>10.3.1</b> Exportieren nach Word und PDF</a></li>
-<li class="chapter" data-level="10.3.2" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#latex"><i class="fa fa-check"></i><b>10.3.2</b> Exportieren nach LaTeX</a></li>
+<li class="chapter" data-level="10.3.1" data-path="export.html"><a href="export.html#knitr"><i class="fa fa-check"></i><b>10.3.1</b> Exportieren nach Word und PDF</a></li>
+<li class="chapter" data-level="10.3.2" data-path="export.html"><a href="export.html#latex"><i class="fa fa-check"></i><b>10.3.2</b> Exportieren nach LaTeX</a></li>
 </ul></li>
-<li class="chapter" data-level="10.4" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#quarto"><i class="fa fa-check"></i><b>10.4</b> Alternative mit Quarto</a></li>
+<li class="chapter" data-level="10.4" data-path="export.html"><a href="export.html#quarto"><i class="fa fa-check"></i><b>10.4</b> Alternative mit Quarto</a></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="datatypes.html"><a href="datatypes.html"><i class="fa fa-check"></i><b>11</b> Datenstrukturen</a>
 <ul>
@@ -351,6 +351,19 @@ div.csl-indent {
 </ul></li>
 <li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i>Appendix</a>
 <ul>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#datensatzerläuterungen"><i class="fa fa-check"></i>Datensatzerläuterungen</a>
+<ul>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#big-5-persönlichkeitsfaktoren"><i class="fa fa-check"></i>Big 5 Persönlichkeitsfaktoren</a></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#statistische-bildung"><i class="fa fa-check"></i>Statistische Bildung</a></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#bitcoin-aktienkurs"><i class="fa fa-check"></i>Bitcoin Aktienkurs</a></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#radiochemotherapie"><i class="fa fa-check"></i>Radiochemotherapie</a></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#sars-cov-2-diagnostik"><i class="fa fa-check"></i>SARS-CoV-2 Diagnostik</a></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#eye-tracking"><i class="fa fa-check"></i>Eye Tracking</a></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#iq-und-kreativität"><i class="fa fa-check"></i>IQ und Kreativität</a></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#musikstreaming-nutzerstatistik"><i class="fa fa-check"></i>Musikstreaming Nutzerstatistik</a></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#videostreaming-nutzerstatitstik"><i class="fa fa-check"></i>Videostreaming Nutzerstatitstik</a></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#fußballwetten"><i class="fa fa-check"></i>Fußballwetten</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#literaturverzeichnis"><i class="fa fa-check"></i>Literaturverzeichnis</a></li>
 <li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#verwendete-softwareversionen"><i class="fa fa-check"></i>Verwendete Softwareversionen</a></li>
 </ul></li>
@@ -596,14 +609,14 @@ $Number
 <pre class="bordercode"><code>[1] &quot;lm&quot;</code></pre>
 <p>Die Funktion <code>s3_methods_generic()</code> des <code>sloop</code> Packages gibt Auskunft über alle von einer Funktion unterstützten Klassen. An dieser Stelle möchten wir <code>summary()</code> untersuchen.</p>
 <div class="sourceCode" id="cb676"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb676-1"><a href="datatypes.html#cb676-1" tabindex="-1"></a><span class="fu">s3_methods_generic</span>(<span class="st">&quot;summary&quot;</span>)</span></code></pre></div>
-<pre class="bordercode"><code># A tibble: 137 × 4
+<pre class="bordercode"><code># A tibble: 140 × 4
   generic class     visible source             
   &lt;chr&gt;   &lt;chr&gt;     &lt;lgl&gt;   &lt;chr&gt;              
 1 summary aareg     FALSE   registered S3method
 2 summary afex_aov  FALSE   registered S3method
 3 summary allFit    FALSE   registered S3method
 4 summary Anova.mlm FALSE   registered S3method
-# ℹ 133 more rows</code></pre>
+# ℹ 136 more rows</code></pre>
 <p>137 verschiedene Klassen werden nach Laden aller in diesem Buch verwendeten Packages unterstützt. Bereits in Zeile zwei sehen wir die Klasse der Funktion zur Varianzanalyse mit Messwiederholung aus Kapitel <a href="inductive.html#repeated">9.3.2</a>. Welche Klassen eine Implementierung für <code>summary()</code> erhalten, hängt maßgeblich von den PackageentwicklerInnen ab, die das entsprechende Verhalten von <code>summary()</code> für die neue Klasse programmatisch festlegen müssen.</p>
 <p>Ein weiteres Beispiel für eine generische Funktion, die sich je nach Klasse anders verhält, ist <code>autoplot()</code> aus dem <code>ggplot2</code> Package. Wir haben in Kapitel <a href="visual.html#residuals">8.13.2</a> durch das Package <code>ggfortify</code> das Verhalten für die Klasse <code>lm</code> eines Regressionsmodells kennengelernt. Tatsächlich können mit der Funktion <code>autoplot()</code> aber diverse Visualisierungen von statistischen Modellen erstellt werden.</p>
 <p>R6 und S4 Systeme sind deutlich ähnlicher der klassischen Objektorientierung aus Java oder C/C++. Die S4 Objektorientierung ist eine Voraussetzung zum Hochladen eines Packages auf Bioconductor, welches eine Alternative mit biologischen Fokus zu CRAN darstellt. Als Konsequenz können die meisten der in diesem Buch kennengelernten Funktionen nicht mit Packages von Bioconductor kombiniert werden. Jedes S4 Objekt erhält eigene Methoden, um auf Informationen der Objekte zuzugreifen. Ein großer Unterschied in der Syntax ist auch die Verwendung eines at-Zeichens (<code>@</code>) anstelle des uns bekannten Dollar-Operators, um einzelne Spalten zu extrahieren. Hätten wir in einem Objekt namens <code>ls</code> eine Information namens <code>ergebnis</code> gespeichert, würden wir im S4 System über <code>ls@ergebnis</code> und nicht <code>ls$ergebnis</code> Zugriff auf das Ergebnis bekommen.</p>
@@ -617,7 +630,7 @@ $Number
           </div>
         </div>
       </div>
-<a href="ergebnisse-exportieren.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="export.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="iterationmain.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>

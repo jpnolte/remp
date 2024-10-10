@@ -1,6 +1,6 @@
 Package: remp
 Title: R für empirische Wissenschaften
-Version: 1.0.2
+Version: 1.0.3
 Authors@R: person("Jan Philipp", "Nolte", email = "jp.nolte@proton.me", role = c("aut", "cre"))
 Maintainer: Jan Philipp Nolte <jp.nolte@proton.me>
 Description: Lerne R ohne Programmiervorkenntnisse im Selbststudium anhand von einfachen Erklärungen mit Beispielen aus der Praxis und interaktiven Übungen.
@@ -11,6 +11,6 @@ URL: https://r-empirische-wissenschaften.de, https://github.com/jpnolte/remp
 BugReports: https://github.com/jpnolte/remp/issues
 Depends:
     R (>= 3.50)
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.2
 Suggests:
     learnr

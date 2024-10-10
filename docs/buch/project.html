@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Kapitel 3 R Projekte | R für empirische Wissenschaften</title>
   <meta name="description" content="Dieses Buch bietet einfache Erklärungen mit praktischen Beispielen und Übungen, welche das Erlernen von R ohne Programmiervorkenntnisse im Selbststudium ermöglichen. Die Zielgruppe sind WissenschaftlerInnen und StudentInnen der Fachrichtungen Medizin, Psychologie, Wirtschaftswissenschaften, Sozialwissenschaften, Agrarwissenschaften, Neurowissenschaften, Biologie, Journalismus, Tourismus, Data Science, Biostatistik und allen weiteren Disziplinen, die Daten auswerten möchten." />
-  <meta name="generator" content="bookdown 0.33 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Kapitel 3 R Projekte | R für empirische Wissenschaften" />
   <meta property="og:type" content="book" />
@@ -20,10 +20,10 @@
   <meta name="twitter:description" content="Dieses Buch bietet einfache Erklärungen mit praktischen Beispielen und Übungen, welche das Erlernen von R ohne Programmiervorkenntnisse im Selbststudium ermöglichen. Die Zielgruppe sind WissenschaftlerInnen und StudentInnen der Fachrichtungen Medizin, Psychologie, Wirtschaftswissenschaften, Sozialwissenschaften, Agrarwissenschaften, Neurowissenschaften, Biologie, Journalismus, Tourismus, Data Science, Biostatistik und allen weiteren Disziplinen, die Daten auswerten möchten." />
   <meta name="twitter:image" content="/images/logo.png" />
 
-<meta name="author" content="Jan Philipp Nolte" />
+<meta name="author" content="Dr. med. univ. Jan Philipp Nolte, BSc. MSc" />
 
 
-<meta name="date" content="2024-03-26" />
+<meta name="date" content="2024-10-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -58,7 +58,7 @@
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -68,7 +68,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -118,10 +118,15 @@ code span.wa { font-weight: bold; } /* Warning */
 </style>
 
 <style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
 /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging div.csl-entry {
   margin-left:2em;
@@ -159,6 +164,7 @@ div.csl-indent {
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Vorwort</a>
 <ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#über-den-autor"><i class="fa fa-check"></i>Über den Autor</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#lizenz"><i class="fa fa-check"></i>Lizenz</a></li>
 </ul></li>
 <li class="part"><span><b>I Die ersten Schritte</b></span></li>
@@ -411,21 +417,21 @@ Abbildung 3.1: Beispielhafte Ordnerstruktur mit R Skript, Projektdatei und Daten
 </div>
 <p><code>Auswertung.R</code> ist unser R Skript, <code>Beispiel.Rproj</code> unsere Projektdatei und <code>video.xlsx</code> der Datensatz, den wir zur Auswertung einlesen wollen. Die Projektdatei muss manuell vor dem Einlesen erstellt werden. Dafür benötigt man nur ein paar Klicks.</p>
 <p>Oben rechts befindet sich ein Reiter namens <code>Project: (None)</code>, wenn kein Projekt geöffnet ist und ansonsten der Projektname (zum Beispiel das Projekt <code>Beispiel</code>). Öffne zuerst das Dropdown Menu.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-25"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-26"></span>
 <img src="images/rstudio_projectA.png" alt="Erster Schritt beim Erstellen eines neuen Projektes." width="750" height="421" />
 <p class="caption">
 Abbildung 3.2: Erster Schritt beim Erstellen eines neuen Projektes.
 </p>
 </div>
 <p>Uns interessieren zum einen <code>New Project...</code> und <code>Open Project...</code> und zum anderen sind weiter unten andere Projekte aufgelistet, die vorher geöffnet wurden (hier <code>07_Buch</code> und <code>remp</code>). Dadurch kann man mit einem einfachen Klick zwischen den eigenen Projekten wechseln. Dieses Feature erleichtert die Arbeit ungemein, da man auf dem Computer nicht mehr diverse Ordner nach den richtigen Dateien durchsuchen muss. Zum Erstellen eines neuen Projekts klicke auf <code>New Project...</code>, wodurch ein neues Fenster erscheint.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-26"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-27"></span>
 <img src="images/rstudio_project1A.png" alt="Zweiter Schritt beim Erstellen eines neuen Projektes." width="750" height="421" />
 <p class="caption">
 Abbildung 3.3: Zweiter Schritt beim Erstellen eines neuen Projektes.
 </p>
 </div>
 <p>Wir entscheiden uns exemplarisch für die Option <code>Existing Directory</code>. Das bedeutet, unser Ordner Namens <code>Beispiel</code> existiert bereits auf dem Desktop. Ob dieser Ordner leer oder bereits mit anderen Dateien gefüllt ist, ist nicht weiter von Bedeutung.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-27"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-28"></span>
 <img src="images/rstudio_project2A.png" alt="Letzter Schritt zur Erstellung eines neuen Projektes." width="750" height="421" />
 <p class="caption">
 Abbildung 3.4: Letzter Schritt zur Erstellung eines neuen Projektes.
@@ -439,8 +445,8 @@ Abbildung 3.4: Letzter Schritt zur Erstellung eines neuen Projektes.
 <div id="here" class="section level2 hasAnchor" number="3.3">
 <h2><span class="header-section-number">3.3</span> Der Pfad zum Datensatz<a href="project.html#here" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Die Magie im Kontext von Projekten passiert, wenn du das <code>here</code> Package lädst. Das Package findet selbstständig den relativen Pfad zu deiner Projektdatei heraus. Was bedeutet das? Während man früher beispielsweise auf Windows mit <code>C:\Users\J-PhN\Desktop\Beispiel</code> den absoluten Pfad zum Ordner eingeben musste, findet das <code>here</code> Package den Ordner <code>Beispiel</code> mit der Projektdatei unabhängig von der Lage des Ordners. In der Praxis sieht das beim Laden wie folgt aus:</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb28-1"><a href="project.html#cb28-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">library</span>(here)</span>
-<span id="cb28-2"><a href="project.html#cb28-2" tabindex="-1"></a><span class="fu">here</span>() starts at C<span class="sc">:</span><span class="er">/</span>Users<span class="sc">/</span>J<span class="sc">-</span>PhN<span class="sc">/</span>Desktop<span class="sc">/</span>Beispiel</span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb29-1"><a href="project.html#cb29-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">library</span>(here)</span>
+<span id="cb29-2"><a href="project.html#cb29-2" tabindex="-1"></a><span class="fu">here</span>() starts at C<span class="sc">:</span><span class="er">/</span>Users<span class="sc">/</span>J<span class="sc">-</span>PhN<span class="sc">/</span>Desktop<span class="sc">/</span>Beispiel</span></code></pre></div>
 <p>Würden wir den Ordner verschieben, hätte das keine Auswirkungen auf unseren Code, denn das Package würde wieder zum Projektordner finden. Der erste Schritt ist also immer das Erstellen eines R Projekts und das Laden des <code>here</code> Packages am Anfang jedes neuen Skripts, mit dem man einen Datensatz einlesen möchte.</p>
 <div class="warning">
 <p>Alternativ kann der Pfad zum Datensatz auch mit <code>setwd()</code> manuell festgelegt werden. Da der Pfad allerdings zwischen den Betriebssystemen unterschiedlich ist und man nach jedem Verschieben der Dateien erneut <code>setwd()</code> anpassen muss, wird ausdrücklich davon abgeraten.</p>

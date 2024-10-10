@@ -27,22 +27,22 @@ descriptive <- function(data, .round = 2, .print = NA, .tibble = TRUE) {
     df1 <- dplyr::select(data, where(is.numeric)) 
     df2 <- tidyr::pivot_longer(df1, 
         cols = everything(),
-        names_to = "Variable",
-        values_to = "Value" 
+        names_to = ".Variable",
+        values_to = ".Value" 
       ) 
-    df3 <- dplyr::group_by(df2, Variable)  
+    df3 <- dplyr::group_by(df2, .Variable)  
     df4 <- dplyr::summarise(df3,
         N = dplyr::n(),
-        Min = round(min(Value, na.rm = TRUE), .round),
-        Q1 = round(stats::quantile(Value, 0.25, na.rm = TRUE), .round),
-        Mean = round(mean(Value, na.rm = TRUE), .round),
-        Median = round(stats::median(Value, na.rm = TRUE), .round),
-        Q3 = round(stats::quantile(Value, 0.75, na.rm = TRUE), .round),
-        Max = round(max(Value, na.rm = TRUE), .round),
-        SD = round(stats::sd(Value, na.rm = TRUE), .round),
+        Min = round(min(.Value, na.rm = TRUE), .round),
+        Q1 = round(stats::quantile(.Value, 0.25, na.rm = TRUE), .round),
+        Mean = round(mean(.Value, na.rm = TRUE), .round),
+        Median = round(stats::median(.Value, na.rm = TRUE), .round),
+        Q3 = round(stats::quantile(.Value, 0.75, na.rm = TRUE), .round),
+        Max = round(max(.Value, na.rm = TRUE), .round),
+        SD = round(stats::sd(.Value, na.rm = TRUE), .round),
         SE = round(SD / sqrt(N), .round)
       )
-
+    df5 <- dplyr::rename(df4, Variable = .Variable)
   }
   
   if (any(class(data) == "data.frame") & !dplyr::is_grouped_df(data)) {

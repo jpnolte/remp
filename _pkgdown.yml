@@ -5,6 +5,7 @@ lang: de
 template:
   bootstrap: 5
   bootswatch: litera
+  light-switch: false
   includes:
     after_body: >
       <script data-goatcounter="https://remp.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
@@ -45,12 +46,8 @@ reference:
 
 navbar:
   structure:
-    left:
-    - home
-    - articles
-    - reference
-    - news
-    right: github
+    left: [home, articles, reference, news]
+    right: [search, github]
   components:
     home:
       icon: fa-home fa-lg

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>R für empirische Wissenschaften</title>
   <meta name="description" content="Dieses Buch bietet einfache Erklärungen mit praktischen Beispielen und Übungen, welche das Erlernen von R ohne Programmiervorkenntnisse im Selbststudium ermöglichen. Die Zielgruppe sind WissenschaftlerInnen und StudentInnen der Fachrichtungen Medizin, Psychologie, Wirtschaftswissenschaften, Sozialwissenschaften, Agrarwissenschaften, Neurowissenschaften, Biologie, Journalismus, Tourismus, Data Science, Biostatistik und allen weiteren Disziplinen, die Daten auswerten möchten." />
-  <meta name="generator" content="bookdown 0.33 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
 
   <meta property="og:title" content="R für empirische Wissenschaften" />
   <meta property="og:type" content="book" />
@@ -20,10 +20,10 @@
   <meta name="twitter:description" content="Dieses Buch bietet einfache Erklärungen mit praktischen Beispielen und Übungen, welche das Erlernen von R ohne Programmiervorkenntnisse im Selbststudium ermöglichen. Die Zielgruppe sind WissenschaftlerInnen und StudentInnen der Fachrichtungen Medizin, Psychologie, Wirtschaftswissenschaften, Sozialwissenschaften, Agrarwissenschaften, Neurowissenschaften, Biologie, Journalismus, Tourismus, Data Science, Biostatistik und allen weiteren Disziplinen, die Daten auswerten möchten." />
   <meta name="twitter:image" content="/images/logo.png" />
 
-<meta name="author" content="Jan Philipp Nolte" />
+<meta name="author" content="Dr. med. univ. Jan Philipp Nolte, BSc. MSc" />
 
 
-<meta name="date" content="2024-03-26" />
+<meta name="date" content="2024-10-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -58,7 +58,7 @@
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -68,7 +68,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -118,10 +118,15 @@ code span.wa { font-weight: bold; } /* Warning */
 </style>
 
 <style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
 /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging div.csl-entry {
   margin-left:2em;
@@ -159,6 +164,7 @@ div.csl-indent {
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Vorwort</a>
 <ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#über-den-autor"><i class="fa fa-check"></i>Über den Autor</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#lizenz"><i class="fa fa-check"></i>Lizenz</a></li>
 </ul></li>
 <li class="part"><span><b>I Die ersten Schritte</b></span></li>
@@ -386,13 +392,17 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="header">
 <h1 class="title">R für empirische Wissenschaften</h1>
-<p class="author"><em>Jan Philipp Nolte</em></p>
-<p class="date"><em>2024-03-26</em></p>
+<p class="author"><em>Dr. med. univ. Jan Philipp Nolte, BSc. MSc</em></p>
+<p class="date"><em>2024-10-10</em></p>
 </div>
 <div id="vorwort" class="section level1 unnumbered hasAnchor">
 <h1>Vorwort<a href="index.html#vorwort" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p><img src="images/logo.png" width="22%" style="float:right; padding:10px" style="display: block; margin: auto;" /></p>
-<p>Willkommen zur Internetseite des Buches <em>R für empirische Wissenschaften</em>. Hier wirst du ohne Vorwissen lernen, die Programmiersprache R zur Datenanalyse anzuwenden. Die Zielgruppen sind WissenschaftlerInnen und StudentInnen der Fachrichtungen Medizin, Psychologie, Betriebswirtschaftslehre, Wirtschaftswissenschaften, soziale Arbeit, Pharmazie, Agrarwissenschaften, Neurowissenschaften, Biologie, Journalismus, Tourismus, Data Science, Biostatistik und allen weiteren Disziplinen, die Daten auswerten möchten. Ergänzend wird das <a href="https://r-empirische-wissenschaften.de">remp</a> Package bereitgestellt, welches Datensätze, Übungen und praktische Funktionen beinhaltet. In der Navigationsleiste auf der linken Seite können zwölf Kapitel ausgewählt werden. Alternativ kannst du auch mithilfe der linken und rechten Pfeiltaste zwischen den Hauptkapiteln wechseln. Oben in der Leiste ruft die Lupe die Suchfunktion auf, während man über das A die Schriftgröße, Schriftart und das Farbthema anpassen kann.</p>
+<p>Willkommen zur Internetseite des Buches <em>R für empirische Wissenschaften</em>. Hier wirst du ohne Vorwissen lernen, die Programmiersprache R zur Datenanalyse anzuwenden. Die Zielgruppen sind WissenschaftlerInnen und StudentInnen der Fachrichtungen Medizin, Psychologie, Neurowissenschaften, Data Science, Biologie, Wirtschaftswissenschaften, Agrarwissenschaften, soziale Arbeit, Pharmazie, Journalismus, Tourismus, Biostatistik und allen weiteren Disziplinen, die Daten auswerten möchten oder müssen. Ergänzend wird das <a href="https://r-empirische-wissenschaften.de">remp</a> Package bereitgestellt, welches Datensätze, Übungen und praktische Funktionen beinhaltet. In der Navigationsleiste auf der linken Seite können zwölf Kapitel ausgewählt werden. Alternativ kannst du auch mithilfe der linken und rechten Pfeiltaste zwischen den Hauptkapiteln wechseln. Oben in der Leiste ruft die Lupe die Suchfunktion auf, während man über das A die Schriftgröße, Schriftart und das Farbthema anpassen kann.</p>
+<div id="über-den-autor" class="section level2 unnumbered hasAnchor">
+<h2>Über den Autor<a href="index.html#über-den-autor" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Jan Nolte ist Arzt und Psychologe mit einem besonderen Interesse an Statistik und Programmierung. Bereits während seines Studiums war es ihm stets ein Anliegen, das in der psychometrischen Grundlagenforschung erworbene Wissen seinen KommilitonInnen weiterzugeben. Seitdem hat er u.a. Projekte der plastischen Chirurgie, Urologie und Orthopädie betreut und vielen StudentInnen bei der Auswertung der jeweiligen Qualifikationsarbeiten geholfen. Sein eigener Forschungsschwerpunkt liegt in der Neuroimmunologie, insbesondere der Erforschung individueller Unterschiede bei Personen mit Multipler Sklerose. Aus der Praxis kommend hat er einen speziellen Blickwinkel auf die typischen Hürden der Datenanalyse und dem Erlernen einer Programmiersprache als BeginnerIn.</p>
+</div>
 <div id="lizenz" class="section level2 unnumbered hasAnchor">
 <h2>Lizenz<a href="index.html#lizenz" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons Licence" style="border-width:0" src="https://licensebuttons.net/l/by-nc-nd/4.0/88x31.png"> </a></p>

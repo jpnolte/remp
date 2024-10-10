@@ -68,6 +68,7 @@ pre code a:active {
   -moz-box-shadow: 0 4px 6px -6px rgba(0,0,0,0.5);
   box-shadow: 0 4px 6px -6px rgba(0,0,0,0.5);
   border: 0px solid rgba(0,0,0,0.1);
+  background-color: #ffffff !important;
 }
 
 pre {
@@ -79,20 +80,20 @@ p code {
   border-radius: 20px;
 }
 
-.navbar-light .navbar-nav .nav-item>.nav-link:hover {
+.navbar .navbar-nav .nav-item>.nav-link:hover {
   background: rgba(238,112,0, 0.1);
   color: #343a40;
 }
 
-.navbar-light .navbar-nav .nav-item>.nav-link {
+.navbar .navbar-nav .nav-item>.nav-link {
   color: rgba(0,0,0,0.55);
 }
 
-.navbar-light .navbar-nav .nav-item>.nav-link:active {
+.navbar .navbar-nav .nav-item>.nav-link:active {
   color: #343a40;
 }
 
-.navbar-light .navbar-brand {
+.navbar .navbar-brand {
     color: #343a40;
 }
 

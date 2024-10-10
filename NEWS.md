@@ -1,3 +1,14 @@
+# remp 1.0.3
+- Datum: *2024-10-09*
+- Nennenswerte Textänderungen: 
+    - Berücksichtigung der Kommentare eines Reviewers.
+    - Kapitel 7.1: Geringerer Fokus auf die Funktion `summarise()` aus `dplyr`.
+    - Kapitel 7.2: Anstelle der Funktion `count()` aus `dplyr` wird jetzt die Funktion  `tabyl()` aus dem `janitor` Package verwendet.
+    - Kapitel 7.3: Einführung von Visualisierungen für Korrelationen.
+    - Kapitel 8.13.1: Umstellung vom `survminer` auf das deutlich besser anpassbare `ggsurvfit` Package.
+- Fehlerbehebungen: 
+    - In der Funktion `descriptive()` darf der Spaltenname jetzt auch `Variable` heißen.
+
 # remp 1.0.2
 - Datum: *2024-04-01*
 - Kleinere Textanpassungen.

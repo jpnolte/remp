@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Kapitel 11 Datenstrukturen | R für empirische Wissenschaften</title>
   <meta name="description" content="Dieses Buch bietet einfache Erklärungen mit praktischen Beispielen und Übungen, welche das Erlernen von R ohne Programmiervorkenntnisse im Selbststudium ermöglichen. Die Zielgruppe sind WissenschaftlerInnen und StudentInnen der Fachrichtungen Medizin, Psychologie, Wirtschaftswissenschaften, Sozialwissenschaften, Agrarwissenschaften, Neurowissenschaften, Biologie, Journalismus, Tourismus, Data Science, Biostatistik und allen weiteren Disziplinen, die Daten auswerten möchten." />
-  <meta name="generator" content="bookdown 0.33 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Kapitel 11 Datenstrukturen | R für empirische Wissenschaften" />
   <meta property="og:type" content="book" />
@@ -20,10 +20,10 @@
   <meta name="twitter:description" content="Dieses Buch bietet einfache Erklärungen mit praktischen Beispielen und Übungen, welche das Erlernen von R ohne Programmiervorkenntnisse im Selbststudium ermöglichen. Die Zielgruppe sind WissenschaftlerInnen und StudentInnen der Fachrichtungen Medizin, Psychologie, Wirtschaftswissenschaften, Sozialwissenschaften, Agrarwissenschaften, Neurowissenschaften, Biologie, Journalismus, Tourismus, Data Science, Biostatistik und allen weiteren Disziplinen, die Daten auswerten möchten." />
   <meta name="twitter:image" content="/images/logo.png" />
 
-<meta name="author" content="Jan Philipp Nolte" />
+<meta name="author" content="Dr. med. univ. Jan Philipp Nolte, BSc. MSc" />
 
 
-<meta name="date" content="2024-03-26" />
+<meta name="date" content="2024-10-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -58,7 +58,7 @@
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -68,7 +68,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -118,10 +118,15 @@ code span.wa { font-weight: bold; } /* Warning */
 </style>
 
 <style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
 /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging div.csl-entry {
   margin-left:2em;
@@ -159,6 +164,7 @@ div.csl-indent {
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Vorwort</a>
 <ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#über-den-autor"><i class="fa fa-check"></i>Über den Autor</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#lizenz"><i class="fa fa-check"></i>Lizenz</a></li>
 </ul></li>
 <li class="part"><span><b>I Die ersten Schritte</b></span></li>
@@ -609,14 +615,14 @@ $Number
 <pre class="bordercode"><code>[1] &quot;lm&quot;</code></pre>
 <p>Die Funktion <code>s3_methods_generic()</code> des <code>sloop</code> Packages gibt Auskunft über alle von einer Funktion unterstützten Klassen. An dieser Stelle möchten wir <code>summary()</code> untersuchen.</p>
 <div class="sourceCode" id="cb676"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb676-1"><a href="datatypes.html#cb676-1" tabindex="-1"></a><span class="fu">s3_methods_generic</span>(<span class="st">&quot;summary&quot;</span>)</span></code></pre></div>
-<pre class="bordercode"><code># A tibble: 140 × 4
+<pre class="bordercode"><code># A tibble: 134 × 4
   generic class     visible source             
   &lt;chr&gt;   &lt;chr&gt;     &lt;lgl&gt;   &lt;chr&gt;              
 1 summary aareg     FALSE   registered S3method
 2 summary afex_aov  FALSE   registered S3method
 3 summary allFit    FALSE   registered S3method
 4 summary Anova.mlm FALSE   registered S3method
-# ℹ 136 more rows</code></pre>
+# ℹ 130 more rows</code></pre>
 <p>137 verschiedene Klassen werden nach Laden aller in diesem Buch verwendeten Packages unterstützt. Bereits in Zeile zwei sehen wir die Klasse der Funktion zur Varianzanalyse mit Messwiederholung aus Kapitel <a href="inductive.html#repeated">9.3.2</a>. Welche Klassen eine Implementierung für <code>summary()</code> erhalten, hängt maßgeblich von den PackageentwicklerInnen ab, die das entsprechende Verhalten von <code>summary()</code> für die neue Klasse programmatisch festlegen müssen.</p>
 <p>Ein weiteres Beispiel für eine generische Funktion, die sich je nach Klasse anders verhält, ist <code>autoplot()</code> aus dem <code>ggplot2</code> Package. Wir haben in Kapitel <a href="visual.html#residuals">8.13.2</a> durch das Package <code>ggfortify</code> das Verhalten für die Klasse <code>lm</code> eines Regressionsmodells kennengelernt. Tatsächlich können mit der Funktion <code>autoplot()</code> aber diverse Visualisierungen von statistischen Modellen erstellt werden.</p>
 <p>R6 und S4 Systeme sind deutlich ähnlicher der klassischen Objektorientierung aus Java oder C/C++. Die S4 Objektorientierung ist eine Voraussetzung zum Hochladen eines Packages auf Bioconductor, welches eine Alternative mit biologischen Fokus zu CRAN darstellt. Als Konsequenz können die meisten der in diesem Buch kennengelernten Funktionen nicht mit Packages von Bioconductor kombiniert werden. Jedes S4 Objekt erhält eigene Methoden, um auf Informationen der Objekte zuzugreifen. Ein großer Unterschied in der Syntax ist auch die Verwendung eines at-Zeichens (<code>@</code>) anstelle des uns bekannten Dollar-Operators, um einzelne Spalten zu extrahieren. Hätten wir in einem Objekt namens <code>ls</code> eine Information namens <code>ergebnis</code> gespeichert, würden wir im S4 System über <code>ls@ergebnis</code> und nicht <code>ls$ergebnis</code> Zugriff auf das Ergebnis bekommen.</p>

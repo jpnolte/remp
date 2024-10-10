@@ -59,7 +59,7 @@ quiz(
   ),
   question("Es gibt verschiedene Möglichkeiten, um auf den Datentyp einer Variablen (Spalte) in einem Datensatz zu kommen. Welche gehören dazu? Wir nehmen an, der Datensatz ist als df gespeichert.",
     answer("Überblick durch glimpse(df)", correct = TRUE),
-    answer("Anzeigen durch show(df)"),
+    answer("Anzeigen durch show(df)", correct = TRUE),
     answer("typeof(df)"),
     answer("Anzeigen unterhalb des Spaltennamens bei Eingabe von df", correct = TRUE),
     allow_retry = TRUE, 

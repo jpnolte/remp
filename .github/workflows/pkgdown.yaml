@@ -37,7 +37,7 @@ jobs:
           extra-packages: any::pkgdown, local::., rsconnect  # Ensure rsconnect is installed
 
       - name: Build site
-        run: Rscript -e "pkgdown::build_site_github_pages(clean = FALSE, new_process = FALSE, install = FALSE)"
+        run: Rscript -e \"pkgdown::build_site_github_pages(clean = FALSE, new_process = FALSE, install = FALSE)\"
         shell: Rscript {0}
 
       - name: Deploy to GitHub pages 🚀

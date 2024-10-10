@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Kapitel 5 Datensätze | R für empirische Wissenschaften</title>
+  <meta name="description" content="Dieses Buch bietet einfache Erklärungen mit praktischen Beispielen und Übungen, welche das Erlernen von R ohne Programmiervorkenntnisse im Selbststudium ermöglichen. Die Zielgruppe sind WissenschaftlerInnen und StudentInnen der Fachrichtungen Medizin, Psychologie, Wirtschaftswissenschaften, Sozialwissenschaften, Agrarwissenschaften, Neurowissenschaften, Biologie, Journalismus, Tourismus, Data Science, Biostatistik und allen weiteren Disziplinen, die Daten auswerten möchten." />
+  <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Kapitel 5 Datensätze | R für empirische Wissenschaften" />
+  <meta property="og:type" content="book" />
+  <meta property="og:image" content="/images/logo.png" />
+  <meta property="og:description" content="Dieses Buch bietet einfache Erklärungen mit praktischen Beispielen und Übungen, welche das Erlernen von R ohne Programmiervorkenntnisse im Selbststudium ermöglichen. Die Zielgruppe sind WissenschaftlerInnen und StudentInnen der Fachrichtungen Medizin, Psychologie, Wirtschaftswissenschaften, Sozialwissenschaften, Agrarwissenschaften, Neurowissenschaften, Biologie, Journalismus, Tourismus, Data Science, Biostatistik und allen weiteren Disziplinen, die Daten auswerten möchten." />
+  <meta name="github-repo" content="j3ypi/remp" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Kapitel 5 Datensätze | R für empirische Wissenschaften" />
+  
+  <meta name="twitter:description" content="Dieses Buch bietet einfache Erklärungen mit praktischen Beispielen und Übungen, welche das Erlernen von R ohne Programmiervorkenntnisse im Selbststudium ermöglichen. Die Zielgruppe sind WissenschaftlerInnen und StudentInnen der Fachrichtungen Medizin, Psychologie, Wirtschaftswissenschaften, Sozialwissenschaften, Agrarwissenschaften, Neurowissenschaften, Biologie, Journalismus, Tourismus, Data Science, Biostatistik und allen weiteren Disziplinen, die Daten auswerten möchten." />
+  <meta name="twitter:image" content="/images/logo.png" />
+
+<meta name="author" content="Dr. med. univ. Jan Philipp Nolte, BSc. MSc" />
+
+
+<meta name="date" content="2024-10-10" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <link rel="apple-touch-icon-precomposed" sizes="120x120" href="images/touch-icon.png" />
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+<link rel="prev" href="vars.html"/>
+<link rel="next" href="datenvorbereitung.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@xiee/utils/js/key-buttons.min.js" defer></script>
+<link href="https://cdn.jsdelivr.net/npm/@xiee/utils/css/key-buttons.min.css" rel="stylesheet"></link>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { } /* Alert */
+code span.an { } /* Annotation */
+code span.at { } /* Attribute */
+code span.bu { } /* BuiltIn */
+code span.cf { } /* ControlFlow */
+code span.ch { color: #0e7a0e; } /* Char */
+code span.cn { } /* Constant */
+code span.co { } /* Comment */
+code span.cv { color: #0e7a0e; } /* CommentVar */
+code span.do { } /* Documentation */
+code span.er { font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fu { color: #e65100; } /* Function */
+code span.im { } /* Import */
+code span.in { } /* Information */
+code span.kw { color: #e65100; } /* Keyword */
+code span.op { } /* Operator */
+code span.ot { } /* Other */
+code span.pp { } /* Preprocessor */
+code span.sc { } /* SpecialChar */
+code span.ss { } /* SpecialString */
+code span.st { color: #0e7a0e; } /* String */
+code span.va { } /* Variable */
+code span.vs { color: #0e7a0e; } /* VerbatimString */
+code span.wa { font-weight: bold; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="stylesheet" href="toc.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><strong><a href="https://r-empirische-wissenschaften.de"> R für empirische Wissenschaften</a></strong></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Vorwort</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#über-den-autor"><i class="fa fa-check"></i>Über den Autor</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#lizenz"><i class="fa fa-check"></i>Lizenz</a></li>
+</ul></li>
+<li class="part"><span><b>I Die ersten Schritte</b></span></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Einleitung</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#für-wen-ist-dieses-buch"><i class="fa fa-check"></i><b>1.1</b> Für wen ist dieses Buch?</a></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#aufbau-und-bearbeitungsstrategie"><i class="fa fa-check"></i><b>1.2</b> Aufbau und Bearbeitungsstrategie</a></li>
+<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#uebungen"><i class="fa fa-check"></i><b>1.3</b> Boxen, Übungen und Datensätze</a></li>
+<li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#books"><i class="fa fa-check"></i><b>1.4</b> Ergänzende Literatur</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="start.html"><a href="start.html"><i class="fa fa-check"></i><b>2</b> Startvoraussetzungen</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="start.html"><a href="start.html#installation-von-r-und-rstudio"><i class="fa fa-check"></i><b>2.1</b> Installation von R und RStudio</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="start.html"><a href="start.html#installr"><i class="fa fa-check"></i><b>2.1.1</b> Programmiersprache R</a></li>
+<li class="chapter" data-level="2.1.2" data-path="start.html"><a href="start.html#rstudio"><i class="fa fa-check"></i><b>2.1.2</b> Programmierumgebung RStudio</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="start.html"><a href="start.html#aufbau"><i class="fa fa-check"></i><b>2.2</b> Aufbau von RStudio</a></li>
+<li class="chapter" data-level="2.3" data-path="start.html"><a href="start.html#anpassung"><i class="fa fa-check"></i><b>2.3</b> RStudio anpassen</a></li>
+<li class="chapter" data-level="2.4" data-path="start.html"><a href="start.html#functions"><i class="fa fa-check"></i><b>2.4</b> Funktionen und ihre Argumente</a></li>
+<li class="chapter" data-level="2.5" data-path="start.html"><a href="start.html#packages"><i class="fa fa-check"></i><b>2.5</b> Packages (Erweiterungen)</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="start.html"><a href="start.html#installieren-und-laden"><i class="fa fa-check"></i><b>2.5.1</b> Installieren und laden</a></li>
+<li class="chapter" data-level="2.5.2" data-path="start.html"><a href="start.html#required"><i class="fa fa-check"></i><b>2.5.2</b> Notwendige Packages für dieses Buch</a></li>
+<li class="chapter" data-level="2.5.3" data-path="start.html"><a href="start.html#namespace"><i class="fa fa-check"></i><b>2.5.3</b> Namespace</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="start.html"><a href="start.html#help"><i class="fa fa-check"></i><b>2.6</b> Fehler- und Warnmeldungen</a>
+<ul>
+<li class="chapter" data-level="2.6.1" data-path="start.html"><a href="start.html#der-unterschied"><i class="fa fa-check"></i><b>2.6.1</b> Der Unterschied</a></li>
+<li class="chapter" data-level="2.6.2" data-path="start.html"><a href="start.html#hilfe"><i class="fa fa-check"></i><b>2.6.2</b> Wo bekomme ich Hilfe?</a></li>
+<li class="chapter" data-level="2.6.3" data-path="start.html"><a href="start.html#fehler-beheben"><i class="fa fa-check"></i><b>2.6.3</b> Fehler beheben</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>II Vorbereitung</b></span></li>
+<li class="chapter" data-level="3" data-path="project.html"><a href="project.html"><i class="fa fa-check"></i><b>3</b> R Projekte</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="project.html"><a href="project.html#die-probleme-der-pfade"><i class="fa fa-check"></i><b>3.1</b> Die Probleme der Pfade</a></li>
+<li class="chapter" data-level="3.2" data-path="project.html"><a href="project.html#projekte-in-rstudio-erstellen"><i class="fa fa-check"></i><b>3.2</b> Projekte in RStudio erstellen</a></li>
+<li class="chapter" data-level="3.3" data-path="project.html"><a href="project.html#here"><i class="fa fa-check"></i><b>3.3</b> Der Pfad zum Datensatz</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="vars.html"><a href="vars.html"><i class="fa fa-check"></i><b>4</b> Wichtiges Grundlagenwissen</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="vars.html"><a href="vars.html#begin"><i class="fa fa-check"></i><b>4.1</b> Schritt für Schritt beginnen</a></li>
+<li class="chapter" data-level="4.2" data-path="vars.html"><a href="vars.html#pfeil"><i class="fa fa-check"></i><b>4.2</b> Variablen speichern und verwenden</a></li>
+<li class="chapter" data-level="4.3" data-path="vars.html"><a href="vars.html#datentypen"><i class="fa fa-check"></i><b>4.3</b> Datentypen</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="vars.html"><a href="vars.html#basetypes"><i class="fa fa-check"></i><b>4.3.1</b> Zahlen, Buchstaben und logische Abfragen</a></li>
+<li class="chapter" data-level="4.3.2" data-path="vars.html"><a href="vars.html#factor"><i class="fa fa-check"></i><b>4.3.2</b> Faktoren</a></li>
+<li class="chapter" data-level="4.3.3" data-path="vars.html"><a href="vars.html#zeitdaten"><i class="fa fa-check"></i><b>4.3.3</b> Zeitdaten</a></li>
+<li class="chapter" data-level="4.3.4" data-path="vars.html"><a href="vars.html#datentypen-konvertieren"><i class="fa fa-check"></i><b>4.3.4</b> Datentypen konvertieren</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="vars.html"><a href="vars.html#struktur"><i class="fa fa-check"></i><b>4.4</b> Struktur von Datensätzen</a></li>
+<li class="chapter" data-level="4.5" data-path="vars.html"><a href="vars.html#dollar"><i class="fa fa-check"></i><b>4.5</b> Der Dollar-Operator</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="io.html"><a href="io.html"><i class="fa fa-check"></i><b>5</b> Datensätze</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="io.html"><a href="io.html#import"><i class="fa fa-check"></i><b>5.1</b> Einlesen externer Dateien</a></li>
+<li class="chapter" data-level="5.2" data-path="io.html"><a href="io.html#datensätze-aus-packages-laden"><i class="fa fa-check"></i><b>5.2</b> Datensätze aus Packages laden</a></li>
+<li class="chapter" data-level="5.3" data-path="io.html"><a href="io.html#inR"><i class="fa fa-check"></i><b>5.3</b> Datensätze in R erstellen</a></li>
+<li class="chapter" data-level="5.4" data-path="io.html"><a href="io.html#speichern-und-konvertieren"><i class="fa fa-check"></i><b>5.4</b> Speichern und Konvertieren</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html"><i class="fa fa-check"></i><b>6</b> Datenvorbereitung</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#tidyverse"><i class="fa fa-check"></i><b>6.1</b> Einführung</a></li>
+<li class="chapter" data-level="6.2" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#select"><i class="fa fa-check"></i><b>6.2</b> Spalten auswählen, umbenennen und umsortieren</a></li>
+<li class="chapter" data-level="6.3" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#filter"><i class="fa fa-check"></i><b>6.3</b> Zeilen auswählen und umsortieren</a></li>
+<li class="chapter" data-level="6.4" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#mutate"><i class="fa fa-check"></i><b>6.4</b> Spalten hinzufügen und Spalteninhalte verändern</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#single"><i class="fa fa-check"></i><b>6.4.1</b> Einzelne Spalten</a></li>
+<li class="chapter" data-level="6.4.2" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#across"><i class="fa fa-check"></i><b>6.4.2</b> Mehrere Spalten</a></li>
+<li class="chapter" data-level="6.4.3" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#helfer"><i class="fa fa-check"></i><b>6.4.3</b> Änderungen unter Bedingungen</a></li>
+<li class="chapter" data-level="6.4.4" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#function"><i class="fa fa-check"></i><b>6.4.4</b> Eigene Funktionen erstellen</a></li>
+<li class="chapter" data-level="6.4.5" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#zeilenweise-berechnen"><i class="fa fa-check"></i><b>6.4.5</b> Zeilenweise berechnen</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#umgang-mit-fehlenden-werten-und-duplikaten"><i class="fa fa-check"></i><b>6.5</b> Umgang mit fehlenden Werten und Duplikaten</a></li>
+<li class="chapter" data-level="6.6" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#tidy"><i class="fa fa-check"></i><b>6.6</b> Breites und langes Datenformat</a></li>
+<li class="chapter" data-level="6.7" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#separate"><i class="fa fa-check"></i><b>6.7</b> Spalten trennen</a></li>
+<li class="chapter" data-level="6.8" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#datensätze-zusammenführen"><i class="fa fa-check"></i><b>6.8</b> Datensätze zusammenführen</a></li>
+<li class="chapter" data-level="6.9" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#datastring"><i class="fa fa-check"></i><b>6.9</b> Buchstaben und Wörter bearbeiten</a></li>
+<li class="chapter" data-level="6.10" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#datafactor"><i class="fa fa-check"></i><b>6.10</b> Faktoren verändern</a></li>
+<li class="chapter" data-level="6.11" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#datazeit"><i class="fa fa-check"></i><b>6.11</b> Mit Zeitdaten arbeiten</a></li>
+<li class="chapter" data-level="6.12" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#binäre-antwortmatrix-erstellen"><i class="fa fa-check"></i><b>6.12</b> Binäre Antwortmatrix erstellen</a></li>
+</ul></li>
+<li class="part"><span><b>III Auswertung</b></span></li>
+<li class="chapter" data-level="7" data-path="descr.html"><a href="descr.html"><i class="fa fa-check"></i><b>7</b> Deskriptive Statistik</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="descr.html"><a href="descr.html#lagestreu"><i class="fa fa-check"></i><b>7.1</b> Lagemaße und Streuungsmaße</a></li>
+<li class="chapter" data-level="7.2" data-path="descr.html"><a href="descr.html#contigency"><i class="fa fa-check"></i><b>7.2</b> Häufigkeiten und Kontingenztafeln</a></li>
+<li class="chapter" data-level="7.3" data-path="descr.html"><a href="descr.html#cor"><i class="fa fa-check"></i><b>7.3</b> Zusammenhangsmaße</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="visual.html"><a href="visual.html"><i class="fa fa-check"></i><b>8</b> Visualisierungen</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="visual.html"><a href="visual.html#einführung"><i class="fa fa-check"></i><b>8.1</b> Einführung</a></li>
+<li class="chapter" data-level="8.2" data-path="visual.html"><a href="visual.html#histogram"><i class="fa fa-check"></i><b>8.2</b> Histogramm und Dichte</a></li>
+<li class="chapter" data-level="8.3" data-path="visual.html"><a href="visual.html#scatter"><i class="fa fa-check"></i><b>8.3</b> Streudiagramm</a></li>
+<li class="chapter" data-level="8.4" data-path="visual.html"><a href="visual.html#boxplot"><i class="fa fa-check"></i><b>8.4</b> Boxplot</a></li>
+<li class="chapter" data-level="8.5" data-path="visual.html"><a href="visual.html#violin"><i class="fa fa-check"></i><b>8.5</b> Violin Plot</a></li>
+<li class="chapter" data-level="8.6" data-path="visual.html"><a href="visual.html#barplot"><i class="fa fa-check"></i><b>8.6</b> Balkendiagramm</a></li>
+<li class="chapter" data-level="8.7" data-path="visual.html"><a href="visual.html#anovaplot"><i class="fa fa-check"></i><b>8.7</b> Liniendiagramm</a></li>
+<li class="chapter" data-level="8.8" data-path="visual.html"><a href="visual.html#qqplot"><i class="fa fa-check"></i><b>8.8</b> Quantil-Quantil Plot</a></li>
+<li class="chapter" data-level="8.9" data-path="visual.html"><a href="visual.html#morefactors"><i class="fa fa-check"></i><b>8.9</b> Mehrfaktorielle Abbildungen</a>
+<ul>
+<li class="chapter" data-level="8.9.1" data-path="visual.html"><a href="visual.html#groups"><i class="fa fa-check"></i><b>8.9.1</b> Gruppierungsargumente</a></li>
+<li class="chapter" data-level="8.9.2" data-path="visual.html"><a href="visual.html#facets"><i class="fa fa-check"></i><b>8.9.2</b> Facetten als weitere Dimensionen</a></li>
+</ul></li>
+<li class="chapter" data-level="8.10" data-path="visual.html"><a href="visual.html#adapt"><i class="fa fa-check"></i><b>8.10</b> Anpassen des Aussehens</a>
+<ul>
+<li class="chapter" data-level="8.10.1" data-path="visual.html"><a href="visual.html#color"><i class="fa fa-check"></i><b>8.10.1</b> Farben</a></li>
+<li class="chapter" data-level="8.10.2" data-path="visual.html"><a href="visual.html#themeaxis"><i class="fa fa-check"></i><b>8.10.2</b> Themen und Achsen</a></li>
+<li class="chapter" data-level="8.10.3" data-path="visual.html"><a href="visual.html#legende-und-facetten"><i class="fa fa-check"></i><b>8.10.3</b> Legende und Facetten</a></li>
+</ul></li>
+<li class="chapter" data-level="8.11" data-path="visual.html"><a href="visual.html#patch"><i class="fa fa-check"></i><b>8.11</b> Anordnen mehrerer Graphen</a></li>
+<li class="chapter" data-level="8.12" data-path="visual.html"><a href="visual.html#ggsave"><i class="fa fa-check"></i><b>8.12</b> Speichern von Abbildungen</a></li>
+<li class="chapter" data-level="8.13" data-path="visual.html"><a href="visual.html#exemplarische-erweiterungen"><i class="fa fa-check"></i><b>8.13</b> Exemplarische Erweiterungen</a>
+<ul>
+<li class="chapter" data-level="8.13.1" data-path="visual.html"><a href="visual.html#kaplan"><i class="fa fa-check"></i><b>8.13.1</b> Kaplan-Meier-Kurve</a></li>
+<li class="chapter" data-level="8.13.2" data-path="visual.html"><a href="visual.html#residuals"><i class="fa fa-check"></i><b>8.13.2</b> Residuen überprüfen</a></li>
+<li class="chapter" data-level="8.13.3" data-path="visual.html"><a href="visual.html#ridgeline-plot"><i class="fa fa-check"></i><b>8.13.3</b> Ridgeline Plot</a></li>
+</ul></li>
+<li class="chapter" data-level="8.14" data-path="visual.html"><a href="visual.html#example"><i class="fa fa-check"></i><b>8.14</b> Anwendungsbeispiel</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="inductive.html"><a href="inductive.html"><i class="fa fa-check"></i><b>9</b> Inferenzstatistik</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="inductive.html"><a href="inductive.html#einführung-1"><i class="fa fa-check"></i><b>9.1</b> Einführung</a></li>
+<li class="chapter" data-level="9.2" data-path="inductive.html"><a href="inductive.html#ein--und-zweistichprobenszenarien"><i class="fa fa-check"></i><b>9.2</b> Ein- und Zweistichprobenszenarien</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="inductive.html"><a href="inductive.html#ttest"><i class="fa fa-check"></i><b>9.2.1</b> <em>t</em> Test und Welch Test</a></li>
+<li class="chapter" data-level="9.2.2" data-path="inductive.html"><a href="inductive.html#wilcoxon-test"><i class="fa fa-check"></i><b>9.2.2</b> Wilcoxon Test</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="inductive.html"><a href="inductive.html#unterschiede-mehrerer-gruppen"><i class="fa fa-check"></i><b>9.3</b> Unterschiede mehrerer Gruppen</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="inductive.html"><a href="inductive.html#aov"><i class="fa fa-check"></i><b>9.3.1</b> Varianz- und Kovarianzanalyse</a></li>
+<li class="chapter" data-level="9.3.2" data-path="inductive.html"><a href="inductive.html#repeated"><i class="fa fa-check"></i><b>9.3.2</b> Varianzanalyse mit Messwiederholung</a></li>
+<li class="chapter" data-level="9.3.3" data-path="inductive.html"><a href="inductive.html#kruskal"><i class="fa fa-check"></i><b>9.3.3</b> Welch Approximation und Kruskal-Wallis Test</a></li>
+<li class="chapter" data-level="9.3.4" data-path="inductive.html"><a href="inductive.html#friedman"><i class="fa fa-check"></i><b>9.3.4</b> Friedman Test</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="inductive.html"><a href="inductive.html#cortest"><i class="fa fa-check"></i><b>9.4</b> Korrelationsanalysen</a>
+<ul>
+<li class="chapter" data-level="9.4.1" data-path="inductive.html"><a href="inductive.html#pearsoncor"><i class="fa fa-check"></i><b>9.4.1</b> Produkt-Moment Korrelation</a></li>
+<li class="chapter" data-level="9.4.2" data-path="inductive.html"><a href="inductive.html#rangcor"><i class="fa fa-check"></i><b>9.4.2</b> Rangkorrelationen</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="inductive.html"><a href="inductive.html#regression"><i class="fa fa-check"></i><b>9.5</b> Regressionsmodelle</a>
+<ul>
+<li class="chapter" data-level="9.5.1" data-path="inductive.html"><a href="inductive.html#linregression"><i class="fa fa-check"></i><b>9.5.1</b> Lineare Regression</a></li>
+<li class="chapter" data-level="9.5.2" data-path="inductive.html"><a href="inductive.html#logistische-regression"><i class="fa fa-check"></i><b>9.5.2</b> Logistische Regression</a></li>
+<li class="chapter" data-level="9.5.3" data-path="inductive.html"><a href="inductive.html#multinomiales-logit-modell"><i class="fa fa-check"></i><b>9.5.3</b> Multinomiales Logit Modell</a></li>
+<li class="chapter" data-level="9.5.4" data-path="inductive.html"><a href="inductive.html#propodds"><i class="fa fa-check"></i><b>9.5.4</b> Kumulatives Logit Modell</a></li>
+<li class="chapter" data-level="9.5.5" data-path="inductive.html"><a href="inductive.html#poisson-regression"><i class="fa fa-check"></i><b>9.5.5</b> Poisson Regression</a></li>
+<li class="chapter" data-level="9.5.6" data-path="inductive.html"><a href="inductive.html#cox"><i class="fa fa-check"></i><b>9.5.6</b> Cox Regression</a></li>
+</ul></li>
+<li class="chapter" data-level="9.6" data-path="inductive.html"><a href="inductive.html#contingency"><i class="fa fa-check"></i><b>9.6</b> Kontingenztafeln</a>
+<ul>
+<li class="chapter" data-level="9.6.1" data-path="inductive.html"><a href="inductive.html#fisher"><i class="fa fa-check"></i><b>9.6.1</b> Exakter Fisher Test</a></li>
+<li class="chapter" data-level="9.6.2" data-path="inductive.html"><a href="inductive.html#chi"><i class="fa fa-check"></i><b>9.6.2</b> Chi Quadrat Tests</a></li>
+</ul></li>
+<li class="chapter" data-level="9.7" data-path="inductive.html"><a href="inductive.html#voraussetzung"><i class="fa fa-check"></i><b>9.7</b> Voraussetzungen überprüfen</a>
+<ul>
+<li class="chapter" data-level="9.7.1" data-path="inductive.html"><a href="inductive.html#normalverteilung"><i class="fa fa-check"></i><b>9.7.1</b> Normalverteilung</a></li>
+<li class="chapter" data-level="9.7.2" data-path="inductive.html"><a href="inductive.html#varianzhomogenitaet"><i class="fa fa-check"></i><b>9.7.2</b> Varianzhomogenität und Homoskedastizität</a></li>
+</ul></li>
+<li class="chapter" data-level="9.8" data-path="inductive.html"><a href="inductive.html#broom"><i class="fa fa-check"></i><b>9.8</b> Ergebnisse formatieren</a></li>
+</ul></li>
+<li class="part"><span><b>IV Vertiefung</b></span></li>
+<li class="chapter" data-level="10" data-path="export.html"><a href="export.html"><i class="fa fa-check"></i><b>10</b> Ergebnisse exportieren</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="export.html"><a href="export.html#intromarkdown"><i class="fa fa-check"></i><b>10.1</b> Wichtige Begriffe</a></li>
+<li class="chapter" data-level="10.2" data-path="export.html"><a href="export.html#markdown"><i class="fa fa-check"></i><b>10.2</b> Berichte erstellen</a></li>
+<li class="chapter" data-level="10.3" data-path="export.html"><a href="export.html#tabellen-umwandeln"><i class="fa fa-check"></i><b>10.3</b> Tabellen umwandeln</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="export.html"><a href="export.html#knitr"><i class="fa fa-check"></i><b>10.3.1</b> Exportieren nach Word und PDF</a></li>
+<li class="chapter" data-level="10.3.2" data-path="export.html"><a href="export.html#latex"><i class="fa fa-check"></i><b>10.3.2</b> Exportieren nach LaTeX</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="export.html"><a href="export.html#quarto"><i class="fa fa-check"></i><b>10.4</b> Alternative mit Quarto</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="datatypes.html"><a href="datatypes.html"><i class="fa fa-check"></i><b>11</b> Datenstrukturen</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="datatypes.html"><a href="datatypes.html#vec"><i class="fa fa-check"></i><b>11.1</b> Vektor</a></li>
+<li class="chapter" data-level="11.2" data-path="datatypes.html"><a href="datatypes.html#matrix"><i class="fa fa-check"></i><b>11.2</b> Matrix</a></li>
+<li class="chapter" data-level="11.3" data-path="datatypes.html"><a href="datatypes.html#tibble"><i class="fa fa-check"></i><b>11.3</b> Data.frame und tibble</a></li>
+<li class="chapter" data-level="11.4" data-path="datatypes.html"><a href="datatypes.html#lists"><i class="fa fa-check"></i><b>11.4</b> Liste</a></li>
+<li class="chapter" data-level="11.5" data-path="datatypes.html"><a href="datatypes.html#umwandlung"><i class="fa fa-check"></i><b>11.5</b> Umwandlungen</a></li>
+<li class="chapter" data-level="11.6" data-path="datatypes.html"><a href="datatypes.html#objekte-und-objektorientierung"><i class="fa fa-check"></i><b>11.6</b> Objekte und Objektorientierung</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="iterationmain.html"><a href="iterationmain.html"><i class="fa fa-check"></i><b>12</b> Funktionen wiederholt anwenden</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="iterationmain.html"><a href="iterationmain.html#iteration"><i class="fa fa-check"></i><b>12.1</b> Das Copy &amp; Paste Problem</a></li>
+<li class="chapter" data-level="12.2" data-path="iterationmain.html"><a href="iterationmain.html#map"><i class="fa fa-check"></i><b>12.2</b> Listenbasierte Berechnungen</a></li>
+<li class="chapter" data-level="12.3" data-path="iterationmain.html"><a href="iterationmain.html#for"><i class="fa fa-check"></i><b>12.3</b> for-Schleifen</a></li>
+<li class="chapter" data-level="12.4" data-path="iterationmain.html"><a href="iterationmain.html#nest"><i class="fa fa-check"></i><b>12.4</b> Einnisten</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i>Appendix</a>
+<ul>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#datensatzerläuterungen"><i class="fa fa-check"></i>Datensatzerläuterungen</a>
+<ul>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#big-5-persönlichkeitsfaktoren"><i class="fa fa-check"></i>Big 5 Persönlichkeitsfaktoren</a></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#statistische-bildung"><i class="fa fa-check"></i>Statistische Bildung</a></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#bitcoin-aktienkurs"><i class="fa fa-check"></i>Bitcoin Aktienkurs</a></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#radiochemotherapie"><i class="fa fa-check"></i>Radiochemotherapie</a></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#sars-cov-2-diagnostik"><i class="fa fa-check"></i>SARS-CoV-2 Diagnostik</a></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#eye-tracking"><i class="fa fa-check"></i>Eye Tracking</a></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#iq-und-kreativität"><i class="fa fa-check"></i>IQ und Kreativität</a></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#musikstreaming-nutzerstatistik"><i class="fa fa-check"></i>Musikstreaming Nutzerstatistik</a></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#videostreaming-nutzerstatitstik"><i class="fa fa-check"></i>Videostreaming Nutzerstatitstik</a></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#fußballwetten"><i class="fa fa-check"></i>Fußballwetten</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#literaturverzeichnis"><i class="fa fa-check"></i>Literaturverzeichnis</a></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#verwendete-softwareversionen"><i class="fa fa-check"></i>Verwendete Softwareversionen</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R für empirische Wissenschaften</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="io" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">Kapitel 5</span> Datensätze<a href="io.html#io" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<blockquote>
+<p>Mit einer Funktion alle erdenklichen Dateiformate einzulesen, klingt fast zu schön, um wahr zu sein. Durch ein Package ist dies in R tatsächlich bereits lange Realität. Neben den Einlesen externer Datensätze wird außerdem gezeigt, wie man Datensätze aus Packages laden oder direkt in R erstellen kann. Auch das Abspeichern der in R modifizierten Daten wird abschließend erklärt.</p>
+</blockquote>
+<div id="import" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> Einlesen externer Dateien<a href="io.html#import" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="warning">
+<p>Weißt du, was Projekte sind und kannst diese innerhalb von RStudio erstellen? Wenn nicht, lies dir das Konzept der Projekte in R genau durch (siehe Kapitel <a href="project.html#here">3.3</a>). Ansonsten kann R die Datei mit deinem Datensatz nicht finden und somit auch nicht einlesen. Es muss also immer zunächst ein neues R Projekt erstellt werden. Der Datensatz muss sich dabei im gleichen Ordner wie die Projektdatei befinden.</p>
+</div>
+<p>Im Regelfall möchte man den Datensatz nicht direkt in R erstellen, sondern einen bereits existierenden Datensatz zur Auswertung einlesen. Datensätze können dabei in verschiedenen Formaten vorliegen. Dies ist vor allem abhängig davon, mit welchen Programmen Unternehmen, Universitäten oder KollegInnen zur Datenerhebung arbeiten. Einige Beispiele für Dateientypen, in denen Daten häufig gespeichert werden, sind:</p>
+<ul>
+<li>R (<code>.RData</code> | <code>.rda</code> | <code>.rds</code>)</li>
+<li>Excel (<code>.xlsx</code> | <code>.xls</code>)</li>
+<li>SPSS (<code>.sav</code>)</li>
+<li>Stata (<code>.dta</code>)</li>
+<li>Tabular separated values (<code>.tsv</code>)</li>
+<li>Comma separated values (<code>.csv</code>) mit Punkt als Dezimaltrenner oder mit Komma (siehe Infobox)</li>
+</ul>
+<p>Sämtliche Datentypen können wir mit <code>import()</code> aus dem <code>rio</code> Package einlesen. Wir laden also zunächst das Package.</p>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb100-1"><a href="io.html#cb100-1" tabindex="-1"></a><span class="fu">library</span>(rio)</span></code></pre></div>
+<p>Um auch exotischere Dateiformate einlesen zu können, solltest du einmal den Befehl <code>install_formats()</code> ausführen. Es ist generell empfohlen, diese Funktion einmalig auszuführen, da sonst jedes Mal beim Laden des Packages eine entsprechende Meldung angezeigt wird.</p>
+<p>Wir möchten an dieser Stelle einen Datensatz über die Big 5 Persönlichkeitsfaktoren einlesen, welcher in Form eines Excel Dokument auf dem Computer gespeichert ist (siehe Abbildung <a href="io.html#fig:bigexcel">5.1</a>).</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:bigexcel"></span>
+<img src="images/big5excel.png" alt="Big Five Datensatz als Excel Dokument." width="750" height="374" />
+<p class="caption">
+Abbildung 5.1: Big Five Datensatz als Excel Dokument.
+</p>
+</div>
+<p>Beim Einlesen erkennt die Funktion <code>import()</code> die Art der Datei anhand der Endung und übernimmt hinter den Kulissen alles Weitere. Damit der Datensatz als sogenannter tibble eingelesen wird, solltest du zusätzlich das Argument <code>setclass = "tbl"</code> setzen. Weshalb wir die Sonderform der tibbles verwenden und was dies genau ist, wird im Verlaufe des Buches klar. Für den Moment musst du dir beim <code>setclass</code> Argument allerdings noch nichts denken, es aber trotzdem verwenden.</p>
+<p>Würden wir nur die <code>import()</code> Funktion aufrufen, würde der Datensatz zwar eingelesen, aber sofort wieder verschwinden, da dieser in R nicht abgespeichert wäre. Daher müssen wir den eingelesenen Datensatz, so wie in Kapitel Kapitel <a href="vars.html#pfeil">4.2</a> beschrieben, einer Variable zuordnen. Der Name dieser Variable ist dabei nicht wichtig. Falls mit mehr als einem Datensatz gearbeitet wird, sollte ein aussagekräftigerer Name als der hier verwendete Name <code>daten</code> verwendet werden.</p>
+<p>Der Name des Datensatzes muss dabei in Anführungszeichen gesetzt werden. In unserem Beispiel heißt das Excel Dokument <code>big_five.xlsx</code>. Damit wir den Datensatz in R angezeigt bekommen, müssen wir den Namen des gespeicherten Datensatzes anschließend erneut ausführen (siehe Kapitel <a href="vars.html#pfeil">4.2</a>). Dabei wird der Variablenname (hier <code>daten</code>) und nicht der Name der eigentlichen Datei (hier <code>big_five.xlsx</code>) verwendet.</p>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb101-1"><a href="io.html#cb101-1" tabindex="-1"></a>daten <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="st">&quot;big_five.xlsx&quot;</span>, <span class="at">setclass =</span> <span class="st">&quot;tbl&quot;</span>)</span>
+<span id="cb101-2"><a href="io.html#cb101-2" tabindex="-1"></a>daten</span></code></pre></div>
+<pre class="bordercode"><code># A tibble: 200 × 16
+  Alter Geschlecht Extraversion Neurotizismus Vertraeglichkeit Gewissenhaftigkeit    O1    O2
+  &lt;dbl&gt; &lt;chr&gt;             &lt;dbl&gt;         &lt;dbl&gt;            &lt;dbl&gt;              &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+1    36 m                   3             1.9              3.4                3.3     5     1
+2    30 f                   3.1           3.4              3.1                2.7     5     3
+3    23 m                   3.4           2.4              3.6                3       3     3
+4    54 m                   3.3           4.2              3.6                3       2     5
+# ℹ 196 more rows
+# ℹ 8 more variables: O3 &lt;dbl&gt;, O4 &lt;dbl&gt;, O5 &lt;dbl&gt;, O6 &lt;dbl&gt;, O7 &lt;dbl&gt;, O8 &lt;dbl&gt;, O9 &lt;dbl&gt;,
+#   O10 &lt;dbl&gt;</code></pre>
+<p>Alternativ könnte man zur expliziten Ausgabe beim Speichern auch Klammern um den ganzen Befehl setzen.</p>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb103-1"><a href="io.html#cb103-1" tabindex="-1"></a>(daten <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="st">&quot;big_five.xlsx&quot;</span>, <span class="at">setclass =</span> <span class="st">&quot;tbl&quot;</span>))</span></code></pre></div>
+<p>Die Datei (hier das Excel Dokument) muss sich innerhalb desselben Ordners wie die Projektdatei befinden. Falls die Datei in einem Unterordner ist, muss man den relativen Pfad – also den Weg bis zur Datei innerhalb der Unterordner (hier namens <code>Daten</code>) des Ordners (hier namens <code>Beispiel</code>) – zusätzlich der R Funktion mitteilen.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-73"></span>
+<img src="images/project2.png" alt="Beispielhafte Ordnerstruktur mit Unterordnern für Datensätze, R Skript und Projektdatei." width="650" height="496" />
+<p class="caption">
+Abbildung 5.2: Beispielhafte Ordnerstruktur mit Unterordnern für Datensätze, R Skript und Projektdatei.
+</p>
+</div>
+<p>Dabei nutzen wir die Funktion <code>here()</code> aus dem gleichnamigen Package. Dort können wir als separate Argumente den gesamten relativen Pfad eintragen. In diesem Beispiel liegt innerhalb des Ordners <code>Daten</code> der Datensatz <code>bildung.xlsx</code>.</p>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb104-1"><a href="io.html#cb104-1" tabindex="-1"></a>daten <span class="ot">&lt;-</span> <span class="fu">import</span>(</span>
+<span id="cb104-2"><a href="io.html#cb104-2" tabindex="-1"></a>  <span class="at">file =</span> <span class="fu">here</span>(<span class="st">&quot;Daten&quot;</span>, <span class="st">&quot;bildung.xlsx&quot;</span>), </span>
+<span id="cb104-3"><a href="io.html#cb104-3" tabindex="-1"></a>  <span class="at">setclass =</span> <span class="st">&quot;tbl&quot;</span></span>
+<span id="cb104-4"><a href="io.html#cb104-4" tabindex="-1"></a>)</span></code></pre></div>
+<p>Ein weiteres nützliches Argument stellt <code>skip</code> dar, mit dem Zeilen beim Einlesen ignoriert werden. Besonders in Excel Dokumenten werden häufig zusätzliche Überschriften für die Variablennamen verwendet. Das mag zwar in Excel übersichtlich aussehen, allerdings weicht dies von der in Kapitel <a href="vars.html#struktur">4.4</a> kennengelernten Datenstruktur ab und macht deshalb beim Einlesen Probleme.</p>
+<p>Ein Sonderfall liegt beim Einlesen von R Datensätzen mit den Endungen <code>.rds</code> oder <code>.RData</code> vor, da wir hier zusätzlich das Argument <code>trust</code> auf <code>TRUE</code> setzen müssen. Das hat den Hintergrund, dass bei fremden Datensätzen in diesem Format Schadsoftware auf den Computer gelangen kann.</p>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb105-1"><a href="io.html#cb105-1" tabindex="-1"></a>daten <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="st">&quot;big_five.RData&quot;</span>, <span class="at">setclass =</span> <span class="st">&quot;tbl&quot;</span>, <span class="at">trust =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<p>Manchmal liegen Daten nicht in einer, sondern in vielen verschiedenen Dateien vor. Das ist vor allem häufig bei biophysiologischen Messungen wie beim Eye Tracking der Fall, bei denen die erhobenen Daten pro Person abgespeichert werden. Da wir nicht 20 Mal <code>import()</code> kopieren möchten (da Copy &amp; Paste sehr fehleranfällig ist), gibt es die Funktion <code>import_list()</code>. Angenommen, im Ordner <code>Daten</code> wären unsere 20 Excel Dokumente, in denen jeweils die Daten pro Person liegen. Dann könnte man zuerst mit <code>dir()</code> die Dateinamen herausfinden, um diese dann mit <code>import_list()</code> einzulesen. Mit dem Zusatzargument <code>rbind = TRUE</code> können wir die Datensätze direkt zusammenfügen. Voraussetzung dafür ist natürlich, dass die Datensätze dieselben Spalten haben. Da die Dateien in einem Unterordner liegen, müssen wir <code>import_list()</code> zusätzlich mit der Funktion <code>here()</code> mitteilen, wo sich die Datensätze befinden.</p>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb106-1"><a href="io.html#cb106-1" tabindex="-1"></a>dateien <span class="ot">&lt;-</span> <span class="fu">dir</span>(<span class="st">&quot;Daten&quot;</span>, <span class="at">pattern =</span> <span class="st">&quot;.xlsx$&quot;</span>)</span>
+<span id="cb106-2"><a href="io.html#cb106-2" tabindex="-1"></a></span>
+<span id="cb106-3"><a href="io.html#cb106-3" tabindex="-1"></a>daten <span class="ot">&lt;-</span> <span class="fu">import_list</span>(</span>
+<span id="cb106-4"><a href="io.html#cb106-4" tabindex="-1"></a>  <span class="at">file =</span> <span class="fu">here</span>(<span class="st">&quot;Daten&quot;</span>, dateien), </span>
+<span id="cb106-5"><a href="io.html#cb106-5" tabindex="-1"></a>  <span class="at">setclass =</span> <span class="st">&quot;tbl&quot;</span>, </span>
+<span id="cb106-6"><a href="io.html#cb106-6" tabindex="-1"></a>  <span class="at">rbind =</span> <span class="cn">TRUE</span></span>
+<span id="cb106-7"><a href="io.html#cb106-7" tabindex="-1"></a>)</span></code></pre></div>
+<p>Das Dollar-Zeichen signalisiert in diesem Fall nur, dass wir am <strong>Ende</strong> des Dateinamens die Endung <code>.xlsx</code> (also ein Excel Dokument) erwarten. Dasselbe funktioniert übrigens für den Fall, wenn sich in Excel mehrere Arbeitsblätter innerhalb eines Dokuments befinden. Mit <code>import_list()</code> können alle auf einen Schlag eingelesen werden.</p>
+<p>Die verschiedenen Datensätze sind dann in einer Liste gespeichert (siehe Kapitel <a href="datatypes.html#lists">11.4</a>). Hätten wir in einer Arbeitsmappe die Blätter <code>Demographie</code> und <code>Messungen</code> könnten wir nach Einlesen mit <code>import_list()</code> mithilfe des Dollar Operators in Form von <code>daten$Demographie</code> und <code>daten$Messungen</code> auf die Datensätze in der Liste <code>daten</code> zugreifen.</p>
+<p>Alternativ kann man im Fall von Excel Arbeitsmappen mit mehreren Arbeitsblättern mit dem Argument <code>which</code> in der Funktion <code>import()</code> auswählen, welches Arbeitsblatt eingelesen werden soll. In diesem Fall erhalten wir einen normalen Datensatz ohne Listenstruktur. So könnte man die zweite Arbeitsmappe namens <code>Messungen</code> aus dem obigen Beispiel mit <code>import("Datensaetze.xlsx", setclass = "tbl", which = 2)</code> aus der Arbeitsmappe namens <code>Datensaetze</code> einlesen.</p>
+<div class="idea">
+<p>Die in diesem Kapitel kennengelernten Funktionen können wir praktisch für alle Dateienarten verwendet werden. Falls also anders als in unserem Beispiel die Daten nicht in einem Excel Dokument, sondern einer Datei mit der Endung <code>.csv</code> enthalten sind, müssen wir lediglich die Endung verändern (z.B. <code>big_five.csv</code>).</p>
+</div>
+<div class="warning">
+<p>Im deutschsprachigen Raum werden Dezimalzahlen meistens durch ein Komma anstelle eines Punktes getrennt. Dies ist vor allem im Kontext von CSV Dateien problematisch, da hier in allen anderen Teilen der Welt das Komma zur Trennung der einzelnen Spalten bzw. Variablen verwendet wird. Um trotzdem ein fehlerfreies Einlesen gewährleisten zu können, benötigen wir innerhalb der Funktion <code>import()</code> das zusätzliche Argument <code>format = "csv2"</code>. Der vollständige Befehl könnte also wie folgt aussehen: <code>import("big_five.csv", setclass = "tbl", format = "csv2")</code>.</p>
+</div>
+</div>
+<div id="datensätze-aus-packages-laden" class="section level2 hasAnchor" number="5.2">
+<h2><span class="header-section-number">5.2</span> Datensätze aus Packages laden<a href="io.html#datensätze-aus-packages-laden" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Zum Bearbeiten dieses Buches brauchst du keine externen Datensätze, sondern nur jene, die im <a href="https://r-empirische-wissenschaften.de">remp</a> Package enthalten sind. So kannst du das Gelernte sofort begleitend in RStudio nachvollziehen und ausprobieren. Nach Laden des Packages hast du grundsätzlich sofort Zugriff auf alle enthaltenden Datensätze, allerdings werden diese erst nach Aufrufen der Funktion <code>data()</code> in R gespeichert. Zum Einlesen des <code>big5</code> Datensatzes, müsste man demnach lediglich den Namen des Datensatzes der Funktion <code>data()</code> übergeben.</p>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb107-1"><a href="io.html#cb107-1" tabindex="-1"></a><span class="fu">library</span>(remp)</span>
+<span id="cb107-2"><a href="io.html#cb107-2" tabindex="-1"></a><span class="fu">data</span>(big5)</span></code></pre></div>
+<p>Sollte das Package vorher nicht geladen sein, kann alternativ auch zusätzlich das Argument <code>package</code> zur Spezifizierung des Ursprungs des Datensatzes verwendet werden.</p>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb108-1"><a href="io.html#cb108-1" tabindex="-1"></a><span class="fu">data</span>(big5, <span class="at">package =</span> <span class="st">&quot;remp&quot;</span>)</span></code></pre></div>
+<p>Da der Befehl etwas länger ist und beim Üben das <a href="https://r-empirische-wissenschaften.de">remp</a> Package sowieso geladen werden sollte, ist allerdings der zuvor dargestellte Weg empfohlen.</p>
+</div>
+<div id="inR" class="section level2 hasAnchor" number="5.3">
+<h2><span class="header-section-number">5.3</span> Datensätze in R erstellen<a href="io.html#inR" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Direkt innerhalb von R Datensätze zu erstellen, ergibt nur in wenigen Anwendungsfällen wirklich Sinn. Der womöglich Wichtigste ist das Erstellen eines minimalen reproduzierbaren Beispiels, falls man auf einen Fehler stößt, den man selbst nicht lösen kann. Für größere Datensätze sollte man die Daten jedoch besser in Datenformaten wie <code>.csv</code> oder <code>.xlsx</code> kreieren.</p>
+<p>Möchte man einen Datensatz erstellen, muss man lediglich der Funktion <code>tibble()</code> Werte übergeben. In diesem Beispiel speichern wir den neuen Datensatz mit den zwei Spalten Extraversion und Geschlecht als <code>my_tbl</code>. Die Funktion <code>c()</code> (engl. für <strong>c</strong>ombine) kombiniert die einzelnen Werte eines Datentyps und kettet selbige aneinander.</p>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb109-1"><a href="io.html#cb109-1" tabindex="-1"></a>my_tbl <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb109-2"><a href="io.html#cb109-2" tabindex="-1"></a>  <span class="at">Extraversion =</span> <span class="fu">c</span>(<span class="fl">1.2</span>, <span class="fl">2.7</span>, <span class="fl">1.5</span>, <span class="fl">4.8</span>),</span>
+<span id="cb109-3"><a href="io.html#cb109-3" tabindex="-1"></a>  <span class="at">Geschlecht =</span> <span class="fu">c</span>(<span class="st">&quot;m&quot;</span>, <span class="st">&quot;f&quot;</span>, <span class="st">&quot;f&quot;</span>, <span class="st">&quot;m&quot;</span>)</span>
+<span id="cb109-4"><a href="io.html#cb109-4" tabindex="-1"></a>)</span>
+<span id="cb109-5"><a href="io.html#cb109-5" tabindex="-1"></a>my_tbl</span></code></pre></div>
+<pre class="bordercode"><code># A tibble: 4 × 2
+  Extraversion Geschlecht
+         &lt;dbl&gt; &lt;chr&gt;     
+1          1.2 m         
+2          2.7 f         
+3          1.5 f         
+4          4.8 m         </code></pre>
+</div>
+<div id="speichern-und-konvertieren" class="section level2 hasAnchor" number="5.4">
+<h2><span class="header-section-number">5.4</span> Speichern und Konvertieren<a href="io.html#speichern-und-konvertieren" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Das Speichern von Datensätzen funktioniert durch das <code>rio</code> Package ähnlich intuitiv wie das Importieren von Dateien. Anstelle von <code>import()</code> benutzen wir dafür stattdessen <code>export()</code>. Das erste Argument der Funktion ist der Datensatzname und das zweite Argument ist der gewünschte Dateiname. Der Dateientyp wird durch die gewählte Endung festgelegt. Möchte man beispielsweise den fertig aufbereiteten Datensatz <code>video_clean</code> als <code>csv</code> Datei abspeichern, würde man</p>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb111-1"><a href="io.html#cb111-1" tabindex="-1"></a><span class="fu">export</span>(big_five_clean, <span class="st">&quot;big_five_clean.csv&quot;</span>)</span></code></pre></div>
+<p>schreiben. Manchmal ist es nützlich, den Datensatz unabhängig vom Einlesen umzuwandeln. Das kann zum Beispiel der Fall sein, wenn deine Kollegen dir eine SPSS Datei schicken (<code>.sav</code>) und du selbst kein SPSS hast, aber trotzdem einen Blick in die Daten werfen möchtest. Die Entwickler des <code>rio</code> Packages haben auch daran gedacht und die Funktion <code>convert()</code> geschrieben. Als erstes Argument übergibst du der Funktion den ursprünglichen Dateinamen (mit Endung) und als zweites denselben oder einen anderen Dateinamen mit der Endung des gewünschten Dateientypen. Sinnvoll wäre in diesem Kontext das Umwandeln in ein Excel Dokument, da dieses mit MS oder Libre Office problemlos geöffnet werden kann.</p>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb112-1"><a href="io.html#cb112-1" tabindex="-1"></a><span class="fu">convert</span>(<span class="st">&quot;big_five.sav&quot;</span>, <span class="st">&quot;big_five.xlsx&quot;</span>)</span></code></pre></div>
+<p>Die neue Datei wird sowohl bei <code>export()</code> als auch bei <code>convert()</code> in deinem Projektverzeichnis gespeichert.</p>
+<p>Besonders wichtig ist auch das Abspeichern von kategorealen Variablen als Buchstaben oder Wörter (Datentyp Character) und nicht als Zahlen. Nach spätestens einem Jahr kann kein Mensch mehr nachvollziehen, ob beispielsweise eine 1 nun für weiblich und 0 für männlich oder eine 1 für männlich und eine 0 für weiblich verwendet wurde.</p>
+<pre class="bordercode"><code># A tibble: 4 × 2
+  Extraversion Geschlecht
+         &lt;dbl&gt;      &lt;dbl&gt;
+1          1.2          0
+2          2.7          1
+3          1.5          1
+4          4.8          0</code></pre>
+<p>Stattdessen sollte man die Zahlen in Character umwandeln. Wie das geht, wird in Kapitel <a href="datenvorbereitung.html#helfer">6.4.3</a> gezeigt.</p>
+<pre class="bordercode"><code># A tibble: 4 × 2
+  Extraversion Geschlecht
+         &lt;dbl&gt; &lt;chr&gt;     
+1          1.2 m         
+2          2.7 f         
+3          1.5 f         
+4          4.8 m         </code></pre>
+<div class="idea">
+<p>Stelle vor dem Abspeichern des Datensatzes immer sicher, dass alle Variablen unmissverständlich kodiert sind. Kategorien sollten immer explizit benannt werden.</p>
+</div>
+
+</div>
+</div>
+<script data-goatcounter="https://remp.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="vars.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="datenvorbereitung.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": false,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+},
+"toc_depth": 3,
+"info": false
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

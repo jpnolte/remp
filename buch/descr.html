@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Kapitel 7 Deskriptive Statistik | R für empirische Wissenschaften</title>
+  <meta name="description" content="Dieses Buch bietet einfache Erklärungen mit praktischen Beispielen und Übungen, welche das Erlernen von R ohne Programmiervorkenntnisse im Selbststudium ermöglichen. Die Zielgruppe sind WissenschaftlerInnen und StudentInnen der Fachrichtungen Medizin, Psychologie, Wirtschaftswissenschaften, Sozialwissenschaften, Agrarwissenschaften, Neurowissenschaften, Biologie, Journalismus, Tourismus, Data Science, Biostatistik und allen weiteren Disziplinen, die Daten auswerten möchten." />
+  <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Kapitel 7 Deskriptive Statistik | R für empirische Wissenschaften" />
+  <meta property="og:type" content="book" />
+  <meta property="og:image" content="/images/logo.png" />
+  <meta property="og:description" content="Dieses Buch bietet einfache Erklärungen mit praktischen Beispielen und Übungen, welche das Erlernen von R ohne Programmiervorkenntnisse im Selbststudium ermöglichen. Die Zielgruppe sind WissenschaftlerInnen und StudentInnen der Fachrichtungen Medizin, Psychologie, Wirtschaftswissenschaften, Sozialwissenschaften, Agrarwissenschaften, Neurowissenschaften, Biologie, Journalismus, Tourismus, Data Science, Biostatistik und allen weiteren Disziplinen, die Daten auswerten möchten." />
+  <meta name="github-repo" content="j3ypi/remp" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Kapitel 7 Deskriptive Statistik | R für empirische Wissenschaften" />
+  
+  <meta name="twitter:description" content="Dieses Buch bietet einfache Erklärungen mit praktischen Beispielen und Übungen, welche das Erlernen von R ohne Programmiervorkenntnisse im Selbststudium ermöglichen. Die Zielgruppe sind WissenschaftlerInnen und StudentInnen der Fachrichtungen Medizin, Psychologie, Wirtschaftswissenschaften, Sozialwissenschaften, Agrarwissenschaften, Neurowissenschaften, Biologie, Journalismus, Tourismus, Data Science, Biostatistik und allen weiteren Disziplinen, die Daten auswerten möchten." />
+  <meta name="twitter:image" content="/images/logo.png" />
+
+<meta name="author" content="Dr. med. univ. Jan Philipp Nolte, BSc. MSc" />
+
+
+<meta name="date" content="2024-10-10" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <link rel="apple-touch-icon-precomposed" sizes="120x120" href="images/touch-icon.png" />
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+<link rel="prev" href="datenvorbereitung.html"/>
+<link rel="next" href="visual.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@xiee/utils/js/key-buttons.min.js" defer></script>
+<link href="https://cdn.jsdelivr.net/npm/@xiee/utils/css/key-buttons.min.css" rel="stylesheet"></link>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { } /* Alert */
+code span.an { } /* Annotation */
+code span.at { } /* Attribute */
+code span.bu { } /* BuiltIn */
+code span.cf { } /* ControlFlow */
+code span.ch { color: #0e7a0e; } /* Char */
+code span.cn { } /* Constant */
+code span.co { } /* Comment */
+code span.cv { color: #0e7a0e; } /* CommentVar */
+code span.do { } /* Documentation */
+code span.er { font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fu { color: #e65100; } /* Function */
+code span.im { } /* Import */
+code span.in { } /* Information */
+code span.kw { color: #e65100; } /* Keyword */
+code span.op { } /* Operator */
+code span.ot { } /* Other */
+code span.pp { } /* Preprocessor */
+code span.sc { } /* SpecialChar */
+code span.ss { } /* SpecialString */
+code span.st { color: #0e7a0e; } /* String */
+code span.va { } /* Variable */
+code span.vs { color: #0e7a0e; } /* VerbatimString */
+code span.wa { font-weight: bold; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="stylesheet" href="toc.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><strong><a href="https://r-empirische-wissenschaften.de"> R für empirische Wissenschaften</a></strong></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Vorwort</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#über-den-autor"><i class="fa fa-check"></i>Über den Autor</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#lizenz"><i class="fa fa-check"></i>Lizenz</a></li>
+</ul></li>
+<li class="part"><span><b>I Die ersten Schritte</b></span></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Einleitung</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#für-wen-ist-dieses-buch"><i class="fa fa-check"></i><b>1.1</b> Für wen ist dieses Buch?</a></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#aufbau-und-bearbeitungsstrategie"><i class="fa fa-check"></i><b>1.2</b> Aufbau und Bearbeitungsstrategie</a></li>
+<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#uebungen"><i class="fa fa-check"></i><b>1.3</b> Boxen, Übungen und Datensätze</a></li>
+<li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#books"><i class="fa fa-check"></i><b>1.4</b> Ergänzende Literatur</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="start.html"><a href="start.html"><i class="fa fa-check"></i><b>2</b> Startvoraussetzungen</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="start.html"><a href="start.html#installation-von-r-und-rstudio"><i class="fa fa-check"></i><b>2.1</b> Installation von R und RStudio</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="start.html"><a href="start.html#installr"><i class="fa fa-check"></i><b>2.1.1</b> Programmiersprache R</a></li>
+<li class="chapter" data-level="2.1.2" data-path="start.html"><a href="start.html#rstudio"><i class="fa fa-check"></i><b>2.1.2</b> Programmierumgebung RStudio</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="start.html"><a href="start.html#aufbau"><i class="fa fa-check"></i><b>2.2</b> Aufbau von RStudio</a></li>
+<li class="chapter" data-level="2.3" data-path="start.html"><a href="start.html#anpassung"><i class="fa fa-check"></i><b>2.3</b> RStudio anpassen</a></li>
+<li class="chapter" data-level="2.4" data-path="start.html"><a href="start.html#functions"><i class="fa fa-check"></i><b>2.4</b> Funktionen und ihre Argumente</a></li>
+<li class="chapter" data-level="2.5" data-path="start.html"><a href="start.html#packages"><i class="fa fa-check"></i><b>2.5</b> Packages (Erweiterungen)</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="start.html"><a href="start.html#installieren-und-laden"><i class="fa fa-check"></i><b>2.5.1</b> Installieren und laden</a></li>
+<li class="chapter" data-level="2.5.2" data-path="start.html"><a href="start.html#required"><i class="fa fa-check"></i><b>2.5.2</b> Notwendige Packages für dieses Buch</a></li>
+<li class="chapter" data-level="2.5.3" data-path="start.html"><a href="start.html#namespace"><i class="fa fa-check"></i><b>2.5.3</b> Namespace</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="start.html"><a href="start.html#help"><i class="fa fa-check"></i><b>2.6</b> Fehler- und Warnmeldungen</a>
+<ul>
+<li class="chapter" data-level="2.6.1" data-path="start.html"><a href="start.html#der-unterschied"><i class="fa fa-check"></i><b>2.6.1</b> Der Unterschied</a></li>
+<li class="chapter" data-level="2.6.2" data-path="start.html"><a href="start.html#hilfe"><i class="fa fa-check"></i><b>2.6.2</b> Wo bekomme ich Hilfe?</a></li>
+<li class="chapter" data-level="2.6.3" data-path="start.html"><a href="start.html#fehler-beheben"><i class="fa fa-check"></i><b>2.6.3</b> Fehler beheben</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>II Vorbereitung</b></span></li>
+<li class="chapter" data-level="3" data-path="project.html"><a href="project.html"><i class="fa fa-check"></i><b>3</b> R Projekte</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="project.html"><a href="project.html#die-probleme-der-pfade"><i class="fa fa-check"></i><b>3.1</b> Die Probleme der Pfade</a></li>
+<li class="chapter" data-level="3.2" data-path="project.html"><a href="project.html#projekte-in-rstudio-erstellen"><i class="fa fa-check"></i><b>3.2</b> Projekte in RStudio erstellen</a></li>
+<li class="chapter" data-level="3.3" data-path="project.html"><a href="project.html#here"><i class="fa fa-check"></i><b>3.3</b> Der Pfad zum Datensatz</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="vars.html"><a href="vars.html"><i class="fa fa-check"></i><b>4</b> Wichtiges Grundlagenwissen</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="vars.html"><a href="vars.html#begin"><i class="fa fa-check"></i><b>4.1</b> Schritt für Schritt beginnen</a></li>
+<li class="chapter" data-level="4.2" data-path="vars.html"><a href="vars.html#pfeil"><i class="fa fa-check"></i><b>4.2</b> Variablen speichern und verwenden</a></li>
+<li class="chapter" data-level="4.3" data-path="vars.html"><a href="vars.html#datentypen"><i class="fa fa-check"></i><b>4.3</b> Datentypen</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="vars.html"><a href="vars.html#basetypes"><i class="fa fa-check"></i><b>4.3.1</b> Zahlen, Buchstaben und logische Abfragen</a></li>
+<li class="chapter" data-level="4.3.2" data-path="vars.html"><a href="vars.html#factor"><i class="fa fa-check"></i><b>4.3.2</b> Faktoren</a></li>
+<li class="chapter" data-level="4.3.3" data-path="vars.html"><a href="vars.html#zeitdaten"><i class="fa fa-check"></i><b>4.3.3</b> Zeitdaten</a></li>
+<li class="chapter" data-level="4.3.4" data-path="vars.html"><a href="vars.html#datentypen-konvertieren"><i class="fa fa-check"></i><b>4.3.4</b> Datentypen konvertieren</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="vars.html"><a href="vars.html#struktur"><i class="fa fa-check"></i><b>4.4</b> Struktur von Datensätzen</a></li>
+<li class="chapter" data-level="4.5" data-path="vars.html"><a href="vars.html#dollar"><i class="fa fa-check"></i><b>4.5</b> Der Dollar-Operator</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="io.html"><a href="io.html"><i class="fa fa-check"></i><b>5</b> Datensätze</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="io.html"><a href="io.html#import"><i class="fa fa-check"></i><b>5.1</b> Einlesen externer Dateien</a></li>
+<li class="chapter" data-level="5.2" data-path="io.html"><a href="io.html#datensätze-aus-packages-laden"><i class="fa fa-check"></i><b>5.2</b> Datensätze aus Packages laden</a></li>
+<li class="chapter" data-level="5.3" data-path="io.html"><a href="io.html#inR"><i class="fa fa-check"></i><b>5.3</b> Datensätze in R erstellen</a></li>
+<li class="chapter" data-level="5.4" data-path="io.html"><a href="io.html#speichern-und-konvertieren"><i class="fa fa-check"></i><b>5.4</b> Speichern und Konvertieren</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html"><i class="fa fa-check"></i><b>6</b> Datenvorbereitung</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#tidyverse"><i class="fa fa-check"></i><b>6.1</b> Einführung</a></li>
+<li class="chapter" data-level="6.2" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#select"><i class="fa fa-check"></i><b>6.2</b> Spalten auswählen, umbenennen und umsortieren</a></li>
+<li class="chapter" data-level="6.3" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#filter"><i class="fa fa-check"></i><b>6.3</b> Zeilen auswählen und umsortieren</a></li>
+<li class="chapter" data-level="6.4" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#mutate"><i class="fa fa-check"></i><b>6.4</b> Spalten hinzufügen und Spalteninhalte verändern</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#single"><i class="fa fa-check"></i><b>6.4.1</b> Einzelne Spalten</a></li>
+<li class="chapter" data-level="6.4.2" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#across"><i class="fa fa-check"></i><b>6.4.2</b> Mehrere Spalten</a></li>
+<li class="chapter" data-level="6.4.3" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#helfer"><i class="fa fa-check"></i><b>6.4.3</b> Änderungen unter Bedingungen</a></li>
+<li class="chapter" data-level="6.4.4" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#function"><i class="fa fa-check"></i><b>6.4.4</b> Eigene Funktionen erstellen</a></li>
+<li class="chapter" data-level="6.4.5" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#zeilenweise-berechnen"><i class="fa fa-check"></i><b>6.4.5</b> Zeilenweise berechnen</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#umgang-mit-fehlenden-werten-und-duplikaten"><i class="fa fa-check"></i><b>6.5</b> Umgang mit fehlenden Werten und Duplikaten</a></li>
+<li class="chapter" data-level="6.6" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#tidy"><i class="fa fa-check"></i><b>6.6</b> Breites und langes Datenformat</a></li>
+<li class="chapter" data-level="6.7" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#separate"><i class="fa fa-check"></i><b>6.7</b> Spalten trennen</a></li>
+<li class="chapter" data-level="6.8" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#datensätze-zusammenführen"><i class="fa fa-check"></i><b>6.8</b> Datensätze zusammenführen</a></li>
+<li class="chapter" data-level="6.9" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#datastring"><i class="fa fa-check"></i><b>6.9</b> Buchstaben und Wörter bearbeiten</a></li>
+<li class="chapter" data-level="6.10" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#datafactor"><i class="fa fa-check"></i><b>6.10</b> Faktoren verändern</a></li>
+<li class="chapter" data-level="6.11" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#datazeit"><i class="fa fa-check"></i><b>6.11</b> Mit Zeitdaten arbeiten</a></li>
+<li class="chapter" data-level="6.12" data-path="datenvorbereitung.html"><a href="datenvorbereitung.html#binäre-antwortmatrix-erstellen"><i class="fa fa-check"></i><b>6.12</b> Binäre Antwortmatrix erstellen</a></li>
+</ul></li>
+<li class="part"><span><b>III Auswertung</b></span></li>
+<li class="chapter" data-level="7" data-path="descr.html"><a href="descr.html"><i class="fa fa-check"></i><b>7</b> Deskriptive Statistik</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="descr.html"><a href="descr.html#lagestreu"><i class="fa fa-check"></i><b>7.1</b> Lagemaße und Streuungsmaße</a></li>
+<li class="chapter" data-level="7.2" data-path="descr.html"><a href="descr.html#contigency"><i class="fa fa-check"></i><b>7.2</b> Häufigkeiten und Kontingenztafeln</a></li>
+<li class="chapter" data-level="7.3" data-path="descr.html"><a href="descr.html#cor"><i class="fa fa-check"></i><b>7.3</b> Zusammenhangsmaße</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="visual.html"><a href="visual.html"><i class="fa fa-check"></i><b>8</b> Visualisierungen</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="visual.html"><a href="visual.html#einführung"><i class="fa fa-check"></i><b>8.1</b> Einführung</a></li>
+<li class="chapter" data-level="8.2" data-path="visual.html"><a href="visual.html#histogram"><i class="fa fa-check"></i><b>8.2</b> Histogramm und Dichte</a></li>
+<li class="chapter" data-level="8.3" data-path="visual.html"><a href="visual.html#scatter"><i class="fa fa-check"></i><b>8.3</b> Streudiagramm</a></li>
+<li class="chapter" data-level="8.4" data-path="visual.html"><a href="visual.html#boxplot"><i class="fa fa-check"></i><b>8.4</b> Boxplot</a></li>
+<li class="chapter" data-level="8.5" data-path="visual.html"><a href="visual.html#violin"><i class="fa fa-check"></i><b>8.5</b> Violin Plot</a></li>
+<li class="chapter" data-level="8.6" data-path="visual.html"><a href="visual.html#barplot"><i class="fa fa-check"></i><b>8.6</b> Balkendiagramm</a></li>
+<li class="chapter" data-level="8.7" data-path="visual.html"><a href="visual.html#anovaplot"><i class="fa fa-check"></i><b>8.7</b> Liniendiagramm</a></li>
+<li class="chapter" data-level="8.8" data-path="visual.html"><a href="visual.html#qqplot"><i class="fa fa-check"></i><b>8.8</b> Quantil-Quantil Plot</a></li>
+<li class="chapter" data-level="8.9" data-path="visual.html"><a href="visual.html#morefactors"><i class="fa fa-check"></i><b>8.9</b> Mehrfaktorielle Abbildungen</a>
+<ul>
+<li class="chapter" data-level="8.9.1" data-path="visual.html"><a href="visual.html#groups"><i class="fa fa-check"></i><b>8.9.1</b> Gruppierungsargumente</a></li>
+<li class="chapter" data-level="8.9.2" data-path="visual.html"><a href="visual.html#facets"><i class="fa fa-check"></i><b>8.9.2</b> Facetten als weitere Dimensionen</a></li>
+</ul></li>
+<li class="chapter" data-level="8.10" data-path="visual.html"><a href="visual.html#adapt"><i class="fa fa-check"></i><b>8.10</b> Anpassen des Aussehens</a>
+<ul>
+<li class="chapter" data-level="8.10.1" data-path="visual.html"><a href="visual.html#color"><i class="fa fa-check"></i><b>8.10.1</b> Farben</a></li>
+<li class="chapter" data-level="8.10.2" data-path="visual.html"><a href="visual.html#themeaxis"><i class="fa fa-check"></i><b>8.10.2</b> Themen und Achsen</a></li>
+<li class="chapter" data-level="8.10.3" data-path="visual.html"><a href="visual.html#legende-und-facetten"><i class="fa fa-check"></i><b>8.10.3</b> Legende und Facetten</a></li>
+</ul></li>
+<li class="chapter" data-level="8.11" data-path="visual.html"><a href="visual.html#patch"><i class="fa fa-check"></i><b>8.11</b> Anordnen mehrerer Graphen</a></li>
+<li class="chapter" data-level="8.12" data-path="visual.html"><a href="visual.html#ggsave"><i class="fa fa-check"></i><b>8.12</b> Speichern von Abbildungen</a></li>
+<li class="chapter" data-level="8.13" data-path="visual.html"><a href="visual.html#exemplarische-erweiterungen"><i class="fa fa-check"></i><b>8.13</b> Exemplarische Erweiterungen</a>
+<ul>
+<li class="chapter" data-level="8.13.1" data-path="visual.html"><a href="visual.html#kaplan"><i class="fa fa-check"></i><b>8.13.1</b> Kaplan-Meier-Kurve</a></li>
+<li class="chapter" data-level="8.13.2" data-path="visual.html"><a href="visual.html#residuals"><i class="fa fa-check"></i><b>8.13.2</b> Residuen überprüfen</a></li>
+<li class="chapter" data-level="8.13.3" data-path="visual.html"><a href="visual.html#ridgeline-plot"><i class="fa fa-check"></i><b>8.13.3</b> Ridgeline Plot</a></li>
+</ul></li>
+<li class="chapter" data-level="8.14" data-path="visual.html"><a href="visual.html#example"><i class="fa fa-check"></i><b>8.14</b> Anwendungsbeispiel</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="inductive.html"><a href="inductive.html"><i class="fa fa-check"></i><b>9</b> Inferenzstatistik</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="inductive.html"><a href="inductive.html#einführung-1"><i class="fa fa-check"></i><b>9.1</b> Einführung</a></li>
+<li class="chapter" data-level="9.2" data-path="inductive.html"><a href="inductive.html#ein--und-zweistichprobenszenarien"><i class="fa fa-check"></i><b>9.2</b> Ein- und Zweistichprobenszenarien</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="inductive.html"><a href="inductive.html#ttest"><i class="fa fa-check"></i><b>9.2.1</b> <em>t</em> Test und Welch Test</a></li>
+<li class="chapter" data-level="9.2.2" data-path="inductive.html"><a href="inductive.html#wilcoxon-test"><i class="fa fa-check"></i><b>9.2.2</b> Wilcoxon Test</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="inductive.html"><a href="inductive.html#unterschiede-mehrerer-gruppen"><i class="fa fa-check"></i><b>9.3</b> Unterschiede mehrerer Gruppen</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="inductive.html"><a href="inductive.html#aov"><i class="fa fa-check"></i><b>9.3.1</b> Varianz- und Kovarianzanalyse</a></li>
+<li class="chapter" data-level="9.3.2" data-path="inductive.html"><a href="inductive.html#repeated"><i class="fa fa-check"></i><b>9.3.2</b> Varianzanalyse mit Messwiederholung</a></li>
+<li class="chapter" data-level="9.3.3" data-path="inductive.html"><a href="inductive.html#kruskal"><i class="fa fa-check"></i><b>9.3.3</b> Welch Approximation und Kruskal-Wallis Test</a></li>
+<li class="chapter" data-level="9.3.4" data-path="inductive.html"><a href="inductive.html#friedman"><i class="fa fa-check"></i><b>9.3.4</b> Friedman Test</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="inductive.html"><a href="inductive.html#cortest"><i class="fa fa-check"></i><b>9.4</b> Korrelationsanalysen</a>
+<ul>
+<li class="chapter" data-level="9.4.1" data-path="inductive.html"><a href="inductive.html#pearsoncor"><i class="fa fa-check"></i><b>9.4.1</b> Produkt-Moment Korrelation</a></li>
+<li class="chapter" data-level="9.4.2" data-path="inductive.html"><a href="inductive.html#rangcor"><i class="fa fa-check"></i><b>9.4.2</b> Rangkorrelationen</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="inductive.html"><a href="inductive.html#regression"><i class="fa fa-check"></i><b>9.5</b> Regressionsmodelle</a>
+<ul>
+<li class="chapter" data-level="9.5.1" data-path="inductive.html"><a href="inductive.html#linregression"><i class="fa fa-check"></i><b>9.5.1</b> Lineare Regression</a></li>
+<li class="chapter" data-level="9.5.2" data-path="inductive.html"><a href="inductive.html#logistische-regression"><i class="fa fa-check"></i><b>9.5.2</b> Logistische Regression</a></li>
+<li class="chapter" data-level="9.5.3" data-path="inductive.html"><a href="inductive.html#multinomiales-logit-modell"><i class="fa fa-check"></i><b>9.5.3</b> Multinomiales Logit Modell</a></li>
+<li class="chapter" data-level="9.5.4" data-path="inductive.html"><a href="inductive.html#propodds"><i class="fa fa-check"></i><b>9.5.4</b> Kumulatives Logit Modell</a></li>
+<li class="chapter" data-level="9.5.5" data-path="inductive.html"><a href="inductive.html#poisson-regression"><i class="fa fa-check"></i><b>9.5.5</b> Poisson Regression</a></li>
+<li class="chapter" data-level="9.5.6" data-path="inductive.html"><a href="inductive.html#cox"><i class="fa fa-check"></i><b>9.5.6</b> Cox Regression</a></li>
+</ul></li>
+<li class="chapter" data-level="9.6" data-path="inductive.html"><a href="inductive.html#contingency"><i class="fa fa-check"></i><b>9.6</b> Kontingenztafeln</a>
+<ul>
+<li class="chapter" data-level="9.6.1" data-path="inductive.html"><a href="inductive.html#fisher"><i class="fa fa-check"></i><b>9.6.1</b> Exakter Fisher Test</a></li>
+<li class="chapter" data-level="9.6.2" data-path="inductive.html"><a href="inductive.html#chi"><i class="fa fa-check"></i><b>9.6.2</b> Chi Quadrat Tests</a></li>
+</ul></li>
+<li class="chapter" data-level="9.7" data-path="inductive.html"><a href="inductive.html#voraussetzung"><i class="fa fa-check"></i><b>9.7</b> Voraussetzungen überprüfen</a>
+<ul>
+<li class="chapter" data-level="9.7.1" data-path="inductive.html"><a href="inductive.html#normalverteilung"><i class="fa fa-check"></i><b>9.7.1</b> Normalverteilung</a></li>
+<li class="chapter" data-level="9.7.2" data-path="inductive.html"><a href="inductive.html#varianzhomogenitaet"><i class="fa fa-check"></i><b>9.7.2</b> Varianzhomogenität und Homoskedastizität</a></li>
+</ul></li>
+<li class="chapter" data-level="9.8" data-path="inductive.html"><a href="inductive.html#broom"><i class="fa fa-check"></i><b>9.8</b> Ergebnisse formatieren</a></li>
+</ul></li>
+<li class="part"><span><b>IV Vertiefung</b></span></li>
+<li class="chapter" data-level="10" data-path="export.html"><a href="export.html"><i class="fa fa-check"></i><b>10</b> Ergebnisse exportieren</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="export.html"><a href="export.html#intromarkdown"><i class="fa fa-check"></i><b>10.1</b> Wichtige Begriffe</a></li>
+<li class="chapter" data-level="10.2" data-path="export.html"><a href="export.html#markdown"><i class="fa fa-check"></i><b>10.2</b> Berichte erstellen</a></li>
+<li class="chapter" data-level="10.3" data-path="export.html"><a href="export.html#tabellen-umwandeln"><i class="fa fa-check"></i><b>10.3</b> Tabellen umwandeln</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="export.html"><a href="export.html#knitr"><i class="fa fa-check"></i><b>10.3.1</b> Exportieren nach Word und PDF</a></li>
+<li class="chapter" data-level="10.3.2" data-path="export.html"><a href="export.html#latex"><i class="fa fa-check"></i><b>10.3.2</b> Exportieren nach LaTeX</a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="export.html"><a href="export.html#quarto"><i class="fa fa-check"></i><b>10.4</b> Alternative mit Quarto</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="datatypes.html"><a href="datatypes.html"><i class="fa fa-check"></i><b>11</b> Datenstrukturen</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="datatypes.html"><a href="datatypes.html#vec"><i class="fa fa-check"></i><b>11.1</b> Vektor</a></li>
+<li class="chapter" data-level="11.2" data-path="datatypes.html"><a href="datatypes.html#matrix"><i class="fa fa-check"></i><b>11.2</b> Matrix</a></li>
+<li class="chapter" data-level="11.3" data-path="datatypes.html"><a href="datatypes.html#tibble"><i class="fa fa-check"></i><b>11.3</b> Data.frame und tibble</a></li>
+<li class="chapter" data-level="11.4" data-path="datatypes.html"><a href="datatypes.html#lists"><i class="fa fa-check"></i><b>11.4</b> Liste</a></li>
+<li class="chapter" data-level="11.5" data-path="datatypes.html"><a href="datatypes.html#umwandlung"><i class="fa fa-check"></i><b>11.5</b> Umwandlungen</a></li>
+<li class="chapter" data-level="11.6" data-path="datatypes.html"><a href="datatypes.html#objekte-und-objektorientierung"><i class="fa fa-check"></i><b>11.6</b> Objekte und Objektorientierung</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="iterationmain.html"><a href="iterationmain.html"><i class="fa fa-check"></i><b>12</b> Funktionen wiederholt anwenden</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="iterationmain.html"><a href="iterationmain.html#iteration"><i class="fa fa-check"></i><b>12.1</b> Das Copy &amp; Paste Problem</a></li>
+<li class="chapter" data-level="12.2" data-path="iterationmain.html"><a href="iterationmain.html#map"><i class="fa fa-check"></i><b>12.2</b> Listenbasierte Berechnungen</a></li>
+<li class="chapter" data-level="12.3" data-path="iterationmain.html"><a href="iterationmain.html#for"><i class="fa fa-check"></i><b>12.3</b> for-Schleifen</a></li>
+<li class="chapter" data-level="12.4" data-path="iterationmain.html"><a href="iterationmain.html#nest"><i class="fa fa-check"></i><b>12.4</b> Einnisten</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i>Appendix</a>
+<ul>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#datensatzerläuterungen"><i class="fa fa-check"></i>Datensatzerläuterungen</a>
+<ul>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#big-5-persönlichkeitsfaktoren"><i class="fa fa-check"></i>Big 5 Persönlichkeitsfaktoren</a></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#statistische-bildung"><i class="fa fa-check"></i>Statistische Bildung</a></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#bitcoin-aktienkurs"><i class="fa fa-check"></i>Bitcoin Aktienkurs</a></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#radiochemotherapie"><i class="fa fa-check"></i>Radiochemotherapie</a></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#sars-cov-2-diagnostik"><i class="fa fa-check"></i>SARS-CoV-2 Diagnostik</a></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#eye-tracking"><i class="fa fa-check"></i>Eye Tracking</a></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#iq-und-kreativität"><i class="fa fa-check"></i>IQ und Kreativität</a></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#musikstreaming-nutzerstatistik"><i class="fa fa-check"></i>Musikstreaming Nutzerstatistik</a></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#videostreaming-nutzerstatitstik"><i class="fa fa-check"></i>Videostreaming Nutzerstatitstik</a></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#fußballwetten"><i class="fa fa-check"></i>Fußballwetten</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#literaturverzeichnis"><i class="fa fa-check"></i>Literaturverzeichnis</a></li>
+<li class="chapter" data-level="" data-path="appendix.html"><a href="appendix.html#verwendete-softwareversionen"><i class="fa fa-check"></i>Verwendete Softwareversionen</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R für empirische Wissenschaften</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="descr" class="section level1 hasAnchor" number="7">
+<h1><span class="header-section-number">Kapitel 7</span> Deskriptive Statistik<a href="descr.html#descr" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<blockquote>
+<p>Die beschreibende Statistik bietet neben Informationen über die Verteilungen und Zusammenhänge der interessierenden Merkmale ebenfalls die Möglichkeit, unplausible Werte zu identifizieren, die mit den im vorherigen Kapitel gelernten Methoden entfernt oder korrigiert werden müssen. Die Beschreibungen der kontinuierlichen und kategorialen Merkmale dürfen in keiner wissenschaftlichen Arbeit fehlen.</p>
+</blockquote>
+<div id="lagestreu" class="section level2 hasAnchor" number="7.1">
+<h2><span class="header-section-number">7.1</span> Lagemaße und Streuungsmaße<a href="descr.html#lagestreu" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Für dieses Kapitel müssen die Packages des <code>tidyverse</code> und <code>remp</code> installiert und geladen werden.</p>
+<div class="sourceCode" id="cb288"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb288-1"><a href="descr.html#cb288-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb288-2"><a href="descr.html#cb288-2" tabindex="-1"></a><span class="fu">library</span>(remp)</span></code></pre></div>
+<p>Wir werden in diesem Kapitel den <code>big5_mod</code> Datensatz ohne die Spalte namens <code>ID</code> verwenden und bezeichnen diesen als <code>big5_mod1</code>.</p>
+<div class="sourceCode" id="cb289"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb289-1"><a href="descr.html#cb289-1" tabindex="-1"></a>big5_mod1 <span class="ot">&lt;-</span> big5_mod <span class="sc">|&gt;</span> <span class="fu">select</span>(<span class="sc">-</span>ID)</span>
+<span id="cb289-2"><a href="descr.html#cb289-2" tabindex="-1"></a>big5_mod1</span></code></pre></div>
+<pre class="bordercode"><code># A tibble: 200 × 5
+  Alter Geschlecht Extraversion Neurotizismus Gruppe
+  &lt;dbl&gt; &lt;chr&gt;             &lt;dbl&gt;         &lt;dbl&gt; &lt;fct&gt; 
+1    36 m                   3             1.9 Mittel
+2    30 f                   3.1           3.4 Jung  
+3    23 m                   3.4           2.4 Jung  
+4    54 m                   3.3           4.2 Weise 
+# ℹ 196 more rows</code></pre>
+<p>Einen ersten Überblick über die Daten können wir mit der direkt in R integrierten Funktion <code>summary()</code> erhalten, der wir lediglich den Namen des Datensatzes übergeben müssen.</p>
+<div class="sourceCode" id="cb291"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb291-1"><a href="descr.html#cb291-1" tabindex="-1"></a><span class="fu">summary</span>(big5_mod1)</span></code></pre></div>
+<pre class="bordercode"><code>     Alter        Geschlecht         Extraversion   Neurotizismus      Gruppe   
+ Min.   :13.00   Length:200         Min.   :2.300   Min.   :1.400   Jung  :147  
+ 1st Qu.:18.75   Class :character   1st Qu.:2.800   1st Qu.:2.700   Mittel: 39  
+ Median :23.00   Mode  :character   Median :3.000   Median :3.100   Weise : 14  
+ Mean   :26.48                      Mean   :3.076   Mean   :3.133               
+ 3rd Qu.:31.25                      3rd Qu.:3.300   3rd Qu.:3.600               
+ Max.   :60.00                      Max.   :4.300   Max.   :4.600               </code></pre>
+<p>Hier sehen wir einen Vorteil von Faktoren. Während wir die Häufigkeiten der einzelnen Altersgruppen ausgegeben bekommen, kann R für die Spalte mit Geschlecht lediglich die Anzahl an vorhandenen Character Werten zählen. Für weitere Informationen über Faktoren und deren Umgang schaue dir erneut Kapitel <a href="vars.html#factor">4.3.2</a> und <a href="datenvorbereitung.html#datafactor">6.10</a> an.</p>
+<p>Allerdings fehlt bei dieser Ansicht zum Beispiel die Standardabweichung und man kann mit die Ausgabe nicht vernünftig zum Exportieren formatieren. Im begleitenden <a href="https://r-empirische-wissenschaften.de">remp</a> Package gibt es die Funktion <code>descriptive()</code>, die standardmäßig Anzahl, Minimum, 25% Quartil, Mittelwert, Median, 75% Quartil, die Standardabweichung und den Standardfehler für alle numerischen Spalten ausgibt. Möchte man Spalten nicht in der Ausgabe sehen, sollte man dieser zuvor mit <code>select()</code> entfernen (siehe Kapitel <a href="datenvorbereitung.html#select">6.2</a>).</p>
+<div class="sourceCode" id="cb293"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb293-1"><a href="descr.html#cb293-1" tabindex="-1"></a>big5_mod1 <span class="sc">|&gt;</span> </span>
+<span id="cb293-2"><a href="descr.html#cb293-2" tabindex="-1"></a>  <span class="fu">descriptive</span>()</span></code></pre></div>
+<pre class="bordercode"><code># A tibble: 3 × 10
+  Variable          N   Min    Q1  Mean Median    Q3   Max    SD    SE
+  &lt;chr&gt;         &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+1 Alter           200  13    18.8 26.5    23    31.2  60   11.4   0.8 
+2 Extraversion    200   2.3   2.8  3.08    3     3.3   4.3  0.35  0.02
+3 Neurotizismus   200   1.4   2.7  3.13    3.1   3.6   4.6  0.68  0.05</code></pre>
+<p>Zusätzlich könnte man mit dem <code>.print</code> Argument die Anzahl ausgegebener Spalten erhöhen. Für Grupperiungen der deskriptiven Statistiken verwenden wir die Funktion <code>group_by()</code> aus dem <code>dplyr</code> Package des <code>tidyverse</code>. Dabei können wir der Funktion beliebig viele Spalten ohne Anführungszeichen übergeben. So können wir beispielsweise nach Geschlecht aufteilen.</p>
+<div class="sourceCode" id="cb295"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb295-1"><a href="descr.html#cb295-1" tabindex="-1"></a>big5_mod1 <span class="sc">|&gt;</span> </span>
+<span id="cb295-2"><a href="descr.html#cb295-2" tabindex="-1"></a>  <span class="fu">group_by</span>(Geschlecht) <span class="sc">|&gt;</span> </span>
+<span id="cb295-3"><a href="descr.html#cb295-3" tabindex="-1"></a>  <span class="fu">descriptive</span>() </span></code></pre></div>
+<pre class="bordercode"><code># A tibble: 6 × 11
+# Groups:   Geschlecht [2]
+  Geschlecht Variable          N   Min    Q1  Mean Median    Q3   Max    SD    SE
+  &lt;chr&gt;      &lt;chr&gt;         &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+1 f          Alter           118  14   18    25.9    22    29.8  60   11.4   1.05
+2 f          Extraversion    118   2.4  2.8   3.05    3     3.2   4.3  0.36  0.03
+3 f          Neurotizismus   118   1.4  2.82  3.25    3.3   3.7   4.6  0.63  0.06
+4 m          Alter            82  13   20    27.3    23    32    59   11.4   1.25
+# ℹ 2 more rows</code></pre>
+<p>Bei Interesse nach Unterschieden innerhalb der Geschlechter je nach Altersgruppe, fügen wir die Spalte <code>Gruppe</code> in die Funktion <code>group_by()</code> hinzu.</p>
+<div class="sourceCode" id="cb297"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb297-1"><a href="descr.html#cb297-1" tabindex="-1"></a>big5_mod1 <span class="sc">|&gt;</span> </span>
+<span id="cb297-2"><a href="descr.html#cb297-2" tabindex="-1"></a>  <span class="fu">group_by</span>(Geschlecht, Gruppe) <span class="sc">|&gt;</span> </span>
+<span id="cb297-3"><a href="descr.html#cb297-3" tabindex="-1"></a>  <span class="fu">descriptive</span>() </span></code></pre></div>
+<pre class="bordercode"><code># A tibble: 18 × 12
+# Groups:   Geschlecht, Gruppe [6]
+  Geschlecht Gruppe Variable          N   Min    Q1  Mean Median    Q3   Max    SD    SE
+  &lt;chr&gt;      &lt;fct&gt;  &lt;chr&gt;         &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+1 f          Jung   Alter            89  14    17   20.4    20    23    30    4.21  0.45
+2 f          Jung   Extraversion     89   2.4   2.8  3.07    3     3.3   4.3  0.37  0.04
+3 f          Jung   Neurotizismus    89   1.4   2.9  3.29    3.3   3.6   4.6  0.58  0.06
+4 f          Mittel Alter            20  31    34.8 39.0    39    42.2  49    5.16  1.15
+# ℹ 14 more rows</code></pre>
+<p>Der Nachteil an dieser Funktion ist die fehlende Flexibilität, falls man andere Schätzer inkludieren möchte. Dafür bietet sich die Funktion <code>summarise()</code> aus dem <code>dplyr</code> Package (Teil des <code>tidyverse</code>). Als Argumente übergeben wir auf der linken Seite der Gleichung den gewünschten Namen der neu erstellen Spalte und auf der rechten Seite die Funktion zur Berechnung der Statistik mit dem gewünschten Spaltennamen.</p>
+<p>Exemplarisch soll zunächst der Mittelwert mit der Funktion <code>mean()</code> und die Standardabweichung mit <code>sd()</code> berechnet werden. Bei fehlenden Werten müsste man zusätzlich das Argument <code>na.rm</code> zum Entfernen fehlender Werte bei der Berechnung hinzufügen (z.B. <code>mean(Extraversion, na.rm = TRUE)</code>). Wichtig ist allerdings, dass die innerhalb von <code>summarise()</code> verwendeten Funktionen nur einen Wert pro Spalte ausrechnen.</p>
+<div class="sourceCode" id="cb299"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb299-1"><a href="descr.html#cb299-1" tabindex="-1"></a>big5_mod1 <span class="sc">|&gt;</span> </span>
+<span id="cb299-2"><a href="descr.html#cb299-2" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb299-3"><a href="descr.html#cb299-3" tabindex="-1"></a>    <span class="at">M =</span> <span class="fu">mean</span>(Extraversion),</span>
+<span id="cb299-4"><a href="descr.html#cb299-4" tabindex="-1"></a>    <span class="at">SD =</span> <span class="fu">sd</span>(Extraversion)</span>
+<span id="cb299-5"><a href="descr.html#cb299-5" tabindex="-1"></a>  )</span></code></pre></div>
+<pre class="bordercode"><code># A tibble: 1 × 2
+      M    SD
+  &lt;dbl&gt; &lt;dbl&gt;
+1  3.08 0.347</code></pre>
+<p>Auch hier gruppieren wir mit der zuvor kennengelernten Funktion <code>group_by()</code>.</p>
+<div class="sourceCode" id="cb301"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb301-1"><a href="descr.html#cb301-1" tabindex="-1"></a>big5_mod1 <span class="sc">|&gt;</span> </span>
+<span id="cb301-2"><a href="descr.html#cb301-2" tabindex="-1"></a>  <span class="fu">group_by</span>(Geschlecht) <span class="sc">|&gt;</span> </span>
+<span id="cb301-3"><a href="descr.html#cb301-3" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb301-4"><a href="descr.html#cb301-4" tabindex="-1"></a>    <span class="at">M =</span> <span class="fu">mean</span>(Extraversion),</span>
+<span id="cb301-5"><a href="descr.html#cb301-5" tabindex="-1"></a>    <span class="at">SD =</span> <span class="fu">sd</span>(Extraversion)</span>
+<span id="cb301-6"><a href="descr.html#cb301-6" tabindex="-1"></a>  )</span></code></pre></div>
+<pre class="bordercode"><code># A tibble: 2 × 3
+  Geschlecht     M    SD
+  &lt;chr&gt;      &lt;dbl&gt; &lt;dbl&gt;
+1 f           3.05 0.358
+2 m           3.11 0.328</code></pre>
+<div class="idea">
+<p>Grundsätzlich kann jede Funktion <code>summarise()</code> übergeben werden, die einen <strong>einzelnen</strong> Wert berechnet. Somit unterscheidet sich die Anwendung maßgeblich vom bereits kennengelernten <code>mutate()</code>. Dort musste die Ausgabe immer eine Reihe von Werten umfassen, die der Anzahl der Zeilen im Datensatz entspricht.</p>
+</div>
+<p>Grundsätzlich können wir beliebig viele Berechnungen in einem Funktionsaufruf durchführen. Möchte man die gleichen Statistiken für mehrere Spalten berechnen, greifen wir erneut auf die Hilfsfunktion <code>across()</code> zurück (siehe Kapitel <a href="datenvorbereitung.html#across">6.4.2</a>). Hier müssen wir die verschiedenen Funktionen mit entsprechendem Namen innerhalb einer Liste übergeben. Listen als solche werden erst später eingeführt und müssen uns an dieser Stelle nicht weiter interessieren (siehe Kapitel <a href="datatypes.html#lists">11.4</a>).</p>
+<div class="sourceCode" id="cb303"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb303-1"><a href="descr.html#cb303-1" tabindex="-1"></a>big5_mod1 <span class="sc">|&gt;</span> </span>
+<span id="cb303-2"><a href="descr.html#cb303-2" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">across</span>(</span>
+<span id="cb303-3"><a href="descr.html#cb303-3" tabindex="-1"></a>    <span class="at">.cols =</span> Extraversion<span class="sc">:</span>Neurotizismus, </span>
+<span id="cb303-4"><a href="descr.html#cb303-4" tabindex="-1"></a>    <span class="at">.fns =</span> <span class="fu">list</span>(<span class="at">M =</span> mean, <span class="at">Median =</span> median, <span class="at">SD =</span> sd))</span>
+<span id="cb303-5"><a href="descr.html#cb303-5" tabindex="-1"></a>  )</span></code></pre></div>
+<pre class="bordercode"><code># A tibble: 1 × 6
+  Extraversion_M Extraversion_Median Extraversion_SD Neurotizismus_M Neurotizismus_Median
+           &lt;dbl&gt;               &lt;dbl&gt;           &lt;dbl&gt;           &lt;dbl&gt;                &lt;dbl&gt;
+1           3.08                   3           0.347            3.13                  3.1
+# ℹ 1 more variable: Neurotizismus_SD &lt;dbl&gt;</code></pre>
+<p>Wie dir vielleicht bereits aufgefallen ist, sieht die Ausgabe von <code>summarise()</code> für mehrere Spalten anders aus als die von <code>descriptive()</code>. Während erstere die Variablen nebeneinander in neue Spalten auflistet, fügt <code>descriptive()</code> die Ergebnisse zeilenweise hinzu. Wenn wir die gleiche Ausgabe wie in <code>descriptive()</code> erreichen möchten, müssen wir den Datensatz zunächst in ein langes Format bringen (siehe Kapitel <a href="datenvorbereitung.html#tidy">6.6</a>). Nun gruppieren wir nach der neu erstellten Spalte namens <code>Variable</code>. Anschließend können wir wie gewohnt mit <code>summarise()</code> die gewünschten Berechnungen durchführen. Nichts anderes macht die Funktion <code>descriptive()</code> hinter den Kulissen.</p>
+<div class="sourceCode" id="cb305"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb305-1"><a href="descr.html#cb305-1" tabindex="-1"></a>big5_mod1 <span class="sc">|&gt;</span> </span>
+<span id="cb305-2"><a href="descr.html#cb305-2" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
+<span id="cb305-3"><a href="descr.html#cb305-3" tabindex="-1"></a>    <span class="at">cols =</span> <span class="fu">c</span>(Alter, Extraversion, Neurotizismus),</span>
+<span id="cb305-4"><a href="descr.html#cb305-4" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="st">&quot;Variable&quot;</span>,</span>
+<span id="cb305-5"><a href="descr.html#cb305-5" tabindex="-1"></a>    <span class="at">values_to =</span> <span class="st">&quot;Wert&quot;</span></span>
+<span id="cb305-6"><a href="descr.html#cb305-6" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> </span>
+<span id="cb305-7"><a href="descr.html#cb305-7" tabindex="-1"></a>  <span class="fu">group_by</span>(Variable) <span class="sc">|&gt;</span> </span>
+<span id="cb305-8"><a href="descr.html#cb305-8" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb305-9"><a href="descr.html#cb305-9" tabindex="-1"></a>    <span class="at">Q1 =</span> <span class="fu">quantile</span>(Wert, <span class="fl">0.25</span>),</span>
+<span id="cb305-10"><a href="descr.html#cb305-10" tabindex="-1"></a>    <span class="at">Mean =</span> <span class="fu">mean</span>(Wert),</span>
+<span id="cb305-11"><a href="descr.html#cb305-11" tabindex="-1"></a>    <span class="at">Q3 =</span> <span class="fu">quantile</span>(Wert, <span class="fl">0.75</span>)</span>
+<span id="cb305-12"><a href="descr.html#cb305-12" tabindex="-1"></a>  )</span></code></pre></div>
+<pre class="bordercode"><code># A tibble: 3 × 4
+  Variable         Q1  Mean    Q3
+  &lt;chr&gt;         &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+1 Alter          18.8 26.5   31.2
+2 Extraversion    2.8  3.08   3.3
+3 Neurotizismus   2.7  3.13   3.6</code></pre>
+<p>Alternativen für einen schnellen Überblick bieten beispielsweise auch das <code>skimr</code> Package mit der Funktion <code>skim()</code> oder <code>describe()</code> aus dem <code>psych</code> Package. Beide können auch nicht-numerische Spalten auswerten und erstere gibt zu jeder Spalte sogar ein kleines Histogramm aus.</p>
+<div class="exercise2">
+<p><strong>Übung 7.1.</strong> (Noch nicht enthalten) Starte die Übung mit <code>uebung_starten(7.1)</code>.</p>
+</div>
+</div>
+<div id="contigency" class="section level2 hasAnchor" number="7.2">
+<h2><span class="header-section-number">7.2</span> Häufigkeiten und Kontingenztafeln<a href="descr.html#contigency" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Zum Ausführen der Funktionen dieses Kapitels muss das <code>tidyverse</code> und das Package <code>janitor</code> installiert und geladen sein.</p>
+<div class="sourceCode" id="cb307"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb307-1"><a href="descr.html#cb307-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb307-2"><a href="descr.html#cb307-2" tabindex="-1"></a><span class="fu">library</span>(janitor)</span></code></pre></div>
+<p>In diesem Kapitel verwenden wir den <code>big5_mod</code> Datensatz aus dem <code>remp</code> Package. Der schnellste Weg zur Berechnung von Häufigkeiten ist die direkt in R integrierte Funktion namens <code>tables()</code>. Dabei übergeben wir die Spalten mithilfe des Dollar-Operators (siehe Kapitel <a href="vars.html#dollar">4.5</a>). Hier wählen wir die Spalte <code>Geschlecht</code> aus.</p>
+<div class="sourceCode" id="cb308"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb308-1"><a href="descr.html#cb308-1" tabindex="-1"></a><span class="fu">table</span>(big5_mod<span class="sc">$</span>Geschlecht)</span></code></pre></div>
+<pre class="bordercode"><code>
+  f   m 
+118  82 </code></pre>
+<p>Durch das Hinzufügen einer weiteren Variable, erhalten wir eine klassische Kontingenztafel, die wir mit Methoden im Rahmen von Kapitel <a href="inductive.html#contingency">9.6</a> inferenzstatistisch betrachten werden. An dieser Stelle möchten wir die absoluten Häufigkeiten der Geschlechter zusätzlich nach den drei Altersgruppen aufteilen. In diesem Fall beinhalten beide Spalten Textbezeichnung. Hätten wir zwei numerische Spalten (z.B. Tod 0/1 und Geschlecht 0/1) solltest zusätzlich das Argument <code>dnn</code> zum Festlegen der Dimensionsnamen verwenden.</p>
+<div class="sourceCode" id="cb310"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb310-1"><a href="descr.html#cb310-1" tabindex="-1"></a><span class="fu">table</span>(big5_mod<span class="sc">$</span>Geschlecht, big5_mod<span class="sc">$</span>Gruppe, <span class="at">dnn =</span> <span class="fu">c</span>(<span class="st">&quot;Geschlecht&quot;</span>, <span class="st">&quot;Altersgruppe&quot;</span>))</span></code></pre></div>
+<pre class="bordercode"><code>          Altersgruppe
+Geschlecht Jung Mittel Weise
+         f   89     20     9
+         m   58     19     5</code></pre>
+<p>Ein weiteres nützliches Argument ist <code>useNA</code>, welches wir zum Anzeigen fehlender Werte auf <code>"ifany"</code> setzen können. Darüber hinaus können wir durch das Argument <code>exclude</code> eine Faktorstufe für die Erstellung einer Kontingenztafel zur späteren Auswertung herausnehmen. Wäre bei der Variable <code>Geschlecht</code> beispielsweise eine dritte Stufe namens <code>Divers</code> mit wenigen Beobachtungen vorhanden, könnten wir diese so für die Hypothesentests ausblenden. Die Voraussetzung dafür ist, dass die Variable als Faktor kodiert ist (siehe Kapitel <a href="vars.html#factor">4.3.2</a> und <a href="datenvorbereitung.html#datafactor">6.10</a>).</p>
+<p>Eine dritte Dimension führt zur Ausgabe als sogenannte Liste (siehe Kapitel <a href="datatypes.html#lists">11.4</a>). Die erste Kontingenztafel unter dem Wort <code>FALSE</code> beinhaltet alle Personen mit einer Extraversion kleiner oder gleich 3.5 und die Kontingenztafel darunter entsprechend alle Personen mit einer Extraversion größer 3.5, jeweils aufgeteilt nach Geschlecht und Altersgruppe. Das Inkludieren einer logischen Abfrage ist eine der großen Vorteil der <code>table()</code> Funktion.</p>
+<div class="sourceCode" id="cb312"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb312-1"><a href="descr.html#cb312-1" tabindex="-1"></a><span class="fu">table</span>(</span>
+<span id="cb312-2"><a href="descr.html#cb312-2" tabindex="-1"></a>  big5_mod<span class="sc">$</span>Geschlecht, </span>
+<span id="cb312-3"><a href="descr.html#cb312-3" tabindex="-1"></a>  big5_mod<span class="sc">$</span>Gruppe, </span>
+<span id="cb312-4"><a href="descr.html#cb312-4" tabindex="-1"></a>  big5_mod<span class="sc">$</span>Extraversion <span class="sc">&gt;</span> <span class="fl">3.5</span></span>
+<span id="cb312-5"><a href="descr.html#cb312-5" tabindex="-1"></a>)</span></code></pre></div>
+<pre class="bordercode"><code>, ,  = FALSE
+
+   
+    Jung Mittel Weise
+  f   81     18     9
+  m   54     18     4
+
+, ,  = TRUE
+
+   
+    Jung Mittel Weise
+  f    8      2     0
+  m    4      1     1</code></pre>
+<p>Nachteile der <code>table()</code> Funktion sind hingegen die unbefriedigenden Möglichkeiten zum Exportieren als Word oder PDF Dokument sowie die umständliche Anzeige relativer Häufigkeiten und bedingter Wahrscheinlichkeiten. An dieser Stelle kommt die Funktion <code>tabyl()</code> aus dem <code>janitor</code> Package ins Spiel. Dabei ist das erste Argument der Name des Datensatzes gefolgt von ein bis drei Spaltennamen. Fehlende Werte werden automatisch angezeigt. Falls dies nicht erwünscht ist, könnten wir diese mit dem Argument <code>show_na = FALSE</code> ausblenden.</p>
+<div class="sourceCode" id="cb314"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb314-1"><a href="descr.html#cb314-1" tabindex="-1"></a><span class="fu">tabyl</span>(big5_mod, Geschlecht)</span></code></pre></div>
+<pre class="bordercode"><code> Geschlecht   n percent
+          f 118    0.59
+          m  82    0.41</code></pre>
+<p>Neben der absoluten werden zusätzlich die relativen Häufigkeiten angezeigt. Die Ausgaben der Funktion <code>tabyl()</code> sind außerdem mit der Hilfe von R Markdown direkt nach Word exportierbar (siehe Kapitel <a href="export.html#knitr">10.3.1</a>). Möchten wir wie zuvor zwei Variablen miteinander in Bezug auf Häufigkeiten analysieren, sollten wir auf einige Formatierungshilfen aus dem <code>janitor</code> Package zurückgreifen. Auch wenn diese zunächst umständlich erscheinen, profitiert man durch die übersichtliche Ausgabe enorm.</p>
+<p>Die Funktionen zum Formatieren beginnen alle mit dem Präfix <code>adorn</code>. In unserem ersten Beispiel sind wir an Unterschieden in Bezug auf die Häufigkeit der Altersgruppen je nach Geschlecht interessiert. Ausgeben möchten wir also die Zeilenrandsummen in einer extra Spalte (<code>"col"</code>), die bedingten Wahrscheinlichkeiten für jede Altersgruppe gegeben des jeweiligen Geschlechts (<code>"row"</code>) in Prozent, nur eine Nachkommastelle der Prozentwerte, die absoluten Häufigkeiten in Klammern und abschließend die Namen der verwendeten Spalten.</p>
+<div class="sourceCode" id="cb316"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb316-1"><a href="descr.html#cb316-1" tabindex="-1"></a><span class="fu">tabyl</span>(big5_mod, Geschlecht, Gruppe) <span class="sc">|&gt;</span> </span>
+<span id="cb316-2"><a href="descr.html#cb316-2" tabindex="-1"></a>  <span class="fu">adorn_totals</span>(<span class="st">&quot;col&quot;</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb316-3"><a href="descr.html#cb316-3" tabindex="-1"></a>  <span class="fu">adorn_percentages</span>(<span class="st">&quot;row&quot;</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb316-4"><a href="descr.html#cb316-4" tabindex="-1"></a>  <span class="fu">adorn_pct_formatting</span>(<span class="at">digits =</span> <span class="dv">1</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb316-5"><a href="descr.html#cb316-5" tabindex="-1"></a>  <span class="fu">adorn_ns</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb316-6"><a href="descr.html#cb316-6" tabindex="-1"></a>  <span class="fu">adorn_title</span>()</span></code></pre></div>
+<pre class="bordercode"><code>                Gruppe                                 
+ Geschlecht       Jung     Mittel    Weise        Total
+          f 75.4% (89) 16.9% (20) 7.6% (9) 100.0% (118)
+          m 70.7% (58) 23.2% (19) 6.1% (5) 100.0%  (82)</code></pre>
+<p>Möchten wir hingegen herausfinden, ob mehr Frauen oder Männer in den jeweiligen Altersgruppen befragt wurden, lassen wir uns stattdessen die Spaltenrandsummen in einer extra Zeile (<code>"row"</code>) und die bedingten Wahrscheinlichkeiten mit Konditionierung auf die Altersgruppe (<code>"col"</code>) ausgeben.</p>
+<div class="sourceCode" id="cb318"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb318-1"><a href="descr.html#cb318-1" tabindex="-1"></a><span class="fu">tabyl</span>(big5_mod, Geschlecht, Gruppe) <span class="sc">|&gt;</span> </span>
+<span id="cb318-2"><a href="descr.html#cb318-2" tabindex="-1"></a>  <span class="fu">adorn_totals</span>(<span class="st">&quot;row&quot;</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb318-3"><a href="descr.html#cb318-3" tabindex="-1"></a>  <span class="fu">adorn_percentages</span>(<span class="st">&quot;col&quot;</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb318-4"><a href="descr.html#cb318-4" tabindex="-1"></a>  <span class="fu">adorn_pct_formatting</span>(<span class="at">digits =</span> <span class="dv">1</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb318-5"><a href="descr.html#cb318-5" tabindex="-1"></a>  <span class="fu">adorn_ns</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb318-6"><a href="descr.html#cb318-6" tabindex="-1"></a>  <span class="fu">adorn_title</span>()</span></code></pre></div>
+<pre class="bordercode"><code>                  Gruppe                        
+ Geschlecht         Jung      Mittel       Weise
+          f  60.5%  (89)  51.3% (20)  64.3%  (9)
+          m  39.5%  (58)  48.7% (19)  35.7%  (5)
+      Total 100.0% (147) 100.0% (39) 100.0% (14)</code></pre>
+<div class="idea">
+<p>Während die Funktion <code>table()</code> vor allem für einen ersten Überblick und zum Erstellen von Kontingenztafeln für Hypothesentests geeignet ist, bietet die Funktion <code>tabyl()</code> viele Formatierungsmöglichkeiten mit direkter Kompatibilität mit R Markdown zum Exportieren in ein Word Dokument.</p>
+</div>
+<div class="exercise2">
+<p><strong>Übung 7.2.</strong> (Noch nicht enthalten) Starte die Übung mit <code>uebung_starten(7.2)</code>.</p>
+</div>
+</div>
+<div id="cor" class="section level2 hasAnchor" number="7.3">
+<h2><span class="header-section-number">7.3</span> Zusammenhangsmaße<a href="descr.html#cor" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Für einen schnell graphischen Überblick über größere Korrelationstabellen wird die Installation und das Laden des <code>corrplot</code> Packages empfohlen.</p>
+<div class="sourceCode" id="cb320"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb320-1"><a href="descr.html#cb320-1" tabindex="-1"></a><span class="fu">library</span>(corrplot)</span></code></pre></div>
+<p>In diesem Kapitel wird ebenfalls der <code>big5_mod</code> Datensatz aus dem <code>remp</code> Package verwendet. Zwei der wichtigsten Zusammenhangsmaße für metrische Variablen sind die Kovarianz und die darauf basierende Korrelation. Eine Korrelation berechnen wir mit der <code>cor()</code> Funktion, äquivalent dazu die Kovarianz mit <code>cov()</code>. Wir werden uns im weiteren Verlauf die Korrelationen konzentrieren. Wichtig ist hierbei das <code>method</code> Argument, welches standardmäßig die Produkt-Moment-Korrelation berechnet. Als Argument müssen wir die einzelnen Spalten als Wertereihe mithilfe des Dollar-Operators aus dem Datensatz extrahieren (siehe Kapitel <a href="vars.html#dollar">4.5</a>).</p>
+<div class="sourceCode" id="cb321"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb321-1"><a href="descr.html#cb321-1" tabindex="-1"></a><span class="fu">cor</span>(big5_mod<span class="sc">$</span>Extraversion, big5_mod<span class="sc">$</span>Neurotizismus, <span class="at">method =</span> <span class="st">&quot;pearson&quot;</span>)</span></code></pre></div>
+<pre class="bordercode"><code>[1] 0.06972529</code></pre>
+<p>Beim Vorliegen ordinaler Daten bevorzugen wir hingegen Rangkorrelation nach Spearman (<code>"spearman"</code>) oder Kendall (<code>"kendall"</code>), wofür das Argument <code>method</code>entsprechend anpassen.</p>
+<div class="sourceCode" id="cb323"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb323-1"><a href="descr.html#cb323-1" tabindex="-1"></a><span class="fu">cor</span>(big5_mod<span class="sc">$</span>Extraversion, big5_mod<span class="sc">$</span>Neurotizismus, <span class="at">method =</span> <span class="st">&quot;spearman&quot;</span>)</span></code></pre></div>
+<pre class="bordercode"><code>[1] 0.04874732</code></pre>
+<p>Um auf einen Schlag die Zusammenhänge von mehr als zwei Merkmalen zu explorieren, können wir der Funktion <code>cor()</code> den Datensatz mit den interessierenden Variablen auch direkt übergeben. Wichtig ist dabei, dass alle Spalten numerisch sind. Für unser Beispiel wählen wir uns zunächst die Spalten Alter, Extraversion und Neurotizismus aus und bezeichnen das Zwischenergebnis als <code>big5_sub</code>.</p>
+<div class="sourceCode" id="cb325"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb325-1"><a href="descr.html#cb325-1" tabindex="-1"></a>big5_sub <span class="ot">&lt;-</span> big5_mod <span class="sc">|&gt;</span> </span>
+<span id="cb325-2"><a href="descr.html#cb325-2" tabindex="-1"></a>  <span class="fu">select</span>(Alter, Extraversion, Neurotizismus)</span></code></pre></div>
+<p>Anschließend berechnen wir die Korrelation mit der Funktion <code>cor()</code>.</p>
+<div class="sourceCode" id="cb326"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb326-1"><a href="descr.html#cb326-1" tabindex="-1"></a>corr_table1 <span class="ot">&lt;-</span> <span class="fu">cor</span>(big5_sub)</span>
+<span id="cb326-2"><a href="descr.html#cb326-2" tabindex="-1"></a>corr_table1</span></code></pre></div>
+<pre class="bordercode"><code>                   Alter Extraversion Neurotizismus
+Alter          1.0000000  -0.12250136   -0.23019948
+Extraversion  -0.1225014   1.00000000    0.06972529
+Neurotizismus -0.2301995   0.06972529    1.00000000</code></pre>
+<p>Allerdings ist die Ausgabe vor allem bei größeren Korrelationstabellen nicht sonderlich übersichtlich. Deswegen verwenden wir zusätzlich die <code>corrplot</code> Funktion aus dem gleichnamigen Package, wobei wir an dieser Stelle nur die Korrelationen (<code>method = "number"</code>) im unteren Dreieck (<code>type = "lower"</code>) anschauen möchten. In Abbildung <a href="descr.html#fig:corrs">7.1</a> sehen wir auf der linken Seite die Korrelation mit farblicher Markierung. Positive Korrelation werden in blau und negative Korrelation in rot illustriert. Je kleiner die Korrelation, desto blasser ist Farbe der abgebildeten Korrelation.</p>
+<div class="sourceCode" id="cb328"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb328-1"><a href="descr.html#cb328-1" tabindex="-1"></a><span class="fu">corrplot</span>(corr_table1, <span class="at">method =</span> <span class="st">&quot;number&quot;</span>, <span class="at">type =</span> <span class="st">&quot;lower&quot;</span>)</span></code></pre></div>
+<p>Eine alternative Betrachtungsweise für Zusammenhänge sind Streudiagramme. Wir werden diese zwar im Detail erst in Kapitel <a href="visual.html#scatter">8.3</a> kennenlernen, allerdings bietet die direkt in R integrierte Funktion <code>pairs()</code> einen schönen ersten Überblick über mögliche Assoziationen der jeweiligen Merkmale (siehe Abbildung <a href="descr.html#fig:corrs">7.1</a> rechts).</p>
+<div class="sourceCode" id="cb329"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb329-1"><a href="descr.html#cb329-1" tabindex="-1"></a><span class="fu">pairs</span>(big5_sub, <span class="at">lower.panel =</span> panel.smooth)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:corrs"></span>
+<img src="r-empirische-wissenschaften_files/figure-html/corrs-1.svg" alt="Visualisierung der Korrelationen und zugehörigen Streudiagrammen." width="385" height="385" /><img src="r-empirische-wissenschaften_files/figure-html/corrs-2.svg" alt="Visualisierung der Korrelationen und zugehörigen Streudiagrammen." width="385" height="385" />
+<p class="caption">
+Abbildung 7.1: Visualisierung der Korrelationen und zugehörigen Streudiagrammen.
+</p>
+</div>
+<p>Bei sehr großen Korrelationstabellen werden aber auch diese Visualisierungen schnell unübersichtlich. Daher bietet es sich an, stattdessen nur Kreise darzustellen, die je nach Richtung der Korrelation eine andere Farbe mit unterschiedlicher Deckkraft und je nach Betrag einen anderen Durchmesser haben. Exemplarisch untersuchen wir dafür die Assoziation zwischen den Fragen zur Extraversion und zum Neurotizismus aus dem im <code>remp</code> enthaltenen Datensatz namens <code>big5_comp</code>. Dafür wählen wir die interessierenden Spalten aus und erstellen die Korrelationstabelle (siehe Kapitel <a href="datenvorbereitung.html#select">6.2</a>).</p>
+<div class="sourceCode" id="cb330"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb330-1"><a href="descr.html#cb330-1" tabindex="-1"></a>big5_sub2 <span class="ot">&lt;-</span> big5_comp <span class="sc">|&gt;</span> <span class="fu">select</span>(E1<span class="sc">:</span>N10)</span>
+<span id="cb330-2"><a href="descr.html#cb330-2" tabindex="-1"></a>corr_table2 <span class="ot">&lt;-</span> <span class="fu">cor</span>(big5_sub2)</span></code></pre></div>
+<p>Abschließend verwenden wir die bereits kennengelernte Funktion <code>corrplot()</code> ohne zusätzliche Argumente. In Abbildung <a href="descr.html#fig:corrs2">7.2</a> wird sehen wir anschaulich, dass nur die jeweils die Fragen der entsprechenden Dimension miteinander korrelieren. Negative Korrelation innerhalb der Fragen zur Extraversion oder dem Neurotizismus weisen auf eine inverse Kodierung hin.</p>
+<div class="sourceCode" id="cb331"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb331-1"><a href="descr.html#cb331-1" tabindex="-1"></a><span class="fu">corrplot</span>(corr_table2) </span></code></pre></div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:corrs2"></span>
+<img src="r-empirische-wissenschaften_files/figure-html/corrs2-1.svg" alt="Darstellung der Korrelationen als Kreise in Abhängigkeit der Stärke und Richtung. " width="485" height="485" />
+<p class="caption">
+Abbildung 7.2: Darstellung der Korrelationen als Kreise in Abhängigkeit der Stärke und Richtung.
+</p>
+</div>
+<p>Zusammenhangsmaße im Kontext von Kontingenztafeln werden im Rahmen von Kapitel <a href="inductive.html#contingency">9.6</a> besprochen.</p>
+<div class="exercise2">
+<p><strong>Übung 7.3.</strong> (Noch nicht enthalten) Starte die Übung mit <code>uebung_starten(7.3)</code>.</p>
+</div>
+
+</div>
+</div>
+<script data-goatcounter="https://remp.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="datenvorbereitung.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="visual.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": false,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+},
+"toc_depth": 3,
+"info": false
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

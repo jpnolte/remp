@@ -39,7 +39,7 @@ library(remotes)
 install_github("jpnolte/remp")
 ```
 
-Detaillierte Installationsanweisungen von R, RStudio und den notwendigen Packages sind im Buch enthalten.
+Detaillierte Installationsanweisungen von R, RStudio und den notwendigen Packages sind im Buch enthalten. 	
 
 ### FAQ {#fragenR}
 
@@ -67,7 +67,7 @@ Detaillierte Installationsanweisungen von R, RStudio und den notwendigen Package
       <input type="checkbox" checked>
       <i></i>
       <h2>Wird alles abgedeckt, was man zur Datenanalyse benötigt?</h2>
-      <p>Ja, nach Durcharbeiten dieses Buches können typische sowie fortgeschrittene Probleme der Datenauswertung selbstständig mit R gelöst werden. </p>
+      <p>Ja, nach Durcharbeiten dieses Buches können grundlegende sowie fortgeschrittene Probleme der Datenauswertung selbstständig mit R gelöst werden. </p>
     </li>
     <li>
       <input type="checkbox" checked>

@@ -34,7 +34,7 @@ jobs:
 
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
-          extra-packages: any::pkgdown, local::., rsconnect  # Ensure rsconnect is installed
+          extra-packages: any::pkgdown, local::., rsconnect, dplyr
 
       - name: Build site
         run: pkgdown::build_site_github_pages(clean = FALSE, new_process = FALSE, install = FALSE)

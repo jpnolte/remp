@@ -1,13 +1,12 @@
 <urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
 <url><loc>https://r-empirische-wissenschaften.de/404.html</loc></url>
-<url><loc>https://r-empirische-wissenschaften.de/Impressum.html</loc></url>
-<url><loc>https://r-empirische-wissenschaften.de/LICENSE-text.html</loc></url>
 <url><loc>https://r-empirische-wissenschaften.de/authors.html</loc></url>
 <url><loc>https://r-empirische-wissenschaften.de/buch/404.html</loc></url>
 <url><loc>https://r-empirische-wissenschaften.de/buch/appendix.html</loc></url>
 <url><loc>https://r-empirische-wissenschaften.de/buch/datatypes.html</loc></url>
 <url><loc>https://r-empirische-wissenschaften.de/buch/datenvorbereitung.html</loc></url>
 <url><loc>https://r-empirische-wissenschaften.de/buch/descr.html</loc></url>
+<url><loc>https://r-empirische-wissenschaften.de/buch/ergebnisse-exportieren.html</loc></url>
 <url><loc>https://r-empirische-wissenschaften.de/buch/export.html</loc></url>
 <url><loc>https://r-empirische-wissenschaften.de/buch/index.html</loc></url>
 <url><loc>https://r-empirische-wissenschaften.de/buch/inductive.html</loc></url>
@@ -18,7 +17,9 @@
 <url><loc>https://r-empirische-wissenschaften.de/buch/start.html</loc></url>
 <url><loc>https://r-empirische-wissenschaften.de/buch/vars.html</loc></url>
 <url><loc>https://r-empirische-wissenschaften.de/buch/visual.html</loc></url>
+<url><loc>https://r-empirische-wissenschaften.de/Impressum.html</loc></url>
 <url><loc>https://r-empirische-wissenschaften.de/index.html</loc></url>
+<url><loc>https://r-empirische-wissenschaften.de/LICENSE-text.html</loc></url>
 <url><loc>https://r-empirische-wissenschaften.de/news/index.html</loc></url>
 <url><loc>https://r-empirische-wissenschaften.de/reference/big5.html</loc></url>
 <url><loc>https://r-empirische-wissenschaften.de/reference/big5_comp.html</loc></url>

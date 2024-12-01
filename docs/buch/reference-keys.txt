@@ -169,7 +169,7 @@ voraussetzung
 normalverteilung
 varianzhomogenitaet
 broom
-export
+ergebnisse-exportieren
 intromarkdown
 markdown
 tabellen-umwandeln

@@ -20,10 +20,10 @@
   <meta name="twitter:description" content="Dieses Buch bietet einfache Erklärungen mit praktischen Beispielen und Übungen, welche das Erlernen von R ohne Programmiervorkenntnisse im Selbststudium ermöglichen. Die Zielgruppe sind WissenschaftlerInnen und StudentInnen der Fachrichtungen Medizin, Psychologie, Wirtschaftswissenschaften, Sozialwissenschaften, Agrarwissenschaften, Neurowissenschaften, Biologie, Journalismus, Tourismus, Data Science, Biostatistik und allen weiteren Disziplinen, die Daten auswerten möchten." />
   <meta name="twitter:image" content="/images/logo.png" />
 
-<meta name="author" content="Dr. med. univ. Jan Philipp Nolte, BSc. MSc" />
+<meta name="author" content="Dr. med. univ. Jan Philipp Nolte, MSc, BSc." />
 
 
-<meta name="date" content="2024-10-10" />
+<meta name="date" content="2024-12-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -31,7 +31,7 @@
   <link rel="apple-touch-icon-precomposed" sizes="120x120" href="images/touch-icon.png" />
   <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
 <link rel="prev" href="visual.html"/>
-<link rel="next" href="export.html"/>
+<link rel="next" href="ergebnisse-exportieren.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -328,16 +328,16 @@ div.csl-indent {
 <li class="chapter" data-level="9.8" data-path="inductive.html"><a href="inductive.html#broom"><i class="fa fa-check"></i><b>9.8</b> Ergebnisse formatieren</a></li>
 </ul></li>
 <li class="part"><span><b>IV Vertiefung</b></span></li>
-<li class="chapter" data-level="10" data-path="export.html"><a href="export.html"><i class="fa fa-check"></i><b>10</b> Ergebnisse exportieren</a>
+<li class="chapter" data-level="10" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html"><i class="fa fa-check"></i><b>10</b> Ergebnisse exportieren</a>
 <ul>
-<li class="chapter" data-level="10.1" data-path="export.html"><a href="export.html#intromarkdown"><i class="fa fa-check"></i><b>10.1</b> Wichtige Begriffe</a></li>
-<li class="chapter" data-level="10.2" data-path="export.html"><a href="export.html#markdown"><i class="fa fa-check"></i><b>10.2</b> Berichte erstellen</a></li>
-<li class="chapter" data-level="10.3" data-path="export.html"><a href="export.html#tabellen-umwandeln"><i class="fa fa-check"></i><b>10.3</b> Tabellen umwandeln</a>
+<li class="chapter" data-level="10.1" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#intromarkdown"><i class="fa fa-check"></i><b>10.1</b> Wichtige Begriffe</a></li>
+<li class="chapter" data-level="10.2" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#markdown"><i class="fa fa-check"></i><b>10.2</b> Berichte erstellen</a></li>
+<li class="chapter" data-level="10.3" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#tabellen-umwandeln"><i class="fa fa-check"></i><b>10.3</b> Tabellen umwandeln</a>
 <ul>
-<li class="chapter" data-level="10.3.1" data-path="export.html"><a href="export.html#knitr"><i class="fa fa-check"></i><b>10.3.1</b> Exportieren nach Word und PDF</a></li>
-<li class="chapter" data-level="10.3.2" data-path="export.html"><a href="export.html#latex"><i class="fa fa-check"></i><b>10.3.2</b> Exportieren nach LaTeX</a></li>
+<li class="chapter" data-level="10.3.1" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#knitr"><i class="fa fa-check"></i><b>10.3.1</b> Exportieren nach Word und PDF</a></li>
+<li class="chapter" data-level="10.3.2" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#latex"><i class="fa fa-check"></i><b>10.3.2</b> Exportieren nach LaTeX</a></li>
 </ul></li>
-<li class="chapter" data-level="10.4" data-path="export.html"><a href="export.html#quarto"><i class="fa fa-check"></i><b>10.4</b> Alternative mit Quarto</a></li>
+<li class="chapter" data-level="10.4" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#quarto"><i class="fa fa-check"></i><b>10.4</b> Alternative mit Quarto</a></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="datatypes.html"><a href="datatypes.html"><i class="fa fa-check"></i><b>11</b> Datenstrukturen</a>
 <ul>
@@ -822,8 +822,8 @@ sample estimates:
 <p>Bei Vorliegen zweier ordinaler Merkmale können wir nicht-parametrischen Rangkorrelationen verwenden. Eine weit verbreitete Methode dafür ist die Rangkorrelation nach Spearman. Im Vergleich zum vorherigen Kapitel verändert sich lediglich das <code>method</code> Argument. Die Merkmale müssen auch hier in Form von Vektoren (bzw. Wertereihen) mithilfe des Dollar-Operators aus dem Datensatz extrahiert werden (siehe Kapitel <a href="vars.html#dollar">4.5</a>).</p>
 <p>Wir möchten an dieser Stelle untersuchen, ob das subjektive Schmerzausmaß der PatientInnen mit der empfundenen Lebensqualität zusammenhängt. Beide Merkmale sind durch einen Fragebogen mit zehn Stufen erhoben worden. Auf der Schmerzskala entspricht eine 1 keinen und eine 10 unerträglichen Schmerzen. Bei der Lebensqualität steht eine 1 für unzumutbare Einschränkungen und eine 10 für uneingeschränktes Glück. Die Nullhypothese ist auch bei der Rangkorrelation ein fehlender Zusammenhang, während die Alternativhypothese eine Korrelation ungleich 0 beschreibt.</p>
 <div class="sourceCode" id="cb506"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb506-1"><a href="inductive.html#cb506-1" tabindex="-1"></a><span class="fu">cor.test</span>(chemo<span class="sc">$</span>Schmerzen, chemo<span class="sc">$</span>Lebensqualitaet, <span class="at">method =</span> <span class="st">&quot;spearman&quot;</span>)</span></code></pre></div>
-<pre class="bordercode"><code>Warning in cor.test.default(chemo$Schmerzen, chemo$Lebensqualitaet, method = &quot;spearman&quot;): Cannot
-compute exact p-value with ties</code></pre>
+<pre class="bordercode"><code>Warning in cor.test.default(chemo$Schmerzen, chemo$Lebensqualitaet, method = &quot;spearman&quot;):
+Cannot compute exact p-value with ties</code></pre>
 <pre class="bordercode"><code>
     Spearman&#39;s rank correlation rho
 
@@ -1056,8 +1056,8 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 Number of linear predictors:  9 
 
 Names of linear predictors: logitlink(P[Y&gt;=2]), logitlink(P[Y&gt;=3]), logitlink(P[Y&gt;=4]), 
-logitlink(P[Y&gt;=5]), logitlink(P[Y&gt;=6]), logitlink(P[Y&gt;=7]), logitlink(P[Y&gt;=8]), logitlink(P[Y&gt;=9]), 
-logitlink(P[Y&gt;=10])
+logitlink(P[Y&gt;=5]), logitlink(P[Y&gt;=6]), logitlink(P[Y&gt;=7]), logitlink(P[Y&gt;=8]), 
+logitlink(P[Y&gt;=9]), logitlink(P[Y&gt;=10])
 
 Residual deviance: 1957.469 on 4039 degrees of freedom
 
@@ -1530,7 +1530,7 @@ Abbildung 9.3: Graphische Überprüfungen der Homoskedastizität der Residuen.
         </div>
       </div>
 <a href="visual.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="export.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="ergebnisse-exportieren.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

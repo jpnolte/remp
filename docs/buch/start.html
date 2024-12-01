@@ -20,10 +20,10 @@
   <meta name="twitter:description" content="Dieses Buch bietet einfache Erklärungen mit praktischen Beispielen und Übungen, welche das Erlernen von R ohne Programmiervorkenntnisse im Selbststudium ermöglichen. Die Zielgruppe sind WissenschaftlerInnen und StudentInnen der Fachrichtungen Medizin, Psychologie, Wirtschaftswissenschaften, Sozialwissenschaften, Agrarwissenschaften, Neurowissenschaften, Biologie, Journalismus, Tourismus, Data Science, Biostatistik und allen weiteren Disziplinen, die Daten auswerten möchten." />
   <meta name="twitter:image" content="/images/logo.png" />
 
-<meta name="author" content="Dr. med. univ. Jan Philipp Nolte, BSc. MSc" />
+<meta name="author" content="Dr. med. univ. Jan Philipp Nolte, MSc, BSc." />
 
 
-<meta name="date" content="2024-10-10" />
+<meta name="date" content="2024-12-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -328,16 +328,16 @@ div.csl-indent {
 <li class="chapter" data-level="9.8" data-path="inductive.html"><a href="inductive.html#broom"><i class="fa fa-check"></i><b>9.8</b> Ergebnisse formatieren</a></li>
 </ul></li>
 <li class="part"><span><b>IV Vertiefung</b></span></li>
-<li class="chapter" data-level="10" data-path="export.html"><a href="export.html"><i class="fa fa-check"></i><b>10</b> Ergebnisse exportieren</a>
+<li class="chapter" data-level="10" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html"><i class="fa fa-check"></i><b>10</b> Ergebnisse exportieren</a>
 <ul>
-<li class="chapter" data-level="10.1" data-path="export.html"><a href="export.html#intromarkdown"><i class="fa fa-check"></i><b>10.1</b> Wichtige Begriffe</a></li>
-<li class="chapter" data-level="10.2" data-path="export.html"><a href="export.html#markdown"><i class="fa fa-check"></i><b>10.2</b> Berichte erstellen</a></li>
-<li class="chapter" data-level="10.3" data-path="export.html"><a href="export.html#tabellen-umwandeln"><i class="fa fa-check"></i><b>10.3</b> Tabellen umwandeln</a>
+<li class="chapter" data-level="10.1" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#intromarkdown"><i class="fa fa-check"></i><b>10.1</b> Wichtige Begriffe</a></li>
+<li class="chapter" data-level="10.2" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#markdown"><i class="fa fa-check"></i><b>10.2</b> Berichte erstellen</a></li>
+<li class="chapter" data-level="10.3" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#tabellen-umwandeln"><i class="fa fa-check"></i><b>10.3</b> Tabellen umwandeln</a>
 <ul>
-<li class="chapter" data-level="10.3.1" data-path="export.html"><a href="export.html#knitr"><i class="fa fa-check"></i><b>10.3.1</b> Exportieren nach Word und PDF</a></li>
-<li class="chapter" data-level="10.3.2" data-path="export.html"><a href="export.html#latex"><i class="fa fa-check"></i><b>10.3.2</b> Exportieren nach LaTeX</a></li>
+<li class="chapter" data-level="10.3.1" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#knitr"><i class="fa fa-check"></i><b>10.3.1</b> Exportieren nach Word und PDF</a></li>
+<li class="chapter" data-level="10.3.2" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#latex"><i class="fa fa-check"></i><b>10.3.2</b> Exportieren nach LaTeX</a></li>
 </ul></li>
-<li class="chapter" data-level="10.4" data-path="export.html"><a href="export.html#quarto"><i class="fa fa-check"></i><b>10.4</b> Alternative mit Quarto</a></li>
+<li class="chapter" data-level="10.4" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#quarto"><i class="fa fa-check"></i><b>10.4</b> Alternative mit Quarto</a></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="datatypes.html"><a href="datatypes.html"><i class="fa fa-check"></i><b>11</b> Datenstrukturen</a>
 <ul>
@@ -662,9 +662,9 @@ Abbildung 2.5: Eingabe der einmaligen Installation in die Konsole.
 <p><strong>Package Dokumentation.</strong> Das naheliegendste ist die Dokumentation der R Funktionen, die auch ohne Internet direkt in R aufgerufen werden können. Dafür kannst du entweder ein Fragezeichen vor die Funktion schreiben und diese ausführen oder mit dem Cursor auf der Funktion <kbd>F1</kbd> drücken. Wenn wir zum Beispiel mehr über die Argumente der Funktion <code>install.packages()</code> erhalten möchten, können wir dies so erreichen:</p>
 <div class="sourceCode" id="cb24"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb24-1"><a href="start.html#cb24-1" tabindex="-1"></a>?install.packages</span></code></pre></div>
 <p>Die meisten modernen Packages stellen außerdem so genannte Vignetten zur Verfügung, in denen häufige Probleme ausführlich diskutiert und erklärt werden. Diese können mit <code>vignette("nameDerVignette")</code> auch direkt innerhalb von R aufgerufen werden.</p>
+<p><strong>KI Hilfen.</strong> Large Language Models wie ChatGPT stellen eine herausragende Begleitung jedes Programmierers und jeder Programmiererin dar. Auch wenn ChatGPT selbst nur Python Code interpretieren kann, sind auch die Programmieransätze mit R brauchbar, sofern ein Basiswissen in R besteht. Vollständige AnfängerInnen werden hingegen schnell an Grenzen stoßen.</p>
 <p><strong>Suchmaschine.</strong> In die Suchmaschine gibst du einfach <code>r</code> gefolgt von der Fehlermeldung oder dem Problem ein, an dem du aktuell festhängst. Es gibt kaum eine Fehlermeldung, bei der das Programmierforum StackOverflow nicht an erster Stelle angezeigt wird. Denn meistens hat jemand anderes schon einmal genau dasselbe Problem gehabt hat.</p>
 <p><strong>Stackoverflow.</strong> Dies ist wohl das mit Abstand größte Forum für Programmierfragen. Allerdings kann es einschüchternd sein, dort als absoluter Anfänger selbst eine Frage zu stellen. Voraussetzung zum Fragestellen ist dort das Erstellen eines kurzes reproduzierbares Beispiel für den Fehler. Du erreichst die Seite unter <a href="https://stackoverflow.com/" class="uri">https://stackoverflow.com/</a>.</p>
-<p><strong>RStudio Community.</strong> Eine etwas kleinere Alternative zu StackOverflow ist die RStudio Community. Statte ihr bei Bedarf unter <a href="https://community.rstudio.com/" class="uri">https://community.rstudio.com/</a> einen Besuch ab.</p>
 </div>
 <div id="fehler-beheben" class="section level3 hasAnchor" number="2.6.3">
 <h3><span class="header-section-number">2.6.3</span> Fehler beheben<a href="start.html#fehler-beheben" class="anchor-section" aria-label="Anchor link to header"></a></h3>

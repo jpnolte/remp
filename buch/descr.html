@@ -20,10 +20,10 @@
   <meta name="twitter:description" content="Dieses Buch bietet einfache Erklärungen mit praktischen Beispielen und Übungen, welche das Erlernen von R ohne Programmiervorkenntnisse im Selbststudium ermöglichen. Die Zielgruppe sind WissenschaftlerInnen und StudentInnen der Fachrichtungen Medizin, Psychologie, Wirtschaftswissenschaften, Sozialwissenschaften, Agrarwissenschaften, Neurowissenschaften, Biologie, Journalismus, Tourismus, Data Science, Biostatistik und allen weiteren Disziplinen, die Daten auswerten möchten." />
   <meta name="twitter:image" content="/images/logo.png" />
 
-<meta name="author" content="Dr. med. univ. Jan Philipp Nolte, BSc. MSc" />
+<meta name="author" content="Dr. med. univ. Jan Philipp Nolte, MSc, BSc." />
 
 
-<meta name="date" content="2024-10-10" />
+<meta name="date" content="2024-12-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -328,16 +328,16 @@ div.csl-indent {
 <li class="chapter" data-level="9.8" data-path="inductive.html"><a href="inductive.html#broom"><i class="fa fa-check"></i><b>9.8</b> Ergebnisse formatieren</a></li>
 </ul></li>
 <li class="part"><span><b>IV Vertiefung</b></span></li>
-<li class="chapter" data-level="10" data-path="export.html"><a href="export.html"><i class="fa fa-check"></i><b>10</b> Ergebnisse exportieren</a>
+<li class="chapter" data-level="10" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html"><i class="fa fa-check"></i><b>10</b> Ergebnisse exportieren</a>
 <ul>
-<li class="chapter" data-level="10.1" data-path="export.html"><a href="export.html#intromarkdown"><i class="fa fa-check"></i><b>10.1</b> Wichtige Begriffe</a></li>
-<li class="chapter" data-level="10.2" data-path="export.html"><a href="export.html#markdown"><i class="fa fa-check"></i><b>10.2</b> Berichte erstellen</a></li>
-<li class="chapter" data-level="10.3" data-path="export.html"><a href="export.html#tabellen-umwandeln"><i class="fa fa-check"></i><b>10.3</b> Tabellen umwandeln</a>
+<li class="chapter" data-level="10.1" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#intromarkdown"><i class="fa fa-check"></i><b>10.1</b> Wichtige Begriffe</a></li>
+<li class="chapter" data-level="10.2" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#markdown"><i class="fa fa-check"></i><b>10.2</b> Berichte erstellen</a></li>
+<li class="chapter" data-level="10.3" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#tabellen-umwandeln"><i class="fa fa-check"></i><b>10.3</b> Tabellen umwandeln</a>
 <ul>
-<li class="chapter" data-level="10.3.1" data-path="export.html"><a href="export.html#knitr"><i class="fa fa-check"></i><b>10.3.1</b> Exportieren nach Word und PDF</a></li>
-<li class="chapter" data-level="10.3.2" data-path="export.html"><a href="export.html#latex"><i class="fa fa-check"></i><b>10.3.2</b> Exportieren nach LaTeX</a></li>
+<li class="chapter" data-level="10.3.1" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#knitr"><i class="fa fa-check"></i><b>10.3.1</b> Exportieren nach Word und PDF</a></li>
+<li class="chapter" data-level="10.3.2" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#latex"><i class="fa fa-check"></i><b>10.3.2</b> Exportieren nach LaTeX</a></li>
 </ul></li>
-<li class="chapter" data-level="10.4" data-path="export.html"><a href="export.html#quarto"><i class="fa fa-check"></i><b>10.4</b> Alternative mit Quarto</a></li>
+<li class="chapter" data-level="10.4" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#quarto"><i class="fa fa-check"></i><b>10.4</b> Alternative mit Quarto</a></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="datatypes.html"><a href="datatypes.html"><i class="fa fa-check"></i><b>11</b> Datenstrukturen</a>
 <ul>
@@ -558,7 +558,7 @@ Geschlecht Jung Mittel Weise
 <pre class="bordercode"><code> Geschlecht   n percent
           f 118    0.59
           m  82    0.41</code></pre>
-<p>Neben der absoluten werden zusätzlich die relativen Häufigkeiten angezeigt. Die Ausgaben der Funktion <code>tabyl()</code> sind außerdem mit der Hilfe von R Markdown direkt nach Word exportierbar (siehe Kapitel <a href="export.html#knitr">10.3.1</a>). Möchten wir wie zuvor zwei Variablen miteinander in Bezug auf Häufigkeiten analysieren, sollten wir auf einige Formatierungshilfen aus dem <code>janitor</code> Package zurückgreifen. Auch wenn diese zunächst umständlich erscheinen, profitiert man durch die übersichtliche Ausgabe enorm.</p>
+<p>Neben der absoluten werden zusätzlich die relativen Häufigkeiten angezeigt. Die Ausgaben der Funktion <code>tabyl()</code> sind außerdem mit der Hilfe von R Markdown direkt nach Word exportierbar (siehe Kapitel <a href="ergebnisse-exportieren.html#knitr">10.3.1</a>). Möchten wir wie zuvor zwei Variablen miteinander in Bezug auf Häufigkeiten analysieren, sollten wir auf einige Formatierungshilfen aus dem <code>janitor</code> Package zurückgreifen. Auch wenn diese zunächst umständlich erscheinen, profitiert man durch die übersichtliche Ausgabe enorm.</p>
 <p>Die Funktionen zum Formatieren beginnen alle mit dem Präfix <code>adorn</code>. In unserem ersten Beispiel sind wir an Unterschieden in Bezug auf die Häufigkeit der Altersgruppen je nach Geschlecht interessiert. Ausgeben möchten wir also die Zeilenrandsummen in einer extra Spalte (<code>"col"</code>), die bedingten Wahrscheinlichkeiten für jede Altersgruppe gegeben des jeweiligen Geschlechts (<code>"row"</code>) in Prozent, nur eine Nachkommastelle der Prozentwerte, die absoluten Häufigkeiten in Klammern und abschließend die Namen der verwendeten Spalten.</p>
 <div class="sourceCode" id="cb316"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb316-1"><a href="descr.html#cb316-1" tabindex="-1"></a><span class="fu">tabyl</span>(big5_mod, Geschlecht, Gruppe) <span class="sc">|&gt;</span> </span>
 <span id="cb316-2"><a href="descr.html#cb316-2" tabindex="-1"></a>  <span class="fu">adorn_totals</span>(<span class="st">&quot;col&quot;</span>) <span class="sc">|&gt;</span> </span>

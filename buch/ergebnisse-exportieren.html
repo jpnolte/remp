@@ -20,10 +20,10 @@
   <meta name="twitter:description" content="Dieses Buch bietet einfache Erklärungen mit praktischen Beispielen und Übungen, welche das Erlernen von R ohne Programmiervorkenntnisse im Selbststudium ermöglichen. Die Zielgruppe sind WissenschaftlerInnen und StudentInnen der Fachrichtungen Medizin, Psychologie, Wirtschaftswissenschaften, Sozialwissenschaften, Agrarwissenschaften, Neurowissenschaften, Biologie, Journalismus, Tourismus, Data Science, Biostatistik und allen weiteren Disziplinen, die Daten auswerten möchten." />
   <meta name="twitter:image" content="/images/logo.png" />
 
-<meta name="author" content="Dr. med. univ. Jan Philipp Nolte, BSc. MSc" />
+<meta name="author" content="Dr. med. univ. Jan Philipp Nolte, MSc, BSc." />
 
 
-<meta name="date" content="2024-10-10" />
+<meta name="date" content="2024-12-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -328,16 +328,16 @@ div.csl-indent {
 <li class="chapter" data-level="9.8" data-path="inductive.html"><a href="inductive.html#broom"><i class="fa fa-check"></i><b>9.8</b> Ergebnisse formatieren</a></li>
 </ul></li>
 <li class="part"><span><b>IV Vertiefung</b></span></li>
-<li class="chapter" data-level="10" data-path="export.html"><a href="export.html"><i class="fa fa-check"></i><b>10</b> Ergebnisse exportieren</a>
+<li class="chapter" data-level="10" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html"><i class="fa fa-check"></i><b>10</b> Ergebnisse exportieren</a>
 <ul>
-<li class="chapter" data-level="10.1" data-path="export.html"><a href="export.html#intromarkdown"><i class="fa fa-check"></i><b>10.1</b> Wichtige Begriffe</a></li>
-<li class="chapter" data-level="10.2" data-path="export.html"><a href="export.html#markdown"><i class="fa fa-check"></i><b>10.2</b> Berichte erstellen</a></li>
-<li class="chapter" data-level="10.3" data-path="export.html"><a href="export.html#tabellen-umwandeln"><i class="fa fa-check"></i><b>10.3</b> Tabellen umwandeln</a>
+<li class="chapter" data-level="10.1" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#intromarkdown"><i class="fa fa-check"></i><b>10.1</b> Wichtige Begriffe</a></li>
+<li class="chapter" data-level="10.2" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#markdown"><i class="fa fa-check"></i><b>10.2</b> Berichte erstellen</a></li>
+<li class="chapter" data-level="10.3" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#tabellen-umwandeln"><i class="fa fa-check"></i><b>10.3</b> Tabellen umwandeln</a>
 <ul>
-<li class="chapter" data-level="10.3.1" data-path="export.html"><a href="export.html#knitr"><i class="fa fa-check"></i><b>10.3.1</b> Exportieren nach Word und PDF</a></li>
-<li class="chapter" data-level="10.3.2" data-path="export.html"><a href="export.html#latex"><i class="fa fa-check"></i><b>10.3.2</b> Exportieren nach LaTeX</a></li>
+<li class="chapter" data-level="10.3.1" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#knitr"><i class="fa fa-check"></i><b>10.3.1</b> Exportieren nach Word und PDF</a></li>
+<li class="chapter" data-level="10.3.2" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#latex"><i class="fa fa-check"></i><b>10.3.2</b> Exportieren nach LaTeX</a></li>
 </ul></li>
-<li class="chapter" data-level="10.4" data-path="export.html"><a href="export.html#quarto"><i class="fa fa-check"></i><b>10.4</b> Alternative mit Quarto</a></li>
+<li class="chapter" data-level="10.4" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#quarto"><i class="fa fa-check"></i><b>10.4</b> Alternative mit Quarto</a></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="datatypes.html"><a href="datatypes.html"><i class="fa fa-check"></i><b>11</b> Datenstrukturen</a>
 <ul>
@@ -390,13 +390,13 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="export" class="section level1 hasAnchor" number="10">
-<h1><span class="header-section-number">Kapitel 10</span> Ergebnisse exportieren<a href="export.html#export" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="ergebnisse-exportieren" class="section level1 hasAnchor" number="10">
+<h1><span class="header-section-number">Kapitel 10</span> Ergebnisse exportieren<a href="ergebnisse-exportieren.html#ergebnisse-exportieren" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <blockquote>
 <p>Nachdem alle Berechnungen mit R durchgeführt wurden, möchte man in der Regel die erstellten Tabellen und Abbildungen in das für die wissenschaftliche Arbeit verwendete Textverarbeitungsprogramm einfügen. Die Ergebnisse einfach aus der Konsole zu kopieren und bspw. in Word einzufügen sieht allerdings schlecht aus und benötigt nachträglich einige Formatierungen. Glücklicherweise gibt es zwei Erweiterungen, mit denen man die Ergebnisse aus R direkt in PDFs oder Word-Dokumente, Internetseiten oder LaTeX Code umwandeln kann. Auf diese Weise können nicht nur einzelne Tabellen, sondern ganze Paper oder Bücher erstellt werden.</p>
 </blockquote>
 <div id="intromarkdown" class="section level2 hasAnchor" number="10.1">
-<h2><span class="header-section-number">10.1</span> Wichtige Begriffe<a href="export.html#intromarkdown" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<h2><span class="header-section-number">10.1</span> Wichtige Begriffe<a href="ergebnisse-exportieren.html#intromarkdown" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Während der Datenanalyse werden alle Auswertungen zunächst nur innerhalb von RStudio angezeigt. Die Ergebnisse aus R in ein anderes Format zu bringen, hat vor allem zwei Vorteile:</p>
 <ol style="list-style-type: decimal">
 <li>Die Auswertungen können auch mit KollegInnen und BetreuerInnen besprochen werden, die kein R installiert haben.</li>
@@ -410,17 +410,17 @@ div.csl-indent {
 <p><strong>Quarto.</strong> Eine neuere Alternative zu R Markdown ist Quarto. Auch hier handelt es sich um ein eigenes Dateiformat, welches mit <code>.qmd</code> endet. Die Anwendung der beiden Formate ist grundsätzlich sehr ähnlich. Unterschiede und mögliche Vorteile werden in der folgenden Info-Box diskutiert.</p>
 <p><strong>Pandoc.</strong> Die Umwandlung der Dateien findet hinter den Kulissen mithilfe von Pandoc statt. Da Pandoc seit der RStudio Version <code>1.3</code> vorinstalliert ist, muss du dir darum keine Gedanken mehr machen. Wer eine ältere Version auf dem Computer hat, muss Pandoc manuell unter <a href="https://pandoc.org/installing.html">https://pandoc.org/installing.html</a> herunterladen. Für das Umwandeln von R Markdown Dateien in Word durch Pandoc ist außerdem eine Installation von Microsoft Office oder LibreOffice auf dem Computer notwendig.</p>
 <p><strong>LaTeX.</strong> Das zuvor beschriebene Pandoc formiert die Datei in LaTeX um, welches wiederum für das Kreieren des PDFs verantwortlich ist. LaTeX wird in abgeänderter Form bereits seit Ende der 70er Jahre vor allem von NaturwissenschaftlerInnen für die Erstellung wissenschaftlicher Arbeiten verwendet wird. Es ist notwendig, dieses Programm auf dem Computer installiert zu haben, wenn man seine Analyse in ein PDF umwandeln möchte. Für R Nutzer ist die einfachste Installation über das <code>tinytex</code> Package. Dafür muss zuerst das Package installiert werden. Anschließend erfolgt mit <code>install_tinytex()</code> die Installation von LaTeX.</p>
-<div class="sourceCode" id="cb606"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb606-1"><a href="export.html#cb606-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;tinytex&quot;</span>)</span>
-<span id="cb606-2"><a href="export.html#cb606-2" tabindex="-1"></a>tinytex<span class="sc">::</span><span class="fu">install_tinytex</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb606"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb606-1"><a href="ergebnisse-exportieren.html#cb606-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;tinytex&quot;</span>)</span>
+<span id="cb606-2"><a href="ergebnisse-exportieren.html#cb606-2" tabindex="-1"></a>tinytex<span class="sc">::</span><span class="fu">install_tinytex</span>()</span></code></pre></div>
 <p>Alternativ kann auf Windows MiKTeX, auf macOS MacTeX und auf Linux LiveTeX installiert werden. Dies erfolgt unabhängig von R durch Befolgen der jeweiligen Installationsanweisungen auf der entsprechenden Internetseite.</p>
 <div class="idea">
 <p>Das Unternehmen Posit (EntwicklerInnen von RStudio) hat eine Alternative zu R Markdown namens Quarto entwickelt. Der Aufbau von R Markdown und Quarto Dateien ist dabei sehr ähnlich, weswegen es kaum einen Unterschied macht, für welches Programm man sich zunächst entscheidet. R Markdown existiert deutlich länger, weswegen es diverse Erweiterungen und Dokumentation dafür gibt. Einige dieser Erweiterungen sind ohne Zusatzpakete direkt in Quarto integriert. Tendenziell sehen die Umwandlungen mit Quarto etwas moderner aus. Außerdem kann Quarto besser mit anderen Programmiersprachen wie Python oder Julia verwendet werden. Für welches dieser Formate man sich letzten Endes entscheidet, hängt von der persönlichen Präferenz und dem eigenen Anwendungsgebiet ab.</p>
 </div>
 </div>
 <div id="markdown" class="section level2 hasAnchor" number="10.2">
-<h2><span class="header-section-number">10.2</span> Berichte erstellen<a href="export.html#markdown" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<h2><span class="header-section-number">10.2</span> Berichte erstellen<a href="ergebnisse-exportieren.html#markdown" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Für dieses Kapitel muss das <code>knitr</code> Package installiert und geladen werden.</p>
-<div class="sourceCode" id="cb607"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb607-1"><a href="export.html#cb607-1" tabindex="-1"></a><span class="fu">library</span>(knitr)</span></code></pre></div>
+<div class="sourceCode" id="cb607"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb607-1"><a href="ergebnisse-exportieren.html#cb607-1" tabindex="-1"></a><span class="fu">library</span>(knitr)</span></code></pre></div>
 <p>Öffne zum Erstellen von R Markdown Dokumenten (Endung <code>.Rmd</code>) das Dropdown-Menü mit dem Papier und dem grünen Pluszeichen unter dem Reiter <code>File</code>.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-399"></span>
 <img src="images/new_markdown1.png" alt="Erster Schritt in der Erstellung eines neuen R Markdown Skripts." width="750" height="421" />
@@ -443,23 +443,23 @@ Abbildung 10.2: Zweiter Schritt zur Erstellung eines neuen R Markdown Skripts.
 <li>Links: <code>[Klicke hier](https://cran.r-project.org/)</code> wird zu: <a href="https://cran.r-project.org/">Klicke hier</a> (im gebundenen Buch sind Links nicht extra farblich hervorgehoben)</li>
 <li>Überschriften können mit einer führenden Raute (# Überschrift 1) erstellt werden. Für Abschnitte innerhalb des Hauptkapitels können beliebig viele Rauten hinzugefügt werden (z.B. ## Unterkapitel 1).</li>
 </ul>
-<p>Um das etwas abstrakte Konzept verständlicher zu machen, soll an dieser Stelle eine ganze R Markdown Datei namens <code>Beispiel.Rmd</code> abgebildet werden. Zu Beginn des Dokumentes befindet sich der YAML-Kopf, in dem verschiedene Optionen angepasst werden können (siehe Kapitel <a href="export.html#intromarkdown">10.1</a>). Wir beschränken uns hier auf die Auswahl des Titels, des Autors, des Datums sowie einer optisch ansprechenden Abbildung der Tabellen (<code>df_print: paged</code> oder <code>df_print: kable</code>). Beachte im Kontext von YAML immer die richtige Einrückung der Optionen.</p>
+<p>Um das etwas abstrakte Konzept verständlicher zu machen, soll an dieser Stelle eine ganze R Markdown Datei namens <code>Beispiel.Rmd</code> abgebildet werden. Zu Beginn des Dokumentes befindet sich der YAML-Kopf, in dem verschiedene Optionen angepasst werden können (siehe Kapitel <a href="ergebnisse-exportieren.html#intromarkdown">10.1</a>). Wir beschränken uns hier auf die Auswahl des Titels, des Autors, des Datums sowie einer optisch ansprechenden Abbildung der Tabellen (<code>df_print: paged</code> oder <code>df_print: kable</code>). Beachte im Kontext von YAML immer die richtige Einrückung der Optionen.</p>
 <p>Nach erfolgreicher Definition der Optionen können wir grau hinterlegte Code Blöcke mithilfe von drei <em>Backticks</em> (```) erstellen. Diese erlauben das Ausführen von R Funktionen. Den <em>Backticks</em> folgen geschweifte Klammern. Die erste Information ist die verwendete Programmiersprache (hier R). Weitere Einstellungen dieses Code Blocks werden in den Zeilen darunter mit einer Hashpipe (<code>#|</code>) festgelegt (z.B. <code>#| label: setup</code>). Die einzelnen Optionen werden mit einem Doppelpunkt und nicht mit einem Gleichheitszeichen übergeben.</p>
 <p>Im ersten Code Block laden wir alle Packages und Datensätze. Auch Vorberechnungen, die später nicht dargestellt werden sollen, würden an dieser Stelle ihren Platz finden. Durch die Option <code>include: FALSE</code> wird der Inhalt zwar ausgeführt, aber nicht angezeigt.</p>
 <p>Eine weitere Option zum Ausblenden des Codes ist das Argument <code>echo</code>, welches ebenfalls auf <code>FALSE</code> gesetzt werden kann. So können bspw. ausschließlich die Ergebnisse in Form von Tabellen ohne zugehörigen R Code angezeigt werden.</p>
 <p><strong>– Beginn der Datei Beispiel.Rmd – </strong></p>
-<div class="sourceCode" id="cb608"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb608-1"><a href="export.html#cb608-1" tabindex="-1"></a><span class="pp">---</span></span>
-<span id="cb608-2"><a href="export.html#cb608-2" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;Vorläufige Ergebnisse&quot;</span></span>
-<span id="cb608-3"><a href="export.html#cb608-3" tabindex="-1"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;Student A&quot;</span></span>
-<span id="cb608-4"><a href="export.html#cb608-4" tabindex="-1"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;2023-01-13&quot;</span></span>
-<span id="cb608-5"><a href="export.html#cb608-5" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span></span>
-<span id="cb608-6"><a href="export.html#cb608-6" tabindex="-1"></a><span class="at">  </span><span class="fu">html_document</span><span class="kw">:</span></span>
-<span id="cb608-7"><a href="export.html#cb608-7" tabindex="-1"></a><span class="at">    </span><span class="fu">df_print</span><span class="kw">:</span><span class="at"> paged</span></span>
-<span id="cb608-8"><a href="export.html#cb608-8" tabindex="-1"></a><span class="at">  </span><span class="fu">pdf_document</span><span class="kw">:</span><span class="at"> </span></span>
-<span id="cb608-9"><a href="export.html#cb608-9" tabindex="-1"></a><span class="at">    </span><span class="fu">df_print</span><span class="kw">:</span><span class="at"> kable</span></span>
-<span id="cb608-10"><a href="export.html#cb608-10" tabindex="-1"></a><span class="at">  </span><span class="fu">word_document</span><span class="kw">:</span><span class="at"> </span></span>
-<span id="cb608-11"><a href="export.html#cb608-11" tabindex="-1"></a><span class="at">    </span><span class="fu">df_print</span><span class="kw">:</span><span class="at"> kable</span></span>
-<span id="cb608-12"><a href="export.html#cb608-12" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div>
+<div class="sourceCode" id="cb608"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb608-1"><a href="ergebnisse-exportieren.html#cb608-1" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb608-2"><a href="ergebnisse-exportieren.html#cb608-2" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;Vorläufige Ergebnisse&quot;</span></span>
+<span id="cb608-3"><a href="ergebnisse-exportieren.html#cb608-3" tabindex="-1"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;Student A&quot;</span></span>
+<span id="cb608-4"><a href="ergebnisse-exportieren.html#cb608-4" tabindex="-1"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;2023-01-13&quot;</span></span>
+<span id="cb608-5"><a href="ergebnisse-exportieren.html#cb608-5" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span></span>
+<span id="cb608-6"><a href="ergebnisse-exportieren.html#cb608-6" tabindex="-1"></a><span class="at">  </span><span class="fu">html_document</span><span class="kw">:</span></span>
+<span id="cb608-7"><a href="ergebnisse-exportieren.html#cb608-7" tabindex="-1"></a><span class="at">    </span><span class="fu">df_print</span><span class="kw">:</span><span class="at"> paged</span></span>
+<span id="cb608-8"><a href="ergebnisse-exportieren.html#cb608-8" tabindex="-1"></a><span class="at">  </span><span class="fu">pdf_document</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb608-9"><a href="ergebnisse-exportieren.html#cb608-9" tabindex="-1"></a><span class="at">    </span><span class="fu">df_print</span><span class="kw">:</span><span class="at"> kable</span></span>
+<span id="cb608-10"><a href="ergebnisse-exportieren.html#cb608-10" tabindex="-1"></a><span class="at">  </span><span class="fu">word_document</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb608-11"><a href="ergebnisse-exportieren.html#cb608-11" tabindex="-1"></a><span class="at">    </span><span class="fu">df_print</span><span class="kw">:</span><span class="at"> kable</span></span>
+<span id="cb608-12"><a href="ergebnisse-exportieren.html#cb608-12" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div>
 <pre><code>```{r}
 #| label: setup
 #| include: FALSE
@@ -488,7 +488,7 @@ ggplot(big5_mod2, aes(x = Extraversion, y = Neurotizismus)) +
   geom_point(position = &quot;jitter&quot;)
 ```</code></pre>
 <p><strong>– Ende der Datei Beispiel.Rmd –</strong></p>
-<p>Die Ausgabe nach Umwandlung in ein HTML Dokument ist in Abbildung <a href="export.html#fig:html-markdown">10.3</a> zu sehen.</p>
+<p>Die Ausgabe nach Umwandlung in ein HTML Dokument ist in Abbildung <a href="ergebnisse-exportieren.html#fig:html-markdown">10.3</a> zu sehen.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:html-markdown"></span>
 <img src="images/html_markdown1.png" alt="Umwandlung von Markdown in HTML." width="700" height="1038" />
 <p class="caption">
@@ -525,21 +525,21 @@ Abbildung 10.4: Umwandlung des R Markdown Skripts in HTML, PDF oder Word.
 </div>
 </div>
 <div id="tabellen-umwandeln" class="section level2 hasAnchor" number="10.3">
-<h2><span class="header-section-number">10.3</span> Tabellen umwandeln<a href="export.html#tabellen-umwandeln" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<h2><span class="header-section-number">10.3</span> Tabellen umwandeln<a href="ergebnisse-exportieren.html#tabellen-umwandeln" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div id="knitr" class="section level3 hasAnchor" number="10.3.1">
-<h3><span class="header-section-number">10.3.1</span> Exportieren nach Word und PDF<a href="export.html#knitr" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<h3><span class="header-section-number">10.3.1</span> Exportieren nach Word und PDF<a href="ergebnisse-exportieren.html#knitr" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Für die Tabellen benötigen wir für beide Formate das <code>knitr</code> Package.</p>
-<div class="sourceCode" id="cb612"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb612-1"><a href="export.html#cb612-1" tabindex="-1"></a><span class="fu">library</span>(knitr)</span></code></pre></div>
-<p>Wenn keine ganzen Berichte, sondern nur Tabellen für die eigene Arbeit z.B. in Word erstellt werden sollen, vereinfacht sich die R Markdown Datei aus Kapitel <a href="export.html#markdown">10.2</a>. Im YAML-Kopf spezifizieren wir an dieser Stelle nur den Titel und den Ausgabetyp als Word und PDF. Alle Tabellen sollen dabei mit der <code>kable()</code> Funktion aus dem <code>knitr</code> Package erstellt werden (<code>df_print: kable</code>). Damit der R Code nicht angezeigt wird, muss in weiterer Folge noch die Option <code>echo: FALSE</code> in den entsprechenden Code Abschnitten hinzugefügt werden.</p>
+<div class="sourceCode" id="cb612"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb612-1"><a href="ergebnisse-exportieren.html#cb612-1" tabindex="-1"></a><span class="fu">library</span>(knitr)</span></code></pre></div>
+<p>Wenn keine ganzen Berichte, sondern nur Tabellen für die eigene Arbeit z.B. in Word erstellt werden sollen, vereinfacht sich die R Markdown Datei aus Kapitel <a href="ergebnisse-exportieren.html#markdown">10.2</a>. Im YAML-Kopf spezifizieren wir an dieser Stelle nur den Titel und den Ausgabetyp als Word und PDF. Alle Tabellen sollen dabei mit der <code>kable()</code> Funktion aus dem <code>knitr</code> Package erstellt werden (<code>df_print: kable</code>). Damit der R Code nicht angezeigt wird, muss in weiterer Folge noch die Option <code>echo: FALSE</code> in den entsprechenden Code Abschnitten hinzugefügt werden.</p>
 <p><strong>– Beginn der Datei Tabelle.Rmd –</strong></p>
-<div class="sourceCode" id="cb613"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb613-1"><a href="export.html#cb613-1" tabindex="-1"></a><span class="pp">---</span></span>
-<span id="cb613-2"><a href="export.html#cb613-2" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">&#39;Beispiel&#39;</span></span>
-<span id="cb613-3"><a href="export.html#cb613-3" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span></span>
-<span id="cb613-4"><a href="export.html#cb613-4" tabindex="-1"></a><span class="at">  </span><span class="fu">word_document</span><span class="kw">:</span><span class="at"> </span></span>
-<span id="cb613-5"><a href="export.html#cb613-5" tabindex="-1"></a><span class="at">    </span><span class="fu">df_print</span><span class="kw">:</span><span class="at"> kable</span></span>
-<span id="cb613-6"><a href="export.html#cb613-6" tabindex="-1"></a><span class="at">  </span><span class="fu">pdf_document</span><span class="kw">:</span><span class="at"> </span></span>
-<span id="cb613-7"><a href="export.html#cb613-7" tabindex="-1"></a><span class="at">    </span><span class="fu">df_print</span><span class="kw">:</span><span class="at"> kable</span></span>
-<span id="cb613-8"><a href="export.html#cb613-8" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div>
+<div class="sourceCode" id="cb613"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb613-1"><a href="ergebnisse-exportieren.html#cb613-1" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb613-2"><a href="ergebnisse-exportieren.html#cb613-2" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">&#39;Beispiel&#39;</span></span>
+<span id="cb613-3"><a href="ergebnisse-exportieren.html#cb613-3" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span></span>
+<span id="cb613-4"><a href="ergebnisse-exportieren.html#cb613-4" tabindex="-1"></a><span class="at">  </span><span class="fu">word_document</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb613-5"><a href="ergebnisse-exportieren.html#cb613-5" tabindex="-1"></a><span class="at">    </span><span class="fu">df_print</span><span class="kw">:</span><span class="at"> kable</span></span>
+<span id="cb613-6"><a href="ergebnisse-exportieren.html#cb613-6" tabindex="-1"></a><span class="at">  </span><span class="fu">pdf_document</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb613-7"><a href="ergebnisse-exportieren.html#cb613-7" tabindex="-1"></a><span class="at">    </span><span class="fu">df_print</span><span class="kw">:</span><span class="at"> kable</span></span>
+<span id="cb613-8"><a href="ergebnisse-exportieren.html#cb613-8" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div>
 <pre><code>```{r}
 #| label: setup
 #| include: FALSE
@@ -566,23 +566,23 @@ Abbildung 10.5: Beispielhafter Output einer Tabelle von R Markdown in Word.
 </div>
 <p>Das Aussehen der Tabelle kann innerhalb von Word anschließend entsprechend angepasst werden. Allerdings solltest du die Breite einer gewöhnlichen Din A4 Seite beachten. Wenn du eine sehr große Korrelationsmatrix ausgeben möchtest, solltest du entweder eine Word Vorlage in Querformat verwenden (die Vorlage muss denselben Dateinamen wie das R Markdown Dokument haben) oder die Tabelle in Teilen abbilden lassen. Zur Umwandlung in ein Word Dokument klickt man wieder auf <code>Knit</code> und anschließend auf <code>Knit to Word</code> oder betätigt die Tastenkombination <kbd>Strg</kbd> / <code>Cmd + Shift + K</code>. Für die Umwandlung in ein PDF wählt man entsprechend <code>Knit to PDF</code> aus.</p>
 <div class="idea">
-<p>Mit einer Code- und Textbasis können wir mit R Markdown Tabellen in Word, PDF oder HTML erstellen. Beachte dabei, dass du zum Erstellen von PDF Dokumenten LaTeX auf deinem Computer installiert haben musst (siehe Kapitel <a href="export.html#intromarkdown">10.1</a>).</p>
+<p>Mit einer Code- und Textbasis können wir mit R Markdown Tabellen in Word, PDF oder HTML erstellen. Beachte dabei, dass du zum Erstellen von PDF Dokumenten LaTeX auf deinem Computer installiert haben musst (siehe Kapitel <a href="ergebnisse-exportieren.html#intromarkdown">10.1</a>).</p>
 </div>
 </div>
 <div id="latex" class="section level3 hasAnchor" number="10.3.2">
-<h3><span class="header-section-number">10.3.2</span> Exportieren nach LaTeX<a href="export.html#latex" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<h3><span class="header-section-number">10.3.2</span> Exportieren nach LaTeX<a href="ergebnisse-exportieren.html#latex" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Für dieses Kapitel muss das <code>xtable</code> Package installiert und geladen sein.</p>
-<div class="sourceCode" id="cb616"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb616-1"><a href="export.html#cb616-1" tabindex="-1"></a><span class="fu">library</span>(xtable)</span></code></pre></div>
+<div class="sourceCode" id="cb616"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb616-1"><a href="ergebnisse-exportieren.html#cb616-1" tabindex="-1"></a><span class="fu">library</span>(xtable)</span></code></pre></div>
 <p>Es gibt auch die Möglichkeit, <code>tibbles</code> aus R direkt in LaTeX Code umzuwandeln, um diesen dann in die zugehörige LaTeX Datei einzufügen. In den bisherigen Kapiteln wurde LaTeX nur hinter den Kulissen von Pandoc zum Erstellen von PDFs verwendet. Falls du eine wissenschaftliche Publikation direkt in LaTeX schreibst, benötigst du allerdings den tatsächlichen LaTeX Code. Exemplarisch verwenden wir dieselben deskriptiven Lage- und Streuungsmaße wie im letzten Kapitel.</p>
-<div class="sourceCode" id="cb617"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb617-1"><a href="export.html#cb617-1" tabindex="-1"></a>erg <span class="ot">&lt;-</span> big5_mod2 <span class="sc">|&gt;</span> </span>
-<span id="cb617-2"><a href="export.html#cb617-2" tabindex="-1"></a>  <span class="fu">select</span>(Extraversion, Neurotizismus) <span class="sc">|&gt;</span> </span>
-<span id="cb617-3"><a href="export.html#cb617-3" tabindex="-1"></a>  <span class="fu">descriptive</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb617-4"><a href="export.html#cb617-4" tabindex="-1"></a>  <span class="fu">select</span>(Variable, Min, Mean, Median, Max, SE) </span></code></pre></div>
+<div class="sourceCode" id="cb617"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb617-1"><a href="ergebnisse-exportieren.html#cb617-1" tabindex="-1"></a>erg <span class="ot">&lt;-</span> big5_mod2 <span class="sc">|&gt;</span> </span>
+<span id="cb617-2"><a href="ergebnisse-exportieren.html#cb617-2" tabindex="-1"></a>  <span class="fu">select</span>(Extraversion, Neurotizismus) <span class="sc">|&gt;</span> </span>
+<span id="cb617-3"><a href="ergebnisse-exportieren.html#cb617-3" tabindex="-1"></a>  <span class="fu">descriptive</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb617-4"><a href="ergebnisse-exportieren.html#cb617-4" tabindex="-1"></a>  <span class="fu">select</span>(Variable, Min, Mean, Median, Max, SE) </span></code></pre></div>
 <p>Zum Erstellen des LaTeX Codes greift man auf die Funktion <code>xtable()</code> aus dem gleichnamigen Package zurück. Das erste Argument ist hierbei der auszugebende Datensatz. Das zweite Argument der Funktion ist <code>digits</code>, mit dem man pro Spalte die Anzahl der gerundeten Nachkommastellen festlegt. Dabei können wir entweder eine einzelne Zahl eingeben und somit für alle Spalten dieselbe Rundung anwenden oder für jede Spalte die Rundung einzeln als Vektor mithilfe von <code>c()</code> definieren. Da in der Funktion auch die Zeilennamen berücksichtigt werden, muss der Vektor immer um eins länger sein als die Anzahl der Spalten des eigentlichen Datensatzes. Die Funktion <code>print()</code> mit dem Argument <code>include.rownames</code> verhindert anschließend, dass jede Zeile des Datensatzes nummeriert ausgegeben wird.</p>
-<div class="sourceCode" id="cb618"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb618-1"><a href="export.html#cb618-1" tabindex="-1"></a>tabelle <span class="ot">&lt;-</span> <span class="fu">xtable</span>(erg, <span class="at">digits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">3</span>)) </span>
-<span id="cb618-2"><a href="export.html#cb618-2" tabindex="-1"></a><span class="fu">print</span>(tabelle, <span class="at">include.rownames =</span> <span class="cn">FALSE</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb618"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb618-1"><a href="ergebnisse-exportieren.html#cb618-1" tabindex="-1"></a>tabelle <span class="ot">&lt;-</span> <span class="fu">xtable</span>(erg, <span class="at">digits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">3</span>)) </span>
+<span id="cb618-2"><a href="ergebnisse-exportieren.html#cb618-2" tabindex="-1"></a><span class="fu">print</span>(tabelle, <span class="at">include.rownames =</span> <span class="cn">FALSE</span>) </span></code></pre></div>
 <pre class="bordercode"><code>% latex table generated in R 4.4.1 by xtable 1.8-4 package
-% Thu Oct 10 15:25:53 2024
+% Sun Dec  1 20:40:28 2024
 \begin{table}[ht]
 \centering
 \begin{tabular}{lrrrrr}
@@ -597,24 +597,24 @@ Extraversion &amp; 2.30 &amp; 3.08 &amp; 3.00 &amp; 4.30 &amp; 0.020 \\
 </div>
 </div>
 <div id="quarto" class="section level2 hasAnchor" number="10.4">
-<h2><span class="header-section-number">10.4</span> Alternative mit Quarto<a href="export.html#quarto" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<h2><span class="header-section-number">10.4</span> Alternative mit Quarto<a href="ergebnisse-exportieren.html#quarto" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Zur Erstellung eines Quarto Dokuments innerhalb von RStudio wähle links das Dropdown-Menü mit dem Papier und dem grünen Pluszeichen unter dem Reiter <code>File</code> aus und klicke auf <code>Quarto Document...</code>. Bevor die Datei erstellt wird, können noch Titel, Autor und das Ausgabeformat ausgewählt werden. Nach Betätigen der <code>Create</code> Taste öffnet sich ein Beispieldokument mit dem typischen Aufbau einer Quarto Datei.</p>
 <p>Auch hier startet die Datei mit einem YAML-Kopf zum Festlegen der Optionen des Dokuments. An dieser Stelle ergibt sich ein wichtiger Unterschied zu R Markdown Dateien. Während in R Markdown die Ausgabeformate mit <code>output</code> definiert wurden, heißt das Argument hier <code>format</code>. Auch die Bezeichnung der Optionen innerhalb der Formate ist anders. Wichtig ist bei Ausgabe als Internetseite (HTML-Dokument) die zusätzliche Verwendung des Arguments <code>embed-resources</code>, da ansonsten ein extra Ordner mit den zugehörigen Javascript und CSS Dateien erstellt wird, die für das Verhalten und Aussehen des HTML-Dokuments verantwortlich sind.</p>
-<p>Wir verwenden an dieser Stelle dasselbe Beispiel wie in Kapitel <a href="export.html#markdown">10.2</a>. Die einzigen Unterschiede sind der abgeänderte YAML-Kopf und die Dateiendung mit <code>.qmd</code> anstelle von <code>.Rmd</code>.</p>
+<p>Wir verwenden an dieser Stelle dasselbe Beispiel wie in Kapitel <a href="ergebnisse-exportieren.html#markdown">10.2</a>. Die einzigen Unterschiede sind der abgeänderte YAML-Kopf und die Dateiendung mit <code>.qmd</code> anstelle von <code>.Rmd</code>.</p>
 <p><strong>– Beginn der Datei Quarto.qmd – </strong></p>
-<div class="sourceCode" id="cb620"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb620-1"><a href="export.html#cb620-1" tabindex="-1"></a><span class="pp">---</span></span>
-<span id="cb620-2"><a href="export.html#cb620-2" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;Vorläufige Ergebnisse&quot;</span></span>
-<span id="cb620-3"><a href="export.html#cb620-3" tabindex="-1"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;Student A&quot;</span></span>
-<span id="cb620-4"><a href="export.html#cb620-4" tabindex="-1"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;2023-01-13&quot;</span></span>
-<span id="cb620-5"><a href="export.html#cb620-5" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
-<span id="cb620-6"><a href="export.html#cb620-6" tabindex="-1"></a><span class="at">   </span><span class="fu">html</span><span class="kw">:</span></span>
-<span id="cb620-7"><a href="export.html#cb620-7" tabindex="-1"></a><span class="at">    </span><span class="fu">embed-resources</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb620-8"><a href="export.html#cb620-8" tabindex="-1"></a><span class="at">    </span><span class="fu">df-print</span><span class="kw">:</span><span class="at"> paged</span></span>
-<span id="cb620-9"><a href="export.html#cb620-9" tabindex="-1"></a><span class="at">   </span><span class="fu">docx</span><span class="kw">:</span><span class="at"> </span></span>
-<span id="cb620-10"><a href="export.html#cb620-10" tabindex="-1"></a><span class="at">    </span><span class="fu">df-print</span><span class="kw">:</span><span class="at"> kable</span></span>
-<span id="cb620-11"><a href="export.html#cb620-11" tabindex="-1"></a><span class="at">   </span><span class="fu">pdf</span><span class="kw">:</span></span>
-<span id="cb620-12"><a href="export.html#cb620-12" tabindex="-1"></a><span class="at">    </span><span class="fu">df-print</span><span class="kw">:</span><span class="at"> kable</span></span>
-<span id="cb620-13"><a href="export.html#cb620-13" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div>
+<div class="sourceCode" id="cb620"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb620-1"><a href="ergebnisse-exportieren.html#cb620-1" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb620-2"><a href="ergebnisse-exportieren.html#cb620-2" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;Vorläufige Ergebnisse&quot;</span></span>
+<span id="cb620-3"><a href="ergebnisse-exportieren.html#cb620-3" tabindex="-1"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;Student A&quot;</span></span>
+<span id="cb620-4"><a href="ergebnisse-exportieren.html#cb620-4" tabindex="-1"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;2023-01-13&quot;</span></span>
+<span id="cb620-5"><a href="ergebnisse-exportieren.html#cb620-5" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb620-6"><a href="ergebnisse-exportieren.html#cb620-6" tabindex="-1"></a><span class="at">   </span><span class="fu">html</span><span class="kw">:</span></span>
+<span id="cb620-7"><a href="ergebnisse-exportieren.html#cb620-7" tabindex="-1"></a><span class="at">    </span><span class="fu">embed-resources</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb620-8"><a href="ergebnisse-exportieren.html#cb620-8" tabindex="-1"></a><span class="at">    </span><span class="fu">df-print</span><span class="kw">:</span><span class="at"> paged</span></span>
+<span id="cb620-9"><a href="ergebnisse-exportieren.html#cb620-9" tabindex="-1"></a><span class="at">   </span><span class="fu">docx</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb620-10"><a href="ergebnisse-exportieren.html#cb620-10" tabindex="-1"></a><span class="at">    </span><span class="fu">df-print</span><span class="kw">:</span><span class="at"> kable</span></span>
+<span id="cb620-11"><a href="ergebnisse-exportieren.html#cb620-11" tabindex="-1"></a><span class="at">   </span><span class="fu">pdf</span><span class="kw">:</span></span>
+<span id="cb620-12"><a href="ergebnisse-exportieren.html#cb620-12" tabindex="-1"></a><span class="at">    </span><span class="fu">df-print</span><span class="kw">:</span><span class="at"> kable</span></span>
+<span id="cb620-13"><a href="ergebnisse-exportieren.html#cb620-13" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div>
 <pre><code>```{r}
 #| label: setup
 #| include: FALSE
@@ -643,7 +643,7 @@ ggplot(big5_mod2, aes(x = Extraversion, y = Neurotizismus)) +
   geom_point(position = &quot;jitter&quot;)
 ```</code></pre>
 <p><strong>– Ende der Datei Quarto.qmd –</strong></p>
-<p>Umgewandelt wird bei Quarto Dokumenten nicht mit dem Button <code>Knit</code>, sondern durch <code>Render</code>. Du kannst alternativ auch hier die Tastenkombination <kbd>Strg</kbd> / <code>Cmd + Shift + K</code> verwenden. Das Ergebnis nach Umwandlung in ein HTML-Dokument ist in Abbildung <a href="export.html#fig:quarto">10.6</a> zu sehen. Die Ausgabe unterscheidet sich nur im Aussehen von der durch R Markdown erstellten Datei. Nach Umwandlung in ein Word- oder PDF-Dokument finden sich noch weniger optische Unterschiede. Erst bei komplexeren Anwendungsfällen wirst du mögliche Vor- oder Nachteile von Quarto gegenüber R Markdown bemerken.</p>
+<p>Umgewandelt wird bei Quarto Dokumenten nicht mit dem Button <code>Knit</code>, sondern durch <code>Render</code>. Du kannst alternativ auch hier die Tastenkombination <kbd>Strg</kbd> / <code>Cmd + Shift + K</code> verwenden. Das Ergebnis nach Umwandlung in ein HTML-Dokument ist in Abbildung <a href="ergebnisse-exportieren.html#fig:quarto">10.6</a> zu sehen. Die Ausgabe unterscheidet sich nur im Aussehen von der durch R Markdown erstellten Datei. Nach Umwandlung in ein Word- oder PDF-Dokument finden sich noch weniger optische Unterschiede. Erst bei komplexeren Anwendungsfällen wirst du mögliche Vor- oder Nachteile von Quarto gegenüber R Markdown bemerken.</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:quarto"></span>
 <img src="images/quarto.png" alt="Umwandlung der Quarto Datei in HTML, PDF oder Word." width="700" height="1038" />
 <p class="caption">

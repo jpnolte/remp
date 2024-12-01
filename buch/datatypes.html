@@ -20,17 +20,17 @@
   <meta name="twitter:description" content="Dieses Buch bietet einfache Erklärungen mit praktischen Beispielen und Übungen, welche das Erlernen von R ohne Programmiervorkenntnisse im Selbststudium ermöglichen. Die Zielgruppe sind WissenschaftlerInnen und StudentInnen der Fachrichtungen Medizin, Psychologie, Wirtschaftswissenschaften, Sozialwissenschaften, Agrarwissenschaften, Neurowissenschaften, Biologie, Journalismus, Tourismus, Data Science, Biostatistik und allen weiteren Disziplinen, die Daten auswerten möchten." />
   <meta name="twitter:image" content="/images/logo.png" />
 
-<meta name="author" content="Dr. med. univ. Jan Philipp Nolte, BSc. MSc" />
+<meta name="author" content="Dr. med. univ. Jan Philipp Nolte, MSc, BSc." />
 
 
-<meta name="date" content="2024-10-10" />
+<meta name="date" content="2024-12-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   <link rel="apple-touch-icon-precomposed" sizes="120x120" href="images/touch-icon.png" />
   <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
-<link rel="prev" href="export.html"/>
+<link rel="prev" href="ergebnisse-exportieren.html"/>
 <link rel="next" href="iterationmain.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -328,16 +328,16 @@ div.csl-indent {
 <li class="chapter" data-level="9.8" data-path="inductive.html"><a href="inductive.html#broom"><i class="fa fa-check"></i><b>9.8</b> Ergebnisse formatieren</a></li>
 </ul></li>
 <li class="part"><span><b>IV Vertiefung</b></span></li>
-<li class="chapter" data-level="10" data-path="export.html"><a href="export.html"><i class="fa fa-check"></i><b>10</b> Ergebnisse exportieren</a>
+<li class="chapter" data-level="10" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html"><i class="fa fa-check"></i><b>10</b> Ergebnisse exportieren</a>
 <ul>
-<li class="chapter" data-level="10.1" data-path="export.html"><a href="export.html#intromarkdown"><i class="fa fa-check"></i><b>10.1</b> Wichtige Begriffe</a></li>
-<li class="chapter" data-level="10.2" data-path="export.html"><a href="export.html#markdown"><i class="fa fa-check"></i><b>10.2</b> Berichte erstellen</a></li>
-<li class="chapter" data-level="10.3" data-path="export.html"><a href="export.html#tabellen-umwandeln"><i class="fa fa-check"></i><b>10.3</b> Tabellen umwandeln</a>
+<li class="chapter" data-level="10.1" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#intromarkdown"><i class="fa fa-check"></i><b>10.1</b> Wichtige Begriffe</a></li>
+<li class="chapter" data-level="10.2" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#markdown"><i class="fa fa-check"></i><b>10.2</b> Berichte erstellen</a></li>
+<li class="chapter" data-level="10.3" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#tabellen-umwandeln"><i class="fa fa-check"></i><b>10.3</b> Tabellen umwandeln</a>
 <ul>
-<li class="chapter" data-level="10.3.1" data-path="export.html"><a href="export.html#knitr"><i class="fa fa-check"></i><b>10.3.1</b> Exportieren nach Word und PDF</a></li>
-<li class="chapter" data-level="10.3.2" data-path="export.html"><a href="export.html#latex"><i class="fa fa-check"></i><b>10.3.2</b> Exportieren nach LaTeX</a></li>
+<li class="chapter" data-level="10.3.1" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#knitr"><i class="fa fa-check"></i><b>10.3.1</b> Exportieren nach Word und PDF</a></li>
+<li class="chapter" data-level="10.3.2" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#latex"><i class="fa fa-check"></i><b>10.3.2</b> Exportieren nach LaTeX</a></li>
 </ul></li>
-<li class="chapter" data-level="10.4" data-path="export.html"><a href="export.html#quarto"><i class="fa fa-check"></i><b>10.4</b> Alternative mit Quarto</a></li>
+<li class="chapter" data-level="10.4" data-path="ergebnisse-exportieren.html"><a href="ergebnisse-exportieren.html#quarto"><i class="fa fa-check"></i><b>10.4</b> Alternative mit Quarto</a></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="datatypes.html"><a href="datatypes.html"><i class="fa fa-check"></i><b>11</b> Datenstrukturen</a>
 <ul>
@@ -600,7 +600,7 @@ $Number
 <h2><span class="header-section-number">11.6</span> Objekte und Objektorientierung<a href="datatypes.html#objekte-und-objektorientierung" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Für dieses Kapitel muss das <code>sloop</code> Package installiert und geladen werden.</p>
 <div class="sourceCode" id="cb667"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb667-1"><a href="datatypes.html#cb667-1" tabindex="-1"></a><span class="fu">library</span>(sloop)</span></code></pre></div>
-<p>In R ist grundsätzlich alles ein Objekt. Dazu gehören auch die bereits kennengelernten Vektoren, Matrizen, data.frames, tibbles und Listen. Das ist insofern eine irreführende Aussage, als dass R eine primär funktionelle Programmiersprache ist und keine klassische Objektorientierung bietet, wie es z.B. in Java oder C/C++ umgesetzt ist. Schließlich lösen wir anspruchsvolle Probleme in R durch das Erstellen neuer Funktionen und nicht neuer Objekttypen mit spezifischen Eigenschaften.</p>
+<p>R bietet eine funktionale Objektorientierung. Schließlich lösen wir anspruchsvolle Probleme in R durch das Erstellen neuer Funktionen und nicht neuer Objekttypen oder Klassen mit spezifischen Eigenschaften. Dadurch ist zwar alles in R grundsätzlich ein Objekt, allerdings unterscheidet sich die Funktionsweise erheblich von Sprachen mit klassischer Objektorientierung wie Java oder C/C++. Auch die bereits kennengelernten Vektoren, Matrizen, data.frames, tibbles und Listen sind Objekte.</p>
 <p>Die vier wichtigsten Systeme zur Objektorientierung in R sind S3, S4, R6 und S7. Wir haben im Verlauf dieses Buches nur das S3 System kennengelernt. Du hast dich vielleicht bereits gefragt, weshalb ein und dieselbe Funktion mit dem Namen <code>summary()</code> in Abhängigkeit des Kontextes unterschiedliche Ausgaben liefern kann. In Kapitel <a href="descr.html#lagestreu">7.1</a> erhalten wir Lage- und Streuungsmaße für Numerics und Häufigkeiten für Faktoren, während wir in Kapitel <a href="inductive.html#inductive">9</a> je nach statistischem Modell ebenfalls ein unterschiedliche Ausgabe ausgegeben bekommen.</p>
 <p>Die Antwort liegt in den Klassen der S3 Objekte, wodurch sich generische Funktionen wie <code>summary()</code> je nach Klasse anders verhalten. Mit der Funktion <code>otype()</code> aus dem <code>sloop</code> Package kann der Objekttyp herausgefunden werden. Einfache Vektoren gehören keinem der Systeme zur Objektorientierung an.</p>
 <div class="sourceCode" id="cb668"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb668-1"><a href="datatypes.html#cb668-1" tabindex="-1"></a><span class="fu">otype</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">4</span>))</span></code></pre></div>
@@ -636,7 +636,7 @@ $Number
           </div>
         </div>
       </div>
-<a href="export.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="ergebnisse-exportieren.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="iterationmain.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>

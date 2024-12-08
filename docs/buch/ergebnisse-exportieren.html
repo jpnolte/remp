@@ -23,7 +23,7 @@
 <meta name="author" content="Dr. med. univ. Jan Philipp Nolte, MSc, BSc." />
 
 
-<meta name="date" content="2024-12-01" />
+<meta name="date" content="2024-12-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -422,14 +422,14 @@ div.csl-indent {
 <p>Für dieses Kapitel muss das <code>knitr</code> Package installiert und geladen werden.</p>
 <div class="sourceCode" id="cb607"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb607-1"><a href="ergebnisse-exportieren.html#cb607-1" tabindex="-1"></a><span class="fu">library</span>(knitr)</span></code></pre></div>
 <p>Öffne zum Erstellen von R Markdown Dokumenten (Endung <code>.Rmd</code>) das Dropdown-Menü mit dem Papier und dem grünen Pluszeichen unter dem Reiter <code>File</code>.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-399"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-397"></span>
 <img src="images/new_markdown1.png" alt="Erster Schritt in der Erstellung eines neuen R Markdown Skripts." width="750" height="421" />
 <p class="caption">
 Abbildung 10.1: Erster Schritt in der Erstellung eines neuen R Markdown Skripts.
 </p>
 </div>
 <p>Wähle in diesem Reiter <code>R Markdown</code> aus. Die Punkte implizieren, dass noch weitere Informationen vor dem Erstellen notwendig sind. Anschließend kann man das gewünschte Ausgabeformat, den Titel und Autor festlegen. Beim Bestätigen auf OK wird eine Vorlage erstellt, die man nach Belieben anpassen kann.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-400"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-398"></span>
 <img src="images/title_markdown1.png" alt="Zweiter Schritt zur Erstellung eines neuen R Markdown Skripts." width="750" height="421" />
 <p class="caption">
 Abbildung 10.2: Zweiter Schritt zur Erstellung eines neuen R Markdown Skripts.
@@ -511,7 +511,7 @@ Abbildung 10.3: Umwandlung von Markdown in HTML.
 </ul>
 </div>
 <p>Umwandeln können wir das R Markdown Dokument durch Klicken auf das Wort Knit (engl. für stricken) in der Leiste unter dem Reiter der geöffneten Dateien oder durch die Tastenkombination <kbd>Strg</kbd> / <code>Cmd + Shift + K</code>. Wenn man nur auf das Symbol drückt, wird die Datei in das an erster Stelle im YAML Kopf festgelegten Format umgewandelt. Besser ist es jedoch, das Dropdown-Menü durch einen Klick auf den Pfeil nach unten zu öffnen und den gewünschten Dateityp auszuwählen.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-401"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-399"></span>
 <img src="images/knit_markdown1.png" alt="Umwandlung des R Markdown Skripts in HTML, PDF oder Word." width="750" height="421" />
 <p class="caption">
 Abbildung 10.4: Umwandlung des R Markdown Skripts in HTML, PDF oder Word.
@@ -558,7 +558,7 @@ big5_mod2 |&gt;
   descriptive() 
 ```</code></pre>
 <p><strong>– Ende der Datei Tabelle.Rmd –</strong></p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-403"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-401"></span>
 <img src="images/word_markdown.png" alt="Beispielhafter Output einer Tabelle von R Markdown in Word." width="750" height="421" />
 <p class="caption">
 Abbildung 10.5: Beispielhafter Output einer Tabelle von R Markdown in Word.
@@ -582,7 +582,7 @@ Abbildung 10.5: Beispielhafter Output einer Tabelle von R Markdown in Word.
 <div class="sourceCode" id="cb618"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb618-1"><a href="ergebnisse-exportieren.html#cb618-1" tabindex="-1"></a>tabelle <span class="ot">&lt;-</span> <span class="fu">xtable</span>(erg, <span class="at">digits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">3</span>)) </span>
 <span id="cb618-2"><a href="ergebnisse-exportieren.html#cb618-2" tabindex="-1"></a><span class="fu">print</span>(tabelle, <span class="at">include.rownames =</span> <span class="cn">FALSE</span>) </span></code></pre></div>
 <pre class="bordercode"><code>% latex table generated in R 4.4.1 by xtable 1.8-4 package
-% Sun Dec  1 20:40:28 2024
+% Sun Dec  8 14:53:58 2024
 \begin{table}[ht]
 \centering
 \begin{tabular}{lrrrrr}

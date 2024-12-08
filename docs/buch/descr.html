@@ -23,7 +23,7 @@
 <meta name="author" content="Dr. med. univ. Jan Philipp Nolte, MSc, BSc." />
 
 
-<meta name="date" content="2024-12-01" />
+<meta name="date" content="2024-12-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -591,46 +591,59 @@ Geschlecht Jung Mittel Weise
 </div>
 <div id="cor" class="section level2 hasAnchor" number="7.3">
 <h2><span class="header-section-number">7.3</span> Zusammenhangsmaße<a href="descr.html#cor" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Für einen schnell graphischen Überblick über größere Korrelationstabellen wird die Installation und das Laden des <code>corrplot</code> Packages empfohlen.</p>
-<div class="sourceCode" id="cb320"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb320-1"><a href="descr.html#cb320-1" tabindex="-1"></a><span class="fu">library</span>(corrplot)</span></code></pre></div>
-<p>In diesem Kapitel wird ebenfalls der <code>big5_mod</code> Datensatz aus dem <code>remp</code> Package verwendet. Zwei der wichtigsten Zusammenhangsmaße für metrische Variablen sind die Kovarianz und die darauf basierende Korrelation. Eine Korrelation berechnen wir mit der <code>cor()</code> Funktion, äquivalent dazu die Kovarianz mit <code>cov()</code>. Wir werden uns im weiteren Verlauf die Korrelationen konzentrieren. Wichtig ist hierbei das <code>method</code> Argument, welches standardmäßig die Produkt-Moment-Korrelation berechnet. Als Argument müssen wir die einzelnen Spalten als Wertereihe mithilfe des Dollar-Operators aus dem Datensatz extrahieren (siehe Kapitel <a href="vars.html#dollar">4.5</a>).</p>
+<p>Zur Ausgabe von Korrelationen wird kein zusätzliches Package benötigt, da die dafür zuständigen Funktionen direkt in R integriert sind. Möchte man Korrelationstabellen hingegen optisch ansprechender oder als Graphik ausgeben lassen, sollten die Packages <code>correlation</code> und <code>see</code> installiert und geladen werden.</p>
+<div class="sourceCode" id="cb320"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb320-1"><a href="descr.html#cb320-1" tabindex="-1"></a><span class="fu">library</span>(correlation)</span>
+<span id="cb320-2"><a href="descr.html#cb320-2" tabindex="-1"></a><span class="fu">library</span>(see)</span></code></pre></div>
+<p>In diesem Kapitel wird ebenfalls der <code>big5_mod</code> Datensatz aus dem <code>remp</code> Package verwendet. Zwei der wichtigsten Zusammenhangsmaße für metrische Variablen sind die Kovarianz und die darauf basierende Korrelation. Eine Korrelation berechnen wir mit der <code>cor()</code> Funktion, äquivalent dazu die Kovarianz mit <code>cov()</code>. Wir werden uns im weiteren Verlauf auf Korrelationen konzentrieren. Zusammenhangsmaße im Kontext von Kontingenztafeln werden hingegen erst im Rahmen des Kapitels <a href="inductive.html#contingency">9.6</a> besprochen. Ein zentrales Argument in der Funktion <code>cor()</code> ist <code>method</code>, welches standardmäßig Pearsons Produkt-Moment-Korrelation berechnet. Die ersten beiden Argumente stellen die einzelnen Spalten dar, die wir als Wertereihe mithilfe des Dollar-Operators aus dem Datensatz extrahieren (siehe Kapitel <a href="vars.html#dollar">4.5</a>).</p>
 <div class="sourceCode" id="cb321"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb321-1"><a href="descr.html#cb321-1" tabindex="-1"></a><span class="fu">cor</span>(big5_mod<span class="sc">$</span>Extraversion, big5_mod<span class="sc">$</span>Neurotizismus, <span class="at">method =</span> <span class="st">&quot;pearson&quot;</span>)</span></code></pre></div>
 <pre class="bordercode"><code>[1] 0.06972529</code></pre>
-<p>Beim Vorliegen ordinaler Daten bevorzugen wir hingegen Rangkorrelation nach Spearman (<code>"spearman"</code>) oder Kendall (<code>"kendall"</code>), wofür das Argument <code>method</code>entsprechend anpassen.</p>
+<p>Beim Vorliegen ordinaler Daten bevorzugen wir hingegen Rangkorrelationen nach Spearman (<code>"spearman"</code>) oder Kendall (<code>"kendall"</code>), wofür das Argument <code>method</code> entsprechend angepasst werden muss.</p>
 <div class="sourceCode" id="cb323"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb323-1"><a href="descr.html#cb323-1" tabindex="-1"></a><span class="fu">cor</span>(big5_mod<span class="sc">$</span>Extraversion, big5_mod<span class="sc">$</span>Neurotizismus, <span class="at">method =</span> <span class="st">&quot;spearman&quot;</span>)</span></code></pre></div>
 <pre class="bordercode"><code>[1] 0.04874732</code></pre>
-<p>Um auf einen Schlag die Zusammenhänge von mehr als zwei Merkmalen zu explorieren, können wir der Funktion <code>cor()</code> den Datensatz mit den interessierenden Variablen auch direkt übergeben. Wichtig ist dabei, dass alle Spalten numerisch sind. Für unser Beispiel wählen wir uns zunächst die Spalten Alter, Extraversion und Neurotizismus aus und bezeichnen das Zwischenergebnis als <code>big5_sub</code>.</p>
+<p>Um auf einen Schlag die Zusammenhänge von mehr als zwei Merkmalen zu explorieren, können wir der Funktion <code>cor()</code> den Datensatz mit den interessierenden Variablen auch direkt übergeben. Wichtig ist dabei, dass alle Spalten numerisch sind. Für unser Beispiel wählen wir zunächst die Spalten Alter, Extraversion und Neurotizismus aus und bezeichnen das Zwischenergebnis als <code>big5_sub</code>.</p>
 <div class="sourceCode" id="cb325"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb325-1"><a href="descr.html#cb325-1" tabindex="-1"></a>big5_sub <span class="ot">&lt;-</span> big5_mod <span class="sc">|&gt;</span> </span>
 <span id="cb325-2"><a href="descr.html#cb325-2" tabindex="-1"></a>  <span class="fu">select</span>(Alter, Extraversion, Neurotizismus)</span></code></pre></div>
-<p>Anschließend berechnen wir die Korrelation mit der Funktion <code>cor()</code>.</p>
+<p>Anschließend berechnen wir die Korrelationen mit der Funktion <code>cor()</code>.</p>
 <div class="sourceCode" id="cb326"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb326-1"><a href="descr.html#cb326-1" tabindex="-1"></a>corr_table1 <span class="ot">&lt;-</span> <span class="fu">cor</span>(big5_sub)</span>
 <span id="cb326-2"><a href="descr.html#cb326-2" tabindex="-1"></a>corr_table1</span></code></pre></div>
 <pre class="bordercode"><code>                   Alter Extraversion Neurotizismus
 Alter          1.0000000  -0.12250136   -0.23019948
 Extraversion  -0.1225014   1.00000000    0.06972529
 Neurotizismus -0.2301995   0.06972529    1.00000000</code></pre>
-<p>Allerdings ist die Ausgabe vor allem bei größeren Korrelationstabellen nicht sonderlich übersichtlich. Deswegen verwenden wir zusätzlich die <code>corrplot</code> Funktion aus dem gleichnamigen Package, wobei wir an dieser Stelle nur die Korrelationen (<code>method = "number"</code>) im unteren Dreieck (<code>type = "lower"</code>) anschauen möchten. In Abbildung <a href="descr.html#fig:corrs">7.1</a> sehen wir auf der linken Seite die Korrelation mit farblicher Markierung. Positive Korrelation werden in blau und negative Korrelation in rot illustriert. Je kleiner die Korrelation, desto blasser ist Farbe der abgebildeten Korrelation.</p>
-<div class="sourceCode" id="cb328"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb328-1"><a href="descr.html#cb328-1" tabindex="-1"></a><span class="fu">corrplot</span>(corr_table1, <span class="at">method =</span> <span class="st">&quot;number&quot;</span>, <span class="at">type =</span> <span class="st">&quot;lower&quot;</span>)</span></code></pre></div>
-<p>Eine alternative Betrachtungsweise für Zusammenhänge sind Streudiagramme. Wir werden diese zwar im Detail erst in Kapitel <a href="visual.html#scatter">8.3</a> kennenlernen, allerdings bietet die direkt in R integrierte Funktion <code>pairs()</code> einen schönen ersten Überblick über mögliche Assoziationen der jeweiligen Merkmale (siehe Abbildung <a href="descr.html#fig:corrs">7.1</a> rechts).</p>
-<div class="sourceCode" id="cb329"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb329-1"><a href="descr.html#cb329-1" tabindex="-1"></a><span class="fu">pairs</span>(big5_sub, <span class="at">lower.panel =</span> panel.smooth)</span></code></pre></div>
+<p>Die Korrelationen sind allerdings nicht gerundet und auch sonst können wir diese Ausgabe nicht gut zum Exportieren in Word oder als PDF verwenden. Alternativ bietet sich die Funktion <code>correlation()</code> aus dem gleichnamigen Package an. Das Ergebnis dieser übergeben wir zusätzlich der Funktion <code>summary()</code>. Die Sterne (Asterisk) symbolisieren statistische Signifikanz.</p>
+<div class="sourceCode" id="cb328"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb328-1"><a href="descr.html#cb328-1" tabindex="-1"></a>corr_table2 <span class="ot">&lt;-</span> big5_sub <span class="sc">|&gt;</span> </span>
+<span id="cb328-2"><a href="descr.html#cb328-2" tabindex="-1"></a>  <span class="fu">correlation</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb328-3"><a href="descr.html#cb328-3" tabindex="-1"></a>  <span class="fu">summary</span>()</span>
+<span id="cb328-4"><a href="descr.html#cb328-4" tabindex="-1"></a>corr_table2</span></code></pre></div>
+<pre class="bordercode"><code># Correlation Matrix (pearson-method)
+
+Parameter    | Neurotizismus | Extraversion
+-------------------------------------------
+Alter        |       -0.23** |        -0.12
+Extraversion |          0.07 |             
+
+p-value adjustment method: Holm (1979)</code></pre>
+<p>Zur graphischen Ausgabe der Korrelationsmatrix verwenden wir schließlich die Funktion <code>plot()</code> aus dem <code>see</code> Package. In Abbildung <a href="descr.html#fig:corrs">7.1</a> sehen wir die Korrelationen gefärbt in Abhängigkeit der Höhe und Richtung. Positive Korrelationen werden dabei in Blautönen und negative Korrelationen in Rottönen illustriert. Je geringer die Ausprägung der jeweiligen Korrelation ist, desto blasser erscheinen deren Farben.</p>
+<div class="sourceCode" id="cb330"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb330-1"><a href="descr.html#cb330-1" tabindex="-1"></a><span class="fu">plot</span>(corr_table2)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:corrs"></span>
-<img src="r-empirische-wissenschaften_files/figure-html/corrs-1.svg" alt="Visualisierung der Korrelationen und zugehörigen Streudiagrammen." width="385" height="385" /><img src="r-empirische-wissenschaften_files/figure-html/corrs-2.svg" alt="Visualisierung der Korrelationen und zugehörigen Streudiagrammen." width="385" height="385" />
+<img src="r-empirische-wissenschaften_files/figure-html/corrs-1.svg" alt="Darstellung der Korrelationen in Abhängigkeit der Stärke und Richtung. " width="585" height="585" />
 <p class="caption">
-Abbildung 7.1: Visualisierung der Korrelationen und zugehörigen Streudiagrammen.
+Abbildung 7.1: Darstellung der Korrelationen in Abhängigkeit der Stärke und Richtung.
 </p>
 </div>
-<p>Bei sehr großen Korrelationstabellen werden aber auch diese Visualisierungen schnell unübersichtlich. Daher bietet es sich an, stattdessen nur Kreise darzustellen, die je nach Richtung der Korrelation eine andere Farbe mit unterschiedlicher Deckkraft und je nach Betrag einen anderen Durchmesser haben. Exemplarisch untersuchen wir dafür die Assoziation zwischen den Fragen zur Extraversion und zum Neurotizismus aus dem im <code>remp</code> enthaltenen Datensatz namens <code>big5_comp</code>. Dafür wählen wir die interessierenden Spalten aus und erstellen die Korrelationstabelle (siehe Kapitel <a href="datenvorbereitung.html#select">6.2</a>).</p>
-<div class="sourceCode" id="cb330"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb330-1"><a href="descr.html#cb330-1" tabindex="-1"></a>big5_sub2 <span class="ot">&lt;-</span> big5_comp <span class="sc">|&gt;</span> <span class="fu">select</span>(E1<span class="sc">:</span>N10)</span>
-<span id="cb330-2"><a href="descr.html#cb330-2" tabindex="-1"></a>corr_table2 <span class="ot">&lt;-</span> <span class="fu">cor</span>(big5_sub2)</span></code></pre></div>
-<p>Abschließend verwenden wir die bereits kennengelernte Funktion <code>corrplot()</code> ohne zusätzliche Argumente. In Abbildung <a href="descr.html#fig:corrs2">7.2</a> wird sehen wir anschaulich, dass nur die jeweils die Fragen der entsprechenden Dimension miteinander korrelieren. Negative Korrelation innerhalb der Fragen zur Extraversion oder dem Neurotizismus weisen auf eine inverse Kodierung hin.</p>
-<div class="sourceCode" id="cb331"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb331-1"><a href="descr.html#cb331-1" tabindex="-1"></a><span class="fu">corrplot</span>(corr_table2) </span></code></pre></div>
+<p>Für Korrelationen zwischen lediglich drei Variablen erscheint diese Art der Visualisierung übertrieben. Bei größeren Korrelationstabellen erhalten wir hingegen einen schnellen Überblick über Zusammenhänge, die wir genauer betrachten sollten. In einem weiteren Beispiel wählen wir daher mit allen Fragen zur Extraversion dieses Mal zehn Spalten aus. Die verwendeten Funktionen verändern sich nicht. In Abbildung <a href="descr.html#fig:corrs2">7.2</a> wird deutlich ersichtlich, welche Fragen zur Extraversion invers mit einer gegensätzlichen Formulierung gestellt wurden. Jede zweite Frage involviert eine Verneinung, weswegen die Korrelation erwartungsgemäß negativ ist. Zur inferenzstatistischen Auswertung müssten wir daher diese Fragen vorher entsprechend umkodieren (siehe Kapitel <a href="datenvorbereitung.html#helfer">6.4.3</a>).</p>
+<div class="sourceCode" id="cb331"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb331-1"><a href="descr.html#cb331-1" tabindex="-1"></a>big5_comp <span class="sc">|&gt;</span> </span>
+<span id="cb331-2"><a href="descr.html#cb331-2" tabindex="-1"></a>  <span class="fu">select</span>(E1<span class="sc">:</span>E10) <span class="sc">|&gt;</span> </span>
+<span id="cb331-3"><a href="descr.html#cb331-3" tabindex="-1"></a>  <span class="fu">correlation</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb331-4"><a href="descr.html#cb331-4" tabindex="-1"></a>  <span class="fu">summary</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb331-5"><a href="descr.html#cb331-5" tabindex="-1"></a>  <span class="fu">plot</span>()</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:corrs2"></span>
-<img src="r-empirische-wissenschaften_files/figure-html/corrs2-1.svg" alt="Darstellung der Korrelationen als Kreise in Abhängigkeit der Stärke und Richtung. " width="485" height="485" />
+<img src="r-empirische-wissenschaften_files/figure-html/corrs2-1.svg" alt="Darstellung der Korrelationen zwischen Fragen zur Extraversion." width="685" height="685" />
 <p class="caption">
-Abbildung 7.2: Darstellung der Korrelationen als Kreise in Abhängigkeit der Stärke und Richtung.
+Abbildung 7.2: Darstellung der Korrelationen zwischen Fragen zur Extraversion.
 </p>
 </div>
-<p>Zusammenhangsmaße im Kontext von Kontingenztafeln werden im Rahmen von Kapitel <a href="inductive.html#contingency">9.6</a> besprochen.</p>
+<p>In dem nächsten Kapitel werden wir die einzelnen Bestandteile von Abbildungen wie dieser kennenlernen. Zudem werden typische Anpassungsmöglichkeiten vorgestellt. So können wir beispielsweise mit <code>theme_minimal()</code> den grauen Hintergrund verändern oder mit <code>scale_x_discrete(guide = guide_axis(n.dodge = 3, check.overlap = TRUE))</code> dafür sorgen, dass sich die Namen der Variablen auf der x-Achse auf 3 Zeilen verteilen, falls sich diese ansonsten überlappen (siehe Kapitel <a href="visual.html#themeaxis">8.10.2</a>).</p>
 <div class="exercise2">
 <p><strong>Übung 7.3.</strong> (Noch nicht enthalten) Starte die Übung mit <code>uebung_starten(7.3)</code>.</p>
 </div>

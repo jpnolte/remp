@@ -23,7 +23,7 @@
 <meta name="author" content="Dr. med. univ. Jan Philipp Nolte, MSc, BSc." />
 
 
-<meta name="date" content="2024-12-01" />
+<meta name="date" content="2024-12-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -615,14 +615,14 @@ $Number
 <pre class="bordercode"><code>[1] &quot;lm&quot;</code></pre>
 <p>Die Funktion <code>s3_methods_generic()</code> des <code>sloop</code> Packages gibt Auskunft über alle von einer Funktion unterstützten Klassen. An dieser Stelle möchten wir <code>summary()</code> untersuchen.</p>
 <div class="sourceCode" id="cb676"><pre class="sourceCode r bordercode"><code class="sourceCode r"><span id="cb676-1"><a href="datatypes.html#cb676-1" tabindex="-1"></a><span class="fu">s3_methods_generic</span>(<span class="st">&quot;summary&quot;</span>)</span></code></pre></div>
-<pre class="bordercode"><code># A tibble: 134 × 4
+<pre class="bordercode"><code># A tibble: 135 × 4
   generic class     visible source             
   &lt;chr&gt;   &lt;chr&gt;     &lt;lgl&gt;   &lt;chr&gt;              
 1 summary aareg     FALSE   registered S3method
 2 summary afex_aov  FALSE   registered S3method
 3 summary allFit    FALSE   registered S3method
 4 summary Anova.mlm FALSE   registered S3method
-# ℹ 130 more rows</code></pre>
+# ℹ 131 more rows</code></pre>
 <p>137 verschiedene Klassen werden nach Laden aller in diesem Buch verwendeten Packages unterstützt. Bereits in Zeile zwei sehen wir die Klasse der Funktion zur Varianzanalyse mit Messwiederholung aus Kapitel <a href="inductive.html#repeated">9.3.2</a>. Welche Klassen eine Implementierung für <code>summary()</code> erhalten, hängt maßgeblich von den PackageentwicklerInnen ab, die das entsprechende Verhalten von <code>summary()</code> für die neue Klasse programmatisch festlegen müssen.</p>
 <p>Ein weiteres Beispiel für eine generische Funktion, die sich je nach Klasse anders verhält, ist <code>autoplot()</code> aus dem <code>ggplot2</code> Package. Wir haben in Kapitel <a href="visual.html#residuals">8.13.2</a> durch das Package <code>ggfortify</code> das Verhalten für die Klasse <code>lm</code> eines Regressionsmodells kennengelernt. Tatsächlich können mit der Funktion <code>autoplot()</code> aber diverse Visualisierungen von statistischen Modellen erstellt werden.</p>
 <p>R6 und S4 Systeme sind deutlich ähnlicher der klassischen Objektorientierung aus Java oder C/C++. Die S4 Objektorientierung ist eine Voraussetzung zum Hochladen eines Packages auf Bioconductor, welches eine Alternative mit biologischen Fokus zu CRAN darstellt. Als Konsequenz können die meisten der in diesem Buch kennengelernten Funktionen nicht mit Packages von Bioconductor kombiniert werden. Jedes S4 Objekt erhält eigene Methoden, um auf Informationen der Objekte zuzugreifen. Ein großer Unterschied in der Syntax ist auch die Verwendung eines at-Zeichens (<code>@</code>) anstelle des uns bekannten Dollar-Operators, um einzelne Spalten zu extrahieren. Hätten wir in einem Objekt namens <code>ls</code> eine Information namens <code>ergebnis</code> gespeichert, würden wir im S4 System über <code>ls@ergebnis</code> und nicht <code>ls$ergebnis</code> Zugriff auf das Ergebnis bekommen.</p>
